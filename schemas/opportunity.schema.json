@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/opportunity.schema.json",
+  "title": "Swiipt Research Opportunity Record",
+  "description": "Structured output of the research agent - replaces prose reports as the source of truth ('do NOT make the LLM the database'). Derived from Standard v1 section 2A (research finding definition), section 3 (no-research-wasted rule + 13 library roles), Gate 0 (research disposition), and the prompt.md six-stage framework including the survival-pain test (3-of-5 rule). A research finding is NOT automatically a product.",
+  "type": "object",
+  "required": [
+    "opportunity_id",
+    "source",
+    "life_area",
+    "focus_market",
+    "submarket",
+    "collected_at",
+    "finding",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "opportunity_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable id (convention fixed with the record store, factory build item 4)."
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Provenance: e.g. 'agent-reach:reddit', 'websearch', 'owner-interview', 'library-report', 'competitor-review'. Free string so new channels never break the schema."
+    },
+    "source_references": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "URLs / citations backing the finding. Required for findings whose evidence_basis claims sourced status downstream."
+    },
+    "life_area": {
+      "type": "string",
+      "pattern": "^m(0[1-9]|1[0-9]|2[0-4])$",
+      "description": "Canonical life-area slug m01-m24 (matches the live platform's life_area taxonomy)."
+    },
+    "focus_market": { "type": "string", "minLength": 1 },
+    "submarket": { "type": "string", "minLength": 1, "description": "One report per submarket was the old manual rule; each submarket run yields one or more opportunity records." },
+    "collected_at": { "type": "string", "format": "date" },
+    "finding": {
+      "type": "object",
+      "description": "The raw discovery, expressed in situation-hierarchy terms where known (section 4.2). Fields may be partially unknown at capture time; the situation gate (Gate 1) demands completeness only before transformation candidacy.",
+      "additionalProperties": false,
+      "required": ["headline"],
+      "properties": {
+        "headline": { "type": "string", "minLength": 1 },
+        "problem": { "type": "string" },
+        "recurring_situation": { "type": "string" },
+        "person": { "type": "string" },
+        "trigger": { "type": "string" },
+        "failed_attempt": { "type": "string" },
+        "emotional_stake": { "type": "string" },
+        "desired_outcome": { "type": "string" },
+        "evidence_quotes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Verbatim customer-voice quotes; keep provenance in source_references."
+        },
+        "mechanism_hypotheses": { "type": "array", "items": { "type": "string" } },
+        "competition_notes": { "type": "string" }
+      }
+    },
+    "survival_pain_test": {
+      "type": "object",
+      "description": "prompt.md Stage-1 Survival-Level Pain Test - the five canonical criteria verbatim. Passes at 3-of-5 YES. A failed test does NOT discard the finding - it informs the disposition (sections 3 and 22).",
+      "additionalProperties": false,
+      "required": ["urgency", "embarrassment", "failed_attempts", "identity_threat", "immediate_spend"],
+      "properties": {
+        "urgency": { "type": "boolean", "description": "Must this be solved now, not later?" },
+        "embarrassment": { "type": "boolean", "description": "Is this too shameful to discuss openly?" },
+        "failed_attempts": { "type": "boolean", "description": "Have people already tried other fixes that didn't work?" },
+        "identity_threat": { "type": "boolean", "description": "Does it threaten who they are (as a man, mother, provider, professional)?" },
+        "immediate_spend": { "type": "boolean", "description": "Would the entry price feel like a no-brainer for this pain?" },
+        "signals_observed": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Why each true flag was marked - evidence, not vibes."
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "urgency": { "const": true } } },
+          "then": { "required": ["signals_observed"] }
+        },
+        {
+          "if": { "properties": { "embarrassment": { "const": true } } },
+          "then": { "required": ["signals_observed"] }
+        },
+        {
+          "if": { "properties": { "failed_attempts": { "const": true } } },
+          "then": { "required": ["signals_observed"] }
+        },
+        {
+          "if": { "properties": { "identity_threat": { "const": true } } },
+          "then": { "required": ["signals_observed"] }
+        },
+        {
+          "if": { "properties": { "immediate_spend": { "const": true } } },
+          "then": { "required": ["signals_observed"] }
+        }
+      ]
+    },
+    "disposition": {
+      "type": "object",
+      "description": "Gate 0 outcome. Required once status leaves 'open'. The only terminal state is RETAINED + ASSIGNED ROLE - there is no DISCARD.",
+      "additionalProperties": false,
+      "required": ["library_role", "rationale"],
+      "properties": {
+        "library_role": {
+          "enum": [
+            "STANDALONE_TRANSFORMATION",
+            "ENTRY_PRODUCT",
+            "UPSELL",
+            "ORDER_BUMP",
+            "BUNDLE_COMPONENT",
+            "MODULE",
+            "BONUS_FREE_GIFT",
+            "LEAD_MAGNET",
+            "MARKETING_ANGLE",
+            "SUPPORTING_ASSET",
+            "JOURNEY_NODE",
+            "FUTURE_RESEARCH",
+            "EVIDENCE_GAP"
+          ]
+        },
+        "rationale": { "type": "string", "minLength": 1 },
+        "assigned_at": { "type": "string", "format": "date" },
+        "promoted_transformation_id": {
+          "type": ["string", "null"],
+          "description": "Set when the disposition is STANDALONE_TRANSFORMATION (or later promotion) and a candidate transformation record exists."
+        },
+        "reclassification_history": {
+          "type": "array",
+          "description": "Findings can be reclassified as new evidence arrives; history is kept, never erased.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["from_role", "to_role", "reason", "date"],
+            "properties": {
+              "from_role": { "type": "string" },
+              "to_role": { "type": "string" },
+              "reason": { "type": "string" },
+              "date": { "type": "string", "format": "date" }
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "enum": ["open", "dispositioned", "promoted_to_candidate"],
+      "description": "Lifecycle of the finding inside the factory. 'promoted_to_candidate' means a transformation record now carries this forward."
+    },
+    "related_opportunity_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Duplicate/overlap tracking feeds the section 24 overlap test (same situation nucleus must not spawn duplicate products)."
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "enum": ["dispositioned", "promoted_to_candidate"] } } },
+      "then": { "required": ["disposition"] }
+    },
+    {
+      "if": { "properties": { "status": { "const": "promoted_to_candidate" } } },
+      "then": {
+        "properties": {
+          "disposition": { "required": ["library_role", "rationale", "assigned_at", "promoted_transformation_id"] }
+        }
+      }
+    }
+  ]
+}

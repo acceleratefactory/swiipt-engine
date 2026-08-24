@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/asset.schema.json",
+  "title": "Swiipt Asset Record",
+  "description": "Canonical asset contract. Derived from Standard v1 section 9 (Asset Engine Contract - format follows customer job, never 'let's make a PDF'), section 10.2 (experience modes), and section 7.3 (asset_map job keys). The asset_map in the product record uses the 8 jobs of section 7.3; this record carries the full 10-job vocabulary from the section 9 table, including CALCULATE and REMEMBER.",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "product_id",
+    "title",
+    "job",
+    "format",
+    "source_path"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable id referenced by transformation_path.required_assets and product.asset_map."
+    },
+    "product_id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "job": {
+      "enum": [
+        "READ",
+        "DO",
+        "DECIDE",
+        "TRACK",
+        "CALCULATE",
+        "COMMUNICATE",
+        "RESCUE",
+        "RE_ENTER",
+        "MAINTAIN",
+        "REMEMBER"
+      ],
+      "description": "Section 9 customer job. The Asset Engine asks 'what must the customer do?' - never 'let's make a PDF.'"
+    },
+    "format": {
+      "enum": [
+        "magazine",
+        "guide",
+        "article",
+        "audio",
+        "workbook",
+        "interactive_flow",
+        "checklist",
+        "decision_tree",
+        "quiz",
+        "rules_engine",
+        "tracker",
+        "dashboard",
+        "log",
+        "calculator",
+        "scripts",
+        "templates",
+        "emergency_card",
+        "protocol",
+        "restart_protocol",
+        "maintenance_system",
+        "quick_reference_card"
+      ],
+      "description": "Formats enumerated from the section 9 job-to-format table. Adding a new format is a deliberate schema change, not a silent extension."
+    },
+    "source_path": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Path to the authored source content inside the product record store; the delivery engine converts source into supported customer formats."
+    },
+    "experience_mode": {
+      "enum": ["editorial", "functional", "interactive", "sensitive", "utility"],
+      "description": "Section 10.2 mode for this asset; must be consistent with the parent product's design.experience_type intent (validator checks)."
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Critical assets must not be orphaned or missing at build time (section 14 Assets tests)."
+    },
+    "safety_relevant": {
+      "type": "boolean",
+      "default": false,
+      "description": "True for rescue cards, escalation lists, red-flag self-checks; these get extra scrutiny at Gate 5 and are never decorative."
+    },
+    "first_win_role": {
+      "type": "boolean",
+      "default": false,
+      "description": "True when this asset delivers the product's first win within the 15-minute limit."
+    },
+    "tool_widgets": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional interactive widget tokens ([[TOOL:*]]) embedded in source content; rendered by the live delivery engine."
+    },
+    "notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/product.schema.json",
+  "title": "Swiipt Product Record",
+  "description": "Canonical customer-facing product contract. Derived from Standard v1 sections 7.3 (canonical record), 8 (content contract - the 11-section discipline), 9/10.2 (asset jobs and experience modes), 17 (severity model feeds qa), 18 (publishing states), and the locked title architecture in MEMORY.md (title/subtitle/one-line promise). A product is the delivery system for a transformation, never the transformation itself.",
+  "type": "object",
+  "required": [
+    "product_id",
+    "version",
+    "status",
+    "identity",
+    "commercial_role",
+    "customer",
+    "transformation",
+    "tsm",
+    "asset_map",
+    "content",
+    "commerce",
+    "design",
+    "evidence",
+    "safety",
+    "qa",
+    "publishing"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "product_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable unique id (convention fixed with the record store, factory build item 4)."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.-]+)?$",
+      "description": "Semver (section 7.3)."
+    },
+    "status": {
+      "enum": ["spec", "building", "qa", "ready", "published", "retired"],
+      "description": "Section 7.3 product states. Publishing state machine detail lives in publish-manifest + gates."
+    },
+    "identity": {
+      "type": "object",
+      "description": "Locked three-layer title architecture: TITLE carries the recognizable situation, SUBTITLE explains the system, ONE-LINE PROMISE states the responsibly-promised outcome.",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "subtitle",
+        "one_line_promise",
+        "library_id",
+        "transformation_id",
+        "journey_position"
+      ],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "subtitle": { "type": "string", "minLength": 1 },
+        "one_line_promise": { "type": "string", "minLength": 1 },
+        "library_id": { "type": "string", "minLength": 1 },
+        "transformation_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Must resolve to a validated-or-better transformation record (deterministic platform test)."
+        },
+        "journey_position": { "type": "string", "minLength": 1 }
+      }
+    },
+    "commercial_role": {
+      "type": "object",
+      "description": "Section 22: transformation quality is separated from commercial role.",
+      "additionalProperties": false,
+      "required": ["role", "parent_product_id", "related_product_ids"],
+      "properties": {
+        "role": {
+          "enum": ["core", "entry", "upsell", "order_bump", "bundle", "lead_magnet", "bonus", "module"]
+        },
+        "parent_product_id": {
+          "type": ["string", "null"],
+          "description": "Required non-null for upsell/order_bump/module/bundle roles (checked by validator logic, not schema)."
+        },
+        "related_product_ids": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "customer": {
+      "type": "object",
+      "description": "Customer-facing restatement of the situation (must match the linked transformation record - Test A checks integrity).",
+      "additionalProperties": false,
+      "required": ["target_person", "situation", "trigger", "constraints", "emotional_stake"],
+      "properties": {
+        "target_person": { "type": "string", "minLength": 1 },
+        "situation": { "type": "string", "minLength": 1 },
+        "trigger": { "type": "string", "minLength": 1 },
+        "constraints": { "type": "array", "items": { "type": "string" } },
+        "emotional_stake": { "type": "string", "minLength": 1 }
+      }
+    },
+    "transformation": {
+      "type": "object",
+      "description": "Section 7.3 embedded delivery view of the transformation. The canonical source remains the transformation record; this block is assembled from it by the product-architect agent.",
+      "additionalProperties": false,
+      "required": [
+        "before_state",
+        "after_state",
+        "mechanism",
+        "path",
+        "first_win",
+        "failure_map",
+        "rescue_protocols",
+        "reentry",
+        "maintenance",
+        "next_transformation_ids"
+      ],
+      "properties": {
+        "before_state": { "type": "object" },
+        "after_state": { "type": "object" },
+        "mechanism": { "type": "object" },
+        "path": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "first_win": { "type": "object" },
+        "failure_map": { "type": "object" },
+        "rescue_protocols": { "type": "object" },
+        "reentry": { "type": "object" },
+        "maintenance": { "type": "object" },
+        "next_transformation_ids": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "tsm": {
+      "type": "object",
+      "description": "Mirror of the transformation TSM block (sections 5 and 26). Must be present before any publication; missing TSM is a BLOCKER (section 17)."
+    },
+    "asset_map": {
+      "type": "object",
+      "description": "Section 7.3 asset map keyed by customer job. Jobs present must each reference at least one asset_id when status >= building; only jobs required by the transformation need to exist (Gate 6), but every declared entry must resolve to an asset record (deterministic asset test).",
+      "additionalProperties": false,
+      "required": [
+        "read",
+        "do",
+        "decide",
+        "track",
+        "communicate",
+        "rescue",
+        "reentry",
+        "maintenance"
+      ],
+      "properties": {
+        "read": { "$ref": "#/$defs/asset_ref_list" },
+        "do": { "$ref": "#/$defs/asset_ref_list" },
+        "decide": { "$ref": "#/$defs/asset_ref_list" },
+        "track": { "$ref": "#/$defs/asset_ref_list" },
+        "communicate": { "$ref": "#/$defs/asset_ref_list" },
+        "rescue": { "$ref": "#/$defs/asset_ref_list" },
+        "reentry": { "$ref": "#/$defs/asset_ref_list" },
+        "maintenance": { "$ref": "#/$defs/asset_ref_list" }
+      }
+    },
+    "content": {
+      "type": "object",
+      "description": "Section 8 content contract. Each subobject holds pointers/paths to the actual content artifacts; existence is checked deterministically (section 14 Content tests).",
+      "additionalProperties": false,
+      "required": [
+        "landing_page",
+        "product_page",
+        "faq",
+        "specifications",
+        "deliverables",
+        "onboarding",
+        "completion"
+      ],
+      "properties": {
+        "landing_page": { "type": ["object", "string", "null"] },
+        "product_page": { "type": ["object", "string", "null"] },
+        "faq": { "type": ["object", "string", "null"] },
+        "specifications": { "type": ["object", "string", "null"] },
+        "deliverables": { "type": ["object", "string", "null"] },
+        "onboarding": { "type": ["object", "string", "null"] },
+        "completion": {
+          "type": ["object", "string", "null"],
+          "description": "Section 27 completion standard: final experience answers 'Did your situation actually change?'"
+        }
+      }
+    },
+    "commerce": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["price", "currency_rules", "offer", "access_rules", "upsells", "bundles"],
+      "properties": {
+        "price": { "type": "object" },
+        "currency_rules": {
+          "type": "object",
+          "description": "Locked currency model: USD base + manual per-currency prices (USD/NGN/EUR/GHS minimum); display geo-controlled; never rate-convert numerics."
+        },
+        "offer": { "type": "object" },
+        "access_rules": { "type": "object" },
+        "upsells": { "type": "array", "items": { "type": "string" } },
+        "bundles": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "design": {
+      "type": "object",
+      "description": "Sections 10-12: one brand system + controlled experience modes. Mode choice belongs to the product spec; brand tokens come from the live swt-tokens.css layer, not invented here.",
+      "additionalProperties": false,
+      "required": [
+        "experience_type",
+        "theme",
+        "components",
+        "responsive_requirements",
+        "accessibility_requirements"
+      ],
+      "properties": {
+        "experience_type": {
+          "enum": ["editorial", "functional", "interactive", "sensitive", "utility"],
+          "description": "Section 10.2 product experience modes."
+        },
+        "theme": { "type": "string", "minLength": 1 },
+        "components": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Canonical component names from section 11 Layer 3; no reinvented product UI."
+        },
+        "responsive_requirements": { "type": "array", "items": { "type": "string" } },
+        "accessibility_requirements": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "description": "Gate 4 evidence surface for the product's public claims.",
+      "additionalProperties": false,
+      "required": ["sources", "claim_labels", "review_status"],
+      "properties": {
+        "sources": { "type": "array", "items": { "type": "string" } },
+        "claim_labels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["claim", "label"],
+            "properties": {
+              "claim": { "type": "string", "minLength": 1 },
+              "label": {
+                "enum": [
+                  "sourced_evidence",
+                  "expert_reviewed",
+                  "lived_experience",
+                  "model_inference",
+                  "hypothesis"
+                ]
+              },
+              "source": { "type": "string" }
+            }
+          }
+        },
+        "review_status": { "type": "string", "minLength": 1 }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "description": "Gate 5 safety surface. AI cannot override a safety gate; clinical thresholds come from sourced evidence only.",
+      "additionalProperties": false,
+      "required": ["risk_level", "disclaimer", "red_flags", "escalation_rules"],
+      "properties": {
+        "risk_level": { "enum": ["low", "moderate", "high", "clinical"] },
+        "disclaimer": { "type": "string", "minLength": 1 },
+        "red_flags": { "type": "array", "items": { "type": "string" } },
+        "escalation_rules": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Real numbers from the verified shared crisis list only - never invented lines or placeholders."
+        }
+      }
+    },
+    "qa": {
+      "type": "object",
+      "description": "Acceptance-test ledger (sections 13-17). Reviewer is never the builder.",
+      "additionalProperties": false,
+      "required": ["deterministic_tests", "ai_tests", "gate_results"],
+      "properties": {
+        "deterministic_tests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["test", "result"],
+            "properties": {
+              "test": { "type": "string" },
+              "result": { "enum": ["PASS", "FAIL", "SKIP"] },
+              "detail": { "type": "string" }
+            }
+          }
+        },
+        "ai_tests": {
+          "type": "array",
+          "description": "AI acceptance tests A-R (section 15). Test R (drift) is mandatory on every review round.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["test", "status", "severity"],
+            "properties": {
+              "test": {
+                "enum": [
+                  "A_situation_integrity",
+                  "B_scope_integrity",
+                  "C_transformation_integrity",
+                  "D_mechanism_integrity",
+                  "E_action_integrity",
+                  "F_sequence_integrity",
+                  "G_first_win_integrity",
+                  "H_failure_integrity",
+                  "I_rescue_integrity",
+                  "J_tsm_integrity",
+                  "K_evidence_integrity",
+                  "L_safety_integrity",
+                  "M_format_integrity",
+                  "N_emotional_integrity",
+                  "O_journey_integrity",
+                  "P_ecosystem_integrity",
+                  "Q_copy_integrity",
+                  "R_drift_integrity"
+                ]
+              },
+              "status": { "enum": ["PASS", "FAIL", "REVISION_REQUIRED"] },
+              "severity": { "enum": ["none", "BLOCKER", "MAJOR", "MINOR", "OBSERVATION"] },
+              "reason": { "type": "string" },
+              "evidence": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "gate_results": {
+          "type": "object",
+          "description": "Gates 0-10 outcomes (section 19). Keys g0..g10, values PASS/FAIL/pending.",
+          "additionalProperties": false,
+          "required": [
+            "g0_research_disposition",
+            "g1_situation",
+            "g2_transformation",
+            "g3_product_architecture",
+            "g4_evidence",
+            "g5_safety",
+            "g6_content",
+            "g7_product_qa",
+            "g8_commerce",
+            "g9_customer_journey",
+            "g10_publish"
+          ],
+          "properties": {
+            "g0_research_disposition": { "$ref": "#/$defs/gate_result" },
+            "g1_situation": { "$ref": "#/$defs/gate_result" },
+            "g2_transformation": { "$ref": "#/$defs/gate_result" },
+            "g3_product_architecture": { "$ref": "#/$defs/gate_result" },
+            "g4_evidence": { "$ref": "#/$defs/gate_result" },
+            "g5_safety": { "$ref": "#/$defs/gate_result" },
+            "g6_content": { "$ref": "#/$defs/gate_result" },
+            "g7_product_qa": { "$ref": "#/$defs/gate_result" },
+            "g8_commerce": { "$ref": "#/$defs/gate_result" },
+            "g9_customer_journey": { "$ref": "#/$defs/gate_result" },
+            "g10_publish": { "$ref": "#/$defs/gate_result" }
+          }
+        }
+      }
+    },
+    "publishing": {
+      "type": "object",
+      "description": "Section 7.3 publishing block. wordpress_ids records what the publisher created (trans/tsystem/product post IDs) after a successful manifest run.",
+      "additionalProperties": false,
+      "required": ["manifest_version", "wordpress_ids", "published_at"],
+      "properties": {
+        "manifest_version": { "type": "string", "minLength": 1 },
+        "wordpress_ids": { "type": "object" },
+        "published_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "asset_ref_list": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "asset_id reference into /data/<...>/assets/"
+      }
+    },
+    "gate_result": {
+      "enum": ["pending", "PASS", "FAIL"]
+    }
+  }
+}

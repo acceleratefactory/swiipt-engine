@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/publish-manifest.schema.json",
+  "title": "Swiipt Publish Manifest",
+  "description": "Immutable contract consumed by the publisher (Standard v1 section 20). The publisher never infers missing product information and refuses publication if any required gate is not PASS. This manifest is generated only at READY_TO_PUBLISH; it is a build artifact, not a working document.",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "product_id",
+    "publish_target",
+    "product",
+    "transformation",
+    "assets",
+    "commerce",
+    "relationships",
+    "seo",
+    "access",
+    "qa",
+    "publish_authorization"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": "1.0"
+    },
+    "product_id": { "type": "string", "minLength": 1 },
+    "publish_target": {
+      "enum": ["wordpress"],
+      "description": "Only WordPress exists today; the enum grows deliberately when a new bridge is built."
+    },
+    "product": {
+      "$ref": "product.schema.json"
+    },
+    "transformation": {
+      "$ref": "transformation.schema.json"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "asset.schema.json"
+      },
+      "description": "Every asset the publisher must materialise. Declared assets that do not exist on disk are a deterministic BLOCKER."
+    },
+    "commerce": {
+      "type": "object",
+      "description": "Snapshot of product.commerce at publish time: price, currency_rules, offer, access_rules, upsells, bundles.",
+      "additionalProperties": true,
+      "required": ["price", "currency_rules"],
+      "properties": {
+        "price": { "type": "object" },
+        "currency_rules": { "type": "object" },
+        "offer": { "type": "object" },
+        "access_rules": { "type": "object" },
+        "upsells": { "type": "array", "items": { "type": "string" } },
+        "bundles": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "relationships": {
+      "type": "object",
+      "description": "Ecosystem wiring the publisher must create on the platform (section 23): situation/library/journey links, next-transformation edges, and explicit exclusions.",
+      "additionalProperties": false,
+      "required": ["transformation_id", "library_id"],
+      "properties": {
+        "transformation_id": { "type": "string", "minLength": 1 },
+        "library_id": { "type": "string", "minLength": 1 },
+        "submarket_id": { "type": "string" },
+        "situation_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "swiipt_situation posts to link via swiipt_situation_transformations."
+        },
+        "parent_product_id": { "type": ["string", "null"] },
+        "related_product_ids": { "type": "array", "items": { "type": "string" } },
+        "next_transformation_ids": { "type": "array", "items": { "type": "string" } },
+        "excluded_product_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Products deliberately NOT attached because they solve the same situation nucleus (section 23, anti-artificial-upsell rule)."
+        }
+      }
+    },
+    "seo": {
+      "type": "object",
+      "description": "Truthful-only structured data inputs: title, description, schema type set. Fabricated review/rating data is forbidden by platform policy.",
+      "additionalProperties": true,
+      "required": ["title", "description"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "schema_types": {
+          "type": "array",
+          "items": { "enum": ["Product", "Offer", "BreadcrumbList", "Article"] }
+        }
+      }
+    },
+    "access": {
+      "type": "object",
+      "description": "Entitlement rules handed to the platform's access layer (digital_access_records / subscriptions semantics already live in swiipt-core).",
+      "additionalProperties": true,
+      "required": ["grant_type"],
+      "properties": {
+        "grant_type": {
+          "enum": ["one_time_digital", "membership_period", "bundle_included"]
+        },
+        "expiry_days": { "type": ["integer", "null"] },
+        "download_formats": {
+          "type": "array",
+          "items": { "enum": ["html", "pdf", "txt", "svg", "flipbook"] },
+          "description": "Formats to attach as Woo downloads - matches the delivery engine's instance kinds."
+        }
+      }
+    },
+    "qa": {
+      "type": "object",
+      "description": "Section 20: all five QA verdicts must be PASS. Any non-PASS means the manifest must never have been generated - the publisher additionally refuses if it sees anything else.",
+      "additionalProperties": false,
+      "required": ["deterministic", "ai", "safety", "commerce", "journey"],
+      "properties": {
+        "deterministic": { "const": "PASS" },
+        "ai": { "const": "PASS" },
+        "safety": { "const": "PASS" },
+        "commerce": { "const": "PASS" },
+        "journey": { "const": "PASS" }
+      }
+    },
+    "publish_authorization": {
+      "type": "object",
+      "description": "Human authority record (section 21): automation eliminates labour, not governance. The authorizing human is named in every manifest.",
+           "additionalProperties": false,
+      "required": ["status", "authorized_by", "authorized_at"],
+      "properties": {
+        "status": {
+          "const": "READY_TO_PUBLISH"
+        },
+        "authorized_by": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The human (owner) who cleared Gate 10. The builder cannot self-approve."
+        },
+        "authorized_at": { "type": "string", "format": "date-time" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}
