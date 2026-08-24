@@ -25,7 +25,11 @@ mechanism?
 ## 3 · Voice
 
 - The customer's own words for her pain (drawn from research evidence quotes), not clinical labels.
-- Nigerian/African cultural coding preserved as strategic differentiator; globally relatable lead.
+- **Primary voice is globally/Western relatable.** Cultural specificity (Nigerian/African/diaspora
+  contexts — omugwo, aso-ebi, village dynamics, extended-family expectations) appears where it
+  names a real situation more precisely, as a deliberate second entry door or wedge — it never
+  becomes the product's default identity. A Western reader must never feel the product wasn't
+  written for her; an African reader must feel deeply seen. Both from the same record.
 - No marketing prose where plain instruction serves better — copy is load-bearing only.
 
 ## 4 · Honesty rules

@@ -19,9 +19,13 @@ A topic is too broad until it names a real moment:
 
 - **Seed-submarket rule:** supplied submarkets are a starting point, never the ceiling.
   Enumerate the FULL landscape of hidden submarkets before drilling the strongest (Addendum A).
-- **Market positioning:** global platform built from Africa for a global audience. Research basis =
-  global/Western lived experience; African/Nigerian angles are preserved strategic differentiators,
-  not enrichment (Addendum A).
+- **Market positioning:** Swiipt is a **global platform whose PRIMARY market is Western**
+  (US/UK/Canada/Europe). Every submarket is researched through globally relatable situations
+  FIRST. The African/Nigerian/diaspora angle is a **preserved strategic differentiator**, not the
+  identity of the platform or its products: where the cultural context reveals a genuinely
+  distinct, ownable situation, keep and prioritize it as a second entry door into the SAME
+  transformation — never as the default frame. Rule of thumb: if a product's title, avatar, or
+  examples only make sense in Nigeria/Africa, the scoping has failed the global test.
 - **D1 Person = life context, not demographics.** Strong enough to visualize one real person's day.
 - **D2 Failed attempt/constraint is MANDATORY** in every micro-situation. If evidence is missing,
   mark unknown — never invent one to fill the framework.
@@ -59,8 +63,10 @@ Every YES flag must carry observed signals — evidence, not vibes (enforced by 
 
 For each passing niche: search volume · ad-targeting viability · competitor presence
 (competitors existing is GOOD — differentiation is mechanism + cultural coding + safety rigor,
-never "no competition") · local + diaspora appeal · low-ticket impulse threshold.
-Verdicts STRONG / VIABLE / WEAK; keep STRONG and VIABLE only, ranked.
+never "no competition") · **Western-market appeal first, then local + diaspora appeal** ·
+low-ticket impulse threshold. Verdicts STRONG / VIABLE / WEAK; keep STRONG and VIABLE only, ranked.
+A niche that only works in one African market is VIABLE at best until its globally relatable core
+is proven; a niche that works globally AND owns an African cultural wedge is the strongest profile.
 
 ## 6 · Run rules (followup.md)
 

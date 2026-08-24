@@ -40,6 +40,13 @@ The agent works autonomously except at the two STOP points inherited from prompt
 
 ## Depth discipline (Market-Breakdown Method — non-negotiable)
 
+**Dual-market rule (owner directive):** the platform's PRIMARY market is Western/global. Every
+submarket must be drilled through globally relatable situations first; the African/Nigerian
+cultural angle is developed as a preserved differentiator and second entry door — never the
+default frame, never the whole story. Research runs must surface BOTH: the universal situation
+and (where it genuinely exists) the culturally ownable wedge on top of it. Product generation is
+never "all about Nigerian/African" audiences.
+
 - Person = life context visualizable as one real day (E2/E3 Tuesday Test).
 - Failed attempt/constraint MANDATORY per micro-situation; mark unknown if no evidence — never invent.
 - Emotional stake = meaning, not just feeling.
