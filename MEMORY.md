@@ -1,6 +1,6 @@
 # SWIIPT — SESSION MEMORY
-*Last updated: 2026-08-19*
-*Working folder: C:\Users\User\Desktop\transformation products*
+*Last updated: 2026-08-24*
+*Working folder: `C:\Users\User\Desktop\Transformation\Product Pipeline\` (canonical home; root `Products/` folder deleted, factory record store lives in `data/`)*
 
 ---
 
@@ -598,10 +598,13 @@ Gate sequence: Evidence label → Source-backed safety boundaries → Product co
 ## HOW TO USE THIS FILE
 
 At the start of any new session, read this file first:
-`C:\Users\User\Desktop\transformation products\MEMORY.md`
+`C:\Users\User\Desktop\Transformation\Product Pipeline\MEMORY.md`
 
-All project files live in:
-`C:\Users\User\Desktop\transformation products\`
+**Product Factory (built 2026-08-24):** schemas/ · standards/ · agents/ · data/ record store
+(git ledger) · harness/ (research workflow + validators). Canonical contracts:
+`Swiipt_Transformation_Product_Factory_Standard_v1.md`. Backfilled records live in
+`data/opportunities/` + `data/products/`; live WP ids cross-referenced. Publisher bridge is live
+on swiipt.com (`swiipt-core/includes/publisher.php`, contract in `harness/publisher-contract.md`).
 
 Key files:
 - `POSTPARTUM-BUILD-REGISTRY.md` — master postpartum build registry & consolidation map
