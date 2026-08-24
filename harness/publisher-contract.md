@@ -46,6 +46,11 @@ READY_TO_PUBLISH + named human authorizer). Creation inputs ride `platform`-styl
     { "job": "DO|DECIDE|TRACK|CALCULATE|COMMUNICATE|RESCUE|RE_ENTER|MAINTAIN|REMEMBER", ... }
   ],
   "relationships": { "situation_ids": [123], "weight": "1.000", "next_transformation_ids": [] },
+  "seo": {                                        // optional → Rank Math postmeta on the product
+    "title": "...",                               // _rank_math_title (≤100 chars)
+    "description": "...",                         // _rank_math_description (≤320 chars)
+    "focus_keyword": "..."                        // _rank_math_focus_keyword
+  },
   "qa": { "deterministic": "PASS", "ai": "PASS", "safety": "PASS", "commerce": "PASS", "journey": "PASS" },
   "publish_authorization": { "status": "READY_TO_PUBLISH", "authorized_by": "Owner Name" }
 }
@@ -59,5 +64,7 @@ READY_TO_PUBLISH + named human authorizer). Creation inputs ride `platform`-styl
 - **Correct mechanics baked in:** Woo products via `wp_insert_post`+meta (never `WC_Product->save()`,
   lesson #10) · product↔TS link table + TS `swt_product_id` meta BOTH written (lessons #16/#20) ·
   downloads attached from generated instances · instances generated synchronously (lesson #18) ·
-  situation links deduped into `swiipt_situation_transformations`.
+  situation links deduped into `swiipt_situation_transformations` · **SEO: `seo` block written to
+  Rank Math postmeta (`_rank_math_title/_description/_focus_keyword`) on every published product**
+  (Rank Math active v1.0.276; its Product schema must stay OFF for Woo — swiipt-core owns JSON-LD).
 - Full run measured at ~600 ms including instance generation for 2 assets.
