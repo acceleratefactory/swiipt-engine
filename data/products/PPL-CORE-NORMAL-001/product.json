@@ -1,0 +1,124 @@
+{
+  "product_id": "PPL-CORE-NORMAL-001",
+  "version": "0.1.0",
+  "status": "published",
+  "identity": {
+    "name": "Is This Normal?",
+    "subtitle": "What's Actually Happening, What's Safe to Do This Week, and When to See a Doctor",
+    "one_line_promise": "Informed, safe-movement plan, red flags known, realistic expectations for her stage of recovery.",
+    "library_id": "m01",
+    "transformation_id": "TR-PPL-CORE-NORMAL-001",
+    "journey_position": "m01 physical recovery -> movement confidence"
+  },
+  "commercial_role": {
+    "role": "core",
+    "parent_product_id": null,
+    "related_product_ids": []
+  },
+  "customer": {
+    "target_person": "Backfilled from spec - see opportunity record",
+    "situation": "Backfilled from spec - see opportunity record",
+    "trigger": "postpartum period",
+    "constraints": [],
+    "emotional_stake": "Backfilled from spec"
+  },
+  "transformation": {
+    "before_state": {},
+    "after_state": {},
+    "mechanism": {},
+    "path": [],
+    "first_win": {},
+    "failure_map": {},
+    "rescue_protocols": {},
+    "reentry": {},
+    "maintenance": {},
+    "next_transformation_ids": []
+  },
+  "tsm": {
+    "note": "Canonical TSM lives in WordPress swiipt_tsm_definitions; full record pending F.4 approval"
+  },
+  "asset_map": {
+    "read": [],
+    "do": [],
+    "decide": [],
+    "track": [],
+    "communicate": [],
+    "rescue": [],
+    "reentry": [],
+    "maintenance": []
+  },
+  "content": {
+    "landing_page": null,
+    "product_page": null,
+    "faq": null,
+    "specifications": null,
+    "deliverables": null,
+    "onboarding": null,
+    "completion": null
+  },
+  "commerce": {
+    "price": {
+      "base_usd": 29
+    },
+    "currency_rules": {
+      "model": "manual_per_currency",
+      "display": "geo_controlled"
+    },
+    "offer": {},
+    "access_rules": {
+      "grant_type": "one_time_digital"
+    },
+    "upsells": [],
+    "bundles": []
+  },
+  "design": {
+    "experience_type": "editorial",
+    "theme": "swiipt-brand-tokens",
+    "components": [],
+    "responsive_requirements": [
+      "mobile-first"
+    ],
+    "accessibility_requirements": [
+      "WCAG-AA baseline"
+    ]
+  },
+  "evidence": {
+    "sources": [],
+    "claim_labels": [],
+    "review_status": "pre-factory manual process; evidence labels applied in WP (Gate N)"
+  },
+  "safety": {
+    "risk_level": "moderate",
+    "disclaimer": "Educational content - not medical, clinical, or mental-health advice.",
+    "red_flags": [],
+    "escalation_rules": [
+      "verified shared crisis list (see Product Pipeline/MEMORY.md)"
+    ]
+  },
+  "qa": {
+    "deterministic_tests": [],
+    "ai_tests": [],
+    "gate_results": {
+      "g0_research_disposition": "PASS",
+      "g1_situation": "pending",
+      "g2_transformation": "pending",
+      "g3_product_architecture": "pending",
+      "g4_evidence": "pending",
+      "g5_safety": "pending",
+      "g6_content": "pending",
+      "g7_product_qa": "pending",
+      "g8_commerce": "pending",
+      "g9_customer_journey": "pending",
+      "g10_publish": "PASS"
+    }
+  },
+  "publishing": {
+    "manifest_version": "1.0-pre-factory",
+    "wordpress_ids": {
+      "transformation_id": 69,
+      "tsystem_id": 70,
+      "product_id": 71
+    },
+    "published_at": "2026-08-19T00:00:00Z"
+  }
+}
