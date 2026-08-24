@@ -1,0 +1,56 @@
+{
+  "opportunity_id": "OPP-PPL-NIGHTSHIFT-001",
+  "source": "library-report:SLEEP DEPRIVATION.md submarket C (followup.md run) + prompt.md stages 1-6",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md",
+    "Product Pipeline/followup.md",
+    "Product Pipeline/specs/V06/V6-spec.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "Postpartum Sleep Deprivation",
+  "submarket": "C. Parents' sleep - how exhausted parents divide the night",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "How exhausted parents divide the night is a parent operating-system problem, not a baby-sleep problem",
+    "problem": "A newborn wakes every night, but nobody has agreed in advance whose turn it is - so every single night is renegotiated by exhaustion between two adults running on no sleep.",
+    "recurring_situation": "Baby wakes at 2am. Mother is already awake feeding anyway; partner sleeps through. Nobody 'owns' the night, so the default becomes she owns all of it.",
+    "person": "[HYPOTHESIS] First-time mother 0-12 weeks postpartum, breastfeeding or mixed-feeding, partner works weekdays and sleeps through the night; no overnight family help in the house.",
+    "trigger": "Return of partner to work after leave - nights silently become 100% hers without a conversation.",
+    "failed_attempt": "'Asking for help' - produced one-off gestures (he took the baby one Saturday morning) instead of a system; resentment now builds in silence because re-raising it feels like complaining.",
+    "emotional_stake": "She is not just tired - she keeps score alone. Every uninterrupted hour he gets feels like proof her exhaustion is invisible, and saying so makes her the difficult one.",
+    "desired_outcome": "A written, pre-agreed night roster both adults follow without renegotiation - she gets a protected block of real sleep and does not have to ask tonight, or any night.",
+    "evidence_quotes": [
+      "[MODEL INFERENCE] composite of recurring community voices: 'I asked for help once and he watched the baby while I did everything else.'",
+      "[MODEL INFERENCE] composite: 'We are roommates who pass a baby back and forth at 3am.'"
+    ],
+    "mechanism_hypotheses": [
+      "A written roster removes the emotional labour of asking (negotiation becomes pre-agreed default)",
+      "Reframing partner from helper to co-manager upgrades his status instead of requesting charity",
+      "Milk hand-off scheduling makes the mother's protected block physically real",
+      "A sleep banker makes invisible exhaustion visible and tradeable"
+    ],
+    "competition_notes": "Existing competitors sell baby-sleep training; none own the parents' night-division OS angle. Differentiation = mechanism + cultural coding + safety rigor, not market emptiness."
+  },
+  "survival_pain_test": {
+    "urgency": true,
+    "embarrassment": false,
+    "failed_attempts": true,
+    "identity_threat": true,
+    "immediate_spend": true,
+    "signals_observed": [
+      "URGENCY: the problem repeats every single night; sleep debt compounds within days [MODEL INFERENCE]",
+      "FAILED_ATTEMPTS: 'asking for help' pattern documented repeatedly across submarket C research",
+      "IDENTITY_THREAT: being the default parent around the clock threatens her sense of self and partnership equality",
+      "IMMEDIATE_SPEND: entry-price impulse purchase plausible for a system promising tonight's relief"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Distinct situation (night division between adults) + distinct meaningful transformation (protected sleep via written roster). Validated and scored 88/100 in the postpartum naming audit; built as V06 'Every Night, Just Me' - live on platform as transformation #84 / system #85 / product #86.",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+    "reclassification_history": []
+  },
+  "status": "promoted_to_candidate",
+  "related_opportunity_ids": []
+}

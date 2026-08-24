@@ -6,3 +6,6 @@ Desktop.ini
 # Temp/build noise
 *.tmp
 *.bak
+
+# node
+node_modules/
