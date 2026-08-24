@@ -1,0 +1,46 @@
+{
+  "opportunity_id": "OPP-PPL-SLP-A3",
+  "source": "library-report:SLEEP DEPRIVATION.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "SLEEP DEPRIVATION",
+  "submarket": "HIDDEN MARKET — \"HOW EXHAUSTED PARENTS DIVIDE THE NIGHT\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The 30-Minute Nap Loop (short naps + overtired spiral)\"",
+    "problem": "\"He never naps longer than one sleep cycle. By 6pm he's a screaming arching mess and I'm crying with him. I've read 12 blogs and none of them work for my baby.\"",
+    "recurring_situation": "HIDDEN MARKET — \"HOW EXHAUSTED PARENTS DIVIDE THE NIGHT\"",
+    "person": "26-yr-old Nigerian mum, 4-month-old who naps exactly 30 mins then wakes screaming; overtired \"second wind,\" fights every nap, bedtime is war.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone\" | cross-sells: Module for A1. Verdict: PASSES (4/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": [
+    "OPP-PPL-SLP-A1"
+  ]
+}

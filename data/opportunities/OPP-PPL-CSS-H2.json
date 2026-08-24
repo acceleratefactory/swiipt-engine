@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-CSS-H2",
+  "source": "library-report:C-SECTION RECOVERY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/C-SECTION RECOVERY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "C-SECTION RECOVERY",
+  "submarket": "HIDDEN MARKET — \"How do I function normally again after a C-section while caring for a newborn?\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Alone-by-Day Survival Schedule\"",
+    "problem": "\"From when he leaves to when he returns, it's just me and a baby and a wound. I need to know what to do each hour so I don't panic or overdo it.\"",
+    "recurring_situation": "HIDDEN MARKET — \"How do I function normally again after a C-section while caring for a newborn?\"",
+    "person": "A 27-yr-old single/partner-at-work mom; 9am–6pm solo with newborn post-CS; needs an hour-by-hour plan that respects surgical limits.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module (hourly schedule) inside H1.\". Verdict: PASSES (4/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

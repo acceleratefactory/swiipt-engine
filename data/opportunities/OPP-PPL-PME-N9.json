@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-PME-N9",
+  "source": "library-report:POSTPARTUM MENTAL EMOTIONAL LIFE.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "POSTPARTUM MENTAL EMOTIONAL LIFE",
+  "submarket": "unassigned",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Baby‑Checker: Is He Still Breathing?\" (SIDS Panic)",
+    "problem": "\"Every tiny sound, I shoot up to check his face isn't covered. I'm exhausted but my brain won't let me rest.\" (R7 — Reddit SIDS thread)",
+    "recurring_situation": "unassigned",
+    "person": "25‑yo first‑time mum, checks bassinet every few minutes, can't sleep even when baby sleeps.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone (anxiety flagship)\". Verdict: PASSES (4/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

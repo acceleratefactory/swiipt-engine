@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-PME-N5",
+  "source": "library-report:POSTPARTUM MENTAL EMOTIONAL LIFE.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "POSTPARTUM MENTAL EMOTIONAL LIFE",
+  "submarket": "unassigned",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Numb Mum: Emotional Flatness & I Feel Nothing\"",
+    "problem": "\"I change nappies, I feed him, I smile for photos — but inside it's grey static. Am I even capable of loving him?\" (R6, R18)",
+    "recurring_situation": "unassigned",
+    "person": "33‑yo diaspora mum (UK), 8 weeks postpartum, functioning on autopilot, no joy or sadness, fears she's \"cold.\"",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Angle of N1 / Module \"When joy goes flat\"\". Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

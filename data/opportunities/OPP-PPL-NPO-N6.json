@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-NPO-N6",
+  "source": "library-report:NEW PARENT OPERATING SYSTEM.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/NEW PARENT OPERATING SYSTEM.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "NEW PARENT OPERATING SYSTEM",
+  "submarket": "First-year household financial transition (N22)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The House Still Runs (Somehow)\"",
+    "problem": "\"The baby is fine but the house is falling apart. I'm drowning in laundry and I feel like a terrible wife because nothing is clean.\"",
+    "recurring_situation": "First-year household financial transition (N22)",
+    "person": "33-yr-old working mum (diaspora, US), partner travels, laundry exploding, dishes piling, no omugwo help.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone / Core NPOS module.\". Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

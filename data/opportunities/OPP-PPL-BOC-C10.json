@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-BOC-C10",
+  "source": "library-report:BABY OLDER CHILDREN.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/BABY OLDER CHILDREN.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "BABY OLDER CHILDREN",
+  "submarket": "NEWBORN + MULTIPLE CHILDREN",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Invisible Load Audit for the African Wife\"",
+    "problem": "\"He says 'just tell me what to do' but I'm tired of being the manager AND the doer. I want him to SEE it without me exploding.\"",
+    "recurring_situation": "NEWBORN + MULTIPLE CHILDREN",
+    "person": "Mum who wants to show her husband the real weight she carries but doesn't know how to make it land (Fair Play, Balanced Minds).",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5) — angle/module; strong as a free gift leading to C3."
+    ]
+  },
+  "disposition": {
+    "library_role": "LEAD_MAGNET",
+    "rationale": "Report assigns: \"Bonus / free gift (the \"load audit\" worksheet) → cross-sells C3\". Verdict: PASSES (4/5) — angle/module; strong as a free gift leading to C3..",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

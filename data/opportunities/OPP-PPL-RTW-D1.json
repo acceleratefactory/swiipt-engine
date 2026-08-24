@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-RTW-D1",
+  "source": "library-report:RETURN TO WORK.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/RETURN TO WORK.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "RETURN TO WORK",
+  "submarket": "HIDDEN MARKET — THE 30 DAYS BEFORE & AFTER RETURNING TO WORK",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Three-Fail Woman (identity integration workbook)\"",
+    "problem": "\"No matter what I do someone loses. I've split into pieces and none of them are me.\"",
+    "recurring_situation": "HIDDEN MARKET — THE 30 DAYS BEFORE & AFTER RETURNING TO WORK",
+    "person": "Mum living the LSE quote — \"terrible wife, mediocre mother, not good enough at work.\"",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone (emotional flagship).\". Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

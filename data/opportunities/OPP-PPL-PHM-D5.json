@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-PHM-D5",
+  "source": "library-report:POSTPARTUM HOUSEHOLD MANAGEMENT.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/POSTPARTUM HOUSEHOLD MANAGEMENT.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "POSTPARTUM HOUSEHOLD MANAGEMENT",
+  "submarket": "HIDDEN MARKET — Running a household when one adult is recovering and BOTH are exhausted",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"When Omugwo Turns Toxic\"",
+    "problem": "\"My mum came to help but now she runs the house and tells me I'm doing everything wrong. I'm more stressed.\"",
+    "recurring_situation": "HIDDEN MARKET — Running a household when one adult is recovering and BOTH are exhausted",
+    "person": "Mum receiving grandmother help that becomes control/conflict; wants help without losing autonomy.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES | LIBRARY ROLE: Module"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module\". Verdict: PASSES | LIBRARY ROLE: Module.",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

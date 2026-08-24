@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-MPB-30",
+  "source": "library-report:MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "MONEY POST-BABY HOUSEHOLD MANAGEMENT",
+  "submarket": "HIDDEN MARKETS",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"Building a baby on two currencies\" (UK/Nigeria cross-border budget)",
+    "problem": "\"Everything I need is in £ but our money is in ₦ — the exchange rate is eating us.\"",
+    "recurring_situation": "HIDDEN MARKETS",
+    "person": "Diaspora mum buying UK gear but funding from Naira-earning spouse/sends [S15].",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone (diaspora).\". Verdict: PASSES.",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-PCD-G1",
+  "source": "library-report:POSTPARTUM CLOTHING DRESSING.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/POSTPARTUM CLOTHING DRESSING.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "POSTPARTUM CLOTHING DRESSING",
+  "submarket": "HIDDEN MARKET — \"The postpartum wardrobe gap between maternity clothes and your old wardrobe\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Child-Dedication / Naming-Ceremony First Outing  ⭐\" (culturally strongest)",
+    "problem": "\"This is the day everyone judges how well I was cared for. I want to look fine but my body is still healing and nothing fits.\"",
+    "recurring_situation": "HIDDEN MARKET — \"The postpartum wardrobe gap between maternity clothes and your old wardrobe\"",
+    "person": "Nigerian mum at the cultural milestone — church child dedication or Izu ahia nwa (first market outing); first public appearance post-birth, wants to look celebrated yet heal comfortably (The Nation: gorgeously dressed, assessed by other women).",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": true,
+    "signals_observed": [
+      "IMMEDIATE SPEND scored 5/5 (>=3 = YES)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone (event-outfit plan) — uniquely African, high emotion\". Verdict: PASSES.",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

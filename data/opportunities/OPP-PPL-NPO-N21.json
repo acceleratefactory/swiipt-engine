@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-NPO-N21",
+  "source": "library-report:NEW PARENT OPERATING SYSTEM.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/NEW PARENT OPERATING SYSTEM.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "NEW PARENT OPERATING SYSTEM",
+  "submarket": "First-year household financial transition (N22)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Newborn Rhythm Builder\"",
+    "problem": "\"There's no rhythm. I don't know if baby is hungry, tired, or sick. I'm surviving hour by hour and it's breaking me.\"",
+    "recurring_situation": "First-year household financial transition (N22)",
+    "person": "28-yr-old mum, baby 3 weeks, days/nights blurred, no predictable rhythm, exhausted by unpredictability.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Module in NPOS / Standalone.\". Verdict: PASSES (4/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

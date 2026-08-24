@@ -1,0 +1,48 @@
+{
+  "opportunity_id": "OPP-PPL-PBR-H5",
+  "source": "library-report:POSTPARTUM BODY RECOVERY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/POSTPARTUM BODY RECOVERY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "POSTPARTUM BODY RECOVERY",
+  "submarket": "HIDDEN MARKET — BODY CONFIDENCE + GETTING DRESSED AGAIN",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"Bedroom Confidence — Lingerie & Intimacy After Baby\"",
+    "problem": "\"I used to feel sexy. Now I cover up. I want to feel desirable in my own skin again, scars and all.\"",
+    "recurring_situation": "HIDDEN MARKET — BODY CONFIDENCE + GETTING DRESSED AGAIN",
+    "person": "Vanessa, 28, Amsterdam (Surinamese-Nigerian), 5 months pp; won't wear lingerie, hides scars/stretch marks.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": true,
+    "embarrassment": true,
+    "failed_attempts": true,
+    "identity_threat": true,
+    "immediate_spend": true,
+    "signals_observed": [
+      "URGENCY scored 3/5 (>=3 = YES)",
+      "EMBARRASSMENT scored 5/5 (>=3 = YES)",
+      "FAILED ATTEMPTS scored 3/5 (>=3 = YES)",
+      "IDENTITY THREAT scored 5/5 (>=3 = YES)",
+      "IMMEDIATE SPEND scored 4/5 (>=3 = YES)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module (sensual confidence) cross-sells A5/C3/H1\". Verdict: PASSES (20/25).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

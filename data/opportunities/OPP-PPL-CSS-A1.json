@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-CSS-A1",
+  "source": "library-report:C-SECTION RECOVERY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/C-SECTION RECOVERY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "C-SECTION RECOVERY",
+  "submarket": "HIDDEN MARKET — \"How do I function normally again after a C-section while caring for a newborn?\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The First 72 Hours Home Alone After a C-Section\"",
+    "problem": "\"I came home from major surgery with a newborn and no one. I cried because I couldn't get out of bed to reach the baby's cot. The hospital sent me home like I was fine.\"",
+    "recurring_situation": "HIDDEN MARKET — \"How do I function normally again after a C-section while caring for a newborn?\"",
+    "person": "A 29-yr-old Nigerian diaspora mom in Manchester whose husband returns to work in 9 days, omugwo never arrived (visa delay), and who cannot sit up, stand, or pick up her crying newborn without searing incision pain.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone product → also anchor of the hidden-market \"operating system.\"\". Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

@@ -1,0 +1,47 @@
+{
+  "opportunity_id": "OPP-PPL-SLP-D3",
+  "source": "library-report:SLEEP DEPRIVATION.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "SLEEP DEPRIVATION",
+  "submarket": "HIDDEN MARKET — \"HOW EXHAUSTED PARENTS DIVIDE THE NIGHT\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Hybrid-Mum Grind (WFH + night wakes)\"",
+    "problem": "\"I'm 'working from home' but I'm also the only one up at 3am. By my 11am meeting I'm hallucinating. I can't tell my boss I'm sleep-deprived from my own baby.\"",
+    "recurring_situation": "HIDDEN MARKET — \"HOW EXHAUSTED PARENTS DIVIDE THE NIGHT\"",
+    "person": "32-yr-old diaspora Nigerian mum, remote job, baby home with her, nights still broken; daytime work suffers.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone\" | cross-sells: Cross-sell B1, D1. Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": [
+    "OPP-PPL-SLP-B1",
+    "OPP-PPL-SLP-D1"
+  ]
+}

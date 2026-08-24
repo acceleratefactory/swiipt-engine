@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-PPC-H3",
+  "source": "library-report:POSTPARTUM PERSONAL CARE.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/POSTPARTUM PERSONAL CARE.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "POSTPARTUM PERSONAL CARE",
+  "submarket": "ALONE TIME & IDENTITY RECOVERY",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Exercise-As-Identity Mum\"",
+    "problem": "\"I lost ME when I stopped moving. The gym was my therapy. Now I don't know who I am without it.\"",
+    "recurring_situation": "ALONE TIME & IDENTITY RECOVERY",
+    "person": "34-yr-old former \"fit girl,\" now \"I stopped taking care of myself\"; exercise = reclaiming self, not weight loss.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone / Cross-sell to identity market\". Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

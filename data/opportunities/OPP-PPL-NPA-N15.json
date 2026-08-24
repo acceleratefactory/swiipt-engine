@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-NPA-N15",
+  "source": "library-report:NEW-PARENT ADMINISTRATION MARKET.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/NEW-PARENT ADMINISTRATION MARKET.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "NEW-PARENT ADMINISTRATION MARKET",
+  "submarket": "unassigned",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The 'One Home' Medical Packet\" (kill the WhatsApp/photo chaos)",
+    "problem": "\"Everything is in a WhatsApp group and screenshots. If my baby needed the hospital tonight I couldn't find his records in one place.\"",
+    "recurring_situation": "unassigned",
+    "person": "Mum storing baby medical info in phone photos + family WhatsApp (mirrors Family Folder founder's dementia-story chaos); can't produce a clean record when switching paediatricians or in ER.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": true,
+    "signals_observed": [
+      "IMMEDIATE SPEND scored 4/5 (>=3 = YES)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module (Baby Medical Packet) in OS.\". Verdict: PASSES.",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

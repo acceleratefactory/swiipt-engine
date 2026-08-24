@@ -1,0 +1,46 @@
+{
+  "opportunity_id": "OPP-PPL-SLP-B3",
+  "source": "library-report:SLEEP DEPRIVATION.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "SLEEP DEPRIVATION",
+  "submarket": "HIDDEN MARKET — \"HOW EXHAUSTED PARENTS DIVIDE THE NIGHT\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Monitor Watcher (compulsive baby-checking)\"",
+    "problem": "\"I watch the monitor until my eyes burn. I tiptoe in to check he's breathing — every night. My husband says I'm paranoid but what if something's wrong and I'm asleep?\"",
+    "recurring_situation": "HIDDEN MARKET — \"HOW EXHAUSTED PARENTS DIVIDE THE NIGHT\"",
+    "person": "32-yr-old UK-Nigerian mum, stares at monitor, enters room 5×/night to feel baby breathe; partner calls her \"obsessive.\"",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Angle/Module\" | cross-sells: Module in B1. Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": [
+    "OPP-PPL-SLP-B1"
+  ]
+}

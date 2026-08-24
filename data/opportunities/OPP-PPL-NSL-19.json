@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-NSL-19",
+  "source": "library-report:NEW-PARENT SOCIAL LIFE.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/NEW-PARENT SOCIAL LIFE.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "NEW-PARENT SOCIAL LIFE",
+  "submarket": "unassigned",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Language-Lonely Newcomer\"",
+    "problem": "\"I delivered and cared for my baby completely alone. In my country my mother would be here 40 days. Here no one speaks my language. I am so lonely I cry.\"",
+    "recurring_situation": "unassigned",
+    "person": "Refugee/immigrant African mum (e.g., Sudanese, Somali, Nigerian newcomer) who speaks little English, with no one to talk to in her language; longs for her home village's 40-day care (BMC Pregnancy; Black African Newcomer Women, Canada).",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone — \"Your Voice, Your Village: Finding Language & Faith Community as a New Mum.\"\". Verdict: PASSES.",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

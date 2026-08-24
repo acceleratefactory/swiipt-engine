@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-BFJ-A4",
+  "source": "library-report:BREASTFEEDING FEEDING JOURNEY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "BREASTFEEDING FEEDING JOURNEY",
+  "submarket": "EMOTIONAL (feeling like BF is failing · pressure · guilt · exhaustion)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The 3am Cluster-Feeding Survivor\"",
+    "problem": "\"From 8pm it's just constant. I'm sticky, starving, and my brain is gone. He finally sleeps at 2 and I'm too wired to rest. I feel like I'm disappearing.\"",
+    "recurring_situation": "EMOTIONAL (feeling like BF is failing · pressure · guilt · exhaustion)",
+    "person": "A 26-yr-old mum, 2½ weeks PP, baby cluster-feeds 8pm–2am every evening; she's shaking from caloric depletion, leaking, alone while husband sleeps.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (19/25)."
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone — \"The Cluster-Feeding Survival Kit: 3-Hour Nights, Fed Mama, Sane Mama.\"\". Verdict: PASSES (19/25)..",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

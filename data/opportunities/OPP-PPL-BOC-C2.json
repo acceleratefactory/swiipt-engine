@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-BOC-C2",
+  "source": "library-report:BABY OLDER CHILDREN.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/BABY OLDER CHILDREN.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "BABY OLDER CHILDREN",
+  "submarket": "NEWBORN + MULTIPLE CHILDREN",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"When the Village Doesn't Come: Diaspora #NoVillage Mum\"",
+    "problem": "\"I counted on my mum for omugwo. Immigration said no. I had the baby alone, no one to hold her while I slept. I sobbed at 3am praying for Lagos.\"",
+    "recurring_situation": "NEWBORN + MULTIPLE CHILDREN",
+    "person": "UK/US Nigerian mum, 2 kids + newborn, Mama's visa denied, husband at work, WhatsApp calls instead of pepper soup (Oladam, 2025; CBC, 2021; PLOS, 2024).",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone product (the diaspora no-village survival kit) — UNIQUE, cross-market, high emotion\". Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

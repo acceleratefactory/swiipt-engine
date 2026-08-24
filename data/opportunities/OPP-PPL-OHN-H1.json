@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-OHN-H1",
+  "source": "library-report:ONE-HANDED NUTRITION.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/ONE-HANDED NUTRITION.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "ONE-HANDED NUTRITION",
+  "submarket": "HIDDEN MARKET — \"Feeding the mother while she's feeding the baby\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Mama's Lap-Tray (UMBRELLA / FLAGSHIP)\"",
+    "problem": "\"Everyone asks 'is the baby fed?' Nobody asks 'is MAMA fed?' I sit there nursing for 45 minutes and my own food is across the room, cold, and I can't reach it.\"",
+    "recurring_situation": "HIDDEN MARKET — \"Feeding the mother while she's feeding the baby\"",
+    "person": "A breastfeeding African/diaspora mum, baby latched or bottle in one arm, who needs a complete system — one-handed meal + snack + water within arm's reach — so she is nourished in the exact moment the baby is.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (20/25)."
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Flagship standalone / Bundle of bundles — \"The Mama's Feeding Tray: Feed Yourself While You Feed Your Baby\" (one-handed recipes + snack-station setup + hydration + lap-tray checklist). This is the deepest-dive niche (Stages 3–6).\". Verdict: PASSES (20/25)..",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

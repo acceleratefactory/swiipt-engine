@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-BPO-M1",
+  "source": "library-report:BABY-PRODUCT OVERWHELM.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/BABY-PRODUCT OVERWHELM.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "BABY-PRODUCT OVERWHELM",
+  "submarket": "SOCIAL / GIFT PRESSURE",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Feeding-Station System\"",
+    "problem": "\"At 2am I'm hunting for a clean bottle, the brush, the formula scoop in the dark. I bought too much and can't find any of it. I need a system, not more stuff.\"",
+    "recurring_situation": "SOCIAL / GIFT PRESSURE",
+    "person": "Mum with bottles, pump, sterilizer, formula, breast bags scattered; midnight feeds are chaos; wants one station + minimal gear.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module (feeding-station blueprint) / Bundle.\". Verdict: PASSES (4/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

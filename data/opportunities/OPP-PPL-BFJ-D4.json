@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-BFJ-D4",
+  "source": "library-report:BREASTFEEDING FEEDING JOURNEY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "BREASTFEEDING FEEDING JOURNEY",
+  "submarket": "EMOTIONAL (feeling like BF is failing · pressure · guilt · exhaustion)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The All-Day-Nurse, Never-Full Mama\"",
+    "problem": "(Guardian Nigeria therapist): \"The issue was not milk supply. It was the relentless physical and emotional demands of being constantly needed… a healthy feeding journey requires a supported mother.\" I have nothing left.",
+    "recurring_situation": "EMOTIONAL (feeling like BF is failing · pressure · guilt · exhaustion)",
+    "person": "A 27-yr-old whose baby feeds almost continuously, refuses bottles, won't be put down; she is depleted, touched-out, and invisible.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (21/25)."
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone — \"Constantly Needed, Never Fed: The Touched-Out, All-Day-Nurse Reset.\"\". Verdict: PASSES (21/25)..",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

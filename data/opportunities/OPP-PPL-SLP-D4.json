@@ -1,0 +1,46 @@
+{
+  "opportunity_id": "OPP-PPL-SLP-D4",
+  "source": "library-report:SLEEP DEPRIVATION.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "SLEEP DEPRIVATION",
+  "submarket": "HIDDEN MARKET — \"HOW EXHAUSTED PARENTS DIVIDE THE NIGHT\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"Pump, Feed, Repeat (milk supply vs sleep)\"",
+    "problem": "\"They say rest makes milk, but the baby and the pump won't let me rest. My supply is dropping and I feel like I'm failing at the one thing my body is supposed to do.\"",
+    "recurring_situation": "HIDDEN MARKET — \"HOW EXHAUSTED PARENTS DIVIDE THE NIGHT\"",
+    "person": "26-yr-old Nigerian mum, milk supply dropping because chronic overtired; torn between pumping and sleeping.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Angle/Module\" | cross-sells: Module in D1. Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": [
+    "OPP-PPL-SLP-D1"
+  ]
+}

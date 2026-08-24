@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-RTW-E4",
+  "source": "library-report:RETURN TO WORK.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/RETURN TO WORK.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "RETURN TO WORK",
+  "submarket": "HIDDEN MARKET — THE 30 DAYS BEFORE & AFTER RETURNING TO WORK",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"When HR Has to Step In (unsupportive manager escalation)\"",
+    "problem": "\"My manager pushed back on pump breaks; HR saved me but I felt exposed.\"",
+    "recurring_situation": "HIDDEN MARKET — THE 30 DAYS BEFORE & AFTER RETURNING TO WORK",
+    "person": "Mum whose manager blocks pump breaks (Reddit director case); needs documentation/escalation path.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module of E1.\". Verdict: PASSES (4/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

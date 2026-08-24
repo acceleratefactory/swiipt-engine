@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-BFJ-B1",
+  "source": "library-report:BREASTFEEDING FEEDING JOURNEY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "BREASTFEEDING FEEDING JOURNEY",
+  "submarket": "EMOTIONAL (feeling like BF is failing · pressure · guilt · exhaustion)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Bottle-Refusal-Before-Work Mama\"",
+    "problem": "\"I go back in 10 days and he refuses the bottle like it's poison. If he won't take it, what happens when I'm at the office? I'm cry-googling at midnight.\"",
+    "recurring_situation": "EMOTIONAL (feeling like BF is failing · pressure · guilt · exhaustion)",
+    "person": "A 32-yr-old Lagos mum returning to work in 10 days; baby (4 mo) screams at every bottle, only wants the breast; deadline looming, panic rising.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (20/25)."
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone — \"Bottle Yes! The 10-Day Breastfed-Baby Bottle-Acceptance Plan (paced, smell-trick, cup backup).\"\". Verdict: PASSES (20/25)..",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

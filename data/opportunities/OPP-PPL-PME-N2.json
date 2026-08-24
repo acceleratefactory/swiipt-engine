@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-PME-N2",
+  "source": "library-report:POSTPARTUM MENTAL EMOTIONAL LIFE.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "POSTPARTUM MENTAL EMOTIONAL LIFE",
+  "submarket": "unassigned",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The All‑Day Crier Who Can't Explain Why\"",
+    "problem": "\"I cry at the sound of a doorbell, at my husband's voice, for no reason. My mother‑in‑law says I'm ungrateful. I think I'm broken.\" (R13, R16)",
+    "recurring_situation": "unassigned",
+    "person": "24‑yo mum in Enugu, 3 weeks post‑C‑section, crying unpredictably, in‑laws think she's \"overly emotional / disrespectful.\"",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone / angle of N1\". Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

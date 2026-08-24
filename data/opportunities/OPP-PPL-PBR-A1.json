@@ -1,0 +1,48 @@
+{
+  "opportunity_id": "OPP-PPL-PBR-A1",
+  "source": "library-report:POSTPARTUM BODY RECOVERY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/POSTPARTUM BODY RECOVERY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "POSTPARTUM BODY RECOVERY",
+  "submarket": "HIDDEN MARKET — BODY CONFIDENCE + GETTING DRESSED AGAIN",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The C-Section Shelf That Won't Flatten\"",
+    "problem": "\"My belly looks like a ledge. Every fitted top I try shows the shelf. I'm scared if I exercise I'll tear something inside — but I hate this lump that wasn't there before.\"",
+    "recurring_situation": "HIDDEN MARKET — BODY CONFIDENCE + GETTING DRESSED AGAIN",
+    "person": "Amaka, 31, Lagos, 11 weeks post emergency C-section (2nd baby), incision healed but a hard \"shelf\" of puffiness sits above the scar; wants to wear her wrapper/gele to an upcoming owambe but the bulge shows through.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": true,
+    "embarrassment": true,
+    "failed_attempts": true,
+    "identity_threat": true,
+    "immediate_spend": true,
+    "signals_observed": [
+      "URGENCY scored 4/5 (>=3 = YES)",
+      "EMBARRASSMENT scored 5/5 (>=3 = YES)",
+      "FAILED ATTEMPTS scored 3/5 (>=3 = YES)",
+      "IDENTITY THREAT scored 4/5 (>=3 = YES)",
+      "IMMEDIATE SPEND scored 5/5 (>=3 = YES)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone product (C-section recovery + scar-confidence system)\". Verdict: PASSES (21/25).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

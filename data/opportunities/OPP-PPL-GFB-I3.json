@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-GFB-I3",
+  "source": "library-report:GRANDPARENTS FAMILY BOUNDARIES.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/GRANDPARENTS FAMILY BOUNDARIES.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "GRANDPARENTS FAMILY BOUNDARIES",
+  "submarket": "HIDDEN MARKET (How to manage family after the baby arrives)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Baby-Only In-Laws\"",
+    "problem": "\"They didn't say hello to me, the one who just gave birth. They held my baby and ignored me. I felt like furniture.\"",
+    "recurring_situation": "HIDDEN MARKET (How to manage family after the baby arrives)",
+    "person": "In-laws who ignore the mother (won't greet her, won't return baby when she cries), treat her as incubator.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": true,
+    "signals_observed": [
+      "IMMEDIATE SPEND scored 5/5 (>=3 = YES)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone\". Verdict: PASSES · ROLE: Standalone (dignity angle).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

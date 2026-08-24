@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-BPO-F2",
+  "source": "library-report:BABY-PRODUCT OVERWHELM.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/BABY-PRODUCT OVERWHELM.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "BABY-PRODUCT OVERWHELM",
+  "submarket": "SOCIAL / GIFT PRESSURE",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Anti-Colic Rabbit Hole\"",
+    "problem": "\"Every bottle brand says theirs prevents colic. They cost different amounts. I don't know if my baby even gets colic. I just want to feed him without buying 5 types.\"",
+    "recurring_situation": "SOCIAL / GIFT PRESSURE",
+    "person": "Confused mum reading that anti-colic, wide-neck, slow-flow, glass, silicone all claim to be essential; doesn't know which.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module.\". Verdict: PASSES (4/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

@@ -1,0 +1,48 @@
+{
+  "opportunity_id": "OPP-PPL-PBR-A7",
+  "source": "library-report:POSTPARTUM BODY RECOVERY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/POSTPARTUM BODY RECOVERY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "POSTPARTUM BODY RECOVERY",
+  "submarket": "HIDDEN MARKET — BODY CONFIDENCE + GETTING DRESSED AGAIN",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Snap-Back Pressure for an EVENT\" (Aso-Ebi / Wedding / Return to Work)",
+    "problem": "\"Everyone will see my tummy in the group photos. My sister spent a fortune on this fabric. I need to look like me again — fast.\"",
+    "recurring_situation": "HIDDEN MARKET — BODY CONFIDENCE + GETTING DRESSED AGAIN",
+    "person": "Tola, 30, Lagos, 4 months pp, invited as bride's maid to sister's wedding in 6 weeks; must wear fitted aso-ebi; belly still protruding.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": true,
+    "embarrassment": true,
+    "failed_attempts": true,
+    "identity_threat": true,
+    "immediate_spend": true,
+    "signals_observed": [
+      "URGENCY scored 5/5 (>=3 = YES)",
+      "EMBARRASSMENT scored 5/5 (>=3 = YES)",
+      "FAILED ATTEMPTS scored 3/5 (>=3 = YES)",
+      "IDENTITY THREAT scored 4/5 (>=3 = YES)",
+      "IMMEDIATE SPEND scored 5/5 (>=3 = YES)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone product (6-week \"event-ready\" posture + silhouette plan) / also Marketing angle for A1/A2\". Verdict: PASSES (22/25).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

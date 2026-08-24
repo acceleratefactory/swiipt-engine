@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-NBR-C4",
+  "source": "library-report:NEWBORN ROUTINES.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "NEWBORN ROUTINES",
+  "submarket": "PARENT COORDINATION (who does what, handoffs, night shifts, responsibilities)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"What Do I Wash His Clothes With?\"",
+    "problem": "\"Someone said use my normal detergent, someone said buy special baby soap I can't afford. His neck is breaking out in bumps.\"",
+    "recurring_situation": "PARENT COORDINATION (who does what, handoffs, night shifts, responsibilities)",
+    "person": "Mum confused about baby detergent — in Nigeria gentle detergent is scarce/expensive; in UK \"non-bio\" aisle is overwhelming (S22).",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone (budget baby-laundry, both markets) + Bonus\". Verdict: PASSES.",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-RST-A2",
+  "source": "library-report:RELATIONSHIP STRAIN.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/RELATIONSHIP STRAIN.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "RELATIONSHIP STRAIN",
+  "submarket": "HIDDEN MARKET — \"POSTPARTUM COUPLE OPERATING SYSTEM\" (not generic marriage advice)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"Japa Couple, Two Countries, One Baby\"",
+    "problem": "\"Back home there'd be people. Here it's just me and him and the baby and the loneliness. We're surviving, not connecting. I resent that the 'japa' dream made us roommates.\"",
+    "recurring_situation": "HIDDEN MARKET — \"POSTPARTUM COUPLE OPERATING SYSTEM\" (not generic marriage advice)",
+    "person": "31-yr-old Nigerian mum in London/UK (or Houston/Toronto) whose husband arrived on a dependent visa after the baby was born, or is still processing; she has no omugwo village, works, and they have had no couple time since birth.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (21/25)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone (diaspora-specific; strong cross-market UK/US/CA)\". Verdict: PASSES (21/25).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

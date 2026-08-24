@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-OHN-B2",
+  "source": "library-report:ONE-HANDED NUTRITION.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/ONE-HANDED NUTRITION.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "ONE-HANDED NUTRITION",
+  "submarket": "HIDDEN MARKET — \"Feeding the mother while she's feeding the baby\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The 10-Minute Dinner Mama\"",
+    "problem": "\"Recipes say 30 minutes — I have 10 before the screaming starts. Anything with chopping is impossible.\"",
+    "recurring_situation": "HIDDEN MARKET — \"Feeding the mother while she's feeding the baby\"",
+    "person": "A 29-yr-old working diaspora mum with 20 mins between baby's last feed and next meltdown; needs no-chop, pantry + freezer meals.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (18/25)."
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone — \"10-Minute Mama Meals: No-Chop, No-Cry Dinners (African Edition).\"\". Verdict: PASSES (18/25)..",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

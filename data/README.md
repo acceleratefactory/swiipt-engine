@@ -36,6 +36,7 @@ Format: uppercase, hyphen-separated, sequence zero-padded to 3.
 |---|---|---|
 | Master product ID (= directory name) | `{LIB}-{THEME}-{NAME}-{NNN}` | `PPL-BODY-OWAMBE-001` |
 | Opportunity | `OPP-{LIB}-{THEME}-{NNN}` | `OPP-PPL-BODYCONF-001` |
+| Opportunity (from library-report niches) | `OPP-{LIB}-{REPORT3}-{NICHECODE}` | `OPP-PPL-SLP-A1`, `OPP-PPL-GFB-G12` |
 | Transformation | `TR-{LIB}-{THEME}-{NAME}-{NNN}` | `TR-PPL-NIGHT-SHIFT-001` |
 | Situation | `SIT-{LIB}-{NNN}` (+ human slug field) | `SIT-PPL-014` |
 | Asset | `AS-{NAME}-{JOB}-{NNN}` | `AS-OWAMBE-DO-001` |

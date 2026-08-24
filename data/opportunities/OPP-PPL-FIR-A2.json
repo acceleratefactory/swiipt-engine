@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-FIR-A2",
+  "source": "library-report:THE FIRSTS MARKET.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/THE FIRSTS MARKET.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "THE FIRSTS MARKET",
+  "submarket": "FIRST BIRTHDAY",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Grandmother's Bath Ritual\"",
+    "problem": "\"Back home, Mama or Grandma does the first bath with warm water and prayers. Here I'm alone with YouTube. I'm losing my culture and my confidence at once.\"",
+    "recurring_situation": "FIRST BIRTHDAY",
+    "person": "Nigerian/African mum in diaspora whose own mother gave baby's first bath back home; she never learned the ritual and feels disconnected.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module (cultural ritual chapter) / Angle for A1.\". Verdict: PASSES (4/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

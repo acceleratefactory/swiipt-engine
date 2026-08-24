@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-GFB-G5",
+  "source": "library-report:GRANDPARENTS FAMILY BOUNDARIES.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/GRANDPARENTS FAMILY BOUNDARIES.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "GRANDPARENTS FAMILY BOUNDARIES",
+  "submarket": "HIDDEN MARKET (How to manage family after the baby arrives)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Routine-Ignoring Gran\"",
+    "problem": "\"She keeps the baby up past bedtime 'just one more cuddle' and I pay for it all night. I can't say stop to my mother.\"",
+    "recurring_situation": "HIDDEN MARKET (How to manage family after the baby arrives)",
+    "person": "Gran who skips naps, feeds off-schedule, overstimulates baby \"because she just wants time.\"",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": true,
+    "signals_observed": [
+      "IMMEDIATE SPEND scored 4/5 (>=3 = YES)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module\". Verdict: PASSES · ROLE: Module (routine sheet).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

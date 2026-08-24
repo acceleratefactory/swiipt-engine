@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-CSS-C1",
+  "source": "library-report:C-SECTION RECOVERY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/C-SECTION RECOVERY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "C-SECTION RECOVERY",
+  "submarket": "HIDDEN MARKET — \"How do I function normally again after a C-section while caring for a newborn?\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The C-Section Shelf & Intimacy Shame\"",
+    "problem": "\"I accidentally saw my belly and felt sick. I haven't been naked in front of my husband since. I don't feel like a woman anymore — just a container.\"",
+    "recurring_situation": "HIDDEN MARKET — \"How do I function normally again after a C-section while caring for a newborn?\"",
+    "person": "A 32-yr-old diaspora mom (Atlanta) 4 months post-CS; \"shelf belly\" hangs over scar; avoids mirrors, sex, and swimsuits; husband says he loves her but she doesn't believe him.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone (scar-body confidence) — emotionally hottest niche.\". Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

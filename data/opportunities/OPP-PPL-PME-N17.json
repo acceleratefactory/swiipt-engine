@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-PME-N17",
+  "source": "library-report:POSTPARTUM MENTAL EMOTIONAL LIFE.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "POSTPARTUM MENTAL EMOTIONAL LIFE",
+  "submarket": "unassigned",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Career Woman Who Paused/Quit: Professional‑Identity Loss\"",
+    "problem": "\"I was someone with a title, a schedule, respect. Now I'm 'just a mum' and my CV gap is growing. I feel invisible professionally.\" (R25 Naija Feminists; R22 LinkedIn)",
+    "recurring_situation": "unassigned",
+    "person": "35‑yo ex‑corporate mum (Lagos/diaspora) who declined a job from guilt; \"child reduces women's employment 23%\" (R25).",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone (diaspora‑strong, higher willingness to pay)\". Verdict: PASSES (4/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

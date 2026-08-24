@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-BPO-D1",
+  "source": "library-report:BABY-PRODUCT OVERWHELM.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/BABY-PRODUCT OVERWHELM.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "BABY-PRODUCT OVERWHELM",
+  "submarket": "SOCIAL / GIFT PRESSURE",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Hospital-Discharge Terror\"",
+    "problem": "\"They won't let me leave with my baby unless there's a properly fitted car seat. My husband can't figure out the base. I'm crying in the maternity ward because we might not come home today.\"",
+    "recurring_situation": "SOCIAL / GIFT PRESSURE",
+    "person": "Mum in labour who realises she has no car seat installed; hospital won't discharge without one; partner confused by the Isofix base.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5) —"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone.\". Verdict: PASSES (5/5) —.",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

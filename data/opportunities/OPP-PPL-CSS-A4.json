@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-CSS-A4",
+  "source": "library-report:C-SECTION RECOVERY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/C-SECTION RECOVERY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "C-SECTION RECOVERY",
+  "submarket": "HIDDEN MARKET — \"How do I function normally again after a C-section while caring for a newborn?\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"I Can't Sleep in Any Position\"",
+    "problem": "\"I haven't slept lying down in 10 days. I'm propped like a corpse and still in pain. Everyone says 'sleep when the baby sleeps' — I physically can't get comfortable.\"",
+    "recurring_situation": "HIDDEN MARKET — \"How do I function normally again after a C-section while caring for a newborn?\"",
+    "person": "A 31-yr-old diaspora mom (Leeds) who can't lie on stomach, side hurts her drain-site, back aches; husband snores; baby wakes every 2h — surgical pain + sleep loss collide.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module (recovery-sleep positions) in A1 / H products.\". Verdict: PASSES (4/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

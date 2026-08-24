@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-CSS-A3",
+  "source": "library-report:C-SECTION RECOVERY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/C-SECTION RECOVERY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "C-SECTION RECOVERY",
+  "submarket": "HIDDEN MARKET — \"How do I function normally again after a C-section while caring for a newborn?\"",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"Cough, Sneeze, Laugh = Pain Logistics\"",
+    "problem": "\"I held the pillow like they said but I still screamed when I sneezed. Then I realised I'd missed my pain med and didn't know if I could take it while breastfeeding.\"",
+    "recurring_situation": "HIDDEN MARKET — \"How do I function normally again after a C-section while caring for a newborn?\"",
+    "person": "A 27-yr-old Enugu mom with a cold plus newborn; every sneeze feels like her scar splits; she forgot her 6-hour painkiller dose and panicked.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (3/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module / bonus checklist (pain-med timing + breastfeeding-safe table, sneeze technique).\". Verdict: PASSES (3/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

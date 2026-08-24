@@ -1,0 +1,45 @@
+{
+  "opportunity_id": "OPP-PPL-NPO-N4",
+  "source": "library-report:NEW PARENT OPERATING SYSTEM.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/NEW PARENT OPERATING SYSTEM.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "NEW PARENT OPERATING SYSTEM",
+  "submarket": "First-year household financial transition (N22)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"C-section mother + newborn daily functioning (also anchors N24/N25 solo variants).\"",
+    "problem": "A mother has major abdominal surgery and is discharged to care for a newborn alone, with generic Western advice that ignores her Naija/diaspora home reality. She is in pain, panicking, and afraid she is failing at both healing and mothering.",
+    "recurring_situation": "First-year household financial transition (N22)",
+    "person": "",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": true,
+    "embarrassment": false,
+    "failed_attempts": true,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "URGENCY scored 50/5 (>=3 = YES)",
+      "FAILED ATTEMPTS scored 50/5 (>=3 = YES)"
+    ]
+  },
+  "disposition": {
+    "library_role": "FUTURE_RESEARCH",
+    "rationale": "[BACKFILL] no explicit role found in report - defaulted FUTURE_RESEARCH pending review.",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

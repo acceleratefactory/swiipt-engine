@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-RST-C4",
+  "source": "library-report:RELATIONSHIP STRAIN.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/RELATIONSHIP STRAIN.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "RELATIONSHIP STRAIN",
+  "submarket": "HIDDEN MARKET — \"POSTPARTUM COUPLE OPERATING SYSTEM\" (not generic marriage advice)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"It's Not You, It's Hormones\"",
+    "problem": "\"He thinks I don't desire him anymore. I can't explain that my body is biologically wired to protect the baby right now. I need the words.\"",
+    "recurring_situation": "HIDDEN MARKET — \"POSTPARTUM COUPLE OPERATING SYSTEM\" (not generic marriage advice)",
+    "person": "Breastfeeding mum with near-zero libido; wants a way to explain to husband it's biological (prolactin/estrogen), not rejection.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (19/25)"
+    ]
+  },
+  "disposition": {
+    "library_role": "LEAD_MAGNET",
+    "rationale": "Report assigns: \"Bonus / free gift (lead magnet) inside C1/C2\". Verdict: PASSES (19/25).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

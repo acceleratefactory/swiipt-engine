@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-FIR-K2",
+  "source": "library-report:THE FIRSTS MARKET.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/THE FIRSTS MARKET.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "THE FIRSTS MARKET",
+  "submarket": "FIRST BIRTHDAY",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Drop-Off Tears\"",
+    "problem": "\"He clings and wails. The teacher says 'he'll settle.' I drove off sobbing. Am I traumatising him?\"",
+    "recurring_situation": "FIRST BIRTHDAY",
+    "person": "Mum of 8–12 month old starting crèche; baby screams at hand-off.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (4/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "MODULE",
+    "rationale": "Report assigns: \"Module (separation-anxiety plan) — backs K1.\". Verdict: PASSES (4/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

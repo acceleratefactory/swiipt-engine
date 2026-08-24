@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-BFJ-B2",
+  "source": "library-report:BREASTFEEDING FEEDING JOURNEY.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "BREASTFEEDING FEEDING JOURNEY",
+  "submarket": "EMOTIONAL (feeling like BF is failing · pressure · guilt · exhaustion)",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"The Sterilization-Scared First-Timer\"",
+    "problem": "\"People say 'sterilise or baby gets sick' but I don't have a steriliser and the power goes. Did I wash it right? Is this bottle going to poison him?\"",
+    "recurring_situation": "EMOTIONAL (feeling like BF is failing · pressure · guilt · exhaustion)",
+    "person": "A 23-yr-old first-time mum, formula-feeding from birth (Nigerian informal-worker household, no fridge space, worries about \"germs killing my baby\").",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (19/25)."
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone / Bundle anchor — \"Sterilise Simply: Boil-Steamer-Chemical Methods for Nigerian Homes (no fridge, power cuts).\" (NHS / PregnancyBirthBaby / Mayo.)\". Verdict: PASSES (19/25)..",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}

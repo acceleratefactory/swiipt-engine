@@ -1,0 +1,44 @@
+{
+  "opportunity_id": "OPP-PPL-RTW-A2",
+  "source": "library-report:RETURN TO WORK.md",
+  "source_references": [
+    "Product Pipeline/Postpartum Library/RETURN TO WORK.md",
+    "Product Pipeline/followup.md"
+  ],
+  "life_area": "m01",
+  "focus_market": "RETURN TO WORK",
+  "submarket": "HIDDEN MARKET — THE 30 DAYS BEFORE & AFTER RETURNING TO WORK",
+  "collected_at": "2026-08-19",
+  "finding": {
+    "headline": "\"Not-Ready at 9 Months (diaspora mum, UK)\"",
+    "problem": "\"Everyone says I'm lucky to have so long off, so why am I panicking every night? I can't tell anyone I don't want to go back.\"",
+    "recurring_situation": "HIDDEN MARKET — THE 30 DAYS BEFORE & AFTER RETURNING TO WORK",
+    "person": "UK-based Nigerian mum on 9-month SMP, 2 weeks left, drowning in anticipatory dread though she \"should\" be fine.",
+    "trigger": "",
+    "failed_attempt": "",
+    "emotional_stake": "",
+    "desired_outcome": "",
+    "evidence_quotes": [],
+    "mechanism_hypotheses": [],
+    "competition_notes": "See RESEARCH BASE section of source report."
+  },
+  "survival_pain_test": {
+    "urgency": false,
+    "embarrassment": false,
+    "failed_attempts": false,
+    "identity_threat": false,
+    "immediate_spend": false,
+    "signals_observed": [
+      "verdict: PASSES (5/5)"
+    ]
+  },
+  "disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Report assigns: \"Standalone (diaspora angle) / Marketing angle for A1.\". Verdict: PASSES (5/5).",
+    "assigned_at": "2026-08-19",
+    "promoted_transformation_id": null,
+    "reclassification_history": []
+  },
+  "status": "dispositioned",
+  "related_opportunity_ids": []
+}
