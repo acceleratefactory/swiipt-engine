@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-CORD-READ-001",
+  "product_id": "PPL-CORD-CARE-001",
+  "title": "The Cord Care Guide - what is happening and the one house rule",
+  "job": "READ",
+  "format": "guide",
+  "source_path": "content/read-guide.md",
+  "experience_mode": "functional",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

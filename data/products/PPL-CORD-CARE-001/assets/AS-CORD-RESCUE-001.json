@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-CORD-RESCUE-001",
+  "product_id": "PPL-CORD-CARE-001",
+  "title": "RED FLAG Rescue Card - emergency routing",
+  "job": "RESCUE",
+  "format": "emergency_card",
+  "source_path": "content/rescue-card.md",
+  "experience_mode": "utility",
+  "required": true,
+  "safety_relevant": true,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-CS-READ-001",
+  "product_id": "PPL-CS-FIRST14DAYS-001",
+  "title": "The No-Village 14-Day Guide",
+  "job": "READ",
+  "format": "guide",
+  "source_path": "content/bundle-w05.md#read-guide.md",
+  "experience_mode": "functional",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

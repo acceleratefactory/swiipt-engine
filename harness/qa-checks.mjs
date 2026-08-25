@@ -62,8 +62,12 @@ for (const { dir, path, p } of productRecords) {
   // transformation relationship resolves
   const trId = p.identity.transformation_id;
   let trExists = false;
-  for (const [, o] of opps) {
-    if (o.disposition?.promoted_transformation_id === trId || o.opportunity_id.includes(trId)) trExists = true;
+  const trFile = join(root, "data", "transformations", `${trId}.json`);
+  if (existsSync(trFile)) trExists = true;
+  if (!trExists) {
+    for (const [, o] of opps) {
+      if (o.disposition?.promoted_transformation_id === trId || o.opportunity_id.includes(trId)) trExists = true;
+    }
   }
   // also accept live-lineage products whose TR id is recorded in their own publishing block
   if (!trExists && p.publishing?.wordpress_ids?.transformation_id) trExists = true;

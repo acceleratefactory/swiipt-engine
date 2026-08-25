@@ -1,0 +1,85 @@
+{
+  "transformation_id": "TR-PPL-RTWORK-OS-001",
+  "library_id": "m01",
+  "submarket_id": "return-to-work-transition",
+  "status": "validated",
+  "situation": {
+    "life_state": "maternity-leave-ending",
+    "person": "Employed/breastfeeding mother in the final month of maternity leave, dreading the return - pumping logistics, the morning hand-off, supply drop fear, guilt math - with no plan beyond a start date",
+    "specific_situation": "Return date is ~30 days out; nothing is prepared: no freezer bank, no pump-space agreement, no childcare backup, no morning system; she oscillates between denial and 2am panic",
+    "timeframe": "15 days before return through first 15 days back",
+    "trigger": "The calendar: leave ends on a fixed date",
+    "problem": "She has no operating system for the transition, so week one back becomes supply crash + workplace embarrassment + evening meltdowns + guilt that eats her",
+    "failed_attempt": "Tried to 'just wing it and see'; or over-bought gadgets without a system; asked other mothers and got contradictory war stories",
+    "constraints": ["Fixed return date", "Workplace pump-support unknown/weak", "Childcare waitlists", "Emotional load of separation"],
+    "emotional_stake": "She fears losing her milk, her edge at work, and her bond with the baby simultaneously - and believes dropping any one ball proves she can't have both career and motherhood",
+    "desired_transformation": "A dated 30-day operating system: rights-backed workplace ask locked, feeding lane chosen, freezer bank built, childcare drilled, morning/evening anchors running - so week one back is execution, not improvisation"
+  },
+  "before_state": {
+    "current_behavior": ["Avoiding thinking about the date", "Pump bought but boxed", "No written employer request", "Evenings scrolling 'should I quit' threads"],
+    "current_conditions": ["Zero freezer bank", "Childcare unconfirmed", "Morning logistics untested"],
+    "emotional_state": ["Sunday-night dread daily", "Guilt pre-load", "Identity whiplash"],
+    "practical_consequences": ["Week-one chaos predicted", "Supply vulnerable to skipped blocks", "Partner load unrenegotiated"],
+    "failed_attempts": ["Gadget shopping as planning", "Generic back-to-work checklists", "Waiting for HR to volunteer support"],
+    "environmental_constraints": ["Law/policy varies by country", "Job demands", "Commute realities"],
+    "people_involved": ["Mother", "Partner", "Manager/HR", "Caregiver"]
+  },
+  "after_state": {
+    "new_capabilities": ["Runs dated before/after playbooks", "Negotiates adjustments from legal footing in writing", "Executes three daily anchors (hand-off, blocks, bridge)"],
+    "improvements": ["Supply protected by scheduled blocks", "Mornings run on drill-tested rails", "Evening reconnection ritual holds"],
+    "systems_created": ["Written employer adjustment", "Feeding-lane choice + logistics card for caregiver", "Sunday-reset/Wednesday-fix weekly loop"],
+    "remaining_limits": ["Country law differences remain", "Some employers still resist - escalation takes time", "Feelings need their own support channels"],
+    "evidence_of_change": ["All before-dates hit or consciously re-planned", "Day-5-back review: zero missed-block days >=80%", "Hand-off brief delivered every morning"]
+  },
+  "mechanism": {
+    "core_mechanism": "Project-management applied to a life transition: dated single-move days remove overwhelm; legal-footing scripts convert hope into entitlements; three anchors compress daily decisions into routines",
+    "mechanisms": ["Dated micro-steps beat vague prep", "Rights-in-writing reframes asks as adjustments", "Anchor routines reduce decision fatigue at known failure points (morning, workday, 5pm)", "Weekly fix-one-thing loop absorbs reality"],
+    "why_it_should_work": "Transition failure concentrates at predictable nodes (logistics untested, accommodations unwritten, evenings unplanned); a dated OS addresses each node before it fires",
+    "evidence_basis": [
+      { "claim": "US: PUMP Act requires reasonable break time + private non-bathroom space ~1yr post-birth for nearly all employees; PWFA adds accommodation duties", "status": "sourced_evidence", "source": "US DOL Wage & Hour Division PUMP-at-work materials (2024); EEOC PWFA" },
+      { "claim": "UK: no statutory pumping breaks but Equality Act 2010 protects against breastfeeding discrimination; HSE expects clean private space (never toilets); 52-week maternity leave", "status": "sourced_evidence", "source": "Maternity Action; NHS employer guidance; HSE" },
+      { "claim": "Nigeria: Labour Act s.54 floor of 12 weeks maternity leave at >=50% pay", "status": "sourced_evidence", "source": "Nigeria Labour Act s54(1) - verified correction in project memory" },
+      { "claim": "Expressed-milk storage: refrigerate ~4 days / freeze best within 3 months; thaw oldest-first, never microwave", "status": "sourced_evidence", "source": "CDC breast milk storage guidelines" },
+      { "claim": "Mastitis signs (red hot wedge, fever, flu-feel) need same-day clinician contact while keeping milk moving", "status": "sourced_evidence", "source": "NHS mastitis guidance; CDC" }
+    ]
+  },
+  "transformation_path": [
+    { "stage": "Decide (D-15/D-14)", "objective": "Confirm dates; choose feeding lane via Decision Card", "customer_action": ["Lane selected", "Logistics listed"], "required_assets": ["AS-RTW-DECIDE-001"] },
+    { "stage": "Build (D-13 to D-9)", "objective": "Freezer bank + childcare lock + trial run", "customer_action": ["+2 bags/day", "Trial half-day"], "required_assets": ["AS-RTW-DO-001"] },
+    { "stage": "Lock (D-8 to D-3)", "objective": "Written employer adjustment; Morning Drill x2; bag built", "customer_action": ["Send Script 1 email", "Run drills"], "required_assets": ["AS-RTW-SCRIPTS-001", "AS-RTW-DO-001"] },
+    { "stage": "Run (Days +1..+15)", "objective": "Three anchors daily; Sunday reset; Wednesday fix-one", "customer_action": ["Anchors + weekly loop"], "required_assets": ["AS-RTW-READ-001"] },
+    { "stage": "Protect self", "objective": "Guilt/mood guardrails; supply/mastitis watch", "customer_action": ["Decision Card red flags", "Rescue lines if dark"], "required_assets": ["AS-RTW-DECIDE-001"] }
+  ],
+  "failure_point_map": [
+    { "failure_type": "supply dip", "scenario": "Days 3-5 back, output falling", "rescue_protocol": "Audit missed blocks; add early-morning or night pump temporarily; hydration/latch check; lactation line if trend continues" },
+    { "failure_type": "employer stonewalls", "scenario": "Space/time refused or 'later'", "rescue_protocol": "Re-state in writing citing law/guidance; propose concrete coverage plan; escalate HR -> agency route per country card" },
+    { "failure_type": "morning chaos repeats", "scenario": "Late departures, forgotten items", "rescue_protocol": "Re-run Night-before station checklist ruthlessly for 3 days; cut ONE morning step permanently" },
+    { "failure_type": "evening meltdown spiral", "scenario": "Overstimulated baby + depleted mum at 6pm", "rescue_protocol": "Bridge ritual moved earlier; partner takes first 30 min post-arrival; feed in calm dim room" },
+    { "failure_type": "mastitis signs", "scenario": "Red hot wedge + fever + flu feeling", "rescue_protocol": "Clinician SAME DAY; keep milk flowing gently; warm compress before feeds, cold after" },
+    { "failure_type": "identity grief persists", "scenario": "Hopelessness/dread past two weeks back", "rescue_protocol": "Clinical support route + crisis numbers; not a discipline problem" }
+  ],
+  "first_win": { "time_limit_minutes": 15, "action": "Send the Employer Ask email from Script 1 today - dated, written, rights-cited - and put '+2 bags tonight' on the freezer bank log", "observable_change": "A dated written request exists and the freezer bank counter shows its first entries" },
+  "tsm": {
+    "before_baseline": ["freezer bags banked", "written accommodation requested yes/no", "morning drill runs completed", "childcare backup named yes/no"],
+    "success_indicators": ["all D-milestones hit by Day 0", ">=80% planned pump blocks taken in weeks 1-2", "hand-off brief delivered >=90% mornings", "supply stable/rising at day-15 review"],
+    "measurement_days": [0, 7, 14, 30],
+    "success_threshold": "60%+ completers meet >=3 of 4 indicators at Day-15-back review",
+    "measurement_method": "Milestone tracker + daily block/hand-off ticks + Day-15 structured review",
+    "incomplete_progress_interpretation": "Missed milestones are rescheduled not mourned; only silent skipping counts against - visible replanning keeps progress intact",
+    "next_action_on_miss": "Wednesday fix-one-thing targets the specific broken anchor; employer issues re-escalate via written path"
+  },
+  "maintenance": { "maintenance_system": "After day 15: weekly Sunday reset continues until routine feels boring (that's success)", "relapse_protocol": "Chaos relapse (travel/growth spurts): reinstate night-before station + blocks audit for one week", "reentry_protocol": "Restart at Run phase anchors only; no before-phase guilt" },
+  "next_transformation": ["TR-PPL-CS-FIRST14DAYS-001", "TR-PPL-CORD-CARE-001"],
+  "evidence": [
+    { "claim": "US/UK/NG rights framework", "status": "sourced_evidence", "source": "US DOL/EEOC 2024; Maternity Action/NHS/HSE UK; Nigeria Labour Act s54(1)" },
+    { "claim": "Milk storage + handling", "status": "sourced_evidence", "source": "CDC guidelines" },
+    { "claim": "Mastitis same-day rule", "status": "sourced_evidence", "source": "NHS; CDC" }
+  ],
+  "safety": {
+    "risk_level": "low",
+    "scope_boundary": "Coordinates logistics, rights communication and routines ONLY. Never provides medical advice on mastitis/supply beyond routing to clinicians, never legal representation, never diagnoses PPD.",
+    "red_flags": ["mastitis signs (red hot wedge/fever/flu-feel) = clinician same day", "supply collapse across 3+ days = lactation support", "persistent hopelessness/dread = clinical support + crisis lines"],
+    "escalation_rules": ["Medical -> clinician same-day", "Mood crisis -> verified shared crisis list", "Workplace rights violations -> documented escalation path per country card"]
+  },
+  "research_disposition": { "library_role": "STANDALONE_TRANSFORMATION", "rationale": "Flagship #6 (score 79). Narrow window (the 30 days around return) = productizable per original validation; Western-first appeal strong; Nigerian legal facts verified/corrected.", "assigned_at": "2026-08-19", "reclassification_history": [] }
+}

@@ -1,0 +1,81 @@
+{
+  "transformation_id": "TR-PPL-OMUGWO-TERMS-001",
+  "library_id": "m01",
+  "submarket_id": "grandparents-family-boundaries",
+  "status": "validated",
+  "situation": {
+    "life_state": "newborn-first-weeks",
+    "person": "New mother receiving traditional postpartum help (omugwo) from her mother or mother-in-law who loves the baby fiercely but runs the household and baby-care by her own pre-1990s rules",
+    "specific_situation": "The helper arrives with strong practices - substances on the cord, herb water for baby, baby handed over at all hours, visitors flooding in - while hospital instructions said otherwise and the mother is too exhausted and polite to push back",
+    "timeframe": "Weeks 0-6 postpartum, concentrated in the helper's first 10 days on site",
+    "trigger": "Helper's arrival immediately after discharge",
+    "problem": "She cannot tell which traditions are harmless gold versus documented infection/danger risks, cannot refuse without triggering family war, and is sliding from mother to furniture in her own home",
+    "failed_attempt": "Tried hinting and silent resistance; helper doubled down or got hurt; partner stayed neutral to keep peace",
+    "constraints": ["Deep respect hierarchy", "Partner neutrality", "Genuine dependence on the help", "Cultural weight of 'how we did it'"],
+    "emotional_stake": "She fears harming the baby by obeying AND destroying the family fabric by refusing - and quietly mourns becoming a guest in her own maternity",
+    "desired_transformation": "A written three-zone agreement (hers/together/doctor-backed) that gives grandma proud ownership of real work, protects medical non-negotiables as the DOCTOR'S rules not hers, and preserves both the tradition and the mother"
+  },
+  "before_state": {
+    "current_behavior": ["Hinting instead of deciding", "Complying then resenting", "Arguing science at elders", "Partner absent from boundary enforcement"],
+    "current_conditions": ["Baby routines overridden", "Substances reaching the stump/baby", "Mother sidelined from care"],
+    "emotional_state": ["Boiling resentment", "Maternal guilt both directions", "Dread of helper's footsteps"],
+    "practical_consequences": ["Infection risks introduced", "Mother's sleep blocks lost", "Household tension escalating"],
+    "failed_attempts": ["Silent resistance", "Late confrontations", "Appeals to internet articles"],
+    "environmental_constraints": ["Respect hierarchies", "Live-in helper logistics", "Partner's family dynamics"],
+    "people_involved": ["Mother", "Grandmother/mother-in-law", "Partner", "Visitors"]
+  },
+  "after_state": {
+    "new_capabilities": ["Runs the Agreement conversation before Day 1", "Routes every clash through Zone C paper, not personal argument", "Protects daily sleep+bonding blocks"],
+    "improvements": ["Grandma proudly owns Zone A work", "Zero substances reach baby after agreement", "Tension converts to tasks"],
+    "systems_created": ["Three-zone house card posted verbatim", "Partner-as-enforcer channel", "Week-1 warm review ritual"],
+    "remaining_limits": ["Cannot erase cultural friction entirely", "Requires partner follow-through", "Not a treatment for clinical mood disorders"],
+    "evidence_of_change": ["Clashes drop to near-zero after paper rule installed", "Mother reports protected sleep achieved most nights", "Helper publicly defends the rules to visitors"]
+  },
+  "mechanism": {
+    "core_mechanism": "Authority transfer + energy redirection: medical rules attributed to the clinician (paper absorbs shame), grandmother given proud ownership of high-value Zone A work, scripts honour-then-rule-then-role",
+    "mechanisms": ["Pre-decision removes live negotiation", "Doctor-authority framing bypasses generational argument", "Proud ownership converts enforcer into ally", "Partner channel softens hierarchy crossing"],
+    "why_it_should_work": "Conflict here is about status and love-language, not hygiene knowledge; systems that preserve status while changing defaults succeed where explanations failed",
+    "evidence_basis": [
+      { "claim": "Omugwo-style support associates with reduced postpartum depression and better maternal rest", "status": "sourced_evidence", "source": "Punch Nigeria report on omugwo & PPD; NCBI reviews of African postpartum confinement" },
+      { "claim": "Nothing-on-cord / milk-only / safe-sleep rules are WHO/AAP-derived standards", "status": "sourced_evidence", "source": "WHO postnatal recommendations 2014/2022; AAP cord care statement 2016" },
+      { "claim": "Documented harmful traditional cord substances include toothpaste/herbs/hot compresses", "status": "sourced_evidence", "source": "Onubogu et al. AJPR 2022 (Nnewi); Ghana qualitative study PMC11667800" }
+    ]
+  },
+  "transformation_path": [
+    { "stage": "Prepare (pre-arrival)", "objective": "Draft the Agreement; claim your blocks; brief partner on Script 6 role", "customer_action": ["Fill Agreement Kit", "Send arrival message"], "required_assets": ["AS-OMU-DO-001"] },
+    { "stage": "Install (Day 1)", "objective": "Ten-minute Agreement talk; post House Card", "customer_action": ["Read aloud together", "Post fridge card"], "required_assets": ["AS-OMU-READ-001"] },
+    { "stage": "Run (weeks 1-2)", "objective": "Redirect clashes to paper; protect blocks; weekly tea review", "customer_action": ["Use scripts", "Hold week-1 check"], "required_assets": ["AS-OMU-SCRIPTS-001"] },
+    { "stage": "Absorb heat spikes", "objective": "Any boil moment routes to Rescue Card moves, never explosion", "customer_action": ["Apply situation moves"], "required_assets": ["AS-OMU-RESCUE-001"] }
+  ],
+  "failure_point_map": [
+    { "failure_type": "rule broken anyway", "scenario": "Substance applied during nap", "rescue_protocol": "Rinse/photo/decision criteria; clinic call framed as question; Script 3 reset privately same day" },
+    { "failure_type": "partner stays neutral", "scenario": "Partner won't carry Script 6", "rescue_protocol": "Reduce helper exposure 48h honorably ('rest'); escalate to family elder ally if exists; protect blocks solo via schedule shift" },
+    { "failure_type": "mother boiling daily", "scenario": "Crying in bathroom, dreading footsteps", "rescue_protocol": "Shorten visit window honorably + tell one person honestly; mood lines if darkening" },
+    { "failure_type": "helper hurt/offended", "scenario": "Agreement read as rejection", "rescue_protocol": "Zone A promotion speech: name what she owns; assign the teaching role to restore status" },
+    { "failure_type": "no omugwo at all", "scenario": "Diaspora grief, nobody coming", "rescue_protocol": "Remote-village skeleton: nightly video direction + one delegated local task; name the grief aloud once" }
+  ],
+  "first_win": { "time_limit_minutes": 15, "action": "Fill the Agreement Kit's Zone C card and send it (photo/message) to the incoming helper framed as 'the paediatrician's list for THIS baby'", "observable_change": "Rules exist on paper before she lands - the first clash gets answered by the card, not an improvisation" },
+  "tsm": {
+    "before_baseline": ["clashes per day over baby care", "substance incidents this week", "mother's unbroken sleep hours", "who decides baby-care questions"],
+    "success_indicators": ["clashes <=1/week after Day 3", "zero substance incidents post-agreement", "protected sleep block >=5 nights/week", "mother reports enjoying helper's presence"],
+    "measurement_days": [0, 7, 14, 30],
+    "success_threshold": "60%+ completers meet >=3 of 4 indicators at Day-14 review",
+    "measurement_method": "Daily tally + structured week-1 tea review notes",
+    "incomplete_progress_interpretation": "Friction spikes on visitor days and weekends are expected; repeated Zone-C breaches trigger the partner-channel escalation rather than reset",
+    "next_action_on_miss": "Re-run Agreement talk using Rescue Card move 1-2 sequence; shorten visit window honorably if needed"
+  },
+  "maintenance": { "maintenance_system": "Weekly tea review while helper stays; monthly partner sync on household zones", "relapse_protocol": "New visitor/helper arrives → hand them the fridge card first, scripts second", "reentry_protocol": "After any blowup, restart at Week-1 review with tea, no tribunal" },
+  "next_transformation": ["TR-PPL-CORD-CARE-001", "TR-PPL-CS-FIRST14DAYS-001"],
+  "evidence": [
+    { "claim": "Support-traditions protective association", "status": "sourced_evidence", "source": "Punch Nigeria; NCBI African confinement reviews" },
+    { "claim": "Infant safety non-negotiables", "status": "sourced_evidence", "source": "WHO 2014/2022; AAP 2016" },
+    { "claim": "Harmful-substance prevalence data", "status": "sourced_evidence", "source": "AJPR 2022; PMC11667800" }
+  ],
+  "safety": {
+    "risk_level": "moderate",
+    "scope_boundary": "Coordinates household roles and communication ONLY. Never adjudicates clinical questions (routes to clinician), never treats mood disorders (routes via crisis lines), never overrides baby's doctor.",
+    "red_flags": ["any substance reached cord stump or baby's mouth", "baby fed anything besides milk", "unsafe sleep positioning imposed", "mother's mood darkening past two weeks or thoughts of harm"],
+    "escalation_rules": ["Clinical incidents -> decision criteria + clinic line", "Mood crisis -> verified shared crisis list numbers immediately"]
+  },
+  "research_disposition": { "library_role": "STANDALONE_TRANSFORMATION", "rationale": "Flagship #4 (score 83). Distinct situation (un-negotiated traditional help) + distinct transformation (three-zone terms system). Cultural wedge with globally relatable core (managing loving overreach).", "assigned_at": "2026-08-19", "reclassification_history": [] }
+}

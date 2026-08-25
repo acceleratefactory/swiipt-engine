@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-CORD-TRACK-001",
+  "product_id": "PPL-CORD-CARE-001",
+  "title": "Cord Timeline Tracker - daily log + day-7/30 reviews",
+  "job": "TRACK",
+  "format": "tracker",
+  "source_path": "content/tracker.md",
+  "experience_mode": "utility",
+  "required": false,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

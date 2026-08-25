@@ -1,0 +1,119 @@
+{
+  "transformation_id": "TR-PPL-CORD-CARE-001",
+  "library_id": "m01",
+  "submarket_id": "newborn-hygiene-cord-care",
+  "status": "validated",
+
+  "situation": {
+    "life_state": "newborn-first-weeks",
+    "person": "Mother or primary caregiver of a newborn (0-3 weeks), in Nigeria/Africa or the diaspora, responsible for daily umbilical stump care - often with conflicting advice from grandmothers, aunties and hospital staff about what to apply and what to avoid",
+    "specific_situation": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different",
+    "timeframe": "Birth to cord separation (typically 5-15 days; up to 3 weeks normal)",
+    "trigger": "Hospital discharge with vague cord instructions plus immediate arrival of family helpers with strong opinions",
+    "problem": "She does not know which daily care routine is actually safe, which traditional practices are harmless versus dangerous, and which changes in the stump's appearance mean 'normal healing' versus 'infection needing a doctor tonight'",
+    "failed_attempt": "Tried following the grandmother's advice (e.g. applying toothpaste or tying a belly band) while secretly worrying; or cleaned with everything the pharmacy suggested because no one gave one clear routine",
+    "constraints": ["Conflicting authority figures in the home", "No pediatrician appointment until weeks later", "Fear that questioning elders causes conflict", "Limited access to same-day medical advice"],
+    "emotional_stake": "She believes her baby could die from a cord infection she failed to prevent, and fears being blamed by the family if anything goes wrong either way",
+    "desired_transformation": "One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately"
+  },
+
+  "before_state": {
+    "current_behavior": ["Applying whatever substance the most senior relative recommends", "Cleaning the stump with multiple antiseptics", "Covering the stump with belly bands or coins"],
+    "current_conditions": ["Stump kept moist under coverings", "Substances applied on top of hospital instructions", "No agreed household rule for who decides cord questions"],
+    "emotional_state": ["Anxious every diaper change", "Afraid to contradict elders", "Guilt and fear about causing infection"],
+    "practical_consequences": ["Moist covered stumps heal slower", "Harmful substances introduced", "Infection signs missed or over-reacted to"],
+    "failed_attempts": ["Toothpaste, shea butter, methylated spirit layered together", "Hot compresses", "Asking three different people and getting three answers"],
+    "environmental_constraints": ["Extended-family caregiving norms", "Home birth or early discharge common", "Chlorhexidine gel not stocked in many pharmacies"],
+    "people_involved": ["Mother", "Maternal/paternal grandmother (omugwo)", "Partner", "Community elders"]
+  },
+
+  "after_state": {
+    "new_capabilities": ["Executes one clean-dry routine confidently", "Can name which traditional substances are dangerous vs unnecessary", "Runs a daily 30-second check with clear pass/fail criteria"],
+    "improvements": ["Stump stays dry and exposed", "Fewer substances near the stump", "Family conflict reduced by pre-agreed rules"],
+    "systems_created": ["A written cord-care house rule everyone in the home follows", "A daily check log"],
+    "remaining_limits": ["Cannot diagnose infection remotely", "Does not replace newborn wellness visits", "Some separation-time variation remains normal"],
+    "evidence_of_change": ["Zero harmful substances applied after starting", "Caregiver can state the five red flags unprompted", "Timely clinic presentation when flags appear"]
+  },
+
+  "mechanism": {
+    "core_mechanism": "Replace conflicting folklore with ONE default (clean, dry, exposed) plus a decision tree that converts anxiety into observable criteria, and scripts that de-escalate family pressure without confrontation",
+    "mechanisms": [
+      "Default-action design removes daily judgement (the routine never asks opinion)",
+      "Red-flag card converts diffuse fear into five observable signs mapped to action levels",
+      "Respect-scripts give the mother words that honour elders while protecting the baby"
+    ],
+    "why_it_should_work": "WHO and AAP guidance show dry cord care is safe and effective where hygiene allows; most harm comes from applied substances and moisture, so removing decisions and substances removes the risk pathway",
+    "evidence_basis": [
+      { "claim": "Clean, dry cord care is WHO's recommendation for facility births and low neonatal-mortality settings", "status": "sourced_evidence", "source": "WHO recommendations on postnatal care of the mother and newborn (2014); WHO 2022 positive postnatal experience guideline" },
+      { "claim": "Daily 7.1% chlorhexidine application is recommended only for HOME births in high neonatal-mortality settings (>30/1000), or to replace harmful traditional substances", "status": "sourced_evidence", "source": "WHO postnatal care recommendations (2014); Healthy Newborn Network Country Guidance (2015/2018)" },
+      { "claim": "Umbilical stump normally separates within roughly 5-15 days; separation after 3 weeks warrants medical review", "status": "sourced_evidence", "source": "American Academy of Pediatrics, Pediatrics 2016;138(3):e20162149; Cleveland Clinic omphalitis guidance (2024)" },
+      { "claim": "Methylated spirit was non-inferior to 4% chlorhexidine gel for preventing omphalitis in a randomized trial in Jos, Nigeria (323 mother-baby pairs)", "status": "sourced_evidence", "source": "Shwe DD et al., Nigerian Journal of Clinical Practice 2021;24(5) (PMID 34018987)" },
+      { "claim": "Common applied substances in Nigerian practice include toothpaste (8.9%) and hot compresses (24.8%); hot compresses and herbal pastes are the documented dangers, not spirit alone", "status": "sourced_evidence", "source": "Onubogu CU et al., Asian Journal of Pediatric Research 2022;8(2):1-10 (Nnewi survey)" },
+      { "claim": "Omphalitis red flags are spreading periumbilical redness, purulent/foul discharge, swelling/hardening, fever >=38C or temperature instability, poor feeding/lethargy; any sign needs same-day medical care", "status": "sourced_evidence", "source": "StatPearls Omphalitis (NCBI NBK513338); Cleveland Clinic 2024" },
+      { "claim": "Omphalitis can progress to sepsis rapidly; newborns may show hypothermia instead of fever", "status": "sourced_evidence", "source": "StatPearls Omphalitis; AAP 2016" }
+    ]
+  },
+
+  "transformation_path": [
+    { "stage": "Diagnose (Day 0)", "objective": "Establish the baseline: what is currently being applied, by whom, and why", "customer_action": ["Complete the Current-Practice Inventory", "Read the Normal-vs-Worry timeline"], "required_assets": ["AS-CORD-DO-001", "AS-CORD-READ-001"] },
+    { "stage": "Set the house rule (Day 1)", "objective": "Install ONE written household cord rule before opinions arrive", "customer_action": ["Post the House Rule card", "Send the announcement script to key relatives"], "required_assets": ["AS-CORD-COMMUNICATE-001"] },
+    { "stage": "Run the routine (Days 2-separation)", "objective": "Execute clean-dry-exposed care with a 30-second daily check", "customer_action": ["Daily checklist + log entry", "Fold nappy below stump"], "required_assets": ["AS-CORD-DO-001", "AS-CORD-TRACK-001"] },
+    { "stage": "Decide fast when something looks wrong", "objective": "Convert worry into triage using observable criteria", "customer_action": ["Run the decision tree at every change", "Escalate per rescue card"], "required_assets": ["AS-CORD-DECIDE-001", "AS-CORD-RESCUE-001"] },
+    { "stage": "Separation & after (Day ~7-21)", "objective": "Handle separation event, granuloma awareness, delayed separation", "customer_action": ["Log separation day", "Apply after-separation care"], "required_assets": ["AS-CORD-TRACK-001"] }
+  ],
+
+  "failure_point_map": [
+    { "failure_type": "relative applies substance anyway", "scenario": "Grandmother applies toothpaste/sheabutter during a nap", "rescue_protocol": "Do-not-blame reset script: clean gently with water, restate house rule, move stump-supplies out of reach; log the incident, watch 48h extra" },
+    { "failure_type": "stump looks 'wrong' but baby is well", "scenario": "Yellowish crusting or mild smell causes panic at midnight", "rescue_protocol": "Decision tree normal/worry branches; if no red flags, continue routine and re-check in 12h; document photo for clinic" },
+    { "failure_type": "red flag appears", "scenario": "Spreading redness, pus, fever >=38C or lethargy", "rescue_protocol": "Rescue card: same-day medical care - emergency numbers per region; do not apply anything else to the stump" },
+    { "failure_type": "cord not separated by day 21", "scenario": "Stump still attached at 3 weeks", "rescue_protocol": "Book medical review; note whether dry or moist; no pulling, twisting, or home removal attempts" },
+    { "failure_type": "overwhelm / caregiver change", "scenario": "New helper arrives week two with fresh advice", "rescue_protocol": "Handover card: new helper reads the one-page house rule before touching baby care duties" }
+  ],
+
+  "first_win": {
+    "time_limit_minutes": 15,
+    "action": "Write the House Rule ('Nothing goes on the stump. Clean, dry, exposed.') on the fridge card and send the respect-script message to the two most influential relatives",
+    "observable_change": "A posted rule exists and the household's next response to advice is the script, not an argument"
+  },
+
+  "tsm": {
+    "before_baseline": ["Number of substances applied to stump in last 48h", "Household disagreement events about cord care", "Caregiver can list red flags (yes/no)", "Daily check performed (yes/no)"],
+    "success_indicators": ["Zero harmful substances applied from Day 1 to separation", "Daily check completed >=90% of days", "All red-flag events resulted in same-day care", "Zero major family conflicts over cord care"],
+    "measurement_days": [0, 7, 14, 30],
+    "success_threshold": "60%+ of completers meet >=3 of 4 indicators at Day 30 review",
+    "measurement_method": "Self-reported daily log + structured Day-30 check-in against baseline",
+    "incomplete_progress_interpretation": "Partial adherence is expected during family pressure spikes; only harmful-substance exposure resets progress to Day 1 of run phase",
+    "next_action_on_miss": "Re-run the Diagnose stage with the specific person who applied substances; install handover card for helpers"
+  },
+
+  "maintenance": {
+    "maintenance_system": "After separation: weekly navel check inside bath routine until fully healed",
+    "relapse_protocol": "If any substance is applied again post-separation due to rash/bleeding worries: stop, photograph, route through decision tree rather than home treatment",
+    "reentry_protocol": "Restart at Stage 3 (routine) with whoever now performs baby care; no guilt reset"
+  },
+
+  "next_transformation": ["TR-PPL-CS-FIRST14DAYS-001", "TR-PPL-OMUGWO-TERMS-001"],
+
+  "evidence": [
+    { "claim": "Dry cord care standard for facility births", "status": "sourced_evidence", "source": "WHO 2014/2022 postnatal care recommendations" },
+    { "claim": "CHX indication limited to high-mortality home-birth settings or replacing harmful substances", "status": "sourced_evidence", "source": "WHO 2014; HNN Country Guidance 2015/2018" },
+    { "claim": "Separation window and >3-week review threshold", "status": "sourced_evidence", "source": "AAP Pediatrics 2016; Cleveland Clinic 2024" },
+    { "claim": "Nigerian practice prevalence data (spirit 89%, hot compress 25%, toothpaste 9%)", "status": "sourced_evidence", "source": "Onubogu et al. AJPR 2022 (Nnewi)" },
+    { "claim": "Jos RCT non-inferiority of methylated spirit", "status": "sourced_evidence", "source": "Shwe et al. NJCP 2021, PMID 34018987" },
+    { "claim": "Omphalitis red-flag set and sepsis progression risk", "status": "sourced_evidence", "source": "StatPearls NBK513338; Cleveland Clinic 2024" }
+  ],
+
+  "safety": {
+    "risk_level": "clinical",
+    "scope_boundary": "This system coordinates everyday cord hygiene and triage ONLY. It never diagnoses infection, never treats with antibiotics, never advises removing the stump, and never replaces newborn wellness visits. Any suspected infection routes to professional care.",
+    "red_flags": ["Redness spreading outward from the stump base onto the belly skin", "Pus (yellow/green/white thick fluid) or foul smell", "Swelling or hardening of skin around the stump", "Fever >=38C rectal OR abnormally low temperature OR baby feels hot/cold to touch", "Poor feeding, unusual sleepiness, difficulty waking, inconsolable crying", "Active bleeding that does not stop with 10 minutes of gentle pressure", "Stump still attached after 3 weeks"],
+    "escalation_rules": ["Any single red flag = same-day medical care; fever or lethargy = emergency now", "Use verified local emergency/paediatric contacts from the shared crisis-escalation list", "When unsure, present to care - newborns deteriorate fast and 'wait-and-see' is never the instruction"]
+  },
+
+  "research_disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Flagship #2 from naming audit (score 86). Distinct situation (daily cord decisions under family pressure) + distinct transformation (safe default routine + triage competence).",
+    "assigned_at": "2026-08-19",
+    "reclassification_history": []
+  }
+}

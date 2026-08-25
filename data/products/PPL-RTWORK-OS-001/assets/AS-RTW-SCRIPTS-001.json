@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-RTW-SCRIPTS-001",
+  "product_id": "PPL-RTWORK-OS-001",
+  "title": "Scripts for the Working Mother",
+  "job": "COMMUNICATE",
+  "format": "scripts",
+  "source_path": "content/bundle-w19.md#scripts.md",
+  "experience_mode": "functional",
+  "required": false,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

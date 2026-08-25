@@ -1,0 +1,87 @@
+{
+  "transformation_id": "TR-PPL-CS-FIRST14DAYS-001",
+  "library_id": "m01",
+  "submarket_id": "c-section-immediate-recovery",
+  "status": "validated",
+  "situation": {
+    "life_state": "newborn-first-weeks",
+    "person": "Woman in the first two weeks after a C-section, home without nearby family support ('no village'), often with a partner back at work within days",
+    "specific_situation": "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone",
+    "timeframe": "Day of discharge through Day 14",
+    "trigger": "Discharge from hospital into an empty house",
+    "problem": "She does not know what is safe to do, how to manage pain and movement solo, what normal healing looks like versus infection, and collapses under the load by day 4",
+    "failed_attempt": "Tried to run the pre-baby household at pre-baby speed; paid for it with agony and tears - or lay frozen in bed afraid to move at all",
+    "constraints": ["No family support on site", "Partner working", "Other children possibly present", "Pain medication confusion while breastfeeding"],
+    "emotional_stake": "Terrified of reopening the wound, being rushed back to superwoman duties, or that needing help proves she has failed as a mother",
+    "desired_transformation": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork"
+  },
+  "before_state": {
+    "current_behavior": ["Pushing through pain", "Lifting toddler/laundry too early", "Skipping meds to 'stay clear-headed'", "Lying frozen in bed fearing movement"],
+    "current_conditions": ["Unmanaged pain-sleep spiral", "Household load unchanged", "No incision surveillance"],
+    "emotional_state": ["Overwhelm", "Guilt about rest", "Fear of the wound"],
+    "practical_consequences": ["Slower healing", "Wound stress", "Breakdown around day 4"],
+    "failed_attempts": ["White-knuckling it", "Total bedrest out of fear", "Internet patchwork advice"],
+    "environmental_constraints": ["No village help", "Partner leave exhausted", "Nuclear/diaspora living"],
+    "people_involved": ["Mother", "Partner (part-time)", "Distant relatives by phone"]
+  },
+  "after_state": {
+    "new_capabilities": ["Runs a scheduled pain-movement-rest system solo", "Executes log-roll/lifting rules automatically", "Performs daily red-flag scan in under a minute"],
+    "improvements": ["Pain controlled before spikes", "Walking daily from day 1-2", "Incision watched without obsession"],
+    "systems_created": ["The Landing Zone", "One-goal days", "15-minute visitor rule", "Bad-Day Minimum Mode"],
+    "remaining_limits": ["Full recovery still ~6 weeks", "Cannot self-diagnose complications", "Some days will simply be hard"],
+    "evidence_of_change": ["Meds taken on schedule >=90% of days", "Daily walk achieved from day 2+", "Zero heavy-lift events", "All red-flag moments routed same-day"]
+  },
+  "mechanism": {
+    "core_mechanism": "Convert surgical recovery into a checklist-driven operating system: scheduled analgesia prevents pain spirals; graduated movement prevents clots; observable red-flag criteria replace fear; Minimum Mode absorbs bad days without collapse",
+    "mechanisms": ["Pre-emptive analgesia scheduling", "Graded mobility ladder", "Observable triage over feelings", "Minimum viable household standard"],
+    "why_it_should_work": "Standard surgical-recovery principles (scheduled analgesia, early ambulation, wound surveillance) are exactly what a solo patient needs as defaults rather than judgment calls",
+    "evidence_basis": [
+      { "claim": "Scheduled paracetamol+ibuprofen standard post-C-section and generally compatible with breastfeeding", "status": "sourced_evidence", "source": "Mayo Clinic C-section recovery guidance" },
+      { "claim": "Early walking recommended to reduce clot risk; avoid lifting >10-15 lb / heavier than baby ~2 weeks; no baths until healed", "status": "sourced_evidence", "source": "Cleveland Clinic C-section recovery timeline (2021); Mayo Clinic" },
+      { "claim": "Infection signs: fever >=38C, spreading incision redness/swelling/discharge, worsening pain; calf/chest signs suggest clot - urgent care", "status": "sourced_evidence", "source": "WebMD post-C-section recovery warning signs; Medical News Today wound infection review" },
+      { "claim": "Baby blues typically ease within two weeks; beyond that or severe symptoms warrants clinical contact", "status": "sourced_evidence", "source": "Cleveland Clinic recovery timeline; WebMD" }
+    ]
+  },
+  "transformation_path": [
+    { "stage": "Set up (Day 0)", "objective": "Build Landing Zone + med schedule before exhaustion hits", "customer_action": ["Stock 48h supplies at rest point", "Write med clock"], "required_assets": ["AS-CS-DO-001"] },
+    { "stage": "Survive (Days 1-3)", "objective": "Pain control + micro-walks + one-goal days", "customer_action": ["Checklist loop", "Log-roll practice"], "required_assets": ["AS-CS-DO-001"] },
+    { "stage": "Function (Days 4-7)", "objective": "Shower, short outdoor walks, visitor protocol live", "customer_action": ["Apply scripts", "Daily incision photo"], "required_assets": ["AS-CS-SCRIPTS-001", "AS-CS-DECIDE-001"] },
+    { "stage": "Rhythm (Days 8-14)", "objective": "Light routine, week-2 check-up booked, driving question answered", "customer_action": ["Attend check", "Brake-test honesty"], "required_assets": ["AS-CS-READ-001"] },
+    { "stage": "Absorb bad days", "objective": "Any collapse triggers Minimum Mode, not guilt", "customer_action": ["Run rescue card"], "required_assets": ["AS-CS-RESCUE-001"] }
+  ],
+  "failure_point_map": [
+    { "failure_type": "overdid it", "scenario": "Felt great day 5, cleaned house, wrecked by evening", "rescue_protocol": "Minimum Mode next 48h; meds on clock; note the lesson; resume ladder one step lower" },
+    { "failure_type": "meds skipped", "scenario": "Breastfeeding fear or forgetfulness stopped analgesia", "rescue_protocol": "Re-read sourced compatibility note; set phone alarms; call clinician line if still uneasy" },
+    { "failure_type": "red flag appears", "scenario": "Fever/incision signs/calf-chest symptoms", "rescue_protocol": "Decision Card section 1 routing - clinician today / emergency now" },
+    { "failure_type": "loneliness crash", "scenario": "Evening 3 despair spiral", "rescue_protocol": "Script 7 said aloud to one human; rescue-card numbers if darkening" },
+    { "failure_type": "helper applies cultural remedy to wound", "scenario": "Paste/binding placed on unhealed incision", "rescue_protocol": "Rinse clean water if fresh, photograph, Decision Card, reset script, log" }
+  ],
+  "first_win": { "time_limit_minutes": 15, "action": "Build the Landing Zone: chair/bed corner stocked with 48 hours of water, snacks, nappies, wipes, charger - plus tonight's med alarm set", "observable_change": "Next baby-care cycle happens entirely inside the zone without a single cross-house trip" },
+  "tsm": {
+    "before_baseline": ["pain score today /10", "hours of unbroken sleep", "heavy-lift events this week", "can name incision red flags yes/no"],
+    "success_indicators": ["meds on schedule >=90% days", "daily walk from Day 2 onward", "zero over-limit lifts after Day 3", "all red flags got same-day response"],
+    "measurement_days": [0, 7, 14, 30],
+    "success_threshold": "60%+ completers meet >=3 of 4 indicators at Day 14/30 review",
+    "measurement_method": "Daily one-line log + structured Day-14 check against baseline",
+    "incomplete_progress_interpretation": "Bad days are data not failure; only ignored red flags or repeated over-lifts reset progress to Survive phase",
+    "next_action_on_miss": "Drop one rung on the movement ladder for 48h and re-run Setup"
+  },
+  "maintenance": {
+    "maintenance_system": "Weeks 3-6: weekly self-review against lifting/driving/exercise clearance questions until 6-week sign-off",
+    "relapse_protocol": "Post-week-14 overexertion flare: 48h Minimum Mode, escalate only per Decision Card",
+    "reentry_protocol": "Restart at Function phase with whoever now helps; no guilt"
+  },
+  "next_transformation": ["TR-PPL-CORD-CARE-001", "TR-PPL-RTWORK-OS-001"],
+  "evidence": [
+    { "claim": "Analgesia/movement/wound-care standards", "status": "sourced_evidence", "source": "Mayo Clinic; Cleveland Clinic 2021; WebMD recovery guidance" },
+    { "claim": "Red-flag set incl. clot signs", "status": "sourced_evidence", "source": "WebMD; Medical News Today" },
+    { "claim": "Blues-vs-depression two-week threshold", "status": "sourced_evidence", "source": "Cleveland Clinic; WebMD" }
+  ],
+  "safety": {
+    "risk_level": "clinical",
+    "scope_boundary": "Coordinates solo recovery logistics ONLY. Never diagnoses infection/clots/depression, never adjusts prescriptions, never replaces the week-2 visit or 6-week clearance.",
+    "red_flags": ["fever >=38C/chills", "spreading incision redness/swelling/opening/pus/foul fluid", "worsening pain after day 3-4", "soaking-a-pad-per-hour bleeding, large clots, foul lochia", "unilateral calf pain/swelling/heat", "chest pain or breathlessness", "severe unshift headache/vision changes", "blues past two weeks or thoughts of harm"],
+    "escalation_rules": ["Fever + any incision sign = same hour", "Chest/calf signs = emergency now", "Mood crisis lines from verified shared list always active"]
+  },
+  "research_disposition": { "library_role": "STANDALONE_TRANSFORMATION", "rationale": "Flagship #5 (score 80). Hidden market verbatim: 'How do I function normally again after a C-section while caring for a newborn?' Renamed per naming audit.", "assigned_at": "2026-08-19", "reclassification_history": [] }
+}

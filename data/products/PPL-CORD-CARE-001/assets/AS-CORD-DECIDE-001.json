@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-CORD-DECIDE-001",
+  "product_id": "PPL-CORD-CARE-001",
+  "title": "The Stump Decision Tree - normal vs worry triage",
+  "job": "DECIDE",
+  "format": "decision_tree",
+  "source_path": "content/decision-tree.md",
+  "experience_mode": "utility",
+  "required": true,
+  "safety_relevant": true,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}
