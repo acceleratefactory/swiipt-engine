@@ -148,3 +148,59 @@ If feeding-at-work becomes daily dread or grief spirals: that's data, not weakne
 ## 7 · When it gets dark (to a real human)
 
 > "I'm not adjusting okay. This is heavier than tired. Can you [come over / take Thursday]?" + book the clinician. Numbers on the rescue card. Asking is the strong version of you.
+
+=====FILE rescue-card.md=====
+# BEYOND THE RESTROOM - BAD-DAY RESCUE CARD
+*If you are opening this because today went wrong - you are not failing. You are using the system's built-in recovery mode.*
+
+## The rule of the bad day
+A bad day does not erase your system. It activates **Minimum Mode**. You do not "make up" for a lost day. You run the smaller system and continue.
+
+## MINIMUM MODE - the only 5 things
+On a bad day, do ONLY these:
+1. **Baby fed** (however feeding happens today)
+2. **Pump or nurse at your longest work gap** - even 10 minutes protects supply
+3. **Bags in the freezer** - whatever you get is banked, zero guilt about quantity
+4. **One line to your childcare person** - what time, what pickup, nothing else
+5. **Sleep when the baby sleeps tonight** - dishes wait
+
+Everything else on the checklist can slide ONE day without damage.
+
+## Common bad days - instant moves
+
+### Supply suddenly dropped
+- Check: new bra? period returning? skipped two pumps? dehydration?
+- Add ONE extra session tonight (even 8 minutes signals "make more")
+- Water bottle next to every pump site starting now
+- Judge supply at DAY level, never session level
+
+### Employer blocked / squeezed your pump breaks
+- Do not negotiate live. Say: *"I'll check my notes and come back to you this afternoon."*
+- Send Script 2 (the pushback reply) from a calm hour, not the hallway
+- Log it: date, time, what was said. Patterns matter; incidents don't.
+
+### Childcare collapsed this morning
+- Call the backup name on your Day-0 card BEFORE panicking
+- If no backup: use the emergency-day protocol you wrote in Week -1 (who covers, for how long)
+- Text your lead: *"Family emergency this morning - online by [time]."* Short is professional.
+
+### Pain, fever, hot red streak on breast
+- Fever + flu feeling + hot spot = possible mastitis. **Call your clinic TODAY.**
+- Keep milk moving (feed/pump that side) on the way to the call
+- This is common, treatable, and not a failure of the system
+
+### The night-before disaster (nothing prepped)
+- Run Minimum Mode tomorrow. Prep ONE thing tonight (bags labeled OR outfit out) - not all of it.
+
+## The mood guardrail
+If you have cried most of the day for 3+ days, or you feel numb/dark/not-yourself:
+- Tell one human TODAY - partner, sister, friend, the Script 7 line
+- Postpartum mood conditions are medical, not moral. Treatment works.
+
+## Numbers that answer 24/7
+- **US:** Postpartum Support Intl 1-800-944-4773 - 988 (call/text)
+- **UK:** Samaritans 116 123
+- **Nigeria:** MANI 0806 210 6493 - SURPIN 0908 021 7555 - Emergency 112
+- **My clinic / lactation line:** ______________________
+
+*This card is educational support, not medical advice. Red-flag symptoms go to a clinician, always.*
