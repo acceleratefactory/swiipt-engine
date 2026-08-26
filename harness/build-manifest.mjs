@@ -63,6 +63,22 @@ for (const list of Object.values(p.asset_map)) {
 const prices = {};
 for (const [k, v] of Object.entries(p.commerce?.price?.currency_rules?.prices ?? {})) prices[k] = v;
 
+// Inline generated product content (landing page / product page / faq) from copy/ artifacts,
+// so the live publisher receives self-contained content (no factory-repo filesystem at publish time).
+function readCopy(rel) {
+  const fp = join(pdir, rel);
+  if (!existsSync(fp)) return null;
+  try { return JSON.parse(readFileSync(fp, "utf8")); } catch { return null; }
+}
+const content = {};
+for (const key of ["landing_page", "product_page", "faq"]) {
+  const ptr = p.content?.[key];
+  if (ptr) {
+    const data = readCopy(ptr);
+    if (data) content[key] = data;
+  }
+}
+
 const manifest = {
   manifest_version: "1.0",
   product_id: p.product_id,
@@ -88,6 +104,7 @@ const manifest = {
     prices,
   },
   assets,
+  content,
   relationships: {
     next_transformation_ids: p.transformation.next_transformation_ids ?? [],
   },

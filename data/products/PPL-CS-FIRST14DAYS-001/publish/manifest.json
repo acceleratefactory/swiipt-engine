@@ -64,6 +64,179 @@
       "content": "[[RESCUE]]\nTITLE: Bad-Day Rescue Card\n*For the day everything goes wrong. It happens. Here's the reset.*\n\n## The rule of the bad day\n\nA bad day is not a failed recovery. Surgical healing is not linear. Today we drop to MINIMUM MODE and tomorrow restarts - no debt, no guilt.\n\n## Minimum Mode (the only 5 things)\n\n1. Meds on schedule\n2. Baby fed somehow (breast/bottle/expressed - all count)\n3. You ate ONE real thing and drank water\n4. Incision glance + red-flag scan\n5. Everyone alive -> day counted as survived\n\nEverything else - laundry, visitors, the perfect routine - waits.\n\n## Common bad days -> instant moves\n\n**\"I overdid it and I'm wrecked\"** -> Cancel tomorrow's goal. Meds, comfort, horizontal. Healing happens lying down.\n\n**\"Incision popped a sting / bled a dot after lifting\"** -> Photo, pressure 10 min, Decision Card scan. No repeat lift. Call clinic if reopened/oozing.\n\n**\"Nobody checked on me today\"** -> Send Script 5 to the group chat NOW. State the specific ask. People genuinely don't know.\n\n**\"I cried all afternoon\"** -> Hydrate, eat, tell one human by voice/text. Two weeks+ of this = clinician call. Crisis numbers below.\n\n**\"I resent the baby\" (fleeting horror thought)** -> Extremely common, not a verdict on you. Sleep-deprived brains say wild things. If persistent/darkening -> clinician, today-tomorrow.\n\n## Numbers that answer 24/7\n\nNigeria: Emergency **112** . SURPIN +234 806 210 6493 . MANI 0809 111 6264\nUK: Emergency **999** . Samaritans **116 123**\nUS: Emergency **911** . Crisis **988** . Canada: 911 / 988\n\n*Educational support - not diagnosis. Your clinician overrides everything here.*\nEMERG: Nigeria 112 | 112\nEMERG: UK 999 | 999\nEMERG: US 911 | 911\nEMERG: US 988 | 988\n[[/RESCUE]]\n"
     }
   ],
+  "content": {
+    "landing_page": {
+      "content_version": "1.0",
+      "product_id": "PPL-CS-FIRST14DAYS-001",
+      "source": "factory-generator",
+      "generated_at": "2026-08-26T14:27:33.043Z",
+      "hero": {
+        "headline": "The No-Village C-Section",
+        "subheadline": "First 14 Days Alone With a Newborn After Major Abdominal Surgery - Survival & Function",
+        "body": "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone. A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+        "cta_label": "Get the System",
+        "trust_line": "Educational content - not medical advice. Your clinician overrides everything here.",
+        "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+      },
+      "before_state": {
+        "label": "Sound familiar?",
+        "paragraphs": [
+          "Right now you are pushing through pain, lifting toddler/laundry too early, skipping meds to 'stay clear-headed', and lying frozen in bed fearing movement.",
+          "It feels like overwhelm, guilt about rest, and fear of the wound.",
+          "The cost: slower healing, wound stress, and breakdown around day 4."
+        ],
+        "punch": "This is not a personal failing. It is a system gap - and The No-Village C-Section closes it."
+      },
+      "modules": {
+        "label": "What The No-Village C-Section gives you",
+        "intro": "5 components. One written system. Work through them in order, or jump straight to what today needs.",
+        "items": [
+          {
+            "title": "The No-Village 14-Day Guide",
+            "kind": "Guide",
+            "description": "You came home from a C-section without a mother, auntie, or cousin installed in your guest room. Maybe your partner got two weeks off, maybe five days, maybe none. Everyone online "
+          },
+          {
+            "title": "Daily Survival Checklist Days 1-14",
+            "kind": "Checklist",
+            "description": ""
+          },
+          {
+            "title": "The Incision Decision Card",
+            "kind": "Decision Tree",
+            "description": "Beyond two weeks of weepy blues -> or any moment of \"I can't do this,\" hopelessness, thoughts of harming yourself or the baby -> this is medical, not moral. Contact your clinician "
+          },
+          {
+            "title": "No-Village Scripts",
+            "kind": "Scripts",
+            "description": ""
+          },
+          {
+            "title": "Bad-Day Rescue Card + crisis lines",
+            "kind": "Rescue Card",
+            "description": "A bad day is not a failed recovery. Surgical healing is not linear. Today we drop to MINIMUM MODE and tomorrow restarts - no debt, no guilt."
+          }
+        ]
+      },
+      "before_after": {
+        "label": "What changes",
+        "before_items": [
+          "Pushing through pain",
+          "Lifting toddler/laundry too early",
+          "Skipping meds to 'stay clear-headed'",
+          "Lying frozen in bed fearing movement",
+          "Unmanaged pain-sleep spiral",
+          "Household load unchanged"
+        ],
+        "after_items": [
+          "Runs a scheduled pain-movement-rest system solo",
+          "Executes log-roll/lifting rules automatically",
+          "Performs daily red-flag scan in under a minute",
+          "Pain controlled before spikes",
+          "Walking daily from day 1-2",
+          "Incision watched without obsession"
+        ]
+      },
+      "who_for": {
+        "for_label": "This is for you if",
+        "for_items": [
+          "Woman in the first two weeks after a C-section, home without nearby family support ('no village'), often with a partner back at work within days",
+          "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone",
+          "Tried to run the pre-baby household at pre-baby speed; paid for it with agony and tears - or lay frozen in bed afraid to move at all"
+        ],
+        "not_for_label": "This is NOT for you if",
+        "not_for_items": [
+          "Coordinates solo recovery logistics ONLY. Never diagnoses infection/clots/depression, never adjusts prescriptions, never replaces the week-2 visit or 6-week clearance.",
+          "If any red flag is present (fever >=38C/chills; spreading incision redness/swelling/opening/pus/foul fluid; worsening pain after day 3-4), this is not a home system - seek professional care first."
+        ]
+      },
+      "promise": {
+        "label": "What we promise - and what we don't",
+        "we_do": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork. A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork.",
+        "we_do_not": "We do not promise: full recovery still ~6 weeks, cannot self-diagnose complications, and some days will simply be hard. This is an educational system, not medical, clinical, or mental-health care.",
+        "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+      },
+      "inside": {
+        "label": "Inside The No-Village C-Section",
+        "items": [
+          "The No-Village 14-Day Guide",
+          "Daily Survival Checklist Days 1-14",
+          "The Incision Decision Card",
+          "No-Village Scripts",
+          "Bad-Day Rescue Card + crisis lines"
+        ]
+      },
+      "final_cta": {
+        "headline": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork",
+        "body": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+        "cta_label": "Get The No-Village C-Section",
+        "trust_line": "Educational content - not medical advice. Your clinician overrides everything here."
+      },
+      "next": {
+        "label": "What comes next",
+        "note": "These are not upsells. They are the next situations on the same journey.",
+        "items": [
+          {
+            "title": "Cord Care That Won't Land You in A&E",
+            "transformation_id": "TR-PPL-CORD-CARE-001",
+            "product_id": "PPL-CORD-CARE-001"
+          },
+          {
+            "title": "Beyond the Restroom: 30-Day Return-to-Work OS",
+            "transformation_id": "TR-PPL-RTWORK-OS-001",
+            "product_id": "PPL-RTWORK-OS-001"
+          }
+        ]
+      }
+    },
+    "product_page": {
+      "content_version": "1.0",
+      "product_id": "PPL-CS-FIRST14DAYS-001",
+      "source": "factory-generator",
+      "generated_at": "2026-08-26T14:27:33.231Z",
+      "hero": {
+        "title": "The No-Village C-Section",
+        "subtitle": "First 14 Days Alone With a Newborn After Major Abdominal Surgery - Survival & Function",
+        "one_line_promise": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork."
+      },
+      "short_description": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+      "trust_line": "Educational content - not medical advice. Your clinician overrides everything here.",
+      "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment.",
+      "situation_block": {
+        "label": "Your situation",
+        "body": "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone"
+      }
+    },
+    "faq": {
+      "content_version": "1.0",
+      "product_id": "PPL-CS-FIRST14DAYS-001",
+      "source": "factory-generator",
+      "generated_at": "2026-08-26T14:27:33.240Z",
+      "items": [
+        {
+          "q": "What is The No-Village C-Section?",
+          "a": "First 14 Days Alone With a Newborn After Major Abdominal Surgery - Survival & Function A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork."
+        },
+        {
+          "q": "Who is this for?",
+          "a": "Woman in the first two weeks after a C-section, home without nearby family support ('no village'), often with a partner back at work within days"
+        },
+        {
+          "q": "What is included?",
+          "a": "You get 5 components: The No-Village 14-Day Guide; Daily Survival Checklist Days 1-14; The Incision Decision Card; No-Village Scripts; Bad-Day Rescue Card + crisis lines."
+        },
+        {
+          "q": "Is this medical advice?",
+          "a": "No. Educational content - not medical advice. Your clinician overrides everything here. It does not replace professional assessment or care.",
+          "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+        },
+        {
+          "q": "How do I get it?",
+          "a": "Instant digital download. After checkout the system appears in your Swiipt library with read, PDF, and read-aloud formats."
+        }
+      ]
+    }
+  },
   "relationships": {
     "next_transformation_ids": [
       "TR-PPL-CORD-CARE-001",
@@ -85,7 +258,7 @@
   "publish_authorization": {
     "status": "READY_TO_PUBLISH",
     "authorized_by": "Owner",
-    "authorized_at": "2026-08-26T11:44:33.603Z",
+    "authorized_at": "2026-08-26T15:20:50.212Z",
     "notes": "Factory Wave run - owner directive 'build everything' 2026-08-24; pricing placeholders pending owner."
   }
 }
