@@ -64,7 +64,11 @@ const arg = process.argv[2];
 let files;
 if (arg === "--all") {
   const d = join(root, "data");
-  files = collect(d).filter(f => !f.includes(`${join("data", "products")}${sep()}`) || basename(f) === "product.json");
+  // product dirs validate via product.json only; queue.json is a selection-engine build artifact, not a record
+  files = collect(d).filter(f =>
+    (!f.includes(`${join("data", "products")}${sep()}`) || basename(f) === "product.json")
+    && basename(f) !== "queue.json"
+  );
 } else if (arg) {
   files = [resolve(arg)];
 } else {

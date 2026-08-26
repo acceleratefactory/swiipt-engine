@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/content-landing.schema.json",
+  "title": "Swiipt Landing Page Content",
+  "description": "Structured landing-page copy generated FROM the product + transformation + asset records by factory stage 5.5 (copywriter runner), per standards/copy-standard.md. Conforms to the V06 9-section reference (specs/V06/V06-landing-page.md). Honesty rules are enforced structurally: the hero and promise carry a trust line and an evidence label; who-for always includes a not-for side; no rating/review/testimonial fields exist. The publisher materialises this as a standalone WordPress landing page whose CTA links to the Woo product page.",
+  "type": "object",
+  "required": [
+    "content_version",
+    "product_id",
+    "source",
+    "hero",
+    "before_after",
+    "who_for",
+    "promise",
+    "final_cta"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "content_version": { "const": "1.0" },
+    "product_id": { "type": "string", "minLength": 1 },
+    "source": {
+      "enum": ["factory-generator", "manual-port"],
+      "description": "factory-generator = produced by harness/gen-content.mjs from the records. manual-port = the V06 reference, hand-structured from its pre-factory landing page; the generator never overwrites a manual-port artifact."
+    },
+    "generated_at": { "type": "string" },
+    "hero": {
+      "type": "object",
+      "required": ["headline", "subheadline", "cta_label", "trust_line", "evidence_label"],
+      "additionalProperties": false,
+      "properties": {
+        "headline": { "type": "string", "minLength": 1, "description": "identity.name - carries the recognizable situation, never the mechanism." },
+        "subheadline": { "type": "string", "minLength": 1, "description": "identity.subtitle - explains the system." },
+        "body": { "type": "string", "description": "2-3 sentence narrative. Phase 1 = record-derived template; Phase 3 = @lfe-copywriter AI, still constrained to record fields." },
+        "cta_label": { "type": "string", "minLength": 1 },
+        "trust_line": { "type": "string", "minLength": 1, "description": "Educational-content trust line from safety.disclaimer." },
+        "evidence_label": { "type": "string", "minLength": 1, "description": "Evidence basis stated honestly; never fabricated." }
+      }
+    },
+    "before_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "paragraphs": { "type": "array", "items": { "type": "string" } },
+        "punch": { "type": "string", "description": "The reframe line (e.g. 'a coordination failure, not a character failure')." }
+      }
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "intro": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["title"],
+            "additionalProperties": false,
+            "properties": {
+              "title": { "type": "string", "minLength": 1 },
+              "description": { "type": "string" },
+              "kind": { "type": "string", "description": "Human-readable asset format (Guide / Decision Tree / Scripts / Tracker ...)." }
+            }
+          }
+        }
+      }
+    },
+    "before_after": {
+      "type": "object",
+      "required": ["before_items", "after_items"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "before_items": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "after_items": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "who_for": {
+      "type": "object",
+      "required": ["for_items", "not_for_items"],
+      "additionalProperties": false,
+      "properties": {
+        "for_label": { "type": "string" },
+        "for_items": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "not_for_label": { "type": "string" },
+        "not_for_items": { "type": "array", "items": { "type": "string" }, "minItems": 1, "description": "Always present - an honest landing page tells you who it is NOT for." }
+      }
+    },
+    "promise": {
+      "type": "object",
+      "required": ["we_do", "we_do_not", "evidence_label"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "we_do": { "type": "string", "minLength": 1, "description": "What we responsibly promise (the system), from one_line_promise + desired_transformation." },
+        "we_do_not": { "type": "string", "minLength": 1, "description": "Remaining limits, from after_state.remaining_limits + safety scope. Never omitted." },
+        "evidence_label": { "type": "string", "minLength": 1 }
+      }
+    },
+    "inside": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "items": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "final_cta": {
+      "type": "object",
+      "required": ["headline", "cta_label", "trust_line"],
+      "additionalProperties": false,
+      "properties": {
+        "headline": { "type": "string", "minLength": 1 },
+        "body": { "type": "string" },
+        "cta_label": { "type": "string", "minLength": 1 },
+        "trust_line": { "type": "string", "minLength": 1 }
+      }
+    },
+    "next": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "note": { "type": "string", "description": "Anti-artificial-upsell note: next situations on the journey, not upsells." },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["title"],
+            "additionalProperties": false,
+            "properties": {
+              "title": { "type": "string", "minLength": 1 },
+              "reason": { "type": "string" },
+              "transformation_id": { "type": "string" },
+              "product_id": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

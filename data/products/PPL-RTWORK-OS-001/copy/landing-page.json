@@ -1,0 +1,124 @@
+{
+  "content_version": "1.0",
+  "product_id": "PPL-RTWORK-OS-001",
+  "source": "factory-generator",
+  "generated_at": "2026-08-26T14:27:34.153Z",
+  "hero": {
+    "headline": "Beyond the Restroom: 30-Day Return-to-Work OS",
+    "subheadline": "The 30 Days Before and After Maternity Leave Ends - Rights, Pumping Logistics and the Evening Bridge",
+    "body": "Return date is ~30 days out; nothing is prepared: no freezer bank, no pump-space agreement, no childcare backup, no morning system; she oscillates between denial and 2am panic. A dated operating system for the return: rights-backed ask locked in writing, feeding lane chosen, freezer bank built, mornings drilled - week one becomes execution, not improvisation.",
+    "cta_label": "Get the System",
+    "trust_line": "Educational content - not medical or legal advice.",
+    "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+  },
+  "before_state": {
+    "label": "Sound familiar?",
+    "paragraphs": [
+      "Right now you are avoiding thinking about the date, pump bought but boxed, no written employer request, and evenings scrolling 'should I quit' threads.",
+      "It feels like sunday-night dread daily, guilt pre-load, and identity whiplash.",
+      "The cost: week-one chaos predicted, supply vulnerable to skipped blocks, and partner load unrenegotiated."
+    ],
+    "punch": "This is not a personal failing. It is a system gap - and Beyond the Restroom: 30-Day Return-to-Work OS closes it."
+  },
+  "modules": {
+    "label": "What Beyond the Restroom: 30-Day Return-to-Work OS gives you",
+    "intro": "5 components. One written system. Work through them in order, or jump straight to what today needs.",
+    "items": [
+      {
+        "title": "The 30-Day Return-to-Work Guide + rights block",
+        "kind": "Guide",
+        "description": "\"Going back to work\" advice is either corporate HR boilerplate or vague \"self-care.\" Meanwhile the actual problems - pumping at work, the morning hand-off, supply logistics, guilt "
+      },
+      {
+        "title": "The Operating Checklist (before/after anchors)",
+        "kind": "Checklist",
+        "description": ""
+      },
+      {
+        "title": "Feeding-at-Work Decision Card",
+        "kind": "Decision Tree",
+        "description": "Re-read your rights block in the Guide. Respond in writing: \"Happy to solve logistics together - my request matches [PUMP Act 2022 / HSE guidance / company policy].\" Escalation pat"
+      },
+      {
+        "title": "Scripts for the Working Mother",
+        "kind": "Scripts",
+        "description": ""
+      },
+      {
+        "title": "Red flags & rescue routing (in guide/checklist)",
+        "kind": "Protocol",
+        "description": "A bad day does not erase your system. It activates Minimum Mode. You do not \"make up\" for a lost day. You run the smaller system and continue."
+      }
+    ]
+  },
+  "before_after": {
+    "label": "What changes",
+    "before_items": [
+      "Avoiding thinking about the date",
+      "Pump bought but boxed",
+      "No written employer request",
+      "Evenings scrolling 'should I quit' threads",
+      "Zero freezer bank",
+      "Childcare unconfirmed"
+    ],
+    "after_items": [
+      "Runs dated before/after playbooks",
+      "Negotiates adjustments from legal footing in writing",
+      "Executes three daily anchors (hand-off, blocks, bridge)",
+      "Supply protected by scheduled blocks",
+      "Mornings run on drill-tested rails",
+      "Evening reconnection ritual holds"
+    ]
+  },
+  "who_for": {
+    "for_label": "This is for you if",
+    "for_items": [
+      "Employed/breastfeeding mother in the final month of maternity leave, dreading the return - pumping logistics, the morning hand-off, supply drop fear, guilt math - with no plan beyond a start date",
+      "Return date is ~30 days out; nothing is prepared: no freezer bank, no pump-space agreement, no childcare backup, no morning system; she oscillates between denial and 2am panic",
+      "Tried to 'just wing it and see'; or over-bought gadgets without a system; asked other mothers and got contradictory war stories"
+    ],
+    "not_for_label": "This is NOT for you if",
+    "not_for_items": [
+      "Coordinates logistics, rights communication and routines ONLY. Never provides medical advice on mastitis/supply beyond routing to clinicians, never legal representation, never diagnoses PPD.",
+      "If any red flag is present (mastitis signs (red hot wedge/fever/flu-feel) = clinician same day; supply collapse across 3+ days = lactation support; persistent hopelessness/dread = clinical support + crisis lines), this is not a home system - seek professional care first."
+    ]
+  },
+  "promise": {
+    "label": "What we promise - and what we don't",
+    "we_do": "A dated operating system for the return: rights-backed ask locked in writing, feeding lane chosen, freezer bank built, mornings drilled - week one becomes execution, not improvisation. A dated 30-day operating system: rights-backed workplace ask locked, feeding lane chosen, freezer bank built, childcare drilled, morning/evening anchors running - so week one back is execution, not improvisation.",
+    "we_do_not": "We do not promise: country law differences remain, some employers still resist - escalation takes time, and feelings need their own support channels. This is an educational system, not medical, clinical, or mental-health care.",
+    "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+  },
+  "inside": {
+    "label": "Inside Beyond the Restroom: 30-Day Return-to-Work OS",
+    "items": [
+      "The 30-Day Return-to-Work Guide + rights block",
+      "The Operating Checklist (before/after anchors)",
+      "Feeding-at-Work Decision Card",
+      "Scripts for the Working Mother",
+      "Red flags & rescue routing (in guide/checklist)"
+    ]
+  },
+  "final_cta": {
+    "headline": "A dated 30-day operating system: rights-backed workplace ask locked, feeding lane chosen, freezer bank built, childcare drilled, morning/evening anchors running - so week one back is execution, not improvisation",
+    "body": "A dated operating system for the return: rights-backed ask locked in writing, feeding lane chosen, freezer bank built, mornings drilled - week one becomes execution, not improvisation.",
+    "cta_label": "Get Beyond the Restroom: 30-Day Return-to-Work OS",
+    "trust_line": "Educational content - not medical or legal advice."
+  },
+  "next": {
+    "label": "What comes next",
+    "note": "These are not upsells. They are the next situations on the same journey.",
+    "items": [
+      {
+        "title": "The No-Village C-Section",
+        "transformation_id": "TR-PPL-CS-FIRST14DAYS-001",
+        "product_id": "PPL-CS-FIRST14DAYS-001"
+      },
+      {
+        "title": "Cord Care That Won't Land You in A&E",
+        "transformation_id": "TR-PPL-CORD-CARE-001",
+        "product_id": "PPL-CORD-CARE-001"
+      }
+    ]
+  }
+}

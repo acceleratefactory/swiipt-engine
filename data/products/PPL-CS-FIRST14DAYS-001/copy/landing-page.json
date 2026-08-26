@@ -1,0 +1,124 @@
+{
+  "content_version": "1.0",
+  "product_id": "PPL-CS-FIRST14DAYS-001",
+  "source": "factory-generator",
+  "generated_at": "2026-08-26T14:27:33.043Z",
+  "hero": {
+    "headline": "The No-Village C-Section",
+    "subheadline": "First 14 Days Alone With a Newborn After Major Abdominal Surgery - Survival & Function",
+    "body": "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone. A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+    "cta_label": "Get the System",
+    "trust_line": "Educational content - not medical advice. Your clinician overrides everything here.",
+    "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+  },
+  "before_state": {
+    "label": "Sound familiar?",
+    "paragraphs": [
+      "Right now you are pushing through pain, lifting toddler/laundry too early, skipping meds to 'stay clear-headed', and lying frozen in bed fearing movement.",
+      "It feels like overwhelm, guilt about rest, and fear of the wound.",
+      "The cost: slower healing, wound stress, and breakdown around day 4."
+    ],
+    "punch": "This is not a personal failing. It is a system gap - and The No-Village C-Section closes it."
+  },
+  "modules": {
+    "label": "What The No-Village C-Section gives you",
+    "intro": "5 components. One written system. Work through them in order, or jump straight to what today needs.",
+    "items": [
+      {
+        "title": "The No-Village 14-Day Guide",
+        "kind": "Guide",
+        "description": "You came home from a C-section without a mother, auntie, or cousin installed in your guest room. Maybe your partner got two weeks off, maybe five days, maybe none. Everyone online "
+      },
+      {
+        "title": "Daily Survival Checklist Days 1-14",
+        "kind": "Checklist",
+        "description": ""
+      },
+      {
+        "title": "The Incision Decision Card",
+        "kind": "Decision Tree",
+        "description": "Beyond two weeks of weepy blues -> or any moment of \"I can't do this,\" hopelessness, thoughts of harming yourself or the baby -> this is medical, not moral. Contact your clinician "
+      },
+      {
+        "title": "No-Village Scripts",
+        "kind": "Scripts",
+        "description": ""
+      },
+      {
+        "title": "Bad-Day Rescue Card + crisis lines",
+        "kind": "Rescue Card",
+        "description": "A bad day is not a failed recovery. Surgical healing is not linear. Today we drop to MINIMUM MODE and tomorrow restarts - no debt, no guilt."
+      }
+    ]
+  },
+  "before_after": {
+    "label": "What changes",
+    "before_items": [
+      "Pushing through pain",
+      "Lifting toddler/laundry too early",
+      "Skipping meds to 'stay clear-headed'",
+      "Lying frozen in bed fearing movement",
+      "Unmanaged pain-sleep spiral",
+      "Household load unchanged"
+    ],
+    "after_items": [
+      "Runs a scheduled pain-movement-rest system solo",
+      "Executes log-roll/lifting rules automatically",
+      "Performs daily red-flag scan in under a minute",
+      "Pain controlled before spikes",
+      "Walking daily from day 1-2",
+      "Incision watched without obsession"
+    ]
+  },
+  "who_for": {
+    "for_label": "This is for you if",
+    "for_items": [
+      "Woman in the first two weeks after a C-section, home without nearby family support ('no village'), often with a partner back at work within days",
+      "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone",
+      "Tried to run the pre-baby household at pre-baby speed; paid for it with agony and tears - or lay frozen in bed afraid to move at all"
+    ],
+    "not_for_label": "This is NOT for you if",
+    "not_for_items": [
+      "Coordinates solo recovery logistics ONLY. Never diagnoses infection/clots/depression, never adjusts prescriptions, never replaces the week-2 visit or 6-week clearance.",
+      "If any red flag is present (fever >=38C/chills; spreading incision redness/swelling/opening/pus/foul fluid; worsening pain after day 3-4), this is not a home system - seek professional care first."
+    ]
+  },
+  "promise": {
+    "label": "What we promise - and what we don't",
+    "we_do": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork. A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork.",
+    "we_do_not": "We do not promise: full recovery still ~6 weeks, cannot self-diagnose complications, and some days will simply be hard. This is an educational system, not medical, clinical, or mental-health care.",
+    "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+  },
+  "inside": {
+    "label": "Inside The No-Village C-Section",
+    "items": [
+      "The No-Village 14-Day Guide",
+      "Daily Survival Checklist Days 1-14",
+      "The Incision Decision Card",
+      "No-Village Scripts",
+      "Bad-Day Rescue Card + crisis lines"
+    ]
+  },
+  "final_cta": {
+    "headline": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork",
+    "body": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+    "cta_label": "Get The No-Village C-Section",
+    "trust_line": "Educational content - not medical advice. Your clinician overrides everything here."
+  },
+  "next": {
+    "label": "What comes next",
+    "note": "These are not upsells. They are the next situations on the same journey.",
+    "items": [
+      {
+        "title": "Cord Care That Won't Land You in A&E",
+        "transformation_id": "TR-PPL-CORD-CARE-001",
+        "product_id": "PPL-CORD-CARE-001"
+      },
+      {
+        "title": "Beyond the Restroom: 30-Day Return-to-Work OS",
+        "transformation_id": "TR-PPL-RTWORK-OS-001",
+        "product_id": "PPL-RTWORK-OS-001"
+      }
+    ]
+  }
+}

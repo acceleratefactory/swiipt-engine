@@ -17,11 +17,12 @@ data/
   journeys/{JRN-id}.json            journey edges / sequences
   products/{PRD-ID}/                ONE DIRECTORY PER PRODUCT (build workspace + records)
       product.json                  canonical product record
-      assets/*.json                 asset records (source_path points into this dir)
-      content/                      copywriter artifacts (landing-page.json, faq.json, ...)
+      assets/*.json                 asset records (source_path points into content/)
+      content/                      asset source markdown (authored deliverable content)
+      copy/                         copywriter artifacts (landing-page.json, product-page.json, faq.json) - factory stage 5.5
       build/                        builder output (deliverables, downloads)
       qa/                           QA reports
-      publish/product.manifest.json immutable publish manifest (only at READY_TO_PUBLISH)
+      publish/manifest.json         immutable publish manifest (only at READY_TO_PUBLISH)
 ```
 
 Products are directory-per-product because they bundle generated artifacts. All other entities

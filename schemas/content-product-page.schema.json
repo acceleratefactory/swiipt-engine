@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/content-product-page.schema.json",
+  "title": "Swiipt Product Page Content",
+  "description": "The authored bits for the WooCommerce single-product page: hero copy (three-layer title architecture), short description, and the situation block. The rest of the product page (before/after, what's included, journey, check-in plan, TSM, failure points, evidence note) is assembled FROM the records at render time by the theme (inc/product-details.php), so it cannot drift. The publisher writes these authored bits into the Woo product; the landing page's CTA links here, and add-to-cart/checkout happen on this page.",
+  "type": "object",
+  "required": [
+    "content_version",
+    "product_id",
+    "source",
+    "hero",
+    "short_description"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "content_version": { "const": "1.0" },
+    "product_id": { "type": "string", "minLength": 1 },
+    "source": {
+      "enum": ["factory-generator", "manual-port"],
+      "description": "factory-generator = produced by harness/gen-content.mjs. manual-port = hand-structured reference; never overwritten by the generator."
+    },
+    "generated_at": { "type": "string" },
+    "hero": {
+      "type": "object",
+      "required": ["title", "subtitle", "one_line_promise"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string", "minLength": 1, "description": "identity.name - the recognizable situation." },
+        "subtitle": { "type": "string", "minLength": 1, "description": "identity.subtitle - explains the system." },
+        "one_line_promise": { "type": "string", "minLength": 1, "description": "identity.one_line_promise - the responsibly-promised outcome." }
+      }
+    },
+    "short_description": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Woo product short description; the publisher writes this into the product."
+    },
+    "situation_block": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "body": { "type": "string", "description": "The buyer's situation in her own words, from transformation.situation.specific_situation." }
+      }
+    },
+    "trust_line": { "type": "string", "description": "Educational-content trust line from safety.disclaimer." },
+    "evidence_label": { "type": "string", "description": "Evidence basis stated honestly." }
+  }
+}

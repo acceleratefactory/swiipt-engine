@@ -109,9 +109,9 @@
     "maintenance": []
   },
   "content": {
-    "landing_page": null,
-    "product_page": null,
-    "faq": null,
+    "landing_page": "copy/landing-page.json",
+    "product_page": "copy/product-page.json",
+    "faq": "copy/faq.json",
     "specifications": null,
     "deliverables": "assets/",
     "onboarding": null,

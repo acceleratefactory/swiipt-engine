@@ -112,6 +112,33 @@ for (const { dir, path, p } of productRecords) {
     }
   }
 
+  // g6_content: landing-page / product-page / faq content artifacts (factory stage 5.5).
+  // Factory-published products (with a publish manifest) MUST carry landing_page + product_page.
+  // Pre-factory records (no manifest yet) validate-if-present so placeholder products don't block.
+  const hasManifest = existsSync(join(root, "data", "products", dir, "publish", "manifest.json"));
+  const cblock = p.content ?? {};
+  const contentSchemas = {
+    landing_page: "content-landing.schema.json",
+    product_page: "content-product-page.schema.json",
+    faq: "content-faq.schema.json",
+  };
+  for (const [key, schemaFile] of Object.entries(contentSchemas)) {
+    const ref = cblock[key];
+    if (!ref || typeof ref !== "string") continue;
+    const ap = join(root, "data", "products", dir, ref);
+    if (!check(rel, `content_exists:${key}`, existsSync(ap), ref)) { fails++; continue; }
+    let art;
+    try { art = JSON.parse(readFileSync(ap, "utf8")); }
+    catch (e) { check(rel, `content_parseable:${key}`, false, e.message); fails++; continue; }
+    const sid = `https://swiipt.com/factory/schemas/${schemaFile}`;
+    const cv = ajv.validate(sid, art);
+    if (!check(rel, `content_valid:${key}`, cv, cv ? "" : ajv.errors.map(e => `${e.instancePath} ${e.message}`).join("; "))) fails++;
+  }
+  if (hasManifest) {
+    if (!check(rel, "g6_content_landing_required", !!cblock.landing_page, "factory-published product requires landing_page content")) fails++;
+    if (!check(rel, "g6_content_product_page_required", !!cblock.product_page, "factory-published product requires product_page content")) fails++;
+  }
+
   // upsell targets exist
   for (const up of p.commerce?.upsells ?? []) {
     check(rel, `upsell_resolves:${up}`, productIds.has(up));

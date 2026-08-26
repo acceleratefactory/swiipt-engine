@@ -1,0 +1,130 @@
+{
+  "content_version": "1.0",
+  "product_id": "PPL-CORD-CARE-001",
+  "source": "factory-generator",
+  "generated_at": "2026-08-26T14:27:30.790Z",
+  "hero": {
+    "headline": "Cord Care That Won't Land You in A&E",
+    "subheadline": "One evidence-based routine for the umbilical stump - plus the exact words to protect it from harmful 'remedies' without family war",
+    "body": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different. A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor.",
+    "cta_label": "Get the System",
+    "trust_line": "Educational content - not medical, clinical, or mental-health advice. Never diagnoses or treats. Any suspected infection goes to professional care the same day.",
+    "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+  },
+  "before_state": {
+    "label": "Sound familiar?",
+    "paragraphs": [
+      "Right now you are applying whatever substance the most senior relative recommends, cleaning the stump with multiple antiseptics, and covering the stump with belly bands or coins.",
+      "It feels like anxious every diaper change, afraid to contradict elders, and guilt and fear about causing infection.",
+      "The cost: moist covered stumps heal slower, harmful substances introduced, and infection signs missed or over-reacted to."
+    ],
+    "punch": "This is not a personal failing. It is a system gap - and Cord Care That Won't Land You in A&E closes it."
+  },
+  "modules": {
+    "label": "What Cord Care That Won't Land You in A&E gives you",
+    "intro": "6 components. One written system. Work through them in order, or jump straight to what today needs.",
+    "items": [
+      {
+        "title": "The Cord Care Guide - what is happening and the one house rule",
+        "kind": "Guide",
+        "description": "Every year, newborns die from umbilical infections (omphalitis) that started as \"just something granny applied.\" Meanwhile, mothers scrub healthy stumps with five different product"
+      },
+      {
+        "title": "Daily Care Kit - 30-second routine + house rule card",
+        "kind": "Checklist",
+        "description": "You do NOT need: spirit (optional at best), chlorhexidine gel (only if prescribed), powders, bands, or any substance."
+      },
+      {
+        "title": "The Stump Decision Tree - normal vs worry triage",
+        "kind": "Decision Tree",
+        "description": ""
+      },
+      {
+        "title": "Cord Timeline Tracker - daily log + day-7/30 reviews",
+        "kind": "Tracker",
+        "description": "Baby feeding/waking/temp normal . skin around stump normal colour . no pus, no foul smell. Any box unticked -> run the Decision Tree now."
+      },
+      {
+        "title": "Script Pack - seven family conversations",
+        "kind": "Scripts",
+        "description": ""
+      },
+      {
+        "title": "RED FLAG Rescue Card - emergency routing",
+        "kind": "Rescue Card",
+        "description": "You are in worry, not warning. Decision tree -> continue routine -> re-check in 12 hours. Photo now for comparison."
+      }
+    ]
+  },
+  "before_after": {
+    "label": "What changes",
+    "before_items": [
+      "Applying whatever substance the most senior relative recommends",
+      "Cleaning the stump with multiple antiseptics",
+      "Covering the stump with belly bands or coins",
+      "Stump kept moist under coverings",
+      "Substances applied on top of hospital instructions",
+      "No agreed household rule for who decides cord questions"
+    ],
+    "after_items": [
+      "Executes one clean-dry routine confidently",
+      "Can name which traditional substances are dangerous vs unnecessary",
+      "Runs a daily 30-second check with clear pass/fail criteria",
+      "Stump stays dry and exposed",
+      "Fewer substances near the stump",
+      "Family conflict reduced by pre-agreed rules"
+    ]
+  },
+  "who_for": {
+    "for_label": "This is for you if",
+    "for_items": [
+      "Mother or primary caregiver of a newborn (0-3 weeks), in Nigeria/Africa or the diaspora, responsible for daily umbilical stump care - often with conflicting advice from grandmothers, aunties and hospital staff about what to apply and what to avoid",
+      "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different",
+      "Tried following the grandmother's advice (e.g. applying toothpaste or tying a belly band) while secretly worrying; or cleaned with everything the pharmacy suggested because no one gave one clear routine"
+    ],
+    "not_for_label": "This is NOT for you if",
+    "not_for_items": [
+      "This system coordinates everyday cord hygiene and triage ONLY. It never diagnoses infection, never treats with antibiotics, never advises removing the stump, and never replaces newborn wellness visits. Any suspected infection routes to professional care.",
+      "If any red flag is present (Redness spreading outward from the stump base onto the belly skin; Pus (yellow/green/white thick fluid) or foul smell; Swelling or hardening of skin around the stump), this is not a home system - seek professional care first."
+    ]
+  },
+  "promise": {
+    "label": "What we promise - and what we don't",
+    "we_do": "A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor. One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately.",
+    "we_do_not": "We do not promise: cannot diagnose infection remotely, does not replace newborn wellness visits, and some separation-time variation remains normal. This is an educational system, not medical, clinical, or mental-health care.",
+    "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+  },
+  "inside": {
+    "label": "Inside Cord Care That Won't Land You in A&E",
+    "items": [
+      "The Cord Care Guide - what is happening and the one house rule",
+      "Daily Care Kit - 30-second routine + house rule card",
+      "The Stump Decision Tree - normal vs worry triage",
+      "Cord Timeline Tracker - daily log + day-7/30 reviews",
+      "Script Pack - seven family conversations",
+      "RED FLAG Rescue Card - emergency routing"
+    ]
+  },
+  "final_cta": {
+    "headline": "One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately",
+    "body": "A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor.",
+    "cta_label": "Get Cord Care That Won't Land You in A&E",
+    "trust_line": "Educational content - not medical, clinical, or mental-health advice. Never diagnoses or treats. Any suspected infection goes to professional care the same day."
+  },
+  "next": {
+    "label": "What comes next",
+    "note": "These are not upsells. They are the next situations on the same journey.",
+    "items": [
+      {
+        "title": "The No-Village C-Section",
+        "transformation_id": "TR-PPL-CS-FIRST14DAYS-001",
+        "product_id": "PPL-CS-FIRST14DAYS-001"
+      },
+      {
+        "title": "Omugwo on Your Terms",
+        "transformation_id": "TR-PPL-OMUGWO-TERMS-001",
+        "product_id": "PPL-OMUGWO-TERMS-001"
+      }
+    ]
+  }
+}

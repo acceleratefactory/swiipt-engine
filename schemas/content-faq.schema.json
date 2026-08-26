@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/content-faq.schema.json",
+  "title": "Swiipt Product FAQ Content",
+  "description": "FAQ generated FROM the product + transformation records by factory stage 5.5. Every answer is derived from record fields (identity, customer, asset_map, safety, commerce.access_rules); no fabricated claims. Safety-adjacent answers carry the educational trust line and never replace professional care.",
+  "type": "object",
+  "required": [
+    "content_version",
+    "product_id",
+    "source",
+    "items"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "content_version": { "const": "1.0" },
+    "product_id": { "type": "string", "minLength": 1 },
+    "source": {
+      "enum": ["factory-generator", "manual-port"],
+      "description": "factory-generator = produced by harness/gen-content.mjs. manual-port = hand-structured reference; never overwritten by the generator."
+    },
+    "generated_at": { "type": "string" },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["q", "a"],
+        "additionalProperties": false,
+        "properties": {
+          "q": { "type": "string", "minLength": 1 },
+          "a": { "type": "string", "minLength": 1 },
+          "evidence_label": { "type": "string", "description": "Required on safety/claim answers; honest evidence basis." }
+        }
+      }
+    }
+  }
+}
