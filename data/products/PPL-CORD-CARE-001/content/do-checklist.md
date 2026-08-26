@@ -6,7 +6,7 @@
 > ## CORD HOUSE RULE
 > **Nothing goes ON the stump.**
 > **Clean. Dry. Exposed.**
-> Questions → [Mama's name] decides. Doctor overrides everyone.
+> Questions -> [Mama's name] decides. Doctor overrides everyone.
 
 ## Supplies you actually need
 
@@ -24,7 +24,7 @@ You do NOT need: spirit (optional at best), chlorhexidine gel (only if prescribe
 - [ ] Washed my hands before any cord touch
 - [ ] Bath as usual; cleaned around base with plain water only IF soiled; patted dry
 - [ ] Nappy folded BELOW the stump
-- [ ] Stump exposed to air (or loosely covered by clean clothes — no tight wrapping over it)
+- [ ] Stump exposed to air (or loosely covered by clean clothes - no tight wrapping over it)
 - [ ] Did the 30-SECOND CHECK below
 - [ ] Logged today in the tracker
 
@@ -36,15 +36,15 @@ You do NOT need: spirit (optional at best), chlorhexidine gel (only if prescribe
 
 **Stump itself:** dry and darkening = good. Any pus or foul smell = decision tree NOW.
 
-All clear → done for today.
+All clear -> done for today.
 
 ## If someone applies a substance anyway
 
-- [ ] Stay calm — relationship first, correction second
+- [ ] Stay calm - relationship first, correction second
 - [ ] Gently rinse with plain water, pat dry
 - [ ] Photo now + photo in 12 hours
 - [ ] Run the decision tree
-- [ ] Log the incident in tracker (what, who, when — facts only)
+- [ ] Log the incident in tracker (what, who, when - facts only)
 - [ ] Use the reset script later, privately, warmly
 
 ## After-separation care

@@ -7,7 +7,7 @@ Every year, newborns die from umbilical infections (omphalitis) that started as 
 
 ## What the cord stump actually is
 
-The stump is devitalized tissue — like a scab at your baby's middle. It has no nerves, so caring for it does not hurt the baby. Its only job is to dry out, harden, and fall off. Everything about good care follows from one fact: **dry tissue falls off safely; moist tissue grows bacteria.**
+The stump is devitalized tissue - like a scab at your baby's middle. It has no nerves, so caring for it does not hurt the baby. Its only job is to dry out, harden, and fall off. Everything about good care follows from one fact: **dry tissue falls off safely; moist tissue grows bacteria.**
 
 ## The one house rule
 
@@ -15,14 +15,14 @@ The stump is devitalized tissue — like a scab at your baby's middle. It has no
 
 That's it. No toothpaste. No shea butter. No herbs, powders, coins, bands, or hot compresses. If a substance is not prescribed by your baby's own clinician for this specific stump, it does not touch the stump.
 
-### "But we've always used..." — the honest table
+### "But we've always used..." - the honest table
 
 | Practice | Verdict | Why |
 |---|---|---|
-| Methylated spirit | **Optional, not required** | A Jos randomized trial (323 mother-baby pairs, 2021) found spirit no worse than chlorhexidine gel — but modern guidance says clean water and air-drying is enough when hygiene is okay |
+| Methylated spirit | **Optional, not required** | A Jos randomized trial (323 mother-baby pairs, 2021) found spirit no worse than chlorhexidine gel - but modern guidance says clean water and air-drying is enough when hygiene is okay |
 | Chlorhexidine gel | **Only if prescribed** | WHO recommends it mainly for HOME births in high-infant-mortality settings, or to replace dangerous substances. Not a general "must-buy" |
 | Toothpaste | **Never** | Zero benefit; introduces bacteria and chemicals |
-| Shea butter / Vaseline / oils | **Never on the stump** | Seals in moisture — the exact opposite of what healing needs |
+| Shea butter / Vaseline / oils | **Never on the stump** | Seals in moisture - the exact opposite of what healing needs |
 | Hot compresses | **Never** | Burns delicate skin and breeds infection (documented danger) |
 | Herbs, cow dung, saliva, leaves | **Absolutely never** | Documented pathways to fatal infection |
 | Belly band / coin covering | **Never** | Traps moisture and hides the warning signs you need to see |
@@ -48,17 +48,17 @@ That's it. No toothpaste. No shea butter. No herbs, powders, coins, bands, or ho
 - Redness spreading outward onto the belly skin
 - Yellow/green/white thick discharge (pus), especially with bad smell
 - Skin around the stump swollen, hard, or hot
-- Fever of 38°C/100.4°F or higher — OR baby unusually cold, floppy, hard to wake
+- Fever of 38C/100.4F or higher - OR baby unusually cold, floppy, hard to wake
 - Refusing feeds, inconsolable crying, or crying when the area is touched
 - Bleeding that doesn't stop with 10 minutes of gentle pressure
 
 **BOOK A REVIEW THIS WEEK:**
 - Stump still attached after 3 weeks (no pulling!)
-- After separation: ongoing oozing for more than a few days, or a pink moist lump (possible granuloma — treatable at clinic)
+- After separation: ongoing oozing for more than a few days, or a pink moist lump (possible granuloma - treatable at clinic)
 
 ## When it falls off
 
-You'll find it on the nappy or clothing — that's fine. Underneath: a small raw-looking spot may weep slightly or dot of blood; keep it clean and dry as before. Full tub baths once the area is completely healed.
+You'll find it on the nappy or clothing - that's fine. Underneath: a small raw-looking spot may weep slightly or dot of blood; keep it clean and dry as before. Full tub baths once the area is completely healed.
 
 ## The family conversation (short version)
 

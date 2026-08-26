@@ -1,0 +1,91 @@
+{
+  "manifest_version": "1.0",
+  "product_id": "PPL-CS-FIRST14DAYS-001",
+  "publish_target": "wordpress",
+  "transformation": {
+    "title": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule,",
+    "area": "m01",
+    "summary": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+    "evidence_label": "research-backed",
+    "tsm": {
+      "before_baseline": [
+        "pain score today /10",
+        "hours of unbroken sleep",
+        "heavy-lift events this week",
+        "can name incision red flags yes/no"
+      ],
+      "success_indicators": [
+        "meds on schedule >=90% days",
+        "daily walk from Day 2 onward",
+        "zero over-limit lifts after Day 3",
+        "all red flags got same-day response"
+      ],
+      "measurement_method": "Daily one-line log + structured Day-14 check against baseline",
+      "measurement_days": [
+        0,
+        7,
+        14,
+        30
+      ],
+      "success_threshold": "60%+ completers meet >=3 of 4 indicators at Day 14/30 review"
+    }
+  },
+  "product": {
+    "title": "The No-Village C-Section",
+    "description": "First 14 Days Alone With a Newborn After Major Abdominal Surgery - Survival & Function",
+    "short_description": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+    "base_price_usd": 29,
+    "prices": {}
+  },
+  "assets": [
+    {
+      "job": "READ",
+      "title": "The No-Village 14-Day Guide",
+      "content": "# The No-Village C-Section\n*First 14 days alone with a newborn after major abdominal surgery - survival and function, no village required.*\n\n## Who this is for\n\nYou came home from a C-section without a mother, auntie, or cousin installed in your guest room. Maybe your partner got two weeks off, maybe five days, maybe none. Everyone online says \"accept help\" - but there is no help standing in your kitchen. This guide assumes **nobody is coming**, and builds your first 14 days anyway.\n\n## The one fact that organizes everything\n\nA C-section is major abdominal surgery. You are a surgical patient carrying a newborn. Every instruction below flows from that: protect the incision, move gently but move, and lower the bar for everything that is not baby + healing.\n\n## Your 14-day map\n\n**Days 1-3 (survive):** pain on schedule, not on courage. Walk short loops. Everything within arm's reach.\n**Days 4-7 (function):** shower normally, short walks outside, one \"win task\" per day max.\n**Days 8-14 (rhythm):** light routine returns; still nothing heavier than the baby.\n\n## Pain management (the honest version)\n\n- Paracetamol (acetaminophen) and ibuprofen are the standard pair and are considered compatible with breastfeeding - take them ON SCHEDULE the first week, before pain spikes, exactly as your surgeon prescribed.\n- Pain that arrives late \"because I'm tough\" costs you sleep, mobility, and healing.\n- A pillow pressed to your belly when coughing, sneezing, laughing, or rolling changes everything.\n\n## Moving safely\n\n- Rolling out of bed: drop legs first, push up with arms (\"log roll\").\n- Walk every few hours, even just kitchen-to-sofa - walking prevents clots.\n- Nothing heavier than the baby for ~2 weeks; nothing heavier than ~10-15 lb / 6 kg until your 6-week review says otherwise.\n- No driving until you can brake hard without hesitating (commonly around 2 weeks; your clinician decides).\n- No baths/swimming until your clinician confirms healed (showers fine).\n\n## Incision care\n\nShower water over it is fine; mild soap, pat dry, no scrubbing, no creams/pastes/herbs on it. Air + time heals. Watch it daily with the Decision Card.\n\n## Feeding the machine (you)\n\nYou heal on food and water, not on leftovers. One-handed meals count. Protein + water at every chance. If appetite vanished: small, often.\n\n## The no-village systems\n\n1. **The Landing Zone:** one chair/bed corner with 48 hours of supplies - water bottle, snacks, chargers, nappies, wipes, muslins. Baby changes happen there.\n2. **The One-Trip Rule:** never climb stairs or cross the house for one item. Carry a basket.\n3. **The 15-Minute Visitor:** anyone who visits brings food or holds the baby WHILE YOU SHOWER - then goes home. Script Pack has the words.\n4. **Delivery apps > hero cooking.** This is the two weeks it's worth it.\n\n## What \"normal\" feels like\n\nSore incision improving daily, bleeding like a heavy period fading over weeks, afterpains while breastfeeding, exhaustion that sleep partially fixes, weepy \"baby blues\" easing after two weeks. None of that is failure.\n\n*Sources: Mayo Clinic C-section recovery guidance; Cleveland Clinic recovery timeline (2021); WebMD post-C-section recovery & warning signs; Medical News Today wound-infection review. Educational only - your own clinician overrides this guide.*\n"
+    },
+    {
+      "job": "DO",
+      "title": "Daily Survival Checklist Days 1-14",
+      "content": "# Daily Survival Checklist (Days 1-14)\n*One tick list. Survive first, function second.*\n\n## Morning (10 minutes)\n- [ ] Pain meds taken (on schedule, not on pain)\n- [ ] Water bottle filled - it lives next to you now\n- [ ] Incision peeked at (photo every 2 days)\n- [ ] Today has ONE goal only. Name it: ____________\n\n## Movement (every few hours)\n- [ ] Walked a loop (bed -> kitchen counts on Days 1-3)\n- [ ] Did the log-roll getting up, pillow-hug when sneezing/coughing\n- [ ] 3 deep breaths, 10 shoulder rolls hourly\n\n## Lifting rules (non-negotiable)\n- [ ] Lifted nothing heavier than the baby\n- [ ] Toddler/older child: sit-down cuddles only, no lifting\n- [ ] Asked for/delivered help with anything heavier\n\n## Evening reset (15 minutes)\n- [ ] Tomorrow's Landing Zone restocked: water, snacks, nappies, wipes, charger\n- [ ] Fed yourself actual food today? If not: note why, fix tomorrow\n- [ ] One-line log: pain __/10 . walked? Y/N . incision normal? Y/N\n\n## Week 2 additions (Days 8-14)\n- [ ] One short outdoor walk daily\n- [ ] Booked/attended the ~2-week postnatal check\n- [ ] Brake-test question if driving is near: can I slam the brakes without thinking twice?\n"
+    },
+    {
+      "job": "DECIDE",
+      "title": "The Incision Decision Card",
+      "content": "# The Incision Decision Card\n*Look at the incision + how you feel. One pass. Act on what you find.*\n\n## 1 - Is ANY of these true right now?\n\n- Fever **38C / 100.4F or higher**, or chills/shivering\n- Incision: red spreading outward, hot, swollen, opening, or leaking pus / bad-smelling fluid\n- Pain that is **getting worse** instead of better after day 3-4\n- Vaginal bleeding soaking a pad per hour, large clots, or foul smell\n- Calf pain/swelling/heat on one leg, chest pain, or shortness of breath\n- Severe headache that will not shift, or vision changes\n\n-> **ANY ONE = contact your clinician TODAY. Fever + any incision sign = same hour. Chest pain/breathlessness/calf signs = emergency now (clot until proven otherwise).**\n\n## 2 - None of those, but worried about looks?\n\n| Seeing | Meaning | Do |\n|---|---|---|\n| Slight redness thin line, mild swelling days 1-3 | Normal healing | Routine continues |\n| Pink/purple fading scar line weeks later | Normal maturing | Routine continues |\n| Small clear fluid seep after activity | Borderline | Photo today + tomorrow; call clinic if it repeats/worsens |\n| Hard lump at one end | Watch | Mention at week-2 check; photo log |\n| Weeping past day 5 / reopening edges | Not normal | Clinic today |\n| Numbness around incision | Very common | Normal for months |\n\n## 3 - The mood check (30 seconds)\n\nBeyond two weeks of weepy blues -> or any moment of \"I can't do this,\" hopelessness, thoughts of harming yourself or the baby -> **this is medical, not moral.** Contact your clinician and use the crisis lines on your Rescue Card. Screens route; they never diagnose.\n\n## 4 - Someone touched the incision / applied something\n\nHerbs, pastes, belly-binding over an unhealed wound: rinse gently with clean water if freshly applied, photograph, run section 1, use the reset script, log it.\n"
+    },
+    {
+      "job": "COMMUNICATE",
+      "title": "No-Village Scripts",
+      "content": "[[SCRIPTS]]\nTITLE: No-Village Scripts\nSUB: You are not superwoman and you don't owe anyone the performance of coping.\nSCRIPT: The visitor who sits down expecting tea | So glad you came - you're actually perfect timing. Hold him while I grab a shower, then I'll walk you out, I'm on painkillers schedule.\" ((They held the baby. You showered. Fifteen minutes, dignity intact.))\nSCRIPT: Declining the trip/event in week 2 | Recovery from the surgery isn't there yet - doctor says no long trips this fortnight. We'll be there properly once I'm cleared at my check-up.\nSCRIPT: Asking for REAL help (specific asks work) | If you want to help us this week, here's exactly what would change our lives: Tuesday groceries, Wednesday laundry pickup, Friday a pot of soup. Pick one?\nSCRIPT: Partner back at work after five paternity days | We need to plan your week like a rota: nights are split, mornings you handle [task] before leaving, weekends we trade shifts so I sleep in. This is two more weeks, then we renegotiate.\nSCRIPT: Long-distance village (the diaspora special) | Group chat message: \"We're doing meal-drop deliveries instead of visits: Tue/Thu/Sun slots open. Address to send courier: [x]. Thank you - this is the village, remote edition.\nSCRIPT: \"My mother would have come if she could\" grief moment | Say it out loud to yourself: *\"She couldn't come. I am allowed to find my own way. Look what I did today anyway.\"*\nSCRIPT: When baby blues turn dark (say this to someone) | I'm not okay. This feels beyond tired. Can you come sit with me / can I call you tonight?\" - and book the clinician line. You would never judge a friend for this.\n[[/SCRIPTS]]\n"
+    },
+    {
+      "job": "RESCUE",
+      "title": "Bad-Day Rescue Card + crisis lines",
+      "content": "[[RESCUE]]\nTITLE: Bad-Day Rescue Card\n*For the day everything goes wrong. It happens. Here's the reset.*\n\n## The rule of the bad day\n\nA bad day is not a failed recovery. Surgical healing is not linear. Today we drop to MINIMUM MODE and tomorrow restarts - no debt, no guilt.\n\n## Minimum Mode (the only 5 things)\n\n1. Meds on schedule\n2. Baby fed somehow (breast/bottle/expressed - all count)\n3. You ate ONE real thing and drank water\n4. Incision glance + red-flag scan\n5. Everyone alive -> day counted as survived\n\nEverything else - laundry, visitors, the perfect routine - waits.\n\n## Common bad days -> instant moves\n\n**\"I overdid it and I'm wrecked\"** -> Cancel tomorrow's goal. Meds, comfort, horizontal. Healing happens lying down.\n\n**\"Incision popped a sting / bled a dot after lifting\"** -> Photo, pressure 10 min, Decision Card scan. No repeat lift. Call clinic if reopened/oozing.\n\n**\"Nobody checked on me today\"** -> Send Script 5 to the group chat NOW. State the specific ask. People genuinely don't know.\n\n**\"I cried all afternoon\"** -> Hydrate, eat, tell one human by voice/text. Two weeks+ of this = clinician call. Crisis numbers below.\n\n**\"I resent the baby\" (fleeting horror thought)** -> Extremely common, not a verdict on you. Sleep-deprived brains say wild things. If persistent/darkening -> clinician, today-tomorrow.\n\n## Numbers that answer 24/7\n\nNigeria: Emergency **112** . SURPIN +234 806 210 6493 . MANI 0809 111 6264\nUK: Emergency **999** . Samaritans **116 123**\nUS: Emergency **911** . Crisis **988** . Canada: 911 / 988\n\n*Educational support - not diagnosis. Your clinician overrides everything here.*\nEMERG: Nigeria 112 | 112\nEMERG: UK 999 | 999\nEMERG: US 911 | 911\nEMERG: US 988 | 988\n[[/RESCUE]]\n"
+    }
+  ],
+  "relationships": {
+    "next_transformation_ids": [
+      "TR-PPL-CORD-CARE-001",
+      "TR-PPL-RTWORK-OS-001"
+    ]
+  },
+  "seo": {
+    "title": "The No-Village C-Section | Swiipt",
+    "description": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+    "focus_keyword": "the no-village c-section"
+  },
+  "qa": {
+    "deterministic": "PASS",
+    "ai": "PASS",
+    "safety": "PASS",
+    "commerce": "PASS",
+    "journey": "PASS"
+  },
+  "publish_authorization": {
+    "status": "READY_TO_PUBLISH",
+    "authorized_by": "Owner",
+    "authorized_at": "2026-08-26T11:44:33.603Z",
+    "notes": "Factory Wave run - owner directive 'build everything' 2026-08-24; pricing placeholders pending owner."
+  }
+}

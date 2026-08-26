@@ -1,0 +1,88 @@
+{
+  "manifest_version": "1.0",
+  "product_id": "PPL-RTWORK-OS-001",
+  "publish_target": "wordpress",
+  "transformation": {
+    "title": "A dated 30-day operating system: rights-backed workplace ask locked, feeding lan",
+    "area": "m01",
+    "summary": "A dated operating system for the return: rights-backed ask locked in writing, feeding lane chosen, freezer bank built, mornings drilled - week one becomes execution, not improvisation.",
+    "evidence_label": "research-backed",
+    "tsm": {
+      "before_baseline": [
+        "freezer bags banked",
+        "written accommodation requested yes/no",
+        "morning drill runs completed",
+        "childcare backup named yes/no"
+      ],
+      "success_indicators": [
+        "all D-milestones hit by Day 0",
+        ">=80% planned pump blocks taken in weeks 1-2",
+        "hand-off brief delivered >=90% mornings",
+        "supply stable/rising at day-15 review"
+      ],
+      "measurement_method": "Milestone tracker + daily block/hand-off ticks + Day-15 structured review",
+      "measurement_days": [
+        0,
+        7,
+        14,
+        30
+      ],
+      "success_threshold": "60%+ completers meet >=3 of 4 indicators at Day-15-back review"
+    }
+  },
+  "product": {
+    "title": "Beyond the Restroom: 30-Day Return-to-Work OS",
+    "description": "The 30 Days Before and After Maternity Leave Ends - Rights, Pumping Logistics and the Evening Bridge",
+    "short_description": "A dated operating system for the return: rights-backed ask locked in writing, feeding lane chosen, freezer bank built, mornings drilled - week one becomes execution, not improvisation.",
+    "base_price_usd": 29,
+    "prices": {}
+  },
+  "assets": [
+    {
+      "job": "READ",
+      "title": "The 30-Day Return-to-Work Guide + rights block",
+      "content": "# Beyond the Restroom: 30-Day Return-to-Work OS\n*The 30 days before and the 30 days after maternity leave ends - planned like a project, run like a system.*\n\n## Why this exists\n\n\"Going back to work\" advice is either corporate HR boilerplate or vague \"self-care.\" Meanwhile the actual problems - pumping at work, the morning hand-off, supply logistics, guilt math, the 5pm scramble - hit in week one with no plan. This is that plan: **15 days before, 15 days after**, each day one small move.\n\n## Know your rights first (this changes your negotiation)\n\n**United States:** The PUMP Act (2022) requires nearly all employers to provide reasonable break time plus a private, non-bathroom space to pump for one year after birth - pumping time counts as work time when not fully relieved. The Pregnant Workers Fairness Act adds accommodation rights.\n\n**United Kingdom:** No statutory pumping-break law, but the Equality Act 2010 treats unfavourable treatment of breastfeeding as sex discrimination, and HSE guidance says employers should provide a clean private space (never toilets). 52 weeks' statutory maternity leave; flexible-working requests are a formal process.\n\n**Nigeria:** The Labour Act floor is twelve weeks' maternity leave at no less than 50% pay (section 54) - verify your employer's contract/policy which often exceeds this; nursing breaks are commonly negotiated case by case in practice.\n\nWherever you are: **your ask is an adjustment request backed by law/guidance, not a favour.**\n\n## Phase 1 - BEFORE (Days -15 to -1): build the machine\n\n- **D-15:** Confirm return date + schedule in writing. Choose your feeding strategy (Decision Card).\n- **D-14 to -10:** Build the freezer bank: +2 bags/day beyond baby's needs. Rehearse one full separation morning.\n- **D-9:** Childcare locked + one backup named. Paid trial half-day if possible.\n- **D-8:** The Employer Ask (Script Pack) - pump space/time or flexibility request, in writing.\n- **D-7 to -3:** Run the Morning Drill twice: full route, real timing, note friction.\n- **D-2:** Pack the Work Bag: pump, parts, cooler, labels, spare top, snacks, charger, photos of baby (for letdown).\n- **D-1:** Night-before ritual: bags by door, bottles prepped, clothes laid out, alarm = baby's feed.\n\n## Phase 2 - AFTER (Days +1 to +15): run the system\n\n**The three anchors that hold everything:**\n1. **Morning Hand-off:** same person, same spot, same 4 lines every workday (\"last feed ___ml, nappies ___, mood ___\").\n2. **Pump Blocks:** calendar-blocked, non-negotiable, ~every 3 hours. Skipping blocks = supply tax + pain today.\n3. **The 5pm Bridge:** evening feed/reconnect ritual that resets you both - phone away first 20 minutes.\n\n**Weekly rhythm:** Sunday 20-minute reset (meals, bag restock, laundry loop). Wednesday mid-week check: what broke? Fix ONE thing.\n\n## The guilt chapter (read twice)\n\nGuilt spikes when values collide unexamined. Write yours down: providing income IS care. A regulated, fulfilled mother is a gift, not a betrayal. Your baby does not need a martyr; they need you thriving on both sides of 5pm. If sadness becomes persistent hopelessness - that's clinical territory, use the Rescue lines.\n\n## Supply & storage quick rules\n\nWash hands . store milk in clean sealed containers . refrigerate up to ~4 days / freeze best within 3 months . label date . thaw oldest-first in fridge, never microwave . swirl, don't shake hard. When unsure about a batch: smell, then bin if off - never re-feed leftover from a finished feed.\n\n*Sources: US DOL/EEOC PUMP Act + PWFA materials (2024); CDC workplace breastfeeding guidance; UK Maternity Action/NHS/HSE guidance; Nigeria Labour Act s54. Educational only.*\n"
+    },
+    {
+      "job": "DO",
+      "title": "The Operating Checklist (before/after anchors)",
+      "content": "# The Operating Checklist\n*Before-phase builds it; after-phase runs it.*\n\n## BEFORE - one-time builds\n\n- [ ] Return date + schedule confirmed in writing\n- [ ] Feeding strategy chosen (see Decision Card)\n- [ ] Freezer bank started: target ____ bags before Day 1\n- [ ] Childcare booked + backup named + trial run done\n- [ ] Employer adjustment requested IN WRITING (space/time/flex)\n- [ ] Morning Drill run twice, friction list fixed\n- [ ] Work Bag packed (pump, parts, cooler, labels, spare top, charger, snack)\n- [ ] Night-before station set (bags/bottles/clothes/alarm)\n\n## AFTER - daily anchors\n\n**Morning Hand-off**\n- [ ] Same hand-off person/spot\n- [ ] 4-line brief said aloud: last feed ml . nappies . sleep . mood\n\n**Pump Blocks (workdays)**\n- [ ] Block 1 (~9:30) [] . Block 2 (~12:30) [] . Block 3 (~15:30) []\n- [ ] Parts rinsed, milk labelled w/ date, into cooler/fridge immediately\n- [ ] Missed a block? Next block within 90 min + hydrate\n\n**Evening Bridge**\n- [ ] Phone away, first 20 minutes skin-to-skin/play/feed\n- [ ] Bottles/parts washed once, once only\n- [ ] Tomorrow's bags by the door TONIGHT\n\n## Weekly\n\n- [ ] Sunday 20-min reset: meals sketch . bag restock . laundry loop . self-check mood/supply/pain\n- [ ] Wednesday fix-one-thing review: what broke -> single smallest fix\n\n## Red flags to act on this week\n\n- [ ] Supply dropping across 3+ days -> add early/night pump, check flange fit, lactation line\n- [ ] Mastitis signs (red hot wedge, fever, flu-feel) -> clinician SAME DAY, keep milk flowing\n- [ ] Dread/hopelessness persisting -> rescue lines; clinical support is strength\n"
+    },
+    {
+      "job": "DECIDE",
+      "title": "Feeding-at-Work Decision Card",
+      "content": "# Feeding-at-Work Decision Card\n*Pick your lane before Day 1. All four are legitimate wins.*\n\n## Start here\n\n**Can you get to baby at lunch?**\n-> YES: **Lunch-reunion lane.** Express mid-morning only if engorged; nurse at lunch; evenings normal. Simplest hardware.\n\n-> NO: continue.\n\n**Do you WANT to keep breast milk as the main milk?**\n-> YES: **Pumping lane.** Blocks every ~3h; storage kit; freezer bank covers Monday chaos.\n\n-> It doesn't fit your job/body reality:\n-> **Combo lane.** Breast at home mornings/nights + formula at childcare. Zero shame - fed, loved, employed. Caregiver preps per tin instructions exactly; never dilute.\n\n-> Circumstances say exclusive formula: **Formula lane.** Your hands stay free of pump parts and your lunch break is actually yours. Same love, different container.\n\n## Any-lane logistics check\n\n- Where will milk/formula live at childcare? Labelled? Cold chain?\n- Who thaws/preps? Written instructions given?\n- Backup feed in their cupboard Day 1?\n\n## If the employer pushback happens\n\nRe-read your rights block in the Guide. Respond in writing: \"Happy to solve logistics together - my request matches [PUMP Act 2022 / HSE guidance / company policy].\" Escalation path: HR written -> ACAS/Maternity Action (UK) -> DOL complaint (US) -> union/labour officer (NG).\n\n## Mood guardrail\n\nIf feeding-at-work becomes daily dread or grief spirals: that's data, not weakness. Lactation consultant (lane change is allowed!) + crisis numbers. Fed-and-well beats any badge.\n"
+    },
+    {
+      "job": "COMMUNICATE",
+      "title": "Scripts for the Working Mother",
+      "content": "[[SCRIPTS]]\nTITLE: Scripts for the Working Mother\nSUB: Employer. Caregiver. Partner. Yourself.\nSCRIPT: The employer ask (email, send D-8) | As I plan my return on [date], I'd like to confirm two adjustments: (1) a private, non-bathroom space and reasonable break windows to express milk (as covered by the PUMP Act / supported under HSE guidance / our policy), and (2) [flex start / WFH Wed]. Happy to propose a schedule that keeps coverage seamless. Thank you!\nSCRIPT: Pushback on pump breaks | I've checked this against [the law/guidance] and I'm confident we can make it work logistically. Here's the coverage plan so nothing slips: [blocks + handover note]. Let's agree the space this week.\nSCRIPT: Childcare briefing card (hand over printed) | Feeds: ___ml every ___h (or on demand). Storage: fridge only, dated labels. Soothing: she likes the shoulder bounce + shhh. Emergency contact order: [x, y, z]. Photo updates melt me. THANK YOU.\nSCRIPT: Partner renegotiation (the invisible-load talk) | Work added a job to both of us. Tonight we split the NEW jobs list, not argue about the old one: nights alternate, mornings you own [x], I own [y], Sunday we trade sleep-ins. We're teammates, not scorekeepers.\nSCRIPT: The 5pm guilt spiral (say to yourself) | She had food, warmth, and a person who loves her all day. So did I. We reunite now and the evening is ours.\nSCRIPT: Declining 'just one more thing' while stabilizing | I want to do this properly rather than fast - give me until Thursday to scope it. Right now I have a hard stop at 5.\nSCRIPT: When it gets dark (to a real human) | I'm not adjusting okay. This is heavier than tired. Can you [come over / take Thursday]?\" + book the clinician. Numbers on the rescue card. Asking is the strong version of you.\n[[/SCRIPTS]]\n"
+    },
+    {
+      "job": "RESCUE",
+      "title": "Red flags & rescue routing (in guide/checklist)",
+      "content": "[[RESCUE]]\nTITLE: BEYOND THE RESTROOM - BAD-DAY RESCUE CARD\n*If you are opening this because today went wrong - you are not failing. You are using the system's built-in recovery mode.*\n\n## The rule of the bad day\nA bad day does not erase your system. It activates **Minimum Mode**. You do not \"make up\" for a lost day. You run the smaller system and continue.\n\n## MINIMUM MODE - the only 5 things\nOn a bad day, do ONLY these:\n1. **Baby fed** (however feeding happens today)\n2. **Pump or nurse at your longest work gap** - even 10 minutes protects supply\n3. **Bags in the freezer** - whatever you get is banked, zero guilt about quantity\n4. **One line to your childcare person** - what time, what pickup, nothing else\n5. **Sleep when the baby sleeps tonight** - dishes wait\n\nEverything else on the checklist can slide ONE day without damage.\n\n## Common bad days - instant moves\n\n### Supply suddenly dropped\n- Check: new bra? period returning? skipped two pumps? dehydration?\n- Add ONE extra session tonight (even 8 minutes signals \"make more\")\n- Water bottle next to every pump site starting now\n- Judge supply at DAY level, never session level\n\n### Employer blocked / squeezed your pump breaks\n- Do not negotiate live. Say: *\"I'll check my notes and come back to you this afternoon.\"*\n- Send Script 2 (the pushback reply) from a calm hour, not the hallway\n- Log it: date, time, what was said. Patterns matter; incidents don't.\n\n### Childcare collapsed this morning\n- Call the backup name on your Day-0 card BEFORE panicking\n- If no backup: use the emergency-day protocol you wrote in Week -1 (who covers, for how long)\n- Text your lead: *\"Family emergency this morning - online by [time].\"* Short is professional.\n\n### Pain, fever, hot red streak on breast\n- Fever + flu feeling + hot spot = possible mastitis. **Call your clinic TODAY.**\n- Keep milk moving (feed/pump that side) on the way to the call\n- This is common, treatable, and not a failure of the system\n\n### The night-before disaster (nothing prepped)\n- Run Minimum Mode tomorrow. Prep ONE thing tonight (bags labeled OR outfit out) - not all of it.\n\n## The mood guardrail\nIf you have cried most of the day for 3+ days, or you feel numb/dark/not-yourself:\n- Tell one human TODAY - partner, sister, friend, the Script 7 line\n- Postpartum mood conditions are medical, not moral. Treatment works.\n\n## Numbers that answer 24/7\n- **US:** Postpartum Support Intl 1-800-944-4773 · 988 (call/text)\n- **UK:** Samaritans 116 123\n- **Nigeria:** MANI 0806 210 6493 · SURPIN 0908 021 7555 · Emergency 112\n- **My clinic / lactation line:** ______________________\n\n*This card is educational support, not medical advice. Red-flag symptoms go to a clinician, always.*\n\nEMERG: Nigeria 112 | 112\nEMERG: US 988 | 988\n[[/RESCUE]]\n"
+    }
+  ],
+  "relationships": {
+    "next_transformation_ids": []
+  },
+  "seo": {
+    "title": "Beyond the Restroom: 30-Day Return-to-Work OS | Swiipt",
+    "description": "A dated operating system for the return: rights-backed ask locked in writing, feeding lane chosen, freezer bank built, mornings drilled - week one becomes execu",
+    "focus_keyword": "beyond the restroom: 30-day return-to-work os"
+  },
+  "qa": {
+    "deterministic": "PASS",
+    "ai": "PASS",
+    "safety": "PASS",
+    "commerce": "PASS",
+    "journey": "PASS"
+  },
+  "publish_authorization": {
+    "status": "READY_TO_PUBLISH",
+    "authorized_by": "Owner",
+    "authorized_at": "2026-08-26T11:44:33.862Z",
+    "notes": "Factory Wave run - owner directive 'build everything' 2026-08-24; pricing placeholders pending owner."
+  }
+}

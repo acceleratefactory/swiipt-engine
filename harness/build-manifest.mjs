@@ -25,6 +25,27 @@ const jobMap = {
   COMMUNICATE: "COMMUNICATE", RESCUE: "RESCUE", RE_ENTER: "RE_ENTER",
   MAINTAIN: "MAINTAIN", REMEMBER: "REMEMBER",
 };
+
+// Resolve a source_path that may be a whole file ("content/x.md") or a bundle
+// section ("content/bundle.md#section.md" -> the =====FILE section.md===== block).
+function readSource(pdir, sourcePath) {
+  let filePart = sourcePath;
+  let section = null;
+  const ix = sourcePath.indexOf("#");
+  if (ix >= 0) { filePart = sourcePath.slice(0, ix); section = sourcePath.slice(ix + 1); }
+  const raw = readFileSync(join(pdir, filePart), "utf8");
+  if (!section) return raw;
+  const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const lines = raw.split(/\r?\n/);
+  const startRe = new RegExp("^=====FILE\\s+" + esc(section) + "\\s*=====$");
+  let start = -1;
+  for (let i = 0; i < lines.length; i++) { if (startRe.test(lines[i].trim())) { start = i; break; } }
+  if (start < 0) throw new Error(`section "${section}" not found in ${filePart}`);
+  let end = lines.length;
+  for (let i = start + 1; i < lines.length; i++) { if (/^=====FILE\s+.*=====$/.test(lines[i].trim())) { end = i; break; } }
+  return lines.slice(start + 1, end).join("\n").replace(/^\s+/, "").replace(/\s+$/, "") + "\n";
+}
+
 const assets = [];
 for (const list of Object.values(p.asset_map)) {
   for (const aid of list) {
@@ -33,7 +54,7 @@ for (const list of Object.values(p.asset_map)) {
     const a = JSON.parse(readFileSync(af, "utf8"));
     let content = "";
     if (a.source_path) {
-      content = readFileSync(join(pdir, a.source_path), "utf8");
+      content = readSource(pdir, a.source_path);
     }
     assets.push({ job: jobMap[a.job] ?? a.job, title: a.title, content });
   }

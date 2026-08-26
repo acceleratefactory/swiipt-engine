@@ -12,9 +12,9 @@ A C-section is major abdominal surgery. You are a surgical patient carrying a ne
 
 ## Your 14-day map
 
-**Days 1–3 (survive):** pain on schedule, not on courage. Walk short loops. Everything within arm's reach.
-**Days 4–7 (function):** shower normally, short walks outside, one "win task" per day max.
-**Days 8–14 (rhythm):** light routine returns; still nothing heavier than the baby.
+**Days 1-3 (survive):** pain on schedule, not on courage. Walk short loops. Everything within arm's reach.
+**Days 4-7 (function):** shower normally, short walks outside, one "win task" per day max.
+**Days 8-14 (rhythm):** light routine returns; still nothing heavier than the baby.
 
 ## Pain management (the honest version)
 
@@ -26,7 +26,7 @@ A C-section is major abdominal surgery. You are a surgical patient carrying a ne
 
 - Rolling out of bed: drop legs first, push up with arms ("log roll").
 - Walk every few hours, even just kitchen-to-sofa - walking prevents clots.
-- Nothing heavier than the baby for ~2 weeks; nothing heavier than ~10–15 lb / 6 kg (roughly a full shopping bag) until your 6-week review says otherwise.
+- Nothing heavier than the baby for ~2 weeks; nothing heavier than ~10-15 lb / 6 kg until your 6-week review says otherwise.
 - No driving until you can brake hard without hesitating (commonly around 2 weeks; your clinician decides).
 - No baths/swimming until your clinician confirms healed (showers fine).
 
@@ -50,8 +50,9 @@ You heal on food and water, not on leftovers. One-handed meals count. Protein + 
 Sore incision improving daily, bleeding like a heavy period fading over weeks, afterpains while breastfeeding, exhaustion that sleep partially fixes, weepy "baby blues" easing after two weeks. None of that is failure.
 
 *Sources: Mayo Clinic C-section recovery guidance; Cleveland Clinic recovery timeline (2021); WebMD post-C-section recovery & warning signs; Medical News Today wound-infection review. Educational only - your own clinician overrides this guide.*
+
 =====FILE do-checklist.md=====
-# Daily Survival Checklist (Days 1–14)
+# Daily Survival Checklist (Days 1-14)
 *One tick list. Survive first, function second.*
 
 ## Morning (10 minutes)
@@ -61,9 +62,9 @@ Sore incision improving daily, bleeding like a heavy period fading over weeks, a
 - [ ] Today has ONE goal only. Name it: ____________
 
 ## Movement (every few hours)
-- [ ] Walked a loop (bed → kitchen counts on Days 1–3)
+- [ ] Walked a loop (bed -> kitchen counts on Days 1-3)
 - [ ] Did the log-roll getting up, pillow-hug when sneezing/coughing
-- [ ] Stretched shoulders/breathes: 3 deep breaths, 10 shoulder rolls
+- [ ] 3 deep breaths, 10 shoulder rolls hourly
 
 ## Lifting rules (non-negotiable)
 - [ ] Lifted nothing heavier than the baby
@@ -73,9 +74,10 @@ Sore incision improving daily, bleeding like a heavy period fading over weeks, a
 ## Evening reset (15 minutes)
 - [ ] Tomorrow's Landing Zone restocked: water, snacks, nappies, wipes, charger
 - [ ] Fed yourself actual food today? If not: note why, fix tomorrow
-- [ ] One-line log: pain __/10 · walked? Y/N · incision normal? Y/N
+- [ ] One-line log: pain __/10 . walked? Y/N . incision normal? Y/N
 
-## Week 2 additions (Days 8–14)
+## Week 2 additions (Days 8-14)
 - [ ] One short outdoor walk daily
 - [ ] Booked/attended the ~2-week postnatal check
-- [ ] Practiced the brake-test question if driving is near: can I slam the brakes without thinking twice?
+- [ ] Brake-test question if driving is near: can I slam the brakes without thinking twice?
+

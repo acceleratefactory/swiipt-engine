@@ -4,7 +4,7 @@
 
 ## The truth about omugwo
 
-Omugwo - the mother/mother-in-law coming to cook, hold the baby and care for you - is genuinely protective. Studies out of Nigeria link it to lower postpartum depression and better rest. The problem was never the concept. It's the **un-negotiated version**: a strong-willed guest, her own rules for the baby, and you - medicated, bleeding, exhausted - trying to host.
+Omugwo - the mother/mother-in-law coming to cook, hold the baby and care for you - is genuinely protective. Nigerian reporting and research link it to lower postpartum depression and better rest. The problem was never the concept. It's the **un-negotiated version**: a strong-willed guest, her own rules for the baby, and you - medicated, bleeding, exhausted - trying to host.
 
 This system keeps the gift and removes the war. One word runs it: **terms**. Agreed before she arrives, in writing, with love.
 
@@ -40,21 +40,22 @@ No grandmother coming? The same structure works remotely: nightly video call whe
 
 Postpartum depression/anxiety screening and crisis routing live in the Rescue Card and always route to professionals. Omugwo helps mood; it never treats illness.
 
-*Sources: Punch Nigeria reporting linking omugwo practices with reduced postpartum depression; NCBI reviews of African postpartum confinement practices; WHO postnatal care recommendations for infant safety basics. Cultural guidance synthesized from documented practice patterns.*
+*Sources: Punch Nigeria reporting linking omugwo practices with reduced postpartum depression; NCBI reviews of African postpartum confinement practices; WHO postnatal care recommendations for infant safety basics.*
+
 =====FILE do-checklist.md=====
 # The Omugwo Agreement Kit
 *Fill BEFORE she arrives. Read aloud together Day 1. Post on fridge.*
 
 ## Her proud Zone A (her choice first!)
 
-She claims: ☐ Cooking ☐ Laundry ☐ Cleaning ☐ Baby-holding between feeds ☐ Other: ______
+She claims: [] Cooking [] Laundry [] Cleaning [] Baby-holding between feeds [] Other: ______
 
 Her signature dishes for week 1: ______________ ______________
 
 ## Together Zone B
 
-- Bathing: she assists, parent washes ☐
-- Visitors: she screens calls/door, parent approves entry ☐
+- Bathing: she assists, parent washes []
+- Visitors: she screens calls/door, parent approves entry []
 
 ## Doctor's Zone C - posted verbatim
 
@@ -73,69 +74,55 @@ Her signature dishes for week 1: ______________ ______________
 
 ## The trade she'll love
 
-Ask: "What would make YOUR stay comfortable?" → book her rest hour too: ____
+Ask: "What would make YOUR stay comfortable?" -> book her rest hour too: ____
 
 ## Week-1 check (5 minutes, warm tea)
 
 What's working? ______ What should WE adjust? ______ Re-read Zone C aloud once. Hug.
+
 =====FILE scripts.md=====
-# Boundary Scripts (Omugwo Edition)
-*Honour first. Rule second. Redirect third.*
+[[SCRIPTS]]
+TITLE: Boundary Scripts (Omugwo Edition)
+SUB: Honour first. Rule second. Redirect third.
+SCRIPT: "In our day we put X on the cord" | Mama, you did so well raising all of you. The paediatrician has now given us strict written rules for THIS baby - nothing touches the stump. Help me get them right? I want to tell everyone exactly like you told me." ((Enlist her as enforcer, not target.))
+SCRIPT: "The baby needs herb water / gripe mix" | Doctor said milk only until the 6-month visit - I'm scared to disobey with THIS one. Can you make me your special pepper soup instead? Nobody cooks it like you.
+SCRIPT: She takes over entirely and you've become furniture | Mama, I miss my baby in the night. Please take him AFTER the 11pm feed so I can sleep till 2 - that part is mine. The daytime he's all yours.
+SCRIPT: Visitors flooding the house | We're following the doctor's rest rule - two visitors a day, ten minutes. You're gatekeeper: who are we blessing today?
+SCRIPT: She's offended you won't hand the baby over at 3am | You've been on your feet all day - I NEED you rested to help me tomorrow. Tonight's shift is mine.
+SCRIPT: Mother-in-law tension rising (route through partner, verbatim) | Your mum has been incredible. One small thing: Zone C rules come from the doctor, and I need you to be the one who reminds her - mother to son lands softer.
+SCRIPT: When YOU feel yourself boil (before exploding) | 
+[[/SCRIPTS]]
 
-## 1 · "In our day we put X on the cord"
-
-> "Mama, you did so well raising all of you. The paediatrician has now given us strict written rules for THIS baby - nothing touches the stump. Help me get them right? I want to tell everyone exactly like you told me."
-
-*(Enlist her as enforcer, not target.)*
-
-## 2 · "The baby needs herb water / gripe mix"
-
-> "Doctor said milk only until the 6-month visit - I'm scared to disobey with THIS one. Can you make me your special pepper soup instead? Nobody cooks it like you."
-
-## 3 · She takes over entirely and you've become furniture
-
-> "Mama, I miss my baby in the night. Please take him AFTER the 11pm feed so I can sleep till 2 - that part is mine. The daytime he's all yours."
-
-## 4 · Visitors flooding the house
-
-> "We're following the doctor's rest rule - two visitors a day, ten minutes. You're gatekeeper: who are we blessing today?"
-
-## 5 · She's offended you won't hand the baby over at 3am
-
-> "You've been on your feet all day - I NEED you rested to help me tomorrow. Tonight's shift is mine."
-
-## 6 · Mother-in-law tension rising
-
-Route through partner, verbatim:
-
-> "Your mum has been incredible. One small thing: Zone C rules come from the doctor, and I need you to be the one who reminds her - mother to son lands softer."
-
-## 7 · When YOU feel yourself boil (before exploding)
-
-Leave the room, drink water, read Rescue Card. Then: "Mama, let me show you something the doctor wrote..." - the paper absorbs the fight.
 =====FILE rescue-card.md=====
-# When It Boils - Rescue Card
+[[RESCUE]]
+TITLE: When It Boils - Rescue Card
 *For the moment omugwo stops feeling like help.*
 
 ## Pick your situation
 
-**1 · "I just got shouted down about the rules"**
-→ Leave room · drink water · re-enter with the PAPER (Zone C card), not your voice: "It's the doctor's list, see?" Paper absorbs shame on both sides.
+**1 - "I just got shouted down about the rules"**
+-> Leave room . drink water . re-enter with the PAPER (Zone C card), not your voice: "It's the doctor's list, see?" Paper absorbs shame on both sides.
 
-**2 · "She overrides me every single time"**
-→ Partner-conference tonight using Script 6. If partner won't act: reduce her Zone A exposure for 48h ("rest, Mama") while things cool - rest is an honourable exit for everyone.
+**2 - "She overrides me every single time"**
+-> Partner-conference tonight using Script 6. If partner won't act: reduce her Zone A exposure for 48h ("rest, Mama") while things cool - rest is an honourable exit for everyone.
 
-**3 · "I'm crying in the bathroom daily / dread her footsteps"**
-→ This is beyond etiquette. Two moves: (a) shorten the visit - "Doctor wants me resting with less crowd, can we move your return to Friday?" (b) Tell ONE person honestly today. Persistent low mood/dark thoughts = clinician + lines below. Omugwo helps mood; it cannot treat illness.
+**3 - "I'm crying in the bathroom daily / dread her footsteps"**
+-> This is beyond etiquette. Two moves: (a) shorten the visit honorably - "Doctor wants me resting with less crowd, can we move your return to Friday?" (b) Tell ONE person honestly today. Persistent low mood/dark thoughts = clinician + lines below. Omugwo helps mood; it cannot treat illness.
 
-**4 · "A remedy already touched the baby (cord/herb/mouth)"**
-→ Don't explode. Rinse (cord: plain water). Photograph. Run your product decision criteria. Call the clinic line to report it - frame as question, gets faster help than confession. THEN Script 3 reset privately.
+**4 - "A remedy already touched the baby (cord/herb/mouth)"**
+-> Don't explode. Rinse (cord: plain water). Photograph. Run your product decision criteria. Call the clinic line to report it - frame as question, gets faster help than confession. THEN Script 3 reset privately.
 
-**5 · "Baby's routine is wrecked, everyone miserable"**
-→ Reset Day: nobody hosts, Zone A only (food!), routines restart tomorrow morning. One bad day is weather, not climate.
+**5 - "Baby's routine is wrecked, everyone miserable"**
+-> Reset Day: nobody hosts, Zone A only (food!), routines restart tomorrow morning. One bad day is weather, not climate.
 
 ## Numbers (mental health, 24/7)
-Nigeria: SURPIN +234 806 210 6493 · MANI 0809 111 6264 · Emergency 112
-UK: Samaritans 116 123 · US/Canada: 988 · Emergencies: 999/911
+Nigeria: SURPIN +234 806 210 6493 . MANI 0809 111 6264 . Emergency 112
+UK: Samaritans 116 123 . US/Canada: 988 . Emergencies: 999/911
 
 *Educational support - never diagnosis. Clinicians override everything.*
+EMERG: Nigeria 112 | 112
+EMERG: UK 999 | 999
+EMERG: US 911 | 911
+EMERG: US 988 | 988
+[[/RESCUE]]
+
