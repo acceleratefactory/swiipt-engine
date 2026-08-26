@@ -2,7 +2,7 @@
   "content_version": "1.0",
   "product_id": "PPL-CS-FIRST14DAYS-001",
   "source": "factory-generator",
-  "generated_at": "2026-08-26T14:27:33.240Z",
+  "generated_at": "2026-08-26T16:08:37.096Z",
   "items": [
     {
       "q": "What is The No-Village C-Section?",
@@ -14,7 +14,7 @@
     },
     {
       "q": "What is included?",
-      "a": "You get 5 components: The No-Village 14-Day Guide; Daily Survival Checklist Days 1-14; The Incision Decision Card; No-Village Scripts; Bad-Day Rescue Card + crisis lines."
+      "a": "You get 5 components: The No-Village 14-Day Guide; Daily Survival Checklist Days 1-14; The Incision Decision Card; No-Village Scripts; Bad-Day Rescue Card + crisis lines. Together they let you runs a scheduled pain-movement-rest system solo and executes log-roll/lifting rules automatically."
     },
     {
       "q": "Is this medical advice?",
@@ -24,6 +24,10 @@
     {
       "q": "How do I get it?",
       "a": "Instant digital download. After checkout the system appears in your Swiipt library with read, PDF, and read-aloud formats."
+    },
+    {
+      "q": "Why does this approach work?",
+      "a": "Standard surgical-recovery principles (scheduled analgesia, early ambulation, wound surveillance) are exactly what a solo patient needs as defaults rather than judgment calls"
     }
   ]
 }

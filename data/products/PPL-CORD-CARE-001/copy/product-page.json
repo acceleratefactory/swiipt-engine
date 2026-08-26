@@ -2,7 +2,7 @@
   "content_version": "1.0",
   "product_id": "PPL-CORD-CARE-001",
   "source": "factory-generator",
-  "generated_at": "2026-08-26T14:27:30.838Z",
+  "generated_at": "2026-08-26T16:08:37.060Z",
   "hero": {
     "title": "Cord Care That Won't Land You in A&E",
     "subtitle": "One evidence-based routine for the umbilical stump - plus the exact words to protect it from harmful 'remedies' without family war",
@@ -13,6 +13,6 @@
   "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment.",
   "situation_block": {
     "label": "Your situation",
-    "body": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different"
+    "body": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different. She does not know which daily care routine is actually safe, which traditional practices are harmless versus dangerous, and which changes in the stump's appearance mean 'normal healing' versus 'infection needing a doctor tonight'."
   }
 }

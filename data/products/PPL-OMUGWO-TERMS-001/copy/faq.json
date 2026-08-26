@@ -2,7 +2,7 @@
   "content_version": "1.0",
   "product_id": "PPL-OMUGWO-TERMS-001",
   "source": "factory-generator",
-  "generated_at": "2026-08-26T14:27:33.759Z",
+  "generated_at": "2026-08-26T16:08:37.130Z",
   "items": [
     {
       "q": "What is Omugwo on Your Terms?",
@@ -14,7 +14,7 @@
     },
     {
       "q": "What is included?",
-      "a": "You get 4 components: Omugwo on Your Terms - the three-zone system; The Omugwo Agreement Kit; Boundary Scripts (Omugwo Edition); When It Boils - Rescue Card + mood lines."
+      "a": "You get 4 components: Omugwo on Your Terms - the three-zone system; The Omugwo Agreement Kit; Boundary Scripts (Omugwo Edition); When It Boils - Rescue Card + mood lines. Together they let you runs the Agreement conversation before Day 1 and routes every clash through Zone C paper, not personal argument."
     },
     {
       "q": "Is this medical advice?",
@@ -24,6 +24,10 @@
     {
       "q": "How do I get it?",
       "a": "Instant digital download. After checkout the system appears in your Swiipt library with read, PDF, and read-aloud formats."
+    },
+    {
+      "q": "Why does this approach work?",
+      "a": "Conflict here is about status and love-language, not hygiene knowledge; systems that preserve status while changing defaults succeed where explanations failed"
     }
   ]
 }

@@ -1,0 +1,45 @@
+{
+  "content_version": "1.0",
+  "product_id": "PPL-CORE-NORMAL-001",
+  "source": "factory-generator",
+  "generated_at": "2026-08-26T16:08:37.064Z",
+  "hero": {
+    "headline": "Is This Normal?",
+    "subheadline": "What's Actually Happening, What's Safe to Do This Week, and When to See a Doctor",
+    "body": "Informed, safe-movement plan, red flags known, realistic expectations for her stage of recovery.",
+    "cta_label": "Get the System",
+    "trust_line": "Educational content - not medical, clinical, or mental-health advice.",
+    "evidence_label": "Educational content informed by practical and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
+  },
+  "before_after": {
+    "label": "What changes",
+    "before_items": [
+      "The situation as it stands today."
+    ],
+    "after_items": [
+      "Informed, safe-movement plan, red flags known, realistic expectations for her stage of recovery."
+    ]
+  },
+  "who_for": {
+    "for_label": "This is for you if",
+    "for_items": [
+      "Anyone in the situation this system is built for: what's Actually Happening, What's Safe to Do This Week, and When to See a Doctor."
+    ],
+    "not_for_label": "This is NOT for you if",
+    "not_for_items": [
+      "If you need clinical diagnosis or treatment, this educational system is not a substitute for professional care."
+    ]
+  },
+  "promise": {
+    "label": "What we promise - and what we don't",
+    "we_do": "Informed, safe-movement plan, red flags known, realistic expectations for her stage of recovery.",
+    "we_do_not": "We do not promise a guaranteed outcome. This is an educational system, not medical, clinical, or mental-health care.",
+    "evidence_label": "Educational content informed by practical and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
+  },
+  "final_cta": {
+    "headline": "Informed, safe-movement plan, red flags known, realistic expectations for her stage of recovery.",
+    "body": "Informed, safe-movement plan, red flags known, realistic expectations for her stage of recovery.",
+    "cta_label": "Get Is This Normal?",
+    "trust_line": "Educational content - not medical, clinical, or mental-health advice."
+  }
+}

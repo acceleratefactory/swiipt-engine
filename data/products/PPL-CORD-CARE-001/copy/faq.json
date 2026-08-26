@@ -2,7 +2,7 @@
   "content_version": "1.0",
   "product_id": "PPL-CORD-CARE-001",
   "source": "factory-generator",
-  "generated_at": "2026-08-26T14:27:30.846Z",
+  "generated_at": "2026-08-26T16:08:37.061Z",
   "items": [
     {
       "q": "What is Cord Care That Won't Land You in A&E?",
@@ -14,7 +14,7 @@
     },
     {
       "q": "What is included?",
-      "a": "You get 6 components: The Cord Care Guide - what is happening and the one house rule; Daily Care Kit - 30-second routine + house rule card; The Stump Decision Tree - normal vs worry triage; Cord Timeline Tracker - daily log + day-7/30 reviews; Script Pack - seven family conversations; RED FLAG Rescue Card - emergency routing."
+      "a": "You get 6 components: The Cord Care Guide - what is happening and the one house rule; Daily Care Kit - 30-second routine + house rule card; The Stump Decision Tree - normal vs worry triage; Cord Timeline Tracker - daily log + day-7/30 reviews; Script Pack - seven family conversations; RED FLAG Rescue Card - emergency routing. Together they let you executes one clean-dry routine confidently and can name which traditional substances are dangerous vs unnecessary."
     },
     {
       "q": "Is this medical advice?",
@@ -24,6 +24,10 @@
     {
       "q": "How do I get it?",
       "a": "Instant digital download. After checkout the system appears in your Swiipt library with read, PDF, and read-aloud formats."
+    },
+    {
+      "q": "Why does this approach work?",
+      "a": "WHO and AAP guidance show dry cord care is safe and effective where hygiene allows; most harm comes from applied substances and moisture, so removing decisions and substances removes the risk pathway"
     }
   ]
 }

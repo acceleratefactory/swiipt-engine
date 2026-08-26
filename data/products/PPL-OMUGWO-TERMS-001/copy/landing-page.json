@@ -2,11 +2,11 @@
   "content_version": "1.0",
   "product_id": "PPL-OMUGWO-TERMS-001",
   "source": "factory-generator",
-  "generated_at": "2026-08-26T14:27:33.660Z",
+  "generated_at": "2026-08-26T16:08:37.114Z",
   "hero": {
     "headline": "Omugwo on Your Terms",
     "subheadline": "Keep the Help, Skip the War - A Three-Zone Agreement for Traditional Postpartum Support",
-    "body": "The helper arrives with strong practices - substances on the cord, herb water for baby, baby handed over at all hours, visitors flooding in - while hospital instructions said otherwise and the mother is too exhausted and polite to push back. Grandma keeps her proud role, doctor-backed rules protect the baby on paper, and you keep your sleep, your bond and the peace.",
+    "body": "The helper arrives with strong practices - substances on the cord, herb water for baby, baby handed over at all hours, visitors flooding in - while hospital instructions said otherwise and the mother is too exhausted and polite to push back. She cannot tell which traditions are harmless gold versus documented infection/danger risks, cannot refuse without triggering family war, and is sliding from mother to furniture in her own home. Grandma keeps her proud role, doctor-backed rules protect the baby on paper, and you keep your sleep, your bond and the peace.",
     "cta_label": "Get the System",
     "trust_line": "Educational content - not medical advice. Clinical questions route to clinicians.",
     "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
@@ -14,8 +14,10 @@
   "before_state": {
     "label": "Sound familiar?",
     "paragraphs": [
-      "Right now you are hinting instead of deciding, complying then resenting, arguing science at elders, and partner absent from boundary enforcement.",
+      "Right now hinting instead of deciding, complying then resenting, arguing science at elders, and partner absent from boundary enforcement - and the people who matter most (mother, grandmother/mother-in-law, partner, and visitors) are all pulling in different directions.",
+      "On top of that, baby routines overridden, substances reaching the stump/baby, and mother sidelined from care.",
       "It feels like boiling resentment, maternal guilt both directions, and dread of helper's footsteps.",
+      "See TR situation.emotional_stake.",
       "The cost: infection risks introduced, mother's sleep blocks lost, and household tension escalating."
     ],
     "punch": "This is not a personal failing. It is a system gap - and Omugwo on Your Terms closes it."
@@ -95,7 +97,7 @@
   },
   "final_cta": {
     "headline": "A written three-zone agreement (hers/together/doctor-backed) that gives grandma proud ownership of real work, protects medical non-negotiables as the DOCTOR'S rules not hers, and preserves both the tradition and the mother",
-    "body": "Grandma keeps her proud role, doctor-backed rules protect the baby on paper, and you keep your sleep, your bond and the peace.",
+    "body": "Grandma keeps her proud role, doctor-backed rules protect the baby on paper, and you keep your sleep, your bond and the peace. A written three-zone agreement (hers/together/doctor-backed) that gives grandma proud ownership of real work, protects medical non-negotiables as the DOCTOR'S rules not hers, and preserves both the tradition and the mother.",
     "cta_label": "Get Omugwo on Your Terms",
     "trust_line": "Educational content - not medical advice. Clinical questions route to clinicians."
   },
@@ -106,12 +108,14 @@
       {
         "title": "Cord Care That Won't Land You in A&E",
         "transformation_id": "TR-PPL-CORD-CARE-001",
-        "product_id": "PPL-CORD-CARE-001"
+        "product_id": "PPL-CORD-CARE-001",
+        "reason": "One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately"
       },
       {
         "title": "The No-Village C-Section",
         "transformation_id": "TR-PPL-CS-FIRST14DAYS-001",
-        "product_id": "PPL-CS-FIRST14DAYS-001"
+        "product_id": "PPL-CS-FIRST14DAYS-001",
+        "reason": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork"
       }
     ]
   }

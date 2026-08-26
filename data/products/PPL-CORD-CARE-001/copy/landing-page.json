@@ -2,11 +2,11 @@
   "content_version": "1.0",
   "product_id": "PPL-CORD-CARE-001",
   "source": "factory-generator",
-  "generated_at": "2026-08-26T14:27:30.790Z",
+  "generated_at": "2026-08-26T16:08:37.041Z",
   "hero": {
     "headline": "Cord Care That Won't Land You in A&E",
     "subheadline": "One evidence-based routine for the umbilical stump - plus the exact words to protect it from harmful 'remedies' without family war",
-    "body": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different. A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor.",
+    "body": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different. She does not know which daily care routine is actually safe, which traditional practices are harmless versus dangerous, and which changes in the stump's appearance mean 'normal healing' versus 'infection needing a doctor tonight'. A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor.",
     "cta_label": "Get the System",
     "trust_line": "Educational content - not medical, clinical, or mental-health advice. Never diagnoses or treats. Any suspected infection goes to professional care the same day.",
     "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
@@ -14,8 +14,10 @@
   "before_state": {
     "label": "Sound familiar?",
     "paragraphs": [
-      "Right now you are applying whatever substance the most senior relative recommends, cleaning the stump with multiple antiseptics, and covering the stump with belly bands or coins.",
+      "Right now applying whatever substance the most senior relative recommends, cleaning the stump with multiple antiseptics, and covering the stump with belly bands or coins - and the people who matter most (mother, maternal/paternal grandmother (omugwo), partner, and community elders) are all pulling in different directions.",
+      "On top of that, stump kept moist under coverings, substances applied on top of hospital instructions, and no agreed household rule for who decides cord questions.",
       "It feels like anxious every diaper change, afraid to contradict elders, and guilt and fear about causing infection.",
+      "Believes a preventable infection could kill her baby and that she would be blamed.",
       "The cost: moist covered stumps heal slower, harmful substances introduced, and infection signs missed or over-reacted to."
     ],
     "punch": "This is not a personal failing. It is a system gap - and Cord Care That Won't Land You in A&E closes it."
@@ -107,7 +109,7 @@
   },
   "final_cta": {
     "headline": "One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately",
-    "body": "A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor.",
+    "body": "A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor. One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately.",
     "cta_label": "Get Cord Care That Won't Land You in A&E",
     "trust_line": "Educational content - not medical, clinical, or mental-health advice. Never diagnoses or treats. Any suspected infection goes to professional care the same day."
   },
@@ -118,12 +120,14 @@
       {
         "title": "The No-Village C-Section",
         "transformation_id": "TR-PPL-CS-FIRST14DAYS-001",
-        "product_id": "PPL-CS-FIRST14DAYS-001"
+        "product_id": "PPL-CS-FIRST14DAYS-001",
+        "reason": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork"
       },
       {
         "title": "Omugwo on Your Terms",
         "transformation_id": "TR-PPL-OMUGWO-TERMS-001",
-        "product_id": "PPL-OMUGWO-TERMS-001"
+        "product_id": "PPL-OMUGWO-TERMS-001",
+        "reason": "A written three-zone agreement (hers/together/doctor-backed) that gives grandma proud ownership of real work, protects medical non-negotiables as the DOCTOR'S rules not hers, and preserves both the tradition and the mother"
       }
     ]
   }

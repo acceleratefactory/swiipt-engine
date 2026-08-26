@@ -22,6 +22,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import Ajv from "ajv/dist/2020.js";
+import { enrichContent, provider } from "./copywriter.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -295,7 +296,7 @@ function genFaq(p, tr, assets) {
 }
 
 // --- driver ---
-function processProduct(pid) {
+async function processProduct(pid) {
   const pdir = join(root, "data", "products", pid);
   const pf = join(pdir, "product.json");
   if (!existsSync(pf)) { console.error(`  ${pid}: no product.json`); return false; }
@@ -322,7 +323,8 @@ function processProduct(pid) {
         if (ex.source === "manual-port") { p.content[KEY[file]] = `copy/${file}`; console.log(`  ${pid}: keep ${file} (manual-port reference)`); continue; }
       } catch (e) { /* regenerate over a corrupt file */ }
     }
-    const obj = gen();
+    let obj = gen();
+    obj = await enrichContent(file, obj, p, tr, assets, pdir); // Phase 3 narrative enrichment
     const valid = ajv.validate(SCHEMA[file], obj);
     if (!valid) {
       console.error(`  ${pid}: INVALID ${file} -> ${ajv.errors.map(e => `${e.instancePath} ${e.message}`).join("; ")}`);
@@ -348,7 +350,9 @@ if (arg === "--all") {
   process.exit(2);
 }
 let ok = true;
-console.log(`gen-content: ${ids.length} product(s)`);
-for (const id of ids) { if (!processProduct(id)) ok = false; }
-console.log(ok ? "done." : "done with ERRORS.");
-process.exit(ok ? 0 : 1);
+console.log(`gen-content (copywriter provider=${provider()}): ${ids.length} product(s)`);
+(async () => {
+  for (const id of ids) { if (!(await processProduct(id))) ok = false; }
+  console.log(ok ? "done." : "done with ERRORS.");
+  process.exit(ok ? 0 : 1);
+})();

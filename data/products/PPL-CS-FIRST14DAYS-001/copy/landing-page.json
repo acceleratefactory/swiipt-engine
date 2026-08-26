@@ -2,11 +2,11 @@
   "content_version": "1.0",
   "product_id": "PPL-CS-FIRST14DAYS-001",
   "source": "factory-generator",
-  "generated_at": "2026-08-26T14:27:33.043Z",
+  "generated_at": "2026-08-26T16:08:37.075Z",
   "hero": {
     "headline": "The No-Village C-Section",
     "subheadline": "First 14 Days Alone With a Newborn After Major Abdominal Surgery - Survival & Function",
-    "body": "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone. A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+    "body": "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone. She does not know what is safe to do, how to manage pain and movement solo, what normal healing looks like versus infection, and collapses under the load by day 4. A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
     "cta_label": "Get the System",
     "trust_line": "Educational content - not medical advice. Your clinician overrides everything here.",
     "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
@@ -14,8 +14,10 @@
   "before_state": {
     "label": "Sound familiar?",
     "paragraphs": [
-      "Right now you are pushing through pain, lifting toddler/laundry too early, skipping meds to 'stay clear-headed', and lying frozen in bed fearing movement.",
+      "Right now pushing through pain, lifting toddler/laundry too early, skipping meds to 'stay clear-headed', and lying frozen in bed fearing movement - and the people who matter most (mother, partner (part-time), and distant relatives by phone) are all pulling in different directions.",
+      "On top of that, unmanaged pain-sleep spiral, household load unchanged, and no incision surveillance.",
       "It feels like overwhelm, guilt about rest, and fear of the wound.",
+      "See TR situation.emotional_stake.",
       "The cost: slower healing, wound stress, and breakdown around day 4."
     ],
     "punch": "This is not a personal failing. It is a system gap - and The No-Village C-Section closes it."
@@ -101,7 +103,7 @@
   },
   "final_cta": {
     "headline": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork",
-    "body": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+    "body": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork. A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork.",
     "cta_label": "Get The No-Village C-Section",
     "trust_line": "Educational content - not medical advice. Your clinician overrides everything here."
   },
@@ -112,12 +114,14 @@
       {
         "title": "Cord Care That Won't Land You in A&E",
         "transformation_id": "TR-PPL-CORD-CARE-001",
-        "product_id": "PPL-CORD-CARE-001"
+        "product_id": "PPL-CORD-CARE-001",
+        "reason": "One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately"
       },
       {
         "title": "Beyond the Restroom: 30-Day Return-to-Work OS",
         "transformation_id": "TR-PPL-RTWORK-OS-001",
-        "product_id": "PPL-RTWORK-OS-001"
+        "product_id": "PPL-RTWORK-OS-001",
+        "reason": "A dated 30-day operating system: rights-backed workplace ask locked, feeding lane chosen, freezer bank built, childcare drilled, morning/evening anchors running - so week one back is execution, not improvisation"
       }
     ]
   }
