@@ -9,7 +9,8 @@ The QA agent is never the builder and never the same context that produced the w
 ## Inputs
 
 - Product directory (records, content, build artifacts)
-- `standards/qa-standard.md`, `standards/safety-standard.md`, `standards/design-standard.md`
+- `standards/qa-standard.md`, `standards/safety-standard.md`, `standards/design-standard.md`,
+  `standards/asset-rendering-standard.md`
 
 ## Outputs
 
@@ -25,6 +26,9 @@ filesystem · shell (to run deterministic checks). No builder tools, no publishi
 ## Hard rules
 
 - Test R (drift) runs on EVERY round: remove the title, compare contents vs the approved situation.
+- Deterministic asset-content conformance runs via `harness/qa-checks.mjs` per
+  `standards/asset-rendering-standard.md`: no raw HTML/inline CSS in authored source, widget blocks
+  (`[[DECISION]]`/`[[RESCUE]]`/`[[SCRIPTS]]`) balanced with required directives. A violation is a BLOCKER.
 - Severity model enforced verbatim; safety issues are always BLOCKERs.
 - A FAIL sends the record backward in the state machine with named required changes.
 - The QA agent cannot override or waive a safety gate.

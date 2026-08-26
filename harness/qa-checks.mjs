@@ -85,11 +85,30 @@ for (const { dir, path, p } of productRecords) {
     check(rel, "currency_rules_present", Object.keys(p.commerce?.currency_rules ?? {}).length > 0);
   }
 
-  // asset references resolve to asset files
+  // asset references resolve + source content conforms to standards/asset-rendering-standard.md
   for (const [job, list] of Object.entries(p.asset_map ?? {})) {
     for (const aid of list) {
       const af = join(root, "data", "products", dir, "assets", `${aid}.json`);
       check(rel, `asset_${job}_resolves:${aid}`, existsSync(af));
+      if (!existsSync(af)) continue;
+      const a = JSON.parse(readFileSync(af, "utf8"));
+      if (!a.source_path) continue;
+      // source_path may be a bundle file with a section anchor: content/bundle.md#section
+      const basePath = join(root, "data", "products", dir, a.source_path.split("#")[0]);
+      if (!check(rel, `asset_content_exists:${aid}`, existsSync(basePath), a.source_path)) { fails++; continue; }
+      const content = readFileSync(basePath, "utf8");
+      // standard non-negotiable: no raw HTML / inline styles in authored source
+      const rawHtml = content.match(/<\/?(div|table|style|script|span|section|button|iframe)\b[^>]*>/i);
+      if (!check(rel, `asset_no_raw_html:${aid}`, !rawHtml, rawHtml ? rawHtml[0] : "")) fails++;
+      // standard non-negotiable: widget blocks balanced + required directives present
+      for (const tag of ["DECISION", "RESCUE", "SCRIPTS"]) {
+        const opens = (content.match(new RegExp("\\[\\[" + tag + "\\]\\]", "g")) || []).length;
+        const closes = (content.match(new RegExp("\\[\\[/" + tag + "\\]\\]", "g")) || []).length;
+        if (opens === 0 && closes === 0) continue;
+        if (!check(rel, `asset_widget_balanced:${aid}:${tag}`, opens === closes, `${opens} open / ${closes} close`)) { fails++; continue; }
+        const need = tag === "DECISION" ? /^ROUTE:/m : tag === "SCRIPTS" ? /^SCRIPT:/m : /^TITLE:/m;
+        if (!check(rel, `asset_widget_directives:${aid}:${tag}`, need.test(content), "missing directive")) fails++;
+      }
     }
   }
 

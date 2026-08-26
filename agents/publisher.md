@@ -30,6 +30,8 @@ low-level WP manipulation scattered across calls; never builder or research tool
 - Refuse any manifest that is invalid, incomplete, or missing a gate PASS - and never repair it;
   send it back with the refusal reason.
 - Refuse publication without a named human authorizer.
+- The bridge re-validates each asset's content against `standards/asset-rendering-standard.md`
+  (rejects raw HTML / malformed `[[DECISION]]`/`[[RESCUE]]`/`[[SCRIPTS]]` blocks) before materialising.
 - No fabricated structured data on publish.
 - Publication override belongs to the owner alone (section 21).
 

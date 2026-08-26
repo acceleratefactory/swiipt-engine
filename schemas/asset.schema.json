@@ -89,7 +89,7 @@
     "tool_widgets": {
       "type": "array",
       "items": { "type": "string" },
-      "description": "Optional interactive widget tokens ([[TOOL:*]]) embedded in source content; rendered by the live delivery engine."
+      "description": "Widget tokens embedded in source content and rendered by the live delivery engine (swt_delivery_markdown). Block widgets: [[DECISION]]..[[/DECISION]] (route cards), [[RESCUE]]..[[/RESCUE]] (rescue frame), [[SCRIPTS]]..[[/SCRIPTS]] (script cards); interactive tool widgets: [[TOOL:*]]. The source content must be authored to standards/asset-rendering-standard.md (clean markdown baseline + these widgets; never raw HTML, never inline CSS)."
     },
     "notes": { "type": "string" }
   }
