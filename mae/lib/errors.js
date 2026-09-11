@@ -1,0 +1,29 @@
+// MAE lib · typed errors (S11 §94). No unstructured-string failures.
+export class MaeError extends Error {
+  constructor(code, message, detail = {}) {
+    super(message);
+    this.name = "MaeError";
+    this.code = code;
+    this.detail = detail;
+  }
+}
+
+export const CODES = {
+  SCHEMA_INVALID: "SCHEMA_INVALID",
+  MISSING_FIELD: "MISSING_FIELD",
+  REFERENCE_UNRESOLVED: "REFERENCE_UNRESOLVED",
+  EVIDENCE_REQUIRED: "EVIDENCE_REQUIRED",
+  ILLEGAL_TRANSITION: "ILLEGAL_TRANSITION",
+  SCOPE_VIOLATION: "SCOPE_VIOLATION",
+  TRUTH_CONFLICT: "TRUTH_CONFLICT",
+  PROVIDER_UNAVAILABLE: "PROVIDER_UNAVAILABLE",
+  PRODUCTION_BLOCKED: "PRODUCTION_BLOCKED",
+  RENDER_PENDING: "RENDER_PENDING_EXTERNAL_PROVIDER",
+  REAL_FILE_REQUIRED: "REAL_FILE_REQUIRED",
+  FIXTURE_NOT_PRODUCTION_SAFE: "FIXTURE_NOT_PRODUCTION_SAFE",
+  UNSUPPORTED_MODALITY: "UNSUPPORTED_MODALITY",
+  UNSUPPORTED_OPERATION: "UNSUPPORTED_OPERATION",
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+};
+
+export const fail = (code, message, detail) => { throw new MaeError(code, message, detail); };

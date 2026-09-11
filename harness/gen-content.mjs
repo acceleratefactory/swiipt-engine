@@ -50,6 +50,33 @@ function joinList(arr) {
   if (items.length === 2) return `${items[0]} and ${items[1]}`;
   return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
 }
+// take the first clause of a sentence, capped at max chars at a word boundary (headline-safe)
+function shortClause(s, max = 70) {
+  if (!s) return "";
+  s = String(s).replace(/\s+/g, " ").trim();
+  const parts = s.split(/(?<=[.;])\s+/);
+  let out = parts[0] || s;
+  if (out.length > max) {
+    out = out.slice(0, max);
+    const sp = out.lastIndexOf(" ");
+    if (sp > 30) out = out.slice(0, sp);
+    out = out.replace(/[.,;:]+$/, "").trim() + "…";
+  }
+  return out;
+}
+// a short, readable situation noun for headlines. Known-map per submarket slug;
+// any unknown id deterministically returns "situation" (never un-parsed slug tokens,
+// so grammar is always safe at scale). Map entries MUST be singular-safe.
+function situationNoun(sub) {
+  const known = {
+    "newborn-hygiene-cord-care": "cord care",
+    "c-section-immediate-recovery": "c-section recovery",
+    "grandparents-family-boundaries": "family dynamic",
+    "return-to-work-transition": "return to work",
+    "postpartum-night-shift": "night shift",
+  };
+  return known[sub] || "situation";
+}
 // bundle-aware source reader (whole file "content/x.md" or section "content/bundle.md#section.md")
 function readSource(pdir, sourcePath) {
   let filePart = sourcePath, section = null;
@@ -85,6 +112,14 @@ const FORMAT_KIND = {
   protocol: "Protocol", restart_protocol: "Re-entry", maintenance_system: "Maintenance",
   quick_reference_card: "Quick Reference",
 };
+const KIND_ICON = {
+  "Guide": "roadmap", "Read": "argument", "Decision Tree": "decision", "Checklist": "checklist",
+  "Tracker": "tracker", "Scripts": "scripts", "Rescue Card": "rescue", "Re-entry": "reentry",
+  "Rules": "guardrails", "Templates": "rosters", "Maintenance": "reentry", "Protocol": "rescue",
+  "Quick Reference": "fridge", "Interactive": "finder", "Log": "tracker", "Workbook": "rosters",
+  "Quiz": "finder", "Calculator": "banker", "Audio": "scripts", "Dashboard": "tracker",
+};
+function kindIcon(kind) { return KIND_ICON[kind] || "check"; }
 // short honest description for a module, taken from the asset's own source (first clean prose line)
 function assetDescription(pdir, sourcePath) {
   if (!sourcePath) return "";
@@ -129,6 +164,14 @@ function resolveNext(tid) {
   }
   const item = { title, transformation_id: tid };
   if (pid) item.product_id = pid;
+  // short code chip: second segment of product_id (e.g. "PPL-CS-FIRST14DAYS-001" -> "CS")
+  if (pid) {
+    const segs = pid.split("-");
+    item.code = segs[1] || "";
+  } else if (tid) {
+    const segs = tid.replace(/^TR-?/, "").split("-");
+    item.code = segs[0] || "";
+  }
   return item;
 }
 
@@ -139,6 +182,104 @@ function heroBody(p, tr) {
   return `${clean}${p.identity.one_line_promise}`;
 }
 
+// Hero artifact (Fridge Chart style data card) generated per-product from the record.
+// The right column is always present; content derives from transformation.path stages
+// (fallback: assets). V06's manual-port artifact is never overwritten (source check).
+function generateArtifact(p, tr, assets) {
+  const name = p.identity.name;
+  const sub = p.identity.subtitle || p.identity.one_line_promise || "";
+  const path = tr?.transformation?.path ?? tr?.situation?.path ?? p.transformation?.path ?? [];
+  const firstWin = p.transformation?.first_win ?? tr?.first_win ?? null;
+
+  let rows = [];
+  if (path.length) {
+    rows = path.slice(0, 6).map((s, i) => ({
+      day: String(i + 1).padStart(2, "0"),
+      night: { label: s.stage || "", variant: i % 2 ? "split" : "partner" },
+      sleep: { label: s.objective || "", variant: i % 2 ? "you-off" : "split" },
+    }));
+  } else if (assets.length) {
+    rows = assets.slice(0, 6).map((a, i) => ({
+      day: String(i + 1).padStart(2, "0"),
+      night: { label: a.title || "", variant: i % 2 ? "split" : "partner" },
+      sleep: { label: FORMAT_KIND[a.format] ?? a.format, variant: i % 2 ? "you-off" : "split" },
+    }));
+  }
+
+  const legend = [
+    { swatch: "p", label: "Core plan" },
+    { swatch: "o", label: "Do it today" },
+    { swatch: "s", label: "When things shift" },
+  ];
+
+  let float_script = null;
+  const scriptAsset = assets.find(a => /script/i.test(a.format || "") || /script/i.test(a.title || ""));
+  if (scriptAsset) {
+    float_script = { label: scriptAsset.title, text: sub };
+  }
+
+  let float_ledger = null;
+  if (firstWin) {
+    float_ledger = { bold: firstWin.action || "", small: `First win within ${firstWin.within || "the first step"}` };
+  }
+
+  return {
+    head_label: `${rows.length} steps \u00b7 ${name}`,
+    sub,
+    table_label: `${name} - at a glance`,
+    header: ["Your plan", "What it does"],
+    rows,
+    legend,
+    float_script,
+    float_ledger,
+  };
+}
+
+// --- recommend composition (Phase 3, spec §16) ---
+// Deterministic selection from product metadata. Manual override wins first.
+// Returns { name, reason }.
+function recommendComposition(p, tr, assets) {
+  // 0) Manual override from the product record (design.landing_composition).
+  const override = p?.design?.landing_composition;
+  if (override && ["standard", "decision", "behavior_change"].includes(override)) {
+    return { name: override, reason: `manual override (${override})` };
+  }
+
+  // 1) Collect signals from the asset map + transformation record.
+  const fmts = (assets || []).map(a => String(a.format || "").toLowerCase());
+  const titles = (assets || []).map(a => String(a.title || "").toLowerCase());
+  const hasDecisionTree = fmts.some(f => /decision|quiz|rules/i.test(f)) || titles.some(t => /decision|quiz/i.test(t));
+  const hasTracker = fmts.includes("tracker") || titles.some(t => /tracker|timeline|log/i.test(t));
+  const hasChecklist = fmts.includes("checklist");
+  const hasScripts = fmts.includes("scripts");
+  const hasRescue = fmts.some(f => /emergency|rescue|protocol/i.test(f));
+  const failureCount = tr?.failure_point_map?.length ?? 0;
+  const pathLen = tr?.transformation_path?.length ?? 0;
+  const risk = tr?.safety?.risk_level ?? p?.safety?.risk_level ?? "";
+
+  // 2) Scores.
+  let decision = 0;
+  let behavior = 0;
+  if (hasDecisionTree) decision += 2;
+  if (hasTracker) behavior += 1;
+  if (hasChecklist) behavior += 1;
+  if (hasScripts) behavior += 1;
+  if (hasRescue) behavior += 1;
+  if (failureCount >= 4) behavior += 1;
+  if (pathLen >= 5) behavior += 1;
+
+  // 3) Clinical risk → safety-first: keep `standard` unless strongly decision-driven.
+  if (risk === "clinical") {
+    if (decision >= 3) return { name: "decision", reason: `clinical + decision-tree heavy (decision=${decision})` };
+    return { name: "standard", reason: `clinical risk (${risk}) — safety-first standard` };
+  }
+
+  // 4) Otherwise pick the higher score; ties → standard (backward compatible).
+  if (decision > behavior && decision >= 2) return { name: "decision", reason: `decision-tree heavy (decision=${decision}, behavior=${behavior})` };
+  if (behavior > decision && behavior >= 2) return { name: "behavior_change", reason: `behavior-change toolkit (behavior=${behavior}, decision=${decision})` };
+  return { name: "standard", reason: `balanced (decision=${decision}, behavior=${behavior})` };
+}
+
 function genLanding(p, tr, assets, pdir) {
   const name = p.identity.name;
   const promise = p.identity.one_line_promise;
@@ -147,12 +288,15 @@ function genLanding(p, tr, assets, pdir) {
   const sit = tr?.situation ?? {};
   const bs = tr?.before_state ?? {};
   const as = tr?.after_state ?? {};
+  const noun = situationNoun(tr?.submarket_id);
+  const rec = recommendComposition(p, tr, assets);
 
   const landing = {
     content_version: "1.0",
     product_id: p.product_id,
     source: "factory-generator",
     generated_at: now(),
+    page: { composition: rec.name },
     hero: {
       headline: name,
       subheadline: p.identity.subtitle,
@@ -160,28 +304,47 @@ function genLanding(p, tr, assets, pdir) {
       cta_label: "Get the System",
       trust_line: trust,
       evidence_label: evLabel,
+      artifact: generateArtifact(p, tr, assets),
     },
   };
 
-  // SECTION 2 - before state (from transformation.before_state)
+  // SECTION 2 - before state (from transformation.before_state) + right-column timeline.
+  // Right column = data-driven navy card from the record (no clock times). Headline = reframe.
   const paras = [];
   if (bs.current_behavior?.length) paras.push(`Right now you are ${joinList(bs.current_behavior)}.`);
   if (bs.emotional_state?.length) paras.push(`It feels like ${joinList(bs.emotional_state)}.`);
   if (bs.practical_consequences?.length) paras.push(`The cost: ${joinList(bs.practical_consequences)}.`);
+  landing.before_state = {
+    label: "Sound familiar?",
+    headline: `It is not that you are failing. The ${noun} just has no system.`,
+  };
   if (paras.length) {
-    landing.before_state = { label: "Sound familiar?", paragraphs: paras };
+    landing.before_state.paragraphs = paras;
     if (tr?.mechanism?.core_mechanism) {
       landing.before_state.punch = `This is not a personal failing. It is a system gap - and ${name} closes it.`;
     }
+  }
+  // timeline ticks from the record's own escalation: behavior -> emotion -> cost
+  const ticks = [];
+  for (const b of bs.current_behavior ?? []) ticks.push({ text: b, alert: false });
+  for (const e of bs.emotional_state ?? []) ticks.push({ text: e, alert: true });
+  for (const c of bs.practical_consequences ?? []) ticks.push({ text: c, alert: false });
+  if (ticks.length) {
+    landing.before_state.timeline = {
+      label: `What ${noun} actually looks like`,
+      ticks: ticks.slice(0, 6),
+      note: "None of this is a character flaw. It is a system gap - and the system below closes it.",
+    };
   }
 
   // SECTION 3 - modules (from asset_map -> asset records)
   if (assets.length) {
     landing.modules = {
       label: `What ${name} gives you`,
-      intro: `${assets.length} components. One written system. Work through them in order, or jump straight to what today needs.`,
+      headline: `${assets.length} modules. One written system.`,
+      intro: "Work through them in order, or jump straight to what today needs. Each module stands alone - together they form one system.",
       items: assets
-        .map(a => ({ title: a.title, kind: FORMAT_KIND[a.format] ?? a.format, description: assetDescription(pdir, a.source_path) }))
+        .map(a => ({ title: a.title, kind: FORMAT_KIND[a.format] ?? a.format, description: assetDescription(pdir, a.source_path), icon: kindIcon(FORMAT_KIND[a.format] ?? a.format) }))
         .filter(m => m.title),
     };
   }
@@ -191,6 +354,8 @@ function genLanding(p, tr, assets, pdir) {
   const afterItems = [...(as.new_capabilities ?? []), ...(as.improvements ?? []), ...(as.systems_created ?? [])].slice(0, 6);
   landing.before_after = {
     label: "What changes",
+    headline: `Before the ${noun}. After the ${noun}.`,
+    intro: "The change is structural. You are not trying harder - you are removing the reason it kept failing.",
     before_items: beforeItems.length ? beforeItems : [sit.problem || "The situation as it stands today."],
     after_items: afterItems.length ? afterItems : [sit.desired_transformation || promise],
   };
@@ -214,10 +379,16 @@ function genLanding(p, tr, assets, pdir) {
   }
   if (!notFor.length) notFor.push("If you need clinical diagnosis or treatment, this educational system is not a substitute for professional care.");
   landing.who_for = {
+    label: "Fit check",
+    headline: "Read both sides before you buy.",
+    intro: `This system is built for a specific situation. If that is not you, it will not help - and we would rather tell you now.`,
     for_label: "This is for you if",
     for_items: forItems.slice(0, 5),
     not_for_label: "This is NOT for you if",
     not_for_items: notFor.slice(0, 4),
+    note: tr?.safety?.scope_boundary
+      ? shortClause(tr.safety.scope_boundary, 200)
+      : (tr?.safety?.red_flags?.length ? "If any red flag applies, this is not a home system - seek professional care first." : ""),
   };
 
   // SECTION 6 - the promise (from one_line_promise + desired_transformation + remaining_limits)
@@ -226,22 +397,32 @@ function genLanding(p, tr, assets, pdir) {
   const weDoNot = `${limits.length ? `We do not promise: ${joinList(limits)}. ` : "We do not promise a guaranteed outcome. "}This is an educational system, not medical, clinical, or mental-health care.`;
   landing.promise = {
     label: "What we promise - and what we don't",
+    headline: "A system. Not a guarantee.",
+    we_do_label: "We promise you",
     we_do: weDo,
+    we_do_not_label: "We do not promise you",
     we_do_not: weDoNot,
     evidence_label: evLabel,
   };
 
   // SECTION 7 - what's inside (asset titles)
   if (assets.length) {
-    landing.inside = { label: `Inside ${name}`, items: assets.map(a => a.title) };
+    landing.inside = {
+      label: `Inside ${name}`,
+      headline: "Everything you get. Nothing padded.",
+      intro: "The full kit, at a glance - for the skimmers.",
+      items: assets.map(a => a.title),
+    };
   }
 
-  // SECTION 8 - bottom CTA
+  // SECTION 8 - bottom CTA. Short punchy headline (clause-capped) + eyebrow + evidence label.
   landing.final_cta = {
-    headline: sit.desired_transformation || promise,
+    eyebrow: `The ${noun} needs a system`,
+    headline: shortClause(sit.desired_transformation || promise, 60) || "Make it a system.",
     body: promise,
     cta_label: `Get ${name}`,
     trust_line: trust,
+    evidence_label: evLabel,
   };
 
   // SECTION 9 - next transformation (journey hook, anti-artificial-upsell)
@@ -249,6 +430,8 @@ function genLanding(p, tr, assets, pdir) {
   if (nextIds.length) {
     landing.next = {
       label: "What comes next",
+      headline: `Once the ${noun} has a system, the next situations usually surface.`,
+      intro: "The journey does not end here. Swiipt is built to see what tends to follow - so you are not blindsided by it.",
       note: "These are not upsells. They are the next situations on the same journey.",
       items: nextIds.map(resolveNext),
     };

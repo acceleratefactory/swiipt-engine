@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/experiment-record.schema.json",
+  "title": "MAE ExperimentRecord",
+  "description": "An A/B test (S10 §10.14, S11 §11.16). Testing occurs inside Truth and QA boundaries — a false claim is never a valid variant.",
+  "type": "object",
+  "required": ["id", "class", "test_dimension", "variants", "eligibility", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^EXPT-" },
+    "class": { "const": "experiment_record" },
+    "campaign_id": { "type": ["string", "null"] },
+    "test_dimension": { "enum": ["hook", "framing", "opening", "cta_expression", "visual_treatment", "timing", "platform_treatment", "sequence_position", "angle_alternative"] },
+    "variants": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["variant_id", "asset_id", "description"],
+        "properties": {
+          "variant_id": { "type": "string" },
+          "asset_id": { "type": "string", "pattern": "^AST-" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "eligibility": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["truth_valid", "qa_valid", "claims_valid"],
+      "properties": {
+        "truth_valid": { "type": "boolean" },
+        "qa_valid": { "type": "boolean" },
+        "claims_valid": { "type": "boolean" },
+        "reasons": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "status": { "enum": ["PLANNED", "RUNNING", "COMPLETE", "ABORTED"] },
+    "result": { "type": ["object", "null"], "additionalProperties": true },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

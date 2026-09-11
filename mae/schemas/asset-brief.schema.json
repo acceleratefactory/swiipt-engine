@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/asset-brief.schema.json",
+  "title": "MAE AssetBrief",
+  "description": "The execution contract between strategy and generation (S5 §5.4). Generation never receives a raw Angle Record — only a completed Asset Brief with truth weighting, platform rules and grounding.",
+  "type": "object",
+  "required": ["id", "class", "angle_id", "product_id", "asset_type", "platform", "asset_purpose", "truth_weighting", "content_grounding", "brand_constraints", "platform_rules", "structural_template", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^BRIEF-" },
+    "class": { "const": "asset_brief" },
+    "angle_id": { "type": "string", "pattern": "^ANG-" },
+    "product_id": { "type": "string", "minLength": 1 },
+    "asset_type": { "type": "string", "minLength": 1 },
+    "platform": { "enum": ["whatsapp", "whatsapp_status", "instagram", "tiktok", "facebook", "x", "linkedin", "email", "seo", "landing", "generic"] },
+    "asset_purpose": { "type": "string", "minLength": 1 },
+    "audience": { "type": ["object", "null"], "additionalProperties": true },
+    "truth_weighting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["product", "customer", "market", "brand"],
+      "properties": {
+        "product": { "type": "number", "minimum": 0, "maximum": 100 },
+        "customer": { "type": "number", "minimum": 0, "maximum": 100 },
+        "market": { "type": "number", "minimum": 0, "maximum": 100 },
+        "brand": { "type": "number", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "content_grounding": { "$ref": "https://swiipt.com/mae/schemas/content-grounding.schema.json" },
+    "visual_grounding": { "oneOf": [{ "type": "null" }, { "$ref": "https://swiipt.com/mae/schemas/visual-grounding.schema.json" }] },
+    "affirmation_grounding": { "type": ["object", "null"] },
+    "brand_constraints": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "platform_rules": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "structural_template": { "type": "string", "minLength": 1 },
+    "cta_requirements": { "type": ["string", "null"] },
+    "proof_requirements": { "type": ["string", "null"] },
+    "locked_phrase_set_ref": { "type": ["string", "null"] },
+    "restrictions": { "type": "array", "items": { "type": "string" } },
+    "traceability": { "type": "object", "additionalProperties": true },
+    "status": { "enum": ["DRAFT", "READY", "SUPERSEDED"] },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

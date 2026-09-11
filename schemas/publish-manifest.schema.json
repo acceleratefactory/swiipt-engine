@@ -29,17 +29,45 @@
       "description": "Only WordPress exists today; the enum grows deliberately when a new bridge is built."
     },
     "product": {
-      "$ref": "product.schema.json"
+      "type": "object",
+      "description": "PLATFORM PRODUCT PROJECTION the publisher creates (matches harness/publisher-contract.md and swiipt-core publisher.php). This is NOT the full canonical product record - that lives in data/products/<ID>/product.json. The manifest carries only the flat platform view, so the canonical records stay the single source of truth.",
+      "additionalProperties": true,
+      "required": ["title", "base_price_usd"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "short_description": { "type": "string" },
+        "base_price_usd": { "type": "number", "description": "Numeric price ALWAYS in USD base (lesson #17); never a converted local amount." },
+        "prices": { "type": "object", "additionalProperties": { "type": "number" }, "description": "Manual per-currency display prices." }
+      }
     },
     "transformation": {
-      "$ref": "transformation.schema.json"
+      "type": "object",
+      "description": "PLATFORM TRANSFORMATION PROJECTION the publisher creates (matches publisher-contract.md). The canonical transformation record lives in data/transformations/<TR>.json.",
+      "additionalProperties": true,
+      "required": ["title", "area"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "area": { "type": "string", "pattern": "^m(0[1-9]|1[0-9]|2[0-4])$", "description": "life_area slug m01-m24." },
+        "summary": { "type": "string" },
+        "content": { "type": "string" },
+        "evidence_label": { "type": "string" },
+        "tsm": { "type": "object", "additionalProperties": true }
+      }
     },
     "assets": {
       "type": "array",
+      "description": "Materialised assets the publisher creates (job is auto-mapped to a platform asset format). content is the authored markdown inlined from content/*.md. Declared assets that do not exist on disk are a deterministic BLOCKER.",
       "items": {
-        "$ref": "asset.schema.json"
-      },
-      "description": "Every asset the publisher must materialise. Declared assets that do not exist on disk are a deterministic BLOCKER."
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["job", "title", "content"],
+        "properties": {
+          "job": { "enum": ["READ", "DO", "DECIDE", "TRACK", "CALCULATE", "COMMUNICATE", "RESCUE", "RE_ENTER", "MAINTAIN", "REMEMBER"] },
+          "title": { "type": "string", "minLength": 1 },
+          "content": { "type": "string" }
+        }
+      }
     },
     "commerce": {
       "type": "object",
@@ -57,21 +85,21 @@
     },
     "relationships": {
       "type": "object",
-      "description": "Ecosystem wiring the publisher must create on the platform (section 23): situation/library/journey links, next-transformation edges, and explicit exclusions.",
+      "description": "Ecosystem wiring the publisher creates (section 23): situation links, journey edges, exclusions. Matches publisher.php, which reads situation_ids / weight / next_transformation_ids; the transformation identity comes from the transformation block + product_id, so transformation_id/library_id are optional here.",
       "additionalProperties": false,
-      "required": ["transformation_id", "library_id"],
       "properties": {
-        "transformation_id": { "type": "string", "minLength": 1 },
-        "library_id": { "type": "string", "minLength": 1 },
+        "transformation_id": { "type": "string" },
+        "library_id": { "type": "string" },
         "submarket_id": { "type": "string" },
         "situation_ids": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": { "type": ["integer", "string"] },
           "description": "swiipt_situation posts to link via swiipt_situation_transformations."
         },
+        "weight": { "type": "string", "description": "Link weight for situation edges (default '1.000')." },
         "parent_product_id": { "type": ["string", "null"] },
         "related_product_ids": { "type": "array", "items": { "type": "string" } },
-        "next_transformation_ids": { "type": "array", "items": { "type": "string" } },
+        "next_transformation_ids": { "type": "array", "items": { "type": ["string", "integer"] } },
         "excluded_product_ids": {
           "type": "array",
           "items": { "type": "string" },
@@ -91,6 +119,17 @@
           "type": "array",
           "items": { "enum": ["Product", "Offer", "BreadcrumbList", "Article"] }
         }
+      }
+    },
+    "content": {
+      "type": "object",
+      "description": "Product Content Factory artifacts inlined so the publisher is self-contained (Standard v1 section 20 predates the content factory; landings/product page/faq/reviews). The publisher consumes content.landing_page/product_page/faq/reviews.",
+      "additionalProperties": false,
+      "properties": {
+        "landing_page": { "type": ["object", "null"] },
+        "product_page": { "type": ["object", "null"] },
+        "faq": { "type": ["object", "null"] },
+        "reviews": { "type": ["object", "null"] }
       }
     },
     "access": {
@@ -139,6 +178,17 @@
         },
         "authorized_at": { "type": "string", "format": "date-time" },
         "notes": { "type": "string" }
+      }
+    },
+    "generation": {
+      "type": "object",
+      "description": "Writing / Generation Control (Writing Control Layer V1 section 34/35): the writing_control_version used to generate this product and a reference to the detailed execution record. Optional in pre-control manifests.",
+      "additionalProperties": false,
+      "required": ["writing_control_version"],
+      "properties": {
+        "writing_control_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+        "manifest": { "type": "string", "description": "Path to copy/generation-manifest.json in the product record." },
+        "status": { "type": ["string", "null"] }
       }
     }
   }

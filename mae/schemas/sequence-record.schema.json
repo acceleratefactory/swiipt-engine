@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/sequence-record.schema.json",
+  "title": "MAE SequenceRecord",
+  "description": "An ordered progression of approved assets performing a defined communication job for an audience state (S10). Section 10 decides; Section 9 records.",
+  "type": "object",
+  "required": ["id", "class", "campaign_id", "sequence_type", "audience_state", "objective", "entry_conditions", "exit_conditions", "items", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^SEQ-" },
+    "class": { "const": "sequence_record" },
+    "campaign_id": { "type": "string", "pattern": "^CAMP-" },
+    "sequence_type": { "enum": ["LAUNCH", "NURTURE", "RETARGETING", "RE_ENGAGEMENT"] },
+    "audience_state": { "type": "string" },
+    "objective": { "type": "string", "minLength": 1 },
+    "entry_conditions": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "exit_conditions": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["position", "asset_id", "family_id", "role", "cta_level", "emotional_intensity", "proof_type"],
+        "properties": {
+          "position": { "type": "integer", "minimum": 1 },
+          "asset_id": { "type": "string", "pattern": "^AST-" },
+          "family_id": { "type": "string", "pattern": "^FAM-" },
+          "role": { "type": "string" },
+          "cta_level": { "type": "string" },
+          "emotional_intensity": { "type": "string" },
+          "proof_type": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "gap_request_ids": { "type": "array", "items": { "type": "string" } },
+    "sequence_qa": { "type": ["object", "null"], "additionalProperties": true },
+    "status": { "enum": ["DRAFT", "QA_PENDING", "READY", "ACTIVE", "PAUSED", "COMPLETED", "ARCHIVED"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" },
+    "state_history": { "type": "array", "items": { "type": "object" } }
+  }
+}

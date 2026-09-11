@@ -22,6 +22,18 @@
       "enum": ["factory-generator", "manual-port"],
       "description": "factory-generator = produced by harness/gen-content.mjs from the records. manual-port = the V06 reference, hand-structured from its pre-factory landing page; the generator never overwrites a manual-port artifact."
     },
+    "page": {
+      "type": "object",
+      "description": "Page-level configuration (composition engine, Phase 1).",
+      "additionalProperties": false,
+      "properties": {
+        "composition": {
+          "type": "string",
+          "enum": ["standard", "decision", "behavior_change"],
+          "description": "Approved composition from the landing-page section library. Default = standard (9-section V06-inspired order)."
+        }
+      }
+    },
     "generated_at": { "type": "string" },
     "hero": {
       "type": "object",
@@ -33,16 +45,78 @@
         "body": { "type": "string", "description": "2-3 sentence narrative. Phase 1 = record-derived template; Phase 3 = @lfe-copywriter AI, still constrained to record fields." },
         "cta_label": { "type": "string", "minLength": 1 },
         "trust_line": { "type": "string", "minLength": 1, "description": "Educational-content trust line from safety.disclaimer." },
-        "evidence_label": { "type": "string", "minLength": 1, "description": "Evidence basis stated honestly; never fabricated." }
+        "evidence_label": { "type": "string", "minLength": 1, "description": "Evidence basis stated honestly; never fabricated." },
+        "eyebrow": { "type": "string", "description": "Hero eyebrow label (e.g. 'Night coordination')." },
+        "tags": { "type": "array", "items": { "type": "string" }, "description": "Hero tags (e.g. code, life area, scope)." },
+        "trust_chips": { "type": "array", "items": { "type": "string" }, "description": "Trust chips (e.g. 'Research basis')." },
+        "cta_ghost_label": { "type": "string", "description": "Secondary CTA label (e.g. 'See what's inside')." },
+        "artifact": {
+          "type": "object",
+          "description": "Hero right-column artifact (Fridge Chart style data card). Generated per-product by the factory.",
+          "additionalProperties": false,
+          "properties": {
+            "head_label": { "type": "string" },
+            "sub": { "type": "string" },
+            "table_label": { "type": "string" },
+            "header": { "type": "array", "items": { "type": "string" }, "minItems": 2, "maxItems": 2 },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "day": { "type": "string" },
+                  "night": { "type": "object", "properties": { "label": { "type": "string" }, "variant": { "type": "string", "enum": ["partner","you-off","split"] }, "icon": { "type": "string" } } },
+                  "sleep": { "type": "object", "properties": { "label": { "type": "string" }, "variant": { "type": "string", "enum": ["partner","you-off","split"] }, "icon": { "type": "string" } } }
+                }
+              }
+            },
+            "legend": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "swatch": { "type": "string" },
+                  "label": { "type": "string" }
+                }
+              }
+            },
+            "float_script": { "type": ["object", "null"], "properties": { "label": { "type": "string" }, "text": { "type": "string" } } },
+            "float_ledger": { "type": ["object", "null"], "properties": { "bold": { "type": "string" }, "small": { "type": "string" } } }
+          }
+        }
       }
     },
     "before_state": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "label": { "type": "string" },
+        "label": { "type": "string", "description": "Section eyebrow (e.g. 'Sound familiar?')." },
+        "headline": { "type": "string", "description": "Section H2 reframe (e.g. 'You are not broken. The night just has no owner.')." },
         "paragraphs": { "type": "array", "items": { "type": "string" } },
-        "punch": { "type": "string", "description": "The reframe line (e.g. 'a coordination failure, not a character failure')." }
+        "punch": { "type": "string", "description": "The reframe line (e.g. 'a coordination failure, not a character failure')." },
+        "timeline": {
+          "type": "object",
+          "description": "Right-column navy card. V06 = timed night-strip; factory = data-driven ticks from before_state (no clock times).",
+          "additionalProperties": false,
+          "properties": {
+            "label": { "type": "string" },
+            "ticks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "time": { "type": "string" },
+                  "text": { "type": "string" },
+                  "alert": { "type": "boolean" }
+                }
+              }
+            },
+            "note": { "type": "string" }
+          }
+        }
       }
     },
     "modules": {
@@ -50,6 +124,7 @@
       "additionalProperties": false,
       "properties": {
         "label": { "type": "string" },
+        "headline": { "type": "string", "description": "Section H2 (e.g. '13 modules. One written system.')." },
         "intro": { "type": "string" },
         "items": {
           "type": "array",
@@ -60,7 +135,8 @@
             "properties": {
               "title": { "type": "string", "minLength": 1 },
               "description": { "type": "string" },
-              "kind": { "type": "string", "description": "Human-readable asset format (Guide / Decision Tree / Scripts / Tracker ...)." }
+              "kind": { "type": "string", "description": "Human-readable asset format (Guide / Decision Tree / Scripts / Tracker ...)." },
+              "icon": { "type": "string", "description": "Lucide icon name from inc/landing.php swt_landing_icon() set." }
             }
           }
         }
@@ -72,6 +148,8 @@
       "additionalProperties": false,
       "properties": {
         "label": { "type": "string" },
+        "headline": { "type": "string", "description": "Section H2 (e.g. 'Before the roster. After the roster.')." },
+        "intro": { "type": "string" },
         "before_items": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
         "after_items": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
       }
@@ -81,10 +159,14 @@
       "required": ["for_items", "not_for_items"],
       "additionalProperties": false,
       "properties": {
+        "label": { "type": "string", "description": "Section eyebrow (e.g. 'Fit check')." },
+        "headline": { "type": "string", "description": "Section H2 (e.g. 'Read both sides before you buy.')." },
+        "intro": { "type": "string" },
         "for_label": { "type": "string" },
         "for_items": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
         "not_for_label": { "type": "string" },
-        "not_for_items": { "type": "array", "items": { "type": "string" }, "minItems": 1, "description": "Always present - an honest landing page tells you who it is NOT for." }
+        "not_for_items": { "type": "array", "items": { "type": "string" }, "minItems": 1, "description": "Always present - an honest landing page tells you who it is NOT for." },
+        "note": { "type": "string", "description": "Info callout under the not-for column (e.g. safety-gate routing)." }
       }
     },
     "promise": {
@@ -93,7 +175,10 @@
       "additionalProperties": false,
       "properties": {
         "label": { "type": "string" },
+        "headline": { "type": "string", "description": "Section H2 (e.g. 'A system. Not a sleep guarantee.')." },
+        "we_do_label": { "type": "string" },
         "we_do": { "type": "string", "minLength": 1, "description": "What we responsibly promise (the system), from one_line_promise + desired_transformation." },
+        "we_do_not_label": { "type": "string" },
         "we_do_not": { "type": "string", "minLength": 1, "description": "Remaining limits, from after_state.remaining_limits + safety scope. Never omitted." },
         "evidence_label": { "type": "string", "minLength": 1 }
       }
@@ -103,7 +188,17 @@
       "additionalProperties": false,
       "properties": {
         "label": { "type": "string" },
-        "items": { "type": "array", "items": { "type": "string" } }
+        "headline": { "type": "string", "description": "Section H2 (e.g. 'Everything you get. Nothing padded.')." },
+        "intro": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "type": "string" },
+              { "type": "object", "additionalProperties": false, "properties": { "lead": { "type": "string" }, "text": { "type": "string" } } }
+            ]
+          }
+        }
       }
     },
     "final_cta": {
@@ -111,10 +206,12 @@
       "required": ["headline", "cta_label", "trust_line"],
       "additionalProperties": false,
       "properties": {
-        "headline": { "type": "string", "minLength": 1 },
+        "eyebrow": { "type": "string", "description": "Card eyebrow (e.g. 'The night needs an owner')." },
+        "headline": { "type": "string", "minLength": 1, "description": "Short punchy H2 - never a full paragraph." },
         "body": { "type": "string" },
         "cta_label": { "type": "string", "minLength": 1 },
-        "trust_line": { "type": "string", "minLength": 1 }
+        "trust_line": { "type": "string", "minLength": 1 },
+        "evidence_label": { "type": "string" }
       }
     },
     "next": {
@@ -122,6 +219,8 @@
       "additionalProperties": false,
       "properties": {
         "label": { "type": "string" },
+        "headline": { "type": "string", "description": "Section H2 (e.g. 'Once your nights have a system...')." },
+        "intro": { "type": "string" },
         "note": { "type": "string", "description": "Anti-artificial-upsell note: next situations on the journey, not upsells." },
         "items": {
           "type": "array",
@@ -132,6 +231,7 @@
             "properties": {
               "title": { "type": "string", "minLength": 1 },
               "reason": { "type": "string" },
+              "code": { "type": "string", "description": "Short code chip (e.g. 'V09'). Factory derives from target product_id." },
               "transformation_id": { "type": "string" },
               "product_id": { "type": "string" }
             }

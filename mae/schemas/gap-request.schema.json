@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/gap-request.schema.json",
+  "title": "MAE GapRequest",
+  "description": "Raised when Section 10 cannot find eligible inventory for a required job (S10 §10.10). Section 10 must never freehand-generate missing inventory.",
+  "type": "object",
+  "required": ["id", "class", "campaign_id", "audience_state", "missing_role", "required_platform", "reason_existing_inventory_fails", "requested_upstream_action", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^GAP-" },
+    "class": { "const": "gap_request" },
+    "campaign_id": { "type": "string" },
+    "sequence_id": { "type": ["string", "null"] },
+    "audience_state": { "type": "string" },
+    "missing_role": { "type": "string" },
+    "required_platform": { "type": "string" },
+    "required_angle_or_truth_scope": { "type": ["string", "null"] },
+    "reason_existing_inventory_fails": { "type": "string" },
+    "requested_upstream_action": { "type": "string" },
+    "status": { "enum": ["OPEN", "UPSTREAM_ACTION", "RESOLVED", "WAIVED"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "resolved_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

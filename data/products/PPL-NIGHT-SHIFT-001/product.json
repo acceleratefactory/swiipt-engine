@@ -54,7 +54,8 @@
     "specifications": null,
     "deliverables": null,
     "onboarding": null,
-    "completion": null
+    "completion": null,
+    "reviews": "copy/reviews.json"
   },
   "commerce": {
     "price": {

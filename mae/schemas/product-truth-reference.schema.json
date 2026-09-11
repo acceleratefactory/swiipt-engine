@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/product-truth-reference.schema.json",
+  "title": "MAE ProductTruthReference",
+  "description": "Read-only reference into existing Product Factory records (S2 §3). The MAE never shadows Product Truth; it references it. Controls factual/mechanism/claim/safety boundary.",
+  "type": "object",
+  "required": ["id", "class", "product_id", "transformation_id", "source", "before_state", "after_state", "mechanism", "permitted_claims", "prohibited_claims", "safety", "provenance", "version", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^PTR-" },
+    "class": { "const": "product_truth_reference" },
+    "product_id": { "type": "string", "minLength": 1 },
+    "transformation_id": { "type": "string", "minLength": 1 },
+    "source": {
+      "type": "object",
+      "description": "Where in the Product Factory this truth is read from.",
+      "additionalProperties": true,
+      "required": ["system", "ref"],
+      "properties": {
+        "system": { "enum": ["product_factory"] },
+        "ref": { "type": "string", "minLength": 1 },
+        "version": { "type": ["string", "null"] }
+      }
+    },
+    "situation": { "type": ["string", "null"] },
+    "promise": { "type": ["string", "null"] },
+    "before_state": { "type": "object", "additionalProperties": true },
+    "after_state": { "type": "object", "additionalProperties": true },
+    "mechanism": { "type": "object", "additionalProperties": true },
+    "deliverables": { "type": "array", "items": { "type": "string" } },
+    "evidence": { "type": "array", "items": { "type": "object" } },
+    "proof_inventory": { "type": "array", "items": { "type": "string" } },
+    "tsm": { "type": "object", "additionalProperties": true },
+    "safety": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["risk_level"],
+      "properties": {
+        "risk_level": { "enum": ["low", "moderate", "high", "clinical"] },
+        "scope_boundary": { "type": ["string", "null"] },
+        "red_flags": { "type": "array", "items": { "type": "string" } },
+        "escalation_rules": { "type": "array", "items": { "type": "string" } },
+        "disclaimer": { "type": ["string", "null"] }
+      }
+    },
+    "permitted_claims": { "type": "array", "items": { "type": "string" } },
+    "prohibited_claims": { "type": "array", "items": { "type": "string" } },
+    "provenance": { "enum": ["evidence_backed", "synthetic_fixture", "inference", "hypothesis"] },
+    "is_fixture": { "type": "boolean" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.\\d+)?$" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

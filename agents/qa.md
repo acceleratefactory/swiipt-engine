@@ -36,3 +36,13 @@ filesystem · shell (to run deterministic checks). No builder tools, no publishi
 ## Handoff
 
 PASS → @lfe-publisher receives a manifest request; FAIL/REVISION → back to the responsible agent.
+
+## Relationship to the Writing / Generation Control Layer (writing-control-v1.0)
+
+Acceptance Tests remain the authoritative quality gate; Publishing Gates remain the authoritative
+publishing gate. The Writing / Generation Control Layer (`config/writing-control.v1.json`,
+`standards/writing-standard.md`, `harness/writing-control.mjs`, `harness/writing-passes.mjs`,
+`harness/writing-checks.mjs`, `harness/writing-critic.mjs`, `harness/writing-manifest.mjs`) is a
+**generation control that runs before this agent**, not a competing acceptance framework. QA may
+consume its handoff (`copy/generation-manifest.json`: passes, critic status, warnings, revisions,
+QA-handoff summary) as evidence, but does not defer its own verdict to it.

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/performance-record.schema.json",
+  "title": "MAE PerformanceRecord",
+  "description": "A performance observation linked to a usage context (S9 §9.51/§9.50, S10 §10.14). Performance is a ranking/learning signal; it never rewrites Truth.",
+  "type": "object",
+  "required": ["id", "class", "usage_id", "asset_id", "angle_id", "family_id", "platform", "audience_state", "objective", "metrics", "source", "observed_at", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^PERF-" },
+    "class": { "const": "performance_record" },
+    "usage_id": { "type": "string", "pattern": "^USE-" },
+    "asset_id": { "type": "string", "pattern": "^AST-" },
+    "angle_id": { "type": "string", "pattern": "^ANG-" },
+    "family_id": { "type": "string", "pattern": "^FAM-" },
+    "campaign_id": { "type": ["string", "null"] },
+    "platform": { "type": "string" },
+    "audience_state": { "type": "string" },
+    "sequence_position": { "type": ["integer", "null"] },
+    "objective": { "type": "string" },
+    "metrics": { "type": "object", "additionalProperties": true },
+    "source_raw": { "type": "object", "additionalProperties": true },
+    "source": { "type": "string" },
+    "observed_at": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

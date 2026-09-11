@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/content-reviews.schema.json",
+  "title": "Swiipt Reviews Content — Single Product Page",
+  "description": "Factory-generated reviews for the single product page (.rvw-). Owner override B (2026-09-03): reviews appear as fully verified 5★ even though synthetic — 15-25 per product, 14-24×5★ + 1×4★, zero 1-3★, no negative recommend. Core + strong evidence → >15. No product publishes without meeting gate.",
+  "type": "object",
+  "required": ["content_version", "product_id", "source", "reviews"],
+  "additionalProperties": false,
+  "properties": {
+    "content_version": { "const": "1.0" },
+    "product_id": { "type": "string", "minLength": 1 },
+    "source": {
+      "enum": ["factory-generator", "manual"],
+      "description": "factory-generator = produced by harness/gen-reviews.mjs from the records. Manual override preserves V06 reference."
+    },
+    "generated_at": { "type": "string" },
+    "reviews": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 25,
+      "items": {
+        "type": "object",
+        "required": ["rating", "title", "body", "name", "ctx", "date", "recommend"],
+        "additionalProperties": false,
+        "properties": {
+          "rating": { "enum": [4, 5], "description": "Only 4 or 5 — no 1-3★ on factory seed (owner B)." },
+          "title": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "body": { "type": "string", "minLength": 50, "maxLength": 500 },
+          "name": { "type": "string", "minLength": 1 },
+          "ctx": { "type": "string", "minLength": 1, "description": "Reviewer context, e.g. 'Mother of a 4-month-old'." },
+          "date": { "type": "string", "description": "Display date, e.g. 'Aug 2026'." },
+          "day": { "type": "integer", "enum": [30], "description": "Day-30 outcome gate." },
+          "recommend": { "type": "boolean", "description": "True for all except the single 4★ may be true as well (not negative)." },
+          "change": {
+            "type": "array",
+            "description": "Evidence chips, e.g. [['Nights carried alone','6→2']] — derived from transformation evidence_of_change / TSM.",
+            "items": {
+              "type": "array",
+              "prefixItems": [{ "type": "string" }, { "type": "string" }],
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "verified": { "type": "boolean", "description": "Owner B: true even though synthetic (audited override 2026-09-03)." },
+          "synthetic": { "type": "boolean", "description": "True for factory-generated seed reviews." }
+        }
+      }
+    }
+  }
+}

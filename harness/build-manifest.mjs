@@ -2,16 +2,29 @@
 // Factory tool - builds a publish-manifest from a product directory.
 // Usage: node harness/build-manifest.mjs <PRODUCT_ID> [outFile]
 // Reads data/products/<ID>/product.json + assets/*.json (+ their source_path content files),
-// inlines asset content, stamps QA PASS + authorization from CLI flag --authorized-by "<name>".
+// inlines asset content, and records the ACTUAL authoritative QA/gate results + the explicit
+// upstream publication authorization. It never manufactures PASS or authorization: if a required
+// gate result or the authorization record does not exist, manifest construction stops (exit 3).
 import { readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import Ajv from "ajv/dist/2020.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+
+// --- schema pool: the built manifest MUST validate before it is written, so this drift cannot recur ---
+const ajv = new Ajv({ allErrors: true, strict: false });
+ajv.addFormat("date-time", /^\d{4}-\d{2}-\d{2}T/);
+ajv.addFormat("date", /^\d{4}-\d{2}-\d{2}$/);
+for (const f of readdirSync(join(root, "schemas")).filter((x) => x.endsWith(".schema.json"))) {
+  const sch = JSON.parse(readFileSync(join(root, "schemas", f), "utf8"));
+  sch.$id = `https://swiipt.com/factory/schemas/${f}`;
+  try { ajv.addSchema(sch); } catch (e) { /* already added */ }
+}
+const MANIFEST_SCHEMA = "https://swiipt.com/factory/schemas/publish-manifest.schema.json";
 const pid = process.argv[2];
 const outArg = process.argv[3] ?? `data/products/${pid}/publish/manifest.json`;
-const authBy = (process.argv.find(a => a.startsWith("--authorized-by=")) ?? "--authorized-by=Owner").split("=").slice(1).join("=");
-if (!pid) { console.error("usage: build-manifest.mjs <PRODUCT_ID> [out] [--authorized-by=name]"); process.exit(2); }
+if (!pid) { console.error("usage: build-manifest.mjs <PRODUCT_ID> [out]"); process.exit(2); }
 
 const pdir = join(root, "data", "products", pid);
 const p = JSON.parse(readFileSync(join(pdir, "product.json"), "utf8"));
@@ -63,6 +76,53 @@ for (const list of Object.values(p.asset_map)) {
 const prices = {};
 for (const [k, v] of Object.entries(p.commerce?.price?.currency_rules?.prices ?? {})) prices[k] = v;
 
+// --- commerce + access (Standard v1 §20; schema-required) ---
+// Source is the product record's commerce block. The publisher does not currently consume these
+// blocks, but they are part of the publishing contract. Never fabricate: if the source is missing,
+// the build fails structurally instead of emitting an incomplete manifest.
+const commerce = p.commerce ?? null;
+if (!commerce || !commerce.price || typeof commerce.price.base_usd !== "number" || !commerce.currency_rules || typeof commerce.currency_rules !== "object" || Object.keys(commerce.currency_rules).length === 0) {
+  console.error(`FAIL ${pid}: commerce source missing - product.commerce.price.base_usd + commerce.currency_rules are required for the publish manifest. Reconcile the product record (Product Architect) first.`);
+  process.exit(3);
+}
+const accessRules = commerce.access_rules ?? {};
+if (!accessRules.grant_type) {
+  console.error(`FAIL ${pid}: access source missing - product.commerce.access_rules.grant_type is required for the publish manifest. Reconcile the product record (Product Architect) first.`);
+  process.exit(3);
+}
+const access = { grant_type: accessRules.grant_type };
+if (accessRules.expiry_days !== undefined) access.expiry_days = accessRules.expiry_days;
+if (accessRules.download_formats !== undefined) access.download_formats = accessRules.download_formats;
+
+// --- QA verdicts (Standard v1 §19/§20) from the AUTHORITATIVE product record - never manufactured ---
+// deterministic <- Gate 7 + all qa.deterministic_tests PASS ; ai <- Gate 7 + all qa.ai_tests PASS ;
+// safety <- Gate 5 ; commerce <- Gate 8 ; journey <- Gate 9. A pending/FAIL/absent result is NOT PASS.
+const gates = p.qa?.gate_results ?? {};
+const detTests = p.qa?.deterministic_tests ?? [];
+const aiTests = p.qa?.ai_tests ?? [];
+const allPass = (arr, key) => Array.isArray(arr) && arr.length > 0 && arr.every((t) => t[key] === "PASS");
+const qaVerdicts = {
+  deterministic: gates.g7_product_qa === "PASS" && allPass(detTests, "result") ? "PASS" : "FAIL",
+  ai: gates.g7_product_qa === "PASS" && allPass(aiTests, "status") ? "PASS" : "FAIL",
+  safety: gates.g5_safety === "PASS" ? "PASS" : "FAIL",
+  commerce: gates.g8_commerce === "PASS" ? "PASS" : "FAIL",
+  journey: gates.g9_customer_journey === "PASS" ? "PASS" : "FAIL",
+};
+const unmetGates = Object.entries(qaVerdicts).filter(([, v]) => v !== "PASS").map(([k]) => k);
+if (unmetGates.length) {
+  console.error(`FAIL ${pid}: QA gate(s) not PASS - ${unmetGates.join(", ")}. Manifest construction stopped.`);
+  console.error(`  Record the authoritative outcomes upstream in product.qa.gate_results (g5_safety, g7_product_qa, g8_commerce, g9_customer_journey) and qa.deterministic_tests/qa.ai_tests (QA agent / qa-checks). Missing results are never defaulted to PASS.`);
+  process.exit(3);
+}
+
+// --- publication authorization (Gate 10 / §21 human authority) from an explicit upstream record ---
+const auth = p.publishing?.authorization ?? null;
+if (!auth || auth.status !== "READY_TO_PUBLISH" || !auth.authorized_by) {
+  console.error(`FAIL ${pid}: publish_authorization missing. Manifest construction stopped.`);
+  console.error(`  Record an explicit human authorization at product.publishing.authorization { status: "READY_TO_PUBLISH", authorized_by, authorized_at }. The builder never manufactures authorization.`);
+  process.exit(3);
+}
+
 // Inline generated product content (landing page / product page / faq) from copy/ artifacts,
 // so the live publisher receives self-contained content (no factory-repo filesystem at publish time).
 function readCopy(rel) {
@@ -71,7 +131,7 @@ function readCopy(rel) {
   try { return JSON.parse(readFileSync(fp, "utf8")); } catch { return null; }
 }
 const content = {};
-for (const key of ["landing_page", "product_page", "faq"]) {
+for (const key of ["landing_page", "product_page", "faq", "reviews"]) {
   const ptr = p.content?.[key];
   if (ptr) {
     const data = readCopy(ptr);
@@ -105,22 +165,39 @@ const manifest = {
   },
   assets,
   content,
+  commerce,
   relationships: {
     next_transformation_ids: p.transformation.next_transformation_ids ?? [],
   },
+  access,
   seo: {
     title: `${p.identity.name} | Swiipt`,
     description: p.identity.one_line_promise.slice(0, 160),
     focus_keyword: p.identity.name.toLowerCase(),
   },
-  qa: { deterministic: "PASS", ai: "PASS", safety: "PASS", commerce: "PASS", journey: "PASS" },
+  // Writing / Generation Control (decision #5): propagate the version + execution-record ref.
+  ...(p.generation?.writing_control_version ? {
+    generation: (() => {
+      const gmPath = join(pdir, "copy", "generation-manifest.json");
+      let status = null;
+      if (existsSync(gmPath)) { try { status = JSON.parse(readFileSync(gmPath, "utf8")).status ?? null; } catch (e) { /* ignore */ } }
+      return { writing_control_version: p.generation.writing_control_version, manifest: "copy/generation-manifest.json", status };
+    })(),
+  } : {}),
+  qa: qaVerdicts,
   publish_authorization: {
-    status: "READY_TO_PUBLISH",
-    authorized_by: authBy,
-    authorized_at: new Date().toISOString(),
-    notes: "Factory Wave run - owner directive 'build everything' 2026-08-24; pricing placeholders pending owner.",
+    status: auth.status,
+    authorized_by: auth.authorized_by,
+    authorized_at: auth.authorized_at,
+    ...(auth.notes ? { notes: auth.notes } : {}),
   },
 };
 
+// Validate before writing: a manifest that violates the contract must never be produced.
+if (!ajv.validate(MANIFEST_SCHEMA, manifest)) {
+  console.error(`FAIL ${pid}: built manifest does not validate against publish-manifest.schema.json:`);
+  for (const e of ajv.errors) console.error(`  ${e.instancePath || "(root)"} ${e.message}`);
+  process.exit(1);
+}
 writeFileSync(resolve(root, outArg), JSON.stringify(manifest, null, 2) + "\n");
-console.log(`manifest -> ${outArg} (${assets.length} assets, ${(JSON.stringify(manifest).length / 1024).toFixed(1)} KB)`);
+console.log(`manifest -> ${outArg} (${assets.length} assets, ${(JSON.stringify(manifest).length / 1024).toFixed(1)} KB, schema-valid)`);

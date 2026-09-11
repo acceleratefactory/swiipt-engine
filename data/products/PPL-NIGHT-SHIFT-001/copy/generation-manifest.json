@@ -1,0 +1,61 @@
+{
+  "manifest_version": "1.0",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "product_schema_version": "1.0",
+  "writing_control_version": "1.0",
+  "research_version": null,
+  "architecture_version": "1.0",
+  "voice_spec_version": "global",
+  "generator_model": "deterministic",
+  "generation_timestamp": "2026-09-11T20:20:13.303Z",
+  "revision_number": 0,
+  "qa_status": "pending",
+  "evidence_status": "pre-factory manual process; evidence labels applied in WP (Gate N)",
+  "safety_status": "risk:moderate gate:pending",
+  "publish_status": "published",
+  "status": "SOURCE_REQUIRED",
+  "passes": [
+    {
+      "id": 1,
+      "name": "contract_ingestion",
+      "status": "SOURCE_REQUIRED",
+      "findings": 3
+    }
+  ],
+  "critic": {
+    "status": "SOURCE_REQUIRED",
+    "llm_status": "NOT_RUN",
+    "llm_provider": "none",
+    "blockers": 3,
+    "warnings": 0
+  },
+  "warnings": [],
+  "revisions": [
+    {
+      "failed_component": "product",
+      "reason": "no transformation record for TR-PPL-NIGHT-SHIFT-001 — generation cannot proceed; return upstream to the Transformation Architect",
+      "required_change": "must fix before publish",
+      "upstream_dependency": "Transformation Architect / Product Architect",
+      "status": "SOURCE_REQUIRED",
+      "severity": "BLOCKER"
+    },
+    {
+      "failed_component": "product",
+      "reason": "no representable TSM (before baseline + success indicators + threshold)",
+      "required_change": "must fix before publish",
+      "upstream_dependency": "Transformation Architect / Product Architect",
+      "status": "SOURCE_REQUIRED",
+      "severity": "BLOCKER"
+    },
+    {
+      "failed_component": "product",
+      "reason": "moderate risk with no evidence basis on the transformation record",
+      "required_change": "must fix before publish",
+      "upstream_dependency": "Transformation Architect / Product Architect",
+      "status": "SOURCE_REQUIRED",
+      "severity": "BLOCKER"
+    }
+  ],
+  "handoff": null
+}

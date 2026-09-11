@@ -1,0 +1,30 @@
+{
+  "id": "PTR-CSEC-001",
+  "class": "product_truth_reference",
+  "product_id": "PROD-CSEC",
+  "transformation_id": "TR-CSEC",
+  "source": { "system": "product_factory", "ref": "fixtures/day6-csection (synthetic)", "version": "0.1" },
+  "situation": "Day 6 after a C-section: standing up from bed at 3 AM pulls and burns at the incision; discharge advice was generic.",
+  "promise": "Move — stand, sit, rise — without bracing in anticipatory fear of pain.",
+  "before_state": { "current_behavior": ["bracing before standing", "holding furniture and waiting for pain to pass"], "emotional_state": ["fear that something is wrong internally"] },
+  "after_state": { "new_capabilities": ["position and rise without straining the incision"], "improvements": ["movement confidence"], "systems_created": ["a 3-position rise technique"] },
+  "mechanism": { "core_mechanism": "Module 2 — The 3-Position Recovery Method (positioning/support technique for lying→sitting→standing without straining the incision site)" },
+  "deliverables": ["Module 2 guide", "positioning card"],
+  "evidence": [{ "claim": "pilot cohort reported improved movement confidence by day 3-5", "status": "synthetic", "note": "FIXTURE — not real evidence" }],
+  "proof_inventory": [],
+  "tsm": { "before_baseline": ["movement pain /10", "confidence /10"], "success_indicators": ["pain down >=3pts"], "measurement_days": [0, 7, 14, 30], "success_threshold": "60% meet >=3 of 4 indicators", "measurement_method": "self-report" },
+  "safety": {
+    "risk_level": "clinical",
+    "scope_boundary": "Everyday movement positioning ONLY. Never diagnoses; never replaces clinical care.",
+    "red_flags": ["spreading redness", "fever", "purulent discharge", "worsening pain", "active bleeding"],
+    "escalation_rules": ["any red flag = same-day medical care"],
+    "disclaimer": "Educational content — not medical, clinical, or mental-health advice."
+  },
+  "permitted_claims": ["you can reduce anticipatory bracing while rising", "a specific rise technique may reduce strain"],
+  "prohibited_claims": ["you will heal faster", "this treats infection", "guaranteed pain-free movement"],
+  "provenance": "synthetic_fixture",
+  "is_fixture": true,
+  "version": "0.1",
+  "created_at": "2026-09-11T00:00:00Z",
+  "updated_at": null
+}

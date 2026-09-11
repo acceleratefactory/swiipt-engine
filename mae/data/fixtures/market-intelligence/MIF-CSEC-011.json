@@ -1,0 +1,16 @@
+{
+  "id": "MIF-CSEC-011",
+  "class": "market_intelligence_record",
+  "product_id": "PROD-CSEC",
+  "category": "gap",
+  "statement": "Institutional discharge materials reviewed give only generic 'rest as needed' guidance, with no day-specific positioning technique",
+  "evidence": "5 reviewed Lagos-area facility discharge pamphlets",
+  "evidence_status": "directly_stated",
+  "evidence_weight": "medium_high",
+  "scan_coverage_note": null,
+  "freshness": "2026-09",
+  "source": "FIXTURE — reviewed facility materials (synthetic)",
+  "provenance": "synthetic_fixture",
+  "is_fixture": true,
+  "created_at": "2026-09-11T00:00:00Z"
+}

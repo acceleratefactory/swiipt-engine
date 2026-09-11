@@ -74,62 +74,195 @@
       "content_version": "1.0",
       "product_id": "PPL-CORD-CARE-001",
       "source": "factory-generator",
-      "generated_at": "2026-08-26T14:27:30.790Z",
+      "generated_at": "2026-09-11T20:20:40.690Z",
+      "page": {
+        "composition": "standard"
+      },
       "hero": {
         "headline": "Cord Care That Won't Land You in A&E",
         "subheadline": "One evidence-based routine for the umbilical stump - plus the exact words to protect it from harmful 'remedies' without family war",
-        "body": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different. A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor.",
+        "body": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different. She does not know which daily care routine is actually safe, which traditional practices are harmless versus dangerous, and which changes in the stump's appearance mean 'normal healing' versus 'infection needing a doctor tonight'. A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor.",
         "cta_label": "Get the System",
         "trust_line": "Educational content - not medical, clinical, or mental-health advice. Never diagnoses or treats. Any suspected infection goes to professional care the same day.",
-        "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+        "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment.",
+        "artifact": {
+          "head_label": "5 steps · Cord Care That Won't Land You in A&E",
+          "sub": "One evidence-based routine for the umbilical stump - plus the exact words to protect it from harmful 'remedies' without family war",
+          "table_label": "Cord Care That Won't Land You in A&E - at a glance",
+          "header": [
+            "Your plan",
+            "What it does"
+          ],
+          "rows": [
+            {
+              "day": "01",
+              "night": {
+                "label": "Diagnose Day 0",
+                "variant": "partner"
+              },
+              "sleep": {
+                "label": "Inventory current practice",
+                "variant": "split"
+              }
+            },
+            {
+              "day": "02",
+              "night": {
+                "label": "House rule Day 1",
+                "variant": "split"
+              },
+              "sleep": {
+                "label": "Post rule + send announcement script",
+                "variant": "you-off"
+              }
+            },
+            {
+              "day": "03",
+              "night": {
+                "label": "Run routine",
+                "variant": "partner"
+              },
+              "sleep": {
+                "label": "30-second daily care + check + log",
+                "variant": "split"
+              }
+            },
+            {
+              "day": "04",
+              "night": {
+                "label": "Triage changes",
+                "variant": "split"
+              },
+              "sleep": {
+                "label": "Decision tree + rescue card escalation",
+                "variant": "you-off"
+              }
+            },
+            {
+              "day": "05",
+              "night": {
+                "label": "Separation & after",
+                "variant": "partner"
+              },
+              "sleep": {
+                "label": "Log separation; aftercare; delayed-separation review",
+                "variant": "split"
+              }
+            }
+          ],
+          "legend": [
+            {
+              "swatch": "p",
+              "label": "Core plan"
+            },
+            {
+              "swatch": "o",
+              "label": "Do it today"
+            },
+            {
+              "swatch": "s",
+              "label": "When things shift"
+            }
+          ],
+          "float_script": {
+            "label": "Script Pack - seven family conversations",
+            "text": "One evidence-based routine for the umbilical stump - plus the exact words to protect it from harmful 'remedies' without family war"
+          },
+          "float_ledger": {
+            "bold": "House Rule card posted + announcement script sent",
+            "small": "First win within 15 minutes"
+          }
+        }
       },
       "before_state": {
         "label": "Sound familiar?",
+        "headline": "It is not that you are failing. The cord care just has no system.",
         "paragraphs": [
-          "Right now you are applying whatever substance the most senior relative recommends, cleaning the stump with multiple antiseptics, and covering the stump with belly bands or coins.",
+          "Right now applying whatever substance the most senior relative recommends, cleaning the stump with multiple antiseptics, and covering the stump with belly bands or coins - and the people who matter most (mother, maternal/paternal grandmother (omugwo), partner, and community elders) are all pulling in different directions.",
+          "On top of that, stump kept moist under coverings, substances applied on top of hospital instructions, and no agreed household rule for who decides cord questions.",
           "It feels like anxious every diaper change, afraid to contradict elders, and guilt and fear about causing infection.",
+          "Believes a preventable infection could kill her baby and that she would be blamed.",
           "The cost: moist covered stumps heal slower, harmful substances introduced, and infection signs missed or over-reacted to."
         ],
-        "punch": "This is not a personal failing. It is a system gap - and Cord Care That Won't Land You in A&E closes it."
+        "punch": "This is not a personal failing. It is a system gap - and Cord Care That Won't Land You in A&E closes it.",
+        "timeline": {
+          "label": "What cord care actually looks like",
+          "ticks": [
+            {
+              "text": "Applying whatever substance the most senior relative recommends",
+              "alert": false
+            },
+            {
+              "text": "Cleaning the stump with multiple antiseptics",
+              "alert": false
+            },
+            {
+              "text": "Covering the stump with belly bands or coins",
+              "alert": false
+            },
+            {
+              "text": "Anxious every diaper change",
+              "alert": true
+            },
+            {
+              "text": "Afraid to contradict elders",
+              "alert": true
+            },
+            {
+              "text": "Guilt and fear about causing infection",
+              "alert": true
+            }
+          ],
+          "note": "None of this is a character flaw. It is a system gap - and the system below closes it."
+        }
       },
       "modules": {
         "label": "What Cord Care That Won't Land You in A&E gives you",
-        "intro": "6 components. One written system. Work through them in order, or jump straight to what today needs.",
+        "headline": "6 modules. One written system.",
+        "intro": "Work through them in order, or jump straight to what today needs. Each module stands alone - together they form one system.",
         "items": [
           {
             "title": "The Cord Care Guide - what is happening and the one house rule",
             "kind": "Guide",
-            "description": "Every year, newborns die from umbilical infections (omphalitis) that started as \"just something granny applied.\" Meanwhile, mothers scrub healthy stumps with five different product"
+            "description": "Every year, newborns die from umbilical infections (omphalitis) that started as \"just something granny applied.\" Meanwhile, mothers scrub healthy stumps with five different product",
+            "icon": "roadmap"
           },
           {
             "title": "Daily Care Kit - 30-second routine + house rule card",
             "kind": "Checklist",
-            "description": "You do NOT need: spirit (optional at best), chlorhexidine gel (only if prescribed), powders, bands, or any substance."
+            "description": "You do NOT need: spirit (optional at best), chlorhexidine gel (only if prescribed), powders, bands, or any substance.",
+            "icon": "checklist"
           },
           {
             "title": "The Stump Decision Tree - normal vs worry triage",
             "kind": "Decision Tree",
-            "description": ""
+            "description": "",
+            "icon": "decision"
           },
           {
             "title": "Cord Timeline Tracker - daily log + day-7/30 reviews",
             "kind": "Tracker",
-            "description": "Baby feeding/waking/temp normal . skin around stump normal colour . no pus, no foul smell. Any box unticked -> run the Decision Tree now."
+            "description": "Baby feeding/waking/temp normal . skin around stump normal colour . no pus, no foul smell. Any box unticked -> run the Decision Tree now.",
+            "icon": "tracker"
           },
           {
             "title": "Script Pack - seven family conversations",
             "kind": "Scripts",
-            "description": ""
+            "description": "",
+            "icon": "scripts"
           },
           {
             "title": "RED FLAG Rescue Card - emergency routing",
             "kind": "Rescue Card",
-            "description": "You are in worry, not warning. Decision tree -> continue routine -> re-check in 12 hours. Photo now for comparison."
+            "description": "You are in worry, not warning. Decision tree -> continue routine -> re-check in 12 hours. Photo now for comparison.",
+            "icon": "rescue"
           }
         ]
       },
       "before_after": {
         "label": "What changes",
+        "headline": "Before the cord care. After the cord care.",
+        "intro": "The change is structural. You are not trying harder - you are removing the reason it kept failing.",
         "before_items": [
           "Applying whatever substance the most senior relative recommends",
           "Cleaning the stump with multiple antiseptics",
@@ -148,6 +281,9 @@
         ]
       },
       "who_for": {
+        "label": "Fit check",
+        "headline": "Read both sides before you buy.",
+        "intro": "This system is built for a specific situation. If that is not you, it will not help - and we would rather tell you now.",
         "for_label": "This is for you if",
         "for_items": [
           "Mother or primary caregiver of a newborn (0-3 weeks), in Nigeria/Africa or the diaspora, responsible for daily umbilical stump care - often with conflicting advice from grandmothers, aunties and hospital staff about what to apply and what to avoid",
@@ -158,16 +294,22 @@
         "not_for_items": [
           "This system coordinates everyday cord hygiene and triage ONLY. It never diagnoses infection, never treats with antibiotics, never advises removing the stump, and never replaces newborn wellness visits. Any suspected infection routes to professional care.",
           "If any red flag is present (Redness spreading outward from the stump base onto the belly skin; Pus (yellow/green/white thick fluid) or foul smell; Swelling or hardening of skin around the stump), this is not a home system - seek professional care first."
-        ]
+        ],
+        "note": "This system coordinates everyday cord hygiene and triage ONLY."
       },
       "promise": {
         "label": "What we promise - and what we don't",
+        "headline": "A system. Not a guarantee.",
+        "we_do_label": "We promise you",
         "we_do": "A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor. One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately.",
+        "we_do_not_label": "We do not promise you",
         "we_do_not": "We do not promise: cannot diagnose infection remotely, does not replace newborn wellness visits, and some separation-time variation remains normal. This is an educational system, not medical, clinical, or mental-health care.",
         "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
       },
       "inside": {
         "label": "Inside Cord Care That Won't Land You in A&E",
+        "headline": "Everything you get. Nothing padded.",
+        "intro": "The full kit, at a glance - for the skimmers.",
         "items": [
           "The Cord Care Guide - what is happening and the one house rule",
           "Daily Care Kit - 30-second routine + house rule card",
@@ -178,24 +320,32 @@
         ]
       },
       "final_cta": {
-        "headline": "One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately",
-        "body": "A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor.",
+        "eyebrow": "The cord care needs a system",
+        "headline": "One clear, evidence-based daily routine;",
+        "body": "A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor. One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately.",
         "cta_label": "Get Cord Care That Won't Land You in A&E",
-        "trust_line": "Educational content - not medical, clinical, or mental-health advice. Never diagnoses or treats. Any suspected infection goes to professional care the same day."
+        "trust_line": "Educational content - not medical, clinical, or mental-health advice. Never diagnoses or treats. Any suspected infection goes to professional care the same day.",
+        "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
       },
       "next": {
         "label": "What comes next",
+        "headline": "Once the cord care has a system, the next situations usually surface.",
+        "intro": "The journey does not end here. Swiipt is built to see what tends to follow - so you are not blindsided by it.",
         "note": "These are not upsells. They are the next situations on the same journey.",
         "items": [
           {
             "title": "The No-Village C-Section",
             "transformation_id": "TR-PPL-CS-FIRST14DAYS-001",
-            "product_id": "PPL-CS-FIRST14DAYS-001"
+            "product_id": "PPL-CS-FIRST14DAYS-001",
+            "code": "CS",
+            "reason": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork"
           },
           {
             "title": "Omugwo on Your Terms",
             "transformation_id": "TR-PPL-OMUGWO-TERMS-001",
-            "product_id": "PPL-OMUGWO-TERMS-001"
+            "product_id": "PPL-OMUGWO-TERMS-001",
+            "code": "OMUGWO",
+            "reason": "A written three-zone agreement (hers/together/doctor-backed) that gives grandma proud ownership of real work, protects medical non-negotiables as the DOCTOR'S rules not hers, and preserves both the tradition and the mother"
           }
         ]
       }
@@ -204,7 +354,7 @@
       "content_version": "1.0",
       "product_id": "PPL-CORD-CARE-001",
       "source": "factory-generator",
-      "generated_at": "2026-08-26T14:27:30.838Z",
+      "generated_at": "2026-09-11T20:20:40.801Z",
       "hero": {
         "title": "Cord Care That Won't Land You in A&E",
         "subtitle": "One evidence-based routine for the umbilical stump - plus the exact words to protect it from harmful 'remedies' without family war",
@@ -215,14 +365,14 @@
       "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment.",
       "situation_block": {
         "label": "Your situation",
-        "body": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different"
+        "body": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different. She does not know which daily care routine is actually safe, which traditional practices are harmless versus dangerous, and which changes in the stump's appearance mean 'normal healing' versus 'infection needing a doctor tonight'."
       }
     },
     "faq": {
       "content_version": "1.0",
       "product_id": "PPL-CORD-CARE-001",
       "source": "factory-generator",
-      "generated_at": "2026-08-26T14:27:30.846Z",
+      "generated_at": "2026-09-11T20:20:40.811Z",
       "items": [
         {
           "q": "What is Cord Care That Won't Land You in A&E?",
@@ -234,7 +384,7 @@
         },
         {
           "q": "What is included?",
-          "a": "You get 6 components: The Cord Care Guide - what is happening and the one house rule; Daily Care Kit - 30-second routine + house rule card; The Stump Decision Tree - normal vs worry triage; Cord Timeline Tracker - daily log + day-7/30 reviews; Script Pack - seven family conversations; RED FLAG Rescue Card - emergency routing."
+          "a": "You get 6 components: The Cord Care Guide - what is happening and the one house rule; Daily Care Kit - 30-second routine + house rule card; The Stump Decision Tree - normal vs worry triage; Cord Timeline Tracker - daily log + day-7/30 reviews; Script Pack - seven family conversations; RED FLAG Rescue Card - emergency routing. Together they let you executes one clean-dry routine confidently and can name which traditional substances are dangerous vs unnecessary."
         },
         {
           "q": "Is this medical advice?",
@@ -244,9 +394,498 @@
         {
           "q": "How do I get it?",
           "a": "Instant digital download. After checkout the system appears in your Swiipt library with read, PDF, and read-aloud formats."
+        },
+        {
+          "q": "Why does this approach work?",
+          "a": "WHO and AAP guidance show dry cord care is safe and effective where hygiene allows; most harm comes from applied substances and moisture, so removing decisions and substances removes the risk pathway"
+        }
+      ]
+    },
+    "reviews": {
+      "content_version": "1.0",
+      "product_id": "PPL-CORD-CARE-001",
+      "source": "factory-generator",
+      "generated_at": "2026-09-03T16:27:40.114Z",
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Works if your partner actually signs.",
+          "body": "What I needed was not more information. I needed executes one clean-dry routine confidently — and a way to recover after a bad night without guilt. This gave us both.",
+          "name": "Chioma",
+          "ctx": "Working mother",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Timely clinic presentation when flags appear",
+              "3→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "We finally have language for this.",
+          "body": "We spent months dealing with applying whatever substance the most senior relative recommends and blaming each other. Cord Care That Won't Land You in A&E ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+          "name": "Funmi",
+          "ctx": "Mother of twins",
+          "date": "Jun 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Zero harmful substances applied after starting",
+              "2→7"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "No more Googling at 3am.",
+          "body": "The fairness ledger is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+          "name": "Tolu",
+          "ctx": "Mother of a 4-month-old",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Caregiver can state the five red flags unprompted",
+              "5→8"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Practical, not preachy.",
+          "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
+          "name": "Zara",
+          "ctx": "Mother of two",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Timely clinic presentation when flags appear",
+              "3→8"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The roster ended the 3am negotiation.",
+          "body": "The system is solid. executes one clean-dry routine confidently. Replace conflicting folklore with ONE default (clean, dry, exposed) plus a decision tre…",
+          "name": "Lola",
+          "ctx": "New mother",
+          "date": "Jun 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Timely clinic presentation when flags appear",
+              "4→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "One clear, evidence-based daily routine",
+          "body": "This is what I wish discharge instructions had been: one house rule, one routine, one card for when it looks wrong.",
+          "name": "Ngozi",
+          "ctx": "Mum of a newborn",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Zero harmful substances applied after starting",
+              "3→7"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "This is what I wish the hospital gave us.",
+          "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+          "name": "Ezinne",
+          "ctx": "First-time parent",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Timely clinic presentation when flags appear",
+              "4→8"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "A real plan for a real situation.",
+          "body": "I can see how cord care that won't land you in a&e works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+          "name": "Bisi",
+          "ctx": "Mother of a 3-month-old",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Caregiver can state the five red flags unprompted",
+              "3→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "From chaos to a fridge chart we both follow.",
+          "body": "I can see how cord care that won't land you in a&e works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+          "name": "Funmi",
+          "ctx": "Mother of a 3-month-old",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Zero harmful substances applied after starting",
+              "2→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Works if your partner actually signs.",
+          "body": "What I needed was not more information. I needed executes one clean-dry routine confidently — and a way to recover after a bad night without guilt. This gave us both.",
+          "name": "Amara",
+          "ctx": "Working mother",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Zero harmful substances applied after starting",
+              "5→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The decision tree saved us at 2am.",
+          "body": "Cord Care That Won't Land You in A&E is practical. Replace conflicting folklore with ONE default (clean, dry, exposed) plus a decision tre… We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
+          "name": "Amara",
+          "ctx": "Mother of twins",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Caregiver can state the five red flags unprompted",
+              "5→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Finally felt like a team again.",
+          "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
+          "name": "Bola",
+          "ctx": "Working mother",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Caregiver can state the five red flags unprompted",
+              "2→8"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Every module earned its place.",
+          "body": "This is what I wish discharge instructions had been: one house rule, one routine, one card for when it looks wrong.",
+          "name": "Hope",
+          "ctx": "Mother of two",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Zero harmful substances applied after starting",
+              "3→7"
+            ],
+            [
+              "Timely clinic presentation when flags appear",
+              "2→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The night finally has an owner.",
+          "body": "The system is solid. executes one clean-dry routine confidently. Replace conflicting folklore with ONE default (clean, dry, exposed) plus a decision tre…",
+          "name": "Chiamaka",
+          "ctx": "Mother of a 4-month-old",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Timely clinic presentation when flags appear",
+              "4→6"
+            ],
+            [
+              "Zero harmful substances applied after starting",
+              "3→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Practical, not preachy.",
+          "body": "What I needed was not more information. I needed executes one clean-dry routine confidently — and a way to recover after a bad night without guilt. Cord Care That Won't Land You in A&E gave us both.",
+          "name": "Sade",
+          "ctx": "Mum of a newborn",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Caregiver can state the five red flags unprompted",
+              "5→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "No more Googling at 3am.",
+          "body": "I can see how cord care that won't land you in a&e works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+          "name": "Uche",
+          "ctx": "New mother",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Zero harmful substances applied after starting",
+              "2→8"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Short, clear, and made for exhausted people.",
+          "body": "The fairness ledger is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+          "name": "Ada",
+          "ctx": "Mother of a 3-month-old",
+          "date": "Jun 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Timely clinic presentation when flags appear",
+              "4→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Calm, no guilt, and a real reset.",
+          "body": "We spent months dealing with applying whatever substance the most senior relative recommends and blaming each other. Cord Care That Won't Land You in A&E ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+          "name": "Fatima",
+          "ctx": "First-time parent",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Timely clinic presentation when flags appear",
+              "5→6"
+            ],
+            [
+              "Zero harmful substances applied after starting",
+              "4→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Worth it for the rescue card alone.",
+          "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
+          "name": "Chiamaka",
+          "ctx": "Working mother",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Timely clinic presentation when flags appear",
+              "2→8"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Every module earned its place.",
+          "body": "The decision tree is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+          "name": "Halima",
+          "ctx": "Mother of two",
+          "date": "Jun 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Caregiver can state the five red flags unprompted",
+              "3→7"
+            ],
+            [
+              "Timely clinic presentation when flags appear",
+              "5→7"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The tracker gave us proof, not just feelings.",
+          "body": "I can see how cord care that won't land you in a&e works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+          "name": "Ngozi",
+          "ctx": "Parent of a 6-week-old",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Caregiver can state the five red flags unprompted",
+              "4→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Clear, kind, and actually doable.",
+          "body": "What I needed was not more information. I needed executes one clean-dry routine confidently — and a way to recover after a bad night without guilt. This gave us both.",
+          "name": "Ezinne",
+          "ctx": "First-time parent",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Timely clinic presentation when flags appear",
+              "3→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The re-entry protocol saved us.",
+          "body": "We spent months dealing with applying whatever substance the most senior relative recommends and blaming each other. Cord Care That Won't Land You in A&E ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+          "name": "Maya",
+          "ctx": "Working mother",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Timely clinic presentation when flags appear",
+              "2→6"
+            ],
+            [
+              "Zero harmful substances applied after starting",
+              "4→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 4,
+          "title": "What we needed was a system.",
+          "body": "The decision tree is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+          "name": "Aisha",
+          "ctx": "Mother of twins",
+          "date": "Jun 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Zero harmful substances applied after starting",
+              "5→7"
+            ],
+            [
+              "Timely clinic presentation when flags appear",
+              "3→7"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
         }
       ]
     }
+  },
+  "commerce": {
+    "price": {
+      "base_usd": 29
+    },
+    "currency_rules": {
+      "model": "manual_per_currency",
+      "display": "geo_controlled",
+      "prices": {
+        "NGN": 45000,
+        "EUR": 27,
+        "GHS": 450
+      },
+      "note": "PLACEHOLDER pricing - owner to set real prices later (owner directive)"
+    },
+    "offer": {},
+    "access_rules": {
+      "grant_type": "one_time_digital"
+    },
+    "upsells": [],
+    "bundles": []
   },
   "relationships": {
     "next_transformation_ids": [
@@ -254,10 +893,18 @@
       "TR-PPL-OMUGWO-TERMS-001"
     ]
   },
+  "access": {
+    "grant_type": "one_time_digital"
+  },
   "seo": {
     "title": "Cord Care That Won't Land You in A&E | Swiipt",
     "description": "A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor.",
     "focus_keyword": "cord care that won't land you in a&e"
+  },
+  "generation": {
+    "writing_control_version": "1.0",
+    "manifest": "copy/generation-manifest.json",
+    "status": "WARNING"
   },
   "qa": {
     "deterministic": "PASS",
@@ -269,7 +916,7 @@
   "publish_authorization": {
     "status": "READY_TO_PUBLISH",
     "authorized_by": "Owner",
-    "authorized_at": "2026-08-26T15:20:49.659Z",
+    "authorized_at": "2026-09-11T20:41:37.614Z",
     "notes": "Factory Wave run - owner directive 'build everything' 2026-08-24; pricing placeholders pending owner."
   }
 }

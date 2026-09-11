@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/brand-truth-record.schema.json",
+  "title": "MAE BrandTruthRecord",
+  "description": "Global, versioned brand configuration (S2 §8). Controls expression only — never Product Truth. The writing register REUSES the Writing Control layer (config/writing-control.v1.json + standards/writing-standard.md); this record references it rather than duplicating the Constitution or Anti-Slop Registry.",
+  "type": "object",
+  "required": ["id", "class", "version", "voice_dna", "writing_constitution_ref", "anti_slop_ref", "visual_language", "boundaries", "prohibited_behaviours", "trust_safety", "claims_boundaries", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^BRAND-" },
+    "class": { "const": "brand_truth" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.\\d+)?$" },
+    "voice_dna": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["traits", "structural_test"],
+      "properties": {
+        "traits": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "structural_test": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "writing_constitution_ref": {
+      "type": "object",
+      "description": "Pointer to the canonical Writing Control config + standard (reuse; do not fork).",
+      "additionalProperties": false,
+      "required": ["config", "standard"],
+      "properties": {
+        "config": { "type": "string" },
+        "standard": { "type": "string" }
+      }
+    },
+    "anti_slop_ref": { "type": "string", "description": "Path/ref to the canonical anti-slop registry." },
+    "visual_language": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["tokens_version"],
+      "properties": {
+        "tokens_version": { "type": "string" },
+        "palette": { "type": "array", "items": { "type": "string" } },
+        "typography": { "type": "object", "additionalProperties": true },
+        "layout_grid": { "type": ["string", "null"] },
+        "imagery_rules": { "type": "array", "items": { "type": "string" } },
+        "anti_patterns": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "boundaries": { "type": "array", "items": { "type": "string" } },
+    "vocabulary": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "preferred": { "type": "array", "items": { "type": "string" } },
+        "banned": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "tone": { "type": ["string", "null"] },
+    "cultural": { "type": "object", "additionalProperties": true },
+    "faith_register": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed"],
+      "properties": {
+        "allowed": { "type": "boolean" },
+        "approved_products": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "trust_safety": { "type": "array", "items": { "type": "string" } },
+    "prohibited_behaviours": { "type": "array", "items": { "type": "string" } },
+    "claims_boundaries": { "type": "array", "items": { "type": "string" } },
+    "status": { "enum": ["draft", "active", "superseded"] },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

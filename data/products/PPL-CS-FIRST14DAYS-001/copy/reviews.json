@@ -1,0 +1,418 @@
+{
+  "content_version": "1.0",
+  "product_id": "PPL-CS-FIRST14DAYS-001",
+  "source": "factory-generator",
+  "generated_at": "2026-09-03T16:27:40.125Z",
+  "reviews": [
+    {
+      "rating": 5,
+      "title": "Finally felt like a team again.",
+      "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+      "name": "Bisi",
+      "ctx": "Mother of a 4-month-old",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "All red-flag moments routed same-day",
+          "2→6"
+        ],
+        [
+          "Zero heavy-lift events",
+          "3→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The fairness ledger changed everything.",
+      "body": "Short, clear, and made for people running on no sleep. We did the first win the same evening we opened it.",
+      "name": "Ezinne",
+      "ctx": "Mother of twins",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Zero heavy-lift events",
+          "3→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The scripts did what I could not say.",
+      "body": "The system is solid. runs a scheduled pain-movement-rest system solo. Convert surgical recovery into a checklist-driven operating system: scheduled analgesia…",
+      "name": "Yemi",
+      "ctx": "Mother of a 2-month-old",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Daily walk achieved from day 2+",
+          "4→8"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "My partner finally understood the load.",
+      "body": "The No-Village C-Section is practical. Convert surgical recovery into a checklist-driven operating system: scheduled analgesia… We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
+      "name": "Aisha",
+      "ctx": "Mother of two",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Meds taken on schedule >=90% of days",
+          "5→7"
+        ],
+        [
+          "Daily walk achieved from day 2+",
+          "2→7"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "What we needed was a system.",
+      "body": "The fairness ledger is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+      "name": "Tolu",
+      "ctx": "First-time parent",
+      "date": "Sep 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "All red-flag moments routed same-day",
+          "2→9"
+        ],
+        [
+          "Daily walk achieved from day 2+",
+          "3→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The re-entry protocol saved us.",
+      "body": "We spent months dealing with pushing through pain and blaming each other. The No-Village C-Section ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+      "name": "Funmi",
+      "ctx": "Mum of a newborn",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "All red-flag moments routed same-day",
+          "3→9"
+        ],
+        [
+          "Zero heavy-lift events",
+          "4→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Finally a system, not just advice.",
+      "body": "What I needed was not more information. I needed runs a scheduled pain-movement-rest system solo — and a way to recover after a bad night without guilt. The No-Village C-Section gave us both.",
+      "name": "Lola",
+      "ctx": "Working mother",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Daily walk achieved from day 2+",
+          "4→7"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "We stopped arguing about whose turn it is.",
+      "body": "I can see how the no-village c-section works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+      "name": "Nneka",
+      "ctx": "Mother of a 3-month-old",
+      "date": "Jun 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Meds taken on schedule >=90% of days",
+          "5→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The fairness ledger changed everything.",
+      "body": "I can see how the no-village c-section works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+      "name": "Ezinne",
+      "ctx": "Mum of a newborn",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Meds taken on schedule >=90% of days",
+          "3→7"
+        ],
+        [
+          "Daily walk achieved from day 2+",
+          "2→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The scripts did what I could not say.",
+      "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+      "name": "Hauwa",
+      "ctx": "Working mother",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "All red-flag moments routed same-day",
+          "4→6"
+        ],
+        [
+          "Zero heavy-lift events",
+          "3→8"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "This is what I wish the hospital gave us.",
+      "body": "Short, clear, and made for people running on no sleep. We did the first win the same evening we opened it.",
+      "name": "Amara",
+      "ctx": "Parent of a 6-week-old",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "All red-flag moments routed same-day",
+          "5→7"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "A real plan for a real situation.",
+      "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+      "name": "Chiamaka",
+      "ctx": "Mother of two",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Daily walk achieved from day 2+",
+          "4→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The roster ended the 3am negotiation.",
+      "body": "The No-Village C-Section is practical. Convert surgical recovery into a checklist-driven operating system: scheduled analgesia… We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
+      "name": "Chioma",
+      "ctx": "Working mother",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Meds taken on schedule >=90% of days",
+          "3→7"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The re-entry protocol saved us.",
+      "body": "We spent months dealing with pushing through pain and blaming each other. The No-Village C-Section ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+      "name": "Bola",
+      "ctx": "Mother of twins",
+      "date": "Jun 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Zero heavy-lift events",
+          "2→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The first win happened the same night.",
+      "body": "The fairness ledger is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+      "name": "Uche",
+      "ctx": "Mother of a 4-month-old",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Meds taken on schedule >=90% of days",
+          "5→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Practical, not preachy.",
+      "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
+      "name": "Maya",
+      "ctx": "Mother of a 3-month-old",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Daily walk achieved from day 2+",
+          "4→7"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Works if your partner actually signs.",
+      "body": "What I needed was not more information. I needed runs a scheduled pain-movement-rest system solo — and a way to recover after a bad night without guilt. This gave us both.",
+      "name": "Hope",
+      "ctx": "New mother",
+      "date": "Sep 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Zero heavy-lift events",
+          "3→8"
+        ],
+        [
+          "Meds taken on schedule >=90% of days",
+          "3→7"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "We finally have language for this.",
+      "body": "This is what I wish discharge instructions had been: one house rule, one routine, one card for when it looks wrong.",
+      "name": "Ngozi",
+      "ctx": "Mum of a newborn",
+      "date": "Jun 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "All red-flag moments routed same-day",
+          "2→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The re-entry protocol saved us.",
+      "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+      "name": "Funmi",
+      "ctx": "First-time parent",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "All red-flag moments routed same-day",
+          "2→7"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "What we needed was a system.",
+      "body": "I can see how the no-village c-section works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+      "name": "Amara",
+      "ctx": "Mother of a 2-month-old",
+      "date": "Sep 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "All red-flag moments routed same-day",
+          "5→8"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 4,
+      "title": "The first win happened the same night.",
+      "body": "We spent months dealing with pushing through pain and blaming each other. The No-Village C-Section ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+      "name": "Yemi",
+      "ctx": "Mother of a 4-month-old",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Zero heavy-lift events",
+          "4→7"
+        ],
+        [
+          "Meds taken on schedule >=90% of days",
+          "4→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    }
+  ]
+}

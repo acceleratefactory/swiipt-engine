@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/generated-asset-record.schema.json",
+  "title": "MAE GeneratedAssetRecord",
+  "description": "Generation output (S6). Generation is execution, not invention: it consumes a completed Asset Brief and produces draft content traceable to a generation/version.",
+  "type": "object",
+  "required": ["id", "class", "angle_id", "brief_id", "asset_type", "platform", "candidates", "generation_version", "prompt_version", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^GEN-" },
+    "class": { "const": "generated_asset_record" },
+    "angle_id": { "type": "string", "pattern": "^ANG-" },
+    "brief_id": { "type": "string", "pattern": "^BRIEF-" },
+    "product_id": { "type": ["string", "null"] },
+    "asset_type": { "type": "string" },
+    "platform": { "type": "string" },
+    "candidates": { "type": "array", "minItems": 1, "items": { "type": "object", "additionalProperties": true, "required": ["id", "content"] } },
+    "selected": { "type": ["string", "null"] },
+    "generation_version": { "type": "string" },
+    "prompt_version": { "type": "string" },
+    "provider": { "type": "string" },
+    "model": { "type": ["string", "null"] },
+    "regeneration_count": { "type": "integer", "minimum": 0 },
+    "failure_log": { "type": "array", "items": { "type": "object" } },
+    "status": { "enum": ["GENERATED", "REVISION_REQUIRED", "BRIEF_REVIEW_REQUIRED", "QA_PENDING", "QA_PASSED", "REJECTED"] },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

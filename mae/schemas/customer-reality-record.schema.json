@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/customer-reality-record.schema.json",
+  "title": "MAE CustomerRealityRecord (CRF)",
+  "description": "Structured, queryable customer intelligence (S2 §4/§5). Not a quote collection. Evidence-grounded with an explicit evidence state; hypotheses never silently become fact.",
+  "type": "object",
+  "required": ["id", "class", "person", "situation", "trigger", "context", "behaviour", "failed_attempts", "constraint", "thought", "fear", "emotional_stake", "exact_language", "desired_change", "evidence_source", "evidence_status", "provenance", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^CRF-" },
+    "class": { "const": "customer_reality_record" },
+    "product_id": { "type": ["string", "null"] },
+    "person": { "type": "string", "minLength": 1 },
+    "situation": { "type": "string", "minLength": 1 },
+    "trigger": { "type": "string", "minLength": 1 },
+    "context": { "type": "string", "minLength": 1 },
+    "behaviour": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "failed_attempts": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["tried"],
+        "properties": {
+          "tried": { "type": "string" },
+          "why": { "type": "string" },
+          "result": { "type": "string" },
+          "refuses_again": { "type": "boolean" }
+        }
+      }
+    },
+    "constraint": { "type": "string", "minLength": 1 },
+    "thought": { "type": "string", "minLength": 1 },
+    "fear": { "type": "string", "minLength": 1 },
+    "emotional_stake": { "type": "string", "minLength": 1 },
+    "exact_language": { "type": "string", "minLength": 1 },
+    "desired_change": { "type": "string", "minLength": 1 },
+    "evidence_source": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["research_conversation", "survey", "review", "support_interaction", "customer_message", "community_discussion", "search_behaviour", "product_feedback", "existing_customer_data", "documented_research", "synthetic"] },
+        "id": { "type": ["string", "null"] },
+        "date": { "type": ["string", "null"] },
+        "frequency": { "type": ["string", "number", "null"] },
+        "excerpt": { "type": ["string", "null"] },
+        "context": { "type": ["string", "null"] }
+      }
+    },
+    "evidence_status": { "enum": ["directly_stated", "strongly_evidenced", "analyst_interpretation", "hypothesis"] },
+    "evidence_weight": { "enum": ["low", "medium", "medium_high", "high", "very_high"] },
+    "observed_frequency": { "type": ["string", "null"] },
+    "cultural_context": { "type": "array", "items": { "type": "string" } },
+    "relationships": { "type": "array", "items": { "type": "string" } },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "provenance": { "enum": ["evidence_backed", "synthetic_fixture", "inference", "hypothesis"] },
+    "is_fixture": { "type": "boolean" },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

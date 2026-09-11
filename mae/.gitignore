@@ -1,0 +1,9 @@
+# MAE runtime output — rendered artifacts, export packages and test-generated governed records.
+# These are derived and/or contain absolute machine paths; the governed record store is regenerated
+# by running the suite. Source-of-truth config (brand-truth.json) and labeled synthetic fixtures
+# (fixtures/) are intentionally NOT ignored.
+storage/
+data/*
+!data/brand-truth.json
+!data/fixtures/
+!data/fixtures/**

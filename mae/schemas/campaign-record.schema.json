@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/campaign-record.schema.json",
+  "title": "MAE CampaignRecord",
+  "description": "The broader coordinated deployment containing one or more sequences (S10 §10.1/§10.13).",
+  "type": "object",
+  "required": ["id", "class", "product_id", "objective", "audience_states", "sequence_ids", "kpi_set", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^CAMP-" },
+    "class": { "const": "campaign_record" },
+    "product_id": { "type": "string", "minLength": 1 },
+    "objective": { "type": "string", "minLength": 1 },
+    "audience_states": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "sequence_ids": { "type": "array", "items": { "type": "string" } },
+    "window": { "type": ["object", "null"], "additionalProperties": true },
+    "offer": { "type": ["object", "null"], "additionalProperties": true },
+    "kpi_set": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "gap_request_ids": { "type": "array", "items": { "type": "string" } },
+    "campaign_qa": { "type": ["object", "null"], "additionalProperties": true },
+    "status": { "enum": ["PLANNING", "ASSEMBLED", "QA_PENDING", "READY", "ACTIVE", "PAUSED", "COMPLETED", "ARCHIVED"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" },
+    "state_history": { "type": "array", "items": { "type": "object" } }
+  }
+}

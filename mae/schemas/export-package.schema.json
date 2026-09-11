@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/export-package.schema.json",
+  "title": "MAE ExportPackage",
+  "description": "A product- or campaign-level export (Media-05). Contains only eligible approved artifacts; never failed candidates.",
+  "type": "object",
+  "required": ["id", "class", "product_id", "package_type", "asset_ids", "artifact_ids", "manifest_id", "master_pack_id", "export_dir", "files", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^EXP-" },
+    "class": { "const": "export_package" },
+    "product_id": { "type": "string", "minLength": 1 },
+    "campaign_id": { "type": ["string", "null"] },
+    "package_type": { "enum": ["PRODUCT", "CAMPAIGN"] },
+    "asset_ids": { "type": "array", "items": { "type": "string" } },
+    "artifact_ids": { "type": "array", "items": { "type": "string" } },
+    "manifest_id": { "type": "string", "pattern": "^MAN-" },
+    "master_pack_id": { "type": ["string", "null"] },
+    "export_dir": { "type": "string" },
+    "files": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "qa_summary": { "type": ["object", "null"], "additionalProperties": true },
+    "status": { "enum": ["BUILDING", "READY", "FAILED"] },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

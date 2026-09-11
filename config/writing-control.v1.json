@@ -1,0 +1,271 @@
+{
+  "$schema": "../schemas/writing-control.schema.json",
+  "writing_control_version": "1.0",
+
+  "constitution": {
+    "required_behaviours": [
+      "write to the actual customer situation",
+      "use concrete circumstances",
+      "use the customer's language where supported by research",
+      "explain why when the explanation changes behaviour",
+      "tell the customer what to do next",
+      "acknowledge real constraints",
+      "distinguish facts from interpretation",
+      "make decisions easier",
+      "provide realistic examples",
+      "use natural sentence rhythm",
+      "vary sentence length",
+      "remove anything that does not serve the transformation",
+      "keep the writing proportional to the customer's attention",
+      "preserve the approved scope",
+      "be intelligent",
+      "be practical",
+      "be specific",
+      "be direct",
+      "be warm without being sentimental",
+      "be emotionally aware without being theatrical",
+      "be calm",
+      "be useful immediately",
+      "be honest about constraints",
+      "be action-oriented",
+      "be transformation-led"
+    ],
+    "forbidden_behaviours": [
+      "fake empathy",
+      "motivational filler",
+      "generic inspirational statements",
+      "excessive emotional language",
+      "corporate language",
+      "textbook explanations when practical explanations work",
+      "repetitive summaries",
+      "repetitive encouragement",
+      "unnecessary conclusions",
+      "excessive headings",
+      "excessive bullet lists",
+      "forced humour",
+      "artificial urgency",
+      "rhetorical-question overload",
+      "repetitive sentence structures",
+      "filler transitions",
+      "writing primarily to increase word count"
+    ],
+    "forbidden_phrases": [
+      "In today's fast-paced world",
+      "Embark on a journey",
+      "It's important to remember",
+      "Whether you're a busy",
+      "Let's dive in",
+      "Unlock your potential",
+      "Take control of your",
+      "Transform your life",
+      "Empower yourself",
+      "At the end of the day",
+      "Here's the thing",
+      "Imagine a world where",
+      "The good news is",
+      "You've got this",
+      "It all starts with",
+      "This comprehensive guide",
+      "This ultimate guide",
+      "By following these steps",
+      "In conclusion"
+    ],
+    "forbidden_phrase_exception": "A phrase may be used only when genuinely necessary inside quoted customer language or source material."
+  },
+
+  "generation": {
+    "required_inputs": [
+      "transformation_specification",
+      "product_schema",
+      "approved_research_knowledge",
+      "product_architecture",
+      "required_assets",
+      "evidence_requirements",
+      "safety_requirements",
+      "delivery_formats",
+      "swiipt_writing_constitution",
+      "product_specific_voice_specification",
+      "anti_ai_rules"
+    ],
+    "passes": [
+      { "id": 1, "name": "contract_ingestion", "produces": "generation_brief", "writes_prose": false },
+      { "id": 2, "name": "architecture_check", "produces": "architecture_findings", "writes_prose": false },
+      { "id": 3, "name": "content_generation", "produces": "content_artifacts", "writes_prose": true },
+      { "id": 4, "name": "implementation_asset_generation", "produces": "asset_artifacts", "writes_prose": true },
+      { "id": 5, "name": "voice_pass", "produces": "voice_findings", "writes_prose": false },
+      { "id": 6, "name": "anti_ai_pass", "produces": "anti_ai_findings", "writes_prose": false },
+      { "id": 7, "name": "transformation_qa_handoff", "produces": "qa_handoff_summary", "writes_prose": false }
+    ],
+    "revision_policy": {
+      "identify": ["failed_component", "reason", "required_change", "upstream_dependency"],
+      "scope": "revise only the affected component where possible",
+      "preserve": "already-approved material",
+      "never_regenerate": "the entire product because one section failed"
+    },
+    "stop_conditions": [
+      "transformation_specification_missing",
+      "product_schema_missing",
+      "approved_situation_ambiguous",
+      "required_evidence_missing",
+      "safety_sensitive_information_unresolved",
+      "product_scope_conflicts_with_approved_transformation",
+      "required_assets_cannot_be_reliably_represented",
+      "tsm_cannot_be_represented",
+      "source_material_conflicts",
+      "model_would_have_to_invent_material_information"
+    ],
+    "on_stop": "flag with a structured status and stop generation; return upstream. Never 'make something reasonable' to force completion."
+  },
+
+  "voice": {
+    "global_rules": {
+      "formality": "neutral-calm",
+      "warmth": "warm without sentimentality",
+      "directness": "direct",
+      "technical_depth": "as required by the situation, never beyond the evidence",
+      "emotional_intensity": "emotionally aware, never theatrical",
+      "sentence_length": "varied",
+      "cultural_context": "supported by research only; never stereotyping",
+      "humour": "only when genuinely natural; never forced",
+      "terminology": "customer language over clinical labels where research supports it",
+      "reading_level": "plain, practical",
+      "person": "second person to the customer"
+    },
+    "product_rules_allowed": [
+      "formality",
+      "warmth",
+      "directness",
+      "technical_depth",
+      "emotional_intensity",
+      "sentence_length",
+      "cultural_context",
+      "humour",
+      "terminology",
+      "reading_level",
+      "first_second_person"
+    ],
+    "product_rule_constraint": "A product voice may vary expression. It may not violate the global Swiipt Writing Constitution."
+  },
+
+  "evidence": {
+    "claim_policy": {
+      "preserve": ["claim", "source", "evidence_strength", "context", "limitation"],
+      "forbidden": [
+        "turn correlation into causation",
+        "turn possibility into certainty",
+        "generalize a narrow finding into a universal rule",
+        "fabricate citations",
+        "invent expert consensus",
+        "strengthen a claim merely to improve sales copy"
+      ],
+      "rule": "Persuasive writing cannot override evidence standards."
+    },
+    "uncertainty_policy": {
+      "rule": "If required information is missing, do not guess.",
+      "states": ["FLAG", "SOURCE_REQUIRED", "PLACEHOLDER", "HUMAN_REVIEW"],
+      "never_invent": [
+        "testimonials",
+        "customer stories",
+        "statistics",
+        "studies",
+        "experts",
+        "clinical recommendations",
+        "product benefits",
+        "transformation results",
+        "quotes",
+        "citations",
+        "guarantees"
+      ]
+    }
+  },
+
+  "scope": {
+    "drift_rule": "The generator must not silently turn one transformation into another.",
+    "on_drift": "SCOPE_DRIFT",
+    "upstream_flag": "UPSTREAM_CONTRACT_CHANGE_REQUIRED",
+    "protected_fields": [
+      "customer",
+      "situation",
+      "before_state",
+      "desired_state",
+      "mechanism",
+      "tsm",
+      "product_role",
+      "evidence_position",
+      "safety_boundary"
+    ]
+  },
+
+  "assets": {
+    "customer_jobs": [
+      "READ", "DO", "DECIDE", "TRACK", "CALCULATE",
+      "COMMUNICATE", "RESCUE", "RE_ENTER", "MAINTAIN", "REMEMBER"
+    ],
+    "rule": "Every asset must have a job. Do not create a checklist, worksheet or tracker simply because the factory can create one."
+  },
+
+  "severity": {
+    "blockers": ["NEVER", "SCOPE_DRIFT", "UNSUPPORTED", "SAFETY_ISSUE"],
+    "warnings": ["WARNING", "WRITING_QUALITY_ISSUE", "DENSITY", "HEADING_EXCESS", "BULLET_EXCESS", "REPETITION", "FILLER"]
+  },
+
+  "statuses": {
+    "generation": ["MISSING", "FLAG", "SOURCE_REQUIRED", "HUMAN_REVIEW", "SCOPE_DRIFT", "UPSTREAM_CONTRACT_CHANGE_REQUIRED"],
+    "critic": ["PASS", "FAIL", "WARNING", "MISSING", "UNSUPPORTED", "SCOPE_DRIFT", "TRANSFORMATION_WEAKNESS", "WRITING_QUALITY_ISSUE", "SAFETY_ISSUE"],
+    "critic_not_run": "NOT_RUN"
+  },
+
+  "quality_controls": {
+    "level": "WARNING",
+    "forbidden_phrase_match": "case_insensitive_substring",
+    "filler_patterns": [
+      "as we can see",
+      "needless to say",
+      "it goes without saying",
+      "at this point in time",
+      "in order to",
+      "due to the fact that"
+    ],
+    "max_repeated_sentences": 0,
+    "max_heading_density_per_1000_words": 14,
+    "max_bullet_line_ratio": 0.4,
+    "max_paragraph_repetition_ratio": 0.2
+  },
+
+  "qa_handoff": {
+    "required_outputs": [
+      "target_customer",
+      "approved_situation",
+      "before_state",
+      "desired_after_state",
+      "mechanism",
+      "key_actions",
+      "first_win",
+      "failure_points",
+      "rescue_system",
+      "tsm",
+      "maintenance",
+      "next_situation"
+    ],
+    "rule": "The generator must not declare the product transformation-valid merely because it generated it."
+  },
+
+  "generation_manifest": {
+    "required_fields": [
+      "product_id",
+      "transformation_id",
+      "product_schema_version",
+      "writing_control_version",
+      "research_version",
+      "architecture_version",
+      "voice_spec_version",
+      "generator_model",
+      "generation_timestamp",
+      "revision_number",
+      "qa_status",
+      "evidence_status",
+      "safety_status",
+      "publish_status"
+    ]
+  }
+}

@@ -1,0 +1,121 @@
+/* ============================================================
+   READ MODE — responsive web overrides on top of style.css
+   Same design tokens, same components — flowed for browser scroll
+   instead of fixed A4 print pages.
+   ============================================================ */
+
+html{ scroll-behavior:smooth; }
+html,body{
+  height:auto;
+  background:#E9E6DD;
+}
+body{
+  padding:0;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- Reading shell ---------- */
+.readshell{ max-width:900px; margin:0 auto; padding:84px 20px 90px 20px; }
+.readshell.wide-item{ max-width:1180px; }
+
+/* Each "page" becomes a flowed card instead of a fixed A4 sheet */
+.page{
+  width:100%;
+  height:auto !important;
+  min-height:0;
+  page-break-after:auto;
+  overflow:visible;
+  border-radius:16px;
+  box-shadow:0 1px 2px rgba(11,31,51,0.04), 0 18px 40px rgba(11,31,51,0.10);
+  margin-bottom:22px;
+}
+.page.landscape{ width:100%; }
+.page:last-of-type{ margin-bottom:0; }
+
+.page-pad{ height:auto !important; padding:46px 52px; }
+.page-pad-sm{ height:auto !important; padding:38px 46px; }
+
+.cover{ border-radius:16px; min-height:560px; padding:40px 44px; }
+.cover h1{ font-size:44px; }
+.cover .promise{ max-width:260px; }
+
+.imprint-grid{ height:auto; }
+.script-card-page{ height:auto; gap:0; }
+.fchart{ height:auto; }
+.rescue-stage{ height:auto; padding-top:6px; }
+
+/* printable frame: was sized against a fixed mm page; now flows naturally */
+.printable-frame{
+  margin:0; height:auto; padding:26px;
+}
+.printable-page .printable-frame,
+.printable-page > div.printable-frame{
+  border-radius:14px;
+}
+
+/* Landscape tracker: let it scroll horizontally on narrow screens */
+.page.landscape{ }
+.page.landscape > div{ margin:0 !important; height:auto !important; overflow-x:auto; }
+.tracker-table{ min-width:720px; }
+
+/* Footer strap sits naturally at end of each section now, not pinned */
+.footer-strap{ position:relative; bottom:auto; left:auto; right:auto; margin-top:18px; padding-top:12px; }
+
+/* ---------- Top bar (sticky) ---------- */
+.readtop{
+  position:fixed; top:0; left:0; right:0; z-index:60;
+  background:rgba(11,31,51,0.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 22px;
+}
+.readtop .brand{ display:flex; align-items:center; gap:10px; color:#fff; }
+.readtop .brand .tt{ display:flex; flex-direction:column; line-height:1.15; }
+.readtop .brand .tt b{ font-size:13px; letter-spacing:.02em; font-weight:700; }
+.readtop .brand .tt span{ font-size:10px; color:#9AA7B4; }
+.readtop .actions{ display:flex; align-items:center; gap:8px; }
+
+.rbtn{
+  display:inline-flex; align-items:center; gap:6px; text-decoration:none; cursor:pointer; border:none;
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:600; padding:8px 13px; border-radius:20px;
+}
+.rbtn-ghost{ background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.14); }
+.rbtn-ghost:hover{ background:rgba(255,255,255,0.16); }
+.rbtn-gold{ background:#D9A52E; color:#0B1F33; }
+
+.readprogress{ position:fixed; top:0; left:0; height:2.5px; background:#D9A52E; z-index:70; width:0%; transition:width .1s linear; }
+
+/* ---------- TOC drawer ---------- */
+.toc-overlay{
+  position:fixed; inset:0; background:rgba(11,31,51,0.66); backdrop-filter:blur(2px);
+  display:none; align-items:flex-start; justify-content:center; z-index:80; padding-top:70px;
+}
+.toc-overlay.open{ display:flex; }
+.toc-panel{
+  background:#fff; border-radius:16px; width:min(520px, 92vw); max-height:80vh; overflow-y:auto;
+  padding:6px 0; box-shadow:0 30px 80px rgba(0,0,0,0.5);
+}
+.toc-head{ display:flex; align-items:center; justify-content:space-between; padding:16px 20px 10px 20px; border-bottom:1px solid #EEE; }
+.toc-head b{ font-family:'DM Serif Display',serif; font-weight:400; font-size:18px; color:#0B1F33; }
+.toc-close{ cursor:pointer; color:#9AA7B4; background:none; border:none; font-size:20px; line-height:1; }
+.toc-list{ padding:6px 8px; }
+.toc-row{
+  display:flex; align-items:center; gap:12px; padding:9px 12px; border-radius:10px; cursor:pointer; text-align:left;
+  width:100%; background:none; border:none; font-family:inherit; text-decoration:none;
+}
+.toc-row:hover{ background:#F4F6F8; }
+.toc-row .n{ font-family:'DM Serif Display',serif; color:#D9A52E; font-size:14px; width:22px; flex-shrink:0; }
+.toc-row .t{ font-size:12.5px; font-weight:600; color:#0B1F33; }
+
+/* Section anchors offset for sticky header */
+.sec-anchor{ scroll-margin-top:76px; }
+
+@media (max-width:640px){
+  .readshell{ padding:74px 10px 70px 10px; }
+  .page-pad{ padding:30px 22px; }
+  .page-pad-sm{ padding:26px 20px; }
+  .cover{ padding:28px 22px; min-height:460px; }
+  .cover h1{ font-size:32px; }
+  .readtop .brand .tt span{ display:none; }
+  .rbtn span.lbl{ display:none; }
+}

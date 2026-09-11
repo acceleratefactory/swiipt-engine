@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/asset-family-record.schema.json",
+  "title": "MAE AssetFamilyRecord",
+  "description": "The production-level container between one validated Angle and its approved expressions (S8, S9 §9.56). What belongs together — not when it is used.",
+  "type": "object",
+  "required": ["id", "class", "family_version", "product_id", "source_angle_id", "angle_verdict", "platform_scope", "anchor_asset_id", "approved_asset_ids", "role_map", "locked_phrase_set_id", "sequence_eligibility", "evergreen_eligible", "emotional_intensity_profile", "coverage", "family_status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^FAM-" },
+    "class": { "const": "asset_family_record" },
+    "family_version": { "type": "integer", "minimum": 1 },
+    "product_id": { "type": "string", "minLength": 1 },
+    "transformation_id": { "type": ["string", "null"] },
+    "source_angle_id": { "type": "string", "pattern": "^ANG-" },
+    "angle_verdict": { "enum": ["GREEN", "YELLOW", "RED"] },
+    "angle_version": { "type": "integer", "minimum": 1 },
+    "platform_scope": { "type": "array", "items": { "type": "string" } },
+    "primary_audience": { "type": ["string", "null"] },
+    "primary_customer_situation": { "type": ["string", "null"] },
+    "core_angle_hook": { "type": ["string", "null"] },
+    "primary_mechanism": { "type": ["string", "null"] },
+    "anchor_asset_id": { "type": "string", "pattern": "^AST-" },
+    "approved_asset_ids": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "role_map": { "type": "object", "additionalProperties": { "type": "string" } },
+    "truth_source_refs": { "type": "object", "additionalProperties": true },
+    "weighting_profile_refs": { "type": "array", "items": { "type": "string" } },
+    "locked_phrase_set_id": { "type": ["string", "null"] },
+    "sequence_eligibility": { "type": "array", "items": { "type": "string" } },
+    "evergreen_eligible": { "type": "boolean" },
+    "emotional_intensity_profile": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "high": { "type": "integer" },
+        "medium": { "type": "integer" },
+        "low": { "type": "integer" },
+        "conversion": { "type": "integer" }
+      }
+    },
+    "coverage": { "type": "object", "additionalProperties": true },
+    "exclusions": { "type": "array", "items": { "type": "string" } },
+    "restrictions": { "type": "array", "items": { "type": "string" } },
+    "family_status": { "enum": ["BUILDING", "APPROVED", "RESTRICTED", "ACTIVE", "PAUSED", "RETIRED", "RE_VERIFICATION_REQUIRED"] },
+    "usage_summary": { "type": "object", "additionalProperties": true },
+    "last_used_at": { "type": ["string", "null"] },
+    "dependency_refs": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" },
+    "re_verification_status": { "type": ["string", "null"] },
+    "state_history": { "type": "array", "items": { "type": "object" } }
+  }
+}

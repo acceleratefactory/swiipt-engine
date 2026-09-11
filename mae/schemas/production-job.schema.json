@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/production-job.schema.json",
+  "title": "MAE ProductionJob",
+  "description": "One render request (Media-01 §3). The Media Production subsystem converts a governed candidate/spec into a real file or production package.",
+  "type": "object",
+  "required": ["id", "class", "asset_id", "brief_id", "product_id", "angle_id", "asset_type", "platform", "production_mode", "required_outputs", "provider_policy", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^PJ-" },
+    "class": { "const": "production_job" },
+    "asset_id": { "type": "string", "pattern": "^AST-" },
+    "brief_id": { "type": "string", "pattern": "^BRIEF-" },
+    "product_id": { "type": ["string", "null"] },
+    "angle_id": { "type": ["string", "null"] },
+    "asset_family_id": { "type": ["string", "null"] },
+    "asset_type": { "type": "string" },
+    "platform": { "type": "string" },
+    "production_mode": { "enum": ["TEXT_DOCUMENT", "STATIC_GRAPHIC", "GENERATED_SCENE", "CAROUSEL", "PRODUCT_COVER", "PRODUCT_MOCKUP", "WHATSAPP_STATUS", "VIDEO_PACKAGE", "VIDEO_RENDER", "AUDIO_VOICEOVER", "PDF_RENDER", "LANDING_PAGE_MEDIA", "MULTI_ASSET_EXPORT"] },
+    "required_outputs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "source_versions": { "type": "object", "additionalProperties": true },
+    "provider_policy": { "type": "object", "additionalProperties": true },
+    "quality_profile": { "type": ["object", "null"], "additionalProperties": true },
+    "safety_profile": { "type": ["object", "null"], "additionalProperties": true },
+    "render_spec": { "type": ["object", "null"], "additionalProperties": true },
+    "status": { "enum": ["QUEUED", "PREPARING", "GENERATING", "RENDERED", "MEDIA_QA_PENDING", "REVISION_REQUIRED", "QA_PASSED", "SECTION_7_QA_PENDING", "APPROVED", "EXPORTED", "PUBLISHED", "ARCHIVED", "PRODUCTION_BLOCKED", "RENDER_PENDING_EXTERNAL_PROVIDER"] },
+    "blocked_reason": { "type": ["string", "null"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

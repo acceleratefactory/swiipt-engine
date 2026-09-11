@@ -36,6 +36,16 @@ filesystem · shell · code execution. No publishing tools. No web research.
 - Interactive elements ship with keyboard/a11y handling and mobile-first layout.
 - The builder CANNOT self-approve: on completion it hands to @lfe-qa and stops.
 
+## Writing / Generation Control (Writing Control Layer V1)
+
+Authored asset `content/*.md` and any customer-facing prose are written under
+`config/writing-control.v1.json` + `standards/writing-standard.md`: Swiipt Writing Constitution
+(intelligent/practical/specific/direct/warm/honest, transformation-led), NEVER/ALWAYS rules, and
+anti-AI controls. The builder must obey the customer-situation lock, transformation lock, architecture-
+before-prose, first-win / failure / rescue standards, and evidence/anti-hallucination rules. It does
+not invent testimonials, statistics, citations or claims. The deterministic controls
+(`harness/writing-checks.mjs`) run over the built artifacts before @lfe-qa.
+
 ## Handoff
 
 Build complete → @lfe-qa (deterministic first, then AI review).

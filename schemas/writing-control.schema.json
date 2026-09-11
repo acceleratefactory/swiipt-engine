@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/writing-control.schema.json",
+  "title": "Swiipt Writing / Generation Control Config",
+  "description": "Machine-readable form of the Swiipt Writing / Generation Control Layer V1 (Swiipt_Writing_Generation_Control_Layer_v1.md). Governs how generation executes an already-approved product contract. It is a generation control, NOT an acceptance-test framework: Acceptance Tests and Publishing Gates remain authoritative.",
+  "type": "object",
+  "required": [
+    "writing_control_version",
+    "constitution",
+    "generation",
+    "voice",
+    "evidence",
+    "scope",
+    "assets",
+    "severity",
+    "statuses",
+    "qa_handoff",
+    "generation_manifest"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "writing_control_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Independent version of the writing control layer (section 35)."
+    },
+    "constitution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_behaviours", "forbidden_behaviours", "forbidden_phrases"],
+      "properties": {
+        "required_behaviours": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+        "forbidden_behaviours": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+        "forbidden_phrases": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+        "forbidden_phrase_exception": { "type": "string" }
+      }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_inputs", "passes", "revision_policy", "stop_conditions"],
+      "properties": {
+        "required_inputs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+        "passes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "produces", "writes_prose"],
+            "properties": {
+              "id": { "type": "integer", "minimum": 1 },
+              "name": { "type": "string", "minLength": 1 },
+              "produces": { "type": "string", "minLength": 1 },
+              "writes_prose": { "type": "boolean" }
+            }
+          }
+        },
+        "revision_policy": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["identify", "scope", "preserve"],
+          "properties": {
+            "identify": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+            "scope": { "type": "string", "minLength": 1 },
+            "preserve": { "type": "string", "minLength": 1 },
+            "never_regenerate": { "type": "string" }
+          }
+        },
+        "stop_conditions": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+        "on_stop": { "type": "string" }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["global_rules", "product_rules_allowed", "product_rule_constraint"],
+      "properties": {
+        "global_rules": { "type": "object", "additionalProperties": { "type": "string" } },
+        "product_rules_allowed": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+        "product_rule_constraint": { "type": "string", "minLength": 1 }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim_policy", "uncertainty_policy"],
+      "properties": {
+        "claim_policy": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["preserve", "forbidden", "rule"],
+          "properties": {
+            "preserve": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+            "forbidden": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+            "rule": { "type": "string" }
+          }
+        },
+        "uncertainty_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["rule", "states", "never_invent"],
+          "properties": {
+            "rule": { "type": "string" },
+            "states": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+            "never_invent": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["drift_rule", "on_drift", "upstream_flag", "protected_fields"],
+      "properties": {
+        "drift_rule": { "type": "string" },
+        "on_drift": { "const": "SCOPE_DRIFT" },
+        "upstream_flag": { "const": "UPSTREAM_CONTRACT_CHANGE_REQUIRED" },
+        "protected_fields": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["customer_jobs", "rule"],
+      "properties": {
+        "customer_jobs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "rule": { "type": "string" }
+      }
+    },
+    "severity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["blockers", "warnings"],
+      "properties": {
+        "blockers": {
+          "type": "array",
+          "items": { "enum": ["NEVER", "SCOPE_DRIFT", "UNSUPPORTED", "SAFETY_ISSUE"] },
+          "minItems": 1
+        },
+        "warnings": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 }
+      }
+    },
+    "statuses": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generation", "critic", "critic_not_run"],
+      "properties": {
+        "generation": {
+          "type": "array",
+          "items": { "enum": ["MISSING", "FLAG", "SOURCE_REQUIRED", "HUMAN_REVIEW", "SCOPE_DRIFT", "UPSTREAM_CONTRACT_CHANGE_REQUIRED"] }
+        },
+        "critic": {
+          "type": "array",
+          "items": { "enum": ["PASS", "FAIL", "WARNING", "MISSING", "UNSUPPORTED", "SCOPE_DRIFT", "TRANSFORMATION_WEAKNESS", "WRITING_QUALITY_ISSUE", "SAFETY_ISSUE"] }
+        },
+        "critic_not_run": { "const": "NOT_RUN" }
+      }
+    },
+    "quality_controls": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "level": { "const": "WARNING" },
+        "forbidden_phrase_match": { "type": "string" },
+        "filler_patterns": { "type": "array", "items": { "type": "string" } },
+        "max_repeated_sentences": { "type": "integer", "minimum": 0 },
+        "max_heading_density_per_1000_words": { "type": "number", "minimum": 0 },
+        "max_bullet_line_ratio": { "type": "number", "minimum": 0, "maximum": 1 },
+        "max_paragraph_repetition_ratio": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "qa_handoff": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["required_outputs", "rule"],
+      "properties": {
+        "required_outputs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "rule": { "type": "string" }
+      }
+    },
+    "generation_manifest": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["required_fields"],
+      "properties": {
+        "required_fields": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    }
+  }
+}

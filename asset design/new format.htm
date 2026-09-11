@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Every Night, Just Me — Complete System | Swiipt</title>
+<meta name="description" content="Every Night, Just Me — a complete transformation system. Read it, listen to it, download it, or open it as an interactive tool." />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700-normal.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/fontsource/fonts/dm-serif-display@latest/latin-400-normal.css" rel="stylesheet">
+
+<style>
+/* ============================================================
+   SWIIPT DESIGN TOKENS (Platform Design Definition §37)
+   ============================================================ */
+:root{
+  --color-brand-primary:#0B1F33;
+  --color-brand-interactive:#6F35B5;
+  --color-brand-interactive-hover:#5C2B96;
+  --color-brand-accent:#D9A52E;
+  --color-brand-human:#F3C7D2;
+
+  --color-surface-base:#F8F4EC;
+  --color-surface-raised:#FFFFFF;
+  --color-surface-subtle:#F4F6F8;
+  --color-surface-deep:#0B1F33;
+
+  --color-text-primary:#17212B;
+  --color-text-secondary:#52606D;
+  --color-text-muted:#7B8794;
+  --color-text-inverse:#F8F4EC;
+
+  --color-border-default:#DDE2E7;
+
+  --color-success:#18794E;
+  --color-warning:#A15C00;
+  --color-error:#B42318;
+  --color-info:#1769AA;
+
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+  --space-6:24px; --space-8:32px; --space-12:48px; --space-16:64px;
+  --radius-sm:8px; --radius-md:12px; --radius-lg:14px; --radius-xl:16px;
+  --shadow-sm:0 1px 2px rgba(11,31,51,.06);
+  --shadow-md:0 2px 6px rgba(11,31,51,.07), 0 12px 28px rgba(11,31,51,.08);
+  --shadow-lg:0 8px 20px rgba(11,31,51,.10), 0 28px 60px rgba(11,31,51,.16);
+  --type-ui:'Inter',system-ui,-apple-system,sans-serif;
+  --type-display:'DM Serif Display',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--type-ui);background:var(--color-surface-base);color:var(--color-text-primary);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--color-brand-interactive);outline-offset:2px;border-radius:8px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--color-brand-interactive);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:99}
+.skip:focus{left:0}
+.label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted)}
+
+/* buttons (§24) */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 22px;border-radius:11px;border:none;font-weight:600;font-size:15px;transition:background .18s,color .18s,transform .12s,box-shadow .18s;white-space:nowrap;text-decoration:none}
+.btn-primary{background:var(--color-brand-interactive);color:#fff}
+.btn-primary:hover{background:var(--color-brand-interactive-hover);box-shadow:var(--shadow-md)}
+.btn-primary:active{transform:translateY(1px)}
+.btn-sm{min-height:42px;padding:0 16px;font-size:14px}
+
+/* ============ APP BAR ============ */
+.appbar{position:sticky;top:0;z-index:60;background:var(--color-surface-deep);color:#fff}
+.appbar-in{max-width:980px;margin:0 auto;padding:14px 18px;display:flex;align-items:center;gap:13px}
+.appbar .mark{width:34px;height:34px;flex:none}
+.appbar .titles{flex:1;min-width:0}
+.appbar .prod{font-weight:700;font-size:16px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.appbar .lib{font-size:11px;color:#9fb0c2;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.review-dot{width:7px;height:7px;border-radius:50%;background:var(--color-success);display:inline-block}
+
+/* ============ LAYOUT ============ */
+main{max-width:980px;margin:0 auto;padding:0 18px 90px}
+section{padding:var(--space-12) 0}
+section + section{border-top:1px solid var(--color-border-default)}
+
+/* ============ PRODUCT HERO ============ */
+.hero{padding:var(--space-12) 0 var(--space-8)}
+.hero .eyebrow{color:var(--color-brand-interactive)}
+.hero .eyebrow::before{background:var(--color-brand-accent)}
+.hero h1{font-family:var(--type-display);font-size:clamp(34px,4.6vw,50px);line-height:1.1;color:var(--color-brand-primary);margin:14px 0 12px}
+.hero .sub{font-size:17px;line-height:1.6;color:var(--color-text-secondary);max-width:62ch}
+.hero .sub b{color:var(--color-text-primary)}
+.meta-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;border-radius:999px;padding:6px 13px;border:1px solid transparent}
+.chip svg{flex:none}
+.chip-muted{background:var(--color-surface-subtle);color:var(--color-text-secondary);border-color:var(--color-border-default)}
+.chip-accent{background:rgba(217,165,46,.14);color:var(--color-brand-primary);border-color:rgba(217,165,46,.4)}
+.chip-info{background:#e6eef7;color:var(--color-info);border-color:#cfdff0}
+.journey-ribbon{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.jr-step{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-secondary);background:var(--color-surface-raised);border:1px solid var(--color-border-default);border-radius:999px;padding:6px 12px}
+.jr-step .n{width:18px;height:18px;border-radius:50%;background:var(--color-surface-subtle);color:var(--color-text-secondary);display:grid;place-items:center;font-size:10px}
+.jr-arrow{color:var(--color-brand-accent);font-weight:700}
+
+/* ============ DELIVERY MODES EXPLAINER ============ */
+.modes{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:22px}
+.mode-tile{background:var(--color-surface-raised);border:1px solid var(--color-border-default);border-radius:var(--radius-md);padding:16px;text-align:left}
+.mode-tile .mi{width:34px;height:34px;border-radius:9px;background:var(--color-surface-subtle);display:grid;place-items:center;color:var(--color-brand-interactive);margin-bottom:10px}
+.mode-tile b{font-size:14px;display:block;color:var(--color-text-primary)}
+.mode-tile span{font-size:12px;color:var(--color-text-muted)}
+
+/* ============ COMPONENT LIST ============ */
+.comp-list{display:grid;gap:14px;margin-top:22px}
+.comp{background:var(--color-surface-raised);border:1px solid var(--color-border-default);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm)}
+.comp-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+.comp-badge{flex:none;background:var(--color-surface-deep);color:#fff;border-radius:8px;padding:7px 12px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.comp-head .ct{flex:1}
+.comp-head .ct h3{font-size:18px;font-weight:700;color:var(--color-text-primary)}
+.comp-head .ct p{font-size:13.5px;color:var(--color-text-secondary)}
+.comp-rec{font-size:11px;font-weight:600;color:var(--color-brand-interactive);display:inline-flex;align-items:center;gap:6px}
+.mode-row{display:flex;flex-wrap:wrap;gap:9px}
+.mode-btn{min-height:44px;padding:0 18px;border-radius:10px;font-weight:600;font-size:14px;border:1.5px solid var(--color-border-default);background:#fff;color:var(--color-brand-interactive);transition:border-color .15s,background .15s}
+.mode-btn:hover{border-color:var(--color-brand-interactive)}
+.mode-btn.recommended{background:var(--color-brand-interactive);border-color:var(--color-brand-interactive);color:#fff}
+.mode-btn.recommended:hover{background:var(--color-brand-interactive-hover)}
+.comp-note{margin-top:12px;font-size:12px;color:var(--color-text-muted);display:flex;align-items:center;gap:7px}
+.comp-note svg{flex:none;color:var(--color-info)}
+
+/* ============ FOOTER NOTE ============ */
+.foot-note{padding:var(--space-8) 0 var(--space-12);font-size:13px;color:var(--color-text-muted)}
+.foot-note b{color:var(--color-text-primary)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===== APP BAR ===== -->
+<header class="appbar">
+  <div class="appbar-in">
+    <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <path d="M8 28c0-8 5-13 12-13" stroke="#F8F4EC" stroke-width="3" stroke-linecap="round"/>
+      <path d="M32 28c0-8-5-13-12-13" stroke="#6F35B5" stroke-width="3" stroke-linecap="round"/>
+      <path d="M20 15V7" stroke="#D9A52E" stroke-width="3" stroke-linecap="round"/>
+      <path d="M16 11l4-4 4 4" stroke="#D9A52E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="titles">
+      <div class="prod">Every Night, Just Me — Complete System</div>
+      <div class="lib"><span class="review-dot" aria-hidden="true"></span><span>Postpartum &amp; New-Parent Life · v1.2 · Clinically reviewed</span></div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <span class="eyebrow">Complete System · V06</span>
+    <h1>Every Night, Just Me.</h1>
+    <p class="sub">A written, fair night-shift system both adults follow. Take each component the way that fits your night — <b>read it as a magazine, a clean document, download it, view it, listen to it, or open it as an interactive tool.</b></p>
+    <div class="meta-row">
+      <span class="chip chip-muted">7 components</span>
+      <span class="chip chip-muted">6 delivery modes</span>
+      <span class="chip chip-info">TSM · nights become shared</span>
+      <span class="chip chip-accent">Interactive included</span>
+    </div>
+    <div class="journey-ribbon" aria-label="Transformation journey">
+      <span class="jr-step"><span class="n">1</span>See</span><span class="jr-arrow">→</span>
+      <span class="jr-step"><span class="n">2</span>Understand</span><span class="jr-arrow">→</span>
+      <span class="jr-step"><span class="n">3</span>Act</span><span class="jr-arrow">→</span>
+      <span class="jr-step"><span class="n">4</span>Measure</span><span class="jr-arrow">→</span>
+      <span class="jr-step"><span class="n">5</span>Continue</span>
+    </div>
+  </section>
+
+  <!-- ===== DELIVERY MODES ===== -->
+  <section>
+    <span class="label">One system · six ways in</span>
+    <p class="sub" style="margin-top:10px">Every component has a job. Each delivery mode has a distinct job too — choose the one that fits right now.</p>
+    <div class="modes" id="modeExplainer"></div>
+  </section>
+
+  <!-- ===== COMPONENTS ===== -->
+  <section>
+    <span class="label">The system · components</span>
+    <p class="sub" style="margin-top:10px">The recommended mode is highlighted. Work that is better done in software opens as an interactive tool.</p>
+    <div class="comp-list" id="compList"></div>
+  </section>
+
+  <div class="foot-note">
+    <b>Educational, not medical advice.</b> Content clinically reviewed · v1.2. The Interactive layer does the work that software does best — act, decide, track, recover, communicate. If your baby seems unwell, seek care.
+  </div>
+</main>
+
+<script>
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s);};
+
+var ICONS={
+  magazine:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2Z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7Z"/>',
+  read:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>',
+  pdf:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>',
+  image:'<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/>',
+  aloud:'<path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9 9 0 0 1 0 14"/>',
+  interactive:'<path d="M3 3l7.1 17 2.5-7.4L23 10.1Z"/>'
+};
+function icon(n,s){s=s||17;return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICONS[n]+'</svg>';}
+
+var MODES={
+  magazine:{label:'Read as magazine',icon:'magazine',role:'Understand, explore, engage'},
+  read:{label:'Read',icon:'read',role:'Learn structured material'},
+  pdf:{label:'PDF',icon:'pdf',role:'Download · offline · reference'},
+  image:{label:'Image',icon:'image',role:'Remember quickly'},
+  aloud:{label:'Read aloud',icon:'aloud',role:'Consume hands-free'},
+  interactive:{label:'Open interactive',icon:'interactive',role:'Act · decide · track · recover'}
+};
+
+/* Delivery-mode explainer */
+$('#modeExplainer').innerHTML=['magazine','read','pdf','image','aloud','interactive'].map(function(m){
+  var d=MODES[m];
+  return '<div class="mode-tile"><span class="mi">'+icon(d.icon,17)+'</span><b>'+d.label+'</b><span>'+d.role+'</span></div>';
+}).join('');
+
+/* Components (schema-driven; recommended mode per §1 jobs) */
+var COMPONENTS=[
+  {badge:'READ',title:'Guide',sub:'Understand the situation and why nights keep failing.',recommended:'magazine',modes:['magazine','read','pdf','image','aloud']},
+  {badge:'DO',title:'Action toolkit',sub:'The steps you actually do, tonight.',recommended:'interactive',modes:['interactive','magazine','read','pdf','image','aloud']},
+  {badge:'DECIDE',title:'Decision aid',sub:'When something changes, know what it means and what to do.',recommended:'interactive',modes:['interactive','read','image','pdf']},
+  {badge:'COMMUNICATE',title:'Script pack',sub:'The exact words for the hard conversations.',recommended:'interactive',modes:['interactive','aloud','read','pdf']},
+  {badge:'TRACK',title:'Shift tracker',sub:'Evidence, not feelings — log nights and see the trend.',recommended:'interactive',modes:['interactive','pdf']},
+  {badge:'RESCUE',title:'Bad-night protocol',sub:'When tonight goes wrong, here’s your reset.',recommended:'interactive',modes:['interactive','image','pdf']},
+  {badge:'PROGRESS',title:'Progress & TSM',sub:'Did your nights actually become shared?',recommended:'interactive',modes:['interactive']}
+];
+
+$('#compList').innerHTML=COMPONENTS.map(function(c){
+  var rec=MODES[c.recommended];
+  var modes=c.modes.map(function(m){
+    var d=MODES[m];
+    var isRec=(m===c.recommended);
+    return '<button class="mode-btn'+(isRec?' recommended':'')+'" data-mode="'+m+'"'+(isRec?' aria-pressed="true"':'')+'>'+d.label+'</button>';
+  }).join('');
+  return '<div class="comp">'
+    +'<div class="comp-head"><span class="comp-badge">'+c.badge+'</span>'
+    +'<div class="ct"><h3>'+c.title+'</h3><p>'+c.sub+'</p>'
+    +'<span class="comp-rec">'+icon('interactive',13)+'Recommended: '+rec.label+'</span></div></div>'
+    +'<div class="mode-row" role="group" aria-label="'+c.title+' delivery modes">'+modes+'</div>'
+    +'<div class="comp-note">'+icon('info',14)+'<span>'+(c.recommended==='interactive'?'Opens as an interactive tool — the work is better done in software. Other modes available for reading, listening and offline.':'Best experienced as a magazine. Interactive not required for this component.')+'</span></div>'
+    +'</div>';
+}).join('');
+
+/* mode selection feedback */
+document.querySelectorAll('.mode-row').forEach(function(row){
+  row.querySelectorAll('.mode-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      row.querySelectorAll('.mode-btn').forEach(function(x){x.classList.remove('recommended');x.setAttribute('aria-pressed','false');});
+      b.classList.add('recommended');b.setAttribute('aria-pressed','true');
+    });
+  });
+});
+})();
+</script>
+</body>
+</html>

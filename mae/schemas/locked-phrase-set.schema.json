@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/locked-phrase-set.schema.json",
+  "title": "MAE LockedPhraseSet",
+  "description": "The Multi-Asset Consistency Lock (S6.8/S9 §9.13). The first approved asset establishes canonical specifics; later assets must not contradict them.",
+  "type": "object",
+  "required": ["id", "class", "angle_id", "phrases", "established_by_asset_id", "version", "status", "date_established", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^PSET-" },
+    "class": { "const": "locked_phrase_set" },
+    "angle_id": { "type": "string", "pattern": "^ANG-" },
+    "family_id": { "type": ["string", "null"] },
+    "phrases": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "established_by_asset_id": { "type": "string", "pattern": "^AST-" },
+    "version": { "type": "integer", "minimum": 1 },
+    "status": { "enum": ["ACTIVE", "SUPERSEDED"] },
+    "date_established": { "type": "string", "format": "date-time" },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

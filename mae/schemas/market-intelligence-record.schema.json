@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/market-intelligence-record.schema.json",
+  "title": "MAE MarketIntelligenceRecord (MIF)",
+  "description": "Structured market intelligence (S2 §7). Differentiation/context only — never overrides Product/Customer/Brand Truth. Absence claims (unclaimed_angle) require a Scan Coverage Note.",
+  "type": "object",
+  "required": ["id", "class", "category", "statement", "evidence_status", "provenance", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^MIF-" },
+    "class": { "const": "market_intelligence_record" },
+    "product_id": { "type": ["string", "null"] },
+    "category": { "enum": ["competitor", "cliche", "myth", "gap", "alternative", "objection", "trend", "unclaimed_angle", "conversation", "positioning"] },
+    "statement": { "type": "string", "minLength": 1 },
+    "evidence": { "type": ["string", "null"] },
+    "evidence_status": { "enum": ["directly_stated", "strongly_evidenced", "analyst_interpretation", "hypothesis"] },
+    "evidence_weight": { "enum": ["low", "medium", "medium_high", "high", "very_high"] },
+    "scan_coverage_note": { "type": ["string", "null"], "description": "Required for unclaimed_angle: what was and was NOT scanned (Absence-Claim Safeguard)." },
+    "freshness": { "type": ["string", "null"] },
+    "source": { "type": ["string", "null"] },
+    "provenance": { "enum": ["evidence_backed", "synthetic_fixture", "inference", "hypothesis"] },
+    "is_fixture": { "type": "boolean" },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "category": { "const": "unclaimed_angle" } }, "required": ["category"] },
+      "then": { "required": ["scan_coverage_note"], "properties": { "scan_coverage_note": { "type": "string", "minLength": 1 } } }
+    }
+  ]
+}

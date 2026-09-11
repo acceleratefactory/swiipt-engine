@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/affirmation-grounding.schema.json",
+  "title": "MAE AffirmationGroundingBlock",
+  "description": "Section 3.10.4 grounding for identity-reinforcement assets (affirmations/declarations/motivational quotes). No field, no generation. Anchor values must be specific, not thematic.",
+  "type": "object",
+  "required": ["source_record", "grounding_tier", "anchor_fear_or_constraint", "anchor_desired_change", "register", "faith_inflected", "what_to_avoid"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": ["string", "null"], "pattern": "^AG-" },
+    "source_record": { "type": "string", "minLength": 1, "description": "Angle Record id (preferred) or Transformation Spec ref." },
+    "grounding_tier": { "enum": ["micro", "macro"] },
+    "anchor_fear_or_constraint": { "type": "string", "minLength": 1 },
+    "anchor_desired_change": { "type": "string", "minLength": 1 },
+    "mechanism_ref": { "type": ["string", "null"] },
+    "register": { "enum": ["affirmation", "declaration", "motivational_quote"] },
+    "faith_inflected": { "type": "boolean" },
+    "what_to_avoid": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+  }
+}

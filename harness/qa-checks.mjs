@@ -134,9 +134,48 @@ for (const { dir, path, p } of productRecords) {
     const cv = ajv.validate(sid, art);
     if (!check(rel, `content_valid:${key}`, cv, cv ? "" : ajv.errors.map(e => `${e.instancePath} ${e.message}`).join("; "))) fails++;
   }
+  // Phase 4 — reviews (owner override B: fully verified, 15-25 per product, 14-24×5★ +1×4★, no negative)
+  const revRef = cblock.reviews;
+  if (!revRef || typeof revRef !== "string") {
+    if (!check(rel, "g_review_exists", false, "reviews required: 15-25 per product (owner B blocking)")) fails++;
+  } else {
+    const ap = join(root, "data", "products", dir, revRef);
+    if (!check(rel, "g_review_exists", existsSync(ap), revRef)) { fails++; }
+    else {
+      let revArt;
+      try { revArt = JSON.parse(readFileSync(ap, "utf8")); }
+      catch (e) { check(rel, "g_review_parseable", false, e.message); fails++; revArt = null; }
+      if (revArt) {
+        const sid = "https://swiipt.com/factory/schemas/content-reviews.schema.json";
+        const cv = ajv.validate(sid, revArt);
+        if (!check(rel, "g_review_valid", cv, cv ? "" : ajv.errors.map(e => `${e.instancePath} ${e.message}`).join("; "))) fails++;
+        const n = revArt.reviews?.length ?? 0;
+        if (!check(rel, "g_review_count_15_25", n >= 15 && n <= 25, String(n))) fails++;
+        const fives = revArt.reviews.filter(r => r.rating === 5).length;
+        const fours = revArt.reviews.filter(r => r.rating === 4).length;
+        const lows = revArt.reviews.filter(r => r.rating < 4).length;
+        const negs = revArt.reviews.filter(r => r.recommend === false).length;
+        if (!check(rel, "g_review_one_4star", fours === 1, `${fours}×4★`)) fails++;
+        if (!check(rel, "g_review_no_low", lows === 0, `${lows} <4★`)) fails++;
+        if (!check(rel, "g_review_no_negative", negs === 0, `${negs} negative`)) fails++;
+      }
+    }
+  }
   if (hasManifest) {
     if (!check(rel, "g6_content_landing_required", !!cblock.landing_page, "factory-published product requires landing_page content")) fails++;
     if (!check(rel, "g6_content_product_page_required", !!cblock.product_page, "factory-published product requires product_page content")) fails++;
+    if (!check(rel, "g_review_required_for_publish", !!cblock.reviews, "factory-published product requires reviews (owner B)")) fails++;
+    // Publish-manifest contract: the committed manifest must validate (drift cannot silently recur).
+    const mfp = join(root, "data", "products", dir, "publish", "manifest.json");
+    if (existsSync(mfp)) {
+      let mf = null;
+      try { mf = JSON.parse(readFileSync(mfp, "utf8")); }
+      catch (e) { if (!check(rel, "publish_manifest_parseable", false, e.message)) fails++; }
+      if (mf) {
+        const mv = ajv.validate("https://swiipt.com/factory/schemas/publish-manifest.schema.json", mf);
+        if (!check(rel, "publish_manifest_schema_valid", mv, mv ? "" : ajv.errors.map(e => `${e.instancePath} ${e.message}`).join("; "))) fails++;
+      }
+    }
   }
 
   // upsell targets exist

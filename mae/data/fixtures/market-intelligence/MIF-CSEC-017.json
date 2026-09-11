@@ -1,0 +1,16 @@
+{
+  "id": "MIF-CSEC-017",
+  "class": "market_intelligence_record",
+  "product_id": "PROD-CSEC",
+  "category": "unclaimed_angle",
+  "statement": "No reviewed competitor offers day-specific positioning guidance for C-section recovery",
+  "evidence": "12 competitor accounts, 5 institutional pamphlets, 20 search results reviewed",
+  "evidence_status": "analyst_interpretation",
+  "evidence_weight": "medium",
+  "scan_coverage_note": "NOT reviewed: offline postnatal classes, non-English content, physiotherapy-specific sources. This is a provisional gap, not an absolute claim; copy must be hedged.",
+  "freshness": "2026-09",
+  "source": "FIXTURE — competitive scan (synthetic)",
+  "provenance": "synthetic_fixture",
+  "is_fixture": true,
+  "created_at": "2026-09-11T00:00:00Z"
+}

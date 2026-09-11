@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/angle-validation-record.schema.json",
+  "title": "MAE AngleValidationRecord",
+  "description": "The hard strategic gate (S4). Five criteria → GREEN/YELLOW/RED. Criterion 2 (Proof) and Criterion 4 (Brand) are hard blockers. Red is not deletion.",
+  "type": "object",
+  "required": ["id", "class", "angle_id", "criteria", "verdict", "counter_evidence_restatement", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^VAL-" },
+    "class": { "const": "angle_validation_record" },
+    "angle_id": { "type": "string", "pattern": "^ANG-" },
+    "criteria": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["customer_resonance", "proof_availability", "market_differentiation", "brand_alignment", "platform_fitness"],
+      "properties": {
+        "customer_resonance": { "enum": ["strong", "moderate", "weak"] },
+        "proof_availability": { "enum": ["strong", "moderate", "weak_fail"] },
+        "market_differentiation": { "enum": ["strong", "moderate", "weak"] },
+        "brand_alignment": { "enum": ["pass", "conditional_pass", "fail"] },
+        "platform_fitness": { "enum": ["broad_fit", "narrow_fit", "poor_fit"] }
+      }
+    },
+    "verdict": { "enum": ["GREEN", "YELLOW", "RED"] },
+    "scope_note": { "type": ["string", "null"] },
+    "max_assets": { "type": ["integer", "null"], "minimum": 0 },
+    "approved_platforms": { "type": "array", "items": { "type": "string" } },
+    "excluded_platforms": { "type": "array", "items": { "type": "string" } },
+    "restrictions": { "type": "array", "items": { "type": "string" } },
+    "yellow_reason": { "type": ["string", "null"] },
+    "human_review_required": { "type": "boolean" },
+    "human_review_reason": { "type": ["string", "null"] },
+    "counter_evidence_restatement": { "type": "string", "minLength": 1 },
+    "rejection_reason": { "type": ["string", "null"] },
+    "evidence_gap": { "type": ["string", "null"] },
+    "reviewer": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

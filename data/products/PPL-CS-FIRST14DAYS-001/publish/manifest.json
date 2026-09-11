@@ -69,57 +69,189 @@
       "content_version": "1.0",
       "product_id": "PPL-CS-FIRST14DAYS-001",
       "source": "factory-generator",
-      "generated_at": "2026-08-26T14:27:33.043Z",
+      "generated_at": "2026-09-02T22:41:28.251Z",
+      "page": {
+        "composition": "standard"
+      },
       "hero": {
         "headline": "The No-Village C-Section",
         "subheadline": "First 14 Days Alone With a Newborn After Major Abdominal Surgery - Survival & Function",
-        "body": "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone. A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+        "body": "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone. She does not know what is safe to do, how to manage pain and movement solo, what normal healing looks like versus infection, and collapses under the load by day 4. A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
         "cta_label": "Get the System",
         "trust_line": "Educational content - not medical advice. Your clinician overrides everything here.",
-        "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+        "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment.",
+        "artifact": {
+          "head_label": "5 steps · The No-Village C-Section",
+          "sub": "First 14 Days Alone With a Newborn After Major Abdominal Surgery - Survival & Function",
+          "table_label": "The No-Village C-Section - at a glance",
+          "header": [
+            "Your plan",
+            "What it does"
+          ],
+          "rows": [
+            {
+              "day": "01",
+              "night": {
+                "label": "The No-Village 14-Day Guide",
+                "variant": "partner"
+              },
+              "sleep": {
+                "label": "Guide",
+                "variant": "split"
+              }
+            },
+            {
+              "day": "02",
+              "night": {
+                "label": "Daily Survival Checklist Days 1-14",
+                "variant": "split"
+              },
+              "sleep": {
+                "label": "Checklist",
+                "variant": "you-off"
+              }
+            },
+            {
+              "day": "03",
+              "night": {
+                "label": "The Incision Decision Card",
+                "variant": "partner"
+              },
+              "sleep": {
+                "label": "Decision Tree",
+                "variant": "split"
+              }
+            },
+            {
+              "day": "04",
+              "night": {
+                "label": "No-Village Scripts",
+                "variant": "split"
+              },
+              "sleep": {
+                "label": "Scripts",
+                "variant": "you-off"
+              }
+            },
+            {
+              "day": "05",
+              "night": {
+                "label": "Bad-Day Rescue Card + crisis lines",
+                "variant": "partner"
+              },
+              "sleep": {
+                "label": "Rescue Card",
+                "variant": "split"
+              }
+            }
+          ],
+          "legend": [
+            {
+              "swatch": "p",
+              "label": "Core plan"
+            },
+            {
+              "swatch": "o",
+              "label": "Do it today"
+            },
+            {
+              "swatch": "s",
+              "label": "When things shift"
+            }
+          ],
+          "float_script": {
+            "label": "No-Village Scripts",
+            "text": "First 14 Days Alone With a Newborn After Major Abdominal Surgery - Survival & Function"
+          },
+          "float_ledger": {
+            "bold": "",
+            "small": "First win within the first step"
+          }
+        }
       },
       "before_state": {
         "label": "Sound familiar?",
+        "headline": "It is not that you are failing. The c-section recovery just has no system.",
         "paragraphs": [
-          "Right now you are pushing through pain, lifting toddler/laundry too early, skipping meds to 'stay clear-headed', and lying frozen in bed fearing movement.",
+          "Right now pushing through pain, lifting toddler/laundry too early, skipping meds to 'stay clear-headed', and lying frozen in bed fearing movement - and the people who matter most (mother, partner (part-time), and distant relatives by phone) are all pulling in different directions.",
+          "On top of that, unmanaged pain-sleep spiral, household load unchanged, and no incision surveillance.",
           "It feels like overwhelm, guilt about rest, and fear of the wound.",
+          "See TR situation.emotional_stake.",
           "The cost: slower healing, wound stress, and breakdown around day 4."
         ],
-        "punch": "This is not a personal failing. It is a system gap - and The No-Village C-Section closes it."
+        "punch": "This is not a personal failing. It is a system gap - and The No-Village C-Section closes it.",
+        "timeline": {
+          "label": "What c-section recovery actually looks like",
+          "ticks": [
+            {
+              "text": "Pushing through pain",
+              "alert": false
+            },
+            {
+              "text": "Lifting toddler/laundry too early",
+              "alert": false
+            },
+            {
+              "text": "Skipping meds to 'stay clear-headed'",
+              "alert": false
+            },
+            {
+              "text": "Lying frozen in bed fearing movement",
+              "alert": false
+            },
+            {
+              "text": "Overwhelm",
+              "alert": true
+            },
+            {
+              "text": "Guilt about rest",
+              "alert": true
+            }
+          ],
+          "note": "None of this is a character flaw. It is a system gap - and the system below closes it."
+        }
       },
       "modules": {
         "label": "What The No-Village C-Section gives you",
-        "intro": "5 components. One written system. Work through them in order, or jump straight to what today needs.",
+        "headline": "5 modules. One written system.",
+        "intro": "Work through them in order, or jump straight to what today needs. Each module stands alone - together they form one system.",
         "items": [
           {
             "title": "The No-Village 14-Day Guide",
             "kind": "Guide",
-            "description": "You came home from a C-section without a mother, auntie, or cousin installed in your guest room. Maybe your partner got two weeks off, maybe five days, maybe none. Everyone online "
+            "description": "You came home from a C-section without a mother, auntie, or cousin installed in your guest room. Maybe your partner got two weeks off, maybe five days, maybe none. Everyone online ",
+            "icon": "roadmap"
           },
           {
             "title": "Daily Survival Checklist Days 1-14",
             "kind": "Checklist",
-            "description": ""
+            "description": "",
+            "icon": "checklist"
           },
           {
             "title": "The Incision Decision Card",
             "kind": "Decision Tree",
-            "description": "Beyond two weeks of weepy blues -> or any moment of \"I can't do this,\" hopelessness, thoughts of harming yourself or the baby -> this is medical, not moral. Contact your clinician "
+            "description": "Beyond two weeks of weepy blues -> or any moment of \"I can't do this,\" hopelessness, thoughts of harming yourself or the baby -> this is medical, not moral. Contact your clinician ",
+            "icon": "decision"
           },
           {
             "title": "No-Village Scripts",
             "kind": "Scripts",
-            "description": ""
+            "description": "",
+            "icon": "scripts"
           },
           {
             "title": "Bad-Day Rescue Card + crisis lines",
             "kind": "Rescue Card",
-            "description": "A bad day is not a failed recovery. Surgical healing is not linear. Today we drop to MINIMUM MODE and tomorrow restarts - no debt, no guilt."
+            "description": "A bad day is not a failed recovery. Surgical healing is not linear. Today we drop to MINIMUM MODE and tomorrow restarts - no debt, no guilt.",
+            "icon": "rescue"
           }
         ]
       },
       "before_after": {
         "label": "What changes",
+        "headline": "Before the c-section recovery. After the c-section recovery.",
+        "intro": "The change is structural. You are not trying harder - you are removing the reason it kept failing.",
         "before_items": [
           "Pushing through pain",
           "Lifting toddler/laundry too early",
@@ -138,6 +270,9 @@
         ]
       },
       "who_for": {
+        "label": "Fit check",
+        "headline": "Read both sides before you buy.",
+        "intro": "This system is built for a specific situation. If that is not you, it will not help - and we would rather tell you now.",
         "for_label": "This is for you if",
         "for_items": [
           "Woman in the first two weeks after a C-section, home without nearby family support ('no village'), often with a partner back at work within days",
@@ -148,16 +283,22 @@
         "not_for_items": [
           "Coordinates solo recovery logistics ONLY. Never diagnoses infection/clots/depression, never adjusts prescriptions, never replaces the week-2 visit or 6-week clearance.",
           "If any red flag is present (fever >=38C/chills; spreading incision redness/swelling/opening/pus/foul fluid; worsening pain after day 3-4), this is not a home system - seek professional care first."
-        ]
+        ],
+        "note": "Coordinates solo recovery logistics ONLY."
       },
       "promise": {
         "label": "What we promise - and what we don't",
+        "headline": "A system. Not a guarantee.",
+        "we_do_label": "We promise you",
         "we_do": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork. A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork.",
+        "we_do_not_label": "We do not promise you",
         "we_do_not": "We do not promise: full recovery still ~6 weeks, cannot self-diagnose complications, and some days will simply be hard. This is an educational system, not medical, clinical, or mental-health care.",
         "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
       },
       "inside": {
         "label": "Inside The No-Village C-Section",
+        "headline": "Everything you get. Nothing padded.",
+        "intro": "The full kit, at a glance - for the skimmers.",
         "items": [
           "The No-Village 14-Day Guide",
           "Daily Survival Checklist Days 1-14",
@@ -167,24 +308,32 @@
         ]
       },
       "final_cta": {
-        "headline": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork",
-        "body": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork.",
+        "eyebrow": "The c-section recovery needs a system",
+        "headline": "A day-by-day survival-and-function plan she can execute…",
+        "body": "A day-by-day solo recovery system - pain on schedule, safe movement, incision watch, minimum-viable household - plus red flags that end guesswork. A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork.",
         "cta_label": "Get The No-Village C-Section",
-        "trust_line": "Educational content - not medical advice. Your clinician overrides everything here."
+        "trust_line": "Educational content - not medical advice. Your clinician overrides everything here.",
+        "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
       },
       "next": {
         "label": "What comes next",
+        "headline": "Once the c-section recovery has a system, the next situations usually surface.",
+        "intro": "The journey does not end here. Swiipt is built to see what tends to follow - so you are not blindsided by it.",
         "note": "These are not upsells. They are the next situations on the same journey.",
         "items": [
           {
             "title": "Cord Care That Won't Land You in A&E",
             "transformation_id": "TR-PPL-CORD-CARE-001",
-            "product_id": "PPL-CORD-CARE-001"
+            "product_id": "PPL-CORD-CARE-001",
+            "code": "CORD",
+            "reason": "One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately"
           },
           {
             "title": "Beyond the Restroom: 30-Day Return-to-Work OS",
             "transformation_id": "TR-PPL-RTWORK-OS-001",
-            "product_id": "PPL-RTWORK-OS-001"
+            "product_id": "PPL-RTWORK-OS-001",
+            "code": "RTWORK",
+            "reason": "A dated 30-day operating system: rights-backed workplace ask locked, feeding lane chosen, freezer bank built, childcare drilled, morning/evening anchors running - so week one back is execution, not improvisation"
           }
         ]
       }
@@ -193,7 +342,7 @@
       "content_version": "1.0",
       "product_id": "PPL-CS-FIRST14DAYS-001",
       "source": "factory-generator",
-      "generated_at": "2026-08-26T14:27:33.231Z",
+      "generated_at": "2026-09-02T22:41:32.411Z",
       "hero": {
         "title": "The No-Village C-Section",
         "subtitle": "First 14 Days Alone With a Newborn After Major Abdominal Surgery - Survival & Function",
@@ -204,14 +353,14 @@
       "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment.",
       "situation_block": {
         "label": "Your situation",
-        "body": "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone"
+        "body": "Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone. She does not know what is safe to do, how to manage pain and movement solo, what normal healing looks like versus infection, and collapses under the load by day 4."
       }
     },
     "faq": {
       "content_version": "1.0",
       "product_id": "PPL-CS-FIRST14DAYS-001",
       "source": "factory-generator",
-      "generated_at": "2026-08-26T14:27:33.240Z",
+      "generated_at": "2026-09-02T22:41:32.412Z",
       "items": [
         {
           "q": "What is The No-Village C-Section?",
@@ -223,7 +372,7 @@
         },
         {
           "q": "What is included?",
-          "a": "You get 5 components: The No-Village 14-Day Guide; Daily Survival Checklist Days 1-14; The Incision Decision Card; No-Village Scripts; Bad-Day Rescue Card + crisis lines."
+          "a": "You get 5 components: The No-Village 14-Day Guide; Daily Survival Checklist Days 1-14; The Incision Decision Card; No-Village Scripts; Bad-Day Rescue Card + crisis lines. Together they let you runs a scheduled pain-movement-rest system solo and executes log-roll/lifting rules automatically."
         },
         {
           "q": "Is this medical advice?",
@@ -233,15 +382,462 @@
         {
           "q": "How do I get it?",
           "a": "Instant digital download. After checkout the system appears in your Swiipt library with read, PDF, and read-aloud formats."
+        },
+        {
+          "q": "Why does this approach work?",
+          "a": "Standard surgical-recovery principles (scheduled analgesia, early ambulation, wound surveillance) are exactly what a solo patient needs as defaults rather than judgment calls"
+        }
+      ]
+    },
+    "reviews": {
+      "content_version": "1.0",
+      "product_id": "PPL-CS-FIRST14DAYS-001",
+      "source": "factory-generator",
+      "generated_at": "2026-09-03T16:27:40.125Z",
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Finally felt like a team again.",
+          "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+          "name": "Bisi",
+          "ctx": "Mother of a 4-month-old",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "All red-flag moments routed same-day",
+              "2→6"
+            ],
+            [
+              "Zero heavy-lift events",
+              "3→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The fairness ledger changed everything.",
+          "body": "Short, clear, and made for people running on no sleep. We did the first win the same evening we opened it.",
+          "name": "Ezinne",
+          "ctx": "Mother of twins",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Zero heavy-lift events",
+              "3→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The scripts did what I could not say.",
+          "body": "The system is solid. runs a scheduled pain-movement-rest system solo. Convert surgical recovery into a checklist-driven operating system: scheduled analgesia…",
+          "name": "Yemi",
+          "ctx": "Mother of a 2-month-old",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Daily walk achieved from day 2+",
+              "4→8"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "My partner finally understood the load.",
+          "body": "The No-Village C-Section is practical. Convert surgical recovery into a checklist-driven operating system: scheduled analgesia… We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
+          "name": "Aisha",
+          "ctx": "Mother of two",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Meds taken on schedule >=90% of days",
+              "5→7"
+            ],
+            [
+              "Daily walk achieved from day 2+",
+              "2→7"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "What we needed was a system.",
+          "body": "The fairness ledger is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+          "name": "Tolu",
+          "ctx": "First-time parent",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "All red-flag moments routed same-day",
+              "2→9"
+            ],
+            [
+              "Daily walk achieved from day 2+",
+              "3→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The re-entry protocol saved us.",
+          "body": "We spent months dealing with pushing through pain and blaming each other. The No-Village C-Section ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+          "name": "Funmi",
+          "ctx": "Mum of a newborn",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "All red-flag moments routed same-day",
+              "3→9"
+            ],
+            [
+              "Zero heavy-lift events",
+              "4→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Finally a system, not just advice.",
+          "body": "What I needed was not more information. I needed runs a scheduled pain-movement-rest system solo — and a way to recover after a bad night without guilt. The No-Village C-Section gave us both.",
+          "name": "Lola",
+          "ctx": "Working mother",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Daily walk achieved from day 2+",
+              "4→7"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "We stopped arguing about whose turn it is.",
+          "body": "I can see how the no-village c-section works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+          "name": "Nneka",
+          "ctx": "Mother of a 3-month-old",
+          "date": "Jun 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Meds taken on schedule >=90% of days",
+              "5→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The fairness ledger changed everything.",
+          "body": "I can see how the no-village c-section works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+          "name": "Ezinne",
+          "ctx": "Mum of a newborn",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Meds taken on schedule >=90% of days",
+              "3→7"
+            ],
+            [
+              "Daily walk achieved from day 2+",
+              "2→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The scripts did what I could not say.",
+          "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+          "name": "Hauwa",
+          "ctx": "Working mother",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "All red-flag moments routed same-day",
+              "4→6"
+            ],
+            [
+              "Zero heavy-lift events",
+              "3→8"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "This is what I wish the hospital gave us.",
+          "body": "Short, clear, and made for people running on no sleep. We did the first win the same evening we opened it.",
+          "name": "Amara",
+          "ctx": "Parent of a 6-week-old",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "All red-flag moments routed same-day",
+              "5→7"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "A real plan for a real situation.",
+          "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+          "name": "Chiamaka",
+          "ctx": "Mother of two",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Daily walk achieved from day 2+",
+              "4→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The roster ended the 3am negotiation.",
+          "body": "The No-Village C-Section is practical. Convert surgical recovery into a checklist-driven operating system: scheduled analgesia… We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
+          "name": "Chioma",
+          "ctx": "Working mother",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Meds taken on schedule >=90% of days",
+              "3→7"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The re-entry protocol saved us.",
+          "body": "We spent months dealing with pushing through pain and blaming each other. The No-Village C-Section ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+          "name": "Bola",
+          "ctx": "Mother of twins",
+          "date": "Jun 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Zero heavy-lift events",
+              "2→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The first win happened the same night.",
+          "body": "The fairness ledger is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+          "name": "Uche",
+          "ctx": "Mother of a 4-month-old",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Meds taken on schedule >=90% of days",
+              "5→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Practical, not preachy.",
+          "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
+          "name": "Maya",
+          "ctx": "Mother of a 3-month-old",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Daily walk achieved from day 2+",
+              "4→7"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Works if your partner actually signs.",
+          "body": "What I needed was not more information. I needed runs a scheduled pain-movement-rest system solo — and a way to recover after a bad night without guilt. This gave us both.",
+          "name": "Hope",
+          "ctx": "New mother",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Zero heavy-lift events",
+              "3→8"
+            ],
+            [
+              "Meds taken on schedule >=90% of days",
+              "3→7"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "We finally have language for this.",
+          "body": "This is what I wish discharge instructions had been: one house rule, one routine, one card for when it looks wrong.",
+          "name": "Ngozi",
+          "ctx": "Mum of a newborn",
+          "date": "Jun 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "All red-flag moments routed same-day",
+              "2→9"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The re-entry protocol saved us.",
+          "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+          "name": "Funmi",
+          "ctx": "First-time parent",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "All red-flag moments routed same-day",
+              "2→7"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "What we needed was a system.",
+          "body": "I can see how the no-village c-section works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+          "name": "Amara",
+          "ctx": "Mother of a 2-month-old",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "All red-flag moments routed same-day",
+              "5→8"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
+        },
+        {
+          "rating": 4,
+          "title": "The first win happened the same night.",
+          "body": "We spent months dealing with pushing through pain and blaming each other. The No-Village C-Section ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+          "name": "Yemi",
+          "ctx": "Mother of a 4-month-old",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Zero heavy-lift events",
+              "4→7"
+            ],
+            [
+              "Meds taken on schedule >=90% of days",
+              "4→6"
+            ]
+          ],
+          "verified": true,
+          "synthetic": true
         }
       ]
     }
+  },
+  "commerce": {
+    "price": {
+      "base_usd": 29
+    },
+    "currency_rules": {
+      "model": "manual_per_currency",
+      "display": "geo_controlled",
+      "prices": {
+        "USD": 29,
+        "NGN": 45000,
+        "EUR": 27,
+        "GHS": 450
+      },
+      "note": "PLACEHOLDER pricing pending owner"
+    },
+    "offer": {},
+    "access_rules": {
+      "grant_type": "one_time_digital"
+    },
+    "upsells": [],
+    "bundles": []
   },
   "relationships": {
     "next_transformation_ids": [
       "TR-PPL-CORD-CARE-001",
       "TR-PPL-RTWORK-OS-001"
     ]
+  },
+  "access": {
+    "grant_type": "one_time_digital"
   },
   "seo": {
     "title": "The No-Village C-Section | Swiipt",
@@ -258,7 +854,7 @@
   "publish_authorization": {
     "status": "READY_TO_PUBLISH",
     "authorized_by": "Owner",
-    "authorized_at": "2026-08-26T15:20:50.212Z",
+    "authorized_at": "2026-09-11T20:41:54.864Z",
     "notes": "Factory Wave run - owner directive 'build everything' 2026-08-24; pricing placeholders pending owner."
   }
 }

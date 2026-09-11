@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/visual-grounding.schema.json",
+  "title": "MAE VisualGroundingBlock",
+  "description": "Structured creative grounding for Generated-Scene visuals (S5/Media). A visual is never produced from a generic prompt; it inherits the angle's specificity.",
+  "type": "object",
+  "required": ["scene", "environment", "gesture_posture", "props", "lighting", "composition", "exclusions"],
+  "additionalProperties": false,
+  "properties": {
+    "scene": { "type": "string", "minLength": 1 },
+    "environment": { "type": "string", "minLength": 1 },
+    "gesture_posture": { "type": "string", "minLength": 1 },
+    "props": { "type": "array", "items": { "type": "string" } },
+    "wardrobe": { "type": ["string", "null"] },
+    "lighting": { "type": "string", "minLength": 1 },
+    "cultural_markers": { "type": "array", "items": { "type": "string" } },
+    "composition": { "type": "string", "minLength": 1 },
+    "exclusions": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+  }
+}

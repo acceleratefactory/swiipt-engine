@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/asset-manifest.schema.json",
+  "title": "MAE AssetManifest",
+  "description": "The machine-readable inventory (Media-05 §4/§5). Tells software exactly what exists, where it is, and whether it may be used.",
+  "type": "object",
+  "required": ["id", "class", "product_id", "generated_at", "entries"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^MAN-" },
+    "class": { "const": "asset_manifest" },
+    "product_id": { "type": "string", "minLength": 1 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["asset_id", "product_id", "angle_id", "family_id", "asset_type", "platform", "family_role", "status", "evergreen_eligible", "files", "qa_record_id", "asset_brief_id", "source_truth_ids", "usage_eligibility", "restrictions", "version"],
+        "properties": {
+          "asset_id": { "type": "string" },
+          "product_id": { "type": "string" },
+          "angle_id": { "type": "string" },
+          "family_id": { "type": ["string", "null"] },
+          "asset_type": { "type": "string" },
+          "platform": { "type": "string" },
+          "family_role": { "type": "string" },
+          "status": { "type": "string" },
+          "evergreen_eligible": { "type": "boolean" },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["artifact_id", "role", "path", "mime_type", "checksum"],
+              "properties": {
+                "artifact_id": { "type": "string" },
+                "role": { "type": "string" },
+                "path": { "type": "string" },
+                "mime_type": { "type": "string" },
+                "checksum": { "type": "string" }
+              }
+            }
+          },
+          "qa_record_id": { "type": "string" },
+          "asset_brief_id": { "type": "string" },
+          "source_truth_ids": { "type": "array", "items": { "type": "string" } },
+          "usage_eligibility": { "type": "array", "items": { "type": "string" } },
+          "restrictions": { "type": "array", "items": { "type": "string" } },
+          "version": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

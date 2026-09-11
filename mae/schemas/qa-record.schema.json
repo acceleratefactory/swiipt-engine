@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/qa-record.schema.json",
+  "title": "MAE QARecord",
+  "description": "The permanent Section 7 QA record (S7 §7.12). Every gate runs on every asset, in order, with a recorded result. An asset with no QA record is not an approved asset.",
+  "type": "object",
+  "required": ["id", "class", "asset_id", "angle_id", "brief_id", "gates", "overall", "severity", "qa_status", "traceability", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^QA-" },
+    "class": { "const": "qa_record" },
+    "asset_id": { "type": "string", "pattern": "^AST-" },
+    "angle_id": { "type": "string", "pattern": "^ANG-" },
+    "brief_id": { "type": "string", "pattern": "^BRIEF-" },
+    "media_artifact_ids": { "type": "array", "items": { "type": "string" } },
+    "gates": {
+      "type": "array",
+      "minItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["gate", "input_ref", "result", "reason", "remediation", "traceability"],
+        "properties": {
+          "gate": { "enum": ["GATE_1_ANTI_SLOP", "GATE_2_INTERCHANGEABILITY", "GATE_3_PLATFORM_FITNESS", "GATE_4_BRAND_CULTURAL", "GATE_5_TRUTH_COMPLIANCE", "GATE_6_CONSISTENCY_LOCK", "GATE_7_HUMAN_REVIEW"] },
+          "input_ref": { "type": "string" },
+          "result": { "enum": ["PASS", "FAIL", "FLAG", "AUTO_FIXED", "HUMAN_REVIEW_REQUIRED", "NOT_TRIGGERED"] },
+          "reason": { "type": ["string", "null"] },
+          "remediation": { "type": ["string", "null"] },
+          "traceability": { "type": "object", "additionalProperties": true },
+          "sub_checks": { "type": "array", "items": { "type": "object", "additionalProperties": true } }
+        }
+      }
+    },
+    "overall": { "enum": ["PASS", "FAIL", "REVISION_REQUIRED", "HUMAN_REVIEW_REQUIRED"] },
+    "severity": { "enum": ["none", "low", "medium", "high", "blocking"] },
+    "human_review": {
+      "type": ["object", "null"],
+      "additionalProperties": true,
+      "properties": {
+        "required": { "type": "boolean" },
+        "trigger": { "type": ["string", "null"] },
+        "reviewer": { "type": ["string", "null"] },
+        "decision": { "enum": ["APPROVED", "REJECTED", "APPROVED_WITH_MINOR_EDIT", null] },
+        "notes": { "type": ["string", "null"] },
+        "at": { "type": ["string", "null"] }
+      }
+    },
+    "manual_override": {
+      "type": ["object", "null"],
+      "additionalProperties": true,
+      "properties": {
+        "changed": { "type": "string" },
+        "reason": { "type": "string" },
+        "by": { "type": "string" },
+        "at": { "type": "string" },
+        "minor_edit": { "type": "boolean" },
+        "became_approved_version": { "type": "boolean" },
+        "requal_required": { "type": "boolean" }
+      }
+    },
+    "failed_checks": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "revision_count": { "type": "integer", "minimum": 0 },
+    "qa_status": { "enum": ["APPROVED", "REJECTED", "REVISION_REQUIRED", "HUMAN_REVIEW_PENDING"] },
+    "spot_check_selected": { "type": "boolean" },
+    "critic": { "type": ["object", "null"], "additionalProperties": true },
+    "traceability": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["angle_id", "brief_id", "generation_id"],
+      "properties": {
+        "angle_id": { "type": "string" },
+        "validation_id": { "type": ["string", "null"] },
+        "brief_id": { "type": "string" },
+        "generation_id": { "type": "string" },
+        "truth_source_ids": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

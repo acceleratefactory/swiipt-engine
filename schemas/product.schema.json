@@ -170,6 +170,7 @@
         "landing_page": { "type": ["object", "string", "null"] },
         "product_page": { "type": ["object", "string", "null"] },
         "faq": { "type": ["object", "string", "null"] },
+        "reviews": { "type": ["object", "string", "null"], "description": "Phase 4: copy/reviews.json — 15-25 reviews per product (owner override B: fully verified). Blocking gate." },
         "specifications": { "type": ["object", "string", "null"] },
         "deliverables": { "type": ["object", "string", "null"] },
         "onboarding": { "type": ["object", "string", "null"] },
@@ -218,7 +219,12 @@
           "description": "Canonical component names from section 11 Layer 3; no reinvented product UI."
         },
         "responsive_requirements": { "type": "array", "items": { "type": "string" } },
-        "accessibility_requirements": { "type": "array", "items": { "type": "string" } }
+        "accessibility_requirements": { "type": "array", "items": { "type": "string" } },
+        "landing_composition": {
+          "type": "string",
+          "enum": ["standard", "decision", "behavior_change"],
+          "description": "Phase 3: manual override for the landing-page composition. If absent, gen-content.mjs auto-selects from product metadata."
+        }
       }
     },
     "evidence": {
@@ -368,6 +374,53 @@
         "published_at": {
           "type": ["string", "null"],
           "format": "date-time"
+        },
+        "authorization": {
+          "type": "object",
+          "description": "Gate 10 / section 21 human publication authorization. Written by the owner/QA workflow (NOT the manifest builder). build-manifest reads it; it is never manufactured.",
+          "additionalProperties": false,
+          "required": ["status", "authorized_by", "authorized_at"],
+          "properties": {
+            "status": { "enum": ["READY_TO_PUBLISH"] },
+            "authorized_by": { "type": "string", "minLength": 1 },
+            "authorized_at": { "type": "string", "format": "date-time" },
+            "notes": { "type": "string" }
+          }
+        }
+      }
+    },
+    "generation": {
+      "type": "object",
+      "description": "Writing / Generation Control (Writing Control Layer V1, section 34/35). Product-specific configuration ONLY: the global Writing Constitution lives in config/writing-control.v1.json + standards/writing-standard.md. This block carries the writing_control_version used and any product-specific voice overrides (expression only, never violating the global constitution).",
+      "additionalProperties": false,
+      "required": ["writing_control_version"],
+      "properties": {
+        "writing_control_version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+$",
+          "description": "Version of the Writing / Generation Control Layer used to generate this product."
+        },
+        "profile": {
+          "type": "string",
+          "description": "Optional named product voice profile."
+        },
+        "voice": {
+          "type": "object",
+          "description": "Product-specific voice overrides. May vary expression; may not violate the global Swiipt Writing Constitution.",
+          "additionalProperties": false,
+          "properties": {
+            "formality": { "type": "string" },
+            "warmth": { "type": "string" },
+            "directness": { "type": "string" },
+            "technical_depth": { "type": "string" },
+            "emotional_intensity": { "type": "string" },
+            "sentence_length": { "type": "string" },
+            "cultural_context": { "type": "string" },
+            "humour": { "type": "string" },
+            "terminology": { "type": "string" },
+            "reading_level": { "type": "string" },
+            "first_second_person": { "type": "string" }
+          }
         }
       }
     }

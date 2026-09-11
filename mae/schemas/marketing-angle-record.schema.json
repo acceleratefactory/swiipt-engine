@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/marketing-angle-record.schema.json",
+  "title": "MAE MarketingAngleRecord",
+  "description": "The atomic strategic unit (S3). Every asset traces to exactly one Angle Record. Tier 1 = situational (from Customer Truth); Tier 2 = strategic synthesis (labelled); Tier 3 = traceability & compliance (mandatory).",
+  "type": "object",
+  "required": ["id", "class", "product_id", "tier1", "tier2", "tier3", "status", "provenance", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^ANG-" },
+    "class": { "const": "marketing_angle_record" },
+    "product_id": { "type": "string", "minLength": 1 },
+    "transformation_id": { "type": ["string", "null"] },
+    "tier1": {
+      "type": "object",
+      "description": "Situational fields drawn directly from Customer Truth.",
+      "additionalProperties": false,
+      "required": ["customer", "scene", "pain", "failed_attempt", "emotional_stake"],
+      "properties": {
+        "customer": { "type": "string", "minLength": 1 },
+        "scene": { "type": "string", "minLength": 1 },
+        "pain": { "type": "string", "minLength": 1 },
+        "failed_attempt": { "type": "string", "minLength": 1 },
+        "emotional_stake": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["text", "evidence_status"],
+          "properties": {
+            "text": { "type": "string", "minLength": 1 },
+            "evidence_status": { "enum": ["directly_stated", "strongly_evidenced", "analyst_interpretation", "hypothesis"] }
+          }
+        }
+      }
+    },
+    "tier2": {
+      "type": "object",
+      "description": "Strategic synthesis — interpretation, explicitly labelled as such.",
+      "additionalProperties": false,
+      "required": ["insight", "mechanism", "desired_change", "angle", "asset_purpose"],
+      "properties": {
+        "insight": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["text", "label"],
+          "properties": {
+            "text": { "type": "string", "minLength": 1 },
+            "label": { "const": "Strategic Synthesis" }
+          }
+        },
+        "mechanism": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["text", "product_truth_ref"],
+          "properties": {
+            "text": { "type": "string", "minLength": 1 },
+            "product_truth_ref": { "type": "string", "minLength": 1 }
+          }
+        },
+        "desired_change": { "type": "string", "minLength": 1 },
+        "angle": { "type": "string", "minLength": 1 },
+        "asset_purpose": { "enum": ["stop_scroll_identification", "problem", "story", "education", "mechanism", "myth_reframe", "objection", "proof", "transformation", "conversion", "reinforcement", "identity_reinforcement"] }
+      }
+    },
+    "tier3": {
+      "type": "object",
+      "description": "Traceability & compliance (mandatory).",
+      "additionalProperties": false,
+      "required": ["source_evidence", "counter_evidence_acknowledged", "product_truth_ref", "brand_truth_compliance", "truth_conflict_log"],
+      "properties": {
+        "source_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["ref_id", "role"],
+            "properties": {
+              "ref_id": { "type": "string", "minLength": 1 },
+              "role": { "type": "string" },
+              "observed_frequency": { "type": ["string", "null"] },
+              "evidence_weight": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "market_truth_support": { "type": "array", "items": { "type": "object", "additionalProperties": true, "required": ["ref_id"] } },
+        "counter_evidence_acknowledged": { "type": "string", "minLength": 1 },
+        "product_truth_ref": { "type": "string", "minLength": 1 },
+        "brand_truth_compliance": { "type": "string", "minLength": 1 },
+        "truth_conflict_log": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["sources", "resolution"],
+            "properties": {
+              "sources": { "type": "array", "items": { "type": "string" } },
+              "resolution": { "type": "string" },
+              "authority": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "affirmation_grounding": { "type": ["object", "null"] },
+    "restrictions": { "type": "array", "items": { "type": "string" } },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "status": { "enum": ["DRAFT", "EVIDENCE_LINKED", "VALIDATION_PENDING", "GREEN", "YELLOW", "RED", "ARCHITECTED", "ACTIVE", "FLAGGED_FOR_RE_VERIFICATION", "RETIRED"] },
+    "provenance": { "enum": ["evidence_backed", "synthetic_fixture", "inference", "hypothesis"] },
+    "is_fixture": { "type": "boolean" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" },
+    "state_history": { "type": "array", "items": { "type": "object" } }
+  }
+}

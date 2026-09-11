@@ -115,7 +115,8 @@
     "specifications": null,
     "deliverables": "assets/",
     "onboarding": null,
-    "completion": "Day-30 completion check inside tracker: 3-4 of 4 indicators met"
+    "completion": "Day-30 completion check inside tracker: 3-4 of 4 indicators met",
+    "reviews": "copy/reviews.json"
   },
   "commerce": {
     "price": {
@@ -248,5 +249,8 @@
       "product_id": 1899
     },
     "published_at": "2026-08-25T00:29:30Z"
+  },
+  "generation": {
+    "writing_control_version": "1.0"
   }
 }

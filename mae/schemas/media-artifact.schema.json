@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/media-artifact.schema.json",
+  "title": "MAE MediaArtifact",
+  "description": "A real rendered/produced file (Media-03 §2.9). The exact approved file that will reach the customer.",
+  "type": "object",
+  "required": ["id", "class", "production_job_id", "asset_id", "artifact_role", "mime_type", "storage_uri", "checksum", "version", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^ART-" },
+    "class": { "const": "media_artifact" },
+    "production_job_id": { "type": "string", "pattern": "^PJ-" },
+    "asset_id": { "type": "string", "pattern": "^AST-" },
+    "artifact_role": { "type": "string", "minLength": 1 },
+    "mime_type": { "type": "string", "minLength": 1 },
+    "storage_uri": { "type": "string", "minLength": 1 },
+    "checksum": { "type": "string", "minLength": 8 },
+    "width": { "type": ["integer", "null"] },
+    "height": { "type": ["integer", "null"] },
+    "duration": { "type": ["number", "null"] },
+    "file_size": { "type": ["integer", "null"] },
+    "provider": { "type": "string" },
+    "model": { "type": ["string", "null"] },
+    "provider_job_id": { "type": ["string", "null"] },
+    "source_artifact_ids": { "type": "array", "items": { "type": "string" } },
+    "version": { "type": "integer", "minimum": 1 },
+    "status": { "enum": ["RENDERED", "DERIVATIVE", "MASTER"] },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

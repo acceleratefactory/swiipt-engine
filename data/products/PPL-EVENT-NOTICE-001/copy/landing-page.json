@@ -2,17 +2,55 @@
   "content_version": "1.0",
   "product_id": "PPL-EVENT-NOTICE-001",
   "source": "factory-generator",
-  "generated_at": "2026-08-26T16:08:37.099Z",
+  "generated_at": "2026-09-02T22:41:32.416Z",
+  "page": {
+    "composition": "standard"
+  },
   "hero": {
     "headline": "The 3-Week Notice",
     "subheadline": "Make the Outfit You Already Have Work Beautifully - No Crash Diet Required",
     "body": "Put-together for the event she can't skip, using what she owns.",
     "cta_label": "Get the System",
     "trust_line": "Educational content - not medical, clinical, or mental-health advice.",
-    "evidence_label": "Educational content informed by practical and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
+    "evidence_label": "Educational content informed by practical and lived experience. It is not a substitute for medical, clinical, or mental-health assessment.",
+    "artifact": {
+      "head_label": "0 steps · The 3-Week Notice",
+      "sub": "Make the Outfit You Already Have Work Beautifully - No Crash Diet Required",
+      "table_label": "The 3-Week Notice - at a glance",
+      "header": [
+        "Your plan",
+        "What it does"
+      ],
+      "rows": [],
+      "legend": [
+        {
+          "swatch": "p",
+          "label": "Core plan"
+        },
+        {
+          "swatch": "o",
+          "label": "Do it today"
+        },
+        {
+          "swatch": "s",
+          "label": "When things shift"
+        }
+      ],
+      "float_script": null,
+      "float_ledger": {
+        "bold": "",
+        "small": "First win within the first step"
+      }
+    }
+  },
+  "before_state": {
+    "label": "Sound familiar?",
+    "headline": "It is not that you are failing. The situation just has no system."
   },
   "before_after": {
     "label": "What changes",
+    "headline": "Before the situation. After the situation.",
+    "intro": "The change is structural. You are not trying harder - you are removing the reason it kept failing.",
     "before_items": [
       "The situation as it stands today."
     ],
@@ -21,6 +59,9 @@
     ]
   },
   "who_for": {
+    "label": "Fit check",
+    "headline": "Read both sides before you buy.",
+    "intro": "This system is built for a specific situation. If that is not you, it will not help - and we would rather tell you now.",
     "for_label": "This is for you if",
     "for_items": [
       "Anyone in the situation this system is built for: make the Outfit You Already Have Work Beautifully - No Crash Diet Required."
@@ -28,18 +69,24 @@
     "not_for_label": "This is NOT for you if",
     "not_for_items": [
       "If you need clinical diagnosis or treatment, this educational system is not a substitute for professional care."
-    ]
+    ],
+    "note": ""
   },
   "promise": {
     "label": "What we promise - and what we don't",
+    "headline": "A system. Not a guarantee.",
+    "we_do_label": "We promise you",
     "we_do": "Put-together for the event she can't skip, using what she owns.",
+    "we_do_not_label": "We do not promise you",
     "we_do_not": "We do not promise a guaranteed outcome. This is an educational system, not medical, clinical, or mental-health care.",
     "evidence_label": "Educational content informed by practical and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
   },
   "final_cta": {
-    "headline": "Put-together for the event she can't skip, using what she owns.",
+    "eyebrow": "The situation needs a system",
+    "headline": "Put-together for the event she can't skip, using what she…",
     "body": "Put-together for the event she can't skip, using what she owns.",
     "cta_label": "Get The 3-Week Notice",
-    "trust_line": "Educational content - not medical, clinical, or mental-health advice."
+    "trust_line": "Educational content - not medical, clinical, or mental-health advice.",
+    "evidence_label": "Educational content informed by practical and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
   }
 }

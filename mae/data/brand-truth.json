@@ -1,0 +1,83 @@
+{
+  "id": "BRAND-001",
+  "class": "brand_truth",
+  "version": "1.0",
+  "voice_dna": {
+    "traits": ["intelligent", "practical", "specific", "direct", "warm without sentimentality", "emotionally aware without theatrics", "calm", "trustworthy", "empowering-without-hype"],
+    "structural_test": [
+      "names a specific real pattern rather than a vague aspiration",
+      "does not blame the customer",
+      "reframes around the actual obstacle",
+      "plain, short sentences with no decorative language"
+    ]
+  },
+  "writing_constitution_ref": {
+    "config": "config/writing-control.v1.json",
+    "standard": "standards/writing-standard.md"
+  },
+  "anti_slop_ref": "config/writing-control.v1.json#constitution.forbidden_phrases",
+  "visual_language": {
+    "tokens_version": "swt-tokens.css@1.x",
+    "palette": ["#0B1F33", "#6F35B5", "#D9A52E", "#F8F4EC", "#FFFFFF"],
+    "typography": { "display": "DM Serif Display", "ui": "Inter" },
+    "layout_grid": "8pt",
+    "imagery_rules": [
+      "people like me actually live here (real representation)",
+      "no fabricated product UI or tools",
+      "no clinical staging or staged pain expression",
+      "no gamification implied for sensitive subjects"
+    ],
+    "anti_patterns": [
+      "symmetrical AI-face",
+      "gradient blobs",
+      "floating mockups",
+      "generic stock composition",
+      "mixed icon families",
+      "Canva/Headspace/hospital-portal resemblance"
+    ]
+  },
+  "boundaries": [
+    "never motivation-speaker register",
+    "never clinical register",
+    "never therapy-speak",
+    "never corporate-SaaS register",
+    "never fake-enthusiastic",
+    "never fear-mongering or shame framing"
+  ],
+  "vocabulary": {
+    "preferred": ["system", "specific", "house rule", "the actual moment", "measured change"],
+    "banned": ["you deserve", "you've got this mama", "unlock", "empower", "journey (generic)", "transform your life"]
+  },
+  "tone": "compassionate-practical",
+  "cultural": {
+    "primary_register": "globally relatable",
+    "second_door": "Nigerian/African/diaspora context where it names a real situation more precisely",
+    "rule": "a Western reader must never feel excluded; an African reader must feel deeply seen; both from the same record"
+  },
+  "faith_register": {
+    "allowed": false,
+    "approved_products": [],
+    "notes": "Declaration faith-register is gated per product by CRF evidence + explicit brand-level approval (Section 3.10.7). Default OFF."
+  },
+  "trust_safety": [
+    "educational trust line on commercial surfaces: 'Educational content — not medical, clinical, or mental-health advice.'",
+    "crisis language only with verified real numbers",
+    "no diagnosis language",
+    "no cure/heal-in-N-days framing"
+  ],
+  "prohibited_behaviours": [
+    "fake empathy",
+    "motivational filler",
+    "artificial urgency",
+    "exaggerated outcomes",
+    "shame/fear inflation",
+    "manufactured dependency"
+  ],
+  "claims_boundaries": [
+    "never claim more than Product Truth supports",
+    "never invent testimonials/statistics/studies/experts",
+    "hedge absence claims per scan coverage"
+  ],
+  "status": "active",
+  "created_at": "2026-09-11T00:00:00Z"
+}

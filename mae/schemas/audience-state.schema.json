@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/audience-state.schema.json",
+  "title": "MAE AudienceStateRecord",
+  "description": "Audience state comes before asset selection (S10 §10.2). Distinct from an Angle's audience scope.",
+  "type": "object",
+  "required": ["id", "class", "segment", "state", "suppression", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^AUD-" },
+    "class": { "const": "audience_state_record" },
+    "product_id": { "type": ["string", "null"] },
+    "segment": { "type": "string", "minLength": 1 },
+    "state": { "enum": ["unaware", "problem_aware", "solution_aware", "product_aware", "engaged_non_buyer", "cart_abandoner", "previous_customer", "inactive", "returning", "recently_converted"] },
+    "evidence": { "type": ["string", "null"] },
+    "suppression": { "type": "boolean" },
+    "suppression_reason": { "type": ["string", "null"] },
+    "intent_signals": { "type": "array", "items": { "type": "string" } },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

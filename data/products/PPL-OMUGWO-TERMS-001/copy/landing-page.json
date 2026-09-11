@@ -2,17 +2,98 @@
   "content_version": "1.0",
   "product_id": "PPL-OMUGWO-TERMS-001",
   "source": "factory-generator",
-  "generated_at": "2026-08-26T16:08:37.114Z",
+  "generated_at": "2026-09-02T22:41:32.441Z",
+  "page": {
+    "composition": "behavior_change"
+  },
   "hero": {
     "headline": "Omugwo on Your Terms",
     "subheadline": "Keep the Help, Skip the War - A Three-Zone Agreement for Traditional Postpartum Support",
     "body": "The helper arrives with strong practices - substances on the cord, herb water for baby, baby handed over at all hours, visitors flooding in - while hospital instructions said otherwise and the mother is too exhausted and polite to push back. She cannot tell which traditions are harmless gold versus documented infection/danger risks, cannot refuse without triggering family war, and is sliding from mother to furniture in her own home. Grandma keeps her proud role, doctor-backed rules protect the baby on paper, and you keep your sleep, your bond and the peace.",
     "cta_label": "Get the System",
     "trust_line": "Educational content - not medical advice. Clinical questions route to clinicians.",
-    "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+    "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment.",
+    "artifact": {
+      "head_label": "4 steps · Omugwo on Your Terms",
+      "sub": "Keep the Help, Skip the War - A Three-Zone Agreement for Traditional Postpartum Support",
+      "table_label": "Omugwo on Your Terms - at a glance",
+      "header": [
+        "Your plan",
+        "What it does"
+      ],
+      "rows": [
+        {
+          "day": "01",
+          "night": {
+            "label": "Omugwo on Your Terms - the three-zone system",
+            "variant": "partner"
+          },
+          "sleep": {
+            "label": "Guide",
+            "variant": "split"
+          }
+        },
+        {
+          "day": "02",
+          "night": {
+            "label": "The Omugwo Agreement Kit",
+            "variant": "split"
+          },
+          "sleep": {
+            "label": "Checklist",
+            "variant": "you-off"
+          }
+        },
+        {
+          "day": "03",
+          "night": {
+            "label": "Boundary Scripts (Omugwo Edition)",
+            "variant": "partner"
+          },
+          "sleep": {
+            "label": "Scripts",
+            "variant": "split"
+          }
+        },
+        {
+          "day": "04",
+          "night": {
+            "label": "When It Boils - Rescue Card + mood lines",
+            "variant": "split"
+          },
+          "sleep": {
+            "label": "Rescue Card",
+            "variant": "you-off"
+          }
+        }
+      ],
+      "legend": [
+        {
+          "swatch": "p",
+          "label": "Core plan"
+        },
+        {
+          "swatch": "o",
+          "label": "Do it today"
+        },
+        {
+          "swatch": "s",
+          "label": "When things shift"
+        }
+      ],
+      "float_script": {
+        "label": "Boundary Scripts (Omugwo Edition)",
+        "text": "Keep the Help, Skip the War - A Three-Zone Agreement for Traditional Postpartum Support"
+      },
+      "float_ledger": {
+        "bold": "",
+        "small": "First win within the first step"
+      }
+    }
   },
   "before_state": {
     "label": "Sound familiar?",
+    "headline": "It is not that you are failing. The family dynamic just has no system.",
     "paragraphs": [
       "Right now hinting instead of deciding, complying then resenting, arguing science at elders, and partner absent from boundary enforcement - and the people who matter most (mother, grandmother/mother-in-law, partner, and visitors) are all pulling in different directions.",
       "On top of that, baby routines overridden, substances reaching the stump/baby, and mother sidelined from care.",
@@ -20,36 +101,73 @@
       "See TR situation.emotional_stake.",
       "The cost: infection risks introduced, mother's sleep blocks lost, and household tension escalating."
     ],
-    "punch": "This is not a personal failing. It is a system gap - and Omugwo on Your Terms closes it."
+    "punch": "This is not a personal failing. It is a system gap - and Omugwo on Your Terms closes it.",
+    "timeline": {
+      "label": "What family dynamic actually looks like",
+      "ticks": [
+        {
+          "text": "Hinting instead of deciding",
+          "alert": false
+        },
+        {
+          "text": "Complying then resenting",
+          "alert": false
+        },
+        {
+          "text": "Arguing science at elders",
+          "alert": false
+        },
+        {
+          "text": "Partner absent from boundary enforcement",
+          "alert": false
+        },
+        {
+          "text": "Boiling resentment",
+          "alert": true
+        },
+        {
+          "text": "Maternal guilt both directions",
+          "alert": true
+        }
+      ],
+      "note": "None of this is a character flaw. It is a system gap - and the system below closes it."
+    }
   },
   "modules": {
     "label": "What Omugwo on Your Terms gives you",
-    "intro": "4 components. One written system. Work through them in order, or jump straight to what today needs.",
+    "headline": "4 modules. One written system.",
+    "intro": "Work through them in order, or jump straight to what today needs. Each module stands alone - together they form one system.",
     "items": [
       {
         "title": "Omugwo on Your Terms - the three-zone system",
         "kind": "Guide",
-        "description": "Omugwo - the mother/mother-in-law coming to cook, hold the baby and care for you - is genuinely protective. Nigerian reporting and research link it to lower postpartum depression a"
+        "description": "Omugwo - the mother/mother-in-law coming to cook, hold the baby and care for you - is genuinely protective. Nigerian reporting and research link it to lower postpartum depression a",
+        "icon": "roadmap"
       },
       {
         "title": "The Omugwo Agreement Kit",
         "kind": "Checklist",
-        "description": ""
+        "description": "",
+        "icon": "checklist"
       },
       {
         "title": "Boundary Scripts (Omugwo Edition)",
         "kind": "Scripts",
-        "description": ""
+        "description": "",
+        "icon": "scripts"
       },
       {
         "title": "When It Boils - Rescue Card + mood lines",
         "kind": "Rescue Card",
-        "description": "Nigeria: SURPIN +234 806 210 6493 . MANI 0809 111 6264 . Emergency 112"
+        "description": "Nigeria: SURPIN +234 806 210 6493 . MANI 0809 111 6264 . Emergency 112",
+        "icon": "rescue"
       }
     ]
   },
   "before_after": {
     "label": "What changes",
+    "headline": "Before the family dynamic. After the family dynamic.",
+    "intro": "The change is structural. You are not trying harder - you are removing the reason it kept failing.",
     "before_items": [
       "Hinting instead of deciding",
       "Complying then resenting",
@@ -68,6 +186,9 @@
     ]
   },
   "who_for": {
+    "label": "Fit check",
+    "headline": "Read both sides before you buy.",
+    "intro": "This system is built for a specific situation. If that is not you, it will not help - and we would rather tell you now.",
     "for_label": "This is for you if",
     "for_items": [
       "New mother receiving traditional postpartum help (omugwo) from her mother or mother-in-law who loves the baby fiercely but runs the household and baby-care by her own pre-1990s rules",
@@ -78,16 +199,22 @@
     "not_for_items": [
       "Coordinates household roles and communication ONLY. Never adjudicates clinical questions (routes to clinician), never treats mood disorders (routes via crisis lines), never overrides baby's doctor.",
       "If any red flag is present (any substance reached cord stump or baby's mouth; baby fed anything besides milk; unsafe sleep positioning imposed), this is not a home system - seek professional care first."
-    ]
+    ],
+    "note": "Coordinates household roles and communication ONLY."
   },
   "promise": {
     "label": "What we promise - and what we don't",
+    "headline": "A system. Not a guarantee.",
+    "we_do_label": "We promise you",
     "we_do": "Grandma keeps her proud role, doctor-backed rules protect the baby on paper, and you keep your sleep, your bond and the peace. A written three-zone agreement (hers/together/doctor-backed) that gives grandma proud ownership of real work, protects medical non-negotiables as the DOCTOR'S rules not hers, and preserves both the tradition and the mother.",
+    "we_do_not_label": "We do not promise you",
     "we_do_not": "We do not promise: cannot erase cultural friction entirely, requires partner follow-through, and not a treatment for clinical mood disorders. This is an educational system, not medical, clinical, or mental-health care.",
     "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
   },
   "inside": {
     "label": "Inside Omugwo on Your Terms",
+    "headline": "Everything you get. Nothing padded.",
+    "intro": "The full kit, at a glance - for the skimmers.",
     "items": [
       "Omugwo on Your Terms - the three-zone system",
       "The Omugwo Agreement Kit",
@@ -96,25 +223,31 @@
     ]
   },
   "final_cta": {
-    "headline": "A written three-zone agreement (hers/together/doctor-backed) that gives grandma proud ownership of real work, protects medical non-negotiables as the DOCTOR'S rules not hers, and preserves both the tradition and the mother",
+    "eyebrow": "The family dynamic needs a system",
+    "headline": "A written three-zone agreement (hers/together/doctor-backed)…",
     "body": "Grandma keeps her proud role, doctor-backed rules protect the baby on paper, and you keep your sleep, your bond and the peace. A written three-zone agreement (hers/together/doctor-backed) that gives grandma proud ownership of real work, protects medical non-negotiables as the DOCTOR'S rules not hers, and preserves both the tradition and the mother.",
     "cta_label": "Get Omugwo on Your Terms",
-    "trust_line": "Educational content - not medical advice. Clinical questions route to clinicians."
+    "trust_line": "Educational content - not medical advice. Clinical questions route to clinicians.",
+    "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
   },
   "next": {
     "label": "What comes next",
+    "headline": "Once the family dynamic has a system, the next situations usually surface.",
+    "intro": "The journey does not end here. Swiipt is built to see what tends to follow - so you are not blindsided by it.",
     "note": "These are not upsells. They are the next situations on the same journey.",
     "items": [
       {
         "title": "Cord Care That Won't Land You in A&E",
         "transformation_id": "TR-PPL-CORD-CARE-001",
         "product_id": "PPL-CORD-CARE-001",
+        "code": "CORD",
         "reason": "One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately"
       },
       {
         "title": "The No-Village C-Section",
         "transformation_id": "TR-PPL-CS-FIRST14DAYS-001",
         "product_id": "PPL-CS-FIRST14DAYS-001",
+        "code": "CS",
         "reason": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork"
       }
     ]

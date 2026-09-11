@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/content-grounding.schema.json",
+  "title": "MAE ContentGroundingBlock",
+  "description": "The specific Angle Record fields handed to the generator, split by the Asset Brief's weighting (S5 §5.4). Foreground values are quoted; background values are referenced lightly.",
+  "type": "object",
+  "required": ["foreground", "background"],
+  "additionalProperties": false,
+  "properties": {
+    "foreground": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "value"],
+        "properties": {
+          "field": { "type": "string", "minLength": 1 },
+          "value": { "type": "string", "minLength": 1 },
+          "source_ref": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "background": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "value"],
+        "properties": {
+          "field": { "type": "string", "minLength": 1 },
+          "value": { "type": "string", "minLength": 1 },
+          "source_ref": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}
