@@ -1,0 +1,5 @@
+# Benchmark runtime artifacts — evaluation output, not canonical source.
+results/
+
+# Local candidate matrix (use candidates.example.json as the template).
+candidates.json

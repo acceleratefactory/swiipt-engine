@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/bench/schemas/bench-asset.schema.json",
+  "title": "Swiipt Benchmark Asset Contract",
+  "description": "The fixed structured-output contract every generator candidate is asked to produce during benchmarking.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["angle_id", "platform", "headline", "body", "cta", "mechanism", "situation", "evidence_note", "risk_flags"],
+  "properties": {
+    "angle_id": { "type": "string", "minLength": 1 },
+    "platform": { "type": "string", "minLength": 1 },
+    "headline": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "body": { "type": "string", "minLength": 1 },
+    "cta": { "type": "string", "minLength": 1 },
+    "mechanism": { "type": "string", "minLength": 1 },
+    "situation": { "type": "string", "minLength": 1 },
+    "evidence_note": { "type": "string", "minLength": 1 },
+    "risk_flags": { "type": "array", "items": { "type": "string" } }
+  }
+}
