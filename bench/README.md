@@ -97,6 +97,25 @@ evidence, unsupported emotional claim, Product Truth contradiction, wrong mechan
 platform mismatch, missing required fields, plus one valid control) and measures true detection,
 false positives/negatives, severity accuracy, schema reliability and latency.
 
+### Critic recommendation eligibility (separate from ranking)
+Ranking (`critic_ranking`) is comparative and lists **all** critics; recommendation is a hard
+qualification gate. `CRITIC_ELIGIBILITY` (controlled-suite thresholds, exported for auditability):
+`provider_reliability = 1.0`, `schema_reliability = 1.0`, `precision = 1.0`, `recall ≥ 0.8`,
+`f1 ≥ 0.8`, `severity_accuracy ≥ 0.8`; plus `model_identity !== MODEL_ID_MISMATCH` and no self-judge
+conflict with the recommended generator. **Missing metrics never silently pass** (explicit reason).
+`recommended_critic`/`secondary_critic` are selected **only from eligible critics**; when none qualify
+they are `null` and `critic_recommendation_blocked` lists each ineligible critic with reasons. A critic
+may be top-ranked yet not recommended. Per-critic case performance (precision/recall per defect) is
+retained so critical-class requirements can be added later.
+
+### Failure metrics (candidate-level vs case-level)
+The former ambiguous `failure_rate` is replaced by `failure_metrics`:
+- `candidates_total`, `candidates_with_any_failure`, `candidates_with_any_failure_rate` — **candidate-level**.
+- `case_failure_rate` — **case-level**, weighted (`failed attempts / attempted attempts`); for a single
+  critic with 2 failed of 9 cases this is `0.2222`.
+- `provider_reliability_mean` — retained separately (transport reliability is not case failure).
+Both generators and critics report the same explicit shape.
+
 ### Customer Truth scoring (deterministic)
 `customer_truth_adherence` is a graded 0–1 **grounding coverage** over **all** `customer_truth` records
 (not just the first). It derives content-token anchors (stopwords/short tokens removed, light stemming)
@@ -135,8 +154,9 @@ The CLI prints per-candidate progress (disable with `--quiet`):
 
 GENERATOR COMPARISON · CRITIC COMPARISON · STRUCTURED OUTPUT RELIABILITY · STRUCTURED OUTPUT MODE ·
 SCHEMA ERRORS · MODEL IDENTITY / MODEL_ID_MISMATCH · RECOMMENDATION BLOCKED · PROVIDER RELIABILITY ·
-TRUTH-ADHERENCE RESULTS · WRITING QUALITY RESULTS · LATENCY · USAGE/COST METADATA · FAILURE RATE ·
-RECOMMENDED GENERATOR · RECOMMENDED CRITIC · SECONDARY FALLBACK CANDIDATES.
+TRUTH-ADHERENCE RESULTS · WRITING QUALITY RESULTS · LATENCY · USAGE/COST METADATA ·
+FAILURE METRICS (candidate-level + case-level) · RECOMMENDED GENERATOR · TOP-RANKED CRITIC ·
+RECOMMENDED CRITIC · CRITIC RECOMMENDATION BLOCKED.
 
 ## Honesty & secrets
 

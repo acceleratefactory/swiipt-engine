@@ -466,7 +466,7 @@ export async function runCritic(candidate, { cases, env = process.env, profiles 
   const displayLabel = label || `${cand.provider}/${model}`;
   const prov = resolveProvider(profiles, cand.provider, env);
   if (!prov.ok) {
-    return { provider: cand.provider, model, label: displayLabel, requested_model: model, returned_model: null, model_identity: "NOT_RUN", endpoint_host: null, base_url_env: prov.base_url_env, api_key_env: prov.api_key_env, error: prov.error, cases: [], schema_errors: [{ path: "/", keyword: "provider", message: `provider not configured: ${prov.error}` }], provider_reliability: 0, true_detections: 0, false_positives: 0, false_negatives: cases.length, defect_count: cases.filter((c) => c.expect_defect).length, severity_accuracy: 0, schema_reliability: 0, failure_rate: 1, precision: 0, recall: 0, f1: 0, avg_latency_ms: 0, provider_status: STATUS.PROVIDER_NOT_CONFIGURED };
+    return { provider: cand.provider, model, label: displayLabel, requested_model: model, returned_model: null, model_identity: "NOT_RUN", endpoint_host: null, base_url_env: prov.base_url_env, api_key_env: prov.api_key_env, error: prov.error, cases: [], schema_errors: [{ path: "/", keyword: "provider", message: `provider not configured: ${prov.error}` }], provider_reliability: 0, true_detections: 0, false_positives: 0, false_negatives: cases.length, defect_count: cases.filter((c) => c.expect_defect).length, severity_accuracy: 0, schema_reliability: 0, case_failure_rate: 1, cases_total: cases.length, cases_failed: cases.length, precision: 0, recall: 0, f1: 0, avg_latency_ms: 0, provider_status: STATUS.PROVIDER_NOT_CONFIGURED };
   }
 
   const results = [];
@@ -518,13 +518,47 @@ export async function runCritic(candidate, { cases, env = process.env, profiles 
     defect_count: defects.length,
     severity_accuracy: defects.length ? true_detections / defects.length : 0,
     schema_reliability: results.length ? schema_ok / results.length : 0,
-    failure_rate: results.filter((r) => r.provider_status !== STATUS.PROVIDER_SUCCESS).length / (results.length || 1),
+    case_failure_rate: results.length ? results.filter((r) => r.provider_status !== STATUS.PROVIDER_SUCCESS).length / results.length : 0,
+    cases_total: results.length,
+    cases_failed: results.filter((r) => r.provider_status !== STATUS.PROVIDER_SUCCESS).length,
     precision, recall, f1,
     avg_latency_ms: Math.round(results.reduce((s, r) => s + r.latency_ms, 0) / (results.length || 1)),
   };
 }
 
 function safeHostname(url) { try { return new URL(String(url)).host; } catch { return null; } }
+
+// ---------- Critic recommendation eligibility (controlled-suite qualification thresholds) ----------
+// Eligibility (hard qualification) is deliberately SEPARATE from ranking (comparative ordering).
+export const CRITIC_ELIGIBILITY = Object.freeze({
+  provider_reliability: 1.0,
+  schema_reliability: 1.0,
+  precision: 1.0,
+  recall: 0.8,
+  f1: 0.8,
+  severity_accuracy: 0.8,
+});
+const ELIGIBILITY_METRICS = ["provider_reliability", "schema_reliability", "precision", "recall", "f1", "severity_accuracy"];
+const round3 = (v) => Number(Number(v).toFixed(3));
+
+/**
+ * Critic recommendation eligibility. Missing metrics NEVER silently pass. MODEL_ID_MISMATCH always
+ * blocks. Self-judging is a real blocker for the given recommended generator (it may still appear in
+ * comparative ranking).
+ * @returns {{eligible:boolean, reasons:string[]}}
+ */
+export function criticEligibility(c, { recommendedGenerator = null } = {}) {
+  const reasons = [];
+  for (const m of ELIGIBILITY_METRICS) {
+    const v = c[m];
+    if (typeof v !== "number" || Number.isNaN(v)) { reasons.push(`missing ${m} (required >= ${CRITIC_ELIGIBILITY[m]})`); continue; }
+    if (v < CRITIC_ELIGIBILITY[m]) reasons.push(`${m} ${round3(v)} < required ${CRITIC_ELIGIBILITY[m]}`);
+  }
+  if (c.model_identity == null) reasons.push("missing model_identity");
+  else if (c.model_identity === "MODEL_ID_MISMATCH") reasons.push("model_identity MODEL_ID_MISMATCH");
+  if (recommendedGenerator && c.model === recommendedGenerator) reasons.push(`self-judge conflict with recommended generator '${recommendedGenerator}'`);
+  return { eligible: reasons.length === 0, reasons };
+}
 
 /** Rank and recommend. Never lets a model be its own judge; never silently accepts model substitution.
  *  Strict schema gate: only structurally-valid candidates are eligible for production recommendation. */
@@ -541,16 +575,27 @@ export function compare(genResults, criticResults) {
   const blockedGens = genResults.filter((g) => !recommendable(g));
   const mismatchGens = genResults.filter(isMismatch);
 
-  const usableCrit = criticResults.filter((c) => c.schema_reliability >= 0.5 && !isMismatch(c));
-  const critRank = [...usableCrit].sort((a, b) => (b.f1 - a.f1) || (a.false_positives - b.false_positives) || (a.avg_latency_ms - b.avg_latency_ms));
-  const mismatchCrit = criticResults.filter(isMismatch);
-
   const ref = (r) => (r ? { provider: r.provider || "openai", model: r.model, endpoint_host: r.endpoint_host || null } : null);
   const recommended_generator = genRank[0]?.model ?? null;
   const secondary_generator = genRank[1]?.model ?? null;
-  const recommended_critic = critRank[0]?.model ?? null;
-  const secondary_critic = critRank[1]?.model ?? null;
-  const selfJudgeConflict = !!(recommended_generator && recommended_critic && recommended_generator === recommended_critic);
+
+  // Critic RANKING (all candidates, comparative) is separate from RECOMMENDATION ELIGIBILITY (hard qualification).
+  const critRank = [...criticResults].sort((a, b) => (b.f1 - a.f1) || (a.false_positives - b.false_positives) || (a.avg_latency_ms - b.avg_latency_ms));
+  const critEval = critRank.map((c) => ({ c, ...criticEligibility(c, { recommendedGenerator: recommended_generator }) }));
+  const eligibleCrit = critEval.filter((x) => x.eligible).map((x) => x.c);
+  const recommended_critic = eligibleCrit[0]?.model ?? null;
+  const secondary_critic = eligibleCrit[1]?.model ?? null;
+  const top_ranked_critic = critRank[0]?.model ?? null;
+  const critic_recommendation_blocked = critEval.filter((x) => !x.eligible).map((x) => ({ provider: x.c.provider || "openai", model: x.c.model, reasons: x.reasons }));
+  const mismatchCrit = criticResults.filter(isMismatch);
+  const selfJudgeConflict = !!(recommended_generator && critRank.some((c) => c.model === recommended_generator));
+
+  // Failure metrics — explicitly named candidate-level vs case-level (never the ambiguous "failure_rate").
+  const genFailed = genResults.filter((g) => g.provider_status !== STATUS.PROVIDER_SUCCESS).length;
+  const criticCasesAttempted = criticResults.reduce((s, c) => s + ((c.cases || []).length), 0);
+  const criticCasesFailed = criticResults.reduce((s, c) => s + ((c.cases || []).filter((r) => r.provider_status !== STATUS.PROVIDER_SUCCESS).length), 0);
+  const criticWithAnyFailure = criticResults.filter((c) => (c.cases || []).some((r) => r.provider_status !== STATUS.PROVIDER_SUCCESS) || c.provider_reliability === 0).length;
+  const meanOf = (arr, key) => (arr.length ? arr.reduce((s, x) => s + (typeof x[key] === "number" ? x[key] : 0), 0) / arr.length : null);
 
   const mean = (arr, f) => { const vals = arr.map(f).filter((v) => typeof v === "number" && !Number.isNaN(v)); return vals.length ? vals.reduce((s, x) => s + x, 0) / vals.length : null; };
   const dimScore = (g, k) => { const d = (g.dimensions || []).find((x) => x.key === k); return d && d.status !== "NOT_EVALUATED" && typeof d.score === "number" ? d.score : null; };
@@ -561,9 +606,11 @@ export function compare(genResults, criticResults) {
     structurally_failed_generators: genFailRank.map((g) => ({ provider: g.provider || "openai", model: g.model, provider_status: g.provider_status, parse_ok: g.parse_ok, schema_valid: g.schema_valid })),
     schema_failed_generators: schemaFailedGens.map((g) => ({ provider: g.provider || "openai", model: g.model, schema_errors: g.schema_errors || [] })),
     model_mismatch_candidates: [...mismatchGens.map((g) => ({ role: "generator", provider: g.provider, requested_model: g.requested_model, returned_model: g.returned_model })), ...mismatchCrit.map((c) => ({ role: "critic", provider: c.provider, requested_model: c.requested_model, returned_model: c.returned_model }))],
-    critic_ranking: critRank.map((c) => ({ provider: c.provider || "openai", model: c.model, endpoint_host: c.endpoint_host || null, f1: Number(c.f1.toFixed(3)), precision: Number(c.precision.toFixed(3)), recall: Number(c.recall.toFixed(3)), false_positives: c.false_positives, false_negatives: c.false_negatives, schema_reliability: c.schema_reliability, provider_reliability: c.provider_reliability ?? null, avg_latency_ms: c.avg_latency_ms })),
+    critic_ranking: critRank.map((c) => { const ev = critEval.find((x) => x.c === c); return { provider: c.provider || "openai", model: c.model, endpoint_host: c.endpoint_host || null, eligible: ev ? ev.eligible : false, eligibility_reasons: ev ? ev.reasons : [], f1: Number((c.f1 || 0).toFixed(3)), precision: Number((c.precision || 0).toFixed(3)), recall: Number((c.recall || 0).toFixed(3)), severity_accuracy: Number((c.severity_accuracy || 0).toFixed(3)), false_positives: c.false_positives, false_negatives: c.false_negatives, schema_reliability: c.schema_reliability, provider_reliability: c.provider_reliability ?? null, case_failure_rate: c.case_failure_rate ?? null, avg_latency_ms: c.avg_latency_ms }; }),
     recommended_generator, secondary_generator, recommended_critic, secondary_critic,
-    recommended_generator_ref: ref(genRank[0]), recommended_critic_ref: ref(critRank[0]),
+    top_ranked_critic,
+    critic_recommendation_blocked,
+    recommended_generator_ref: ref(genRank[0]), recommended_critic_ref: ref(eligibleCrit[0]),
     self_judge_conflict: selfJudgeConflict,
     structured_output_reliability: { generators: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, parse_ok: g.parse_ok, schema_valid: g.schema_valid, structural_reliability: g.structural_reliability || null, model_identity: g.model_identity || null, requested_structured_output_mode: g.requested_structured_output_mode || null, schema_enforcement_requested: g.schema_enforcement_requested ?? null, structured_output_provider_response: g.structured_output_provider_response || null, schema_errors: g.schema_errors || [] })), critics: criticResults.map((c) => ({ provider: c.provider || "openai", model: c.model, schema_reliability: c.schema_reliability, schema_errors: c.schema_errors || [] })) },
     provider_reliability: { generators: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, provider_reliability: g.provider_reliability ?? null })), critics: criticResults.map((c) => ({ provider: c.provider || "openai", model: c.model, provider_reliability: c.provider_reliability ?? null })) },
@@ -571,7 +618,25 @@ export function compare(genResults, criticResults) {
     writing_quality: { mean_anti_slop: r3(mean(genResults, (g) => dimScore(g, "anti_slop_compliance"))), mean_constitution: r3(mean(genResults, (g) => dimScore(g, "writing_constitution_compliance"))), mean_interchangeability: r3(mean(genResults, (g) => dimScore(g, "interchangeability"))) },
     latency: { generators_avg_ms: Math.round(mean(genResults, (g) => g.latency_ms) ?? 0), critics_avg_ms: Math.round(mean(criticResults, (c) => c.avg_latency_ms) ?? 0) },
     usage_cost: { note: "Token usage is reported when the endpoint returns it; cost depends on the chosen provider's pricing.", generator_usage: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, usage: g.usage })) },
-    failure_rate: { generators: genResults.length ? genResults.filter((g) => g.provider_status !== STATUS.PROVIDER_SUCCESS).length / genResults.length : 0, critics: criticResults.length ? criticResults.filter((c) => c.failure_rate > 0).length / criticResults.length : 0 },
+    failure_metrics: {
+      _note: "candidates_with_any_failure* = candidate-level; case_failure_rate = failed attempts / attempted attempts (weighted across candidates); provider_reliability is a separate transport metric.",
+      generators: {
+        candidates_total: genResults.length,
+        candidates_with_any_failure: genFailed,
+        candidates_with_any_failure_rate: genResults.length ? genFailed / genResults.length : 0,
+        case_failure_rate: genResults.length ? genFailed / genResults.length : 0,
+        provider_reliability_mean: meanOf(genResults, "provider_reliability"),
+      },
+      critics: {
+        candidates_total: criticResults.length,
+        candidates_with_any_failure: criticWithAnyFailure,
+        candidates_with_any_failure_rate: criticResults.length ? criticWithAnyFailure / criticResults.length : 0,
+        case_failure_rate: criticCasesAttempted ? criticCasesFailed / criticCasesAttempted : 0,
+        cases_attempted: criticCasesAttempted,
+        cases_failed: criticCasesFailed,
+        provider_reliability_mean: meanOf(criticResults, "provider_reliability"),
+      },
+    },
   };
 }
 
@@ -634,9 +699,9 @@ function renderMarkdown(result) {
   for (const g of result.generators) L.push(`| ${g.provider} | ${g.requested_model || g.model} | ${fmt(g.returned_model)} | ${fmt(g.model_identity)} | ${fmt(g.content_quality_score)} | ${fmt(g.structural_reliability)} | ${fmt(g.structural_reliability_score)} | ${fmt(g.provider_reliability)} | ${g.usable_without_rewrite} | ${g.latency_ms} | ${g.provider_status} |`);
   L.push("");
   L.push(`## CRITIC COMPARISON`);
-  L.push(`| Provider | Model | Identity | F1 | Precision | Recall | FP | FN | Severity acc | Schema reliab. | Provider reliab. | Avg latency |`);
+  L.push(`| Eligible | Provider | Model | Identity | F1 | Precision | Recall | Severity acc | Schema reliab. | Provider reliab. | Case fail rate | Avg latency |`);
   L.push(`|---|---|---|---|---|---|---|---|---|---|---|---|`);
-  for (const c of result.critics) L.push(`| ${c.provider} | ${c.model} | ${fmt(c.model_identity)} | ${c.f1.toFixed(3)} | ${c.precision.toFixed(3)} | ${c.recall.toFixed(3)} | ${c.false_positives} | ${c.false_negatives} | ${c.severity_accuracy.toFixed(2)} | ${c.schema_reliability.toFixed(2)} | ${fmt(c.provider_reliability)} | ${c.avg_latency_ms} |`);
+  for (const c of result.comparison.critic_ranking || []) L.push(`| ${c.eligible ? "yes" : "no"} | ${c.provider} | ${c.model} | ${fmt(c.model_identity)} | ${c.f1.toFixed(3)} | ${c.precision.toFixed(3)} | ${c.recall.toFixed(3)} | ${c.severity_accuracy.toFixed(2)} | ${fmt(c.schema_reliability)} | ${fmt(c.provider_reliability)} | ${fmt(c.case_failure_rate)} | ${c.avg_latency_ms} |`);
   L.push("");
   L.push(`## STRUCTURED OUTPUT RELIABILITY`);
   for (const g of result.comparison.structured_output_reliability.generators) L.push(`- Generator ${g.provider}/${g.model}: parse=${g.parse_ok} schema=${g.schema_valid} structural=${fmt(g.structural_reliability)} identity=${fmt(g.model_identity)}`);
@@ -679,15 +744,25 @@ function renderMarkdown(result) {
   L.push(JSON.stringify(result.comparison.usage_cost.generator_usage, null, 2));
   L.push("```");
   L.push("");
-  L.push(`## FAILURE RATE`);
-  L.push(JSON.stringify(result.comparison.failure_rate));
+  L.push(`## FAILURE METRICS (candidate-level and case-level)`);
+  L.push("```json");
+  L.push(JSON.stringify(result.comparison.failure_metrics, null, 2));
+  L.push("```");
   L.push("");
   L.push(`## RECOMMENDED GENERATOR`);
   L.push(`**${result.comparison.recommended_generator || "none"}** (secondary fallback: ${result.comparison.secondary_generator || "none"})`);
   L.push("");
+  L.push(`## TOP-RANKED CRITIC`);
+  L.push(`**${result.comparison.top_ranked_critic || "none"}** (highest comparative rank; ranking is not recommendation)`);
+  L.push("");
   L.push(`## RECOMMENDED CRITIC`);
-  L.push(`**${result.comparison.recommended_critic || "none"}** (secondary fallback: ${result.comparison.secondary_critic || "none"})`);
-  if (result.comparison.self_judge_conflict) L.push(`\n> recommended generator and critic are the same model — choose distinct models for independent review.`);
+  L.push(result.comparison.recommended_critic ? `**${result.comparison.recommended_critic}** (secondary fallback: ${result.comparison.secondary_critic || "none"})` : `**None — qualification requirements not met.**`);
+  L.push("");
+  L.push(`## CRITIC RECOMMENDATION BLOCKED`);
+  const cblocked = result.comparison.critic_recommendation_blocked || [];
+  if (!cblocked.length) L.push("- none (all evaluated critics qualified)");
+  else for (const b of cblocked) L.push(`- ${b.provider}/${b.model}: ${b.reasons.join("; ")}`);
+  if (result.comparison.self_judge_conflict) L.push(`\n> a critic candidate is the same model as the recommended generator; self-judging is excluded from recommendation.`);
   const failed = result.comparison.structurally_failed_generators;
   if (failed.length) { L.push(""); L.push("## STRUCTURALLY FAILED GENERATORS"); for (const f of failed) L.push(`- ${f.provider}/${f.model}: status ${f.provider_status} (parse=${f.parse_ok})`); }
   return L.join("\n") + "\n";
@@ -747,7 +822,8 @@ if (process.argv[1] && process.argv[1].endsWith("text-provider-bench.mjs")) {
     console.log(`results: ${out}`);
     console.log(`report:  ${report}`);
     console.log(`recommended generator: ${result.comparison.recommended_generator || "none"}`);
-    console.log(`recommended critic:    ${result.comparison.recommended_critic || "none"}`);
+    console.log(`top-ranked critic:     ${result.comparison.top_ranked_critic || "none"}`);
+    console.log(`recommended critic:    ${result.comparison.recommended_critic || "none (qualification requirements not met)"}`);
     if ((result.comparison.model_mismatch_candidates || []).length) console.log(`MODEL_ID_MISMATCH candidates: ${result.comparison.model_mismatch_candidates.length} (excluded from recommendation)`);
     console.log(`(recommendation only — no production env was modified)`);
     process.exit(0);

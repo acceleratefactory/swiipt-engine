@@ -109,7 +109,7 @@ test("8. compare recommends and flags self-judge conflict", () => {
     { model: "dead", parse_ok: false, schema_valid: false, deterministic_score: 0, usable_without_rewrite: false, latency_ms: 100, provider_status: "PROVIDER_ATTEMPT_FAILED" },
   ];
   const critRank = [
-    { model: "critic-x", f1: 1, precision: 1, recall: 1, false_positives: 0, false_negatives: 0, schema_reliability: 1, avg_latency_ms: 400, failure_rate: 0 },
+    { model: "critic-x", model_identity: "OK", f1: 1, precision: 1, recall: 1, severity_accuracy: 1, false_positives: 0, false_negatives: 0, schema_reliability: 1, provider_reliability: 1, avg_latency_ms: 400, case_failure_rate: 0 },
   ];
   const cmp = compare(genRank, critRank);
   assert.equal(cmp.recommended_generator, "good");
@@ -118,6 +118,7 @@ test("8. compare recommends and flags self-judge conflict", () => {
   assert.equal(cmp.structurally_failed_generators[0].model, "dead");
   const conflict = compare([{ ...genRank[0], model: "critic-x" }], critRank);
   assert.equal(conflict.self_judge_conflict, true);
+  assert.equal(conflict.recommended_critic, null, "self-judging critic must not be recommended");
 });
 
 test("9. full benchmark run produces a machine-readable result with no credential", async () => {
@@ -485,4 +486,168 @@ test("38. backward compatibility: no structured mode requested when neither is s
   assert.equal(calls[0].response_format, undefined);
   assert.equal(r.structured_output_mode, "none");
   assert.equal(r.schema_enforcement_requested, false);
+});
+
+// ---------- Critic eligibility + failure metrics ----------
+import { criticEligibility, CRITIC_ELIGIBILITY } from "./text-provider-bench.mjs";
+
+const eligibleCritic = (over = {}) => ({
+  provider: "p", model: "c", model_identity: "OK",
+  provider_reliability: 1, schema_reliability: 1, precision: 1, recall: 1, f1: 1, severity_accuracy: 1,
+  false_positives: 0, false_negatives: 0, avg_latency_ms: 100, case_failure_rate: 0,
+  cases: Array.from({ length: 9 }, () => ({ provider_status: "PROVIDER_SUCCESS" })),
+  ...over,
+});
+const eligibleGen = (over = {}) => ({
+  provider: "p", model: "g", model_identity: "OK",
+  parse_ok: true, schema_valid: true, structural_reliability: "PASS", structural_reliability_score: 1,
+  content_quality_score: 0.9, usable_without_rewrite: true, blocking: [], latency_ms: 100,
+  provider_status: "PROVIDER_SUCCESS", provider_reliability: 1,
+  ...over,
+});
+function blockedReasons(critic) {
+  const cmp = compare([eligibleGen({ model: "g1" })], [critic]);
+  return { cmp, reasons: (cmp.critic_recommendation_blocked || []).flatMap((b) => b.reasons) };
+}
+
+test("39. strong eligible critic is recommended", () => {
+  const cmp = compare([eligibleGen({ model: "g1" })], [eligibleCritic({ model: "c1" })]);
+  assert.equal(cmp.recommended_critic, "c1");
+  assert.equal(cmp.top_ranked_critic, "c1");
+  assert.equal(cmp.critic_recommendation_blocked.length, 0);
+});
+
+test("40. highest-ranked but below-threshold critic is NOT recommended", () => {
+  const high = eligibleCritic({ model: "c-high", f1: 0.95, recall: 0.5 });
+  const good = eligibleCritic({ model: "c-good", f1: 0.85 });
+  const cmp = compare([eligibleGen({ model: "g1" })], [high, good]);
+  assert.equal(cmp.top_ranked_critic, "c-high");
+  assert.equal(cmp.recommended_critic, "c-good");
+});
+
+test("41. no eligible critic => recommended_critic null (Nemotron-shaped case)", () => {
+  const nemotronLike = eligibleCritic({ model: "nemotron", provider_reliability: 0.7777777778, schema_reliability: 0.7777777778, precision: 1, recall: 0.5, f1: 0.667, severity_accuracy: 0.5 });
+  const cmp = compare([eligibleGen({ model: "g1" })], [nemotronLike]);
+  assert.equal(cmp.top_ranked_critic, "nemotron");
+  assert.equal(cmp.recommended_critic, null);
+  assert.equal(cmp.secondary_critic, null);
+  assert.equal(cmp.critic_recommendation_blocked.length, 1);
+});
+
+test("42. secondary critic selected only from eligible critics", () => {
+  const a = eligibleCritic({ model: "c-a", f1: 0.95, recall: 0.5 });
+  const b = eligibleCritic({ model: "c-b", f1: 0.9 });
+  const c = eligibleCritic({ model: "c-c", f1: 0.85 });
+  const cmp = compare([eligibleGen({ model: "g1" })], [a, b, c]);
+  assert.equal(cmp.recommended_critic, "c-b");
+  assert.equal(cmp.secondary_critic, "c-c");
+});
+
+test("43. missing eligibility metric is blocked with an explicit reason", () => {
+  const m = eligibleCritic({ model: "c-m" });
+  delete m.severity_accuracy;
+  const { cmp, reasons } = blockedReasons(m);
+  assert.equal(cmp.recommended_critic, null);
+  assert.ok(reasons.some((r) => /missing severity_accuracy/.test(r)), JSON.stringify(reasons));
+});
+
+test("44. provider_reliability below 1 is blocked", () => { assert.ok(blockedReasons(eligibleCritic({ provider_reliability: 0.9 })).reasons.some((r) => /provider_reliability/.test(r))); });
+test("45. schema_reliability below 1 is blocked", () => { assert.ok(blockedReasons(eligibleCritic({ schema_reliability: 0.9 })).reasons.some((r) => /schema_reliability/.test(r))); });
+test("46. precision below 1 is blocked", () => { assert.ok(blockedReasons(eligibleCritic({ precision: 0.99 })).reasons.some((r) => /precision/.test(r))); });
+test("47. recall below 0.8 is blocked", () => { assert.ok(blockedReasons(eligibleCritic({ recall: 0.79 })).reasons.some((r) => /recall/.test(r))); });
+test("48. F1 below 0.8 is blocked", () => { assert.ok(blockedReasons(eligibleCritic({ f1: 0.79 })).reasons.some((r) => /f1/.test(r))); });
+test("49. severity accuracy below 0.8 is blocked", () => { assert.ok(blockedReasons(eligibleCritic({ severity_accuracy: 0.79 })).reasons.some((r) => /severity_accuracy/.test(r))); });
+
+test("50. MODEL_ID_MISMATCH is blocked", () => {
+  const { cmp, reasons } = blockedReasons(eligibleCritic({ model: "c-mm", model_identity: "MODEL_ID_MISMATCH" }));
+  assert.equal(cmp.recommended_critic, null);
+  assert.ok(reasons.some((r) => /MODEL_ID_MISMATCH/.test(r)));
+});
+
+test("51. self-judge conflict is a recommendation blocker (still appears in ranking)", () => {
+  const cmp = compare([eligibleGen({ model: "g1" })], [eligibleCritic({ model: "g1" })]);
+  assert.equal(cmp.recommended_critic, null);
+  assert.ok((cmp.critic_recommendation_blocked || []).some((b) => b.reasons.some((r) => /self-judge/.test(r))));
+  assert.ok((cmp.critic_ranking || []).some((c) => c.model === "g1"));
+});
+
+test("52. ineligible critic still appears in comparative ranking", () => {
+  const cmp = compare([eligibleGen({ model: "g1" })], [eligibleCritic({ model: "c1", recall: 0.5 })]);
+  const row = (cmp.critic_ranking || []).find((c) => c.model === "c1");
+  assert.ok(row);
+  assert.equal(row.eligible, false);
+  assert.ok(row.eligibility_reasons.some((r) => /recall/.test(r)));
+});
+
+test("53. case_failure_rate is the case-level fraction (2/9)", async () => {
+  const fx = loadBenchFixture();
+  let n = 0;
+  const fetchImpl = async () => {
+    n++;
+    if (n === 3 || n === 7) throw new Error("boom");
+    return { ok: true, status: 200, json: async () => ({ model: "c", choices: [{ message: { content: JSON.stringify({ findings: [] }) } }] }) };
+  };
+  const c = await runCritic("critic-x", { cases: buildCriticCases(fx), env: { OPENAI_API_KEY: "testkey-x" }, fetchImpl });
+  assert.equal(c.cases_total, 9);
+  assert.equal(c.cases_failed, 2);
+  assert.ok(Math.abs(c.case_failure_rate - 2 / 9) < 1e-9);
+});
+
+test("54. candidate-with-any-failure counts candidates with >=1 failed case", () => {
+  const ok = eligibleCritic({ model: "c-ok" });
+  const flaky = eligibleCritic({ model: "c-flaky", cases: Array.from({ length: 9 }, (_, i) => ({ provider_status: i < 2 ? "PROVIDER_ATTEMPT_FAILED" : "PROVIDER_SUCCESS" })) });
+  const cmp = compare([eligibleGen({ model: "g1" })], [ok, flaky]);
+  assert.equal(cmp.failure_metrics.critics.candidates_total, 2);
+  assert.equal(cmp.failure_metrics.critics.candidates_with_any_failure, 1);
+  assert.equal(cmp.failure_metrics.critics.candidates_with_any_failure_rate, 0.5);
+});
+
+test("55. aggregate critic case failure rate is weighted by cases (3/13)", () => {
+  const a = eligibleCritic({ model: "c-a", cases: Array.from({ length: 9 }, (_, i) => ({ provider_status: i < 2 ? "PROVIDER_ATTEMPT_FAILED" : "PROVIDER_SUCCESS" })) });
+  const b = eligibleCritic({ model: "c-b", cases: Array.from({ length: 4 }, (_, i) => ({ provider_status: i < 1 ? "PROVIDER_ATTEMPT_FAILED" : "PROVIDER_SUCCESS" })) });
+  const cmp = compare([eligibleGen({ model: "g1" })], [a, b]);
+  assert.equal(cmp.failure_metrics.critics.cases_attempted, 13);
+  assert.equal(cmp.failure_metrics.critics.cases_failed, 3);
+  assert.ok(Math.abs(cmp.failure_metrics.critics.case_failure_rate - 3 / 13) < 1e-9);
+});
+
+test("56. generator aggregate uses explicit candidate/case semantics", () => {
+  const g1 = eligibleGen({ model: "g1" });
+  const g2 = eligibleGen({ model: "g2", provider_status: "PROVIDER_ATTEMPT_FAILED", provider_reliability: 0, parse_ok: false, schema_valid: false, structural_reliability: "FAIL" });
+  const cmp = compare([g1, g2], []);
+  assert.equal(cmp.failure_metrics.generators.candidates_total, 2);
+  assert.equal(cmp.failure_metrics.generators.candidates_with_any_failure, 1);
+  assert.equal(cmp.failure_metrics.generators.candidates_with_any_failure_rate, 0.5);
+  assert.equal(cmp.failure_metrics.generators.case_failure_rate, 0.5);
+  assert.equal(cmp.failure_metrics.generators.provider_reliability_mean, 0.5);
+});
+
+test("57. Markdown distinguishes TOP-RANKED vs RECOMMENDED and shows blocked reasons", async () => {
+  const fx = loadBenchFixture();
+  const fetchImpl = async (url, opts) => {
+    const body = JSON.parse(opts.body);
+    const sys = body.messages?.[0]?.content || "";
+    if (/Writing Critic/.test(sys)) throw new Error("critic down");
+    return { ok: true, status: 200, json: async () => ({ model: "m", choices: [{ message: { content: JSON.stringify(goodBenchAsset(fx)) } }] }) };
+  };
+  const result = await runBenchmark({ generators: ["model-a"], critics: ["critic-x"], env: { OPENAI_API_KEY: "testkey-x" }, fetchImpl });
+  assert.equal(result.comparison.recommended_critic, null);
+  assert.equal(result.comparison.top_ranked_critic, "critic-x");
+  const md = renderMarkdown(result);
+  assert.match(md, /## TOP-RANKED CRITIC/);
+  assert.match(md, /None — qualification requirements not met\./);
+  assert.match(md, /## CRITIC RECOMMENDATION BLOCKED/);
+  assert.doesNotMatch(md, /## RECOMMENDED CRITIC\n\*\*critic-x\*\*/);
+});
+
+test("58. backward compatibility: ambiguous failure_rate removed; explicit metrics present", async () => {
+  const fx = loadBenchFixture();
+  const cmp = compare([eligibleGen({ model: "g1" })], [eligibleCritic({ model: "c1" })]);
+  assert.equal(cmp.failure_rate, undefined);
+  assert.ok(cmp.failure_metrics && cmp.failure_metrics.critics && cmp.failure_metrics.generators);
+  const c = await runCritic("critic-x", { cases: buildCriticCases(fx), env: { OPENAI_API_KEY: "testkey-x" }, fetchImpl: combinedFetch(goodBenchAsset(fx)) });
+  assert.equal(typeof c.case_failure_rate, "number");
+  assert.equal(c.failure_rate, undefined);
+  assert.equal(typeof CRITIC_ELIGIBILITY.recall, "number");
+  assert.equal(typeof criticEligibility(eligibleCritic()).eligible, "boolean");
 });
