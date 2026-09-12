@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/bench/schemas/supervisor-decision.schema.json",
+  "title": "Swiipt Premium Supervisor Decision",
+  "description": "Strict machine-readable output contract for the Premium Supervisor layer. Concise rationale only; never private chain-of-thought. The supervisor adjudicates escalated cases; it cannot rewrite Truth.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id", "decision", "primary_critic_finding_valid", "grounding_status",
+    "truth_sources_used", "unsupported_claims", "evidence_gap", "conflict_type",
+    "severity", "revision_possible", "revision_instructions", "escalation_required",
+    "human_review_required", "publication_recommendation", "reasoning_summary"
+  ],
+  "properties": {
+    "case_id": { "type": "string", "minLength": 1 },
+    "decision": { "enum": ["UPHOLD_CRITIC", "OVERTURN_CRITIC", "REVISE", "BLOCK", "SOURCE_REQUIRED", "HUMAN_REVIEW"] },
+    "primary_critic_finding_valid": { "type": "boolean" },
+    "grounding_status": { "enum": ["grounded", "grounded_with_inference", "unsupported", "insufficient_source"] },
+    "truth_sources_used": { "type": "array", "items": { "type": "string" } },
+    "unsupported_claims": { "type": "array", "items": { "type": "string" } },
+    "evidence_gap": { "type": ["string", "null"] },
+    "conflict_type": { "enum": ["none", "product_vs_market", "customer_overreach", "mechanism", "evidence_conflict", "truth_hierarchy", "cultural"] },
+    "severity": { "enum": ["none", "low", "medium", "high", "blocker"] },
+    "revision_possible": { "type": "boolean" },
+    "revision_instructions": { "type": "array", "items": { "type": "string" } },
+    "escalation_required": { "type": "boolean" },
+    "human_review_required": { "type": "boolean" },
+    "publication_recommendation": { "enum": ["proceed", "revise", "block", "human_review", "source_required"] },
+    "reasoning_summary": { "type": "string", "minLength": 1, "maxLength": 1200 }
+  }
+}
