@@ -62,6 +62,7 @@ export function buildGenerationTask(fx) {
     writing_constitution: fx.writing_constitution,
     angle: fx.angle,
     required_fields: REQUIRED_FIELDS,
+    output_contract: BENCH_ASSET_SCHEMA,
     constraints: { audience: "WhatsApp (concise, one thought per line)", max_body_words: 120, cta_style: "Reply YES (no \u201cclick the link\u201d)", no_hashtags: true, json_only: true },
   });
   return { system: GENERATION_SYSTEM, user, schema: BENCH_ASSET_SCHEMA, required_fields: REQUIRED_FIELDS, max_body_words: 120 };

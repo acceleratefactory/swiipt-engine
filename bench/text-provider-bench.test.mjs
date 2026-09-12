@@ -321,3 +321,168 @@ test("22. schema errors are recorded in the JSON result and the Markdown report"
   assert.match(md, /schema validation failed|\[required\]|required/);
   assert.equal(result.comparison.recommended_generator, null);
 });
+
+// ---------- Correction 1: Customer Truth grounding scorer ----------
+import { scoreCustomerTruth, CUSTOMER_ANCHOR_TARGET } from "./text-provider-bench.mjs";
+import { chatCompletion } from "../lib/provider-client.mjs";
+
+const faithfulR1 = "At 3 AM the baby is finally asleep, and she has to get up from the bed. The incision pulls and burns, so she braces against the bed frame and waits for the pain to pass.";
+const record3Text = "Everyone's advice was written for a normal delivery and none of it fit a C-section body, so she tried it anyway and it only made things worse.";
+
+test("24. faithful paraphrase grounded in multiple CRF facts scores high (full-CRF coverage)", () => {
+  const fx = loadBenchFixture();
+  const r = scoreCustomerTruth(fx, faithfulR1);
+  assert.ok(r.score >= 0.8, `expected high coverage, got ${r.score}`);
+  assert.equal(r.pass, true);
+  assert.ok(r.diagnostics.matched_anchors >= 3, "multiple independent anchors must contribute");
+  assert.equal(r.diagnostics.best_record, "CRF-CSEC-014");
+});
+
+test("25. single-token gaming ('scared') cannot produce a high Customer Truth score", () => {
+  const fx = loadBenchFixture();
+  const game = scoreCustomerTruth(fx, "scared. scared. scared. scared.");
+  const real = scoreCustomerTruth(fx, faithfulR1);
+  assert.ok(game.score < 0.3, `gaming score should be low, got ${game.score}`);
+  assert.equal(game.pass, false);
+  assert.ok(real.score > game.score, "a single repeated token must score below a grounded paraphrase");
+  assert.ok((game.diagnostics.matched_anchors || 0) <= 1);
+});
+
+test("26. generic copy with weak grounding scores low and fails", () => {
+  const fx = loadBenchFixture();
+  const r = scoreCustomerTruth(fx, "You are not alone. Take it one step at a time. You are stronger than you know.");
+  assert.ok(r.score < 0.3, `generic should be low, got ${r.score}`);
+  assert.equal(r.pass, false);
+});
+
+test("27. invented customer detail is detected and protected against", () => {
+  const fx = loadBenchFixture();
+  const invented = faithfulR1 + ' \u201cI cried myself to sleep and nobody helped me,\u201d she said.';
+  const r = scoreCustomerTruth(fx, invented);
+  assert.ok(r.invention_flags.length >= 1, "fabricated quote must be flagged");
+  assert.ok(r.score <= 0.2, "invented detail must heavily cap the score");
+  assert.equal(r.pass, false);
+  const geo = evaluateGeneratorOutput(fx, { angle_id: fx.angle.id, platform: "whatsapp", headline: "At 3 AM she has to stand up.", body: invented, cta: "Reply YES", mechanism: "Module 2 - The 3-Position Recovery Method", situation: "Day 6 after a C-section.", evidence_note: "Educational content.", risk_flags: [] }, { parseOk: true, schemaValid: true });
+  assert.ok(geo.blocking.includes("customer_truth_invention"), "invention must enter blocking");
+  assert.equal(geo.usable_without_rewrite, false);
+});
+
+test("28. grounding in CRF record 2/3 is recognised (not only record 1)", () => {
+  const fx = loadBenchFixture();
+  const r = scoreCustomerTruth(fx, record3Text);
+  assert.equal(r.diagnostics.best_record, "CRF-CSEC-033");
+  assert.ok(r.score >= 0.8, `record-3 grounding should score high, got ${r.score}`);
+  assert.equal(r.pass, true);
+});
+
+test("29. valid-control regression: goodBenchAsset still scores high with no invention", () => {
+  const fx = loadBenchFixture();
+  const out = goodBenchAsset(fx);
+  const r = scoreCustomerTruth(fx, [out.headline, out.body, out.situation, out.mechanism, out.cta, out.evidence_note].join("\n"));
+  assert.ok(r.score >= 0.8, `control must remain grounded, got ${r.score}`);
+  assert.equal(r.pass, true);
+  assert.equal(r.invention_flags.length, 0);
+});
+
+test("30. Customer Truth score is graded (more grounding scores strictly higher)", () => {
+  const fx = loadBenchFixture();
+  const thin = scoreCustomerTruth(fx, "At 3 AM the baby is asleep and she has to stand up.");
+  const rich = scoreCustomerTruth(fx, faithfulR1);
+  assert.ok(rich.score > thin.score, `graded: rich ${rich.score} must exceed thin ${thin.score}`);
+  assert.ok(thin.score > 0 && thin.score < 1, "thin grounding should be partial, not 0");
+  assert.equal(typeof CUSTOMER_ANCHOR_TARGET, "number");
+});
+
+// ---------- Correction 2: structured-output contract ----------
+test("31. json_schema request construction is correct", async () => {
+  const calls = [];
+  const schema = { type: "object", properties: { a: { type: "string" } }, required: ["a"], additionalProperties: false };
+  const fetchImpl = async (url, opts) => { calls.push(JSON.parse(opts.body)); return { ok: true, status: 200, json: async () => ({ model: "m", choices: [{ message: { content: JSON.stringify({ a: "x" }) } }] }) }; };
+  const r = await chatCompletion({ messages: [], model: "m", jsonSchema: schema, schemaName: "bench_asset", env: { OPENAI_API_KEY: "testkey-x" }, fetchImpl });
+  assert.equal(calls[0].response_format.type, "json_schema");
+  assert.equal(calls[0].response_format.json_schema.name, "bench_asset");
+  assert.equal(calls[0].response_format.json_schema.strict, true);
+  assert.deepEqual(calls[0].response_format.json_schema.schema, schema);
+  assert.equal(r.structured_output_mode, "json_schema");
+  assert.equal(r.schema_enforcement_requested, true);
+});
+
+test("32. legacy json_object behavior is preserved", async () => {
+  const calls = [];
+  const fetchImpl = async (url, opts) => { calls.push(JSON.parse(opts.body)); return { ok: true, status: 200, json: async () => ({ model: "m", choices: [{ message: { content: JSON.stringify({ a: 1 }) } }] }) }; };
+  const r = await chatCompletion({ messages: [], model: "m", jsonMode: true, env: { OPENAI_API_KEY: "testkey-x" }, fetchImpl });
+  assert.equal(calls[0].response_format.type, "json_object");
+  assert.equal(r.structured_output_mode, "json_object");
+  assert.equal(r.schema_enforcement_requested, false);
+});
+
+test("33. provider rejection of json_schema remains explicit and attributable", async () => {
+  const calls = [];
+  const fetchImpl = async (url, opts) => { calls.push(JSON.parse(opts.body)); return { ok: false, status: 400, json: async () => ({ error: { message: "response_format not supported" } }) }; };
+  const r = await chatCompletion({ messages: [], model: "m", jsonSchema: { type: "object" }, schemaName: "bench_asset", env: { OPENAI_API_KEY: "testkey-x" }, fetchImpl });
+  assert.equal(r.ok, false);
+  assert.equal(r.status, "PROVIDER_ATTEMPT_FAILED");
+  assert.equal(r.http_status, 400);
+  assert.equal(r.structured_output_mode, "json_schema");
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].response_format.type, "json_schema");
+});
+
+test("34. no silent downgrade: repeated attempts keep json_schema", async () => {
+  const fx = loadBenchFixture();
+  const task = buildGenerationTask(fx);
+  const calls = [];
+  const fetchImpl = async (url, opts) => { calls.push(JSON.parse(opts.body)); return { ok: false, status: 400, json: async () => ({}) }; };
+  const g = await runGenerator("model-a", { task, fixture: fx, env: { OPENAI_API_KEY: "testkey-x" }, fetchImpl, structuredMode: "json_schema", retries: 2 });
+  assert.equal(calls.length, 3, "retries must not switch modes");
+  assert.ok(calls.every((c) => c.response_format.type === "json_schema"));
+  assert.equal(g.provider_status, "PROVIDER_ATTEMPT_FAILED");
+  assert.equal(g.requested_structured_output_mode, "json_schema");
+  assert.equal(g.structured_output_provider_response, "rejected");
+});
+
+test("35. local AJV remains authoritative over provider-side mode", async () => {
+  const fx = loadBenchFixture();
+  const task = buildGenerationTask(fx);
+  const env = { OPENAI_API_KEY: "testkey-x" };
+  // schema-valid but content-poor
+  const poor = { angle_id: fx.angle.id, platform: "whatsapp", headline: "ok", body: "ok", cta: "Reply YES", mechanism: "generic", situation: "generic", evidence_note: "generic", risk_flags: [] };
+  const gp = await runGenerator("model-a", { task, fixture: fx, env, structuredMode: "json_schema", fetchImpl: genFetch(poor) });
+  assert.equal(gp.schema_valid, true);
+  assert.equal(gp.structural_reliability, "PASS");
+  assert.ok(gp.content_quality_score < 0.9, "provider-side mode must not boost content quality");
+  // high-quality but schema-invalid
+  const bad = { ...goodBenchAsset(fx), risk_flags: "none" };
+  const gb = await runGenerator("model-a", { task, fixture: fx, env, structuredMode: "json_schema", fetchImpl: genFetch(bad) });
+  assert.equal(gb.parse_ok, true);
+  assert.equal(gb.schema_valid, false);
+  assert.equal(gb.structural_reliability, "FAIL");
+  assert.equal(gb.recommendation_eligible, false);
+  assert.ok(gb.schema_errors.length >= 1);
+});
+
+test("36. schema-invalid candidate remains recommendation-ineligible (runGenerator + compare)", () => {
+  const fx = loadBenchFixture();
+  const invalid = { provider: "p", model: "invalid", parse_ok: true, schema_valid: false, structural_reliability: "FAIL", content_quality_score: 0.95, usable_without_rewrite: false, blocking: ["structural_reliability"], latency_ms: 10, provider_status: "PROVIDER_SUCCESS", model_identity: "OK" };
+  const valid = { provider: "p", model: "valid", parse_ok: true, schema_valid: true, structural_reliability: "PASS", content_quality_score: 0.5, usable_without_rewrite: true, blocking: [], latency_ms: 20, provider_status: "PROVIDER_SUCCESS", model_identity: "OK" };
+  const cmp = compare([invalid, valid], []);
+  assert.equal(cmp.recommended_generator, "valid");
+  assert.ok(cmp.recommendation_blocked.some((b) => b.model === "invalid"));
+});
+
+test("37. credentials are never exposed in structured-output failures", async () => {
+  const fx = loadBenchFixture();
+  const task = buildGenerationTask(fx);
+  const key = "testkey-SECRETSTRUCT-123456";
+  const g = await runGenerator("model-a", { task, fixture: fx, env: { OPENAI_API_KEY: key }, structuredMode: "json_schema", fetchImpl: async () => ({ ok: false, status: 400, json: async () => ({}) }) });
+  assert.equal(JSON.stringify(g).includes(key), false);
+});
+
+test("38. backward compatibility: no structured mode requested when neither is set", async () => {
+  const calls = [];
+  const fetchImpl = async (url, opts) => { calls.push(JSON.parse(opts.body)); return { ok: true, status: 200, json: async () => ({ choices: [{ message: { content: "hi" } }] }) }; };
+  const r = await chatCompletion({ messages: [], model: "m", env: { OPENAI_API_KEY: "testkey-x" }, fetchImpl });
+  assert.equal(calls[0].response_format, undefined);
+  assert.equal(r.structured_output_mode, "none");
+  assert.equal(r.schema_enforcement_requested, false);
+});

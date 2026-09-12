@@ -97,6 +97,31 @@ evidence, unsupported emotional claim, Product Truth contradiction, wrong mechan
 platform mismatch, missing required fields, plus one valid control) and measures true detection,
 false positives/negatives, severity accuracy, schema reliability and latency.
 
+### Customer Truth scoring (deterministic)
+`customer_truth_adherence` is a graded 0–1 **grounding coverage** over **all** `customer_truth` records
+(not just the first). It derives content-token anchors (stopwords/short tokens removed, light stemming)
+and distinctive 2-word phrases from the CRF narrative fields (`situation`, `trigger`, `context`,
+`behaviour`, `failed_attempts`, `constraint`, `thought`, `fear`, `emotional_stake`, `desired_change`,
+`exact_language`), then scores the best-covered record as `min(1, matchedDistinctAnchors / 8)`.
+Set-based matching means repeating one phrase cannot inflate the score; a verbatim single word such as
+*"scared"* scores ≈0.13 and never passes. A separate **invented-customer-detail guard** flags quoted
+customer statements not grounded in the CRF and caps the score at 0.2 (and adds
+`customer_truth_invention` to blocking, forcing `usable_without_rewrite = false`). Diagnostics
+(`records_represented`, `best_record`, `available/matched/unmatched anchors`, `per_record_coverage`,
+`invention_flags`) are recorded with the dimension.
+
+### Structured-output mode
+The requested structured-output mode is explicit and operator-selectable:
+`--structured-output json_schema|json_object|none` (default `json_schema`).
+- `json_schema` sends `response_format: { type:"json_schema", json_schema:{ name, strict:true, schema } }`
+  using the **canonical** `bench/schemas/bench-asset.schema.json` (also included in the generation
+  context as `output_contract`, so the typed contract is unambiguous even when schema mode is unsupported).
+- `json_object` sends the legacy `{ type:"json_object" }`.
+- **No silent downgrade:** a provider rejection of `json_schema` is reported explicitly
+  (`structured_output_provider_response: "rejected"`) and retried in the same mode — never swapped to
+  `json_object`. Local AJV validation remains authoritative; provider-side enforcement never produces a
+  content-quality PASS.
+
 ### Live progress
 The CLI prints per-candidate progress (disable with `--quiet`):
 ```
@@ -108,8 +133,8 @@ The CLI prints per-candidate progress (disable with `--quiet`):
 
 ## Report sections
 
-GENERATOR COMPARISON · CRITIC COMPARISON · STRUCTURED OUTPUT RELIABILITY · SCHEMA ERRORS ·
-MODEL IDENTITY / MODEL_ID_MISMATCH · RECOMMENDATION BLOCKED · PROVIDER RELIABILITY ·
+GENERATOR COMPARISON · CRITIC COMPARISON · STRUCTURED OUTPUT RELIABILITY · STRUCTURED OUTPUT MODE ·
+SCHEMA ERRORS · MODEL IDENTITY / MODEL_ID_MISMATCH · RECOMMENDATION BLOCKED · PROVIDER RELIABILITY ·
 TRUTH-ADHERENCE RESULTS · WRITING QUALITY RESULTS · LATENCY · USAGE/COST METADATA · FAILURE RATE ·
 RECOMMENDED GENERATOR · RECOMMENDED CRITIC · SECONDARY FALLBACK CANDIDATES.
 

@@ -103,6 +103,118 @@ function truthCorpus(fx) {
  * Deterministic Swiipt-suitability evaluation (dimensions A–P). Judgment is NOT done here.
  * @returns {{dimensions:Array,deterministic_score:number,usable_without_rewrite:boolean,blocking:string[]}}
  */
+// ---------- Customer Truth grounding scorer (deterministic; benchmark-local) ----------
+// Scores grounded coverage of the customer's documented reality across ALL CRF records using
+// content tokens + distinctive 2-word phrases. Graded 0–1 (never binary), repetition-proof
+// (set-based), with an explicit invented-customer-detail guard. No semantic AI judging.
+const CUSTOMER_NARRATIVE_FIELDS = ["situation", "trigger", "context", "constraint", "thought", "fear", "emotional_stake", "desired_change", "exact_language"];
+const CUSTOMER_STOPWORDS = new Set([
+  "the", "and", "but", "if", "then", "than", "because", "of", "to", "in", "on", "at", "by", "for", "with", "without", "from", "into", "about", "between",
+  "is", "are", "was", "were", "be", "been", "being", "do", "does", "did", "have", "has", "had",
+  "it", "its", "this", "that", "these", "those", "she", "her", "hers", "he", "him", "his", "they", "them", "their", "you", "your", "yours", "i", "we", "us", "our", "ours", "me", "my",
+  "not", "no", "yes", "just", "only", "also", "very", "too", "more", "most", "some", "any", "all", "every", "each", "both", "few", "many", "much", "other", "another", "such", "same", "own",
+  "can", "could", "may", "might", "must", "should", "would", "will", "shall", "get", "got", "go", "goes", "went", "make", "makes", "made", "say", "says", "said", "tell", "told", "keep", "keeps", "kept",
+  "what", "which", "who", "whom", "when", "where", "why", "how", "there", "here", "up", "down", "out", "off", "over", "under", "again", "once", "now", "still", "even", "ever", "never", "always",
+  "one", "two", "three", "thing", "things", "something", "anything", "nothing", "everything", "everyone", "someone", "anyone", "nobody", "need", "needs", "needed", "want", "wants", "wanted", "like", "likes", "liked", "feel", "feels", "felt", "seems", "seem", "made", "way",
+]);
+const CUSTOMER_QUOTE_RE = /["\u201C\u201D]([^"\u201C\u201D]{10,})["\u201C\u201D]/g;
+
+function normalizeCustomerText(s) {
+  return lc(String(s == null ? "" : s)).replace(/[^a-z0-9\s']/g, " ").replace(/'/g, "").replace(/\s+/g, " ").trim();
+}
+function stemToken(t) {
+  let s = t;
+  if (s.length > 5 && s.endsWith("ing")) s = s.slice(0, -3);
+  else if (s.length > 4 && s.endsWith("ed")) s = s.slice(0, -2);
+  if (s.length > 4 && s.endsWith("es")) s = s.slice(0, -2);
+  else if (s.length > 3 && s.endsWith("s")) s = s.slice(0, -1);
+  return s;
+}
+function customerTokens(s) {
+  return normalizeCustomerText(s).split(" ").filter(Boolean).filter((w) => !CUSTOMER_STOPWORDS.has(w) && w.length >= 3).map(stemToken).filter((t) => t.length >= 4);
+}
+function crfSegments(rec) {
+  const segs = [];
+  for (const f of CUSTOMER_NARRATIVE_FIELDS) if (typeof rec[f] === "string" && rec[f].trim()) segs.push(rec[f]);
+  for (const b of rec.behaviour || []) if (typeof b === "string" && b.trim()) segs.push(b);
+  for (const fa of rec.failed_attempts || []) {
+    if (typeof fa === "string") { if (fa.trim()) segs.push(fa); continue; }
+    for (const k of ["tried", "why", "result"]) if (typeof fa?.[k] === "string" && fa[k].trim()) segs.push(fa[k]);
+  }
+  return segs;
+}
+function anchorsForSegments(segments) {
+  const tokenSet = new Set();
+  const phraseSet = new Set();
+  for (const seg of segments) {
+    const toks = customerTokens(seg);
+    for (const t of toks) tokenSet.add(t);
+    for (let i = 0; i + 1 < toks.length; i++) {
+      const a = toks[i], b = toks[i + 1];
+      if (a.length >= 5 || b.length >= 5) phraseSet.add(`${a} ${b}`);
+    }
+  }
+  const tokens = [...tokenSet].sort((a, b) => (b.length - a.length) || a.localeCompare(b));
+  const phrases = [...phraseSet].sort((a, b) => (b.length - a.length) || a.localeCompare(b)).slice(0, 40);
+  return { tokens, phrases };
+}
+function detectInventedCustomerQuotes(outputText, records) {
+  const raw = String(outputText || "");
+  const segsNormalized = records.flatMap((r) => crfSegments(r)).map(normalizeCustomerText);
+  const segTokenSets = segsNormalized.map((s) => new Set(customerTokens(s)));
+  const flags = [];
+  let m;
+  CUSTOMER_QUOTE_RE.lastIndex = 0;
+  while ((m = CUSTOMER_QUOTE_RE.exec(raw)) !== null) {
+    const q = normalizeCustomerText(m[1]);
+    if (q.length < 10) continue;
+    const grounded = segsNormalized.some((s) => s.includes(q)) || segTokenSets.some((set) => {
+      const qt = customerTokens(q);
+      if (!qt.length) return false;
+      return qt.filter((t) => set.has(t)).length / qt.length >= 0.8;
+    });
+    if (!grounded) flags.push(m[1].trim().slice(0, 120));
+  }
+  return flags;
+}
+/** Deterministic Customer Truth grounding coverage over ALL CRF records + invention guard. */
+export const CUSTOMER_ANCHOR_TARGET = 8; // distinct matched anchors for full coverage (graded below)
+export function scoreCustomerTruth(fx, outputText) {
+  const records = (fx.customer_truth || []).filter(Boolean);
+  const outTokens = new Set(customerTokens(outputText));
+  const outStem = customerTokens(outputText).join(" ");
+  const perRecord = records.map((rec) => {
+    const { tokens, phrases } = anchorsForSegments(crfSegments(rec));
+    const matchedTokens = tokens.filter((t) => outTokens.has(t));
+    const matchedPhrases = phrases.filter((p) => outStem.includes(p));
+    const total = tokens.length + phrases.length;
+    const matched = matchedTokens.length + matchedPhrases.length;
+    return { id: rec.id, coverage: Number(Math.min(1, matched / CUSTOMER_ANCHOR_TARGET).toFixed(3)), raw_ratio: total ? Number((matched / total).toFixed(3)) : 0, matched, total, matchedTokens, matchedPhrases, tokens };
+  });
+  const best = perRecord.reduce((a, b) => (b.coverage > (a?.coverage ?? -1) ? b : a), null);
+  const invention_flags = detectInventedCustomerQuotes(outputText, records);
+  let score = best ? best.coverage : 0;
+  const pass = !!best && score >= 0.3 && best.matched >= 2 && invention_flags.length === 0;
+  if (invention_flags.length) score = Math.min(score, 0.2);
+  const diagnostics = {
+    records_available: records.map((r) => r.id),
+    records_represented: perRecord.filter((r) => r.coverage > 0).map((r) => r.id),
+    best_record: best ? best.id : null,
+    coverage: score,
+    available_anchors: best ? best.total : 0,
+    matched_anchors: best ? best.matched : 0,
+    unmatched_anchors: best ? best.total - best.matched : 0,
+    matched_anchor_samples: best ? [...best.matchedTokens, ...best.matchedPhrases].slice(0, 20) : [],
+    unmatched_anchor_samples: best ? best.tokens.filter((t) => !best.matchedTokens.includes(t)).slice(0, 20) : [],
+    per_record_coverage: perRecord.map((r) => ({ id: r.id, coverage: r.coverage, matched: r.matched, available: r.total })),
+    invention_flags,
+  };
+  const detail = best
+    ? `customer-language coverage ${(score * 100).toFixed(0)}% on ${best.id} (matched ${best.matched}/${best.total} anchors)` + (invention_flags.length ? `; INVENTED customer detail: ${invention_flags.length} ungrounded quote(s)` : "")
+    : "no CRF evidence available";
+  return { score, pass, detail, diagnostics, invention_flags };
+}
+
 export const CONTENT_DIMENSIONS = [
   ["product_truth_adherence", "Product Truth adherence"],
   ["customer_truth_adherence", "Customer Truth adherence"],
@@ -144,10 +256,9 @@ export function evaluateGeneratorOutput(fx, output, { parseOk = true, schemaVali
   const over = text.match(OVERCLAIM);
   add("product_truth_adherence", "Product Truth adherence", (prohibited.length || over) ? 0 : 1, !(prohibited.length || over), prohibited.length ? `prohibited claim: ${prohibited.join("; ")}` : (over ? `overclaim: ${over[0]}` : "no prohibited/overclaim language"));
 
-  // B — Customer Truth adherence (uses real customer language)
-  const langTokens = uniq([...words(crf.exact_language).slice(0, 4), ...words(crf.situation).slice(0, 3)]).map(lc);
-  const langHits = langTokens.filter((t) => t.length >= 4 && text.includes(t));
-  add("customer_truth_adherence", "Customer Truth adherence", langHits.length ? 1 : 0, langHits.length >= 1, `customer-language tokens matched: ${langHits.length}`);
+  // B — Customer Truth adherence (grounded coverage over ALL CRF records; graded; invention-guarded)
+  const ct = scoreCustomerTruth(fx, collectText(output));
+  dims.push({ key: "customer_truth_adherence", label: "Customer Truth adherence", method: "deterministic", status: "evaluated", score: ct.score, pass: ct.pass, detail: ct.detail, diagnostics: ct.diagnostics });
 
   // C — Market Truth adherence (absence claims hedged)
   const abs = text.match(ABSOLUTE_ABSENCE);
@@ -222,16 +333,23 @@ export function evaluateGeneratorOutput(fx, output, { parseOk = true, schemaVali
   const byKey = Object.fromEntries(dims.map((d) => [d.key, d]));
   const blocking = dims.filter((d) => d.status === "evaluated" && !d.pass && HARD_DIMENSIONS.includes(d.key)).map((d) => d.key);
   if (structural_reliability === "FAIL") blocking.push("structural_reliability");
+  if (ct.invention_flags.length) blocking.push("customer_truth_invention");
   const usable = structural_reliability === "PASS" && blocking.length === 0 && byKey.interchangeability.score >= 0.66 && byKey.transformation_specificity.pass;
   return { dimensions: dims, content_quality_score, deterministic_score: content_quality_score, structural_reliability, structural_reliability_score, usable_without_rewrite: usable, blocking, schema_errors: schemaErrors };
 }
 
-async function callWithRetries({ worker, model, messages, jsonMode = true, env, fetchImpl, retries = 0, timeoutMs, baseUrl = null, apiKey = null }) {
+async function callWithRetries({ worker, model, messages, jsonMode = true, env, fetchImpl, retries = 0, timeoutMs, baseUrl = null, apiKey = null, structuredMode = null, jsonSchema = null, schemaName = "response" }) {
+  const mode = structuredMode || (jsonMode === false ? "none" : "json_object");
   let attempts = 0;
   let res = null;
   for (let i = 0; i <= retries; i++) {
     attempts++;
-    res = await chatCompletion({ worker, model, messages, jsonMode, env, fetchImpl, timeoutMs, baseUrl, apiKey });
+    res = await chatCompletion({
+      worker, model, messages, env, fetchImpl, timeoutMs, baseUrl, apiKey,
+      jsonMode: mode === "json_object",
+      jsonSchema: mode === "json_schema" ? jsonSchema : null,
+      schemaName,
+    });
     if (res.ok) break;
     if (i < retries) continue;
   }
@@ -239,7 +357,7 @@ async function callWithRetries({ worker, model, messages, jsonMode = true, env, 
 }
 
 /** Run one generator candidate (string model or { provider, model }) against the fixed task. */
-export async function runGenerator(candidate, { task, fixture, env = process.env, profiles = null, fetchImpl = null, retries = 0, timeoutMs, judge = null, label = null, progress = null, index = null, total = null } = {}) {
+export async function runGenerator(candidate, { task, fixture, env = process.env, profiles = null, fetchImpl = null, retries = 0, timeoutMs, judge = null, label = null, progress = null, index = null, total = null, structuredMode = "json_schema" } = {}) {
   const cand = normalizeCandidate(candidate);
   const model = cand.model;
   const displayLabel = label || `${cand.provider}/${model}`;
@@ -248,13 +366,14 @@ export async function runGenerator(candidate, { task, fixture, env = process.env
   if (!prov.ok) {
     if (progress) progress(`[GEN ${index}/${total}] ${displayLabel} FAIL 0.0s — PROVIDER_NOT_CONFIGURED`);
     const evald = evaluateGeneratorOutput(fixture, null, { parseOk: false, schemaValid: false, schemaErrors: [{ path: "/", keyword: "provider", message: `provider not configured: ${prov.error}` }] });
-    return { ...providerRefusal(cand, prov), label: displayLabel, timestamp: new Date().toISOString(), latency_ms: 0, parse_ok: false, schema_valid: false, structural_reliability: "FAIL", structural_reliability_score: 0, content_quality_score: null, provider_reliability: 0, retries: 0, usage: null, generation_status: STATUS.PROVIDER_NOT_CONFIGURED, actual_generator: "none (provider not configured)", output: null, dimensions: evald.dimensions, deterministic_score: null, usable_without_rewrite: false, blocking: ["provider_not_configured", "structural_reliability"], schema_errors: evald.schema_errors, recommendation_eligible: false, recommendation_blocked_reason: "provider not configured", judgment: { status: "NOT_RUN", reason: "provider not configured", model: null } };
+    return { ...providerRefusal(cand, prov), label: displayLabel, timestamp: new Date().toISOString(), latency_ms: 0, parse_ok: false, schema_valid: false, structural_reliability: "FAIL", structural_reliability_score: 0, content_quality_score: null, provider_reliability: 0, retries: 0, usage: null, generation_status: STATUS.PROVIDER_NOT_CONFIGURED, actual_generator: "none (provider not configured)", output: null, dimensions: evald.dimensions, deterministic_score: null, usable_without_rewrite: false, blocking: ["provider_not_configured", "structural_reliability"], schema_errors: evald.schema_errors, recommendation_eligible: false, recommendation_blocked_reason: "provider not configured", requested_structured_output_mode: structuredMode, schema_enforcement_requested: false, structured_output_provider_response: "not_requested", judgment: { status: "NOT_RUN", reason: "provider not configured", model: null } };
   }
 
   if (progress) progress(`[GEN ${index}/${total}] ${displayLabel} START`);
   const t0 = Date.now();
   const { res, retries_used } = await callWithRetries({
     worker: "copywriter", model, env, fetchImpl, retries, timeoutMs, baseUrl: prov.baseUrl, apiKey: prov.apiKey,
+    structuredMode, jsonSchema: task.schema, schemaName: "bench_asset",
     messages: [{ role: "system", content: task.system }, { role: "user", content: task.user }],
   });
   const latency_ms = Date.now() - t0;
@@ -314,6 +433,9 @@ export async function runGenerator(candidate, { task, fixture, env = process.env
     provider_status: res.status,
     http_status: res.http_status ?? null,
     endpoint_host: res.endpoint_host ?? null,
+    requested_structured_output_mode: structuredMode,
+    schema_enforcement_requested: structuredMode === "json_schema" && !!task.schema,
+    structured_output_provider_response: structuredMode === "none" ? "not_requested" : (res.ok ? "accepted" : "rejected"),
     parse_ok,
     schema_valid,
     structural_reliability: evaluation.structural_reliability,
@@ -443,7 +565,7 @@ export function compare(genResults, criticResults) {
     recommended_generator, secondary_generator, recommended_critic, secondary_critic,
     recommended_generator_ref: ref(genRank[0]), recommended_critic_ref: ref(critRank[0]),
     self_judge_conflict: selfJudgeConflict,
-    structured_output_reliability: { generators: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, parse_ok: g.parse_ok, schema_valid: g.schema_valid, structural_reliability: g.structural_reliability || null, model_identity: g.model_identity || null, schema_errors: g.schema_errors || [] })), critics: criticResults.map((c) => ({ provider: c.provider || "openai", model: c.model, schema_reliability: c.schema_reliability, schema_errors: c.schema_errors || [] })) },
+    structured_output_reliability: { generators: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, parse_ok: g.parse_ok, schema_valid: g.schema_valid, structural_reliability: g.structural_reliability || null, model_identity: g.model_identity || null, requested_structured_output_mode: g.requested_structured_output_mode || null, schema_enforcement_requested: g.schema_enforcement_requested ?? null, structured_output_provider_response: g.structured_output_provider_response || null, schema_errors: g.schema_errors || [] })), critics: criticResults.map((c) => ({ provider: c.provider || "openai", model: c.model, schema_reliability: c.schema_reliability, schema_errors: c.schema_errors || [] })) },
     provider_reliability: { generators: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, provider_reliability: g.provider_reliability ?? null })), critics: criticResults.map((c) => ({ provider: c.provider || "openai", model: c.model, provider_reliability: c.provider_reliability ?? null })) },
     truth_adherence: { mean_product_truth: r3(mean(genResults, (g) => dimScore(g, "product_truth_adherence"))), mean_customer_truth: r3(mean(genResults, (g) => dimScore(g, "customer_truth_adherence"))), mean_hallucination_free: r3(mean(genResults, (g) => dimScore(g, "hallucination_incidence"))) },
     writing_quality: { mean_anti_slop: r3(mean(genResults, (g) => dimScore(g, "anti_slop_compliance"))), mean_constitution: r3(mean(genResults, (g) => dimScore(g, "writing_constitution_compliance"))), mean_interchangeability: r3(mean(genResults, (g) => dimScore(g, "interchangeability"))) },
@@ -454,7 +576,7 @@ export function compare(genResults, criticResults) {
 }
 
 /** Run the full candidate matrix (candidates may target different named providers). */
-export async function runBenchmark({ generators, critics, profiles = null, env = process.env, fetchImpl = null, retries = 0, timeoutMs, judge = true, progress = null } = {}) {
+export async function runBenchmark({ generators, critics, profiles = null, env = process.env, fetchImpl = null, retries = 0, timeoutMs, judge = true, progress = null, structuredMode = "json_schema" } = {}) {
   if (!generators?.length) throw new Error("no generator candidates supplied");
   const gens = generators.map(normalizeCandidate);
   const crits = (critics || []).map(normalizeCandidate);
@@ -472,7 +594,7 @@ export async function runBenchmark({ generators, critics, profiles = null, env =
       const jc = crits.find((c) => !(c.provider === cand.provider && c.model === cand.model));
       if (jc) judgeRef = { provider: jc.provider, model: jc.model, fetchImpl };
     }
-    genResults.push(await runGenerator(cand, { task, fixture, env, profiles, fetchImpl, retries, timeoutMs, judge: judgeRef, label: cand.label || null, progress, index: gi, total: gens.length }));
+    genResults.push(await runGenerator(cand, { task, fixture, env, profiles, fetchImpl, retries, timeoutMs, judge: judgeRef, label: cand.label || null, progress, index: gi, total: gens.length, structuredMode }));
   }
   const criticResults = [];
   const counter = { i: 0, total: crits.length * cases.length };
@@ -483,7 +605,7 @@ export async function runBenchmark({ generators, critics, profiles = null, env =
   const providerIds = [...new Set([...gens, ...crits].map((c) => c.provider))];
 
   return {
-    meta: { tool: "swiipt-text-provider-bench", version: "1.2", generated_at: new Date().toISOString(), default_endpoint_host: base_host, providers: providerIds, generators: gens, critics: crits, retries, timeout_ms: timeoutMs || null, judge_enabled: !!judge },
+    meta: { tool: "swiipt-text-provider-bench", version: "1.2", generated_at: new Date().toISOString(), default_endpoint_host: base_host, providers: providerIds, generators: gens, critics: crits, retries, timeout_ms: timeoutMs || null, judge_enabled: !!judge, structured_output_mode: structuredMode },
     fixture: { id: fixture.id, synthetic: true },
     task_hash,
     generators: genResults,
@@ -519,6 +641,10 @@ function renderMarkdown(result) {
   L.push(`## STRUCTURED OUTPUT RELIABILITY`);
   for (const g of result.comparison.structured_output_reliability.generators) L.push(`- Generator ${g.provider}/${g.model}: parse=${g.parse_ok} schema=${g.schema_valid} structural=${fmt(g.structural_reliability)} identity=${fmt(g.model_identity)}`);
   for (const c of result.comparison.structured_output_reliability.critics) L.push(`- Critic ${c.provider}/${c.model}: schema reliability=${c.schema_reliability}${(c.schema_errors || []).length ? ` (${c.schema_errors.length} schema error(s))` : ""}`);
+  L.push("");
+  L.push(`## STRUCTURED OUTPUT MODE`);
+  L.push(`- Requested mode: ${result.meta.structured_output_mode || "none"} (json_schema | json_object | none; schema mode is never silently downgraded)`);
+  for (const g of result.generators) L.push(`- ${g.provider}/${g.model}: requested=${fmt(g.requested_structured_output_mode)} enforcement_requested=${g.schema_enforcement_requested} provider_response=${fmt(g.structured_output_provider_response)} parse=${g.parse_ok} local_schema=${g.schema_valid}`);
   L.push("");
   L.push(`## SCHEMA ERRORS`);
   const sf = result.comparison.schema_failed_generators || [];
@@ -569,7 +695,7 @@ function renderMarkdown(result) {
 
 // -------------------- CLI --------------------
 function parseArgs(argv) {
-  const a = { retries: 0, judge: true };
+  const a = { retries: 0, judge: true, structuredMode: "json_schema" };
   for (let i = 0; i < argv.length; i++) {
     const k = argv[i];
     if (k === "--generators") a.generators = argv[++i];
@@ -580,6 +706,7 @@ function parseArgs(argv) {
     else if (k === "--base-url") a.baseUrl = argv[++i];
     else if (k === "--out") a.out = argv[++i];
     else if (k === "--report") a.report = argv[++i];
+    else if (k === "--structured-output") a.structuredMode = argv[++i];
     else if (k === "--no-judge") a.judge = false;
     else if (k === "--quiet") a.quiet = true;
   }
@@ -599,6 +726,7 @@ if (process.argv[1] && process.argv[1].endsWith("text-provider-bench.mjs")) {
     if (cfg.providers) profiles = cfg.providers;
   }
   if (!gens.length) { console.error("No generator candidates. Use --generators \"m1,m2\" or --candidates bench/candidates.json (see bench/candidates.example.json)."); process.exit(2); }
+  if (!["json_schema", "json_object", "none"].includes(args.structuredMode)) { console.error(`--structured-output must be json_schema | json_object | none (got '${args.structuredMode}').`); process.exit(2); }
 
   const env = { ...process.env, ...(args.baseUrl ? { OPENAI_BASE_URL: args.baseUrl } : {}) };
   const allCands = [...gens, ...crits].map((c) => { try { return normalizeCandidate(c); } catch { return null; } }).filter(Boolean);
@@ -608,7 +736,7 @@ if (process.argv[1] && process.argv[1].endsWith("text-provider-bench.mjs")) {
     process.exit(3);
   }
 
-  runBenchmark({ generators: gens, critics: crits, profiles, env, retries: args.retries, timeoutMs: args.timeout, judge: args.judge, progress: args.quiet ? null : (m) => console.log(m) }).then((result) => {
+  runBenchmark({ generators: gens, critics: crits, profiles, env, retries: args.retries, timeoutMs: args.timeout, judge: args.judge, progress: args.quiet ? null : (m) => console.log(m), structuredMode: args.structuredMode }).then((result) => {
     const outDir = join(root, "bench", "results");
     mkdirSync(outDir, { recursive: true });
     const stamp = new Date().toISOString().replace(/[:.]/g, "-");
