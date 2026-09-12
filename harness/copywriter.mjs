@@ -21,6 +21,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
+import { chatCompletion, resolveModel, STATUS } from "../lib/provider-client.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -33,8 +34,8 @@ function joinList(arr) {
   if (items.length === 2) return `${items[0]} and ${items[1]}`;
   return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
 }
-function provider() {
-  return (process.env.COPYWRITER_PROVIDER || "deterministic").toLowerCase();
+function provider(env = process.env) {
+  return (env.COPYWRITER_PROVIDER || "deterministic").toLowerCase();
 }
 const isBackfill = (s) => /^backfilled/i.test(s || "");
 
@@ -131,41 +132,51 @@ function deterministicEnrich(file, L, p, tr, assets, pdir) {
   return L;
 }
 
-// -------- openai provider (opt-in, dormant without OPENAI_API_KEY) --------
-async function enrichWithLLM(file, base, p, tr) {
-  const key = process.env.OPENAI_API_KEY;
-  if (!key) throw new Error("OPENAI_API_KEY not set");
+// -------- openai-compatible provider (opt-in, dormant without OPENAI_API_KEY) --------
+// Provider status is ALWAYS recorded. A deterministic fallback after a provider failure is
+// labelled as a fallback — it is never represented as successful LLM generation.
+async function enrichWithLLM(file, base, p, tr, { env = process.env, fetchImpl = null } = {}) {
+  const model = resolveModel("copywriter", env);
   const sys = "You are the Swiipt copywriter. Rewrite ONLY the narrative prose slots of the given content to read like crafted, empathetic marketing copy. Use ONLY the facts present in the provided records. Never invent claims, testimonials, ratings, or outcomes. Keep all trust lines, evidence labels, who-for / not-for, red-flag and safety content intact. Return the FULL JSON with the same structure, with only narrative fields improved.";
   const rec = JSON.stringify({ product: p, transformation: tr });
-  const res = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-    body: JSON.stringify({
-      model: process.env.OPENAI_MODEL || "gpt-4o-mini",
-      messages: [
-        { role: "system", content: sys },
-        { role: "user", content: `RECORDS:\n${rec}\n\nCONTENT TO ENRICH:\n${JSON.stringify(base)}` },
-      ],
-      response_format: { type: "json_object" },
-      temperature: 0.4,
-    }),
+  const res = await chatCompletion({
+    worker: "copywriter",
+    model,
+    temperature: 0.4,
+    jsonMode: true,
+    env,
+    fetchImpl,
+    messages: [
+      { role: "system", content: sys },
+      { role: "user", content: `RECORDS:\n${rec}\n\nCONTENT TO ENRICH:\n${JSON.stringify(base)}` },
+    ],
   });
-  if (!res.ok) throw new Error(`openai http ${res.status}`);
-  const data = await res.json();
-  const text = data?.choices?.[0]?.message?.content || "{}";
-  return Object.assign({}, base, JSON.parse(text));
+  if (!res.ok) return { ok: false, status: res.status, model: res.model, endpoint_host: res.endpoint_host, error: res.error };
+  const parsed = res.json;
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+    return { ok: false, status: STATUS.PROVIDER_RESPONSE_INVALID, model: res.model, endpoint_host: res.endpoint_host, error: "response was not a JSON object" };
+  }
+  return { ok: true, status: STATUS.PROVIDER_SUCCESS, model: res.model, endpoint_host: res.endpoint_host, error: null, content: Object.assign({}, base, parsed) };
 }
 
 // -------- public entry --------
-export async function enrichContent(file, base, p, tr, assets, pdir) {
-  if (provider() === "openai") {
-    try {
-      return await enrichWithLLM(file, base, p, tr);
-    } catch (e) {
-      console.warn(`  [copywriter] openai unavailable (${e.message}); using deterministic`);
-    }
+/**
+ * Enrich one content artifact.
+ * @returns {{content:object, meta:{requested_provider:string,provider_attempt_status:string,fallback_used:boolean,actual_generator:string,model:string|null,endpoint_host:string|null,error:string|null}}}
+ */
+export async function enrichContent(file, base, p, tr, assets, pdir, opts = {}) {
+  const env = opts.env || process.env;
+  const deterministic = () => deterministicEnrich(file, base, p, tr, assets, pdir);
+
+  if (provider(env) !== "openai") {
+    return { content: deterministic(), meta: { requested_provider: "deterministic", provider_attempt_status: STATUS.DETERMINISTIC_GENERATION, fallback_used: false, actual_generator: "deterministic", model: null, endpoint_host: null, error: null } };
   }
-  return deterministicEnrich(file, base, p, tr, assets, pdir);
+
+  const r = await enrichWithLLM(file, base, p, tr, { env, fetchImpl: opts.fetchImpl });
+  if (r.ok) {
+    return { content: r.content, meta: { requested_provider: "openai", provider_attempt_status: STATUS.PROVIDER_SUCCESS, fallback_used: false, actual_generator: "openai", model: r.model, endpoint_host: r.endpoint_host, error: null } };
+  }
+  return { content: deterministic(), meta: { requested_provider: "openai", provider_attempt_status: r.status, fallback_used: true, actual_generator: "deterministic", model: r.model, endpoint_host: r.endpoint_host, error: r.error } };
 }
 
 export { provider };

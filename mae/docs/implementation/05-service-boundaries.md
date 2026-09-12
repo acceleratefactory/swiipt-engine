@@ -59,8 +59,16 @@ Product Pipeline/mae/
 ## Provider model (owner decision #2)
 - Provider adapters are **dormant by default** (`none`). Deterministic functionality works with no keys.
 - Capabilities: `text_generation, evaluation, visual_reasoning, image_generation, video_generation, tts, layout_render, document_render`. The layout renderer is **internal/deterministic**.
-- Unavailable provider → typed state (`PROVIDER_UNAVAILABLE`, `PRODUCTION_BLOCKED`, `RENDER_PENDING_EXTERNAL_PROVIDER`); **never** a false "complete".
+- Unavailable provider → typed state (`PROVIDER_NOT_CONFIGURED`, `PROVIDER_UNAVAILABLE`, `PRODUCTION_BLOCKED`, `RENDER_PENDING_EXTERNAL_PROVIDER`, `NOT_RUN`); **never** a false "complete".
 - No vendor code in business rules; swapping a provider creates a new production/version, never changes identity.
+
+### Shared OpenAI-compatible client (readiness layer)
+- `../lib/provider-client.mjs` (repo root `lib/`) is the one small OpenAI-compatible client shared by the factory (`harness/copywriter.mjs`, `harness/writing-critic.mjs`) and reusable by future MAE text/reasoning adapters. It handles base URL, key, model, request, JSON response, timeout, HTTP failure, invalid response and provider metadata. Not a platform/SDK.
+- `OPENAI_BASE_URL` is supported and normalized (no `/v1/v1` or duplicate `/chat/completions`); official OpenAI remains the default. Any OpenAI-compatible gateway can be connected without business-logic changes.
+- Per-worker models: `COPYWRITER_MODEL`, `WRITING_CRITIC_MODEL`, `MAE_GENERATION_MODEL`, `MAE_CRITIC_MODEL`, falling back to `OPENAI_MODEL`.
+- Provider statuses: `PROVIDER_NOT_CONFIGURED` · `PROVIDER_ATTEMPT_FAILED` · `PROVIDER_RESPONSE_INVALID` · `PROVIDER_SUCCESS` · `DETERMINISTIC_GENERATION`. Factory fallback is recorded in `copy/provider-status.json` (`requested_provider`, `provider_attempt_status`, `fallback_used`, `actual_generator`); the requested model is never reported as the actual generator. No secrets are logged.
+- CRF/MIF ingest is exposed as thin CLIs: `mae/harness/ingest-crf.mjs`, `mae/harness/ingest-mif.mjs` (validate-before-persist; production rejects synthetic fixtures; all-or-nothing batches).
+- See `../PROVIDER-ACTIVATION.md` for the full reference.
 
 ## Deterministic vs judgment (S11 §11.19)
 - **Deterministic (code):** required fields, ids, references, enums, legal transitions, Red exclusion, Yellow scope, banned phrases, dimensions/length, locked text, evidence citation/freshness, approval-before-schedule, traceability completeness.

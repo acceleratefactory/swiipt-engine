@@ -15,6 +15,7 @@ import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildGenerationBrief } from "./writing-control.mjs";
 import { runWritingChecks } from "./writing-checks.mjs";
+import { chatCompletion, resolveModel, STATUS } from "../lib/provider-client.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const finding = (code, status, severity, detail, where) => ({ code, status, severity, detail, where });
@@ -28,30 +29,25 @@ export const PROVIDERS = {
   openai: {
     name: "openai",
     async critique(payload, env = process.env) {
-      const key = env.OPENAI_API_KEY;
-      if (!key) return { ran: false, status: "NOT_RUN", provider: "openai", reason: "OPENAI_API_KEY not set", findings: [] };
-      try {
-        const res = await fetch("https://api.openai.com/v1/chat/completions", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-          body: JSON.stringify({
-            model: env.OPENAI_MODEL || "gpt-4o-mini",
-            temperature: 0,
-            response_format: { type: "json_object" },
-            messages: [
-              { role: "system", content: "You are the Swiipt Writing Critic. Evaluate the CONTENT against the APPROVED CONTRACT and return JSON {\"findings\":[{\"status\":one of PASS|FAIL|WARNING|MISSING|UNSUPPORTED|SCOPE_DRIFT|TRANSFORMATION_WEAKNESS|WRITING_QUALITY_ISSUE|SAFETY_ISSUE,\"severity\":one of BLOCKER|WARNING|none,\"detail\":string,\"where\":string}]}. Fail only on NEVER/SCOPE_DRIFT/UNSUPPORTED/SAFETY_ISSUE. Never invent facts." },
-              { role: "user", content: JSON.stringify(payload).slice(0, 120000) },
-            ],
-          }),
-        });
-        if (!res.ok) throw new Error(`http ${res.status}`);
-        const data = await res.json();
-        const parsed = JSON.parse(data?.choices?.[0]?.message?.content || "{}");
-        const findings = (parsed.findings || []).map((f) => finding("llm_critic", f.status || "WARNING", f.severity === "BLOCKER" ? "BLOCKER" : "WARNING", f.detail || "", f.where || ""));
-        return { ran: true, status: findings.some((f) => f.severity === "BLOCKER") ? "FAIL" : (findings.length ? "WARNING" : "PASS"), provider: "openai", findings };
-      } catch (e) {
-        return { ran: false, status: "NOT_RUN", provider: "openai", reason: e.message, findings: [] };
+      const model = resolveModel("writing-critic", env);
+      const res = await chatCompletion({
+        worker: "writing-critic",
+        model,
+        temperature: 0,
+        jsonMode: true,
+        env,
+        fetchImpl: env.__FETCH__ || null,
+        messages: [
+          { role: "system", content: "You are the Swiipt Writing Critic. Evaluate the CONTENT against the APPROVED CONTRACT and return JSON {\"findings\":[{\"status\":one of PASS|FAIL|WARNING|MISSING|UNSUPPORTED|SCOPE_DRIFT|TRANSFORMATION_WEAKNESS|WRITING_QUALITY_ISSUE|SAFETY_ISSUE,\"severity\":one of BLOCKER|WARNING|none,\"detail\":string,\"where\":string}]}. Fail only on NEVER/SCOPE_DRIFT/UNSUPPORTED/SAFETY_ISSUE. Never invent facts." },
+          { role: "user", content: JSON.stringify(payload).slice(0, 120000) },
+        ],
+      });
+      if (!res.ok) {
+        return { ran: false, status: "NOT_RUN", provider: "openai", reason: res.status, attempt_status: res.status, model: res.model, endpoint_host: res.endpoint_host, error: res.error, findings: [] };
       }
+      const parsed = res.json || {};
+      const findings = (parsed.findings || []).map((f) => finding("llm_critic", f.status || "WARNING", f.severity === "BLOCKER" ? "BLOCKER" : "WARNING", f.detail || "", f.where || ""));
+      return { ran: true, status: findings.some((f) => f.severity === "BLOCKER") ? "FAIL" : (findings.length ? "WARNING" : "PASS"), provider: "openai", attempt_status: STATUS.PROVIDER_SUCCESS, model: res.model, endpoint_host: res.endpoint_host, findings };
     },
   },
 };
@@ -136,6 +132,7 @@ export async function runCritic(productId, { strict = false, env = process.env }
   if (strict && !llm.ran) status = "HUMAN_REVIEW";
 
   return { product_id: productId, status, critic_status: status, llm_status: llmStatus, llm_provider: adapter.name,
+    llm_model: llm.model || resolveModel("writing-critic", env), llm_attempt_status: llm.attempt_status || (llm.ran ? STATUS.PROVIDER_SUCCESS : "NOT_RUN"),
     llm_reason: llm.ran ? null : (llm.reason || null), findings, blockers, warnings };
 }
 

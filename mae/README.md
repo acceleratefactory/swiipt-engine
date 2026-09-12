@@ -44,16 +44,25 @@ mae/
 
 ### Environment variables (all optional — dormant by default)
 
-| Variable | Enables | Behaviour when absent |
+See `../PROVIDER-ACTIVATION.md` for the full provider-readiness reference.
+
+| Variable | Purpose | Behaviour when absent |
 |---|---|---|
-| `OPENAI_API_KEY` | `openai-copy` / `openai-critic` adapters | deterministic generation + `NOT_RUN` critic |
+| `OPENAI_BASE_URL` | OpenAI-compatible base URL (default official OpenAI) | `https://api.openai.com/v1` |
+| `OPENAI_API_KEY` | Key for the compatible endpoint | deterministic generation + `NOT_RUN` critic |
+| `OPENAI_MODEL` | Shared fallback model | `gpt-4o-mini` |
+| `COPYWRITER_MODEL` / `WRITING_CRITIC_MODEL` | Per-worker model overrides | falls back to `OPENAI_MODEL` |
+| `MAE_GENERATION_MODEL` / `MAE_CRITIC_MODEL` | Model config reserved for MAE text/reasoning adapters | falls back to `OPENAI_MODEL` |
+| `OPENAI_TIMEOUT_MS` | Request timeout (ms) | `60000` |
 | `MAE_CRITIC_API_KEY` | judgment critic | interchangeability falls back to deterministic anchors |
 | `MAE_IMAGE_API_KEY` | image generation | `GENERATED_SCENE` → `PRODUCTION_BLOCKED` |
 | `MAE_VIDEO_API_KEY` | final video render | complete video package + `RENDER_PENDING_EXTERNAL_PROVIDER` |
 | `MAE_TTS_API_KEY` | voiceover | voiceover **text** produced; audio pending |
 
-No keys are ever hard-coded. Absence of a key **never** removes the architecture and **never**
-reports false completion.
+No keys are ever hard-coded or logged. Absence of a key **never** removes the architecture and
+**never** reports false completion. Factory provider status is recorded in `copy/provider-status.json`
+(`requested_provider`, `provider_attempt_status`, `fallback_used`, `actual_generator`) — a deterministic
+fallback is never represented as successful LLM generation.
 
 ## Running the tests
 
@@ -65,9 +74,10 @@ node --test mae/harness/*.test.mjs
 node --test mae/harness/waveD.test.mjs
 ```
 
-Expected: **118/118 PASS** (waveA 11 · waveB 14 · waveC 12 · waveD 28 · waveE 13 · waveF 13 · acceptance 27).
+Expected: **125/125 PASS** (waveA 11 · waveB 14 · waveC 12 · waveD 28 · waveE 13 · waveF 13 · acceptance 27 · ingest 7).
 Factory regression (must also stay green): `node harness/qa-checks.mjs`, `node harness/validate-opportunity.mjs --all`,
-`node --test harness/writing-control.test.mjs`, `node --test harness/publish-manifest.test.mjs`.
+`node --test harness/writing-control.test.mjs`, `node --test harness/publish-manifest.test.mjs`,
+`node --test harness/provider-client.test.mjs`.
 
 ## Deterministic vs judgment
 

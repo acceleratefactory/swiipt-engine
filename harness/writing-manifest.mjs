@@ -15,6 +15,14 @@ import { runCritic, buildRevisionPlan } from "./writing-critic.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
+// Honest generator identity: prefer what actually generated the copy (recorded by gen-content),
+// never silently the requested external model.
+function actualGeneratorFromProviderStatus(pdir) {
+  const f = join(pdir, "copy", "provider-status.json");
+  if (!existsSync(f)) return null;
+  try { const s = JSON.parse(readFileSync(f, "utf8")); const a = s.actual_generators; return Array.isArray(a) && a.length ? a.join("+") : null; } catch { return null; }
+}
+
 export function buildGenerationManifest(productId, { passesResult, criticResult, generatorModel }) {
   const cfg = loadConfig();
   const pdir = join(root, "data", "products", productId);
@@ -32,7 +40,7 @@ export function buildGenerationManifest(productId, { passesResult, criticResult,
     research_version: null,
     architecture_version: "1.0",
     voice_spec_version: gen.profile || "global",
-    generator_model: generatorModel || (process.env.COPYWRITER_PROVIDER || "deterministic"),
+    generator_model: generatorModel || actualGeneratorFromProviderStatus(pdir) || (process.env.COPYWRITER_PROVIDER || "deterministic"),
     generation_timestamp: new Date().toISOString(),
     revision_number: 0,
     qa_status: gates.g7_product_qa ?? "pending",

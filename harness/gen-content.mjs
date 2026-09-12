@@ -498,6 +498,7 @@ async function processProduct(pid) {
 
   p.content = p.content ?? {};
   const written = [];
+  const providerMeta = {};
   for (const [file, gen] of Object.entries(gens)) {
     const target = join(pdir, "copy", file);
     if (existsSync(target)) {
@@ -507,7 +508,9 @@ async function processProduct(pid) {
       } catch (e) { /* regenerate over a corrupt file */ }
     }
     let obj = gen();
-    obj = await enrichContent(file, obj, p, tr, assets, pdir); // Phase 3 narrative enrichment
+    const enriched = await enrichContent(file, obj, p, tr, assets, pdir); // Phase 3 narrative enrichment
+    obj = enriched.content;
+    providerMeta[file] = enriched.meta;
     const valid = ajv.validate(SCHEMA[file], obj);
     if (!valid) {
       console.error(`  ${pid}: INVALID ${file} -> ${ajv.errors.map(e => `${e.instancePath} ${e.message}`).join("; ")}`);
@@ -517,6 +520,19 @@ async function processProduct(pid) {
     p.content[KEY[file]] = `copy/${file}`;
     written.push(file);
   }
+  // Provider-status record (honesty): explicitly records what was requested vs what actually generated.
+  const metas = Object.values(providerMeta);
+  const requested = [...new Set(metas.map((m) => m.requested_provider))];
+  const actuals = [...new Set(metas.map((m) => m.actual_generator).filter(Boolean))];
+  const providerStatus = {
+    product_id: pid,
+    generated_at: now(),
+    requested_provider: requested.length === 1 ? requested[0] : (requested.length ? "mixed" : "none"),
+    actual_generators: actuals,
+    fallback_used: metas.some((m) => m.fallback_used),
+    files: providerMeta,
+  };
+  writeFileSync(join(pdir, "copy", "provider-status.json"), JSON.stringify(providerStatus, null, 2) + "\n");
   writeFileSync(pf, JSON.stringify(p, null, 2) + "\n");
   console.log(`  ${pid}: wrote ${written.join(", ") || "(none)"}${tr ? "" : "  [no TR record - thin output]"}  [${assets.length} assets]`);
   return true;

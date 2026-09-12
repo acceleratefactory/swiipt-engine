@@ -9,3 +9,14 @@ Desktop.ini
 
 # node
 node_modules/
+
+# env / local secrets — never commit real values (.env.example is the safe template)
+.env
+.env.*
+!.env.example
+*.local
+credentials.json
+
+# logs / coverage
+*.log
+coverage/
