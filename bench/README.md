@@ -63,10 +63,24 @@ Outputs: `bench/results/<stamp>-results.json` (machine-readable) + `<stamp>-repo
 
 **Per model run:** provider id, endpoint host, requested model, returned model (when the endpoint
 reports it), model identity (`OK` / `OK_UNVERIFIED` / `MODEL_ID_MISMATCH`), timestamp, latency,
-HTTP/provider status, structured-output parse success, schema validity, retry count, usage/token
-metadata (when returned), generation status, actual generator. **If the provider returns a different
-model than requested, it is recorded as `MODEL_ID_MISMATCH` and excluded from the recommendation** —
-provider substitution is never silently accepted.
+HTTP/provider status, structured-output parse success, schema validity, `schema_errors`, retry count,
+usage/token metadata (when returned), generation status, actual generator. **If the provider returns a
+different model than requested, it is recorded as `MODEL_ID_MISMATCH` and excluded from the
+recommendation** — provider substitution is never silently accepted.
+
+**Three separated scores (never conflated):**
+- `content_quality_score` — mean of the content-quality dimensions that could be **evaluated**.
+- `structural_reliability_score` — `1` (parse + schema pass) · `0.5` (parse pass only) · `0` (no parse).
+- `provider_reliability` — fraction of provider calls that succeeded at the transport level.
+
+### Strict schema gate
+- **JSON parse fails** → all content dimensions are `NOT_EVALUATED` (score `null`, never a genuine `0`),
+  structural reliability `FAIL`, `usable_without_rewrite = false`.
+- **JSON parses but schema fails** → the exact `schema_errors` are recorded, content dimensions that can
+  be read from the parsed fields are still evaluated, structural reliability is `FAIL`,
+  `usable_without_rewrite = false`, and the candidate is **blocked from production recommendation**.
+- **Only structurally-valid candidates** can be recommended. `NOT_EVALUATED` is reported as such and is
+  never treated as a score of 0.
 
 **Generator quality dimensions (A–P):** Product Truth adherence · Customer Truth adherence · Market
 Truth adherence · Brand Truth adherence · Writing Constitution compliance · Anti-Slop compliance ·
@@ -83,11 +97,21 @@ evidence, unsupported emotional claim, Product Truth contradiction, wrong mechan
 platform mismatch, missing required fields, plus one valid control) and measures true detection,
 false positives/negatives, severity accuracy, schema reliability and latency.
 
+### Live progress
+The CLI prints per-candidate progress (disable with `--quiet`):
+```
+[GEN 1/2] DeepSeek V4 Flash START
+[GEN 1/2] SUCCESS 43.1s — JSON PASS / SCHEMA FAIL
+[CRITIC 1/18] openai/critic-model case=valid-control START
+[CRITIC 1/18] openai/critic-model case=valid-control SUCCESS 2.4s — SCHEMA PASS
+```
+
 ## Report sections
 
-GENERATOR COMPARISON · CRITIC COMPARISON · STRUCTURED OUTPUT RELIABILITY · TRUTH-ADHERENCE RESULTS ·
-WRITING QUALITY RESULTS · LATENCY · USAGE/COST METADATA · FAILURE RATE · RECOMMENDED GENERATOR ·
-RECOMMENDED CRITIC · SECONDARY FALLBACK CANDIDATES.
+GENERATOR COMPARISON · CRITIC COMPARISON · STRUCTURED OUTPUT RELIABILITY · SCHEMA ERRORS ·
+MODEL IDENTITY / MODEL_ID_MISMATCH · RECOMMENDATION BLOCKED · PROVIDER RELIABILITY ·
+TRUTH-ADHERENCE RESULTS · WRITING QUALITY RESULTS · LATENCY · USAGE/COST METADATA · FAILURE RATE ·
+RECOMMENDED GENERATOR · RECOMMENDED CRITIC · SECONDARY FALLBACK CANDIDATES.
 
 ## Honesty & secrets
 

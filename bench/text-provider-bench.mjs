@@ -103,19 +103,40 @@ function truthCorpus(fx) {
  * Deterministic Swiipt-suitability evaluation (dimensions A–P). Judgment is NOT done here.
  * @returns {{dimensions:Array,deterministic_score:number,usable_without_rewrite:boolean,blocking:string[]}}
  */
-export function evaluateGeneratorOutput(fx, output, { parseOk = true, schemaValid = true } = {}) {
-  const text = lc(collectText(output));
+export const CONTENT_DIMENSIONS = [
+  ["product_truth_adherence", "Product Truth adherence"],
+  ["customer_truth_adherence", "Customer Truth adherence"],
+  ["market_truth_adherence", "Market Truth adherence"],
+  ["brand_truth_adherence", "Brand Truth adherence"],
+  ["writing_constitution_compliance", "Writing Constitution compliance"],
+  ["anti_slop_compliance", "Anti-Slop compliance"],
+  ["interchangeability", "Interchangeability"],
+  ["hallucination_incidence", "No unsupported claims / hallucination"],
+  ["transformation_specificity", "Transformation specificity"],
+  ["mechanism_fidelity", "Mechanism fidelity"],
+  ["instruction_following", "Instruction following"],
+  ["required_field_completeness", "Required-field completeness"],
+  ["cultural_context_integrity", "Cultural / context integrity"],
+  ["emotional_invention", "No unnecessary emotional invention"],
+];
+export const HARD_DIMENSIONS = ["product_truth_adherence", "brand_truth_adherence", "writing_constitution_compliance", "anti_slop_compliance", "hallucination_incidence", "mechanism_fidelity", "required_field_completeness"];
+
+export function evaluateGeneratorOutput(fx, output, { parseOk = true, schemaValid = true, schemaErrors = [] } = {}) {
+  const isObj = !!output && typeof output === "object" && !Array.isArray(output);
+  const evaluable = parseOk && isObj;
+  const text = evaluable ? lc(collectText(output)) : "";
   const ptr = fx.product_truth;
   const crf = fx.axes || fx.customer_truth[0];
   const brand = fx.brand_truth;
   const wc = fx.writing_constitution;
   const truth = lc(truthCorpus(fx));
   const dims = [];
-  const add = (key, label, score, pass, detail, method = "deterministic") => dims.push({ key, label, method, score: Number(score.toFixed(3)), pass: !!pass, detail });
+  const add = (key, label, score, pass, detail) => dims.push({ key, label, method: "deterministic", status: "evaluated", score: Number(score.toFixed(3)), pass: !!pass, detail });
+  const ne = (key, label, detail) => dims.push({ key, label, method: "deterministic", status: "NOT_EVALUATED", score: null, pass: false, detail });
 
-  if (!parseOk || !schemaValid) {
-    for (const [k, l] of [["product_truth_adherence", "Product Truth adherence"], ["customer_truth_adherence", "Customer Truth adherence"], ["market_truth_adherence", "Market Truth adherence"], ["brand_truth_adherence", "Brand Truth adherence"], ["writing_constitution_compliance", "Writing Constitution compliance"], ["anti_slop_compliance", "Anti-Slop compliance"], ["interchangeability", "Interchangeability"], ["hallucination_incidence", "No unsupported claims / hallucination"], ["transformation_specificity", "Transformation specificity"], ["mechanism_fidelity", "Mechanism fidelity"], ["instruction_following", "Instruction following"], ["required_field_completeness", "Required-field completeness"], ["cultural_context_integrity", "Cultural / context integrity"], ["emotional_invention", "No unnecessary emotional invention"]]) add(k, l, 0, false, "output not structurally valid — not evaluated");
-    return { dimensions: dims, deterministic_score: 0, usable_without_rewrite: false, blocking: ["structural_invalid"] };
+  if (!evaluable) {
+    for (const [k, l] of CONTENT_DIMENSIONS) ne(k, l, "not evaluated: no parsed JSON object to evaluate");
+    return { dimensions: dims, content_quality_score: null, deterministic_score: null, structural_reliability: "FAIL", structural_reliability_score: parseOk ? 0.5 : 0, usable_without_rewrite: false, blocking: ["structural_reliability"], schema_errors: schemaErrors };
   }
 
   // A — Product Truth adherence (prohibited claims / overclaim absent; mechanism referenced)
@@ -194,11 +215,15 @@ export function evaluateGeneratorOutput(fx, output, { parseOk = true, schemaVali
   const invented = EMOTION_LEX.filter((w) => text.includes(w) && !srcEmotion.has(w));
   add("emotional_invention", "No unnecessary emotional invention", invented.length <= 1 ? 1 : 0, invented.length <= 1, invented.length ? `invented emotional language: ${invented.join(", ")}` : "emotional language stays within source");
 
-  const deterministic_score = dims.reduce((s, d) => s + d.score, 0) / dims.length;
+  const evaluated = dims.filter((d) => d.status === "evaluated");
+  const content_quality_score = evaluated.length ? Number((evaluated.reduce((s, d) => s + d.score, 0) / evaluated.length).toFixed(3)) : null;
+  const structural_reliability = (parseOk && schemaValid) ? "PASS" : "FAIL";
+  const structural_reliability_score = (parseOk && schemaValid) ? 1 : (parseOk ? 0.5 : 0);
   const byKey = Object.fromEntries(dims.map((d) => [d.key, d]));
-  const blocking = dims.filter((d) => !d.pass && ["product_truth_adherence", "brand_truth_adherence", "writing_constitution_compliance", "anti_slop_compliance", "hallucination_incidence", "mechanism_fidelity", "required_field_completeness"].includes(d.key)).map((d) => d.key);
-  const usable = blocking.length === 0 && byKey.interchangeability.score >= 0.66 && byKey.transformation_specificity.pass;
-  return { dimensions: dims, deterministic_score, usable_without_rewrite: usable, blocking };
+  const blocking = dims.filter((d) => d.status === "evaluated" && !d.pass && HARD_DIMENSIONS.includes(d.key)).map((d) => d.key);
+  if (structural_reliability === "FAIL") blocking.push("structural_reliability");
+  const usable = structural_reliability === "PASS" && blocking.length === 0 && byKey.interchangeability.score >= 0.66 && byKey.transformation_specificity.pass;
+  return { dimensions: dims, content_quality_score, deterministic_score: content_quality_score, structural_reliability, structural_reliability_score, usable_without_rewrite: usable, blocking, schema_errors: schemaErrors };
 }
 
 async function callWithRetries({ worker, model, messages, jsonMode = true, env, fetchImpl, retries = 0, timeoutMs, baseUrl = null, apiKey = null }) {
@@ -214,16 +239,19 @@ async function callWithRetries({ worker, model, messages, jsonMode = true, env, 
 }
 
 /** Run one generator candidate (string model or { provider, model }) against the fixed task. */
-export async function runGenerator(candidate, { task, fixture, env = process.env, profiles = null, fetchImpl = null, retries = 0, timeoutMs, judge = null } = {}) {
+export async function runGenerator(candidate, { task, fixture, env = process.env, profiles = null, fetchImpl = null, retries = 0, timeoutMs, judge = null, label = null, progress = null, index = null, total = null } = {}) {
   const cand = normalizeCandidate(candidate);
   const model = cand.model;
+  const displayLabel = label || `${cand.provider}/${model}`;
   const prov = resolveProvider(profiles, cand.provider, env);
 
   if (!prov.ok) {
-    const evald = evaluateGeneratorOutput(fixture, null, { parseOk: false, schemaValid: false });
-    return { ...providerRefusal(cand, prov), timestamp: new Date().toISOString(), latency_ms: 0, parse_ok: false, schema_valid: false, retries: 0, usage: null, generation_status: STATUS.PROVIDER_NOT_CONFIGURED, actual_generator: "none (provider not configured)", output: null, dimensions: evald.dimensions, deterministic_score: 0, usable_without_rewrite: false, blocking: ["provider_not_configured"], judgment: { status: "NOT_RUN", reason: "provider not configured", model: null } };
+    if (progress) progress(`[GEN ${index}/${total}] ${displayLabel} FAIL 0.0s — PROVIDER_NOT_CONFIGURED`);
+    const evald = evaluateGeneratorOutput(fixture, null, { parseOk: false, schemaValid: false, schemaErrors: [{ path: "/", keyword: "provider", message: `provider not configured: ${prov.error}` }] });
+    return { ...providerRefusal(cand, prov), label: displayLabel, timestamp: new Date().toISOString(), latency_ms: 0, parse_ok: false, schema_valid: false, structural_reliability: "FAIL", structural_reliability_score: 0, content_quality_score: null, provider_reliability: 0, retries: 0, usage: null, generation_status: STATUS.PROVIDER_NOT_CONFIGURED, actual_generator: "none (provider not configured)", output: null, dimensions: evald.dimensions, deterministic_score: null, usable_without_rewrite: false, blocking: ["provider_not_configured", "structural_reliability"], schema_errors: evald.schema_errors, recommendation_eligible: false, recommendation_blocked_reason: "provider not configured", judgment: { status: "NOT_RUN", reason: "provider not configured", model: null } };
   }
 
+  if (progress) progress(`[GEN ${index}/${total}] ${displayLabel} START`);
   const t0 = Date.now();
   const { res, retries_used } = await callWithRetries({
     worker: "copywriter", model, env, fetchImpl, retries, timeoutMs, baseUrl: prov.baseUrl, apiKey: prov.apiKey,
@@ -232,10 +260,17 @@ export async function runGenerator(candidate, { task, fixture, env = process.env
   const latency_ms = Date.now() - t0;
   const parse_ok = !!(res.ok && res.json && typeof res.json === "object" && !Array.isArray(res.json));
   let schema_valid = false;
-  if (parse_ok) { try { schema_valid = ajv.validate(ASSET_SCHEMA_ID, res.json); } catch { schema_valid = false; } }
-  const evaluation = evaluateGeneratorOutput(fixture, res.json, { parseOk: parse_ok, schemaValid: schema_valid });
+  let schema_errors = [];
+  if (parse_ok) {
+    try {
+      schema_valid = ajv.validate(ASSET_SCHEMA_ID, res.json);
+      if (!schema_valid) schema_errors = (ajv.errors || []).map((e) => ({ path: e.instancePath || "/", keyword: e.keyword || null, message: e.message || "" }));
+    } catch { schema_valid = false; }
+  }
+  const evaluation = evaluateGeneratorOutput(fixture, res.json, { parseOk: parse_ok, schemaValid: schema_valid, schemaErrors: schema_errors });
   const returned_model = res.response_model || null;
   const model_identity = !res.ok ? "NOT_RUN" : (returned_model ? (returned_model === model ? "OK" : "MODEL_ID_MISMATCH") : "OK_UNVERIFIED");
+  if (progress) progress(`[GEN ${index}/${total}] ${res.ok ? "SUCCESS" : "FAIL"} ${(latency_ms / 1000).toFixed(1)}s — JSON ${parse_ok ? "PASS" : "FAIL"} / SCHEMA ${schema_valid ? "PASS" : "FAIL"}${model_identity === "MODEL_ID_MISMATCH" ? " / MODEL_ID_MISMATCH" : ""}`);
 
   let judgment = { status: "NOT_RUN", reason: "no independent critic supplied", model: null };
   if (judge) {
@@ -257,9 +292,18 @@ export async function runGenerator(candidate, { task, fixture, env = process.env
     }
   }
 
+  let recommendation_blocked_reason = null;
+  if (res.status !== STATUS.PROVIDER_SUCCESS) recommendation_blocked_reason = `provider ${res.status}`;
+  else if (!parse_ok) recommendation_blocked_reason = "JSON parse failed";
+  else if (!schema_valid) recommendation_blocked_reason = `schema validation failed (${schema_errors.length} error(s))`;
+  else if (model_identity === "MODEL_ID_MISMATCH") recommendation_blocked_reason = "MODEL_ID_MISMATCH";
+  else if ((evaluation.blocking || []).length) recommendation_blocked_reason = `blocking dimensions: ${evaluation.blocking.join(", ")}`;
+  else if (evaluation.content_quality_score == null) recommendation_blocked_reason = "content not evaluated";
+
   return {
     provider: cand.provider,
     model,
+    label: displayLabel,
     requested_model: model,
     returned_model,
     model_identity,
@@ -272,6 +316,13 @@ export async function runGenerator(candidate, { task, fixture, env = process.env
     endpoint_host: res.endpoint_host ?? null,
     parse_ok,
     schema_valid,
+    structural_reliability: evaluation.structural_reliability,
+    structural_reliability_score: evaluation.structural_reliability_score,
+    content_quality_score: evaluation.content_quality_score,
+    provider_reliability: res.ok ? 1 : 0,
+    schema_errors,
+    recommendation_eligible: recommendation_blocked_reason === null,
+    recommendation_blocked_reason,
     retries: retries_used,
     usage: res.usage ?? null,
     generation_status: res.status,
@@ -287,17 +338,21 @@ export async function runGenerator(candidate, { task, fixture, env = process.env
 }
 
 /** Run one critic candidate (string model or { provider, model }) against the controlled cases. */
-export async function runCritic(candidate, { cases, env = process.env, profiles = null, fetchImpl = null, retries = 0, timeoutMs } = {}) {
+export async function runCritic(candidate, { cases, env = process.env, profiles = null, fetchImpl = null, retries = 0, timeoutMs, label = null, progress = null, counter = null } = {}) {
   const cand = normalizeCandidate(candidate);
   const model = cand.model;
+  const displayLabel = label || `${cand.provider}/${model}`;
   const prov = resolveProvider(profiles, cand.provider, env);
   if (!prov.ok) {
-    return { provider: cand.provider, model, requested_model: model, returned_model: null, model_identity: "NOT_RUN", endpoint_host: null, base_url_env: prov.base_url_env, api_key_env: prov.api_key_env, error: prov.error, cases: [], true_detections: 0, false_positives: 0, false_negatives: cases.length, defect_count: cases.filter((c) => c.expect_defect).length, severity_accuracy: 0, schema_reliability: 0, failure_rate: 1, precision: 0, recall: 0, f1: 0, avg_latency_ms: 0, provider_status: STATUS.PROVIDER_NOT_CONFIGURED };
+    return { provider: cand.provider, model, label: displayLabel, requested_model: model, returned_model: null, model_identity: "NOT_RUN", endpoint_host: null, base_url_env: prov.base_url_env, api_key_env: prov.api_key_env, error: prov.error, cases: [], schema_errors: [{ path: "/", keyword: "provider", message: `provider not configured: ${prov.error}` }], provider_reliability: 0, true_detections: 0, false_positives: 0, false_negatives: cases.length, defect_count: cases.filter((c) => c.expect_defect).length, severity_accuracy: 0, schema_reliability: 0, failure_rate: 1, precision: 0, recall: 0, f1: 0, avg_latency_ms: 0, provider_status: STATUS.PROVIDER_NOT_CONFIGURED };
   }
 
   const results = [];
+  const schema_errors = [];
   let returned_model = null;
   for (const c of cases) {
+    if (counter) counter.i++;
+    if (progress && counter) progress(`[CRITIC ${counter.i}/${counter.total}] ${displayLabel} case=${c.id} START`);
     const t0 = Date.now();
     const { res, retries_used } = await callWithRetries({
       worker: "writing-critic", model, env, fetchImpl, retries, timeoutMs, baseUrl: prov.baseUrl, apiKey: prov.apiKey,
@@ -307,7 +362,9 @@ export async function runCritic(candidate, { cases, env = process.env, profiles 
     if (res.response_model) returned_model = res.response_model;
     const findings = Array.isArray(res.json?.findings) ? res.json.findings : null;
     const parse_ok = !!findings;
+    if (!parse_ok && res.ok) schema_errors.push({ case_id: c.id, path: "/findings", keyword: "schema", message: "response did not contain a findings array" });
     const detected = parse_ok && findings.some((f) => f.severity === "BLOCKER" || ["FAIL", "NEVER", "UNSUPPORTED", "SCOPE_DRIFT", "SAFETY_ISSUE"].includes(f.status));
+    if (progress && counter) progress(`[CRITIC ${counter.i}/${counter.total}] ${displayLabel} case=${c.id} ${res.ok ? "SUCCESS" : "FAIL"} ${(latency_ms / 1000).toFixed(1)}s — SCHEMA ${parse_ok ? "PASS" : "FAIL"}`);
     results.push({ id: c.id, defect_type: c.defect_type, expect_defect: c.expect_defect, detected, severity: detected ? "BLOCKER" : "none", parse_ok, provider_status: res.status, latency_ms, retries: retries_used });
   }
   const defects = results.filter((r) => r.expect_defect);
@@ -323,13 +380,16 @@ export async function runCritic(candidate, { cases, env = process.env, profiles 
   return {
     provider: cand.provider,
     model,
+    label: displayLabel,
     requested_model: model,
     returned_model,
     model_identity,
     base_url_env: prov.base_url_env,
     api_key_env: prov.api_key_env,
     endpoint_host: results.length ? (prov.baseUrl ? safeHostname(prov.baseUrl) : "api.openai.com") : null,
+    provider_reliability: results.length ? results.filter((r) => r.provider_status === STATUS.PROVIDER_SUCCESS).length / results.length : 0,
     cases: results,
+    schema_errors,
     true_detections,
     false_positives,
     false_negatives,
@@ -344,12 +404,19 @@ export async function runCritic(candidate, { cases, env = process.env, profiles 
 
 function safeHostname(url) { try { return new URL(String(url)).host; } catch { return null; } }
 
-/** Rank and recommend. Never lets a model be its own judge; never silently accepts model substitution. */
+/** Rank and recommend. Never lets a model be its own judge; never silently accepts model substitution.
+ *  Strict schema gate: only structurally-valid candidates are eligible for production recommendation. */
 export function compare(genResults, criticResults) {
   const isMismatch = (r) => r.model_identity === "MODEL_ID_MISMATCH";
-  const usableGens = genResults.filter((g) => g.parse_ok && g.schema_valid && !isMismatch(g));
-  const genRank = [...usableGens].sort((a, b) => (b.deterministic_score - a.deterministic_score) || (b.usable_without_rewrite - a.usable_without_rewrite) || (a.latency_ms - b.latency_ms));
+  const structuralPass = (g) => (g.structural_reliability ? g.structural_reliability === "PASS" : (g.parse_ok && g.schema_valid));
+  const qscore = (g) => (g.content_quality_score != null ? g.content_quality_score : (g.deterministic_score != null ? g.deterministic_score : null));
+  const recommendable = (g) => structuralPass(g) && !isMismatch(g) && !(g.blocking || []).length && qscore(g) != null;
+
+  const usableGens = genResults.filter(recommendable);
+  const genRank = [...usableGens].sort((a, b) => (qscore(b) - qscore(a)) || (Number(b.usable_without_rewrite) - Number(a.usable_without_rewrite)) || (a.latency_ms - b.latency_ms));
   const genFailRank = genResults.filter((g) => !(g.parse_ok && g.schema_valid));
+  const schemaFailedGens = genResults.filter((g) => g.parse_ok && !g.schema_valid);
+  const blockedGens = genResults.filter((g) => !recommendable(g));
   const mismatchGens = genResults.filter(isMismatch);
 
   const usableCrit = criticResults.filter((c) => c.schema_reliability >= 0.5 && !isMismatch(c));
@@ -363,27 +430,31 @@ export function compare(genResults, criticResults) {
   const secondary_critic = critRank[1]?.model ?? null;
   const selfJudgeConflict = !!(recommended_generator && recommended_critic && recommended_generator === recommended_critic);
 
-  const mean = (arr, f) => arr.length ? arr.reduce((s, x) => s + f(x), 0) / arr.length : 0;
-  const dimScore = (g, k) => { const d = (g.dimensions || []).find((x) => x.key === k); return d ? d.score : 0; };
+  const mean = (arr, f) => { const vals = arr.map(f).filter((v) => typeof v === "number" && !Number.isNaN(v)); return vals.length ? vals.reduce((s, x) => s + x, 0) / vals.length : null; };
+  const dimScore = (g, k) => { const d = (g.dimensions || []).find((x) => x.key === k); return d && d.status !== "NOT_EVALUATED" && typeof d.score === "number" ? d.score : null; };
+  const r3 = (v) => (v == null ? null : Number(v.toFixed(3)));
   return {
-    generator_ranking: genRank.map((g) => ({ provider: g.provider || "openai", model: g.model, endpoint_host: g.endpoint_host || null, deterministic_score: g.deterministic_score, usable_without_rewrite: g.usable_without_rewrite, latency_ms: g.latency_ms, provider_status: g.provider_status })),
+    generator_ranking: genRank.map((g) => ({ provider: g.provider || "openai", model: g.model, endpoint_host: g.endpoint_host || null, content_quality_score: qscore(g), structural_reliability: g.structural_reliability || (g.schema_valid ? "PASS" : "FAIL"), structural_reliability_score: g.structural_reliability_score ?? null, provider_reliability: g.provider_reliability ?? null, usable_without_rewrite: g.usable_without_rewrite, latency_ms: g.latency_ms, provider_status: g.provider_status })),
+    recommendation_blocked: blockedGens.map((g) => ({ provider: g.provider || "openai", model: g.model, reason: g.recommendation_blocked_reason || (isMismatch(g) ? "MODEL_ID_MISMATCH" : (g.blocking || []).join(", ") || "not recommendable") })),
     structurally_failed_generators: genFailRank.map((g) => ({ provider: g.provider || "openai", model: g.model, provider_status: g.provider_status, parse_ok: g.parse_ok, schema_valid: g.schema_valid })),
+    schema_failed_generators: schemaFailedGens.map((g) => ({ provider: g.provider || "openai", model: g.model, schema_errors: g.schema_errors || [] })),
     model_mismatch_candidates: [...mismatchGens.map((g) => ({ role: "generator", provider: g.provider, requested_model: g.requested_model, returned_model: g.returned_model })), ...mismatchCrit.map((c) => ({ role: "critic", provider: c.provider, requested_model: c.requested_model, returned_model: c.returned_model }))],
-    critic_ranking: critRank.map((c) => ({ provider: c.provider || "openai", model: c.model, endpoint_host: c.endpoint_host || null, f1: Number(c.f1.toFixed(3)), precision: Number(c.precision.toFixed(3)), recall: Number(c.recall.toFixed(3)), false_positives: c.false_positives, false_negatives: c.false_negatives, schema_reliability: c.schema_reliability, avg_latency_ms: c.avg_latency_ms })),
+    critic_ranking: critRank.map((c) => ({ provider: c.provider || "openai", model: c.model, endpoint_host: c.endpoint_host || null, f1: Number(c.f1.toFixed(3)), precision: Number(c.precision.toFixed(3)), recall: Number(c.recall.toFixed(3)), false_positives: c.false_positives, false_negatives: c.false_negatives, schema_reliability: c.schema_reliability, provider_reliability: c.provider_reliability ?? null, avg_latency_ms: c.avg_latency_ms })),
     recommended_generator, secondary_generator, recommended_critic, secondary_critic,
     recommended_generator_ref: ref(genRank[0]), recommended_critic_ref: ref(critRank[0]),
     self_judge_conflict: selfJudgeConflict,
-    structured_output_reliability: { generators: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, parse_ok: g.parse_ok, schema_valid: g.schema_valid, model_identity: g.model_identity || null })), critics: criticResults.map((c) => ({ provider: c.provider || "openai", model: c.model, schema_reliability: c.schema_reliability })) },
-    truth_adherence: { mean_product_truth: Number(mean(genResults, (g) => dimScore(g, "product_truth_adherence")).toFixed(3)), mean_customer_truth: Number(mean(genResults, (g) => dimScore(g, "customer_truth_adherence")).toFixed(3)), mean_hallucination_free: Number(mean(genResults, (g) => dimScore(g, "hallucination_incidence")).toFixed(3)) },
-    writing_quality: { mean_anti_slop: Number(mean(genResults, (g) => dimScore(g, "anti_slop_compliance")).toFixed(3)), mean_constitution: Number(mean(genResults, (g) => dimScore(g, "writing_constitution_compliance")).toFixed(3)), mean_interchangeability: Number(mean(genResults, (g) => dimScore(g, "interchangeability")).toFixed(3)) },
-    latency: { generators_avg_ms: Math.round(mean(genResults, (g) => g.latency_ms)), critics_avg_ms: Math.round(mean(criticResults, (c) => c.avg_latency_ms)) },
+    structured_output_reliability: { generators: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, parse_ok: g.parse_ok, schema_valid: g.schema_valid, structural_reliability: g.structural_reliability || null, model_identity: g.model_identity || null, schema_errors: g.schema_errors || [] })), critics: criticResults.map((c) => ({ provider: c.provider || "openai", model: c.model, schema_reliability: c.schema_reliability, schema_errors: c.schema_errors || [] })) },
+    provider_reliability: { generators: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, provider_reliability: g.provider_reliability ?? null })), critics: criticResults.map((c) => ({ provider: c.provider || "openai", model: c.model, provider_reliability: c.provider_reliability ?? null })) },
+    truth_adherence: { mean_product_truth: r3(mean(genResults, (g) => dimScore(g, "product_truth_adherence"))), mean_customer_truth: r3(mean(genResults, (g) => dimScore(g, "customer_truth_adherence"))), mean_hallucination_free: r3(mean(genResults, (g) => dimScore(g, "hallucination_incidence"))) },
+    writing_quality: { mean_anti_slop: r3(mean(genResults, (g) => dimScore(g, "anti_slop_compliance"))), mean_constitution: r3(mean(genResults, (g) => dimScore(g, "writing_constitution_compliance"))), mean_interchangeability: r3(mean(genResults, (g) => dimScore(g, "interchangeability"))) },
+    latency: { generators_avg_ms: Math.round(mean(genResults, (g) => g.latency_ms) ?? 0), critics_avg_ms: Math.round(mean(criticResults, (c) => c.avg_latency_ms) ?? 0) },
     usage_cost: { note: "Token usage is reported when the endpoint returns it; cost depends on the chosen provider's pricing.", generator_usage: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, usage: g.usage })) },
     failure_rate: { generators: genResults.length ? genResults.filter((g) => g.provider_status !== STATUS.PROVIDER_SUCCESS).length / genResults.length : 0, critics: criticResults.length ? criticResults.filter((c) => c.failure_rate > 0).length / criticResults.length : 0 },
   };
 }
 
 /** Run the full candidate matrix (candidates may target different named providers). */
-export async function runBenchmark({ generators, critics, profiles = null, env = process.env, fetchImpl = null, retries = 0, timeoutMs, judge = true } = {}) {
+export async function runBenchmark({ generators, critics, profiles = null, env = process.env, fetchImpl = null, retries = 0, timeoutMs, judge = true, progress = null } = {}) {
   if (!generators?.length) throw new Error("no generator candidates supplied");
   const gens = generators.map(normalizeCandidate);
   const crits = (critics || []).map(normalizeCandidate);
@@ -393,23 +464,26 @@ export async function runBenchmark({ generators, critics, profiles = null, env =
   const task_hash = createHash("sha256").update(task.system + task.user + JSON.stringify(task.schema)).digest("hex");
 
   const genResults = [];
+  let gi = 0;
   for (const cand of gens) {
+    gi++;
     let judgeRef = null;
     if (judge) {
       const jc = crits.find((c) => !(c.provider === cand.provider && c.model === cand.model));
       if (jc) judgeRef = { provider: jc.provider, model: jc.model, fetchImpl };
     }
-    genResults.push(await runGenerator(cand, { task, fixture, env, profiles, fetchImpl, retries, timeoutMs, judge: judgeRef }));
+    genResults.push(await runGenerator(cand, { task, fixture, env, profiles, fetchImpl, retries, timeoutMs, judge: judgeRef, label: cand.label || null, progress, index: gi, total: gens.length }));
   }
   const criticResults = [];
-  for (const cand of crits) criticResults.push(await runCritic(cand, { cases, env, profiles, fetchImpl, retries, timeoutMs }));
+  const counter = { i: 0, total: crits.length * cases.length };
+  for (const cand of crits) criticResults.push(await runCritic(cand, { cases, env, profiles, fetchImpl, retries, timeoutMs, label: cand.label || null, progress, counter }));
 
   let base_host = null;
   try { base_host = new URL(chatEndpoint(env.OPENAI_BASE_URL, env)).host; } catch { /* ignore */ }
   const providerIds = [...new Set([...gens, ...crits].map((c) => c.provider))];
 
   return {
-    meta: { tool: "swiipt-text-provider-bench", version: "1.1", generated_at: new Date().toISOString(), default_endpoint_host: base_host, providers: providerIds, generators: gens, critics: crits, retries, timeout_ms: timeoutMs || null, judge_enabled: !!judge },
+    meta: { tool: "swiipt-text-provider-bench", version: "1.2", generated_at: new Date().toISOString(), default_endpoint_host: base_host, providers: providerIds, generators: gens, critics: crits, retries, timeout_ms: timeoutMs || null, judge_enabled: !!judge },
     fixture: { id: fixture.id, synthetic: true },
     task_hash,
     generators: genResults,
@@ -420,6 +494,7 @@ export async function runBenchmark({ generators, critics, profiles = null, env =
 
 function renderMarkdown(result) {
   const ref = (c) => `${c.provider}/${c.model}`;
+  const fmt = (v) => (v == null ? "—" : v);
   const L = [];
   L.push(`# Swiipt Text Provider Benchmark`);
   L.push("");
@@ -429,25 +504,39 @@ function renderMarkdown(result) {
   L.push(`- Generators: ${(result.meta.generators || []).map(ref).join(", ") || "none"}`);
   L.push(`- Critics: ${(result.meta.critics || []).map(ref).join(", ") || "none"}`);
   L.push(`- Fixture: ${result.fixture.id} (synthetic) · task ${result.task_hash.slice(0, 12)}`);
+  L.push(`- Scores are separated: content_quality_score · structural_reliability_score · provider_reliability. \`NOT_EVALUATED\` means no score was possible (never treated as 0).`);
   L.push("");
   L.push(`## GENERATOR COMPARISON`);
-  L.push(`| Provider | Model (requested) | Returned | Identity | Det. score | Usable | Latency ms | Provider status |`);
-  L.push(`|---|---|---|---|---|---|---|---|`);
-  for (const g of result.generators) L.push(`| ${g.provider} | ${g.requested_model || g.model} | ${g.returned_model || "—"} | ${g.model_identity || "—"} | ${g.deterministic_score.toFixed(3)} | ${g.usable_without_rewrite} | ${g.latency_ms} | ${g.provider_status} |`);
+  L.push(`| Provider | Model (requested) | Returned | Identity | Content quality | Structural | Struct. score | Provider reliab. | Usable | Latency ms | Provider status |`);
+  L.push(`|---|---|---|---|---|---|---|---|---|---|---|`);
+  for (const g of result.generators) L.push(`| ${g.provider} | ${g.requested_model || g.model} | ${fmt(g.returned_model)} | ${fmt(g.model_identity)} | ${fmt(g.content_quality_score)} | ${fmt(g.structural_reliability)} | ${fmt(g.structural_reliability_score)} | ${fmt(g.provider_reliability)} | ${g.usable_without_rewrite} | ${g.latency_ms} | ${g.provider_status} |`);
   L.push("");
   L.push(`## CRITIC COMPARISON`);
-  L.push(`| Provider | Model | Identity | F1 | Precision | Recall | FP | FN | Severity acc | Schema reliab. | Avg latency |`);
-  L.push(`|---|---|---|---|---|---|---|---|---|---|---|`);
-  for (const c of result.critics) L.push(`| ${c.provider} | ${c.model} | ${c.model_identity || "—"} | ${c.f1.toFixed(3)} | ${c.precision.toFixed(3)} | ${c.recall.toFixed(3)} | ${c.false_positives} | ${c.false_negatives} | ${c.severity_accuracy.toFixed(2)} | ${c.schema_reliability.toFixed(2)} | ${c.avg_latency_ms} |`);
+  L.push(`| Provider | Model | Identity | F1 | Precision | Recall | FP | FN | Severity acc | Schema reliab. | Provider reliab. | Avg latency |`);
+  L.push(`|---|---|---|---|---|---|---|---|---|---|---|---|`);
+  for (const c of result.critics) L.push(`| ${c.provider} | ${c.model} | ${fmt(c.model_identity)} | ${c.f1.toFixed(3)} | ${c.precision.toFixed(3)} | ${c.recall.toFixed(3)} | ${c.false_positives} | ${c.false_negatives} | ${c.severity_accuracy.toFixed(2)} | ${c.schema_reliability.toFixed(2)} | ${fmt(c.provider_reliability)} | ${c.avg_latency_ms} |`);
   L.push("");
   L.push(`## STRUCTURED OUTPUT RELIABILITY`);
-  for (const g of result.comparison.structured_output_reliability.generators) L.push(`- Generator ${g.provider}/${g.model}: parse=${g.parse_ok} schema=${g.schema_valid} identity=${g.model_identity || "—"}`);
-  for (const c of result.comparison.structured_output_reliability.critics) L.push(`- Critic ${c.provider}/${c.model}: schema reliability=${c.schema_reliability}`);
+  for (const g of result.comparison.structured_output_reliability.generators) L.push(`- Generator ${g.provider}/${g.model}: parse=${g.parse_ok} schema=${g.schema_valid} structural=${fmt(g.structural_reliability)} identity=${fmt(g.model_identity)}`);
+  for (const c of result.comparison.structured_output_reliability.critics) L.push(`- Critic ${c.provider}/${c.model}: schema reliability=${c.schema_reliability}${(c.schema_errors || []).length ? ` (${c.schema_errors.length} schema error(s))` : ""}`);
+  L.push("");
+  L.push(`## SCHEMA ERRORS`);
+  const sf = result.comparison.schema_failed_generators || [];
+  if (!sf.length) L.push("- none");
+  else for (const g of sf) { L.push(`- ${g.provider}/${g.model}: ${g.schema_errors.length} error(s)`); for (const e of g.schema_errors.slice(0, 20)) L.push(`  - ${e.path} [${e.keyword || "schema"}] ${e.message}`); }
   L.push("");
   L.push(`## MODEL IDENTITY / MODEL_ID_MISMATCH`);
   const mm = result.comparison.model_mismatch_candidates || [];
   if (!mm.length) L.push("- none (all matched or unverified)");
   else for (const m of mm) L.push(`- ${m.role} ${m.provider}: requested ${m.requested_model} → returned ${m.returned_model} (MODEL_ID_MISMATCH, excluded from recommendation)`);
+  L.push("");
+  L.push(`## RECOMMENDATION BLOCKED`);
+  const rb = result.comparison.recommendation_blocked || [];
+  if (!rb.length) L.push("- none (all evaluated candidates structurally valid)");
+  else for (const b of rb) L.push(`- ${b.provider}/${b.model}: ${b.reason}`);
+  L.push("");
+  L.push(`## PROVIDER RELIABILITY`);
+  L.push(JSON.stringify(result.comparison.provider_reliability, null, 2));
   L.push("");
   L.push(`## TRUTH-ADHERENCE RESULTS`);
   L.push(JSON.stringify(result.comparison.truth_adherence, null, 2));
@@ -492,6 +581,7 @@ function parseArgs(argv) {
     else if (k === "--out") a.out = argv[++i];
     else if (k === "--report") a.report = argv[++i];
     else if (k === "--no-judge") a.judge = false;
+    else if (k === "--quiet") a.quiet = true;
   }
   return a;
 }
@@ -518,7 +608,7 @@ if (process.argv[1] && process.argv[1].endsWith("text-provider-bench.mjs")) {
     process.exit(3);
   }
 
-  runBenchmark({ generators: gens, critics: crits, profiles, env, retries: args.retries, timeoutMs: args.timeout, judge: args.judge }).then((result) => {
+  runBenchmark({ generators: gens, critics: crits, profiles, env, retries: args.retries, timeoutMs: args.timeout, judge: args.judge, progress: args.quiet ? null : (m) => console.log(m) }).then((result) => {
     const outDir = join(root, "bench", "results");
     mkdirSync(outDir, { recursive: true });
     const stamp = new Date().toISOString().replace(/[:.]/g, "-");

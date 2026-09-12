@@ -248,3 +248,76 @@ test("17. credentials never enter JSON or Markdown results across providers", as
   assert.ok(result.generators.every((g) => g.provider && g.endpoint_host));
   assert.ok(result.comparison.recommended_generator);
 });
+
+// ---------- strict schema gate + NOT_EVALUATED + progress ----------
+
+test("18. JSON parses but schema fails: content evaluated, structural FAIL, recommendation blocked", async () => {
+  const fx = loadBenchFixture();
+  const task = buildGenerationTask(fx);
+  const partial = { angle_id: fx.angle.id, platform: "whatsapp", headline: "At 3 AM she has to stand up.", body: "Module 2 - the 3-Position Recovery Method helps her rise without straining the incision. Reply YES.", cta: "Reply YES and I'll send you the details.", risk_flags: [] };
+  const env = { OPENAI_API_KEY: "testkey-abcdefghijklmnop" };
+  const g = await runGenerator("model-a", { task, fixture: fx, env, fetchImpl: genFetch(partial) });
+  assert.equal(g.parse_ok, true);
+  assert.equal(g.schema_valid, false);
+  assert.ok(g.schema_errors.length >= 1, "schema errors must be recorded");
+  assert.equal(g.structural_reliability, "FAIL");
+  assert.equal(g.structural_reliability_score, 0.5);
+  assert.notEqual(g.content_quality_score, null, "content dimensions must still be evaluated");
+  assert.equal(g.usable_without_rewrite, false);
+  assert.equal(g.recommendation_eligible, false);
+  assert.match(g.recommendation_blocked_reason, /schema/i);
+  assert.ok(g.dimensions.some((d) => d.status === "evaluated"));
+});
+
+test("19. unparseable output is NOT_EVALUATED (never converted to a genuine score of 0)", () => {
+  const fx = loadBenchFixture();
+  const r = evaluateGeneratorOutput(fx, null, { parseOk: false, schemaValid: false });
+  assert.ok(r.dimensions.every((d) => d.status === "NOT_EVALUATED" && d.score === null));
+  assert.equal(r.content_quality_score, null);
+  assert.equal(r.deterministic_score, null);
+  assert.equal(r.structural_reliability, "FAIL");
+  assert.equal(r.structural_reliability_score, 0);
+  assert.equal(r.usable_without_rewrite, false);
+});
+
+test("20. a schema-failing candidate is never production-recommended over a valid one", () => {
+  const cmp = compare([
+    { provider: "p", model: "schema-fail", parse_ok: true, schema_valid: false, structural_reliability: "FAIL", content_quality_score: 0.99, usable_without_rewrite: false, blocking: ["structural_reliability"], latency_ms: 50, provider_status: "PROVIDER_SUCCESS", model_identity: "OK", schema_errors: [{ path: "/mechanism", message: "required" }] },
+    { provider: "p", model: "valid", parse_ok: true, schema_valid: true, structural_reliability: "PASS", content_quality_score: 0.6, usable_without_rewrite: true, blocking: [], latency_ms: 200, provider_status: "PROVIDER_SUCCESS", model_identity: "OK", schema_errors: [] },
+  ], []);
+  assert.equal(cmp.recommended_generator, "valid");
+  assert.equal(cmp.schema_failed_generators.length, 1);
+  assert.ok(cmp.recommendation_blocked.some((b) => b.model === "schema-fail"));
+});
+
+test("21. live progress reports START/end with JSON/SCHEMA status for generator and critic", async () => {
+  const fx = loadBenchFixture();
+  const lines = [];
+  await runBenchmark({
+    generators: ["model-a", "model-b"], critics: ["critic-x"],
+    env: { OPENAI_API_KEY: "testkey-abcdefghijklmnop" },
+    fetchImpl: combinedFetch(goodBenchAsset(fx)),
+    progress: (m) => lines.push(m),
+  });
+  assert.ok(lines.some((l) => /^\[GEN 1\/2\] .* START$/.test(l)), "generator START line");
+  assert.ok(lines.some((l) => /^\[GEN 1\/2\] (SUCCESS|FAIL) \d+(\.\d+)?s — JSON (PASS|FAIL) \/ SCHEMA (PASS|FAIL)/.test(l)), "generator end line");
+  assert.ok(lines.some((l) => /^\[CRITIC 1\/9\] /.test(l)), "critic progress line");
+});
+
+test("22. schema errors are recorded in the JSON result and the Markdown report", async () => {
+  const fx = loadBenchFixture();
+  const partial = { angle_id: fx.angle.id, platform: "whatsapp", headline: "Missing most required fields." };
+  const fetchImpl = async (url, opts) => {
+    const body = JSON.parse(opts.body);
+    const sys = body.messages?.[0]?.content || "";
+    if (/Writing Critic/.test(sys)) return { ok: true, status: 200, json: async () => ({ choices: [{ message: { content: JSON.stringify({ findings: [] }) } }] }) };
+    return { ok: true, status: 200, json: async () => ({ choices: [{ message: { content: JSON.stringify(partial) } }] }) };
+  };
+  const result = await runBenchmark({ generators: ["model-a"], critics: ["critic-x"], env: { OPENAI_API_KEY: "testkey-abcdefghijklmnop" }, fetchImpl });
+  assert.ok(result.generators[0].schema_errors.length >= 1);
+  assert.equal(result.comparison.schema_failed_generators.length, 1);
+  const md = renderMarkdown(result);
+  assert.match(md, /## SCHEMA ERRORS/);
+  assert.match(md, /schema validation failed|\[required\]|required/);
+  assert.equal(result.comparison.recommended_generator, null);
+});
