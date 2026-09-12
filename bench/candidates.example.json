@@ -1,11 +1,18 @@
 {
-  "_note": "Example candidate matrix for the text-provider benchmark. Replace model IDs with the candidates you want compared. This file contains NO credentials — keys come from the environment only.",
+  "_note": "Example multi-provider benchmark matrix. Profiles define ONLY the env-var NAMES for base URL and API key — NEVER secret values. Set the actual values in your environment. Replace placeholder model ids with ids you have verified against each provider.",
+  "providers": {
+    "openai": { "base_url_env": "OPENAI_BASE_URL", "api_key_env": "OPENAI_API_KEY", "default_base": true },
+    "xkiro": { "base_url_env": "XKIRO_BASE_URL", "api_key_env": "XKIRO_API_KEY" },
+    "nvidia": { "base_url_env": "NVIDIA_BASE_URL", "api_key_env": "NVIDIA_API_KEY" },
+    "deepseek": { "base_url_env": "DEEPSEEK_BASE_URL", "api_key_env": "DEEPSEEK_API_KEY" },
+    "tabitoken": { "base_url_env": "TABITOKEN_BASE_URL", "api_key_env": "TABITOKEN_API_KEY" }
+  },
   "generators": [
-    "gpt-4o-mini",
-    "gpt-4o"
+    { "provider": "openai", "model": "<verified-model-id>" },
+    { "provider": "deepseek", "model": "<verified-model-id>" }
   ],
   "critics": [
-    "gpt-4o-mini",
-    "gpt-4o"
+    { "provider": "openai", "model": "<verified-model-id>" },
+    { "provider": "deepseek", "model": "<verified-model-id>" }
   ]
 }

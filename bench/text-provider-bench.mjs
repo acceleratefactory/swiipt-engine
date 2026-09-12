@@ -40,6 +40,46 @@ const EMOTION_LEX = ["scared", "terrified", "devastated", "hopeless", "panic", "
 
 const CRITIC_SYSTEM = "You are the Swiipt Writing Critic. Evaluate the CONTENT against the APPROVED CONTRACT and return JSON {\"findings\":[{\"status\":one of PASS|FAIL|WARNING|MISSING|UNSUPPORTED|SCOPE_DRIFT|TRANSFORMATION_WEAKNESS|WRITING_QUALITY_ISSUE|SAFETY_ISSUE,\"severity\":one of BLOCKER|WARNING|none,\"detail\":string,\"where\":string}]}. Fail only on NEVER/SCOPE_DRIFT/UNSUPPORTED/SAFETY_ISSUE. Never invent facts.";
 
+// ---------- multi-provider candidate resolution ----------
+export const DEFAULT_OPENAI_PROFILE = { base_url_env: "OPENAI_BASE_URL", api_key_env: "OPENAI_API_KEY", default_base: true };
+
+/** A candidate is either a legacy model string (provider "openai") or { provider, model }. */
+export function normalizeCandidate(c) {
+  if (typeof c === "string" && c.trim()) return { provider: "openai", model: c.trim() };
+  if (c && typeof c === "object" && typeof c.model === "string" && c.model.trim()) return { provider: String(c.provider || "openai"), model: c.model.trim() };
+  throw new Error(`invalid candidate (expected "model" or { provider, model }): ${JSON.stringify(c)}`);
+}
+
+/**
+ * Resolve a named provider profile to runtime base URL + API key via the referenced env vars.
+ * A profile defines ONLY { base_url_env, api_key_env }. Missing credentials fail THAT candidate —
+ * never another provider. No profile value is ever a secret.
+ */
+export function resolveProvider(profiles, providerId, env = process.env) {
+  const profile = (profiles && profiles[providerId]) || (providerId === "openai" ? DEFAULT_OPENAI_PROFILE : null);
+  if (!profile) return { provider: providerId, ok: false, missing: ["provider_profile"], error: `unknown provider profile '${providerId}'`, base_url_env: null, api_key_env: null, baseUrl: null, apiKey: null };
+  const base_url_env = profile.base_url_env || (providerId === "openai" ? "OPENAI_BASE_URL" : null);
+  const api_key_env = profile.api_key_env || (providerId === "openai" ? "OPENAI_API_KEY" : null);
+  const rawBase = base_url_env ? env[base_url_env] : undefined;
+  const apiKey = api_key_env ? env[api_key_env] : undefined;
+  const allowDefaultBase = profile.default_base === true || providerId === "openai";
+  const missing = [];
+  if (!apiKey) missing.push(api_key_env || "api_key");
+  if (!rawBase && !allowDefaultBase) missing.push(base_url_env || "base_url");
+  if (missing.length) return { provider: providerId, ok: false, missing, error: `provider '${providerId}' not configured: missing ${missing.join(", ")}`, base_url_env, api_key_env, baseUrl: null, apiKey: null };
+  return { provider: providerId, ok: true, missing: [], base_url_env, api_key_env, baseUrl: rawBase || null, apiKey };
+}
+
+function providerRefusal(cand, prov, reason) {
+  return {
+    provider: cand.provider, model: cand.model, requested_model: cand.model, returned_model: null,
+    provider_status: STATUS.PROVIDER_NOT_CONFIGURED, http_status: null, endpoint_host: null,
+    base_url_env: prov.base_url_env, api_key_env: prov.api_key_env, missing_env: prov.missing,
+    error: prov.error || reason, model_identity: "NOT_RUN",
+  };
+}
+
+
 function collectText(output) {
   if (output == null) return "";
   if (typeof output === "string") return output;
@@ -161,23 +201,32 @@ export function evaluateGeneratorOutput(fx, output, { parseOk = true, schemaVali
   return { dimensions: dims, deterministic_score, usable_without_rewrite: usable, blocking };
 }
 
-async function callWithRetries({ worker, model, messages, jsonMode = true, env, fetchImpl, retries = 0, timeoutMs }) {
+async function callWithRetries({ worker, model, messages, jsonMode = true, env, fetchImpl, retries = 0, timeoutMs, baseUrl = null, apiKey = null }) {
   let attempts = 0;
   let res = null;
   for (let i = 0; i <= retries; i++) {
     attempts++;
-    res = await chatCompletion({ worker, model, messages, jsonMode, env, fetchImpl, timeoutMs });
+    res = await chatCompletion({ worker, model, messages, jsonMode, env, fetchImpl, timeoutMs, baseUrl, apiKey });
     if (res.ok) break;
     if (i < retries) continue;
   }
   return { res, retries_used: attempts - 1, attempts };
 }
 
-/** Run one generator candidate against the fixed task. */
-export async function runGenerator(model, { task, fixture, env, fetchImpl = null, retries = 0, timeoutMs, judge = null } = {}) {
+/** Run one generator candidate (string model or { provider, model }) against the fixed task. */
+export async function runGenerator(candidate, { task, fixture, env = process.env, profiles = null, fetchImpl = null, retries = 0, timeoutMs, judge = null } = {}) {
+  const cand = normalizeCandidate(candidate);
+  const model = cand.model;
+  const prov = resolveProvider(profiles, cand.provider, env);
+
+  if (!prov.ok) {
+    const evald = evaluateGeneratorOutput(fixture, null, { parseOk: false, schemaValid: false });
+    return { ...providerRefusal(cand, prov), timestamp: new Date().toISOString(), latency_ms: 0, parse_ok: false, schema_valid: false, retries: 0, usage: null, generation_status: STATUS.PROVIDER_NOT_CONFIGURED, actual_generator: "none (provider not configured)", output: null, dimensions: evald.dimensions, deterministic_score: 0, usable_without_rewrite: false, blocking: ["provider_not_configured"], judgment: { status: "NOT_RUN", reason: "provider not configured", model: null } };
+  }
+
   const t0 = Date.now();
   const { res, retries_used } = await callWithRetries({
-    worker: "copywriter", model, env, fetchImpl, retries, timeoutMs,
+    worker: "copywriter", model, env, fetchImpl, retries, timeoutMs, baseUrl: prov.baseUrl, apiKey: prov.apiKey,
     messages: [{ role: "system", content: task.system }, { role: "user", content: task.user }],
   });
   const latency_ms = Date.now() - t0;
@@ -185,23 +234,37 @@ export async function runGenerator(model, { task, fixture, env, fetchImpl = null
   let schema_valid = false;
   if (parse_ok) { try { schema_valid = ajv.validate(ASSET_SCHEMA_ID, res.json); } catch { schema_valid = false; } }
   const evaluation = evaluateGeneratorOutput(fixture, res.json, { parseOk: parse_ok, schemaValid: schema_valid });
+  const returned_model = res.response_model || null;
+  const model_identity = !res.ok ? "NOT_RUN" : (returned_model ? (returned_model === model ? "OK" : "MODEL_ID_MISMATCH") : "OK_UNVERIFIED");
 
   let judgment = { status: "NOT_RUN", reason: "no independent critic supplied", model: null };
-  if (judge && judge.model && judge.model !== model) {
-    const j = await callWithRetries({
-      worker: "writing-critic", model: judge.model, env, fetchImpl: judge.fetchImpl || fetchImpl, retries, timeoutMs,
-      messages: [{ role: "system", content: CRITIC_SYSTEM }, { role: "user", content: JSON.stringify({ asset: res.json, context: { product_truth: fixture.product_truth, customer_truth: fixture.customer_truth, angle: fixture.angle, required_fields: REQUIRED_FIELDS } }).slice(0, 120000) }],
-    });
-    const findings = Array.isArray(j.res.json?.findings) ? j.res.json.findings : [];
-    judgment = { status: j.res.ok ? "RAN" : "NOT_RUN", model: judge.model, provider_status: j.res.status, verdict: findings.some((f) => f.severity === "BLOCKER") ? "FAIL" : (findings.length ? "WARNING" : "PASS"), findings_count: findings.length };
-  } else if (judge && judge.model === model) {
-    judgment = { status: "NOT_RUN", reason: "self-judging excluded from official comparison", model: null };
+  if (judge) {
+    const jCand = normalizeCandidate(judge);
+    if (jCand.provider === cand.provider && jCand.model === model) {
+      judgment = { status: "NOT_RUN", reason: "self-judging excluded from official comparison", model: null };
+    } else {
+      const jProv = resolveProvider(profiles, jCand.provider, env);
+      if (!jProv.ok) {
+        judgment = { status: "NOT_RUN", reason: `judge provider not configured (${jProv.error})`, model: null };
+      } else {
+        const j = await callWithRetries({
+          worker: "writing-critic", model: jCand.model, env, fetchImpl: judge.fetchImpl || fetchImpl, retries, timeoutMs, baseUrl: jProv.baseUrl, apiKey: jProv.apiKey,
+          messages: [{ role: "system", content: CRITIC_SYSTEM }, { role: "user", content: JSON.stringify({ asset: res.json, context: { product_truth: fixture.product_truth, customer_truth: fixture.customer_truth, angle: fixture.angle, required_fields: REQUIRED_FIELDS } }).slice(0, 120000) }],
+        });
+        const findings = Array.isArray(j.res.json?.findings) ? j.res.json.findings : [];
+        judgment = { status: j.res.ok ? "RAN" : "NOT_RUN", provider: jCand.provider, model: jCand.model, provider_status: j.res.status, verdict: findings.some((f) => f.severity === "BLOCKER") ? "FAIL" : (findings.length ? "WARNING" : "PASS"), findings_count: findings.length };
+      }
+    }
   }
 
   return {
+    provider: cand.provider,
     model,
-    provider: "openai-compatible",
-    requested_provider: "openai-compatible",
+    requested_model: model,
+    returned_model,
+    model_identity,
+    base_url_env: prov.base_url_env,
+    api_key_env: prov.api_key_env,
     timestamp: new Date(t0).toISOString(),
     latency_ms,
     provider_status: res.status,
@@ -223,19 +286,28 @@ export async function runGenerator(model, { task, fixture, env, fetchImpl = null
   };
 }
 
-/** Run one critic candidate against the controlled defect cases. */
-export async function runCritic(model, { cases, env, fetchImpl = null, retries = 0, timeoutMs } = {}) {
+/** Run one critic candidate (string model or { provider, model }) against the controlled cases. */
+export async function runCritic(candidate, { cases, env = process.env, profiles = null, fetchImpl = null, retries = 0, timeoutMs } = {}) {
+  const cand = normalizeCandidate(candidate);
+  const model = cand.model;
+  const prov = resolveProvider(profiles, cand.provider, env);
+  if (!prov.ok) {
+    return { provider: cand.provider, model, requested_model: model, returned_model: null, model_identity: "NOT_RUN", endpoint_host: null, base_url_env: prov.base_url_env, api_key_env: prov.api_key_env, error: prov.error, cases: [], true_detections: 0, false_positives: 0, false_negatives: cases.length, defect_count: cases.filter((c) => c.expect_defect).length, severity_accuracy: 0, schema_reliability: 0, failure_rate: 1, precision: 0, recall: 0, f1: 0, avg_latency_ms: 0, provider_status: STATUS.PROVIDER_NOT_CONFIGURED };
+  }
+
   const results = [];
+  let returned_model = null;
   for (const c of cases) {
     const t0 = Date.now();
     const { res, retries_used } = await callWithRetries({
-      worker: "writing-critic", model, env, fetchImpl, retries, timeoutMs,
+      worker: "writing-critic", model, env, fetchImpl, retries, timeoutMs, baseUrl: prov.baseUrl, apiKey: prov.apiKey,
       messages: [{ role: "system", content: CRITIC_SYSTEM }, { role: "user", content: JSON.stringify(c.payload).slice(0, 120000) }],
     });
     const latency_ms = Date.now() - t0;
+    if (res.response_model) returned_model = res.response_model;
     const findings = Array.isArray(res.json?.findings) ? res.json.findings : null;
     const parse_ok = !!findings;
-    const detected = parse_ok && findings.some((f) => f.severity === "BLOCKER" || f.status === "FAIL" || f.status === "NEVER" || f.status === "UNSUPPORTED" || f.status === "SCOPE_DRIFT" || f.status === "SAFETY_ISSUE");
+    const detected = parse_ok && findings.some((f) => f.severity === "BLOCKER" || ["FAIL", "NEVER", "UNSUPPORTED", "SCOPE_DRIFT", "SAFETY_ISSUE"].includes(f.status));
     results.push({ id: c.id, defect_type: c.defect_type, expect_defect: c.expect_defect, detected, severity: detected ? "BLOCKER" : "none", parse_ok, provider_status: res.status, latency_ms, retries: retries_used });
   }
   const defects = results.filter((r) => r.expect_defect);
@@ -247,8 +319,16 @@ export async function runCritic(model, { cases, env, fetchImpl = null, retries =
   const precision = true_detections + false_positives ? true_detections / (true_detections + false_positives) : 0;
   const recall = true_detections + false_negatives ? true_detections / (true_detections + false_negatives) : 0;
   const f1 = precision + recall ? (2 * precision * recall) / (precision + recall) : 0;
+  const model_identity = returned_model ? (returned_model === model ? "OK" : "MODEL_ID_MISMATCH") : "OK_UNVERIFIED";
   return {
+    provider: cand.provider,
     model,
+    requested_model: model,
+    returned_model,
+    model_identity,
+    base_url_env: prov.base_url_env,
+    api_key_env: prov.api_key_env,
+    endpoint_host: results.length ? (prov.baseUrl ? safeHostname(prov.baseUrl) : "api.openai.com") : null,
     cases: results,
     true_detections,
     false_positives,
@@ -262,14 +342,21 @@ export async function runCritic(model, { cases, env, fetchImpl = null, retries =
   };
 }
 
-/** Rank and recommend. Never lets a model be its own judge. */
-export function compare(genResults, criticResults) {
-  const okGens = genResults.filter((g) => g.parse_ok && g.schema_valid);
-  const genRank = [...okGens].sort((a, b) => (b.deterministic_score - a.deterministic_score) || (b.usable_without_rewrite - a.usable_without_rewrite) || (a.latency_ms - b.latency_ms));
-  const genFailRank = genResults.filter((g) => !(g.parse_ok && g.schema_valid));
-  const okCrit = criticResults.filter((c) => c.schema_reliability >= 0.5);
-  const critRank = [...okCrit].sort((a, b) => (b.f1 - a.f1) || (a.false_positives - b.false_positives) || (a.avg_latency_ms - b.avg_latency_ms));
+function safeHostname(url) { try { return new URL(String(url)).host; } catch { return null; } }
 
+/** Rank and recommend. Never lets a model be its own judge; never silently accepts model substitution. */
+export function compare(genResults, criticResults) {
+  const isMismatch = (r) => r.model_identity === "MODEL_ID_MISMATCH";
+  const usableGens = genResults.filter((g) => g.parse_ok && g.schema_valid && !isMismatch(g));
+  const genRank = [...usableGens].sort((a, b) => (b.deterministic_score - a.deterministic_score) || (b.usable_without_rewrite - a.usable_without_rewrite) || (a.latency_ms - b.latency_ms));
+  const genFailRank = genResults.filter((g) => !(g.parse_ok && g.schema_valid));
+  const mismatchGens = genResults.filter(isMismatch);
+
+  const usableCrit = criticResults.filter((c) => c.schema_reliability >= 0.5 && !isMismatch(c));
+  const critRank = [...usableCrit].sort((a, b) => (b.f1 - a.f1) || (a.false_positives - b.false_positives) || (a.avg_latency_ms - b.avg_latency_ms));
+  const mismatchCrit = criticResults.filter(isMismatch);
+
+  const ref = (r) => (r ? { provider: r.provider || "openai", model: r.model, endpoint_host: r.endpoint_host || null } : null);
   const recommended_generator = genRank[0]?.model ?? null;
   const secondary_generator = genRank[1]?.model ?? null;
   const recommended_critic = critRank[0]?.model ?? null;
@@ -279,40 +366,50 @@ export function compare(genResults, criticResults) {
   const mean = (arr, f) => arr.length ? arr.reduce((s, x) => s + f(x), 0) / arr.length : 0;
   const dimScore = (g, k) => { const d = (g.dimensions || []).find((x) => x.key === k); return d ? d.score : 0; };
   return {
-    generator_ranking: genRank.map((g) => ({ model: g.model, deterministic_score: g.deterministic_score, usable_without_rewrite: g.usable_without_rewrite, latency_ms: g.latency_ms, provider_status: g.provider_status })),
-    structurally_failed_generators: genFailRank.map((g) => ({ model: g.model, provider_status: g.provider_status, parse_ok: g.parse_ok, schema_valid: g.schema_valid })),
-    critic_ranking: critRank.map((c) => ({ model: c.model, f1: Number(c.f1.toFixed(3)), precision: Number(c.precision.toFixed(3)), recall: Number(c.recall.toFixed(3)), false_positives: c.false_positives, false_negatives: c.false_negatives, schema_reliability: c.schema_reliability, avg_latency_ms: c.avg_latency_ms })),
-    recommended_generator, secondary_generator, recommended_critic, secondary_critic, self_judge_conflict: selfJudgeConflict,
-    structured_output_reliability: { generators: genResults.map((g) => ({ model: g.model, parse_ok: g.parse_ok, schema_valid: g.schema_valid })), critics: criticResults.map((c) => ({ model: c.model, schema_reliability: c.schema_reliability })) },
+    generator_ranking: genRank.map((g) => ({ provider: g.provider || "openai", model: g.model, endpoint_host: g.endpoint_host || null, deterministic_score: g.deterministic_score, usable_without_rewrite: g.usable_without_rewrite, latency_ms: g.latency_ms, provider_status: g.provider_status })),
+    structurally_failed_generators: genFailRank.map((g) => ({ provider: g.provider || "openai", model: g.model, provider_status: g.provider_status, parse_ok: g.parse_ok, schema_valid: g.schema_valid })),
+    model_mismatch_candidates: [...mismatchGens.map((g) => ({ role: "generator", provider: g.provider, requested_model: g.requested_model, returned_model: g.returned_model })), ...mismatchCrit.map((c) => ({ role: "critic", provider: c.provider, requested_model: c.requested_model, returned_model: c.returned_model }))],
+    critic_ranking: critRank.map((c) => ({ provider: c.provider || "openai", model: c.model, endpoint_host: c.endpoint_host || null, f1: Number(c.f1.toFixed(3)), precision: Number(c.precision.toFixed(3)), recall: Number(c.recall.toFixed(3)), false_positives: c.false_positives, false_negatives: c.false_negatives, schema_reliability: c.schema_reliability, avg_latency_ms: c.avg_latency_ms })),
+    recommended_generator, secondary_generator, recommended_critic, secondary_critic,
+    recommended_generator_ref: ref(genRank[0]), recommended_critic_ref: ref(critRank[0]),
+    self_judge_conflict: selfJudgeConflict,
+    structured_output_reliability: { generators: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, parse_ok: g.parse_ok, schema_valid: g.schema_valid, model_identity: g.model_identity || null })), critics: criticResults.map((c) => ({ provider: c.provider || "openai", model: c.model, schema_reliability: c.schema_reliability })) },
     truth_adherence: { mean_product_truth: Number(mean(genResults, (g) => dimScore(g, "product_truth_adherence")).toFixed(3)), mean_customer_truth: Number(mean(genResults, (g) => dimScore(g, "customer_truth_adherence")).toFixed(3)), mean_hallucination_free: Number(mean(genResults, (g) => dimScore(g, "hallucination_incidence")).toFixed(3)) },
     writing_quality: { mean_anti_slop: Number(mean(genResults, (g) => dimScore(g, "anti_slop_compliance")).toFixed(3)), mean_constitution: Number(mean(genResults, (g) => dimScore(g, "writing_constitution_compliance")).toFixed(3)), mean_interchangeability: Number(mean(genResults, (g) => dimScore(g, "interchangeability")).toFixed(3)) },
     latency: { generators_avg_ms: Math.round(mean(genResults, (g) => g.latency_ms)), critics_avg_ms: Math.round(mean(criticResults, (c) => c.avg_latency_ms)) },
-    usage_cost: { note: "Token usage is reported when the endpoint returns it; cost depends on the chosen provider's pricing.", generator_usage: genResults.map((g) => ({ model: g.model, usage: g.usage })) },
+    usage_cost: { note: "Token usage is reported when the endpoint returns it; cost depends on the chosen provider's pricing.", generator_usage: genResults.map((g) => ({ provider: g.provider || "openai", model: g.model, usage: g.usage })) },
     failure_rate: { generators: genResults.length ? genResults.filter((g) => g.provider_status !== STATUS.PROVIDER_SUCCESS).length / genResults.length : 0, critics: criticResults.length ? criticResults.filter((c) => c.failure_rate > 0).length / criticResults.length : 0 },
   };
 }
 
-/** Run the full candidate matrix. */
-export async function runBenchmark({ generators, critics, env = process.env, fetchImpl = null, retries = 0, timeoutMs, judge = true } = {}) {
+/** Run the full candidate matrix (candidates may target different named providers). */
+export async function runBenchmark({ generators, critics, profiles = null, env = process.env, fetchImpl = null, retries = 0, timeoutMs, judge = true } = {}) {
   if (!generators?.length) throw new Error("no generator candidates supplied");
+  const gens = generators.map(normalizeCandidate);
+  const crits = (critics || []).map(normalizeCandidate);
   const fixture = loadBenchFixture();
   const task = buildGenerationTask(fixture);
   const cases = buildCriticCases(fixture);
   const task_hash = createHash("sha256").update(task.system + task.user + JSON.stringify(task.schema)).digest("hex");
 
   const genResults = [];
-  for (const model of generators) {
-    const judgeModel = judge ? (critics || []).find((c) => c !== model) : null;
-    genResults.push(await runGenerator(model, { task, fixture, env, fetchImpl, retries, timeoutMs, judge: judgeModel ? { model: judgeModel, fetchImpl } : null }));
+  for (const cand of gens) {
+    let judgeRef = null;
+    if (judge) {
+      const jc = crits.find((c) => !(c.provider === cand.provider && c.model === cand.model));
+      if (jc) judgeRef = { provider: jc.provider, model: jc.model, fetchImpl };
+    }
+    genResults.push(await runGenerator(cand, { task, fixture, env, profiles, fetchImpl, retries, timeoutMs, judge: judgeRef }));
   }
   const criticResults = [];
-  for (const model of (critics || [])) criticResults.push(await runCritic(model, { cases, env, fetchImpl, retries, timeoutMs }));
+  for (const cand of crits) criticResults.push(await runCritic(cand, { cases, env, profiles, fetchImpl, retries, timeoutMs }));
 
   let base_host = null;
   try { base_host = new URL(chatEndpoint(env.OPENAI_BASE_URL, env)).host; } catch { /* ignore */ }
+  const providerIds = [...new Set([...gens, ...crits].map((c) => c.provider))];
 
   return {
-    meta: { tool: "swiipt-text-provider-bench", version: "1.0", generated_at: new Date().toISOString(), base_url_host: base_host, generators, critics: critics || [], retries, timeout_ms: timeoutMs || null, judge_enabled: !!judge },
+    meta: { tool: "swiipt-text-provider-bench", version: "1.1", generated_at: new Date().toISOString(), default_endpoint_host: base_host, providers: providerIds, generators: gens, critics: crits, retries, timeout_ms: timeoutMs || null, judge_enabled: !!judge },
     fixture: { id: fixture.id, synthetic: true },
     task_hash,
     generators: genResults,
@@ -322,28 +419,35 @@ export async function runBenchmark({ generators, critics, env = process.env, fet
 }
 
 function renderMarkdown(result) {
+  const ref = (c) => `${c.provider}/${c.model}`;
   const L = [];
   L.push(`# Swiipt Text Provider Benchmark`);
   L.push("");
   L.push(`- Generated: ${result.meta.generated_at}`);
-  L.push(`- Endpoint host: ${result.meta.base_url_host || "(unset)"}`);
-  L.push(`- Generators: ${result.meta.generators.join(", ") || "none"}`);
-  L.push(`- Critics: ${result.meta.critics.join(", ") || "none"}`);
+  L.push(`- Default endpoint host: ${result.meta.default_endpoint_host || "(unset)"}`);
+  L.push(`- Providers: ${(result.meta.providers || []).join(", ") || "none"}`);
+  L.push(`- Generators: ${(result.meta.generators || []).map(ref).join(", ") || "none"}`);
+  L.push(`- Critics: ${(result.meta.critics || []).map(ref).join(", ") || "none"}`);
   L.push(`- Fixture: ${result.fixture.id} (synthetic) · task ${result.task_hash.slice(0, 12)}`);
   L.push("");
   L.push(`## GENERATOR COMPARISON`);
-  L.push(`| Model | Det. score | Usable w/o rewrite | Latency ms | Provider status | Actual generator |`);
-  L.push(`|---|---|---|---|---|---|`);
-  for (const g of result.generators) L.push(`| ${g.model} | ${g.deterministic_score.toFixed(3)} | ${g.usable_without_rewrite} | ${g.latency_ms} | ${g.provider_status} | ${g.actual_generator} |`);
+  L.push(`| Provider | Model (requested) | Returned | Identity | Det. score | Usable | Latency ms | Provider status |`);
+  L.push(`|---|---|---|---|---|---|---|---|`);
+  for (const g of result.generators) L.push(`| ${g.provider} | ${g.requested_model || g.model} | ${g.returned_model || "—"} | ${g.model_identity || "—"} | ${g.deterministic_score.toFixed(3)} | ${g.usable_without_rewrite} | ${g.latency_ms} | ${g.provider_status} |`);
   L.push("");
   L.push(`## CRITIC COMPARISON`);
-  L.push(`| Model | F1 | Precision | Recall | FP | FN | Severity acc | Schema reliab. | Avg latency |`);
-  L.push(`|---|---|---|---|---|---|---|---|---|`);
-  for (const c of result.critics) L.push(`| ${c.model} | ${c.f1.toFixed(3)} | ${c.precision.toFixed(3)} | ${c.recall.toFixed(3)} | ${c.false_positives} | ${c.false_negatives} | ${c.severity_accuracy.toFixed(2)} | ${c.schema_reliability.toFixed(2)} | ${c.avg_latency_ms} |`);
+  L.push(`| Provider | Model | Identity | F1 | Precision | Recall | FP | FN | Severity acc | Schema reliab. | Avg latency |`);
+  L.push(`|---|---|---|---|---|---|---|---|---|---|---|`);
+  for (const c of result.critics) L.push(`| ${c.provider} | ${c.model} | ${c.model_identity || "—"} | ${c.f1.toFixed(3)} | ${c.precision.toFixed(3)} | ${c.recall.toFixed(3)} | ${c.false_positives} | ${c.false_negatives} | ${c.severity_accuracy.toFixed(2)} | ${c.schema_reliability.toFixed(2)} | ${c.avg_latency_ms} |`);
   L.push("");
   L.push(`## STRUCTURED OUTPUT RELIABILITY`);
-  for (const g of result.comparison.structured_output_reliability.generators) L.push(`- Generator ${g.model}: parse=${g.parse_ok} schema=${g.schema_valid}`);
-  for (const c of result.comparison.structured_output_reliability.critics) L.push(`- Critic ${c.model}: schema reliability=${c.schema_reliability}`);
+  for (const g of result.comparison.structured_output_reliability.generators) L.push(`- Generator ${g.provider}/${g.model}: parse=${g.parse_ok} schema=${g.schema_valid} identity=${g.model_identity || "—"}`);
+  for (const c of result.comparison.structured_output_reliability.critics) L.push(`- Critic ${c.provider}/${c.model}: schema reliability=${c.schema_reliability}`);
+  L.push("");
+  L.push(`## MODEL IDENTITY / MODEL_ID_MISMATCH`);
+  const mm = result.comparison.model_mismatch_candidates || [];
+  if (!mm.length) L.push("- none (all matched or unverified)");
+  else for (const m of mm) L.push(`- ${m.role} ${m.provider}: requested ${m.requested_model} → returned ${m.returned_model} (MODEL_ID_MISMATCH, excluded from recommendation)`);
   L.push("");
   L.push(`## TRUTH-ADHERENCE RESULTS`);
   L.push(JSON.stringify(result.comparison.truth_adherence, null, 2));
@@ -368,9 +472,9 @@ function renderMarkdown(result) {
   L.push("");
   L.push(`## RECOMMENDED CRITIC`);
   L.push(`**${result.comparison.recommended_critic || "none"}** (secondary fallback: ${result.comparison.secondary_critic || "none"})`);
-  if (result.comparison.self_judge_conflict) L.push(`\n> ⚠️ recommended generator and critic are the same model — choose distinct models for independent review.`);
+  if (result.comparison.self_judge_conflict) L.push(`\n> recommended generator and critic are the same model — choose distinct models for independent review.`);
   const failed = result.comparison.structurally_failed_generators;
-  if (failed.length) { L.push(""); L.push("## STRUCTURALLY FAILED GENERATORS"); for (const f of failed) L.push(`- ${f.model}: status ${f.provider_status} (parse=${f.parse_ok})`); }
+  if (failed.length) { L.push(""); L.push("## STRUCTURALLY FAILED GENERATORS"); for (const f of failed) L.push(`- ${f.provider}/${f.model}: status ${f.provider_status} (parse=${f.parse_ok})`); }
   return L.join("\n") + "\n";
 }
 
@@ -397,18 +501,24 @@ if (process.argv[1] && process.argv[1].endsWith("text-provider-bench.mjs")) {
   const args = parseArgs(process.argv.slice(2));
   let gens = list(args.generators);
   let crits = list(args.critics);
+  let profiles = null;
   if (args.candidates) {
     const cfg = JSON.parse(readFileSync(args.candidates, "utf8"));
-    gens = cfg.generators || gens;
-    crits = cfg.critics || crits;
+    if (cfg.generators) gens = cfg.generators;
+    if (cfg.critics) crits = cfg.critics;
+    if (cfg.providers) profiles = cfg.providers;
   }
   if (!gens.length) { console.error("No generator candidates. Use --generators \"m1,m2\" or --candidates bench/candidates.json (see bench/candidates.example.json)."); process.exit(2); }
+
   const env = { ...process.env, ...(args.baseUrl ? { OPENAI_BASE_URL: args.baseUrl } : {}) };
-  if (!env.OPENAI_API_KEY) {
-    console.error(JSON.stringify({ status: STATUS.PROVIDER_NOT_CONFIGURED, detail: "OPENAI_API_KEY not set — benchmark not run (no silent substitution)." }));
+  const allCands = [...gens, ...crits].map((c) => { try { return normalizeCandidate(c); } catch { return null; } }).filter(Boolean);
+  const configured = allCands.filter((c) => resolveProvider(profiles, c.provider, env).ok);
+  if (!configured.length) {
+    console.error(JSON.stringify({ status: STATUS.PROVIDER_NOT_CONFIGURED, detail: "no candidate provider is configured (check base_url_env / api_key_env) — benchmark not run (no silent substitution).", providers: [...new Set(allCands.map((c) => c.provider))] }));
     process.exit(3);
   }
-  runBenchmark({ generators: gens, critics: crits, env, retries: args.retries, timeoutMs: args.timeout, judge: args.judge }).then((result) => {
+
+  runBenchmark({ generators: gens, critics: crits, profiles, env, retries: args.retries, timeoutMs: args.timeout, judge: args.judge }).then((result) => {
     const outDir = join(root, "bench", "results");
     mkdirSync(outDir, { recursive: true });
     const stamp = new Date().toISOString().replace(/[:.]/g, "-");
@@ -420,6 +530,7 @@ if (process.argv[1] && process.argv[1].endsWith("text-provider-bench.mjs")) {
     console.log(`report:  ${report}`);
     console.log(`recommended generator: ${result.comparison.recommended_generator || "none"}`);
     console.log(`recommended critic:    ${result.comparison.recommended_critic || "none"}`);
+    if ((result.comparison.model_mismatch_candidates || []).length) console.log(`MODEL_ID_MISMATCH candidates: ${result.comparison.model_mismatch_candidates.length} (excluded from recommendation)`);
     console.log(`(recommendation only — no production env was modified)`);
     process.exit(0);
   }).catch((e) => { console.error(e && e.stack ? e.stack : String(e)); process.exit(1); });

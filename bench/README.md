@@ -21,33 +21,52 @@ Synthetic fixtures only (never production Truth):
 
 ## Run
 
-```bash
-# from Product Pipeline/
-# credentials come from the environment ONLY (never written to results)
-export OPENAI_API_KEY=...            # (and optionally OPENAI_BASE_URL / OPENAI_TIMEOUT_MS)
+Credentials come from the environment ONLY (never written to results).
 
-node bench/text-provider-bench.mjs \
-  --generators "gpt-4o-mini,gpt-4o" \
-  --critics    "gpt-4o-mini,gpt-4o" \
-  --retries 1 --timeout 60000
+**Single provider (openai-compatible):**
+
+```bash
+export OPENAI_API_KEY=...            # optionally OPENAI_BASE_URL / OPENAI_TIMEOUT_MS
+node bench/text-provider-bench.mjs --generators "model-a,model-b" --critics "model-c,model-d" --retries 1 --timeout 60000
 ```
 
-Or via a candidate file (see `bench/candidates.example.json`):
+**Multiple named providers** — a candidate file defines provider *profiles* (env-var names only)
+and generator/critic candidates that reference them (see `bench/candidates.example.json`):
+
+```json
+{
+  "providers": {
+    "openai": { "base_url_env": "OPENAI_BASE_URL", "api_key_env": "OPENAI_API_KEY", "default_base": true },
+    "deepseek": { "base_url_env": "DEEPSEEK_BASE_URL", "api_key_env": "DEEPSEEK_API_KEY" }
+  },
+  "generators": [ { "provider": "deepseek", "model": "..." } ],
+  "critics":    [ { "provider": "openai", "model": "..." } ]
+}
+```
 
 ```bash
+export DEEPSEEK_BASE_URL=... DEEPSEEK_API_KEY=... OPENAI_API_KEY=...
 node bench/text-provider-bench.mjs --candidates bench/candidates.json
 ```
 
+A profile defines **only** `base_url_env` and `api_key_env` (and optionally `default_base: true` for
+the official OpenAI default). **No secret ever appears in the candidate file.** Each candidate resolves
+its own base URL + key at runtime; a missing credential fails **only that candidate** — never another
+provider, and never a fallback to `OPENAI_*`.
+
 Options: `--generators` · `--critics` · `--candidates` · `--retries N` · `--timeout MS` ·
-`--base-url URL` (run-scoped only) · `--out FILE` · `--report FILE` · `--no-judge`.
+`--base-url URL` (legacy single-provider, run-scoped only) · `--out FILE` · `--report FILE` · `--no-judge`.
 
 Outputs: `bench/results/<stamp>-results.json` (machine-readable) + `<stamp>-report.md` (human-readable).
 
 ## What is measured
 
-**Per model run:** provider, model, timestamp, latency, HTTP/provider status, structured-output parse
-success, schema validity, retry count, usage/token metadata (when returned), generation status,
-actual generator.
+**Per model run:** provider id, endpoint host, requested model, returned model (when the endpoint
+reports it), model identity (`OK` / `OK_UNVERIFIED` / `MODEL_ID_MISMATCH`), timestamp, latency,
+HTTP/provider status, structured-output parse success, schema validity, retry count, usage/token
+metadata (when returned), generation status, actual generator. **If the provider returns a different
+model than requested, it is recorded as `MODEL_ID_MISMATCH` and excluded from the recommendation** —
+provider substitution is never silently accepted.
 
 **Generator quality dimensions (A–P):** Product Truth adherence · Customer Truth adherence · Market
 Truth adherence · Brand Truth adherence · Writing Constitution compliance · Anti-Slop compliance ·

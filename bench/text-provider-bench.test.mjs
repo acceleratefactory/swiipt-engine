@@ -2,7 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { loadBenchFixture, buildGenerationTask, buildCriticCases, goodBenchAsset, REQUIRED_FIELDS } from "./fixtures.mjs";
-import { evaluateGeneratorOutput, runGenerator, runCritic, compare, runBenchmark, renderMarkdown } from "./text-provider-bench.mjs";
+import { evaluateGeneratorOutput, runGenerator, runCritic, compare, runBenchmark, renderMarkdown, resolveProvider, normalizeCandidate } from "./text-provider-bench.mjs";
 
 const usage = { prompt_tokens: 100, completion_tokens: 50, total_tokens: 150 };
 const genFetch = (obj, sink = []) => async (url, opts) => { sink.push(JSON.parse(opts.body)); return { ok: true, status: 200, json: async () => ({ choices: [{ message: { content: JSON.stringify(obj) } }], usage }) }; };
@@ -134,4 +134,117 @@ test("9. full benchmark run produces a machine-readable result with no credentia
 
 test("10. no candidates -> explicit failure (never a silent default)", async () => {
   await assert.rejects(() => runBenchmark({ generators: [], critics: [], env: { OPENAI_API_KEY: "x" } }), /no generator candidates/);
+});
+
+// ---------- multi-provider support ----------
+
+test("11. two candidates can use different provider base URLs", async () => {
+  const fx = loadBenchFixture();
+  const task = buildGenerationTask(fx);
+  const env = { P1_BASE_URL: "https://p1.example/v1", P1_API_KEY: "testkey-p1-aaaaaaaa", P2_BASE_URL: "https://p2.example/v1", P2_API_KEY: "testkey-p2-bbbbbbbb" };
+  const profiles = { p1: { base_url_env: "P1_BASE_URL", api_key_env: "P1_API_KEY" }, p2: { base_url_env: "P2_BASE_URL", api_key_env: "P2_API_KEY" } };
+  const hits = [];
+  const fetchImpl = async (url, opts) => { hits.push({ url, auth: opts.headers.Authorization }); return { ok: true, status: 200, json: async () => ({ model: "m", choices: [{ message: { content: JSON.stringify(goodBenchAsset(fx)) } }], usage }) }; };
+  const g1 = await runGenerator({ provider: "p1", model: "m1" }, { task, fixture: fx, env, profiles, fetchImpl });
+  const g2 = await runGenerator({ provider: "p2", model: "m2" }, { task, fixture: fx, env, profiles, fetchImpl });
+  assert.equal(hits[0].url, "https://p1.example/v1/chat/completions");
+  assert.equal(hits[1].url, "https://p2.example/v1/chat/completions");
+  assert.equal(g1.provider, "p1");
+  assert.equal(g2.provider, "p2");
+});
+
+test("12. two candidates can use different API keys without exposing them", async () => {
+  const fx = loadBenchFixture();
+  const task = buildGenerationTask(fx);
+  const k1 = "testkey-p1-aaaaaaaa", k2 = "testkey-p2-bbbbbbbb";
+  const env = { P1_BASE_URL: "https://p1.example/v1", P1_API_KEY: k1, P2_BASE_URL: "https://p2.example/v1", P2_API_KEY: k2 };
+  const profiles = { p1: { base_url_env: "P1_BASE_URL", api_key_env: "P1_API_KEY" }, p2: { base_url_env: "P2_BASE_URL", api_key_env: "P2_API_KEY" } };
+  const hits = [];
+  const fetchImpl = async (url, opts) => { hits.push({ url, auth: opts.headers.Authorization }); return { ok: true, status: 200, json: async () => ({ model: "m", choices: [{ message: { content: JSON.stringify(goodBenchAsset(fx)) } }], usage }) }; };
+  const g1 = await runGenerator({ provider: "p1", model: "m1" }, { task, fixture: fx, env, profiles, fetchImpl });
+  const g2 = await runGenerator({ provider: "p2", model: "m2" }, { task, fixture: fx, env, profiles, fetchImpl });
+  assert.equal(hits[0].auth, `Bearer ${k1}`);
+  assert.equal(hits[1].auth, `Bearer ${k2}`);
+  assert.notEqual(hits[0].auth, hits[1].auth);
+  const all = JSON.stringify({ g1, g2 });
+  assert.equal(all.includes(k1), false);
+  assert.equal(all.includes(k2), false);
+});
+
+test("13. provider identity and endpoint host are recorded; unknown/missing profiles fail honestly", async () => {
+  const fx = loadBenchFixture();
+  const task = buildGenerationTask(fx);
+  const env = { P1_BASE_URL: "https://p1.example/v1", P1_API_KEY: "testkey-p1-aaaaaaaa" };
+  const profiles = { p1: { base_url_env: "P1_BASE_URL", api_key_env: "P1_API_KEY" } };
+  const fetchImpl = async () => ({ ok: true, status: 200, json: async () => ({ model: "m1", choices: [{ message: { content: JSON.stringify(goodBenchAsset(fx)) } }] }) });
+  const g = await runGenerator({ provider: "p1", model: "m1" }, { task, fixture: fx, env, profiles, fetchImpl });
+  assert.equal(g.provider, "p1");
+  assert.equal(g.endpoint_host, "p1.example");
+  assert.equal(resolveProvider({}, "xkiro", {}).ok, false);
+  assert.match(resolveProvider({}, "xkiro", {}).error, /unknown provider profile/);
+  assert.deepEqual(normalizeCandidate({ provider: "deepseek", model: "x" }), { provider: "deepseek", model: "x" });
+});
+
+test("14. returned-model mismatch is surfaced as MODEL_ID_MISMATCH", async () => {
+  const fx = loadBenchFixture();
+  const task = buildGenerationTask(fx);
+  const env = { P1_BASE_URL: "https://p1.example/v1", P1_API_KEY: "testkey-p1-aaaaaaaa" };
+  const profiles = { p1: { base_url_env: "P1_BASE_URL", api_key_env: "P1_API_KEY" } };
+  const fetchImpl = async () => ({ ok: true, status: 200, json: async () => ({ model: "substituted-model-x", choices: [{ message: { content: JSON.stringify(goodBenchAsset(fx)) } }] }) });
+  const g = await runGenerator({ provider: "p1", model: "requested-model-y" }, { task, fixture: fx, env, profiles, fetchImpl });
+  assert.equal(g.requested_model, "requested-model-y");
+  assert.equal(g.returned_model, "substituted-model-x");
+  assert.equal(g.model_identity, "MODEL_ID_MISMATCH");
+});
+
+test("15. one provider failure does not substitute another provider or key", async () => {
+  const fx = loadBenchFixture();
+  const task = buildGenerationTask(fx);
+  const env = { P1_BASE_URL: "https://p1.example/v1", P1_API_KEY: "testkey-p1-aaaaaaaa", P2_BASE_URL: "https://p2.example/v1", P2_API_KEY: "testkey-p2-bbbbbbbb" };
+  const profiles = { p1: { base_url_env: "P1_BASE_URL", api_key_env: "P1_API_KEY" }, p2: { base_url_env: "P2_BASE_URL", api_key_env: "P2_API_KEY" } };
+  const hits = [];
+  const fetchImpl = async (url, opts) => { hits.push({ url, auth: opts.headers.Authorization }); if (url.includes("p1.example")) throw new Error("p1 down"); return { ok: true, status: 200, json: async () => ({ model: "m2", choices: [{ message: { content: JSON.stringify(goodBenchAsset(fx)) } }] }) }; };
+  const g1 = await runGenerator({ provider: "p1", model: "m1" }, { task, fixture: fx, env, profiles, fetchImpl });
+  const g2 = await runGenerator({ provider: "p2", model: "m2" }, { task, fixture: fx, env, profiles, fetchImpl });
+  assert.equal(g1.provider_status, "PROVIDER_ATTEMPT_FAILED");
+  assert.equal(g1.provider, "p1");
+  assert.equal(g2.provider_status, "PROVIDER_SUCCESS");
+  assert.equal(g2.provider, "p2");
+  assert.ok(hits.filter((h) => h.url.includes("p1.example")).every((h) => h.auth === "Bearer testkey-p1-aaaaaaaa"));
+  assert.ok(hits.filter((h) => h.url.includes("p2.example")).every((h) => h.auth === "Bearer testkey-p2-bbbbbbbb"));
+});
+
+test("15b. a candidate whose own provider env is missing never falls back to OPENAI_*", async () => {
+  const fx = loadBenchFixture();
+  const task = buildGenerationTask(fx);
+  const env = { OPENAI_API_KEY: "testkey-should-not-be-used", OPENAI_BASE_URL: "https://openai.example/v1" };
+  const profiles = { p3: { base_url_env: "P3_BASE_URL", api_key_env: "P3_API_KEY" } };
+  let called = 0;
+  const fetchImpl = async () => { called++; return { ok: true, status: 200, json: async () => ({ choices: [{ message: { content: "{}" } }] }) }; };
+  const g = await runGenerator({ provider: "p3", model: "m" }, { task, fixture: fx, env, profiles, fetchImpl });
+  assert.equal(g.provider_status, "PROVIDER_NOT_CONFIGURED");
+  assert.equal(called, 0);
+  assert.match(g.error, /not configured/);
+});
+
+test("16. mismatched-model candidates are excluded from the recommendation", () => {
+  const cmp = compare([
+    { provider: "p1", model: "m1", model_identity: "MODEL_ID_MISMATCH", parse_ok: true, schema_valid: true, deterministic_score: 0.99, usable_without_rewrite: true, latency_ms: 100, provider_status: "PROVIDER_SUCCESS" },
+    { provider: "p2", model: "m2", model_identity: "OK", parse_ok: true, schema_valid: true, deterministic_score: 0.6, usable_without_rewrite: true, latency_ms: 200, provider_status: "PROVIDER_SUCCESS" },
+  ], []);
+  assert.equal(cmp.recommended_generator, "m2");
+  assert.equal(cmp.model_mismatch_candidates.length, 1);
+  assert.equal(cmp.recommended_generator_ref.provider, "p2");
+});
+
+test("17. credentials never enter JSON or Markdown results across providers", async () => {
+  const fx = loadBenchFixture();
+  const k1 = "testkey-p1-aaaaaaaa", k2 = "testkey-p2-bbbbbbbb";
+  const env = { P1_BASE_URL: "https://p1.example/v1", P1_API_KEY: k1, P2_BASE_URL: "https://p2.example/v1", P2_API_KEY: k2 };
+  const profiles = { p1: { base_url_env: "P1_BASE_URL", api_key_env: "P1_API_KEY" }, p2: { base_url_env: "P2_BASE_URL", api_key_env: "P2_API_KEY" } };
+  const result = await runBenchmark({ generators: [{ provider: "p1", model: "m1" }, { provider: "p2", model: "m2" }], critics: [{ provider: "p2", model: "c1" }], profiles, env, fetchImpl: combinedFetch(goodBenchAsset(fx)) });
+  const json = JSON.stringify(result), md = renderMarkdown(result);
+  for (const k of [k1, k2]) { assert.equal(json.includes(k), false); assert.equal(md.includes(k), false); }
+  assert.ok(result.generators.every((g) => g.provider && g.endpoint_host));
+  assert.ok(result.comparison.recommended_generator);
 });
