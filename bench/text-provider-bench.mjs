@@ -80,6 +80,29 @@ function providerRefusal(cand, prov, reason) {
 }
 
 
+// ---------- Benchmark task identity (deterministic) ----------
+// Volatile Marketing Angle lifecycle fields excluded from the task hash (they change every run).
+const VOLATILE_ANGLE_FIELDS = ["created_at", "updated_at", "state_history"];
+
+/**
+ * Deterministic projection of the FROZEN benchmark task. Parses+clones task.user (does not mutate the
+ * runtime angle), removes only the volatile angle lifecycle timestamps, preserves every substantive
+ * field, and returns a canonical object serialization. Excludes provider/model/critic identity.
+ */
+export function canonicalTaskHashInput(task) {
+  let user;
+  try { user = JSON.parse(task.user); } catch { user = {}; }
+  if (user && user.angle && typeof user.angle === "object" && !Array.isArray(user.angle)) {
+    for (const f of VOLATILE_ANGLE_FIELDS) delete user.angle[f];
+  }
+  return JSON.stringify({ system: task.system, user, schema: task.schema });
+}
+
+/** SHA-256 hex identity of the frozen benchmark task (never an execution/model hash). */
+export function benchmarkTaskHash(task) {
+  return createHash("sha256").update(canonicalTaskHashInput(task)).digest("hex");
+}
+
 function collectText(output) {
   if (output == null) return "";
   if (typeof output === "string") return output;
@@ -648,7 +671,7 @@ export async function runBenchmark({ generators, critics, profiles = null, env =
   const fixture = loadBenchFixture();
   const task = buildGenerationTask(fixture);
   const cases = buildCriticCases(fixture);
-  const task_hash = createHash("sha256").update(task.system + task.user + JSON.stringify(task.schema)).digest("hex");
+  const task_hash = benchmarkTaskHash(task);
 
   const genResults = [];
   let gi = 0;

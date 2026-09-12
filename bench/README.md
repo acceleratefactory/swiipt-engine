@@ -19,6 +19,14 @@ Synthetic fixtures only (never production Truth):
 - Marketing Angle Record — built deterministically (`mae/harness/fixtures.mjs`)
 - Fixed generation instruction + JSON contract — `bench/schemas/bench-asset.schema.json`
 
+### `task_hash`
+`task_hash` identifies the **canonical frozen benchmark task** (SHA-256, 64 lowercase hex). It is a
+deterministic projection of `{ system, user, schema }` and intentionally **excludes**: provider
+identity, generator model identity, critic identity, execution timestamps, structured-output mode, and
+scoring/threshold configuration. Volatile Marketing Angle lifecycle fields (`created_at`, `updated_at`,
+`state_history`) are removed before hashing; every substantive angle/Truth/prompt/schema field is
+preserved. Same task ⇒ same hash regardless of which model is tested or when it runs.
+
 ## Run
 
 Credentials come from the environment ONLY (never written to results).

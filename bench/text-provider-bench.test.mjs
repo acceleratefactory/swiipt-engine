@@ -651,3 +651,73 @@ test("58. backward compatibility: ambiguous failure_rate removed; explicit metri
   assert.equal(typeof CRITIC_ELIGIBILITY.recall, "number");
   assert.equal(typeof criticEligibility(eligibleCritic()).eligible, "boolean");
 });
+
+// ---------- Task-hash determinism (task identity, not execution identity) ----------
+import { canonicalTaskHashInput, benchmarkTaskHash } from "./text-provider-bench.mjs";
+
+const mutateUser = (task, fn) => { const u = JSON.parse(task.user); fn(u); return { ...task, user: JSON.stringify(u) }; };
+const HEX64 = /^[0-9a-f]{64}$/;
+
+test("59. same task at different wall-clock times => identical task_hash", async () => {
+  const t1 = buildGenerationTask(loadBenchFixture());
+  await new Promise((r) => setTimeout(r, 5));
+  const t2 = buildGenerationTask(loadBenchFixture());
+  assert.equal(benchmarkTaskHash(t1), benchmarkTaskHash(t2));
+});
+
+test("60. volatile angle lifecycle timestamps do not change the hash (and are not mutated)", () => {
+  const t = buildGenerationTask(loadBenchFixture());
+  const before = JSON.parse(t.user).angle.created_at;
+  const base = benchmarkTaskHash(t);
+  const modified = mutateUser(t, (u) => {
+    u.angle.created_at = "2099-01-01T00:00:00Z";
+    u.angle.updated_at = "2099-01-01T00:00:00Z";
+    u.angle.state_history = [{ at: "2099-01-01T00:00:00Z" }];
+  });
+  assert.equal(benchmarkTaskHash(modified), base);
+  assert.equal(JSON.parse(t.user).angle.created_at, before, "the runtime task.user angle must not be mutated");
+});
+
+test("61. substantive Product Truth change changes the hash", () => {
+  const t = buildGenerationTask(loadBenchFixture());
+  const modified = mutateUser(t, (u) => { u.product_truth.promise = u.product_truth.promise + " CHANGED"; });
+  assert.notEqual(benchmarkTaskHash(modified), benchmarkTaskHash(t));
+});
+
+test("62. substantive Customer Truth change changes the hash", () => {
+  const t = buildGenerationTask(loadBenchFixture());
+  const modified = mutateUser(t, (u) => { u.customer_truth[0].exact_language = u.customer_truth[0].exact_language + " CHANGED"; });
+  assert.notEqual(benchmarkTaskHash(modified), benchmarkTaskHash(t));
+});
+
+test("63. substantive Angle change changes the hash", () => {
+  const t = buildGenerationTask(loadBenchFixture());
+  const modified = mutateUser(t, (u) => { u.angle.tier2.angle = u.angle.tier2.angle + " CHANGED"; });
+  assert.notEqual(benchmarkTaskHash(modified), benchmarkTaskHash(t));
+});
+
+test("64. output schema change changes the hash", () => {
+  const t = buildGenerationTask(loadBenchFixture());
+  const modified = { ...t, schema: { ...t.schema, required: [...t.schema.required, "extra_field"] } };
+  assert.notEqual(benchmarkTaskHash(modified), benchmarkTaskHash(t));
+});
+
+test("65. system prompt change changes the hash", () => {
+  const t = buildGenerationTask(loadBenchFixture());
+  const modified = { ...t, system: t.system + " CHANGED" };
+  assert.notEqual(benchmarkTaskHash(modified), benchmarkTaskHash(t));
+});
+
+test("66. model/provider metadata is not part of the task hash", () => {
+  const t = buildGenerationTask(loadBenchFixture());
+  const base = benchmarkTaskHash(t);
+  const withMeta = { ...t, provider: "nvidia", model: "some/model-id", candidateModel: "some/model-id", critic: "x" };
+  assert.equal(benchmarkTaskHash(withMeta), base);
+});
+
+test("67. task hash format is SHA-256 (64 lowercase hex)", () => {
+  const h = benchmarkTaskHash(buildGenerationTask(loadBenchFixture()));
+  assert.equal(h.length, 64);
+  assert.match(h, HEX64);
+  assert.equal(typeof canonicalTaskHashInput(buildGenerationTask(loadBenchFixture())), "string");
+});
