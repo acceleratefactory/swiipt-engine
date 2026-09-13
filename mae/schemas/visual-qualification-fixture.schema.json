@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/visual-qualification-fixture.schema.json",
+  "title": "MAE Visual Qualification Fixture",
+  "description": "A frozen visual qualification fixture (one distinct visual job). Freezes the chain (grounding -> spec -> image render spec -> prompt package) + expected structural constraints + QA expectations. Provider/model must never affect fixture identity.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["fixture_id", "version", "job_type", "is_fixture", "provenance", "source_ref", "visual_grounding", "visual_asset_spec", "image_render_spec", "prompt_package", "expected", "truth_references", "brand_truth_version", "qualification_dimensions", "deterministic_expected_checks", "fixture_hash"],
+  "properties": {
+    "fixture_id": { "enum": ["VF-1", "VF-2", "VF-3", "VF-4", "VF-5", "VF-6"] },
+    "version": { "type": "string", "minLength": 1 },
+    "job_type": { "enum": ["HUMAN_LIFESTYLE_SCENE", "CULTURALLY_SPECIFIC_SCENE", "PRODUCT_OBJECT_VISUAL", "LANDING_PAGE_HERO", "EDUCATIONAL_ILLUSTRATION", "SOCIAL_CAROUSEL_VISUAL"] },
+    "is_fixture": { "const": true },
+    "provenance": { "enum": ["synthetic_fixture", "canonical_fixture"] },
+    "source_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "angle_id": { "type": ["string", "null"] },
+        "product_id": { "type": ["string", "null"] },
+        "transformation_id": { "type": ["string", "null"] }
+      }
+    },
+    "visual_grounding": { "type": "object", "additionalProperties": true, "required": ["scene", "environment", "gesture_posture", "props", "lighting", "composition", "exclusions"] },
+    "visual_asset_spec": { "type": "object", "additionalProperties": true, "required": ["production_mode", "aspect_ratio", "canvas"] },
+    "image_render_spec": { "type": "object", "additionalProperties": true },
+    "prompt_package": { "type": "object", "additionalProperties": true, "required": ["prompt", "negative_prompt"] },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["production_mode", "aspect_ratio", "canvas", "structural_requirements", "required_negative_categories", "judgment_dimensions"],
+      "properties": {
+        "production_mode": { "type": "string" },
+        "compound": { "type": "boolean" },
+        "aspect_ratio": { "type": "string", "pattern": "^\\d+:\\d+$" },
+        "canvas": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["width", "height"],
+          "properties": { "width": { "type": "integer" }, "height": { "type": "integer" } }
+        },
+        "text_safe_zones": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+        "deterministic_overlays": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+        "structural_requirements": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "required_negative_categories": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "judgment_dimensions": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "truth_references": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["brand_truth_version"],
+      "properties": {
+        "angle_id": { "type": ["string", "null"] },
+        "customer_truth_refs": { "type": "array", "items": { "type": "string" } },
+        "product_truth_refs": { "type": "array", "items": { "type": "string" } },
+        "brand_truth_version": { "type": "string" }
+      }
+    },
+    "brand_truth_version": { "type": "string" },
+    "qualification_dimensions": { "type": "array", "items": { "type": "string" }, "minItems": 15 },
+    "deterministic_expected_checks": { "type": "object", "additionalProperties": true },
+    "grounding_classification": { "type": "object", "additionalProperties": { "enum": ["source_grounded", "production_instruction"] } },
+    "fixture_hash": { "type": "string", "minLength": 64, "maxLength": 64 }
+  }
+}

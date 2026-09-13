@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/visual-qualification-result.schema.json",
+  "title": "MAE Visual Provider Qualification Result",
+  "description": "Machine-readable result of running one image provider/model against one frozen visual qualification fixture. Honest nulls when no provider ran. No fabricated provider/model/latency/cost values.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["provider", "requested_model", "returned_model", "fixture_id", "fixture_hash", "generation_status", "artifact_id", "latency_ms", "cost", "seed_if_available", "provider_job_id", "deterministic_checks", "judgment_checks", "overall_status", "blocking_failures", "human_review_required", "notes"],
+  "properties": {
+    "provider": { "type": ["string", "null"] },
+    "requested_model": { "type": ["string", "null"] },
+    "returned_model": { "type": ["string", "null"] },
+    "fixture_id": { "type": ["string", "null"] },
+    "fixture_hash": { "type": ["string", "null"] },
+    "generation_status": { "enum": ["NOT_RUN", "GENERATED", "PROVIDER_UNAVAILABLE", "PRODUCTION_BLOCKED", "FAILED"] },
+    "artifact_id": { "type": ["string", "null"] },
+    "latency_ms": { "type": ["number", "null"] },
+    "cost": { "type": ["number", "null"] },
+    "seed_if_available": { "type": ["integer", "string", "null"] },
+    "provider_job_id": { "type": ["string", "null"] },
+    "deterministic_checks": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "judgment_checks": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "overall_status": { "enum": ["PASS", "FAIL", "BLOCK", "NOT_RUN", "JUDGMENT_REQUIRED", "HUMAN_REVIEW", "SOURCE_REQUIRED"] },
+    "blocking_failures": { "type": "array", "items": { "type": "string" } },
+    "human_review_required": { "type": "boolean" },
+    "notes": { "type": ["string", "null"] }
+  }
+}

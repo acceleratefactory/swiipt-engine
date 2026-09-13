@@ -1,0 +1,182 @@
+{
+  "fixture_id": "VF-5",
+  "version": "1.0",
+  "job_type": "EDUCATIONAL_ILLUSTRATION",
+  "is_fixture": true,
+  "provenance": "synthetic_fixture",
+  "source_ref": {
+    "angle_id": null,
+    "product_id": "PROD-VQ5",
+    "transformation_id": null
+  },
+  "visual_grounding": {
+    "id": "VG-VQ5-001",
+    "class": "visual_grounding",
+    "scene": "A non-photographic diagram of a three-step physical sequence",
+    "environment": "Flat illustrative background",
+    "subject": "Abstract figure performing a 3-step sequence",
+    "gesture_posture": "Three sequential positions",
+    "props": [
+      "sequence markers"
+    ],
+    "wardrobe": null,
+    "lighting": "Flat illustrative lighting (no photorealism)",
+    "cultural_markers": [],
+    "emotional_tone": null,
+    "composition": "Even, instructional layout with clear step separation",
+    "exclusions": [
+      "no symmetrical AI-face",
+      "no gradient blobs",
+      "no clinical staging or staged pain expression",
+      "no embedded text or lettering",
+      "no photorealism",
+      "no embedded labels"
+    ],
+    "detail_classes": {
+      "scene": "source_grounded",
+      "environment": "source_grounded",
+      "subject": "source_grounded",
+      "gesture_posture": "source_grounded",
+      "props": "source_grounded",
+      "lighting": "production_instruction",
+      "composition": "production_instruction",
+      "exclusions": "source_grounded"
+    },
+    "provenance": {
+      "angle_id": null,
+      "customer_truth_refs": [],
+      "product_truth_refs": [],
+      "brand_truth_version": "1.0",
+      "platform": null,
+      "asset_purpose": null,
+      "derivation": "deterministic:VisualGroundingService@1.0"
+    }
+  },
+  "visual_asset_spec": {
+    "id": "VAS-VQ5-001",
+    "class": "visual_asset_spec",
+    "production_mode": "GENERATED_SCENE",
+    "compound": false,
+    "aspect_ratio": "1080:1080",
+    "canvas": {
+      "width": 1080,
+      "height": 1080
+    },
+    "overlay": {
+      "type": "none"
+    }
+  },
+  "image_render_spec": {
+    "spec_type": "ImageRenderSpec",
+    "scene": "Non-photographic diagram of a three-step sequence",
+    "aspect_ratio": "1080:1080",
+    "negative_constraints": [
+      "no symmetrical AI-face",
+      "no gradient blobs",
+      "no clinical staging or staged pain expression",
+      "no embedded text or lettering",
+      "no photorealism",
+      "no embedded labels"
+    ],
+    "text_overlay_allowed": false
+  },
+  "prompt_package": {
+    "id": "IPP-VQ5-001",
+    "prompt": "Scene: A non-photographic diagram of a three-step physical sequence. Clear step separation; no embedded labels.",
+    "negative_prompt": "no symmetrical AI-face; no gradient blobs; no clinical staging or staged pain expression; no embedded text or lettering; no photorealism; no embedded labels",
+    "negative_constraints": [
+      {
+        "text": "no symmetrical AI-face",
+        "category": "brand_rule",
+        "reason": "brand"
+      },
+      {
+        "text": "no gradient blobs",
+        "category": "brand_rule",
+        "reason": "brand"
+      },
+      {
+        "text": "no clinical staging or staged pain expression",
+        "category": "brand_rule",
+        "reason": "brand"
+      },
+      {
+        "text": "no embedded text or lettering",
+        "category": "brand_rule",
+        "reason": "brand"
+      }
+    ]
+  },
+  "expected": {
+    "production_mode": "GENERATED_SCENE",
+    "compound": false,
+    "aspect_ratio": "1080:1080",
+    "canvas": {
+      "width": 1080,
+      "height": 1080
+    },
+    "text_safe_zones": [],
+    "deterministic_overlays": [],
+    "structural_requirements": [
+      "non-photographic illustrative style",
+      "clear 3-step structure",
+      "no embedded text (labels applied deterministically)"
+    ],
+    "required_negative_categories": [
+      "grounding_exclusion",
+      "brand_anti_pattern",
+      "brand_rule",
+      "platform"
+    ],
+    "judgment_dimensions": [
+      "ANGLE_FIDELITY",
+      "CUSTOMER_TRUTH_FIDELITY",
+      "PRODUCT_TRUTH_FIDELITY",
+      "VISUAL_GROUNDING_FIDELITY",
+      "SCENE_FIDELITY",
+      "CULTURAL_INTEGRITY",
+      "EMOTIONAL_INTEGRITY",
+      "BRAND_FIT",
+      "INTERCHANGEABILITY",
+      "AI_ARTIFACTS",
+      "ANATOMICAL_PLAUSIBILITY",
+      "COMPOSITION",
+      "TEXT_SAFETY",
+      "UNSUPPORTED_VISUAL_CLAIM"
+    ]
+  },
+  "truth_references": {
+    "angle_id": null,
+    "customer_truth_refs": [],
+    "product_truth_refs": [],
+    "brand_truth_version": "1.0"
+  },
+  "brand_truth_version": "1.0",
+  "deterministic_expected_checks": {
+    "canvas_dimensions": "1080x1080",
+    "aspect_ratio": "1080:1080",
+    "image_slot_role": "BACKGROUND",
+    "fit": "contain",
+    "overlay_type": "none",
+    "text_safe_zones_present": true,
+    "locked_copy_required": true
+  },
+  "qualification_dimensions": [
+    "ANGLE_FIDELITY",
+    "CUSTOMER_TRUTH_FIDELITY",
+    "PRODUCT_TRUTH_FIDELITY",
+    "VISUAL_GROUNDING_FIDELITY",
+    "SCENE_FIDELITY",
+    "CULTURAL_INTEGRITY",
+    "EMOTIONAL_INTEGRITY",
+    "BRAND_FIT",
+    "INTERCHANGEABILITY",
+    "AI_ARTIFACTS",
+    "ANATOMICAL_PLAUSIBILITY",
+    "COMPOSITION",
+    "TEXT_SAFETY",
+    "PLATFORM_FIT",
+    "UNSUPPORTED_VISUAL_CLAIM"
+  ],
+  "fixture_hash": "64e04a794918601416c3ff0e7c6f756a3d141a5a104387020ddd368e622e5075"
+}

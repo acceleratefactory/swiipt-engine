@@ -1,0 +1,199 @@
+{
+  "fixture_id": "VF-6",
+  "version": "1.0",
+  "job_type": "SOCIAL_CAROUSEL_VISUAL",
+  "is_fixture": true,
+  "provenance": "synthetic_fixture",
+  "source_ref": {
+    "angle_id": null,
+    "product_id": "PROD-VQ6",
+    "transformation_id": null
+  },
+  "visual_grounding": {
+    "id": "VG-VQ6-001",
+    "class": "visual_grounding",
+    "scene": "A single social panel image with a protected text region",
+    "environment": "Simple contextual background",
+    "subject": "Optional single subject",
+    "gesture_posture": "Natural",
+    "props": [],
+    "wardrobe": null,
+    "lighting": "Soft",
+    "cultural_markers": [],
+    "emotional_tone": "Calm",
+    "composition": "Panel composition with a reserved text-safe area",
+    "exclusions": [
+      "no symmetrical AI-face",
+      "no gradient blobs",
+      "no clinical staging or staged pain expression",
+      "no embedded text or lettering"
+    ],
+    "detail_classes": {
+      "scene": "source_grounded",
+      "environment": "source_grounded",
+      "subject": "source_grounded",
+      "gesture_posture": "source_grounded",
+      "props": "source_grounded",
+      "lighting": "production_instruction",
+      "composition": "production_instruction",
+      "exclusions": "source_grounded"
+    },
+    "provenance": {
+      "angle_id": null,
+      "customer_truth_refs": [],
+      "product_truth_refs": [],
+      "brand_truth_version": "1.0",
+      "platform": null,
+      "asset_purpose": null,
+      "derivation": "deterministic:VisualGroundingService@1.0"
+    }
+  },
+  "visual_asset_spec": {
+    "id": "VAS-VQ6-001",
+    "class": "visual_asset_spec",
+    "production_mode": "CAROUSEL",
+    "compound": true,
+    "aspect_ratio": "1080:1350",
+    "canvas": {
+      "width": 1080,
+      "height": 1350
+    },
+    "overlay": {
+      "type": "gradient",
+      "color": "#0B1F33",
+      "opacity": 0.4,
+      "direction": "bottom"
+    }
+  },
+  "image_render_spec": {
+    "spec_type": "ImageRenderSpec",
+    "scene": "A single social panel image with a protected text region",
+    "aspect_ratio": "1080:1350",
+    "negative_constraints": [
+      "no symmetrical AI-face",
+      "no gradient blobs",
+      "no clinical staging or staged pain expression",
+      "no embedded text or lettering"
+    ],
+    "text_overlay_allowed": false
+  },
+  "prompt_package": {
+    "id": "IPP-VQ6-001",
+    "prompt": "Scene: A single social panel image; reserve a clear text-safe area for deterministic type.",
+    "negative_prompt": "no symmetrical AI-face; no gradient blobs; no clinical staging or staged pain expression; no embedded text or lettering",
+    "negative_constraints": [
+      {
+        "text": "no symmetrical AI-face",
+        "category": "brand_rule",
+        "reason": "brand"
+      },
+      {
+        "text": "no gradient blobs",
+        "category": "brand_rule",
+        "reason": "brand"
+      },
+      {
+        "text": "no clinical staging or staged pain expression",
+        "category": "brand_rule",
+        "reason": "brand"
+      },
+      {
+        "text": "no embedded text or lettering",
+        "category": "brand_rule",
+        "reason": "brand"
+      }
+    ]
+  },
+  "expected": {
+    "production_mode": "CAROUSEL",
+    "compound": true,
+    "aspect_ratio": "1080:1350",
+    "canvas": {
+      "width": 1080,
+      "height": 1350
+    },
+    "text_safe_zones": [
+      {
+        "edge": "top",
+        "min_px": 96
+      },
+      {
+        "edge": "bottom",
+        "min_px": 180
+      }
+    ],
+    "deterministic_overlays": [
+      {
+        "kind": "headline"
+      },
+      {
+        "kind": "cta"
+      },
+      {
+        "kind": "logo"
+      }
+    ],
+    "structural_requirements": [
+      "panel composition",
+      "text-safe area preserved",
+      "consistent with asset family",
+      "no embedded text"
+    ],
+    "required_negative_categories": [
+      "grounding_exclusion",
+      "brand_anti_pattern",
+      "brand_rule",
+      "platform"
+    ],
+    "judgment_dimensions": [
+      "ANGLE_FIDELITY",
+      "CUSTOMER_TRUTH_FIDELITY",
+      "PRODUCT_TRUTH_FIDELITY",
+      "VISUAL_GROUNDING_FIDELITY",
+      "SCENE_FIDELITY",
+      "CULTURAL_INTEGRITY",
+      "EMOTIONAL_INTEGRITY",
+      "BRAND_FIT",
+      "INTERCHANGEABILITY",
+      "AI_ARTIFACTS",
+      "ANATOMICAL_PLAUSIBILITY",
+      "COMPOSITION",
+      "TEXT_SAFETY",
+      "UNSUPPORTED_VISUAL_CLAIM"
+    ]
+  },
+  "truth_references": {
+    "angle_id": null,
+    "customer_truth_refs": [],
+    "product_truth_refs": [],
+    "brand_truth_version": "1.0"
+  },
+  "brand_truth_version": "1.0",
+  "deterministic_expected_checks": {
+    "canvas_dimensions": "1080x1350",
+    "aspect_ratio": "1080:1350",
+    "image_slot_role": "BACKGROUND",
+    "fit": "cover",
+    "overlay_type": "gradient",
+    "text_safe_zones_present": true,
+    "locked_copy_required": true
+  },
+  "qualification_dimensions": [
+    "ANGLE_FIDELITY",
+    "CUSTOMER_TRUTH_FIDELITY",
+    "PRODUCT_TRUTH_FIDELITY",
+    "VISUAL_GROUNDING_FIDELITY",
+    "SCENE_FIDELITY",
+    "CULTURAL_INTEGRITY",
+    "EMOTIONAL_INTEGRITY",
+    "BRAND_FIT",
+    "INTERCHANGEABILITY",
+    "AI_ARTIFACTS",
+    "ANATOMICAL_PLAUSIBILITY",
+    "COMPOSITION",
+    "TEXT_SAFETY",
+    "PLATFORM_FIT",
+    "UNSUPPORTED_VISUAL_CLAIM"
+  ],
+  "fixture_hash": "aa0743127a1efb5ce15c573b98978ecf6dcab249e2f92f8e384f0bd696aa08fa"
+}

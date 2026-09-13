@@ -1,0 +1,506 @@
+{
+  "fixture_id": "VF-2",
+  "version": "1.0",
+  "job_type": "CULTURALLY_SPECIFIC_SCENE",
+  "is_fixture": true,
+  "provenance": "canonical_fixture",
+  "source_ref": {
+    "angle_id": "ANG-CSEC-006",
+    "product_id": "PROD-CSEC",
+    "transformation_id": "TR-CSEC"
+  },
+  "visual_grounding": {
+    "id": "VG-CSEC-006",
+    "class": "visual_grounding",
+    "scene": "It is 3 AM, the baby is finally asleep, and she needs to stand up from the bed to reach the baby",
+    "environment": "Home after early discharge; hospital pamphlet gave only generic advice; alone at night",
+    "subject": "Nigerian first-time mother, day 6 after C-section, minimal overnight support",
+    "gesture_posture": "Rising from bed; braces against the bed frame; holds the dresser and waits for the pain to pass; avoids standing unless necessary",
+    "props": [
+      "bed frame",
+      "dresser"
+    ],
+    "wardrobe": null,
+    "lighting": "Soft low-key practical night lighting (implied by the 3 AM scene)",
+    "cultural_markers": [
+      "Nigerian",
+      "early discharge common"
+    ],
+    "emotional_tone": "Afraid something may be wrong internally, but reluctant to seek further medical contact over something she fears may be dismissed as normal",
+    "composition": "Single subject, intimate framing, deliberate negative space reserved for deterministic text overlay",
+    "exclusions": [
+      "no fabricated product UI or tools",
+      "no clinical staging or staged pain expression",
+      "no gamification implied for sensitive subjects",
+      "no symmetrical AI-face",
+      "no gradient blobs",
+      "no floating mockups",
+      "no generic stock composition",
+      "no mixed icon families",
+      "no Canva/Headspace/hospital-portal resemblance",
+      "Everyday movement positioning ONLY. Never diagnoses; never replaces clinical care."
+    ],
+    "detail_classes": {
+      "scene": "source_grounded",
+      "environment": "source_grounded",
+      "subject": "source_grounded",
+      "gesture_posture": "source_grounded",
+      "props": "source_grounded",
+      "lighting": "production_instruction",
+      "cultural_markers": "source_grounded",
+      "emotional_tone": "source_grounded",
+      "composition": "production_instruction",
+      "exclusions": "source_grounded"
+    },
+    "provenance": {
+      "angle_id": "ANG-CSEC-006",
+      "customer_truth_refs": [
+        "CRF-CSEC-014",
+        "CRF-CSEC-033"
+      ],
+      "product_truth_refs": [
+        "PTR-CSEC-001"
+      ],
+      "brand_truth_version": "1.0",
+      "platform": "instagram",
+      "asset_purpose": "stop_scroll_identification",
+      "derivation": "deterministic:VisualGroundingService@1.0"
+    }
+  },
+  "visual_asset_spec": {
+    "id": "VAS-CSEC-006",
+    "class": "visual_asset_spec",
+    "version": "1.0",
+    "angle_id": "ANG-CSEC-006",
+    "asset_brief_id": null,
+    "visual_grounding_id": "VG-CSEC-006",
+    "platform": "instagram",
+    "asset_purpose": "stop_scroll_identification",
+    "production_mode": "GENERATED_SCENE",
+    "compound": true,
+    "aspect_ratio": "1080:1350",
+    "canvas": {
+      "width": 1080,
+      "height": 1350
+    },
+    "brand_visual_tokens_version": "swt-tokens.css@1.x",
+    "image_placement": {
+      "role": "BACKGROUND",
+      "cover": "full_bleed",
+      "focal_point": null,
+      "safe_zone_for_subject": "lower two-thirds"
+    },
+    "text_safe_zones": [
+      {
+        "edge": "top",
+        "min_px": 96
+      },
+      {
+        "edge": "left",
+        "min_px": 96
+      },
+      {
+        "edge": "right",
+        "min_px": 96
+      },
+      {
+        "edge": "bottom",
+        "min_px": 180
+      }
+    ],
+    "deterministic_overlays": [
+      {
+        "kind": "headline",
+        "locked": true,
+        "copy_ref": null
+      },
+      {
+        "kind": "body",
+        "locked": true,
+        "copy_ref": null
+      },
+      {
+        "kind": "cta",
+        "locked": true,
+        "copy_ref": null
+      },
+      {
+        "kind": "logo",
+        "locked": true,
+        "copy_ref": null
+      }
+    ],
+    "overlay": {
+      "type": "gradient",
+      "color": "#0B1F33",
+      "opacity": 0.45,
+      "direction": "bottom"
+    },
+    "locked_copy_refs": [],
+    "safety_constraints": [
+      "Everyday movement positioning ONLY. Never diagnoses; never replaces clinical care."
+    ],
+    "exclusions": [
+      "no fabricated product UI or tools",
+      "no clinical staging or staged pain expression",
+      "no gamification implied for sensitive subjects",
+      "no symmetrical AI-face",
+      "no gradient blobs",
+      "no floating mockups",
+      "no generic stock composition",
+      "no mixed icon families",
+      "no Canva/Headspace/hospital-portal resemblance",
+      "Everyday movement positioning ONLY. Never diagnoses; never replaces clinical care."
+    ],
+    "status": "READY",
+    "created_at": "2026-09-13T17:51:37.074Z"
+  },
+  "image_render_spec": {
+    "spec_type": "ImageRenderSpec",
+    "scene": "It is 3 AM, the baby is finally asleep, and she needs to stand up from the bed to reach the baby",
+    "environment": "Home after early discharge; hospital pamphlet gave only generic advice; alone at night",
+    "subjects": [
+      "Nigerian first-time mother, day 6 after C-section, minimal overnight support"
+    ],
+    "gesture_posture": "Rising from bed; braces against the bed frame; holds the dresser and waits for the pain to pass; avoids standing unless necessary",
+    "props": [
+      "bed frame",
+      "dresser"
+    ],
+    "wardrobe": "",
+    "lighting": "Soft low-key practical night lighting (implied by the 3 AM scene)",
+    "composition": "Single subject, intimate framing, deliberate negative space reserved for deterministic text overlay",
+    "camera_language": "",
+    "cultural_markers": [
+      "Nigerian",
+      "early discharge common"
+    ],
+    "text_overlay_allowed": false,
+    "negative_constraints": [
+      "no fabricated product UI or tools",
+      "no clinical staging or staged pain expression",
+      "no gamification implied for sensitive subjects",
+      "no symmetrical AI-face",
+      "no gradient blobs",
+      "no floating mockups",
+      "no generic stock composition",
+      "no mixed icon families",
+      "no Canva/Headspace/hospital-portal resemblance",
+      "Everyday movement positioning ONLY. Never diagnoses; never replaces clinical care."
+    ],
+    "aspect_ratio": "1080:1350",
+    "pixel_dimensions": {
+      "width": 1080,
+      "height": 1350
+    },
+    "design_system_version": "swt-tokens.css@1.x",
+    "brand_constraints": [
+      "people like me actually live here (real representation)",
+      "no fabricated product UI or tools",
+      "no clinical staging or staged pain expression",
+      "no gamification implied for sensitive subjects"
+    ]
+  },
+  "prompt_package": {
+    "id": "IPP-CSEC-006",
+    "class": "image_prompt_package",
+    "prompt": "Scene: It is 3 AM, the baby is finally asleep, and she needs to stand up from the bed to reach the baby\nEnvironment: Home after early discharge; hospital pamphlet gave only generic advice; alone at night\nSubject: Nigerian first-time mother, day 6 after C-section, minimal overnight support\nPose: Rising from bed; braces against the bed frame; holds the dresser and waits for the pain to pass; avoids standing unless necessary\nProps: bed frame, dresser\nLighting: Soft low-key practical night lighting (implied by the 3 AM scene)\nComposition: Single subject, intimate framing, deliberate negative space reserved for deterministic text overlay\nCultural context: Nigerian, early discharge common\nEmotional tone (as documented): Afraid something may be wrong internally, but reluctant to seek further medical contact over something she fears may be dismissed as normal\nRepresentation: people like me actually live here (real representation)\nAspect ratio: 1080:1350 (1080x1350)\nText-safe zones (keep clear for deterministic typography): top>=96px, left>=96px, right>=96px, bottom>=180px\nDeterministic overlays applied AFTER production: headline, body, cta, logo\nRender only what is described above. Do not add text, symbols, extra people, or claims not listed.",
+    "negative_prompt": "no fabricated product UI or tools; no clinical staging or staged pain expression; no gamification implied for sensitive subjects; no symmetrical AI-face; no gradient blobs; no floating mockups; no generic stock composition; no mixed icon families; no Canva/Headspace/hospital-portal resemblance; Everyday movement positioning ONLY. Never diagnoses; never replaces clinical care.; no symmetrical AI-face; no gradient blobs; no floating mockups; no generic stock composition; no mixed icon families; no Canva/Headspace/hospital-portal resemblance; no fabricated product UI or tools; no clinical staging or staged pain expression; no gamification implied for sensitive subjects; no visual implying \"you will heal faster\"; no visual implying \"this treats infection\"; no visual implying \"guaranteed pain-free movement\"; Everyday movement positioning ONLY. Never diagnoses; never replaces clinical care.; no embedded text or lettering",
+    "negative_constraints": [
+      {
+        "text": "no fabricated product UI or tools",
+        "category": "grounding_exclusion",
+        "reason": "Visual Grounding exclusion"
+      },
+      {
+        "text": "no clinical staging or staged pain expression",
+        "category": "grounding_exclusion",
+        "reason": "Visual Grounding exclusion"
+      },
+      {
+        "text": "no gamification implied for sensitive subjects",
+        "category": "grounding_exclusion",
+        "reason": "Visual Grounding exclusion"
+      },
+      {
+        "text": "no symmetrical AI-face",
+        "category": "grounding_exclusion",
+        "reason": "Visual Grounding exclusion"
+      },
+      {
+        "text": "no gradient blobs",
+        "category": "grounding_exclusion",
+        "reason": "Visual Grounding exclusion"
+      },
+      {
+        "text": "no floating mockups",
+        "category": "grounding_exclusion",
+        "reason": "Visual Grounding exclusion"
+      },
+      {
+        "text": "no generic stock composition",
+        "category": "grounding_exclusion",
+        "reason": "Visual Grounding exclusion"
+      },
+      {
+        "text": "no mixed icon families",
+        "category": "grounding_exclusion",
+        "reason": "Visual Grounding exclusion"
+      },
+      {
+        "text": "no Canva/Headspace/hospital-portal resemblance",
+        "category": "grounding_exclusion",
+        "reason": "Visual Grounding exclusion"
+      },
+      {
+        "text": "Everyday movement positioning ONLY. Never diagnoses; never replaces clinical care.",
+        "category": "grounding_exclusion",
+        "reason": "Visual Grounding exclusion"
+      },
+      {
+        "text": "no symmetrical AI-face",
+        "category": "brand_anti_pattern",
+        "reason": "Brand Truth anti-pattern"
+      },
+      {
+        "text": "no gradient blobs",
+        "category": "brand_anti_pattern",
+        "reason": "Brand Truth anti-pattern"
+      },
+      {
+        "text": "no floating mockups",
+        "category": "brand_anti_pattern",
+        "reason": "Brand Truth anti-pattern"
+      },
+      {
+        "text": "no generic stock composition",
+        "category": "brand_anti_pattern",
+        "reason": "Brand Truth anti-pattern"
+      },
+      {
+        "text": "no mixed icon families",
+        "category": "brand_anti_pattern",
+        "reason": "Brand Truth anti-pattern"
+      },
+      {
+        "text": "no Canva/Headspace/hospital-portal resemblance",
+        "category": "brand_anti_pattern",
+        "reason": "Brand Truth anti-pattern"
+      },
+      {
+        "text": "no fabricated product UI or tools",
+        "category": "brand_rule",
+        "reason": "Brand Truth imagery rule"
+      },
+      {
+        "text": "no clinical staging or staged pain expression",
+        "category": "brand_rule",
+        "reason": "Brand Truth imagery rule"
+      },
+      {
+        "text": "no gamification implied for sensitive subjects",
+        "category": "brand_rule",
+        "reason": "Brand Truth imagery rule"
+      },
+      {
+        "text": "no visual implying \"you will heal faster\"",
+        "category": "product_truth",
+        "reason": "Product Truth prohibited claim"
+      },
+      {
+        "text": "no visual implying \"this treats infection\"",
+        "category": "product_truth",
+        "reason": "Product Truth prohibited claim"
+      },
+      {
+        "text": "no visual implying \"guaranteed pain-free movement\"",
+        "category": "product_truth",
+        "reason": "Product Truth prohibited claim"
+      },
+      {
+        "text": "Everyday movement positioning ONLY. Never diagnoses; never replaces clinical care.",
+        "category": "safety",
+        "reason": "Product Truth safety scope boundary"
+      },
+      {
+        "text": "no embedded text or lettering",
+        "category": "platform",
+        "reason": "typography/CTA are applied deterministically by the layout engine"
+      }
+    ],
+    "aspect_ratio": "1080:1350",
+    "production_mode": "GENERATED_SCENE",
+    "compound": true,
+    "composition_requirements": [
+      "Single subject, intimate framing, deliberate negative space reserved for deterministic text overlay",
+      "keep top/left/right/bottom clear for deterministic typography"
+    ],
+    "text_safe_zones": [
+      {
+        "edge": "top",
+        "min_px": 96
+      },
+      {
+        "edge": "left",
+        "min_px": 96
+      },
+      {
+        "edge": "right",
+        "min_px": 96
+      },
+      {
+        "edge": "bottom",
+        "min_px": 180
+      }
+    ],
+    "grounding_refs": {
+      "angle_id": "ANG-CSEC-006",
+      "visual_grounding_id": "VG-CSEC-006",
+      "customer_truth_refs": [
+        "CRF-CSEC-014",
+        "CRF-CSEC-033"
+      ],
+      "product_truth_refs": [
+        "PTR-CSEC-001"
+      ]
+    },
+    "spec_refs": {
+      "visual_asset_spec_id": "VAS-CSEC-006",
+      "image_render_spec_type": "ImageRenderSpec"
+    },
+    "prompt_version": "1.0",
+    "spec_version": "1.0",
+    "created_at": "2026-09-13T17:51:37.108Z"
+  },
+  "expected": {
+    "production_mode": "GENERATED_SCENE",
+    "compound": true,
+    "aspect_ratio": "1080:1350",
+    "canvas": {
+      "width": 1080,
+      "height": 1350
+    },
+    "text_safe_zones": [
+      {
+        "edge": "top",
+        "min_px": 96
+      },
+      {
+        "edge": "left",
+        "min_px": 96
+      },
+      {
+        "edge": "right",
+        "min_px": 96
+      },
+      {
+        "edge": "bottom",
+        "min_px": 180
+      }
+    ],
+    "deterministic_overlays": [
+      {
+        "kind": "headline",
+        "locked": true,
+        "copy_ref": null
+      },
+      {
+        "kind": "body",
+        "locked": true,
+        "copy_ref": null
+      },
+      {
+        "kind": "cta",
+        "locked": true,
+        "copy_ref": null
+      },
+      {
+        "kind": "logo",
+        "locked": true,
+        "copy_ref": null
+      }
+    ],
+    "structural_requirements": [
+      "Nigerian first-time mother, day 6 after C-section",
+      "3 AM night scene implied by Truth",
+      "rising from bed; braces against the bed frame / holds the dresser",
+      "props limited to bed frame + dresser (truth-named only)",
+      "no clinical staging or staged pain expression"
+    ],
+    "required_negative_categories": [
+      "grounding_exclusion",
+      "brand_anti_pattern",
+      "brand_rule",
+      "product_truth",
+      "safety",
+      "platform"
+    ],
+    "judgment_dimensions": [
+      "ANGLE_FIDELITY",
+      "CUSTOMER_TRUTH_FIDELITY",
+      "PRODUCT_TRUTH_FIDELITY",
+      "VISUAL_GROUNDING_FIDELITY",
+      "SCENE_FIDELITY",
+      "CULTURAL_INTEGRITY",
+      "EMOTIONAL_INTEGRITY",
+      "BRAND_FIT",
+      "INTERCHANGEABILITY",
+      "AI_ARTIFACTS",
+      "ANATOMICAL_PLAUSIBILITY",
+      "COMPOSITION",
+      "TEXT_SAFETY",
+      "UNSUPPORTED_VISUAL_CLAIM"
+    ]
+  },
+  "truth_references": {
+    "angle_id": "ANG-CSEC-006",
+    "customer_truth_refs": [
+      "CRF-CSEC-014",
+      "CRF-CSEC-033"
+    ],
+    "product_truth_refs": [
+      "PTR-CSEC-001"
+    ],
+    "brand_truth_version": "1.0"
+  },
+  "brand_truth_version": "1.0",
+  "deterministic_expected_checks": {
+    "canvas_dimensions": "1080x1350",
+    "aspect_ratio": "1080:1350",
+    "image_slot_role": "BACKGROUND",
+    "fit": "cover",
+    "overlay_type": "gradient",
+    "text_safe_zones_present": true,
+    "locked_copy_required": true
+  },
+  "grounding_classification": {
+    "scene": "source_grounded",
+    "environment": "source_grounded",
+    "subject": "source_grounded",
+    "gesture_posture": "source_grounded",
+    "props": "source_grounded",
+    "lighting": "production_instruction",
+    "cultural_markers": "source_grounded",
+    "emotional_tone": "source_grounded",
+    "composition": "production_instruction",
+    "exclusions": "source_grounded"
+  },
+  "qualification_dimensions": [
+    "ANGLE_FIDELITY",
+    "CUSTOMER_TRUTH_FIDELITY",
+    "PRODUCT_TRUTH_FIDELITY",
+    "VISUAL_GROUNDING_FIDELITY",
+    "SCENE_FIDELITY",
+    "CULTURAL_INTEGRITY",
+    "EMOTIONAL_INTEGRITY",
+    "BRAND_FIT",
+    "INTERCHANGEABILITY",
+    "AI_ARTIFACTS",
+    "ANATOMICAL_PLAUSIBILITY",
+    "COMPOSITION",
+    "TEXT_SAFETY",
+    "PLATFORM_FIT",
+    "UNSUPPORTED_VISUAL_CLAIM"
+  ],
+  "fixture_hash": "0f7808854e6602c4c79d6b7c82500099b5c757102d4c13103bc2146800b65805"
+}
