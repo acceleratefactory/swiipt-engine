@@ -79,11 +79,27 @@ export async function runQualification({ provider = null, model = null, fixtures
       for (const chk of compositorQA.checks) deterministic_checks.push({ check: `compositor_${chk.check}`, pass: chk.pass, detail: chk.detail });
     }
 
+    // 7b) truthful provider conformance (requested vs actual) — diagnostic, NOT an artifact failure
+    if (success && invocation.local) {
+      deterministic_checks.push({
+        check: "provider_dimension_conformance",
+        pass: invocation.aspect_ratio_match !== false,
+        blocking: false, // provider size non-conformance does not invalidate a valid artifact
+        detail: JSON.stringify({
+          requested_width: invocation.requested_width, requested_height: invocation.requested_height, requested_aspect_ratio: invocation.requested_aspect_ratio,
+          actual_width: invocation.actual_width, actual_height: invocation.actual_height, actual_aspect_ratio: invocation.actual_aspect_ratio,
+          dimension_match: invocation.dimension_match, aspect_ratio_match: invocation.aspect_ratio_match,
+          aspect_ratio_delta: invocation.aspect_ratio_delta, aspect_ratio_tolerance: invocation.aspect_ratio_tolerance,
+        }),
+      });
+      if (invocation.mime_type_match === false) deterministic_checks.push({ check: "provider_mime_conformance", pass: false, blocking: false, detail: `provider_declared=${invocation.provider_declared_mime_type} detected=${invocation.detected_mime_type}` });
+    }
+
     // 9) VisualOutputQA (judgment dimensions remain JUDGMENT_REQUIRED)
     const outputQA = VisualOutputQA.evaluate({ fixture, compositorQA, judgment: {}, deterministic: {} });
     const judgment_checks = outputQA.dimensions.filter((d) => d.status !== "PASS").map((d) => ({ dimension: d.id, class: d.class, status: d.status, reason: d.reason }));
 
-    const detFail = deterministic_checks.some((c) => !c.pass);
+    const detFail = deterministic_checks.some((c) => !c.pass && c.blocking !== false);
     let overall_status;
     if (!success) overall_status = det.hard_fail_on_generation === false ? "FAIL" : "FAIL";
     else if (detFail) overall_status = "FAIL";
@@ -110,6 +126,8 @@ export async function runQualification({ provider = null, model = null, fixtures
         invocation.status,
         invocation.model_identity ? `model_identity=${invocation.model_identity}` : null,
         invocation.local && invocation.local.ok ? `local=${invocation.local.local_path}` : (invocation.error_message || null),
+        invocation.local && invocation.local.ok ? `mime=detected:${invocation.detected_mime_type}|declared:${invocation.provider_declared_mime_type}|match:${invocation.mime_type_match}` : null,
+        invocation.local && invocation.local.ok ? `provider_dimensions=req:${invocation.requested_width}x${invocation.requested_height}(${invocation.requested_aspect_ratio})|actual:${invocation.actual_width}x${invocation.actual_height}(${invocation.actual_aspect_ratio})|dim_match:${invocation.dimension_match}|aspect_match:${invocation.aspect_ratio_match}|delta:${invocation.aspect_ratio_delta}` : null,
         detFail ? "deterministic_check_failed" : null,
         "judgment_dimensions_pending_human_or_vision_review",
       ].filter(Boolean).join(" | "),

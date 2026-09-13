@@ -75,6 +75,7 @@ export function normalizeImageResponse(raw = {}, { provider = null, requestedMod
     cost: raw.cost ?? null,
     error_code: raw.error_code ?? (raw.error && (raw.error.code || raw.error.type)) ?? null,
     error_message: raw.error_message ?? (raw.error && (raw.error.message || String(raw.error))) ?? null,
+    retryable: raw.retryable ?? null,
     raw_metadata_reference: raw.raw_metadata_reference ?? null,
   };
 }
@@ -114,14 +115,55 @@ export function readImageDimensions(bytes, mime = null) {
   return { width: null, height: null };
 }
 
-/** Persist image bytes locally with checksum + honest mime/dimensions. */
+// Deterministic MIME detection from bytes. Bytes are authoritative; provider metadata is secondary.
+export function detectImageMime(bytes) {
+  if (!bytes || bytes.length < 8) return null;
+  if (bytes[0] === 0x89 && bytes[1] === 0x50 && bytes[2] === 0x4e && bytes[3] === 0x47) return "image/png";
+  if (bytes[0] === 0xff && bytes[1] === 0xd8) return "image/jpeg";
+  if (bytes[0] === 0x52 && bytes[1] === 0x49 && bytes[2] === 0x46 && bytes[3] === 0x46 && bytes.length > 12 && bytes.slice(8, 12).toString("ascii") === "WEBP") return "image/webp";
+  const head = bytes.slice(0, 64).toString("utf8").trim().toLowerCase();
+  if (head.startsWith("<svg") || head.startsWith("<?xml")) return "image/svg+xml";
+  return null;
+}
+export function extensionForMime(mime) {
+  return mime === "image/jpeg" ? ".jpg" : mime === "image/png" ? ".png" : mime === "image/webp" ? ".webp" : mime === "image/svg+xml" ? ".svg" : ".bin";
+}
+/** Force the file extension to match the detected bytes (deterministic; new artifacts only). */
+export function withDetectedExtension(name, mime) {
+  const s = String(name || "image");
+  const dot = s.lastIndexOf(".");
+  const stem = dot > 0 ? s.slice(0, dot) : s;
+  return stem + extensionForMime(mime);
+}
+
+/** Deterministic aspect-ratio comparison. Absolute tolerance on the width/height ratio. */
+export const ASPECT_RATIO_TOLERANCE = 0.02;
+export function ratioOf(ar) { const [a, b] = String(ar == null ? "" : ar).split(":").map(Number); return a && b ? a / b : null; }
+export function compareAspectRatio(requested, actual, tolerance = ASPECT_RATIO_TOLERANCE) {
+  const r1 = ratioOf(requested); const r2 = ratioOf(actual);
+  if (r1 == null || r2 == null) return { match: null, delta: null, tolerance };
+  const delta = Math.round(Math.abs(r1 - r2) * 1e6) / 1e6;
+  return { match: delta <= tolerance, delta, tolerance };
+}
+
+/** Persist image bytes locally with checksum + byte-authoritative mime/dimensions. */
 export function persistImageBytes(bytes, { mime = null, dir = IMAGE_DIR, name = "image.png" } = {}) {
   if (!isLikelyImage(bytes, mime)) return { ok: false, status: IMAGE_PROVIDER_STATUS.IMAGE_ARTIFACT_INVALID, reason: "payload is not a valid image (likely HTML/error payload)" };
+  const detected = detectImageMime(bytes);
+  const providerDeclared = mime ? String(mime).toLowerCase() : null;
+  const finalMime = detected || providerDeclared || "image/png"; // bytes > provider metadata > fallback
   mkdirSync(dir, { recursive: true });
-  const path = join(dir, name);
+  const finalName = withDetectedExtension(name, finalMime);
+  const path = join(dir, finalName);
   writeFileSync(path, bytes);
-  const dims = readImageDimensions(bytes, mime);
-  return { ok: true, local_path: path, mime_type: mime || "image/png", checksum: createHash("sha256").update(bytes).digest("hex"), width: dims.width, height: dims.height, byte_length: bytes.length };
+  const dims = readImageDimensions(bytes, finalMime);
+  return {
+    ok: true, local_path: path, mime_type: finalMime,
+    provider_declared_mime_type: providerDeclared, detected_mime_type: detected,
+    mime_type_match: providerDeclared == null ? null : (providerDeclared === finalMime),
+    checksum: createHash("sha256").update(bytes).digest("hex"),
+    width: dims.width, height: dims.height, byte_length: bytes.length,
+  };
 }
 
 /** Persist a normalized result that carries either a URL or base64. */
@@ -193,6 +235,96 @@ export function makeOpenAICompatibleImageAdapter({ name, baseUrl, baseUrlEnv, ap
   };
 }
 
+// ---- Google Gemini image adapter -------------------------------------------
+export const GEMINI_DEFAULT_BASE_URL = "https://generativelanguage.googleapis.com";
+// Documented Gemini image aspect ratios. The fixture aspect ratio is mapped deterministically to the
+// nearest supported value (never silently dropped); the mapping is recorded in raw_metadata_reference.
+export const GEMINI_SUPPORTED_ASPECT_RATIOS = ["1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9"];
+const ratioValue = (s) => { const [a, b] = String(s).split(":").map(Number); return a && b ? a / b : null; };
+export function mapGeminiAspectRatio(ar) {
+  const s = String(ar || "").trim();
+  if (GEMINI_SUPPORTED_ASPECT_RATIOS.includes(s)) return s;
+  const target = ratioValue(s);
+  if (!target) return "1:1";
+  let best = GEMINI_SUPPORTED_ASPECT_RATIOS[0], bestD = Infinity;
+  for (const c of GEMINI_SUPPORTED_ASPECT_RATIOS) { const d = Math.abs(Math.log(ratioValue(c) / target)); if (d < bestD - 1e-12) { bestD = d; best = c; } }
+  return best;
+}
+export function mapGeminiImageSize(width, height) {
+  const m = Math.max(Number(width) || 0, Number(height) || 0);
+  if (m <= 1024) return "1K";
+  if (m <= 2048) return "2K";
+  return "4K";
+}
+
+/** Transport for the documented Gemini content-generation image path. */
+export async function geminiImageTransport(request, { baseUrl = GEMINI_DEFAULT_BASE_URL, apiKey, fetchImpl = null, timeoutMs = 60000 } = {}) {
+  const doFetch = fetchImpl || globalThis.fetch;
+  const base = String(baseUrl || GEMINI_DEFAULT_BASE_URL).replace(/\/+$/, "");
+  const url = `${base}/v1beta/models/${request.model}:generateContent`;
+  const aspectSent = mapGeminiAspectRatio(request.aspect_ratio);
+  const sizeSent = mapGeminiImageSize(request.width, request.height);
+  const controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+  const timer = controller ? setTimeout(() => controller.abort(), timeoutMs) : null;
+  try {
+    const res = await doFetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+      body: JSON.stringify({
+        contents: [{ role: "user", parts: [{ text: request.prompt }] }],
+        generationConfig: { responseModalities: ["TEXT", "IMAGE"], imageConfig: { aspectRatio: aspectSent, imageSize: sizeSent } },
+      }),
+      signal: controller ? controller.signal : undefined,
+    });
+    if (timer) clearTimeout(timer);
+    if (!res || res.ok === false) {
+      let detail = null; try { detail = await res.json(); } catch { /* ignore */ }
+      const status = res && res.status;
+      const blob = detail ? JSON.stringify(detail) : "";
+      const safety = status === 400 && /safety|blocked|prohibited|policy|recitation/i.test(blob);
+      return {
+        error_code: safety ? "SAFETY_BLOCKED" : `HTTP_${status}`,
+        error_message: (detail && detail.error && detail.error.message) || (safety ? "request blocked by provider safety policy" : "provider HTTP error"),
+        retryable: safety ? false : (status === 429 || (status >= 500 && status <= 599)),
+      };
+    }
+    let j; try { j = await res.json(); } catch { return { error_code: "INVALID_JSON", error_message: "provider response was not JSON", retryable: true }; }
+    const cand = j && Array.isArray(j.candidates) ? j.candidates[0] : null;
+    const parts = cand && cand.content && Array.isArray(cand.content.parts) ? cand.content.parts : [];
+    const inline = parts.find((p) => p && p.inlineData && p.inlineData.data);
+    if (!inline) {
+      const finish = cand ? String(cand.finishReason || "") : "";
+      const safety = /SAFETY|PROHIBITED|BLOCKLIST|RECITATION/i.test(finish);
+      if (safety) return { error_code: "SAFETY_BLOCKED", error_message: "request blocked by provider safety policy", retryable: false };
+      return {}; // malformed/empty → normalized as PROVIDER_RESPONSE_INVALID downstream (no fake image)
+    }
+    return {
+      output_base64: inline.inlineData.data,
+      mime_type: inline.inlineData.mimeType || "image/png",
+      model: j.modelVersion ?? null,
+      raw_metadata_reference: { aspect_ratio_requested: request.aspect_ratio, aspect_ratio_sent: aspectSent, image_size_sent: sizeSent },
+    };
+  } catch (e) {
+    if (timer) clearTimeout(timer);
+    if (e && e.name === "AbortError") throw Object.assign(new Error("provider timeout"), { name: "AbortError", retryable: true });
+    throw e;
+  }
+}
+
+/** Adapter object for Google Gemini image generation (dormant until keyed). */
+export function makeGeminiImageAdapter({ name = "google-gemini", baseUrl = null, baseUrlEnv = "GEMINI_IMAGE_BASE_URL", apiKeyEnv = "GEMINI_IMAGE_API_KEY", capabilities = {} } = {}) {
+  return {
+    name,
+    capabilities: { image_generation: true, reference_image: false, image_edit: false, seed: false, style_reference: false, negative_prompt: false, ...capabilities },
+    configured(env = process.env) { return !!env[apiKeyEnv]; },
+    async generate(request, { env = process.env, fetchImpl = null, timeoutMs = 60000 } = {}) {
+      const key = env[apiKeyEnv];
+      const base = baseUrl || env[baseUrlEnv] || GEMINI_DEFAULT_BASE_URL;
+      return geminiImageTransport(request, { baseUrl: base, apiKey: key, fetchImpl, timeoutMs });
+    },
+  };
+}
+
 /** Adapter object from any provider that already returns a canonical response (e.g. the mock). */
 export function makeResponseAdapter({ name, capabilities = {}, generate }) {
   return { name, capabilities: { image_generation: true, reference_image: false, image_edit: false, seed: false, style_reference: false, ...capabilities }, configured() { return true; }, generate };
@@ -221,7 +353,8 @@ export async function invokeImageProvider({ adapter, request, model, env = proce
   if (canonical.error_message) canonical.error_message = redactSecrets(canonical.error_message, env);
 
   if (canonical.error_code || canonical.error_message) {
-    return { ...canonical, status: IMAGE_PROVIDER_STATUS.PROVIDER_ATTEMPT_FAILED, local: null, retryable: true };
+    // Respect the transport's retryable classification; default to retryable for unknown transport faults.
+    return { ...canonical, status: IMAGE_PROVIDER_STATUS.PROVIDER_ATTEMPT_FAILED, local: null, retryable: canonical.retryable === false ? false : true };
   }
 
   const local = await persistImageResult(canonical, { dir, name, fetchImpl, timeoutMs });
@@ -229,5 +362,33 @@ export async function invokeImageProvider({ adapter, request, model, env = proce
 
   const model_identity = canonical.returned_model ? (canonical.returned_model === model ? "OK" : "MODEL_ID_MISMATCH") : "OK_UNVERIFIED";
   const status = model_identity === "MODEL_ID_MISMATCH" ? IMAGE_PROVIDER_STATUS.MODEL_ID_MISMATCH : IMAGE_PROVIDER_STATUS.PROVIDER_SUCCESS;
-  return { ...canonical, status, model_identity, model_unverified: model_identity === "OK_UNVERIFIED", local };
+
+  // Truthful requested-vs-actual provenance (no guessed provider size mapping).
+  const requestedW = Number.isFinite(request.width) ? request.width : null;
+  const requestedH = Number.isFinite(request.height) ? request.height : null;
+  const actualW = local.width ?? null;
+  const actualH = local.height ?? null;
+  const requestedAR = request.aspect_ratio ?? (requestedW && requestedH ? `${requestedW}:${requestedH}` : null);
+  const actualAR = actualW && actualH ? `${actualW}:${actualH}` : null;
+  const cmp = compareAspectRatio(requestedAR, actualAR);
+  const dimension_match = (requestedW != null && requestedH != null && actualW != null && actualH != null) ? (requestedW === actualW && requestedH === actualH) : null;
+
+  return {
+    ...canonical,
+    mime_type: local.mime_type,
+    provider_declared_mime_type: local.provider_declared_mime_type,
+    detected_mime_type: local.detected_mime_type,
+    mime_type_match: local.mime_type_match,
+    requested_width: requestedW,
+    requested_height: requestedH,
+    requested_aspect_ratio: requestedAR,
+    actual_width: actualW,
+    actual_height: actualH,
+    actual_aspect_ratio: actualAR,
+    dimension_match,
+    aspect_ratio_match: cmp.match,
+    aspect_ratio_delta: cmp.delta,
+    aspect_ratio_tolerance: cmp.tolerance,
+    status, model_identity, model_unverified: model_identity === "OK_UNVERIFIED", local,
+  };
 }

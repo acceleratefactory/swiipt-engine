@@ -11,7 +11,7 @@ import { join, dirname } from "node:path";
 import { pathToFileURL } from "node:url";
 import { execFileSync } from "node:child_process";
 import { MAE_DIR } from "../lib/store.js";
-import { makeOpenAICompatibleImageAdapter, redactSecrets } from "../media/image-provider.js";
+import { makeOpenAICompatibleImageAdapter, makeGeminiImageAdapter, redactSecrets } from "../media/image-provider.js";
 import { runQualification } from "../services/visual-qualification-runner.js";
 import { loadFixtures, computeFixtureHash, QUALIFICATION_BUDGET, ELIGIBILITY_POLICY } from "../services/visual-qualification.js";
 
@@ -47,12 +47,17 @@ export function parseArgs(argv = []) {
   const provider = get("--provider");
   const model = get("--model");
   const upper = provider ? provider.toUpperCase().replace(/[^A-Z0-9]/g, "_") : null;
+  const isGemini = /gemini/i.test(String(provider || ""));
+  const isOpenAI = /openai/i.test(String(provider || ""));
+  const defaultBaseEnv = isGemini ? "GEMINI_IMAGE_BASE_URL" : (isOpenAI ? "OPENAI_IMAGE_BASE_URL" : (upper ? `${upper}_BASE_URL` : null));
+  const defaultKeyEnv = isGemini ? "GEMINI_IMAGE_API_KEY" : (isOpenAI ? "OPENAI_IMAGE_API_KEY" : (upper ? `${upper}_API_KEY` : null));
   return {
     provider,
     model,
+    isGemini,
     adapterName: get("--adapter-name", provider),
-    baseUrlEnv: get("--base-url-env", upper ? `${upper}_BASE_URL` : null),
-    apiKeyEnv: get("--api-key-env", upper ? `${upper}_API_KEY` : null),
+    baseUrlEnv: get("--base-url-env", defaultBaseEnv),
+    apiKeyEnv: get("--api-key-env", defaultKeyEnv),
     live: has("--live"),
     dryRun: has("--dry-run"),
     runId: get("--run-id", null),
@@ -209,7 +214,9 @@ async function main() {
     console.error("INVALID_CONFIG: --provider and --model are required. Wrote honest run-manifest.");
     process.exit(2);
   }
-  const adapter = makeOpenAICompatibleImageAdapter({ name: cfg.adapterName, baseUrlEnv: cfg.baseUrlEnv, apiKeyEnv: cfg.apiKeyEnv });
+  const adapter = cfg.isGemini
+    ? makeGeminiImageAdapter({ name: cfg.adapterName || "google-gemini", baseUrlEnv: cfg.baseUrlEnv, apiKeyEnv: cfg.apiKeyEnv })
+    : makeOpenAICompatibleImageAdapter({ name: cfg.adapterName, baseUrlEnv: cfg.baseUrlEnv, apiKeyEnv: cfg.apiKeyEnv });
   const r = await runLiveQualification({ provider: cfg.provider, model: cfg.model, adapter, env: process.env, outRoot: cfg.outRoot, imageOut: cfg.imageOut, runId: cfg.runId, live: cfg.live, dryRun: cfg.dryRun });
   console.log(`status=${r.status} calls=${r.calls} run_dir=${r.runDir}`);
   if (r.summaryPath) console.log(`summary=${r.summaryPath}`);
