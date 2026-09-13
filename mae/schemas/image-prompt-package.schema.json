@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/image-prompt-package.schema.json",
+  "title": "MAE ImagePromptPackage",
+  "description": "A deterministic, provider-neutral image production instruction compiled from a VisualGroundingBlock + VisualAssetSpec. NOT an LLM output. It describes WHAT MUST BE RENDERED and must not invent angle, emotion, culture, claims or Product Truth. Each negative constraint carries a category so exclusions are justified, never prompt folklore.",
+  "type": "object",
+  "required": ["id", "class", "prompt", "negative_prompt", "negative_constraints", "aspect_ratio", "production_mode", "composition_requirements", "text_safe_zones", "grounding_refs", "spec_refs", "prompt_version", "spec_version", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^IPP-" },
+    "class": { "const": "image_prompt_package" },
+    "prompt": { "type": "string", "minLength": 1 },
+    "negative_prompt": { "type": "string" },
+    "negative_constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text", "category", "reason"],
+        "properties": {
+          "text": { "type": "string", "minLength": 1 },
+          "category": { "enum": ["grounding_exclusion", "brand_rule", "brand_anti_pattern", "product_truth", "safety", "platform"] },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "aspect_ratio": { "type": "string", "pattern": "^\\d+:\\d+$" },
+    "production_mode": { "type": "string", "minLength": 1 },
+    "compound": { "type": "boolean" },
+    "composition_requirements": { "type": "array", "items": { "type": "string" } },
+    "text_safe_zones": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "grounding_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["angle_id", "visual_grounding_id"],
+      "properties": {
+        "angle_id": { "type": "string" },
+        "visual_grounding_id": { "type": "string" },
+        "customer_truth_refs": { "type": "array", "items": { "type": "string" } },
+        "product_truth_refs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "spec_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visual_asset_spec_id"],
+      "properties": {
+        "visual_asset_spec_id": { "type": "string" },
+        "image_render_spec_type": { "type": "string" }
+      }
+    },
+    "prompt_version": { "type": "string", "minLength": 1 },
+    "spec_version": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

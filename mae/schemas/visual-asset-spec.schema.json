@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/visual-asset-spec.schema.json",
+  "title": "MAE VisualAssetSpec",
+  "description": "The deterministic contract between Visual Grounding and Media Production. REFERENCES truth records (angle / grounding / brief) rather than copying them. Production mode comes from asset requirements — never from an image provider.",
+  "type": "object",
+  "required": ["id", "class", "version", "angle_id", "visual_grounding_id", "platform", "asset_purpose", "production_mode", "aspect_ratio", "canvas", "image_placement", "text_safe_zones", "deterministic_overlays", "exclusions", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^VAS-" },
+    "class": { "const": "visual_asset_spec" },
+    "version": { "type": "string", "minLength": 1 },
+    "angle_id": { "type": "string", "pattern": "^ANG-" },
+    "asset_brief_id": { "type": ["string", "null"] },
+    "visual_grounding_id": { "type": "string", "pattern": "^VG-" },
+    "platform": { "type": "string", "minLength": 1 },
+    "asset_purpose": { "type": ["string", "null"] },
+    "production_mode": { "enum": ["TEXT_DOCUMENT", "STATIC_GRAPHIC", "GENERATED_SCENE", "CAROUSEL", "PRODUCT_COVER", "PRODUCT_MOCKUP", "WHATSAPP_STATUS", "VIDEO_PACKAGE", "VIDEO_RENDER", "AUDIO_VOICEOVER", "PDF_RENDER", "LANDING_PAGE_MEDIA", "MULTI_ASSET_EXPORT"] },
+    "compound": {
+      "type": "boolean",
+      "description": "true when an image/background is produced and deterministic typography/overlays are composed on top (GENERATED_BACKGROUND_PLUS_DETERMINISTIC_TYPE). Expressed WITHOUT adding a new production_mode enum."
+    },
+    "aspect_ratio": { "type": "string", "pattern": "^\\d+:\\d+$" },
+    "canvas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height"],
+      "properties": { "width": { "type": "integer", "minimum": 1 }, "height": { "type": "integer", "minimum": 1 } }
+    },
+    "brand_visual_tokens_version": { "type": ["string", "null"] },
+    "image_placement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "cover"],
+      "properties": {
+        "role": { "enum": ["BACKGROUND", "SUBJECT", "ILLUSTRATION", "NONE"] },
+        "cover": { "enum": ["full_bleed", "contained", "partial"] },
+        "focal_point": { "type": ["string", "null"] },
+        "safe_zone_for_subject": { "type": ["string", "null"] }
+      }
+    },
+    "text_safe_zones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["edge", "min_px"],
+        "properties": { "edge": { "enum": ["top", "bottom", "left", "right"] }, "min_px": { "type": "integer", "minimum": 0 } }
+      }
+    },
+    "deterministic_overlays": {
+      "type": "array",
+      "description": "Elements applied deterministically by the layout engine AFTER image production (never by the image provider).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind"],
+        "properties": {
+          "kind": { "enum": ["headline", "body", "cta", "logo", "disclaimer"] },
+          "locked": { "type": "boolean" },
+          "copy_ref": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "locked_copy_refs": { "type": "array", "items": { "type": "string" } },
+    "safety_constraints": { "type": "array", "items": { "type": "string" } },
+    "exclusions": { "type": "array", "items": { "type": "string" } },
+    "status": { "enum": ["DRAFT", "READY", "SUPERSEDED"] },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

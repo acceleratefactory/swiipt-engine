@@ -7,6 +7,7 @@ export const ID_PREFIX = {
   crf: "CRF", mif: "MIF", brand: "BRAND",
   angle: "ANG", validation: "VAL", brief: "BRIEF",
   contentGrounding: "CG", visualGrounding: "VG", affirmationGrounding: "AG",
+  visualAssetSpec: "VAS", imagePromptPackage: "IPP",
   generated: "GEN", productionJob: "PJ", artifact: "ART", qa: "QA",
   asset: "AST", family: "FAM", lockedPhraseSet: "PSET", usage: "USE",
   sequence: "SEQ", campaign: "CAMP", audienceState: "AUD", performance: "PERF",

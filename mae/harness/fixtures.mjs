@@ -7,6 +7,12 @@ import { GenerationService } from "../services/generation.js";
 import { QAOrchestrator } from "../services/qa.js";
 import { GovernanceService } from "../services/governance.js";
 import { AssetFamilyService } from "../services/family.js";
+import { VisualGroundingService } from "../services/visual-grounding.js";
+import { VisualAssetSpecService, ProductionModeService } from "../services/visual-asset-spec.js";
+import { VisualPromptService, buildImageRenderSpec } from "../media/prompt-compiler.js";
+import { VisualQA } from "../services/visual-qa.js";
+import { VisualProductionService } from "../services/visual-production.js";
+import { all } from "../lib/store.js";
 
 export function csecAngleInput() {
   return {
@@ -93,7 +99,9 @@ export const CSEC_ASSET_SPECS = [
 export function csecApprove(spec, { angle, validation, human_review, sensitive_domain = true, content = null, artifacts = [], context = {} } = {}) {
   if (!angle) { const v = csecAngleWithValidation(); angle = v.angle; validation = v.validation; }
   const n = String(spec.id).replace(/^AST-CSEC-/, "");
-  const brief = AssetArchitectureService.buildBrief(angle, validation, { platform: spec.platform, asset_type: spec.asset_type, asset_purpose: spec.asset_purpose, structural_template: spec.template, id: `BRIEF-CSEC-${n}` });
+  // Canonical Day-6 fixture now builds REAL visual grounding from the Angle/Truth (no `null`, no inline hack).
+  const grounding = VisualGroundingService.build(angle, { platform: spec.platform, assetPurpose: spec.asset_purpose, id: "VG-CSEC-006" });
+  const brief = AssetArchitectureService.buildBrief(angle, validation, { platform: spec.platform, asset_type: spec.asset_type, asset_purpose: spec.asset_purpose, structural_template: spec.template, visual_grounding: grounding, id: `BRIEF-CSEC-${n}` });
   AssetArchitectureService.save(brief);
   const gen = GenerationService.generate(brief, { id: `GEN-CSEC-${n}` });
   GenerationService.save(gen);
@@ -123,4 +131,28 @@ export function csecApprovedFamily({ withMedia = false } = {}) {
   const { family, pset, redundancy } = AssetFamilyService.assemble({ angle, validation, assets, id: "FAM-CSEC-006", psetId: "PSET-CSEC-006" });
   for (const a of assets) { a.family_id = family.id; a.locked_phrase_set_id = pset.id; GovernanceService.saveAsset(a); }
   return { angle, validation, built, assets, family, pset, redundancy };
+}
+
+// ---------------------------------------------------------------------------
+// Visual production foundation — provider-independent request for ANG-CSEC-006.
+// No image provider is called; the request ends at the honest provider boundary.
+// Deterministic IDs so repeat runs overwrite rather than accumulate.
+// ---------------------------------------------------------------------------
+export function csecVisualFoundation() {
+  const { angle, validation } = csecAngleWithValidation();
+  AngleService.save(angle);
+  const productTruth = all("product-truth").find((r) => r.id === "PTR-CSEC-001") || null;
+  const plan = VisualProductionService.plan({
+    angle, productTruth, platform: "instagram", assetPurpose: "stop_scroll_identification",
+    groundingId: "VG-CSEC-006", specId: "VAS-CSEC-006", promptId: "IPP-CSEC-006",
+  });
+  const brief = AssetArchitectureService.buildBrief(angle, validation, {
+    platform: "instagram", asset_type: "Problem-led social post", asset_purpose: "stop_scroll_identification",
+    visual_grounding: plan.grounding, id: "BRIEF-CSEC-VG",
+  });
+  AssetArchitectureService.save(brief);
+  VisualGroundingService.save(plan.grounding);
+  VisualAssetSpecService.save(plan.spec);
+  VisualPromptService.save(plan.promptPackage);
+  return { angle, validation, brief, ...plan };
 }
