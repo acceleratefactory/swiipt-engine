@@ -81,6 +81,10 @@ export async function runQualification({ provider = null, model = null, fixtures
 
     // 7b) truthful provider conformance (requested vs actual) — diagnostic, NOT an artifact failure
     if (success && invocation.local) {
+      // Exact generation prompt (captured from the real generation path) — plain text, copyable.
+      deterministic_checks.push({ check: "generation_prompt", pass: !!invocation.provider_prompt_sent, blocking: false, detail: invocation.provider_prompt_sent || "" });
+      if (invocation.negative_prompt) deterministic_checks.push({ check: "generation_negative_prompt", pass: true, blocking: false, detail: invocation.negative_prompt });
+      deterministic_checks.push({ check: "generation_prompt_modified_by_adapter", pass: true, blocking: false, detail: String(!!invocation.prompt_modified_by_adapter) });
       deterministic_checks.push({
         check: "provider_dimension_conformance",
         pass: invocation.aspect_ratio_match !== false,
@@ -128,6 +132,8 @@ export async function runQualification({ provider = null, model = null, fixtures
         invocation.local && invocation.local.ok ? `local=${invocation.local.local_path}` : (invocation.error_message || null),
         invocation.local && invocation.local.ok ? `mime=detected:${invocation.detected_mime_type}|declared:${invocation.provider_declared_mime_type}|match:${invocation.mime_type_match}` : null,
         invocation.local && invocation.local.ok ? `provider_dimensions=req:${invocation.requested_width}x${invocation.requested_height}(${invocation.requested_aspect_ratio})|actual:${invocation.actual_width}x${invocation.actual_height}(${invocation.actual_aspect_ratio})|dim_match:${invocation.dimension_match}|aspect_match:${invocation.aspect_ratio_match}|delta:${invocation.aspect_ratio_delta}` : null,
+        invocation.local && invocation.local.ok ? `IMAGE GENERATION PROMPT: ${invocation.provider_prompt_sent}` : null,
+        invocation.local && invocation.local.ok && invocation.negative_prompt ? `IMAGE NEGATIVE PROMPT: ${invocation.negative_prompt}` : null,
         detFail ? "deterministic_check_failed" : null,
         "judgment_dimensions_pending_human_or_vision_review",
       ].filter(Boolean).join(" | "),

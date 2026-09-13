@@ -119,4 +119,57 @@ export function buildQualificationResult(partial = {}) {
   return result;
 }
 
+// ---- Development-only image provider capability record (empirical) -----------
+// Two controlled real experiments (VF-2, VF-4) via 9Router -> Antigravity at $0. Recorded inside the
+// existing qualification system so future routing/qualification does not rediscover it. This is NOT a
+// production qualification and does NOT encode permanent pricing or an absolute geometry rule.
+export const DEVELOPMENT_IMAGE_PROVIDERS = Object.freeze([
+  Object.freeze({
+    id: "9router/ag/gemini-3.1-flash-image",
+    router: "9router",
+    downstream: "antigravity",
+    model: "ag/gemini-3.1-flash-image",
+    integration_status: "REAL_PROVIDER_INTEGRATION_PROVEN",
+    qualification_status: "NOT_PRODUCTION_QUALIFIED",
+    provider_role: "DEVELOPMENT_ONLY",
+    geometry_control: "GEOMETRY_UNRELIABLE",
+    geometry_evidence_count: 2,
+    observed_output_pattern: "1024x1024", // observed pattern only, NOT an absolute capability rule
+    mime_observed: "image/jpeg",
+    returned_model_identity: "UNVERIFIED",
+    cost_observation: "OWNER_SPEND_ZERO_IN_TESTS", // observed in tests only
+    cost_caveat: "provider pricing/quota metadata was not returned — this is NOT a permanent free-price claim",
+    geometry_caveat: "both observed real generations returned 1024x1024 despite materially different requested aspect ratios (1080:1350 and 1200:630) — not an absolute capability rule",
+    approved_uses: [
+      "real_provider_development", "pipeline_integration_testing", "artifact_persistence_testing",
+      "compositor_testing", "cover_croppable_source_imagery", "background_beneath_deterministic_typography",
+      "non_geometry_critical_experimentation",
+    ],
+    not_approved_for: [
+      "geometry_sensitive_hero_generation", "deliberate_negative_space_composition",
+      "exact_aspect_ratio_generation", "production_qualification", "provider_native_layout_sensitive_assets",
+    ],
+    evidence: [
+      { fixture_id: "VF-2", requested: { width: 1080, height: 1350, aspect_ratio: "1080:1350" }, actual: { width: 1024, height: 1024, aspect_ratio: "1024:1024" }, classification: "GEOMETRY_IGNORED", result_ref: "mae/storage/exports/qualification/9router/smoke-vf2-2026-09-13T20-42-54-175Z/qualification-results.json" },
+      { fixture_id: "VF-4", requested: { width: 1200, height: 630, aspect_ratio: "1200:630" }, actual: { width: 1024, height: 1024, aspect_ratio: "1024:1024" }, classification: "GEOMETRY_IGNORED", result_ref: "mae/storage/exports/qualification/9router/exp2-vf4-2026-09-13T21-07-59-354Z/qualification-results.json" },
+    ],
+  }),
+]);
+
+/** Look up a development-provider record by id or model. */
+export function developmentProviderRecord(id) {
+  return DEVELOPMENT_IMAGE_PROVIDERS.find((p) => p.id === id || p.model === id) || null;
+}
+/** True only when a provider is actually production-qualified (this record is NOT). */
+export function isProductionQualified(id) {
+  const r = developmentProviderRecord(id);
+  return !!r && r.qualification_status === "PRODUCTION_QUALIFIED";
+}
+/** Geometry-sensitive routing is allowed only for a production-qualified, geometry-reliable provider. */
+export function geometrySensitiveRoutingAllowed(id) {
+  const r = developmentProviderRecord(id);
+  if (!r) return true; // unknown providers: unchanged default
+  return r.qualification_status === "PRODUCTION_QUALIFIED" && r.geometry_control !== "GEOMETRY_UNRELIABLE";
+}
+
 export { VISUAL_QA_DIMENSIONS };

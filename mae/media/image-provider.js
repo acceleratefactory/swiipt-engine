@@ -360,6 +360,11 @@ export async function invokeImageProvider({ adapter, request, model, env = proce
   const local = await persistImageResult(canonical, { dir, name, fetchImpl, timeoutMs });
   if (!local.ok) return { ...canonical, status: local.status, local: null, error_message: redactSecrets(local.reason, env), retryable: true };
 
+  // Exact prompt capture: canonical prompt is what the pipeline built; provider_prompt_sent is what the
+  // adapter actually sent (identical unless an adapter explicitly transforms it).
+  const canonical_prompt = request.prompt ?? null;
+  const provider_prompt_sent = (raw && typeof raw.provider_prompt === "string") ? raw.provider_prompt : canonical_prompt;
+
   const model_identity = canonical.returned_model ? (canonical.returned_model === model ? "OK" : "MODEL_ID_MISMATCH") : "OK_UNVERIFIED";
   const status = model_identity === "MODEL_ID_MISMATCH" ? IMAGE_PROVIDER_STATUS.MODEL_ID_MISMATCH : IMAGE_PROVIDER_STATUS.PROVIDER_SUCCESS;
 
@@ -379,6 +384,11 @@ export async function invokeImageProvider({ adapter, request, model, env = proce
     provider_declared_mime_type: local.provider_declared_mime_type,
     detected_mime_type: local.detected_mime_type,
     mime_type_match: local.mime_type_match,
+    prompt: provider_prompt_sent,
+    canonical_prompt,
+    provider_prompt_sent,
+    prompt_modified_by_adapter: provider_prompt_sent !== canonical_prompt,
+    negative_prompt: request.negative_prompt ?? null,
     requested_width: requestedW,
     requested_height: requestedH,
     requested_aspect_ratio: requestedAR,

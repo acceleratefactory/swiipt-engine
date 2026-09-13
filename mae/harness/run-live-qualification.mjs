@@ -195,12 +195,37 @@ export async function runLiveQualification({ provider, model, adapter = null, en
   }
 
   const resultsPath = writeJson(join(runDir, "qualification-results.json"), run.results, env);
+
+  // Exact generation prompts, captured from the real generation path (plain, copyable text).
+  const checkOf = (res, name) => { const c = (res.deterministic_checks || []).find((x) => x.check === name); return c ? c.detail : null; };
+  const imageFileOf = (fixtureId) => {
+    const d = join(imageOut, safePathSegment(provider), safePathSegment(fixtureId));
+    if (!existsSync(d)) return null;
+    const f = readdirSync(d).find((x) => /\.(png|jpe?g|webp)$/i.test(x));
+    return f ? join(d, f) : null;
+  };
+  const promptRecords = run.results
+    .map((r) => ({ fixture_id: r.fixture_id, prompt: checkOf(r, "generation_prompt"), negative_prompt: checkOf(r, "generation_negative_prompt"), image_path: imageFileOf(r.fixture_id) }))
+    .filter((p) => p.prompt);
+
   const summary = buildSummary({ provider, model, runId: rid, startTime: start.toISOString(), endTime: now().toISOString(), run });
+  summary.prompts = promptRecords;
   const summaryPath = writeJson(join(runDir, "qualification-summary.json"), summary, env);
+
+  const promptsText = [
+    "SWIIPT IMAGE GENERATION PROMPTS",
+    `provider: ${provider}  model: ${model}  run: ${rid}`,
+    "",
+    ...promptRecords.map((p) => `=== ${p.fixture_id} ===\nIMAGE: ${p.image_path || "(none)"}\nPROMPT:\n${p.prompt}${p.negative_prompt ? `\n\nNEGATIVE PROMPT:\n${p.negative_prompt}` : ""}\n`),
+  ].join("\n");
+  const promptsPath = join(runDir, "prompts.txt");
+  writeFileSync(promptsPath, redactSecrets(promptsText + "\n", env));
+
+  manifestBase.prompts = promptRecords.map((p) => ({ fixture_id: p.fixture_id, prompt: p.prompt }));
   const anyFailure = run.results.some((r) => r.generation_status !== "GENERATED" || r.overall_status === "FAIL");
   const manifestPath = finalizeManifest(anyFailure ? RUN_STATUS.COMPLETED_WITH_FAILURES : RUN_STATUS.COMPLETED);
 
-  return { status: anyFailure ? RUN_STATUS.COMPLETED_WITH_FAILURES : RUN_STATUS.COMPLETED, runDir, resultsPath, summaryPath, manifestPath, calls: run.calls, results: run.results };
+  return { status: anyFailure ? RUN_STATUS.COMPLETED_WITH_FAILURES : RUN_STATUS.COMPLETED, runDir, resultsPath, summaryPath, promptsPath, manifestPath, calls: run.calls, results: run.results };
 }
 
 // ---- CLI --------------------------------------------------------------------
