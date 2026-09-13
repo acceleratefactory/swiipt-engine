@@ -44,7 +44,7 @@ export const ProductionModeService = {
 export const VisualAssetSpecService = {
   nextId(scope, existing = existingIds(VAS_DIR)) { return makeId("visualAssetSpec", scope, existing); },
 
-  build({ angle, brief = null, grounding, platform, assetPurpose = null, productionMode = null, slideCount = 1, safetyConstraints = [], id = null } = {}) {
+  build({ angle, brief = null, grounding, platform, assetPurpose = null, productionMode = null, slideCount = 1, safetyConstraints = [], overlay = undefined, id = null } = {}) {
     if (!angle) throw new Error("VisualAssetSpecService.build requires an angle");
     if (!grounding) throw new Error("VisualAssetSpecService.build requires a visual_grounding block");
     const decided = ProductionModeService.decide({ brief, grounding, assetPurpose, platform, slideCount });
@@ -74,6 +74,9 @@ export const VisualAssetSpecService = {
         { kind: "cta", locked: true, copy_ref: null },
         { kind: "logo", locked: true, copy_ref: null },
       ],
+      overlay: overlay !== undefined
+        ? overlay
+        : (compound ? { type: "gradient", color: "#0B1F33", opacity: 0.45, direction: "bottom" } : { type: "none" }),
       locked_copy_refs: [brief?.locked_phrase_set_ref].filter(Boolean),
       safety_constraints: [...new Set(safetyConstraints)],
       exclusions: grounding.exclusions,

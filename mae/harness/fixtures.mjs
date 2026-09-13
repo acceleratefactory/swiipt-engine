@@ -12,6 +12,8 @@ import { VisualAssetSpecService, ProductionModeService } from "../services/visua
 import { VisualPromptService, buildImageRenderSpec } from "../media/prompt-compiler.js";
 import { VisualQA } from "../services/visual-qa.js";
 import { VisualProductionService } from "../services/visual-production.js";
+import { Compositor, CompositorQA, fixtureImage, COMPOSITOR_VERSION } from "../media/compositor.js";
+import { MediaPipeline } from "../media/pipeline.js";
 import { all } from "../lib/store.js";
 
 export function csecAngleInput() {
@@ -155,4 +157,27 @@ export function csecVisualFoundation() {
   VisualAssetSpecService.save(plan.spec);
   VisualPromptService.save(plan.promptPackage);
   return { angle, validation, brief, ...plan };
+}
+
+// ---------------------------------------------------------------------------
+// Visual compositor dry run — inject the deterministic local fixture image where a generated image
+// would go, then compose the finished asset (no provider, no AI image).
+// ---------------------------------------------------------------------------
+export function csecCompositorDryRun() {
+  const f = csecVisualFoundation();
+  const image = fixtureImage("vf-scene-01");
+  const copy = {
+    headline: "Nobody tells you what standing up feels like on day 6.",
+    body: "At 3 AM, standing up pulls at the incision. Module 2 shows the 3-position rise.",
+    cta: "Reply 'YES' and I'll send you the details.",
+  };
+  const composed = Compositor.compose({ visualAssetSpec: f.spec, imageSource: image, copy });
+  const composed2 = Compositor.compose({ visualAssetSpec: f.spec, imageSource: image, copy, filename: "csec-vg-repeat.svg" });
+  const artifact = MediaPipeline.fromCompositor({ id: "PJ-CSEC-VGC", asset_id: "AST-CSEC-VGC" }, { ...composed.artifactMeta, prompt_package_version: f.promptPackage.prompt_version, compositor_version: COMPOSITOR_VERSION });
+  const qa = CompositorQA.check({
+    out: composed.out, artifactMeta: composed.artifactMeta, imageSource: image,
+    expected: { canvas: { w: f.spec.canvas.width, h: f.spec.canvas.height }, imageRequired: true, overlayType: "gradient", headline: copy.headline, body: copy.body, cta: copy.cta },
+    repeat: composed2.out,
+  });
+  return { ...f, image, copy, composed, composed2, artifact, qa };
 }

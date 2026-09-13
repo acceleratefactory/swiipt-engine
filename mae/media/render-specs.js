@@ -24,6 +24,7 @@ export const RenderSpecs = {
       logo_rule: over.logo_rule || "bottom-left", typography_tokens: over.typography_tokens || { display: "DM Serif Display", ui: "Inter" },
       color_tokens: over.color_tokens || { navy: "#0B1F33", purple: "#6F35B5", gold: "#D9A52E", cream: "#F8F4EC" },
       image_slots: over.image_slots || [], spacing_tokens: over.spacing_tokens || {}, export_formats: over.export_formats || ["svg"],
+      overlay: over.overlay || null,
     };
   },
   carousel(over = {}) {

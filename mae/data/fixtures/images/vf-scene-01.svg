@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-label="Deterministic local fixture: night room with a single warm lamp">
+  <rect width="1080" height="1350" fill="#101A2B"/>
+  <circle cx="820" cy="300" r="96" fill="#F2C97A" opacity="0.85"/>
+  <rect x="120" y="700" width="840" height="80" rx="12" fill="#2C3D5C"/>
+  <rect x="120" y="760" width="840" height="420" rx="18" fill="#22304A"/>
+  <rect x="470" y="500" width="140" height="140" fill="#6F35B5"/>
+  <rect x="160" y="1180" width="200" height="60" rx="8" fill="#0B1F33"/>
+</svg>

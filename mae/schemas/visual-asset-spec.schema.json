@@ -62,6 +62,18 @@
         }
       }
     },
+    "overlay": {
+      "type": ["object", "null"],
+      "description": "Deterministic readability treatment applied by the compositor between image and type. Comes from the spec/template/policy — never random renderer logic.",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["none", "solid", "gradient"] },
+        "color": { "type": "string" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "direction": { "enum": ["top", "bottom", "left", "right"] }
+      }
+    },
     "locked_copy_refs": { "type": "array", "items": { "type": "string" } },
     "safety_constraints": { "type": "array", "items": { "type": "string" } },
     "exclusions": { "type": "array", "items": { "type": "string" } },

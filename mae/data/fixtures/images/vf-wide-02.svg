@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Deterministic local fixture: wide daylight room">
+  <rect width="1200" height="630" fill="#E9EEF3"/>
+  <rect x="0" y="420" width="1200" height="210" fill="#C9D4DE"/>
+  <circle cx="980" cy="140" r="72" fill="#D9A52E" opacity="0.9"/>
+  <rect x="90" y="300" width="360" height="220" rx="16" fill="#B7C4D2"/>
+  <rect x="560" y="250" width="120" height="120" fill="#6F35B5"/>
+</svg>

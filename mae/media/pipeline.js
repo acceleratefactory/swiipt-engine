@@ -82,7 +82,16 @@ export const MediaPipeline = {
     if (["STATIC_GRAPHIC", "CAROUSEL", "PRODUCT_COVER", "WHATSAPP_STATUS", "LANDING_PAGE_MEDIA", "TEXT_DOCUMENT"].includes(job.production_mode)) {
       const spec = job.render_spec || { canvas: job.platform === "whatsapp_status" ? "story" : "instagram_feed", headline: ctx.headline || job.asset_type, body_copy: ctx.body || "", cta: ctx.cta || "" };
       const svg = renderSvg(spec, { dir: outDir, filename: `${job.asset_id}.svg` });
-      artifacts.push(this._artifact(j, "FINAL", svg.mime_type, svg.storage_uri, svg.checksum, { width: svg.width, height: svg.height }, route.provider.name));
+      const extra = {
+        visual_grounding_id: job.visual_grounding_id ?? null,
+        visual_asset_spec_id: job.visual_asset_spec_id ?? null,
+        prompt_package_version: job.prompt_package?.prompt_version ?? null,
+        layout_template_id: spec.template_id ?? null,
+        source_image_artifact_id: job.source_image_artifact_id ?? null,
+        source_image_reference: (spec.image_slots && spec.image_slots[0] && spec.image_slots[0].source && spec.image_slots[0].source.uri) || null,
+        compositor_version: job.compositor_version ?? null,
+      };
+      artifacts.push(this._artifact(j, "FINAL", svg.mime_type, svg.storage_uri, svg.checksum, { width: svg.width, height: svg.height }, route.provider.name, "RENDERED", extra));
     } else if (job.production_mode === "VIDEO_PACKAGE") {
       artifacts.push(...this._videoPackage(j, ctx, outDir));
     } else {
@@ -105,15 +114,38 @@ export const MediaPipeline = {
     return { job: j, artifacts, route };
   },
 
-  _artifact(job, role, mime, uri, checksum, dims, provider, status = "RENDERED") {
+  _artifact(job, role, mime, uri, checksum, dims, provider, status = "RENDERED", extra = {}) {
     const a = {
       id: this.nextArtifactId((job.asset_id || "AST").replace(/^AST-/, "").split("-")[0] || "GEN"),
       class: "media_artifact", production_job_id: job.id, asset_id: job.asset_id, artifact_role: role,
       mime_type: mime, storage_uri: uri, checksum, width: dims.width ?? null, height: dims.height ?? null,
       duration: dims.duration ?? null, file_size: null, provider, model: null, provider_job_id: null,
       source_artifact_ids: [], version: 1, status, created_at: new Date().toISOString(),
+      ...extra,
     };
     validate("media-artifact.schema.json", a, a.id);
+    return a;
+  },
+
+  /** Persist a compositor artifact (SVG) with full, honest provenance. No provider metadata fabricated. */
+  fromCompositor(job, meta, { scope = "production" } = {}) {
+    const a = {
+      id: this.nextArtifactId((job.asset_id || "AST").replace(/^AST-/, "").split("-")[0] || "GEN"),
+      class: "media_artifact", production_job_id: job.id, asset_id: job.asset_id,
+      artifact_role: meta.artifact_role || "FINAL", mime_type: meta.mime_type, storage_uri: meta.storage_uri,
+      checksum: meta.checksum, width: meta.width ?? null, height: meta.height ?? null,
+      duration: null, file_size: null, provider: meta.provider, model: meta.model ?? null, provider_job_id: meta.provider_job_id ?? null,
+      latency_ms: meta.latency_ms ?? null, cost: meta.cost ?? null, usage: meta.usage ?? null,
+      generation_parameters: meta.generation_parameters ?? null, prompt_package_version: meta.prompt_package_version ?? null,
+      layout_template_id: meta.layout_template_id ?? null, compositor_version: meta.compositor_version ?? null,
+      locked_copy_verified: meta.locked_copy_verified ?? null,
+      source_image_artifact_id: meta.source_image_artifact_id ?? null, source_image_reference: meta.source_image_reference ?? null,
+      visual_grounding_id: meta.visual_grounding_id ?? null, visual_asset_spec_id: meta.visual_asset_spec_id ?? null,
+      source_artifact_ids: meta.source_artifact_ids || [],
+      version: 1, status: meta.status || "RENDERED", created_at: new Date().toISOString(),
+    };
+    validate("media-artifact.schema.json", a, a.id);
+    save("media-artifacts", a, { scope });
     return a;
   },
 
