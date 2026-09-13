@@ -1,0 +1,369 @@
+{
+  "fixture_id": "VV-CSEC-006",
+  "class": "video_foundation_fixture",
+  "synthetic": true,
+  "provenance": "synthetic_fixture",
+  "angle_id": "ANG-CSEC-006",
+  "video_grounding": {
+    "video_grounding_id": "VG-VID-CSEC-006",
+    "angle_id": "ANG-CSEC-006",
+    "visual_grounding_id": "VG-CSEC-006",
+    "asset_purpose": "stop-scroll / identification",
+    "video_type": "SCENE_VIDEO",
+    "subject": {
+      "description": "Nigerian first-time mother, day 6 after C-section, seated on the edge of a bed",
+      "identity_continuity_requirements": [
+        "same woman across shots",
+        "stable facial identity",
+        "consistent day-6 postpartum context"
+      ],
+      "wardrobe": "simple nightclothes",
+      "posture": "seated, leaning slightly forward",
+      "expression": "guarded, cautious",
+      "permitted_actions": [
+        "slowly shift weight forward",
+        "begin to rise carefully"
+      ],
+      "prohibited_actions": [
+        "collapse",
+        "fall",
+        "exaggerated writhing"
+      ]
+    },
+    "environment": {
+      "location": "bedroom",
+      "time_of_day": "approximately 3 AM (night)",
+      "lighting": "warm bedside lamp",
+      "props": [
+        "bed",
+        "bedside lamp"
+      ],
+      "cultural_markers": [
+        "Nigerian"
+      ],
+      "background_requirements": [
+        "quiet, dim domestic bedroom"
+      ]
+    },
+    "start_state": {
+      "visual_state": "seated on the edge of the bed",
+      "subject_position": "edge of the bed",
+      "camera_position": "static medium-wide, side-on",
+      "emotional_state": "guarded discomfort",
+      "visible_objects": [
+        "bed",
+        "bedside lamp"
+      ]
+    },
+    "motion": {
+      "primary_action": "She slowly shifts her weight forward in preparation to rise.",
+      "secondary_actions": [],
+      "speed": "slow, cautious",
+      "direction": "forward / upward",
+      "physical_constraints": [
+        "no abrupt movement",
+        "no weight loaded onto the wound"
+      ],
+      "gestures": [
+        "hands ready to steady herself"
+      ],
+      "prohibited_motion": [
+        "falling",
+        "collapsing",
+        "fast or jerky motion"
+      ]
+    },
+    "camera": {
+      "framing": "medium-wide",
+      "position": "static, side-on to the bed edge",
+      "movement": "none (locked-off)",
+      "focus_behavior": "subject stays in focus",
+      "stability": "fully stable / locked"
+    },
+    "timing": {
+      "total_duration_seconds": 6,
+      "action_timing": [
+        "0-2s: hesitation",
+        "2-5s: slow forward weight shift",
+        "5-6s: partial rise hold"
+      ],
+      "hold_timing": [
+        "5-6s: hold the careful position"
+      ],
+      "transition_timing": []
+    },
+    "end_state": {
+      "visual_state": "careful partially upright / standing-lean position",
+      "subject_position": "at the edge of the bed, partially risen",
+      "emotional_state": "cautious, controlled discomfort (not agony)",
+      "intended_meaning": "the unspoken difficulty of a simple movement is real and ordinary"
+    },
+    "continuity": {
+      "identity": "consistent subject identity",
+      "wardrobe": "unchanged",
+      "objects": "bed and lamp consistent",
+      "environment": "same bedroom, same lighting",
+      "body_anatomy": "believable human anatomy"
+    },
+    "audio_intent": {
+      "mode": "NONE",
+      "notes": null
+    },
+    "text_policy": {
+      "generated_text_allowed": false,
+      "deterministic_overlay_text": [],
+      "captions": true,
+      "cta": true,
+      "logo": true
+    },
+    "exclusions": {
+      "visual": [
+        "no text rendered inside the scene"
+      ],
+      "motion": [
+        "no staged fall",
+        "no dramatic collapsing"
+      ],
+      "cultural": [
+        "no stereotyping",
+        "no invented cultural markers"
+      ],
+      "safety": [
+        "no unsafe physical demonstration framed as clinical instruction"
+      ],
+      "artifact": [
+        "no medical-device invention",
+        "no malformed anatomy"
+      ]
+    },
+    "source_classification": {
+      "source_grounded": [
+        "day 6 after C-section",
+        "3 AM",
+        "baby asleep",
+        "needs to stand",
+        "burning/pulling around the wound"
+      ],
+      "production_instruction": [
+        "locked camera",
+        "6-second duration",
+        "warm bedside lamp",
+        "slow, cautious pace",
+        "no dramatic camera move"
+      ]
+    }
+  },
+  "shot_specification": {
+    "shot_id": "SHOT-CSEC-006-1",
+    "purpose": "identification / stop-scroll: the ordinary difficulty of standing on day 6",
+    "duration_seconds": 6,
+    "start_frame": {
+      "subject": "the seated mother",
+      "subject_position": "edge of the bed",
+      "environment": "dim bedroom, warm bedside lamp",
+      "camera": "static medium-wide, side-on",
+      "visible_objects": [
+        "bed",
+        "bedside lamp"
+      ]
+    },
+    "action": {
+      "subject_action": "She slowly shifts her weight forward in preparation to rise.",
+      "secondary_action": null,
+      "movement_speed": "slow, cautious",
+      "prohibited_motion": [
+        "falling",
+        "collapsing",
+        "fast or jerky motion"
+      ]
+    },
+    "camera": {
+      "framing": "medium-wide",
+      "movement": "none",
+      "focus": "subject in focus",
+      "stability": "locked"
+    },
+    "end_frame": {
+      "subject": "the mother, partially risen",
+      "subject_position": "at the edge of the bed, partially upright",
+      "environment": "dim bedroom, warm bedside lamp",
+      "emotional_state": "cautious, controlled discomfort"
+    },
+    "audio": {
+      "mode": "NONE",
+      "notes": null
+    },
+    "transition": {
+      "type": "none",
+      "notes": null
+    },
+    "text_safe_regions": [
+      {
+        "edge": "top",
+        "min_px": 120
+      },
+      {
+        "edge": "bottom",
+        "min_px": 220
+      }
+    ],
+    "continuity_references": [
+      "bed",
+      "bedside lamp",
+      "night lighting"
+    ],
+    "source_classification": {
+      "source_grounded": [
+        "day 6 after C-section",
+        "3 AM",
+        "needs to stand"
+      ],
+      "production_instruction": [
+        "locked camera",
+        "6-second single shot"
+      ]
+    }
+  },
+  "video_asset_specification": {
+    "video_asset_id": "VID-CSEC-006",
+    "angle_id": "ANG-CSEC-006",
+    "video_grounding_id": "VG-VID-CSEC-006",
+    "video_type": "SCENE_VIDEO",
+    "platform": "instagram",
+    "placement": "social_short",
+    "aspect_ratio": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "duration_seconds": 6,
+    "fps": 24,
+    "loop": false,
+    "audio_policy": "NONE",
+    "caption_policy": "DETERMINISTIC",
+    "text_overlay_policy": "DETERMINISTIC",
+    "logo_policy": "DETERMINISTIC",
+    "shot_count": 1,
+    "shots": [
+      {
+        "shot_id": "SHOT-CSEC-006-1",
+        "purpose": "identification / stop-scroll: the ordinary difficulty of standing on day 6",
+        "duration_seconds": 6,
+        "start_frame": {
+          "subject": "the seated mother",
+          "subject_position": "edge of the bed",
+          "environment": "dim bedroom, warm bedside lamp",
+          "camera": "static medium-wide, side-on",
+          "visible_objects": [
+            "bed",
+            "bedside lamp"
+          ]
+        },
+        "action": {
+          "subject_action": "She slowly shifts her weight forward in preparation to rise.",
+          "secondary_action": null,
+          "movement_speed": "slow, cautious",
+          "prohibited_motion": [
+            "falling",
+            "collapsing",
+            "fast or jerky motion"
+          ]
+        },
+        "camera": {
+          "framing": "medium-wide",
+          "movement": "none",
+          "focus": "subject in focus",
+          "stability": "locked"
+        },
+        "end_frame": {
+          "subject": "the mother, partially risen",
+          "subject_position": "at the edge of the bed, partially upright",
+          "environment": "dim bedroom, warm bedside lamp",
+          "emotional_state": "cautious, controlled discomfort"
+        },
+        "audio": {
+          "mode": "NONE",
+          "notes": null
+        },
+        "transition": {
+          "type": "none",
+          "notes": null
+        },
+        "text_safe_regions": [
+          {
+            "edge": "top",
+            "min_px": 120
+          },
+          {
+            "edge": "bottom",
+            "min_px": 220
+          }
+        ],
+        "continuity_references": [
+          "bed",
+          "bedside lamp",
+          "night lighting"
+        ],
+        "source_classification": {
+          "source_grounded": [
+            "day 6 after C-section",
+            "3 AM",
+            "needs to stand"
+          ],
+          "production_instruction": [
+            "locked camera",
+            "6-second single shot"
+          ]
+        }
+      }
+    ],
+    "safe_zones": [
+      {
+        "edge": "top",
+        "min_px": 120
+      },
+      {
+        "edge": "bottom",
+        "min_px": 220
+      }
+    ],
+    "delivery_format": "mp4",
+    "production_mode": "GENERATED_SCENE",
+    "reference_assets": [],
+    "status": "READY"
+  },
+  "video_prompt_package": {
+    "id": "VPP-CSEC-006",
+    "class": "video_prompt_package",
+    "prompt": "SUBJECT:\nSubject: Nigerian first-time mother, day 6 after C-section, seated on the edge of a bed\nPosture: seated, leaning slightly forward\nExpression: guarded, cautious\nWardrobe: simple nightclothes\nIdentity continuity: same woman across shots; stable facial identity; consistent day-6 postpartum context\nPermitted actions: slowly shift weight forward; begin to rise carefully\n\nENVIRONMENT:\nLocation: bedroom\nTime of day: approximately 3 AM (night)\nLighting: warm bedside lamp\nProps: bed, bedside lamp\nCultural markers: Nigerian\nBackground: quiet, dim domestic bedroom\n\nSTART STATE:\nVisual state: seated on the edge of the bed\nSubject position: edge of the bed\nCamera position: static medium-wide, side-on\nEmotional state: guarded discomfort\nVisible objects: bed, bedside lamp\n\nACTION:\nPrimary action: She slowly shifts her weight forward in preparation to rise.\nGestures: hands ready to steady herself\nShot actions: SHOT-CSEC-006-1: She slowly shifts her weight forward in preparation to rise.\n\nCAMERA:\nFraming: medium-wide\nPosition: static, side-on to the bed edge\nMovement: none (locked-off)\nFocus: subject stays in focus\nStability: fully stable / locked\nShot camera: SHOT-CSEC-006-1: medium-wide, none, locked\n\nMOTION:\nSpeed: slow, cautious\nDirection: forward / upward\nPhysical constraints: no abrupt movement; no weight loaded onto the wound\nPrinciple: Use the minimum motion necessary to communicate the validated angle. No cinematic sweeping cameras, dramatic body movement, exaggerated emotional performance, constant background movement, or gratuitous transitions unless explicitly required by the spec.\n\nTIMING:\nTotal duration (s): 6\nShot durations: SHOT-CSEC-006-1=6s\nAction timing: 0-2s: hesitation; 2-5s: slow forward weight shift; 5-6s: partial rise hold\nHold timing: 5-6s: hold the careful position\n\nEND STATE:\nVisual state: careful partially upright / standing-lean position\nSubject position: at the edge of the bed, partially risen\nEmotional state: cautious, controlled discomfort (not agony)\nIntended meaning: the unspoken difficulty of a simple movement is real and ordinary\n\nCONTINUITY:\nIdentity: consistent subject identity\nWardrobe: unchanged\nObjects: bed and lamp consistent\nEnvironment: same bedroom, same lighting\nBody anatomy: believable human anatomy\n\nAUDIO:\nMode: NONE\n\nTEXT POLICY:\nGenerated text allowed: false\nDeterministic overlay text: (applied deterministically downstream)\nCaptions: true\nCTA: true\nLogo: true\n\nDO NOT SHOW:\ncollapse; fall; exaggerated writhing; falling; collapsing; fast or jerky motion; no text rendered inside the scene; no staged fall; no dramatic collapsing; no stereotyping; no invented cultural markers; no unsafe physical demonstration framed as clinical instruction; no medical-device invention; no malformed anatomy",
+    "negative_prompt": "no text rendered inside the scene; no staged fall; no dramatic collapsing; no stereotyping; no invented cultural markers; no unsafe physical demonstration framed as clinical instruction; no medical-device invention; no malformed anatomy; collapse; fall; exaggerated writhing; falling; collapsing; fast or jerky motion",
+    "sections": {
+      "subject": "Subject: Nigerian first-time mother, day 6 after C-section, seated on the edge of a bed\nPosture: seated, leaning slightly forward\nExpression: guarded, cautious\nWardrobe: simple nightclothes\nIdentity continuity: same woman across shots; stable facial identity; consistent day-6 postpartum context\nPermitted actions: slowly shift weight forward; begin to rise carefully",
+      "environment": "Location: bedroom\nTime of day: approximately 3 AM (night)\nLighting: warm bedside lamp\nProps: bed, bedside lamp\nCultural markers: Nigerian\nBackground: quiet, dim domestic bedroom",
+      "start_state": "Visual state: seated on the edge of the bed\nSubject position: edge of the bed\nCamera position: static medium-wide, side-on\nEmotional state: guarded discomfort\nVisible objects: bed, bedside lamp",
+      "action": "Primary action: She slowly shifts her weight forward in preparation to rise.\nGestures: hands ready to steady herself\nShot actions: SHOT-CSEC-006-1: She slowly shifts her weight forward in preparation to rise.",
+      "camera": "Framing: medium-wide\nPosition: static, side-on to the bed edge\nMovement: none (locked-off)\nFocus: subject stays in focus\nStability: fully stable / locked\nShot camera: SHOT-CSEC-006-1: medium-wide, none, locked",
+      "motion": "Speed: slow, cautious\nDirection: forward / upward\nPhysical constraints: no abrupt movement; no weight loaded onto the wound\nPrinciple: Use the minimum motion necessary to communicate the validated angle. No cinematic sweeping cameras, dramatic body movement, exaggerated emotional performance, constant background movement, or gratuitous transitions unless explicitly required by the spec.",
+      "timing": "Total duration (s): 6\nShot durations: SHOT-CSEC-006-1=6s\nAction timing: 0-2s: hesitation; 2-5s: slow forward weight shift; 5-6s: partial rise hold\nHold timing: 5-6s: hold the careful position",
+      "end_state": "Visual state: careful partially upright / standing-lean position\nSubject position: at the edge of the bed, partially risen\nEmotional state: cautious, controlled discomfort (not agony)\nIntended meaning: the unspoken difficulty of a simple movement is real and ordinary",
+      "continuity": "Identity: consistent subject identity\nWardrobe: unchanged\nObjects: bed and lamp consistent\nEnvironment: same bedroom, same lighting\nBody anatomy: believable human anatomy",
+      "audio": "Mode: NONE",
+      "text_policy": "Generated text allowed: false\nDeterministic overlay text: (applied deterministically downstream)\nCaptions: true\nCTA: true\nLogo: true",
+      "do_not_show": "collapse; fall; exaggerated writhing; falling; collapsing; fast or jerky motion; no text rendered inside the scene; no staged fall; no dramatic collapsing; no stereotyping; no invented cultural markers; no unsafe physical demonstration framed as clinical instruction; no medical-device invention; no malformed anatomy"
+    },
+    "video_type": "SCENE_VIDEO",
+    "production_mode": "GENERATED_SCENE",
+    "duration_seconds": 6,
+    "aspect_ratio": "9:16",
+    "shot_ids": [
+      "SHOT-CSEC-006-1"
+    ],
+    "metadata": {
+      "video_asset_id": "VID-CSEC-006",
+      "angle_id": "ANG-CSEC-006",
+      "video_grounding_id": "VG-VID-CSEC-006"
+    },
+    "prompt_version": "1.0",
+    "spec_version": "1.0",
+    "created_at": "2026-09-13T22:01:04.750Z"
+  },
+  "boundary_note": "Depiction of a recovery moment, NOT clinical instruction and NOT the Product Truth mechanism."
+}

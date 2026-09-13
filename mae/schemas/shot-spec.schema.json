@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/shot-spec.schema.json",
+  "title": "MAE ShotSpecification",
+  "description": "One explicit shot inside a video asset. Time/motion/sequence/camera are explicit controlled fields, not implicit prose. A video asset may contain one or more shots; the prompt compiler may never invent extra shots.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["shot_id", "purpose", "duration_seconds", "start_frame", "action", "camera", "end_frame", "audio", "transition", "text_safe_regions", "continuity_references", "source_classification"],
+  "properties": {
+    "shot_id": { "type": "string", "pattern": "^SHOT-" },
+    "purpose": { "type": "string", "minLength": 1 },
+    "duration_seconds": { "type": "number", "exclusiveMinimum": 0 },
+    "start_frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject", "subject_position", "environment", "camera", "visible_objects"],
+      "properties": {
+        "subject": { "type": "string" },
+        "subject_position": { "type": "string" },
+        "environment": { "type": "string" },
+        "camera": { "type": "string" },
+        "visible_objects": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject_action", "secondary_action", "movement_speed", "prohibited_motion"],
+      "properties": {
+        "subject_action": { "type": "string", "minLength": 1 },
+        "secondary_action": { "type": ["string", "null"] },
+        "movement_speed": { "type": "string" },
+        "prohibited_motion": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["framing", "movement", "focus", "stability"],
+      "properties": {
+        "framing": { "type": "string" },
+        "movement": { "type": "string" },
+        "focus": { "type": "string" },
+        "stability": { "type": "string" }
+      }
+    },
+    "end_frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject", "subject_position", "environment", "emotional_state"],
+      "properties": {
+        "subject": { "type": "string" },
+        "subject_position": { "type": "string" },
+        "environment": { "type": "string" },
+        "emotional_state": { "type": "string" }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "notes"],
+      "properties": {
+        "mode": { "enum": ["NONE", "AMBIENCE", "MUSIC", "VOICEOVER", "DIALOGUE"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "notes"],
+      "properties": {
+        "type": { "type": "string" },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "text_safe_regions": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "continuity_references": { "type": "array", "items": { "type": "string" } },
+    "source_classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_grounded", "production_instruction"],
+      "properties": {
+        "source_grounded": { "type": "array", "items": { "type": "string" } },
+        "production_instruction": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

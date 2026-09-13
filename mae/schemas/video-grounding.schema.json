@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/video-grounding.schema.json",
+  "title": "MAE VideoGrounding",
+  "description": "Structured grounding for video production. EXTENDS visual production thinking and references upstream visual grounding; it never replaces Visual Grounding and never invents Customer/Product Truth. Distinguishes source_grounded facts from production_instruction choices.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["video_grounding_id", "angle_id", "asset_purpose", "video_type", "subject", "environment", "start_state", "motion", "camera", "timing", "end_state", "continuity", "audio_intent", "text_policy", "exclusions", "source_classification"],
+  "properties": {
+    "video_grounding_id": { "type": "string", "pattern": "^VG-" },
+    "angle_id": { "type": "string", "pattern": "^ANG-" },
+    "visual_grounding_id": { "type": ["string", "null"] },
+    "asset_purpose": { "type": "string", "minLength": 1 },
+    "video_type": { "enum": ["SCENE_VIDEO", "PRODUCT_DEMO", "EDUCATIONAL_MOTION", "UI_DEMO", "TESTIMONIAL_STYLE", "KINETIC_TYPOGRAPHY", "SOCIAL_SHORT", "LANDING_PAGE_HERO_VIDEO", "BROLL", "VIDEO_AD", "EXPLAINER_SEQUENCE"] },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "identity_continuity_requirements", "wardrobe", "posture", "expression", "permitted_actions", "prohibited_actions"],
+      "properties": {
+        "description": { "type": "string", "minLength": 1 },
+        "identity_continuity_requirements": { "type": "array", "items": { "type": "string" } },
+        "wardrobe": { "type": ["string", "null"] },
+        "posture": { "type": "string" },
+        "expression": { "type": "string" },
+        "permitted_actions": { "type": "array", "items": { "type": "string" } },
+        "prohibited_actions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["location", "time_of_day", "lighting", "props", "cultural_markers", "background_requirements"],
+      "properties": {
+        "location": { "type": "string", "minLength": 1 },
+        "time_of_day": { "type": "string" },
+        "lighting": { "type": "string" },
+        "props": { "type": "array", "items": { "type": "string" } },
+        "cultural_markers": { "type": "array", "items": { "type": "string" } },
+        "background_requirements": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "start_state": { "$ref": "#/$defs/state" },
+    "motion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary_action", "secondary_actions", "speed", "direction", "physical_constraints", "gestures", "prohibited_motion"],
+      "properties": {
+        "primary_action": { "type": "string", "minLength": 1 },
+        "secondary_actions": { "type": "array", "items": { "type": "string" } },
+        "speed": { "type": "string" },
+        "direction": { "type": "string" },
+        "physical_constraints": { "type": "array", "items": { "type": "string" } },
+        "gestures": { "type": "array", "items": { "type": "string" } },
+        "prohibited_motion": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["framing", "position", "movement", "focus_behavior", "stability"],
+      "properties": {
+        "framing": { "type": "string", "minLength": 1 },
+        "position": { "type": "string" },
+        "movement": { "type": "string" },
+        "focus_behavior": { "type": "string" },
+        "stability": { "type": "string" }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total_duration_seconds", "action_timing", "hold_timing", "transition_timing"],
+      "properties": {
+        "total_duration_seconds": { "type": "number", "exclusiveMinimum": 0 },
+        "action_timing": { "type": "array", "items": { "type": "string" } },
+        "hold_timing": { "type": "array", "items": { "type": "string" } },
+        "transition_timing": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "end_state": { "$ref": "#/$defs/endState" },
+    "continuity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["identity", "wardrobe", "objects", "environment", "body_anatomy"],
+      "properties": {
+        "identity": { "type": "string" },
+        "wardrobe": { "type": "string" },
+        "objects": { "type": "string" },
+        "environment": { "type": "string" },
+        "body_anatomy": { "type": "string" }
+      }
+    },
+    "audio_intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "notes"],
+      "properties": {
+        "mode": { "enum": ["NONE", "AMBIENCE", "MUSIC", "VOICEOVER", "DIALOGUE"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "text_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generated_text_allowed", "deterministic_overlay_text", "captions", "cta", "logo"],
+      "properties": {
+        "generated_text_allowed": { "type": "boolean" },
+        "deterministic_overlay_text": { "type": "array", "items": { "type": "string" } },
+        "captions": { "type": "boolean" },
+        "cta": { "type": "boolean" },
+        "logo": { "type": "boolean" }
+      }
+    },
+    "exclusions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visual", "motion", "cultural", "safety", "artifact"],
+      "properties": {
+        "visual": { "type": "array", "items": { "type": "string" } },
+        "motion": { "type": "array", "items": { "type": "string" } },
+        "cultural": { "type": "array", "items": { "type": "string" } },
+        "safety": { "type": "array", "items": { "type": "string" } },
+        "artifact": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "source_classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_grounded", "production_instruction"],
+      "properties": {
+        "source_grounded": { "type": "array", "items": { "type": "string" } },
+        "production_instruction": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visual_state", "subject_position", "camera_position", "emotional_state", "visible_objects"],
+      "properties": {
+        "visual_state": { "type": "string", "minLength": 1 },
+        "subject_position": { "type": "string" },
+        "camera_position": { "type": "string" },
+        "emotional_state": { "type": "string" },
+        "visible_objects": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "endState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visual_state", "subject_position", "emotional_state", "intended_meaning"],
+      "properties": {
+        "visual_state": { "type": "string", "minLength": 1 },
+        "subject_position": { "type": "string" },
+        "emotional_state": { "type": "string" },
+        "intended_meaning": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

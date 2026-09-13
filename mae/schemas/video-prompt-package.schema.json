@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/mae/schemas/video-prompt-package.schema.json",
+  "title": "MAE VideoPromptPackage",
+  "description": "A deterministic, provider-neutral video production instruction compiled from Video Grounding + Shot Specification(s) + Video Asset Specification. NOT an LLM output; it never invents customer truth or extra shots. Sectioned, human-readable, exactly preserved for future capture/persist/expose.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "class", "prompt", "negative_prompt", "sections", "video_type", "production_mode", "duration_seconds", "aspect_ratio", "shot_ids", "metadata", "prompt_version", "spec_version", "created_at"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^VPP-" },
+    "class": { "const": "video_prompt_package" },
+    "prompt": { "type": "string", "minLength": 1 },
+    "negative_prompt": { "type": "string" },
+    "sections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject", "environment", "start_state", "action", "camera", "motion", "timing", "end_state", "continuity", "audio", "text_policy", "do_not_show"],
+      "properties": {
+        "subject": { "type": "string" },
+        "environment": { "type": "string" },
+        "start_state": { "type": "string" },
+        "action": { "type": "string" },
+        "camera": { "type": "string" },
+        "motion": { "type": "string" },
+        "timing": { "type": "string" },
+        "end_state": { "type": "string" },
+        "continuity": { "type": "string" },
+        "audio": { "type": "string" },
+        "text_policy": { "type": "string" },
+        "do_not_show": { "type": "string" }
+      }
+    },
+    "video_type": { "type": "string", "minLength": 1 },
+    "production_mode": { "type": "string", "minLength": 1 },
+    "duration_seconds": { "type": "number", "exclusiveMinimum": 0 },
+    "aspect_ratio": { "type": "string", "pattern": "^\\d+:\\d+$" },
+    "shot_ids": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["video_asset_id", "angle_id", "video_grounding_id"],
+      "properties": {
+        "video_asset_id": { "type": "string" },
+        "angle_id": { "type": "string" },
+        "video_grounding_id": { "type": "string" }
+      }
+    },
+    "prompt_version": { "type": "string", "minLength": 1 },
+    "spec_version": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}
