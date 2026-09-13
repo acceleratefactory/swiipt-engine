@@ -143,6 +143,29 @@ T("build-manifest REFUSES when the authorizer is unnamed", () => {
   assert.equal(r.ok, false);
 });
 
+// 4) PRE_REVENUE human-review gate — a blocking review blocks publication; a resolved one does not.
+T("build-manifest REFUSES while a human review is PENDING_HUMAN_REVIEW (even with gates + authorization)", () => {
+  const r = withRecord((p) => {
+    allGatesPass(p); authorize(p);
+    p.human_review = { status: "PENDING_HUMAN_REVIEW", reason: "SUPERVISOR_REQUIRED deferred until revenue", escalation_class: "SUPERVISOR_REQUIRED", created_at: "2026-09-12T00:00:00Z" };
+  }, build);
+  assert.equal(r.ok, false, "a pending human review must block publication");
+});
+T("build-manifest REFUSES while a human review is BLOCKED", () => {
+  const r = withRecord((p) => {
+    allGatesPass(p); authorize(p);
+    p.human_review = { status: "BLOCKED", reason: "unsupported evidence", escalation_class: "SUPERVISOR_REQUIRED", created_at: "2026-09-12T00:00:00Z" };
+  }, build);
+  assert.equal(r.ok, false);
+});
+T("build-manifest proceeds after a human review is RESOLVED (through normal gates + authorization)", () => {
+  const r = withRecord((p) => {
+    allGatesPass(p); authorize(p);
+    p.human_review = { status: "RESOLVED", reason: "unsupported claim removed", escalation_class: "SUPERVISOR_REQUIRED", created_at: "2026-09-12T00:00:00Z", resolved_at: "2026-09-12T01:00:00Z", resolved_by: "Owner", resolution: "claim removed" };
+  }, build);
+  assert.equal(r.ok, true, "a resolved review must not permanently block a gated publish");
+});
+
 let pass = 0, fail = 0;
 for (const [name, fn] of queue) {
   try { fn(); console.log("PASS  " + name); pass++; }

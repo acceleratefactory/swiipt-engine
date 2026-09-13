@@ -151,3 +151,15 @@ Files: `bench/supervisor-bench.mjs`, `bench/schemas/supervisor-decision.schema.j
 `lib/provider-client.mjs` and `bench/text-provider-bench.mjs` (`resolveProvider`/`normalizeCandidate`).
 No database, no SDK, no second application. Existing generator/critic results, thresholds, task hash,
 fixtures and Truth are unchanged.
+
+## 12. Architectural role & current operating status (PRE_REVENUE)
+- **Premium Supervisor: PERMANENT ARCHITECTURAL ROLE.** It is the adjudicator for the difficult minority
+  of cases that deterministic QA + the primary critic cannot confidently resolve. It is never deleted.
+- **Current operating status: `DEFERRED_UNTIL_REVENUE`.** In PRE_REVENUE mode the supervisor is not
+  invoked (paid premium inference is not justified before revenue). Nothing in this framework changes.
+- **Current fallback: `HUMAN_REVIEW`.** `SUPERVISOR_REQUIRED` and `HUMAN_REVIEW_REQUIRED` route to an
+  explicit, blocking human-review record (see `lib/text-intelligence.mjs` + `config/text-intelligence.v1.json`).
+  The supervisor is never marked `PASS` and no supervisor result is manufactured.
+- **Future activation condition:** a model must pass THIS frozen qualification framework (A–L cases,
+  zero-tolerance classes, thresholds, provider attribution). No particular future model is encoded here;
+  inserting a qualified supervisor back into the existing slot requires no redesign.

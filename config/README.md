@@ -48,3 +48,14 @@ Deterministic controls always run. The LLM critic uses a replaceable provider ad
 (`WRITING_CRITIC_PROVIDER`, default `none`) and is **dormant by default**. A PASS is never recorded
 when the critic did not run — the status is `NOT_RUN`, and under `--strict` a required-but-unavailable
 critic becomes `HUMAN_REVIEW`. No credentials are hard-coded.
+
+## Text intelligence operating mode
+
+- Structured config: `text-intelligence.v1.json` (validated by `../schemas/text-intelligence.schema.json`)
+- Canonical doc: `../SWIIPT-TEXT-INTELLIGENCE-STACK-PRE-REVENUE.md`
+- Code: `../lib/text-intelligence.mjs` (routing + human-review state) · `../harness/evidence-provenance.mjs`
+- Tests: `node harness/text-intelligence.test.mjs`
+
+The current mode is **PRE_REVENUE**: the Premium Supervisor is **DEFERRED_UNTIL_REVENUE** (permanent,
+not removed) and `SUPERVISOR_REQUIRED` / `HUMAN_REVIEW_REQUIRED` route to a blocking `HUMAN_REVIEW`
+record. No paid supervisor call occurs in this mode and no supervisor `PASS` is ever manufactured.

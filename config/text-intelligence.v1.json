@@ -1,0 +1,88 @@
+{
+  "$schema": "../schemas/text-intelligence.schema.json",
+  "text_intelligence_version": "1.0",
+
+  "mode": "PRE_REVENUE",
+  "modes_available": ["PRE_REVENUE", "REVENUE"],
+
+  "generator": {
+    "provider": "nvidia",
+    "model": "deepseek-ai/deepseek-v4-flash-0731",
+    "status": "ACTIVE_INCUMBENT"
+  },
+
+  "deterministic_system": {
+    "status": "AUTHORITATIVE",
+    "components": [
+      "truth_validation",
+      "schema_validation",
+      "evidence_provenance_checks",
+      "safety_gates",
+      "acceptance_tests",
+      "writing_controls",
+      "transformation_qa",
+      "publishing_gates"
+    ]
+  },
+
+  "primary_critic": {
+    "provider": "xkiro",
+    "model": "mistralai/mistral-large-2512",
+    "status": "QUALIFIED_PRIMARY_CRITIC",
+    "known_limitation": "missed one invented-evidence case during qualification",
+    "mitigation": "deterministic evidence/provenance checks remain authoritative over critic inference"
+  },
+
+  "premium_supervisor": {
+    "architectural_role": "PERMANENT",
+    "status": "DEFERRED_UNTIL_REVENUE",
+    "fallback": "HUMAN_REVIEW",
+    "framework": "bench/supervisor-bench.mjs",
+    "qualification_status": "UNFILLED",
+    "activation_condition": "A candidate model must pass the frozen Premium Supervisor qualification framework (A-L benchmark, zero-tolerance classes, thresholds) before activation. No particular future model is encoded."
+  },
+
+  "routing": {
+    "PRE_REVENUE": {
+      "NO_ESCALATION": "CONTINUE",
+      "DETERMINISTIC_BLOCK": "BLOCK",
+      "SUPERVISOR_OPTIONAL": "EXISTING_POLICY",
+      "SUPERVISOR_REQUIRED": "HUMAN_REVIEW",
+      "HUMAN_REVIEW_REQUIRED": "HUMAN_REVIEW",
+      "supervisor_invocation": "FORBIDDEN",
+      "deferred_reason": "PREMIUM_SUPERVISOR_DEFERRED_UNTIL_REVENUE"
+    },
+    "REVENUE": {
+      "NO_ESCALATION": "CONTINUE",
+      "DETERMINISTIC_BLOCK": "BLOCK",
+      "SUPERVISOR_OPTIONAL": "EXISTING_POLICY",
+      "SUPERVISOR_REQUIRED": "SUPERVISOR",
+      "HUMAN_REVIEW_REQUIRED": "HUMAN_REVIEW",
+      "supervisor_invocation": "ALLOWED_IF_QUALIFIED"
+    }
+  },
+
+  "human_review": {
+    "states": ["PENDING_HUMAN_REVIEW", "RESOLVED", "BLOCKED"],
+    "blocks_publication_when_pending": true,
+    "auto_resolve": false,
+    "auto_approve": false
+  },
+
+  "evidence": {
+    "rule": "The existence of evidence is a system property, not an LLM confidence judgment.",
+    "failure_status": "SOURCE_REQUIRED",
+    "never_invent": true,
+    "critic_confidence_is_not_evidence": true
+  },
+
+  "statuses": {
+    "ACTIVE_INCUMBENT": "generator incumbent (not permanently qualified)",
+    "QUALIFIED_PRIMARY_CRITIC": "primary critic passed the critic qualification framework",
+    "AUTHORITATIVE": "deterministic system outranks any LLM judgment",
+    "DEFERRED_UNTIL_REVENUE": "premium supervisor not invoked in PRE_REVENUE mode",
+    "PENDING_HUMAN_REVIEW": "blocking human review state",
+    "SOURCE_REQUIRED": "required evidence/provenance missing",
+    "BLOCKED": "blocking state"
+  }
+}

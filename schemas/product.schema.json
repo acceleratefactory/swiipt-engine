@@ -389,6 +389,26 @@
         }
       }
     },
+    "human_review": {
+      "type": "object",
+      "description": "Pre-revenue text intelligence: explicit, blocking HUMAN_REVIEW state. In PRE_REVENUE mode, SUPERVISOR_REQUIRED and HUMAN_REVIEW_REQUIRED route here (the Premium Supervisor is DEFERRED_UNTIL_REVENUE). While status is PENDING_HUMAN_REVIEW or BLOCKED, no publish manifest can be built. Never auto-resolved or auto-approved.",
+      "additionalProperties": false,
+      "required": ["status", "reason", "created_at"],
+      "properties": {
+        "status": { "enum": ["PENDING_HUMAN_REVIEW", "RESOLVED", "BLOCKED"] },
+        "reason": { "type": "string", "minLength": 1 },
+        "escalation_class": { "enum": ["NO_ESCALATION", "DETERMINISTIC_BLOCK", "SUPERVISOR_OPTIONAL", "SUPERVISOR_REQUIRED", "HUMAN_REVIEW_REQUIRED"] },
+        "unresolved_issue": { "type": "string" },
+        "deterministic_findings": { "type": "array", "items": { "type": "string" } },
+        "critic_findings": { "type": "array", "items": { "type": "string" } },
+        "evidence_references": { "type": "array", "items": { "type": "string" } },
+        "safety_references": { "type": "array", "items": { "type": "string" } },
+        "created_at": { "type": "string", "format": "date-time" },
+        "resolved_at": { "type": ["string", "null"], "format": "date-time" },
+        "resolved_by": { "type": "string" },
+        "resolution": { "type": "string" }
+      }
+    },
     "generation": {
       "type": "object",
       "description": "Writing / Generation Control (Writing Control Layer V1, section 34/35). Product-specific configuration ONLY: the global Writing Constitution lives in config/writing-control.v1.json + standards/writing-standard.md. This block carries the writing_control_version used and any product-specific voice overrides (expression only, never violating the global constitution).",

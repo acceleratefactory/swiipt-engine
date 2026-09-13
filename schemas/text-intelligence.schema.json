@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/text-intelligence.schema.json",
+  "title": "Swiipt Text Intelligence Operating Mode",
+  "description": "Machine-readable operating mode for the text intelligence stack (generator -> deterministic QA -> primary critic -> escalation -> premium supervisor | human review). Encodes the PRE_REVENUE operating mode where premium-supervisor invocations are replaced by HUMAN_REVIEW. The Premium Supervisor architecture is never removed; it is DEFERRED. No API keys are stored here.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["text_intelligence_version", "mode", "generator", "deterministic_system", "primary_critic", "premium_supervisor", "routing", "human_review", "evidence"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "text_intelligence_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+    "mode": { "enum": ["PRE_REVENUE", "REVENUE"] },
+    "modes_available": { "type": "array", "items": { "enum": ["PRE_REVENUE", "REVENUE"] } },
+    "generator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "model", "status"],
+      "properties": {
+        "provider": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["ACTIVE_INCUMBENT"] }
+      }
+    },
+    "deterministic_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "components"],
+      "properties": {
+        "status": { "const": "AUTHORITATIVE" },
+        "components": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "primary_critic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "model", "status"],
+      "properties": {
+        "provider": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["QUALIFIED_PRIMARY_CRITIC"] },
+        "known_limitation": { "type": "string" },
+        "mitigation": { "type": "string" }
+      }
+    },
+    "premium_supervisor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["architectural_role", "status", "fallback"],
+      "properties": {
+        "architectural_role": { "const": "PERMANENT" },
+        "status": { "enum": ["DEFERRED_UNTIL_REVENUE", "ACTIVE"] },
+        "fallback": { "const": "HUMAN_REVIEW" },
+        "framework": { "type": "string" },
+        "qualification_status": { "enum": ["UNFILLED", "QUALIFIED"] },
+        "activation_condition": { "type": "string" }
+      }
+    },
+    "routing": {
+      "type": "object",
+      "additionalProperties": { "type": "object" }
+    },
+    "human_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["states", "blocks_publication_when_pending"],
+      "properties": {
+        "states": { "type": "array", "items": { "enum": ["PENDING_HUMAN_REVIEW", "RESOLVED", "BLOCKED"] } },
+        "blocks_publication_when_pending": { "const": true },
+        "auto_resolve": { "const": false },
+        "auto_approve": { "const": false }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rule", "failure_status"],
+      "properties": {
+        "rule": { "type": "string", "minLength": 1 },
+        "failure_status": { "const": "SOURCE_REQUIRED" },
+        "never_invent": { "type": "boolean" },
+        "critic_confidence_is_not_evidence": { "type": "boolean" }
+      }
+    },
+    "statuses": { "type": "object", "additionalProperties": { "type": "string" } }
+  }
+}

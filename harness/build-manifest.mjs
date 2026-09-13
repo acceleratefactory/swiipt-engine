@@ -123,6 +123,17 @@ if (!auth || auth.status !== "READY_TO_PUBLISH" || !auth.authorized_by) {
   process.exit(3);
 }
 
+// --- PRE_REVENUE human-review gate (text intelligence operating mode) ---
+// The Premium Supervisor is DEFERRED in PRE_REVENUE mode; cases that would need it, plus explicit
+// HUMAN_REVIEW_REQUIRED cases, route to a HUMAN_REVIEW record. That record is a BLOCKING state: while it
+// is PENDING_HUMAN_REVIEW or BLOCKED no publish manifest may be built. This never manufactures
+// authorization and never converts an unresolved review into PASS.
+const humanReview = p.human_review ?? null;
+if (humanReview && (humanReview.status === "PENDING_HUMAN_REVIEW" || humanReview.status === "BLOCKED")) {
+  console.error(`FAIL ${pid}: publication blocked - human review is ${humanReview.status}${humanReview.reason ? ` (${humanReview.reason})` : ""}. Resolve it explicitly before building a publish manifest.`);
+  process.exit(3);
+}
+
 // Inline generated product content (landing page / product page / faq) from copy/ artifacts,
 // so the live publisher receives self-contained content (no factory-repo filesystem at publish time).
 function readCopy(rel) {
