@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/schemas/video-assembly-spec.schema.json",
+  "title": "Video Assembly Specification (Wave V-D)",
+  "type": "object",
+  "required": ["assembly_id", "video_asset_id", "production_mode", "canvas", "timeline", "audio"],
+  "additionalProperties": true,
+  "properties": {
+    "assembly_id": { "type": "string", "minLength": 1 },
+    "video_asset_id": { "type": "string", "minLength": 1 },
+    "production_mode": { "enum": ["SOURCE_VIDEO_ONLY", "VIDEO_WITH_OVERLAYS", "VIDEO_WITH_CAPTIONS", "IMAGE_TO_MOTION_ASSEMBLY", "MULTI_CLIP_SEQUENCE", "HYBRID"] },
+    "source_artifacts": { "type": "array", "items": { "type": "object" } },
+    "platform": { "type": ["string", "null"] },
+    "placement": { "type": ["string", "null"] },
+    "canvas": {
+      "type": "object",
+      "required": ["width", "height", "fps", "duration_seconds"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "aspect_ratio": { "type": ["string", "null"] },
+        "fps": { "type": "number", "exclusiveMinimum": 0 },
+        "duration_seconds": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "timeline": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["item_id", "type", "start_time", "end_time"],
+        "properties": {
+          "item_id": { "type": "string" },
+          "type": { "enum": ["VIDEO", "IMAGE", "TEXT", "LOGO", "CTA", "CAPTION", "OVERLAY"] },
+          "role": { "type": ["string", "null"] },
+          "start_time": { "type": "number", "minimum": 0 },
+          "end_time": { "type": "number", "exclusiveMinimum": 0 },
+          "z": { "type": ["integer", "null"] },
+          "opacity": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+          "source": { "type": ["object", "null"] },
+          "position": { "type": ["object", "null"] },
+          "text": { "type": ["object", "null"] },
+          "motion": { "type": ["object", "null"] },
+          "transition": { "type": ["object", "null"] }
+        }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "required": ["mode"],
+      "properties": {
+        "mode": { "enum": ["NONE", "SOURCE", "EXTERNAL_TRACK"] },
+        "volume": { "type": ["number", "null"] },
+        "ref": { "type": ["string", "null"] }
+      }
+    },
+    "captions": { "type": "array", "items": { "type": "object" } },
+    "logo": { "type": ["object", "null"] },
+    "safe_zones": { "type": "array", "items": { "type": "object" } },
+    "poster_frame": { "type": ["object", "null"] },
+    "output": { "type": "object" },
+    "brand_rules": { "type": "object" },
+    "source_provenance": { "type": "object" }
+  }
+}
