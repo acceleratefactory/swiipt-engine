@@ -201,7 +201,10 @@ export function normalizeVideoProviderResult(raw = {}, { provider = null, reques
     requested_fps: request.fps ?? null,
     provider_prompt_sent,
     prompt_modified_by_adapter,
+    canonical_prompt: request.prompt ?? null,
     negative_prompt: raw.negative_prompt ?? request.negative_prompt ?? null,
+    motion: request.motion ?? null,
+    camera: request.camera ?? null,
     source_image: request.source_image ?? null,
     reference_images: Array.isArray(request.reference_images) ? request.reference_images : [],
     seed: raw.seed ?? null,
@@ -303,6 +306,26 @@ function finalizeCompleted({ adapter, request, job, built, common, artifactDir }
     fixtureId: request.metadata?.fixture_id ?? null,
     provider: adapter.name, requestedModel: request.model ?? null, returnedModel: job.returned_model ?? null,
     sourceUrl: video_url,
+    // exact prompt provenance → the per-artifact prompt file is written automatically
+    prompt: {
+      canonical_prompt: request.prompt ?? null,
+      provider_prompt_sent: common.provider_prompt_sent,
+      prompt_modified_by_adapter: common.prompt_modified_by_adapter,
+      negative_prompt: built.negative_prompt ?? request.negative_prompt ?? null,
+      motion: request.motion ?? null,
+      camera: request.camera ?? null,
+      source_image: request.source_image ?? null,
+      reference_images: Array.isArray(request.reference_images) ? request.reference_images : [],
+      provider: adapter.name,
+      requested_model: request.model ?? null,
+      returned_model: job.returned_model ?? null,
+      provider_job_id: job.provider_job_id ?? null,
+      requested_width: request.width ?? null,
+      requested_height: request.height ?? null,
+      requested_aspect_ratio: request.aspect_ratio ?? null,
+      requested_duration_seconds: request.duration_seconds ?? null,
+      requested_fps: request.fps ?? null,
+    },
   });
   if (!persisted.ok) return { ...common, state: PROVIDER_STATE.VIDEO_ARTIFACT_INVALID, error: `artifact invalid: ${persisted.status}`, provider_job_id: job.provider_job_id, video_url };
   const conformance = videoConformance({ assetSpec: { width: request.width, height: request.height, aspect_ratio: request.aspect_ratio, duration_seconds: request.duration_seconds, fps: request.fps }, artifact: persisted.artifact });

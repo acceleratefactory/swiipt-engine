@@ -9,7 +9,7 @@ import { mkdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { MAE_DIR } from "../lib/store.js";
-import { compareAspectRatio, ASPECT_RATIO_TOLERANCE } from "./image-provider.js";
+import { compareAspectRatio, ASPECT_RATIO_TOLERANCE, redactSecrets } from "./image-provider.js";
 
 export const VIDEO_ARTIFACT_STATUS = Object.freeze({
   VIDEO_ARTIFACT_VALID: "VIDEO_ARTIFACT_VALID",
@@ -121,8 +121,68 @@ export function validateVideoBytes(bytes) {
   return { status: VIDEO_ARTIFACT_STATUS.VIDEO_ARTIFACT_VALID, inspection: insp };
 }
 
+// ---------- per-artifact prompt escape hatch (automatic) ----------------------
+// Every generated video must carry its own human-readable, copyable exact prompt file — the video
+// equivalent of the image prompt escape hatch. Written automatically on successful persistence.
+export const VIDEO_PROMPT_FILENAME = (artifactId) => `${artifactId || "video"}.prompt.txt`;
+const MOTION_LABELS = Object.freeze({ primary_action: "Primary action", speed: "Speed", direction: "Direction", physical_constraints: "Physical constraints" });
+const CAMERA_LABELS = Object.freeze({ framing: "Framing", movement: "Movement", stability: "Stability", focus: "Focus", position: "Position" });
+const lead = (k) => k.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+const val = (x, fallback = "NONE") => (x === null || x === undefined || x === "" ? fallback : String(x));
+const block = (obj, labels, required) => {
+  const src = obj || {};
+  const out = [];
+  const seen = new Set();
+  for (const k of required) { out.push(`${labels[k] || lead(k)}:`, val(src[k]), ""); seen.add(k); }
+  for (const k of Object.keys(src).sort()) { if (seen.has(k)) continue; out.push(`${labels[k] || lead(k)}:`, val(src[k]), ""); }
+  if (!out.length) out.push("NONE", "");
+  return out;
+};
+
+/** The exact, non-truncated human-readable prompt text for one video artifact. */
+export function videoPromptText(artifact = {}, prompt = {}) {
+  const p = prompt || {};
+  const model = p.requested_model;
+  const lines = [
+    "VIDEO GENERATION PROMPT", "",
+    `Artifact ID: ${val(artifact.artifact_id)}`,
+    `Provider: ${p.provider ? String(p.provider) : "NOT_SENT"}`,
+    `Requested model: ${val(model)}`,
+    `Returned model: ${p.returned_model ? String(p.returned_model) : "UNVERIFIED"}`,
+    `Provider job ID: ${val(p.provider_job_id)}`, "",
+    "Canonical video prompt:", val(p.canonical_prompt, "(none)"), "",
+    "Exact provider prompt sent:", p.provider_prompt_sent != null && String(p.provider_prompt_sent).length ? String(p.provider_prompt_sent) : "NOT_SENT", "",
+    `Prompt modified by adapter: ${p.prompt_modified_by_adapter === null || p.prompt_modified_by_adapter === undefined ? "null" : String(!!p.prompt_modified_by_adapter)}`, "",
+    "Negative prompt:", p.negative_prompt != null && String(p.negative_prompt).length ? String(p.negative_prompt) : "NONE", "",
+    "MOTION INSTRUCTION", ...block(p.motion, MOTION_LABELS, ["primary_action", "speed", "direction"]),
+    "CAMERA INSTRUCTION", ...block(p.camera, CAMERA_LABELS, ["framing", "movement", "stability"]),
+    `Source image: ${val(p.source_image)}`,
+    `Reference images: ${Array.isArray(p.reference_images) && p.reference_images.length ? p.reference_images.join(", ") : "NONE"}`, "",
+    `Requested width: ${val(p.requested_width)}`,
+    `Requested height: ${val(p.requested_height)}`,
+    `Requested aspect ratio: ${val(p.requested_aspect_ratio)}`,
+    `Requested duration: ${val(p.requested_duration_seconds)}`,
+    `Requested fps: ${val(p.requested_fps)}`, "",
+    `Actual artifact width: ${val(artifact.actual_width, "UNKNOWN")}`,
+    `Actual artifact height: ${val(artifact.actual_height, "UNKNOWN")}`,
+    `Actual artifact aspect ratio: ${val(artifact.actual_aspect_ratio, "UNKNOWN")}`,
+    `Actual artifact duration: ${val(artifact.actual_duration_seconds, "UNKNOWN")}`, "",
+    `Artifact path: ${val(artifact.local_path)}`,
+    `Artifact SHA-256: ${val(artifact.sha256)}`, "",
+  ];
+  return redactSecrets(lines.join("\n"));
+}
+
+/** Write the per-artifact prompt file beside the artifact. Returns the path. */
+export function writeVideoArtifactPromptFile(artifact, prompt, dir = VIDEO_ARTIFACT_DIR) {
+  mkdirSync(dir, { recursive: true });
+  const path = join(dir, VIDEO_PROMPT_FILENAME(artifact?.artifact_id));
+  writeFileSync(path, videoPromptText(artifact, prompt));
+  return path;
+}
+
 // ---------- persistence -------------------------------------------------------
-export function persistVideoArtifact({ bytes = null, name = "video.mp4", declaredMimeType = null, dir = VIDEO_ARTIFACT_DIR, artifactId = null, videoAssetId = null, fixtureId = null, provider = null, requestedModel = null, returnedModel = null, sourceUrl = null } = {}) {
+export function persistVideoArtifact({ bytes = null, name = "video.mp4", declaredMimeType = null, dir = VIDEO_ARTIFACT_DIR, artifactId = null, videoAssetId = null, fixtureId = null, provider = null, requestedModel = null, returnedModel = null, sourceUrl = null, prompt = null } = {}) {
   const v = validateVideoBytes(bytes);
   const base = { artifact_id: artifactId, video_asset_id: videoAssetId, fixture_id: fixtureId, provider, requested_model: requestedModel, returned_model: returnedModel, source_url: sourceUrl, provider_declared_mime_type: declaredMimeType ? String(declaredMimeType).toLowerCase() : null };
   if (v.status !== VIDEO_ARTIFACT_STATUS.VIDEO_ARTIFACT_VALID) return { ok: false, status: v.status, inspection: v.inspection, artifact: null, ...base };
@@ -155,6 +215,11 @@ export function persistVideoArtifact({ bytes = null, name = "video.mp4", declare
     status: VIDEO_ARTIFACT_STATUS.VIDEO_ARTIFACT_VALID,
   };
   const recordPath = join(dir, `${artifactId || "video"}.json`);
+  // Automatic escape hatch: write the per-artifact prompt file whenever exact source prompt data
+  // exists. Never manufactured — skipped entirely when there is no canonical prompt.
+  if (prompt && typeof prompt.canonical_prompt === "string" && prompt.canonical_prompt.trim().length) {
+    artifact.prompt_file = writeVideoArtifactPromptFile(artifact, prompt, dir);
+  }
   writeFileSync(recordPath, JSON.stringify(artifact, null, 2) + "\n");
   return { ok: true, status: VIDEO_ARTIFACT_STATUS.VIDEO_ARTIFACT_VALID, inspection: v.inspection, artifact, record_path: recordPath, ...base };
 }
