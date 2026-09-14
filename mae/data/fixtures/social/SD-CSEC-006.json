@@ -1,0 +1,68 @@
+{
+  "design_id": "SD-CSEC-006",
+  "design_version": "1.0",
+  "angle_id": "ANG-CSEC-006",
+  "angle_verdict": "GREEN",
+  "asset_brief_id": "AB-CSEC-006-SOCIAL",
+  "product_id": "PPL-CS-FIRST14DAYS-001",
+  "transformation_id": "TR-PPL-CS-FIRST14DAYS-001",
+  "asset_type": "SOCIAL_STATIC",
+  "asset_purpose": "STOP_SCROLL",
+  "content_pattern": "TYPOGRAPHIC_HOOK",
+  "layout_family": "TYPE_DOMINANT",
+  "platform": "instagram",
+  "placement": "feed",
+  "platform_format": "FEED_PORTRAIT",
+  "canvas": { "width": 1080, "height": 1350, "aspect_ratio": "4:5" },
+  "safe_zones": { "top": 120, "bottom": 220, "left": 72, "right": 72 },
+  "copy_blocks": [
+    { "copy_id": "COPY-HOOK-1", "role": "headline", "text": "Nobody tells you what standing up feels like on day 6.", "source_ref": "ANG-CSEC-006#hook", "required": true }
+  ],
+  "typography_roles": [
+    { "role": "headline", "scale": 52, "weight": 700, "line_height": 62, "alignment": "LEFT", "max_width": 936 }
+  ],
+  "visual_slots": [],
+  "brand_tokens_version": "swt-tokens.css@1.x",
+  "logo_policy": { "variant": "primary", "placement": "TOP_LEFT", "clear_space": 48, "min_size": 32, "required": false },
+  "cta_policy": { "required": false, "copy_role": null, "placement": null, "prominence": "NONE" },
+  "background_policy": { "kind": "solid", "color": "#0B1F33" },
+  "truth_requirements": { "weighting_profile": "Situation-led social post", "truth_refs": ["CRF-CSEC-014", "PTR-CSEC-001"] },
+  "evidence_requirements": [],
+  "hierarchy": ["headline"],
+  "alignment": "LEFT",
+  "spacing": { "class": "LOOSE" },
+  "density": "SPARSE",
+  "accessibility": {
+    "min_type_size": 44,
+    "contrast_floor": 4.5,
+    "alt_text": "A quiet Swiipt navy statement card reading: Nobody tells you what standing up feels like on day 6."
+  },
+  "export_format": ["svg", "png"],
+  "production_mode": "DETERMINISTIC_TYPE_ONLY",
+  "source_classification": {
+    "source_grounded": ["angle hook", "customer situation"],
+    "production_instruction": [
+      "layout family: TYPE_DOMINANT",
+      "platform format: FEED_PORTRAIT",
+      "production mode: DETERMINISTIC_TYPE_ONLY",
+      "alignment: LEFT",
+      "density: SPARSE",
+      "safe zones",
+      "typography role selection: headline"
+    ]
+  },
+  "prohibited_elements": ["clinical instruction framing", "invented mechanism", "statistic", "testimonial", "price", "generated text inside source imagery"],
+  "required_elements": ["headline"],
+  "provenance": {
+    "angle_id": "ANG-CSEC-006",
+    "asset_brief_id": "AB-CSEC-006-SOCIAL",
+    "truth_refs": ["CRF-CSEC-014", "PTR-CSEC-001"],
+    "copy_refs": ["ANG-CSEC-006#hook"],
+    "evidence_refs": [],
+    "source_media_refs": [],
+    "brand_tokens_version": "swt-tokens.css@1.x"
+  },
+  "status": "SPECIFIED",
+  "fixture_note": "Wave S-A contract-only fixture. Depiction/identification, not clinical instruction; no invented mechanism; no statistic/testimonial/price. Nothing is rendered from this fixture.",
+  "boundary_note": "Depiction of a recovery moment, NOT clinical instruction and NOT the Product Truth mechanism."
+}

@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/schemas/social-design-spec.schema.json",
+  "title": "SocialDesignSpecification (Wave S-A contracts)",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "design_id", "design_version", "angle_id", "angle_verdict", "asset_brief_id", "product_id",
+    "transformation_id", "asset_type", "asset_purpose", "content_pattern", "layout_family",
+    "platform", "placement", "platform_format", "canvas", "safe_zones", "copy_blocks",
+    "typography_roles", "brand_tokens_version", "logo_policy", "cta_policy", "background_policy",
+    "truth_requirements", "hierarchy", "alignment", "spacing", "density", "accessibility",
+    "export_format", "production_mode", "source_classification", "prohibited_elements",
+    "required_elements", "provenance"
+  ],
+  "properties": {
+    "design_id": { "type": "string", "minLength": 1 },
+    "design_version": { "type": "string", "minLength": 1 },
+    "angle_id": { "type": "string", "minLength": 1 },
+    "angle_verdict": { "enum": ["GREEN", "YELLOW"] },
+    "asset_brief_id": { "type": "string", "minLength": 1 },
+    "product_id": { "type": "string", "minLength": 1 },
+    "transformation_id": { "type": "string", "minLength": 1 },
+    "asset_family_id": { "type": ["string", "null"] },
+    "asset_type": { "enum": ["SOCIAL_STATIC", "SOCIAL_CAROUSEL", "SOCIAL_STORY_SEQUENCE"] },
+    "asset_purpose": {
+      "enum": ["STOP_SCROLL", "IDENTIFICATION", "REASSURANCE", "EDUCATION", "CLARIFICATION", "DECISION_SUPPORT", "PROOF", "PRODUCT_CONVERSION", "MEMBERSHIP_CONVERSION", "ANNOUNCEMENT", "REMINDER", "RETENTION"]
+    },
+    "content_pattern": {
+      "enum": ["STATEMENT", "TYPOGRAPHIC_HOOK", "QUESTION", "QUOTE", "IDENTIFICATION", "REASSURANCE", "PROBLEM_INSIGHT", "MYTH_REALITY", "MISTAKE_CORRECTION", "CHECKLIST", "STEPS", "COMPARISON", "STATISTIC", "DATA", "TESTIMONIAL", "PROOF", "FEATURE_BENEFIT", "BENEFIT_STACK", "BEFORE_AFTER", "OFFER", "PRICE", "FEATURE"]
+    },
+    "layout_family": {
+      "enum": ["TYPE_DOMINANT", "IMAGE_DOMINANT", "SPLIT", "LIST", "TWO_COLUMN", "DATA_FOCUS", "QUOTE_FOCUS", "PRODUCT_HERO", "FULL_BLEED", "EDITORIAL", "MULTI_PANEL"]
+    },
+    "platform": { "type": "string", "minLength": 1 },
+    "placement": { "type": "string", "minLength": 1 },
+    "platform_format": {
+      "enum": ["FEED_SQUARE", "FEED_PORTRAIT", "FEED_LANDSCAPE", "STORY_VERTICAL", "CAROUSEL_SLIDE", "AD_SQUARE", "AD_PORTRAIT", "THUMBNAIL", "COVER_PORTRAIT", "SHARE_CARD"]
+    },
+    "canvas": {
+      "type": "object",
+      "required": ["width", "height", "aspect_ratio"],
+      "properties": {
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 },
+        "aspect_ratio": { "type": "string", "minLength": 1 },
+        "px_density": { "type": ["number", "null"], "exclusiveMinimum": 0 }
+      }
+    },
+    "safe_zones": {
+      "type": "object",
+      "required": ["top", "bottom", "left", "right"],
+      "properties": {
+        "top": { "type": "number", "minimum": 0 },
+        "bottom": { "type": "number", "minimum": 0 },
+        "left": { "type": "number", "minimum": 0 },
+        "right": { "type": "number", "minimum": 0 }
+      }
+    },
+    "copy_blocks": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/copyBlock" } },
+    "typography_roles": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/typographyRole" } },
+    "visual_slots": { "type": "array", "items": { "$ref": "#/$defs/visualSlot" } },
+    "brand_tokens_version": { "type": "string", "minLength": 1 },
+    "logo_policy": { "type": "object" },
+    "cta_policy": {
+      "type": "object",
+      "required": ["required"],
+      "properties": {
+        "required": { "type": "boolean" },
+        "copy_role": { "enum": ["eyebrow", "headline", "subheadline", "body", "supporting_line", "quote", "statistic_value", "statistic_label", "label", "badge", "list_item", "step_number", "price", "members_price", "offer", "cta", "product_name", "disclaimer", "source_note", "pagination", null] },
+        "placement": { "type": ["string", "null"] },
+        "prominence": { "type": ["string", "null"] }
+      }
+    },
+    "background_policy": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": { "kind": { "enum": ["solid", "tint", "gradient", "scrim", "none"] } }
+    },
+    "image_policy": { "type": ["object", "null"] },
+    "illustration_policy": { "type": ["object", "null"] },
+    "product_visual_policy": { "type": ["object", "null"] },
+    "truth_requirements": {
+      "type": "object",
+      "required": ["weighting_profile"],
+      "properties": {
+        "weighting_profile": { "type": "string", "minLength": 1 },
+        "truth_refs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence_requirements": { "type": "array", "items": { "$ref": "#/$defs/evidenceRequirement" } },
+    "hierarchy": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "alignment": { "enum": ["LEFT", "CENTER", "RIGHT"] },
+    "density": { "enum": ["SPARSE", "STANDARD", "DENSE"] },
+    "spacing": {
+      "type": "object",
+      "properties": {
+        "scale_token": { "type": "string", "minLength": 1 },
+        "class": { "enum": ["TIGHT", "STANDARD", "LOOSE"] }
+      },
+      "anyOf": [{ "required": ["scale_token"] }, { "required": ["class"] }]
+    },
+    "accessibility": {
+      "type": "object",
+      "required": ["min_type_size", "contrast_floor", "alt_text"],
+      "properties": {
+        "min_type_size": { "type": "number", "exclusiveMinimum": 0 },
+        "contrast_floor": { "type": "number", "exclusiveMinimum": 0 },
+        "alt_text": { "type": "string", "minLength": 1 }
+      }
+    },
+    "export_format": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["svg", "png", "webp", "jpg"] } },
+    "production_mode": {
+      "enum": ["DETERMINISTIC_TYPE_ONLY", "DETERMINISTIC_GRAPHIC", "PHOTO_PLUS_TYPE", "ILLUSTRATION_PLUS_TYPE", "PRODUCT_VISUAL_PLUS_LAYOUT", "DATA_VISUAL"]
+    },
+    "source_classification": {
+      "type": "object",
+      "required": ["source_grounded", "production_instruction"],
+      "additionalProperties": false,
+      "properties": {
+        "source_grounded": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "production_instruction": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "prohibited_elements": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "required_elements": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "provenance": {
+      "type": "object",
+      "required": ["angle_id", "asset_brief_id", "truth_refs", "copy_refs", "evidence_refs", "source_media_refs", "brand_tokens_version"],
+      "properties": {
+        "angle_id": { "type": "string", "minLength": 1 },
+        "asset_brief_id": { "type": "string", "minLength": 1 },
+        "truth_refs": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "copy_refs": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "evidence_refs": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "source_media_refs": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "brand_tokens_version": { "type": "string", "minLength": 1 }
+      }
+    },
+    "comparison_basis": { "type": ["string", "null"] },
+    "sequence_role": { "enum": ["COVER", "CONTEXT", "IDENTIFY", "DEEPEN", "EXPLAIN", "REFRAME", "TEACH", "PROVE", "HELP", "RESOLVE", "ACT"] },
+    "slide_index": { "type": "integer", "minimum": 1 },
+    "slide_count": { "type": ["integer", "null"], "minimum": 1, "maximum": 10 },
+    "continuity_group": { "type": ["string", "null"] },
+    "slides": { "type": "array", "items": { "$ref": "#/$defs/slide" } }
+  },
+  "$defs": {
+    "copyBlock": {
+      "type": "object",
+      "required": ["role", "text"],
+      "properties": {
+        "copy_id": { "type": ["string", "null"] },
+        "role": { "enum": ["eyebrow", "headline", "subheadline", "body", "supporting_line", "quote", "statistic_value", "statistic_label", "label", "badge", "list_item", "step_number", "price", "members_price", "offer", "cta", "product_name", "disclaimer", "source_note", "pagination"] },
+        "text": { "type": "string", "minLength": 1 },
+        "source_ref": { "type": ["string", "null"] },
+        "required": { "type": ["boolean", "null"] },
+        "repeat_index": { "type": ["integer", "null"] }
+      }
+    },
+    "typographyRole": {
+      "type": "object",
+      "required": ["role"],
+      "properties": {
+        "role": { "enum": ["eyebrow", "headline", "subheadline", "body", "supporting_line", "quote", "statistic_value", "statistic_label", "label", "badge", "list_item", "step_number", "price", "members_price", "offer", "cta", "product_name", "disclaimer", "source_note", "pagination"] },
+        "scale": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "weight": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "line_height": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "alignment": { "enum": ["LEFT", "CENTER", "RIGHT", null] },
+        "max_width": { "type": ["number", "null"], "exclusiveMinimum": 0 }
+      }
+    },
+    "visualSlot": {
+      "type": "object",
+      "required": ["slot_id", "media_type"],
+      "properties": {
+        "slot_id": { "type": "string", "minLength": 1 },
+        "role": { "type": ["string", "null"] },
+        "media_type": { "enum": ["photo", "illustration", "product_image", "none"] },
+        "required": { "type": ["boolean", "null"] },
+        "geometry": {
+          "type": ["object", "null"],
+          "properties": {
+            "width": { "type": ["number", "null"] },
+            "height": { "type": ["number", "null"] },
+            "aspect_ratio": { "type": ["string", "null"] }
+          }
+        },
+        "fit": { "enum": ["cover", "contain", null] },
+        "focal": { "enum": ["center", "top", "bottom", "left", "right", null] },
+        "treatment": { "enum": ["none", "scrim", "tint", "duotone", null] },
+        "source": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "artifact_id": { "type": ["string", "null"] },
+            "generated_request": { "type": ["object", "null"] }
+          }
+        },
+        "fallback": { "enum": ["TYPE_ONLY", "SOURCE_REQUIRED", "PLACEHOLDER_FORBIDDEN", null] }
+      }
+    },
+    "evidenceRequirement": {
+      "type": "object",
+      "required": ["evidence_id"],
+      "properties": {
+        "evidence_id": { "type": "string", "minLength": 1 },
+        "evidence_type": { "enum": ["TESTIMONIAL", "STATISTIC", "PROOF", "BEFORE_AFTER", "COMPARISON", "SOURCE_NOTE", "PRODUCT_TRUTH", "PRICE", null] },
+        "required_for_pattern": { "type": ["string", "null"] }
+      }
+    },
+    "slide": {
+      "type": "object",
+      "required": ["slide_index", "sequence_role", "asset_purpose", "content_pattern", "layout_family", "copy_blocks"],
+      "properties": {
+        "slide_index": { "type": "integer", "minimum": 1 },
+        "sequence_role": { "enum": ["COVER", "CONTEXT", "IDENTIFY", "DEEPEN", "EXPLAIN", "REFRAME", "TEACH", "PROVE", "HELP", "RESOLVE", "ACT"] },
+        "asset_purpose": {
+          "enum": ["STOP_SCROLL", "IDENTIFICATION", "REASSURANCE", "EDUCATION", "CLARIFICATION", "DECISION_SUPPORT", "PROOF", "PRODUCT_CONVERSION", "MEMBERSHIP_CONVERSION", "ANNOUNCEMENT", "REMINDER", "RETENTION"]
+        },
+        "content_pattern": {
+          "enum": ["STATEMENT", "TYPOGRAPHIC_HOOK", "QUESTION", "QUOTE", "IDENTIFICATION", "REASSURANCE", "PROBLEM_INSIGHT", "MYTH_REALITY", "MISTAKE_CORRECTION", "CHECKLIST", "STEPS", "COMPARISON", "STATISTIC", "DATA", "TESTIMONIAL", "PROOF", "FEATURE_BENEFIT", "BENEFIT_STACK", "BEFORE_AFTER", "OFFER", "PRICE", "FEATURE"]
+        },
+        "layout_family": {
+          "enum": ["TYPE_DOMINANT", "IMAGE_DOMINANT", "SPLIT", "LIST", "TWO_COLUMN", "DATA_FOCUS", "QUOTE_FOCUS", "PRODUCT_HERO", "FULL_BLEED", "EDITORIAL", "MULTI_PANEL"]
+        },
+        "density": { "enum": ["SPARSE", "STANDARD", "DENSE", null] },
+        "copy_blocks": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/copyBlock" } },
+        "visual_slots": { "type": "array", "items": { "$ref": "#/$defs/visualSlot" } }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "asset_type": { "const": "SOCIAL_STATIC" } }, "required": ["asset_type"] },
+      "then": {
+        "not": { "required": ["slides"] },
+        "properties": { "slide_count": { "type": ["integer", "null"], "const": 1 } }
+      }
+    },
+    {
+      "if": { "properties": { "asset_type": { "const": "SOCIAL_CAROUSEL" } }, "required": ["asset_type"] },
+      "then": {
+        "required": ["slide_count", "continuity_group", "slides"],
+        "properties": {
+          "slide_count": { "type": "integer", "minimum": 2, "maximum": 10 },
+          "continuity_group": { "type": "string", "minLength": 1 },
+          "slides": { "type": "array", "minItems": 2, "maxItems": 10 }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "asset_type": { "const": "SOCIAL_STORY_SEQUENCE" } }, "required": ["asset_type"] },
+      "then": {
+        "required": ["slide_count", "continuity_group", "slides"],
+        "properties": {
+          "slide_count": { "type": "integer", "minimum": 1, "maximum": 6 },
+          "continuity_group": { "type": "string", "minLength": 1 },
+          "slides": { "type": "array", "minItems": 1, "maxItems": 6 }
+        }
+      }
+    }
+  ]
+}
