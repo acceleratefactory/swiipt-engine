@@ -358,8 +358,9 @@ test("72. Day-6 demonstration does not render a final 1080x1350 social post", ()
 });
 
 // ---------- Regressions -------------------------------------------------------
-test("73. forbidden S-B modules were not created", () => {
-  for (const f of ["mae/media/social-compositor.js", "mae/services/social-carousel.js", "mae/services/social-platforms.js", "mae/services/social-graphic-qa.js"]) assert.ok(!existsSync(join(root, f)), f);
+test("73. later-wave modules were not created in S-B", () => {
+  // updated in Wave S-C: mae/media/social-compositor.js is the APPROVED S-C deliverable.
+  for (const f of ["mae/services/social-carousel.js", "mae/services/social-platforms.js", "mae/services/social-graphic-qa.js"]) assert.ok(!existsSync(join(root, f)), f);
 });
 test("74. no rendering/raster/provider/network in S-B modules", () => {
   for (const f of ["mae/services/social-design-tokens.js", "mae/media/social-components.js"]) {

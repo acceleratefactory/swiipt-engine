@@ -163,8 +163,10 @@ export function renderComponent(type, input = {}, tokens = socialTokens()) {
     case "statistic_with_source": {
       if (!nonEmpty(String(input.statistic_value ?? ""))) return mk(type, input, { status: COMPONENT_STATUS.INVALID_COMPONENT, warnings: ["statistic_value required (components never calculate or invent statistics)"], tokens });
       const size = tokens.typography.statistic.min_size_px;
-      const value = escapeText(String(input.statistic_value));
-      const parts = [`<text x="${input.x}" y="${input.y + size}" font-family="${fontStack("display", tokens)}" font-size="${size}" font-weight="400" fill="${colour(tokens, "accent_secondary")}">${esc(value)}</text>`];
+      const value = String(input.statistic_value);
+      // emitted through the shared textBlock so the existing `<tspan>` convention (svgVisibleText /
+      // textMatches) can verify copy exactness, as every other text primitive does.
+      const parts = [textBlock({ x: input.x, y: input.y + size, lines: [value], size, weight: 400, familyRole: "display", fill: colour(tokens, "accent_secondary"), lineHeight: size, tokens })];
       const vis = [value];
       if (nonEmpty(input.statistic_label)) { parts.push(textBlock({ x: input.x, y: input.y + size + 28, lines: [input.statistic_label], size: tokens.typography.caption.min_size_px, weight: 400, familyRole: "ui", fill: colour(tokens, "text_secondary"), lineHeight: tokens.typography.caption.min_size_px, tokens })); vis.push(input.statistic_label); }
       if (nonEmpty(input.source_note)) { parts.push(textBlock({ x: input.x, y: input.y + input.height - 8, lines: [input.source_note], size: 18, weight: 400, familyRole: "ui", fill: colour(tokens, "text_secondary"), lineHeight: 18, tokens })); vis.push(input.source_note); }
