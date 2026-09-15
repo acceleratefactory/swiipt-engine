@@ -81,7 +81,7 @@ export function continuityChecks(panels, profile, tokens) {
  * Assemble a carousel or story sequence into per-panel deterministic SVGs + a deterministic manifest.
  * Panel failures propagate: a failed required panel means the asset is NOT READY.
  */
-export function assembleMultiPanel(rawSpec, tokens = socialTokens()) {
+export function assembleMultiPanel(rawSpec, tokens = socialTokens(), options = {}) {
   const v = validateSocialDesignSpec(rawSpec);
   const base = { design_id: rawSpec?.design_id ?? null, asset_type: rawSpec?.asset_type ?? null, continuity_group: rawSpec?.continuity_group ?? null, platform_profile: null, panel_count: 0, panels: [], manifest: null, checks: [], status: COMPOSITOR_STATUS.INVALID_SPEC, warnings: [], diagnostics: [], provenance: null };
   if (!v.valid) return { ...base, warnings: v.errors, diagnostics: v.errors.map((e) => ({ panel: null, issue: "INVALID_SPEC", detail: [e] })) };
@@ -101,7 +101,9 @@ export function assembleMultiPanel(rawSpec, tokens = socialTokens()) {
     const slideSpec = buildSlideSpecification(spec, slide, profile, index, tokens);
     const fallback = slideSpec._layout_fallback;
     if (fallback) diagnostics.push({ panel: index, issue: "LAYOUT_FALLBACK", detail: [fallback.fallback_reason] });
-    const composed = composeSocialStatic(slideSpec, tokens);
+    // panel-scoped media: source resolution is supplied by the caller (S-G) — never resolved here
+    const panelOptions = (options.panel_sources && options.panel_sources[index]) || options;
+    const composed = composeSocialStatic(slideSpec, tokens, panelOptions);
     const provenance = {
       design_id: spec.design_id, angle_id: spec.angle_id, asset_brief_id: spec.asset_brief_id,
       panel_index: index, sequence_role: slide.sequence_role ?? null,
