@@ -203,6 +203,22 @@ export function buildLayoutPlan(rawSpec, tokens = socialTokens()) {
     if (ctaCopy) put("cta", "cta", { text: ctaCopy.text, component_id: `${spec.design_id}-cta`, width: Math.min(content.width, grid * 48) }, { height: grid * 7 });
   }
 
+  // ---- tail placements: declared copy and declared slots are never silently ignored ----
+  const placedTypesTail = new Set([...placements.map((p) => p.component_type), ...slots.map(() => "image_slot")]);
+  const leftoverBody = copyByRole(spec, "body")[0] || copyByRole(spec, "supporting_line")[0];
+  if (leftoverBody && !placedTypesTail.has("body")) put("body", "body", { text: leftoverBody.text, component_id: `${spec.design_id}-body`, required: false }, { height: grid * 6 });
+  const paginationCopy = copyByRole(spec, "pagination")[0];
+  if (paginationCopy) {
+    const m = /^(\d+)\s*\/\s*(\d+)$/.exec(String(paginationCopy.text).trim());
+    if (m) placements.push({ component_id: `${spec.design_id}-pagination`, component_type: "pagination", layer: "source_note", x: content.x, y: content.y + content.height - grid * 4, width: content.width, height: grid * 4, alignment: "RIGHT", index: Number(m[1]), total: Number(m[2]), required: false, z_index: Z_ORDER.source_note });
+  }
+  // declared slots the family does not consume become a media layer behind the content (never dropped)
+  const consumedSlots = new Set(slots.map((s) => s.slot_id));
+  for (const s of spec.visual_slots || []) {
+    if (consumedSlots.has(s.slot_id)) continue;
+    slots.push({ slot_id: s.slot_id, x: content.x, y: content.y, width: content.width, height: content.height, fit: s.fit ?? "cover", focal: s.focal ?? "center", source: s.source ?? null, required: s.required === true });
+  }
+
   // logo region (bottom-left, above the source note) and CTA default region
   const logoBox = { component_id: `${spec.design_id}-logo`, component_type: "logo", layer: "logo", x: content.x, y: content.y + content.height - grid * 6, width: Math.min(content.width, grid * 20), height: grid * 5, required: spec.logo_policy?.required === true };
   // the wordmark/logo is part of the Swiipt composition (S-B Logo behaviour: never manufactures an asset)
@@ -271,7 +287,7 @@ export function composeSocialStatic(rawSpec, tokens = socialTokens()) {
   for (const p of plan.component_placements) {
     const input = { component_id: p.component_id, x: p.x, y: p.y, width: p.width, height: p.height, alignment: p.alignment };
     const extra = {};
-    for (const k of ["text", "label", "items", "features", "name", "children", "statistic_value", "statistic_label", "source_note", "price", "members_price", "offer_text", "typography_role", "kind", "background_role", "color_role", "opacity", "fit", "focal", "source", "variant", "asset_svg", "icon_ref", "icon_svg"]) if (p[k] !== undefined) extra[k] = p[k];
+    for (const k of ["text", "label", "items", "features", "name", "children", "statistic_value", "statistic_label", "source_note", "price", "members_price", "offer_text", "typography_role", "index", "total", "kind", "background_role", "color_role", "opacity", "fit", "focal", "source", "variant", "asset_svg", "icon_ref", "icon_svg"]) if (p[k] !== undefined) extra[k] = p[k];
     const r = renderComponent(p.component_type, { ...input, ...extra }, tokens);
     results.push({ ...r, layer: p.layer, z_index: p.z_index, required_content: p.component_type !== "divider" });
   }
