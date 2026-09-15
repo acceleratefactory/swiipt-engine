@@ -252,10 +252,10 @@ test("80. contract module performs no rendering / no provider / no network (42)"
   const src = readFileSync(join(root, "mae/services/social-design-spec.js"), "utf8");
   for (const banned of ["renderSvg", "Compositor", "writeFileSync", "child_process", "spawnSync", "ffmpeg", "fetch(", "https://"]) assert.ok(!src.includes(banned), banned);
 });
-test("81. later-wave modules (SocialGraphicQA) do not exist yet", () => {
-  // updated in S-B (social-components.js), S-C (social-compositor.js) and S-D (social-carousel.js,
-  // social-platforms.js): all are APPROVED deliverables. SocialGraphicQA remains a future wave.
-  for (const f of ["mae/services/social-graphic-qa.js"]) assert.ok(!existsSync(join(root, f)), f);
+test("81. later-wave modules now exist (approved deliverables)", () => {
+  // S-B social-components.js · S-C social-compositor.js · S-D social-carousel.js + social-platforms.js
+  // · S-E social-graphic-qa.js. No future-wave module remains forbidden.
+  for (const f of ["mae/media/social-components.js", "mae/media/social-compositor.js", "mae/media/social-carousel.js", "mae/services/social-platforms.js", "mae/services/social-graphic-qa.js"]) assert.ok(existsSync(join(root, f)), f);
 });
 
 // --- H. regressions -----------------------------------------------------------

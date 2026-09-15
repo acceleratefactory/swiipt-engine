@@ -358,10 +358,9 @@ test("72. Day-6 demonstration does not render a final 1080x1350 social post", ()
 });
 
 // ---------- Regressions -------------------------------------------------------
-test("73. later-wave modules were not created in S-B", () => {
-  // updated in S-C (social-compositor.js) and S-D (social-carousel.js, social-platforms.js):
-  // all are APPROVED deliverables. SocialGraphicQA remains a future wave.
-  for (const f of ["mae/services/social-graphic-qa.js"]) assert.ok(!existsSync(join(root, f)), f);
+test("73. later-wave modules now exist (approved deliverables)", () => {
+  // updated through S-E: compositor (S-C), carousel + platforms (S-D), SocialGraphicQA (S-E).
+  for (const f of ["mae/media/social-compositor.js", "mae/media/social-carousel.js", "mae/services/social-platforms.js", "mae/services/social-graphic-qa.js"]) assert.ok(existsSync(join(root, f)), f);
 });
 test("74. no rendering/raster/provider/network in S-B modules", () => {
   for (const f of ["mae/services/social-design-tokens.js", "mae/media/social-components.js"]) {

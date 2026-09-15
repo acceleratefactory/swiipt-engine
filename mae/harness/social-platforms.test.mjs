@@ -313,4 +313,4 @@ test("profile listing is deterministic and complete", () => {
   assert.equal(JSON.stringify(a), JSON.stringify(listPlatformProfiles()));
 });
 test("frozen image fixture hashes unchanged", () => { for (const f of loadFixtures()) assert.equal(computeFixtureHash(f), f.fixture_hash, f.fixture_id); });
-test("no SocialGraphicQA module exists yet", () => assert.equal(existsSync(join(root, "mae/services/social-graphic-qa.js")), false));
+test("SocialGraphicQA now exists (approved Wave S-E deliverable)", () => assert.equal(existsSync(join(root, "mae/services/social-graphic-qa.js")), true));

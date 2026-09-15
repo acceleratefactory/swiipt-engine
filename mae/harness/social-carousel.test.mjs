@@ -246,7 +246,7 @@ test("38. no evidence authorization, no CTR prediction, no random variation in S
   for (const banned of ["evidence_gate", "authorizeClaim", "clickability", "virality", "Math.random", "randomUUID"]) assert.ok(!src.includes(banned), banned);
   assert.ok(!/Date\.now/.test(src));
 });
-test("39. no SocialGraphicQA module exists", () => assert.equal(existsSync(join(root, "mae/services/social-graphic-qa.js")), false));
+test("39. SocialGraphicQA now exists (approved Wave S-E deliverable)", () => assert.equal(existsSync(join(root, "mae/services/social-graphic-qa.js")), true));
 test("40. buildSlideSpecification preserves copy and never mutates the source spec", () => {
   const s = CAR();
   const before = JSON.stringify(s);

@@ -344,9 +344,9 @@ test("73. layout plan and svg determinism are enforced (negative 26-28)", () => 
 });
 
 // ---------- L. BOUNDARIES ----------------------------------------------------
-test("74. carousel/platform/QA modules still do not exist (S-C scope)", () => {
-  // updated in Wave S-D: social-carousel.js + social-platforms.js are APPROVED S-D deliverables.
-  for (const f of ["mae/services/social-graphic-qa.js"]) assert.ok(!existsSync(join(root, f)), f);
+test("74. later-wave modules now exist (S-C scope delivered downstream)", () => {
+  // updated through S-E: carousel + platforms (S-D), SocialGraphicQA (S-E) are approved deliverables.
+  for (const f of ["mae/media/social-carousel.js", "mae/services/social-platforms.js", "mae/services/social-graphic-qa.js"]) assert.ok(existsSync(join(root, f)), f);
 });
 test("75. no raster, no provider, no network, no QA in the compositor", () => {
   const src = readFileSync(join(root, "mae/media/social-compositor.js"), "utf8");
