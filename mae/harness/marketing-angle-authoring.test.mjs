@@ -738,17 +738,23 @@ test("L3 no production Product Truth / CRF / MIF / angle / validation file is cr
   assert.ok(!after.angles.includes("ANG-PPL-CORD-CARE-001.json"));
 });
 
-test("L4 the real product record and transformation are untouched", () => {
-  assert.equal(fileText(`data/products/${CORD}/product.json`), gitHash(`data/products/${CORD}/product.json`));
+test("L4 the real product record and transformation are untouched by authoring", () => {
+  // the product record was legitimately remediated by the owner-approved title/promise/claim-label wave;
+  // authoring must therefore not be judged against HEAD, only against its own write-freedom.
+  const before = fileText(`data/products/${CORD}/product.json`);
+  cord();
+  runDay6();
+  assert.equal(fileText(`data/products/${CORD}/product.json`), before);
   assert.equal(fileText("data/transformations/TR-PPL-CORD-CARE-001.json"), gitHash("data/transformations/TR-PPL-CORD-CARE-001.json"));
 });
 
-test("L5 gate results are untouched", () => {
+test("L5 gate results are untouched by authoring", () => {
   const p = R(join(ROOT, "data", "products", CORD, "product.json"));
   assert.equal(p.qa.gate_results.g7_product_qa, "pending");
   assert.equal(p.qa.gate_results.g10_publish, "PASS");
+  const before = fileText(`data/products/${CORD}/product.json`);
   cord();
-  assert.equal(fileText(`data/products/${CORD}/product.json`), gitHash(`data/products/${CORD}/product.json`));
+  assert.equal(fileText(`data/products/${CORD}/product.json`), before);
 });
 
 // =============================================================================================

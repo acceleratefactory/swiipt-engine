@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "status": "published",
   "identity": {
-    "name": "Cord Care That Won't Land You in A&E",
+    "name": "Who Decides the Cord?",
     "subtitle": "One evidence-based routine for the umbilical stump - plus the exact words to protect it from harmful 'remedies' without family war",
-    "one_line_promise": "A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor.",
+    "one_line_promise": "A clear daily cord-care routine and red-flag triage your whole household follows, so everyone follows one rule and you know exactly when to see a doctor.",
     "library_id": "m01",
     "transformation_id": "TR-PPL-CORD-CARE-001",
     "journey_position": "m01 newborn first weeks -> feeds forward into C-Section First-14-Days (surgical recovery) and Omugwo on Your Terms (family boundaries)"
@@ -171,7 +171,73 @@
       "Shwe et al. Niger J Clin Pract 2021 PMID 34018987 (Jos RCT)",
       "Onubogu et al. Asian J Pediatr Res 2022 (Nnewi practice survey)"
     ],
-    "claim_labels": [],
+    "claim_labels": [
+      {
+        "claim": "Dry cord care standard for facility births",
+        "label": "sourced_evidence",
+        "source": "WHO postnatal care recommendations 2014/2022"
+      },
+      {
+        "claim": "CHX indication limited to high-mortality home-birth settings or replacing harmful substances",
+        "label": "sourced_evidence",
+        "source": "WHO postnatal care recommendations 2014/2022"
+      },
+      {
+        "claim": "Separation window and >3-week review threshold",
+        "label": "sourced_evidence",
+        "source": "AAP Pediatrics 2016;138(3):e20162149"
+      },
+      {
+        "claim": "Nigerian practice prevalence data (spirit 89%, hot compress 25%, toothpaste 9%)",
+        "label": "sourced_evidence",
+        "source": "Onubogu et al. Asian J Pediatr Res 2022 (Nnewi practice survey)"
+      },
+      {
+        "claim": "Jos RCT non-inferiority of methylated spirit",
+        "label": "sourced_evidence",
+        "source": "Shwe et al. Niger J Clin Pract 2021 PMID 34018987 (Jos RCT)"
+      },
+      {
+        "claim": "Omphalitis red-flag set and sepsis progression risk",
+        "label": "sourced_evidence",
+        "source": "StatPearls Omphalitis NBK513338"
+      },
+      {
+        "claim": "Clean, dry cord care is WHO's recommendation for facility births and low neonatal-mortality settings",
+        "label": "sourced_evidence",
+        "source": "WHO postnatal care recommendations 2014/2022"
+      },
+      {
+        "claim": "Daily 7.1% chlorhexidine application is recommended only for HOME births in high neonatal-mortality settings (>30/1000), or to replace harmful traditional substances",
+        "label": "sourced_evidence",
+        "source": "WHO postnatal care recommendations 2014/2022"
+      },
+      {
+        "claim": "Umbilical stump normally separates within roughly 5-15 days; separation after 3 weeks warrants medical review",
+        "label": "sourced_evidence",
+        "source": "AAP Pediatrics 2016;138(3):e20162149"
+      },
+      {
+        "claim": "Methylated spirit was non-inferior to 4% chlorhexidine gel for preventing omphalitis in a randomized trial in Jos, Nigeria (323 mother-baby pairs)",
+        "label": "sourced_evidence",
+        "source": "Shwe et al. Niger J Clin Pract 2021 PMID 34018987 (Jos RCT)"
+      },
+      {
+        "claim": "Common applied substances in Nigerian practice include toothpaste (8.9%) and hot compresses (24.8%); hot compresses and herbal pastes are the documented dangers, not spirit alone",
+        "label": "sourced_evidence",
+        "source": "Onubogu et al. Asian J Pediatr Res 2022 (Nnewi practice survey)"
+      },
+      {
+        "claim": "Omphalitis red flags are spreading periumbilical redness, purulent/foul discharge, swelling/hardening, fever >=38C or temperature instability, poor feeding/lethargy; any sign needs same-day medical care",
+        "label": "sourced_evidence",
+        "source": "StatPearls Omphalitis NBK513338"
+      },
+      {
+        "claim": "Omphalitis can progress to sepsis rapidly; newborns may show hypothermia instead of fever",
+        "label": "sourced_evidence",
+        "source": "StatPearls Omphalitis NBK513338"
+      }
+    ],
     "review_status": "Sourced evidence compiled 2026-08-24 from WHO/AAP/peer-reviewed literature; Gate O clinical sign-off by owner/reviewer still pending before launch marketing"
   },
   "safety": {

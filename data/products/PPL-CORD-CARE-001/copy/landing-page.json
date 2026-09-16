@@ -7,16 +7,16 @@
     "composition": "standard"
   },
   "hero": {
-    "headline": "Cord Care That Won't Land You in A&E",
+    "headline": "Who Decides the Cord?",
     "subheadline": "One evidence-based routine for the umbilical stump - plus the exact words to protect it from harmful 'remedies' without family war",
-    "body": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different. She does not know which daily care routine is actually safe, which traditional practices are harmless versus dangerous, and which changes in the stump's appearance mean 'normal healing' versus 'infection needing a doctor tonight'. A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor.",
+    "body": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different. She does not know which daily care routine is actually safe, which traditional practices are harmless versus dangerous, and which changes in the stump's appearance mean 'normal healing' versus 'infection needing a doctor tonight'. A clear daily cord-care routine and red-flag triage your whole household follows, so everyone follows one rule and you know exactly when to see a doctor.",
     "cta_label": "Get the System",
     "trust_line": "Educational content - not medical, clinical, or mental-health advice. Never diagnoses or treats. Any suspected infection goes to professional care the same day.",
     "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment.",
     "artifact": {
-      "head_label": "5 steps · Cord Care That Won't Land You in A&E",
+      "head_label": "5 steps · Who Decides the Cord?",
       "sub": "One evidence-based routine for the umbilical stump - plus the exact words to protect it from harmful 'remedies' without family war",
-      "table_label": "Cord Care That Won't Land You in A&E - at a glance",
+      "table_label": "Who Decides the Cord? - at a glance",
       "header": [
         "Your plan",
         "What it does"
@@ -112,7 +112,7 @@
       "Believes a preventable infection could kill her baby and that she would be blamed.",
       "The cost: moist covered stumps heal slower, harmful substances introduced, and infection signs missed or over-reacted to."
     ],
-    "punch": "This is not a personal failing. It is a system gap - and Cord Care That Won't Land You in A&E closes it.",
+    "punch": "This is not a personal failing. It is a system gap - and Who Decides the Cord? closes it.",
     "timeline": {
       "label": "What cord care actually looks like",
       "ticks": [
@@ -145,7 +145,7 @@
     }
   },
   "modules": {
-    "label": "What Cord Care That Won't Land You in A&E gives you",
+    "label": "What You Get",
     "headline": "6 modules. One written system.",
     "intro": "Work through them in order, or jump straight to what today needs. Each module stands alone - together they form one system.",
     "items": [
@@ -229,13 +229,13 @@
     "label": "What we promise - and what we don't",
     "headline": "A system. Not a guarantee.",
     "we_do_label": "We promise you",
-    "we_do": "A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor. One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately.",
+    "we_do": "A clear daily cord-care routine and red-flag triage your whole household follows, so everyone follows one rule and you know exactly when to see a doctor. One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately.",
     "we_do_not_label": "We do not promise you",
     "we_do_not": "We do not promise: cannot diagnose infection remotely, does not replace newborn wellness visits, and some separation-time variation remains normal. This is an educational system, not medical, clinical, or mental-health care.",
     "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
   },
   "inside": {
-    "label": "Inside Cord Care That Won't Land You in A&E",
+    "label": "Inside Who Decides the Cord?",
     "headline": "Everything you get. Nothing padded.",
     "intro": "The full kit, at a glance - for the skimmers.",
     "items": [
@@ -250,8 +250,8 @@
   "final_cta": {
     "eyebrow": "The cord care needs a system",
     "headline": "One clear, evidence-based daily routine;",
-    "body": "A clear daily cord-care routine and red-flag triage your whole household follows, so the stump heals safely and you know exactly when to see a doctor. One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately.",
-    "cta_label": "Get Cord Care That Won't Land You in A&E",
+    "body": "A clear daily cord-care routine and red-flag triage your whole household follows, so everyone follows one rule and you know exactly when to see a doctor. One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately.",
+    "cta_label": "Get Who Decides the Cord?",
     "trust_line": "Educational content - not medical, clinical, or mental-health advice. Never diagnoses or treats. Any suspected infection goes to professional care the same day.",
     "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
   },

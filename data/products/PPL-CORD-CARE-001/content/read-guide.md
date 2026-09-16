@@ -1,4 +1,4 @@
-# Cord Care That Won't Land You in A&E
+# Who Decides the Cord?
 *The complete guide: what is actually happening, what to do daily, and what to ignore.*
 
 ## Why this guide exists
