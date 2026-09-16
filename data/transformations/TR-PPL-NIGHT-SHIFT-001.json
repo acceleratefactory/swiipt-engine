@@ -270,13 +270,17 @@
   ],
   "safety": {
     "risk_level": "moderate",
-    "scope_boundary": "This transformation coordinates the division of night care between adults ONLY. It never diagnoses or treats postpartum depression, anxiety, or any medical condition; it never prescribes infant sleep-training or safe-sleep practice; and it never replaces professional care. When exhaustion is more than tiredness, it stops and routes out to the verified shared crisis/escalation list.",
+    "scope_boundary": "This transformation coordinates the division of night care between adults ONLY. It never diagnoses or treats postpartum depression, anxiety, or any medical condition; it never prescribes infant sleep-training, and it carries WHO/paediatric safe-sleep, vigilance and no-earplugs guardrails as non-negotiable boundary rules rather than as practice advice (any specific safe-sleep arrangement is deferred to the family's paediatrician or midwife); and it never replaces professional care. When exhaustion is more than tiredness, it stops and routes out to the verified shared crisis/escalation list.",
     "red_flags": [
-      "Hopelessness or persistent low mood beyond ordinary tiredness",
-      "Intrusive thoughts",
-      "Unable to function during the day"
+      "An overwhelming sense of hopelessness, emptiness, or sadness that does not lift even after a good sleep block",
+      "Intense anxiety, panic, or rapid heartbeats when thinking about the baby's sleep or night-time",
+      "Being unable to fall asleep even when the baby is sleeping and a partner is on duty",
+      "Intrusive, frightening thoughts of harm coming to yourself or the baby",
+      "Feeling disconnected from your baby, or feeling as though they would be better off without you"
     ],
     "escalation_rules": [
+      "Two or more red flags, consistently, for more than two weeks = seek professional assessment; do not try to manage this with sleep schedules alone",
+      "Any acute red flag (thoughts of harm; feeling the baby would be better off without you) = act today, not later",
       "Route to the verified shared Nigeria + diaspora crisis/escalation list (three-tier RED/AMBER/GREEN) - never invent numbers",
       "This system does not attempt to diagnose or handle these; it stops and routes out"
     ]

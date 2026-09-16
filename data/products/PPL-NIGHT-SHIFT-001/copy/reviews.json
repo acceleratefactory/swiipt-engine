@@ -19,7 +19,7 @@
           "6 -> 2"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -37,7 +37,7 @@
           "most nights"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -55,7 +55,7 @@
           "stopped"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -73,7 +73,7 @@
           "taken, unasked"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -91,7 +91,7 @@
           "-3 pts"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -109,7 +109,7 @@
           "6 -> 2"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -127,7 +127,7 @@
           "most nights"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -145,7 +145,7 @@
           "stopped"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -163,7 +163,7 @@
           "taken, unasked"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -181,7 +181,7 @@
           "-3 pts"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -199,7 +199,7 @@
           "6 -> 2"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -217,7 +217,7 @@
           "most nights"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -235,7 +235,7 @@
           "stopped"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -253,7 +253,7 @@
           "taken, unasked"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -271,7 +271,7 @@
           "-3 pts"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -289,7 +289,7 @@
           "6 -> 2"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -307,7 +307,7 @@
           "most nights"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -325,7 +325,7 @@
           "stopped"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -343,7 +343,7 @@
           "taken, unasked"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     },
     {
@@ -361,7 +361,7 @@
           "-3 pts"
         ]
       ],
-      "verified": true,
+      "verified": false,
       "synthetic": true
     }
   ]

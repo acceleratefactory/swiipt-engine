@@ -2,6 +2,13 @@
 TITLE: BAD NIGHT PROTOCOL + WHEN EXHAUSTION NEEDS MORE
 *If you are reading this at 3am because everything broke - start here.*
 
+## Step 1 - Check the baby first
+Before anything else, check the baby. If the baby has a fever, is vomiting, is showing signs of unusual pain, is having difficulty breathing, or you have any concern about their physical wellbeing - **suspend the roster** and follow your paediatric guidance, or contact emergency services:
+
+- Nigeria **112** · United Kingdom **999** · US / Canada **911**
+
+The roster never takes priority over the baby's health. It resumes when the baby is stable and you have appropriate support in place.
+
 ## When a night collapses
 1. Default to whoever's turn it technically is.
 2. The override triggers automatic next-night compensation (log it in the tracker).
@@ -15,10 +22,15 @@ TITLE: BAD NIGHT PROTOCOL + WHEN EXHAUSTION NEEDS MORE
 - New helper arrives with old advice -> they read the shift chart before a night shift.
 
 ## When exhaustion needs more than a night plan
-**This card cannot and does not diagnose anything.** Stop planning if you notice:
-- hopelessness or persistent low mood beyond ordinary tiredness
-- intrusive thoughts
-- being unable to function during the day
+Severe, sustained exhaustion can mask or worsen postpartum mental-health conditions - and a better roster will not fix that. **This card cannot and does not diagnose anything.** It helps you recognise when something more is happening. Read this checklist honestly - for yourself, or for your partner:
+
+- [ ] An overwhelming sense of hopelessness, emptiness, or sadness that does not lift even after a good sleep block.
+- [ ] Intense anxiety, panic, or rapid heartbeats when thinking about the baby's sleep or night-time.
+- [ ] Being unable to fall asleep even when the baby is sleeping and your partner is on duty.
+- [ ] Intrusive, frightening thoughts of harm coming to yourself or the baby.
+- [ ] Feeling disconnected from your baby, or feeling as though they would be better off without you.
+
+**If you experience two or more of these, consistently, for more than two weeks, do not try to manage this with sleep schedules alone - seek professional assessment.** And if anything on this list is acute - thoughts of harm, feeling your baby would be better off without you, or physical symptoms that concern you (chest pain, fainting, uncontrolled bleeding, fever) - act today, not later. This is a clinical situation, not a scheduling one, and it is treatable.
 
 Do not wait. Use the verified shared crisis/escalation list, routed in three tiers - **RED = emergency now · AMBER = urgent today · GREEN = supported this week**:
 

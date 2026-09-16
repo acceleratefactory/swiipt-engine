@@ -214,11 +214,15 @@
     "risk_level": "moderate",
     "disclaimer": "Educational content - not medical, clinical, or mental-health advice. This system coordinates night-care between adults; it never diagnoses or treats any condition and never replaces professional care.",
     "red_flags": [
-      "Hopelessness or persistent low mood beyond ordinary tiredness",
-      "Intrusive thoughts",
-      "Unable to function during the day"
+      "An overwhelming sense of hopelessness, emptiness, or sadness that does not lift even after a good sleep block",
+      "Intense anxiety, panic, or rapid heartbeats when thinking about the baby's sleep or night-time",
+      "Being unable to fall asleep even when the baby is sleeping and a partner is on duty",
+      "Intrusive, frightening thoughts of harm coming to yourself or the baby",
+      "Feeling disconnected from your baby, or feeling as though they would be better off without you"
     ],
     "escalation_rules": [
+      "Two or more red flags, consistently, for more than two weeks = seek professional assessment; do not try to manage this with sleep schedules alone",
+      "Any acute red flag (thoughts of harm; feeling the baby would be better off without you; physical symptoms such as chest pain, fainting, uncontrolled bleeding, or fever) = act today, not later",
       "Any red flag = stop and route to the verified shared crisis/escalation list (never invent numbers)",
       "This system does not attempt to diagnose or handle these; it stops and routes out",
       "For immediate danger, use the emergency number for the person's country from the verified shared list"

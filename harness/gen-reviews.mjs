@@ -3,9 +3,11 @@
 // Generates copy/reviews.json per product — 15-25 reviews, 14-24×5★ + 1×4★,
 // no 1-3★, no negative recommend. Deterministic, derived from the
 // transformation + product record (evidence_of_change, TSM, after_state).
-// Owner override B (2026-09-03): reviews appear as fully verified 5★
-// even though synthetic — 15 minimum, no product publishes without reviews
-// (blocking QA gate). System chooses >15 via core+evidence scoring.
+// Honesty rule (2026-09-16, supersedes owner override B): generated reviews are
+// INTERNAL FIXTURE / DEMO material only. They are marked verified:false +
+// synthetic:true and are NEVER presented to customers as verified-buyer proof.
+// 15 minimum, no product publishes without a reviews artifact (blocking QA gate).
+// System chooses >15 via core+evidence scoring.
 // Usage: node harness/gen-reviews.mjs <PRODUCT_ID> | --all
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
@@ -190,7 +192,7 @@ function genReviewsForProduct(pid) {
       day: 30,
       recommend: true,
       change: changes.slice(0, 2),
-      verified: true,
+      verified: false,
       synthetic: true,
     });
   }

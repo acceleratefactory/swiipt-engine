@@ -25,4 +25,6 @@ If you are breastfeeding, "sleep through the night" is not simply available to y
 
 This is an operating system for how two adults divide the night. It is not baby sleep training, and it is not a substitute for medical or mental-health care. When exhaustion is more than tiredness, stop and route out (see the rescue card).
 
+Before you run any roster, both adults read and agree the **safety guardrails** in Tonight's Shift Chart - infant safe sleep, staying fully awake on shift, no earplugs or sleep aids on shift, and the rule that the baby always overrides the roster.
+
 **Educational content - not medical, clinical, or mental-health advice.**
