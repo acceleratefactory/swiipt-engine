@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-NS-DO-001",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "title": "Tonight's Shift Chart + Contract Templates",
+  "job": "DO",
+  "format": "worksheet",
+  "source_path": "content/do-worksheet.md",
+  "experience_mode": "utility",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": true,
+  "tool_widgets": [],
+  "notes": ""
+}

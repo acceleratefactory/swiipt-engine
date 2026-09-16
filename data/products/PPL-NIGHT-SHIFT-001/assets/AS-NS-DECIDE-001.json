@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-NS-DECIDE-001",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "title": "Which Night Model Fits Us?",
+  "job": "DECIDE",
+  "format": "decision_tree",
+  "source_path": "content/decision-tree.md",
+  "experience_mode": "utility",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

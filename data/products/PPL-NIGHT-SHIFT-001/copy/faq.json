@@ -2,20 +2,32 @@
   "content_version": "1.0",
   "product_id": "PPL-NIGHT-SHIFT-001",
   "source": "factory-generator",
-  "generated_at": "2026-09-02T22:41:32.435Z",
+  "generated_at": "2026-09-16T00:00:00Z",
   "items": [
     {
       "q": "What is Every Night, Just Me?",
-      "a": "A postpartum night-coordination system that replaces nightly arguing with a pre-agreed roster, a fairness ledger, and the exact words to make it stick. A written, fair night-shift system both adults follow - so she gets a protected sleep opportunity, and nobody has to ask."
+      "a": "A postpartum night-coordination system: a written roster both adults follow, three contract templates, a sleep banker that makes invisible exhaustion tradeable, and the scripts to get a resistant partner on board - so the mother gets one protected 4-5 hour sleep opportunity most nights."
+    },
+    {
+      "q": "Who is this for?",
+      "a": "A breastfeeding or formula-feeding mother, 0-12 weeks postpartum, doing 100% of night care while her partner sleeps through or is minimally involved - or a mother with no partner in the home who can build a support-web roster."
+    },
+    {
+      "q": "What is included?",
+      "a": "6 components: The Argument That Ends the War (read); Tonight's Shift Chart + Contract Templates (do); Which Night Model Fits Us? (decide); the 14-Day Night Tracker (track); Seven Script Cards (communicate); and the Bad Night Protocol + safety gate (rescue)."
     },
     {
       "q": "Is this medical advice?",
-      "a": "No. Educational content - not medical, clinical, or mental-health advice. It does not replace professional assessment or care.",
-      "evidence_label": "Educational content informed by practical and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
+      "a": "No. Educational content - not medical, clinical, or mental-health advice. This coordinates night-care between adults; it never diagnoses or treats any condition and never replaces professional care.",
+      "evidence_label": "Educational content informed by relationship research, postpartum guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
     },
     {
-      "q": "How do I get it?",
-      "a": "Instant digital download. After checkout the system appears in your Swiipt library with read, PDF, and read-aloud formats."
+      "q": "I'm breastfeeding - can this even work for me?",
+      "a": "Yes. The contract does not pretend you can be off duty all night. It schedules a milk hand-off (a pumped bottle, or your partner brings the baby to feed and returns her to the crib) so your protected block is physically real."
+    },
+    {
+      "q": "Why should this work?",
+      "a": "Because the recurring failure is not goodwill, it is the absence of a system: with no written default, the night is renegotiated every time, and the default becomes she owns all of it. A written roster, a named partner shift, and a sleep banker replace an endless negotiation with an agreed rule."
     }
   ]
 }

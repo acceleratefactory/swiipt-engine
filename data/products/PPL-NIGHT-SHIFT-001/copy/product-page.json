@@ -2,13 +2,17 @@
   "content_version": "1.0",
   "product_id": "PPL-NIGHT-SHIFT-001",
   "source": "factory-generator",
-  "generated_at": "2026-09-02T22:41:32.433Z",
+  "generated_at": "2026-09-16T00:00:00Z",
   "hero": {
     "title": "Every Night, Just Me",
     "subtitle": "A postpartum night-coordination system that replaces nightly arguing with a pre-agreed roster, a fairness ledger, and the exact words to make it stick.",
     "one_line_promise": "A written, fair night-shift system both adults follow - so she gets a protected sleep opportunity, and nobody has to ask."
   },
   "short_description": "A written, fair night-shift system both adults follow - so she gets a protected sleep opportunity, and nobody has to ask.",
-  "trust_line": "Educational content - not medical, clinical, or mental-health advice.",
-  "evidence_label": "Educational content informed by practical and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
+  "trust_line": "Educational content - not medical, clinical, or mental-health advice. This coordinates night-care between adults; it never diagnoses or treats any condition and never replaces professional care.",
+  "evidence_label": "Educational content informed by relationship research, postpartum guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment.",
+  "situation_block": {
+    "label": "Your situation",
+    "body": "You are running every night alone - feeding, settling, soothing - while your partner sleeps, works away, or thinks 'helping' means one nappy change. There is no agreed system, so every night is renegotiated by exhaustion and resentment. You cannot get a single protected 4-5 hour block, and 'can you help more?' keeps producing one-off gestures instead of a system."
+  }
 }

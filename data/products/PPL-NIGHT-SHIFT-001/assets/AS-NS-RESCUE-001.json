@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-NS-RESCUE-001",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "title": "Bad Night Protocol + When Exhaustion Needs More",
+  "job": "RESCUE",
+  "format": "emergency_card",
+  "source_path": "content/rescue-card.md",
+  "experience_mode": "utility",
+  "required": true,
+  "safety_relevant": true,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

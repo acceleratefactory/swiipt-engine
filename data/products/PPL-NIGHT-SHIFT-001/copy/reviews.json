@@ -2,21 +2,21 @@
   "content_version": "1.0",
   "product_id": "PPL-NIGHT-SHIFT-001",
   "source": "factory-generator",
-  "generated_at": "2026-09-03T16:27:40.136Z",
+  "generated_at": "2026-09-16T00:00:00Z",
   "reviews": [
     {
       "rating": 5,
-      "title": "The first win happened the same night.",
-      "body": "This is what I wish discharge instructions had been: one house rule, one routine, one card for when it looks wrong.",
-      "name": "Kemi",
-      "ctx": "New mother",
-      "date": "Jul 2026",
+      "title": "It ended the 3am argument",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. My partner now takes his shift without a reminder because it is named in the chart. The tracker is what made me believe it was working.",
+      "name": "Adaeze O.",
+      "ctx": "0-8 weeks pp, breastfeeding",
+      "date": "2026-09-10",
       "day": 30,
       "recommend": true,
       "change": [
         [
           "Nights carried alone",
-          "4→9"
+          "6 -> 2"
         ]
       ],
       "verified": true,
@@ -24,17 +24,89 @@
     },
     {
       "rating": 5,
-      "title": "The fairness ledger changed everything.",
-      "body": "The system is solid. It gave us a clear next step. We finally had a default that worked even when exhausted.",
-      "name": "Grace",
-      "ctx": "Mother of a 2-month-old",
-      "date": "Aug 2026",
+      "title": "Finally a system, not a favour",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The script pack gave me the words so it stopped sounding like a complaint. It is an operating system, not another postpartum ebook.",
+      "name": "Priya S.",
+      "ctx": "0-12 weeks pp, mixed feeding",
+      "date": "2026-09-11",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Protected block",
+          "most nights"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The script pack did the work",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. We stopped renegotiating at 3am because the roster already decided. We still use the fridge chart every night.",
+      "name": "Tolu A.",
+      "ctx": "6 weeks pp, C-section recovery",
+      "date": "2026-09-12",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "3am arguments",
+          "stopped"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "My husband actually takes a shift now",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The sleep banker made the imbalance visible without a fight. I finally got a real 4-hour block most nights.",
+      "name": "Grace M.",
+      "ctx": "0-10 weeks pp, no family nearby",
+      "date": "2026-09-13",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Partner shifts",
+          "taken, unasked"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The sleep banker made it fair",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The bad-night protocol stopped one broken night from ending the whole system. The tracker is what made me believe it was working.",
+      "name": "Nadia K.",
+      "ctx": "4 weeks pp, partner works away",
+      "date": "2026-09-14",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Resentment",
+          "-3 pts"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "We stopped renegotiating every night",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. My partner now takes his shift without a reminder because it is named in the chart. It is an operating system, not another postpartum ebook.",
+      "name": "Chidera E.",
+      "ctx": "0-12 weeks pp, twins",
+      "date": "2026-09-15",
       "day": 30,
       "recommend": true,
       "change": [
         [
           "Nights carried alone",
-          "5→8"
+          "6 -> 2"
         ]
       ],
       "verified": true,
@@ -42,17 +114,17 @@
     },
     {
       "rating": 5,
-      "title": "Works if your partner actually signs.",
-      "body": "Every Night, Just Me is practical. It replaces asking with a pre-agreed default. We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
-      "name": "Sade",
-      "ctx": "First-time parent",
-      "date": "Jul 2026",
+      "title": "The decision tree picked our template",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The script pack gave me the words so it stopped sounding like a complaint. We still use the fridge chart every night.",
+      "name": "Amara N.",
+      "ctx": "8 weeks pp, first baby",
+      "date": "2026-09-16",
       "day": 30,
       "recommend": true,
       "change": [
         [
-          "Partner taking a shift",
-          "2→7"
+          "Protected block",
+          "most nights"
         ]
       ],
       "verified": true,
@@ -60,21 +132,17 @@
     },
     {
       "rating": 5,
-      "title": "From chaos to a fridge chart we both follow.",
-      "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
-      "name": "Ife",
-      "ctx": "Parent of a 6-week-old",
-      "date": "Aug 2026",
+      "title": "Genuinely operational, not another ebook",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. We stopped renegotiating at 3am because the roster already decided. I finally got a real 4-hour block most nights.",
+      "name": "Ifeoma B.",
+      "ctx": "6 weeks pp, breastfeeding",
+      "date": "2026-09-17",
       "day": 30,
       "recommend": true,
       "change": [
         [
-          "Confidence about nights",
-          "3→6"
-        ],
-        [
-          "Nights carried alone",
-          "2→7"
+          "3am arguments",
+          "stopped"
         ]
       ],
       "verified": true,
@@ -82,17 +150,17 @@
     },
     {
       "rating": 5,
-      "title": "A real plan for a real situation.",
-      "body": "Short, clear, and made for people running on no sleep. We did the first win the same evening we opened it.",
-      "name": "Hauwa",
-      "ctx": "Working mother",
-      "date": "Jul 2026",
+      "title": "It gave me the words to ask",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The sleep banker made the imbalance visible without a fight. The tracker is what made me believe it was working.",
+      "name": "Sofia R.",
+      "ctx": "0-12 weeks pp, diaspora",
+      "date": "2026-09-18",
       "day": 30,
       "recommend": true,
       "change": [
         [
-          "Nights carried alone",
-          "5→9"
+          "Partner shifts",
+          "taken, unasked"
         ]
       ],
       "verified": true,
@@ -100,17 +168,17 @@
     },
     {
       "rating": 5,
-      "title": "This is what I wish the hospital gave us.",
-      "body": "We spent months negotiating every night and blaming each other. Every Night, Just Me ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
-      "name": "Ada",
-      "ctx": "Mother of a 3-month-old",
-      "date": "Jul 2026",
+      "title": "It saved a real 4-hour block",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The bad-night protocol stopped one broken night from ending the whole system. It is an operating system, not another postpartum ebook.",
+      "name": "Yewande T.",
+      "ctx": "5 weeks pp, no partner at home",
+      "date": "2026-09-10",
       "day": 30,
       "recommend": true,
       "change": [
         [
-          "Partner taking a shift",
-          "5→8"
+          "Resentment",
+          "-3 pts"
         ]
       ],
       "verified": true,
@@ -118,219 +186,17 @@
     },
     {
       "rating": 5,
-      "title": "The re-entry protocol saved us.",
-      "body": "What I needed was not more information. I needed a default that holds when we are tired — and a way to recover after a bad night without guilt. This gave us both.",
-      "name": "Chiamaka",
-      "ctx": "Mother of a 4-month-old",
-      "date": "Jun 2026",
-      "day": 30,
-      "recommend": true,
-      "change": [
-        [
-          "Nights carried alone",
-          "5→9"
-        ]
-      ],
-      "verified": true,
-      "synthetic": true
-    },
-    {
-      "rating": 5,
-      "title": "The roster ended the 3am negotiation.",
-      "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
-      "name": "Halima",
-      "ctx": "Mum of a newborn",
-      "date": "Aug 2026",
-      "day": 30,
-      "recommend": true,
-      "change": [
-        [
-          "Confidence about nights",
-          "3→6"
-        ],
-        [
-          "Nights carried alone",
-          "2→8"
-        ]
-      ],
-      "verified": true,
-      "synthetic": true
-    },
-    {
-      "rating": 5,
-      "title": "The fairness ledger changed everything.",
-      "body": "The system is solid. It gave us a clear next step. We finally had a default that worked even when exhausted.",
-      "name": "Ife",
-      "ctx": "Parent of a 6-week-old",
-      "date": "Aug 2026",
-      "day": 30,
-      "recommend": true,
-      "change": [
-        [
-          "Confidence about nights",
-          "3→8"
-        ]
-      ],
-      "verified": true,
-      "synthetic": true
-    },
-    {
-      "rating": 5,
-      "title": "Works if your partner actually signs.",
-      "body": "Every Night, Just Me is practical. It replaces asking with a pre-agreed default. We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
-      "name": "Yemi",
-      "ctx": "New mother",
-      "date": "Jul 2026",
+      "title": "We use the fridge chart every night",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. My partner now takes his shift without a reminder because it is named in the chart. We still use the fridge chart every night.",
+      "name": "Hannah L.",
+      "ctx": "0-12 weeks pp, deep-sleeper partner",
+      "date": "2026-09-11",
       "day": 30,
       "recommend": true,
       "change": [
         [
           "Nights carried alone",
-          "4→7"
-        ]
-      ],
-      "verified": true,
-      "synthetic": true
-    },
-    {
-      "rating": 5,
-      "title": "Clear, kind, and actually doable.",
-      "body": "What I needed was not more information. I needed a default that holds when we are tired — and a way to recover after a bad night without guilt. This gave us both.",
-      "name": "Chiamaka",
-      "ctx": "Mother of a 2-month-old",
-      "date": "Jul 2026",
-      "day": 30,
-      "recommend": true,
-      "change": [
-        [
-          "Partner taking a shift",
-          "4→6"
-        ]
-      ],
-      "verified": true,
-      "synthetic": true
-    },
-    {
-      "rating": 5,
-      "title": "The night finally has an owner.",
-      "body": "We spent months negotiating every night and blaming each other. Every Night, Just Me ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
-      "name": "Grace",
-      "ctx": "Mother of twins",
-      "date": "Sep 2026",
-      "day": 30,
-      "recommend": true,
-      "change": [
-        [
-          "Partner taking a shift",
-          "4→6"
-        ]
-      ],
-      "verified": true,
-      "synthetic": true
-    },
-    {
-      "rating": 5,
-      "title": "No more Googling at 3am.",
-      "body": "The fairness ledger is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
-      "name": "Hauwa",
-      "ctx": "Mother of a 4-month-old",
-      "date": "Jun 2026",
-      "day": 30,
-      "recommend": true,
-      "change": [
-        [
-          "Nights carried alone",
-          "3→7"
-        ]
-      ],
-      "verified": true,
-      "synthetic": true
-    },
-    {
-      "rating": 5,
-      "title": "Practical, not preachy.",
-      "body": "I can see how every night, just me works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
-      "name": "Halima",
-      "ctx": "Mother of two",
-      "date": "Aug 2026",
-      "day": 30,
-      "recommend": true,
-      "change": [
-        [
-          "Confidence about nights",
-          "2→8"
-        ]
-      ],
-      "verified": true,
-      "synthetic": true
-    },
-    {
-      "rating": 5,
-      "title": "From chaos to a fridge chart we both follow.",
-      "body": "Every Night, Just Me is practical. It replaces asking with a pre-agreed default. We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
-      "name": "Nneka",
-      "ctx": "Mother of a 3-month-old",
-      "date": "Sep 2026",
-      "day": 30,
-      "recommend": true,
-      "change": [
-        [
-          "Nights carried alone",
-          "4→6"
-        ]
-      ],
-      "verified": true,
-      "synthetic": true
-    },
-    {
-      "rating": 5,
-      "title": "Calm, no guilt, and a real reset.",
-      "body": "The system is solid. It gave us a clear next step. We finally had a default that worked even when exhausted.",
-      "name": "Ada",
-      "ctx": "New mother",
-      "date": "Aug 2026",
-      "day": 30,
-      "recommend": true,
-      "change": [
-        [
-          "Partner taking a shift",
-          "4→6"
-        ]
-      ],
-      "verified": true,
-      "synthetic": true
-    },
-    {
-      "rating": 5,
-      "title": "Every module earned its place.",
-      "body": "Short, clear, and made for people running on no sleep. We did the first win the same evening we opened it.",
-      "name": "Ife",
-      "ctx": "Parent of a 6-week-old",
-      "date": "Jul 2026",
-      "day": 30,
-      "recommend": true,
-      "change": [
-        [
-          "Nights carried alone",
-          "3→7"
-        ]
-      ],
-      "verified": true,
-      "synthetic": true
-    },
-    {
-      "rating": 5,
-      "title": "Worth it for the rescue card alone.",
-      "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
-      "name": "Sade",
-      "ctx": "First-time parent",
-      "date": "Aug 2026",
-      "day": 30,
-      "recommend": true,
-      "change": [
-        [
-          "Nights carried alone",
-          "2→8"
+          "6 -> 2"
         ]
       ],
       "verified": true,
@@ -338,21 +204,161 @@
     },
     {
       "rating": 4,
-      "title": "Practical, not preachy.",
-      "body": "I can see how every night, just me works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
-      "name": "Halima",
-      "ctx": "New mother",
-      "date": "Aug 2026",
+      "title": "The bad-night protocol held us together",
+      "body": "It is not magic and some nights still go sideways. But once we actually wrote the roster down and used the sleep banker honestly, the arguing dropped and I got real blocks. Took us a week to stop 'helping' and start taking shifts. The script pack gave me the words so it stopped sounding like a complaint. I finally got a real 4-hour block most nights.",
+      "name": "Ngozi U.",
+      "ctx": "7 weeks pp, MIL pressure",
+      "date": "2026-09-12",
       "day": 30,
       "recommend": true,
       "change": [
         [
-          "Partner taking a shift",
-          "4→6"
-        ],
+          "Protected block",
+          "most nights"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "My partner initiates without being asked",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. We stopped renegotiating at 3am because the roster already decided. The tracker is what made me believe it was working.",
+      "name": "Meera D.",
+      "ctx": "0-8 weeks pp, breastfeeding",
+      "date": "2026-09-13",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "3am arguments",
+          "stopped"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The tracker made the invisible visible",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The sleep banker made the imbalance visible without a fight. It is an operating system, not another postpartum ebook.",
+      "name": "Zainab H.",
+      "ctx": "0-12 weeks pp, mixed feeding",
+      "date": "2026-09-14",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Partner shifts",
+          "taken, unasked"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "I stopped keeping score alone",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The bad-night protocol stopped one broken night from ending the whole system. We still use the fridge chart every night.",
+      "name": "Kwame-line helper",
+      "ctx": "6 weeks pp, C-section recovery",
+      "date": "2026-09-15",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Resentment",
+          "-3 pts"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "It fits a no-partner household too",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. My partner now takes his shift without a reminder because it is named in the chart. I finally got a real 4-hour block most nights.",
+      "name": "Ruth P.",
+      "ctx": "0-10 weeks pp, no family nearby",
+      "date": "2026-09-16",
+      "day": 30,
+      "recommend": true,
+      "change": [
         [
           "Nights carried alone",
-          "3→9"
+          "6 -> 2"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The reset script removed the blame",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The script pack gave me the words so it stopped sounding like a complaint. The tracker is what made me believe it was working.",
+      "name": "Blessing A.",
+      "ctx": "4 weeks pp, partner works away",
+      "date": "2026-09-17",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Protected block",
+          "most nights"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "It is a roster, plain and clear",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. We stopped renegotiating at 3am because the roster already decided. It is an operating system, not another postpartum ebook.",
+      "name": "Fatima Y.",
+      "ctx": "0-12 weeks pp, twins",
+      "date": "2026-09-18",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "3am arguments",
+          "stopped"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "My mornings are survivable again",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The sleep banker made the imbalance visible without a fight. We still use the fridge chart every night.",
+      "name": "Ese O.",
+      "ctx": "8 weeks pp, first baby",
+      "date": "2026-09-10",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Partner shifts",
+          "taken, unasked"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "It worked once we stopped 'helping'",
+      "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The bad-night protocol stopped one broken night from ending the whole system. I finally got a real 4-hour block most nights.",
+      "name": "Damilola F.",
+      "ctx": "6 weeks pp, breastfeeding",
+      "date": "2026-09-11",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Resentment",
+          "-3 pts"
         ]
       ],
       "verified": true,

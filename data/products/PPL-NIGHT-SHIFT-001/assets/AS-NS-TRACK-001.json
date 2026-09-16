@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-NS-TRACK-001",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "title": "14-Day Night Tracker + Reviews",
+  "job": "TRACK",
+  "format": "tracker",
+  "source_path": "content/tracker.md",
+  "experience_mode": "utility",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-NS-READ-001",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "title": "The Argument That Ends the War",
+  "job": "READ",
+  "format": "guide",
+  "source_path": "content/read-guide.md",
+  "experience_mode": "functional",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

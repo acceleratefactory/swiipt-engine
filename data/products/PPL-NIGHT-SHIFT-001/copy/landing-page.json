@@ -1,110 +1,176 @@
 {
   "content_version": "1.0",
   "product_id": "PPL-NIGHT-SHIFT-001",
-  "source": "manual-port",
-  "generated_at": "2026-08-26T14:30:00.000Z",
+  "source": "factory-generator",
+  "generated_at": "2026-09-16T00:00:00Z",
+  "page": {
+    "composition": "standard"
+  },
   "hero": {
-    "headline": "Every Night, Just Me.",
+    "headline": "Every Night, Just Me",
     "subheadline": "A postpartum night-coordination system that replaces nightly arguing with a pre-agreed roster, a fairness ledger, and the exact words to make it stick.",
-    "body": "You are not asking for too much. You are asking for a system that means you do not have to ask at all. Every Night, Just Me gives you a written night-shift contract, a fairness ledger, and seven precision scripts - so the night has a clear owner, the handoffs have a phrase, and the argument stops before it starts.",
+    "body": "You are running every night alone while your partner sleeps. Nobody owns the night, so the default becomes you own all of it. This system makes the division explicit: a written roster, three templates, a sleep banker, and the scripts to make it stick.",
     "cta_label": "Get the System",
-    "trust_line": "Educational content. Not medical advice. Built for postpartum couples and solo mothers in the first 0-6 months.",
-    "evidence_label": "Educational content informed by relationship research, postpartum health guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
+    "trust_line": "Educational content - not medical, clinical, or mental-health advice. This coordinates night-care between adults; it never diagnoses or treats any condition and never replaces professional care.",
+    "evidence_label": "Educational content informed by relationship research, postpartum guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
   },
   "before_state": {
-    "label": "Sound familiar?",
+    "label": "Before",
+    "headline": "The night has no owner",
     "paragraphs": [
-      "You are waking up every 90 minutes. Your partner is asleep. You have asked - once, twice, ten times - for help. He means well. He just doesn't have a system. And so every night gets renegotiated from scratch, at 3 AM, by two people running on near-zero.",
-      "By morning you are furious. By evening you are too tired to fight. By midnight you are up again - alone."
+      "Doing 100% of nights, every night, for weeks.",
+      "'Can you help more?' produced a one-off gesture, not a system.",
+      "Rage at his calm breathing while you feed; grief for the relationship."
     ],
-    "punch": "This is not a parenting failure. It is a coordination failure. And coordination failures have a fix."
+    "punch": "This is not a character flaw. It is a system gap - and the roster closes it.",
+    "timeline": {
+      "label": "Your nights",
+      "ticks": [
+        {
+          "text": "You wake for every feed - alone",
+          "alert": true
+        },
+        {
+          "text": "He doesn't know what help looks like"
+        },
+        {
+          "text": "The score is kept in your head",
+          "alert": true
+        }
+      ]
+    }
   },
   "modules": {
-    "label": "What Every Night, Just Me gives you",
-    "intro": "13 modules. One written system. Work through them in order, or jump straight to what tonight needs. Each module stands alone - together they form a contract your household actually follows.",
+    "label": "What You Get",
+    "headline": "6 components. One written system.",
+    "intro": "Work through them in order, or jump straight to what tonight needs.",
     "items": [
-      { "title": "Start Here - The 10-Step Roadmap", "description": "Know exactly where you are going before you begin.", "kind": "Roadmap" },
-      { "title": "The Argument That Ends the War", "description": "Understand why \"can you help more\" fails structurally - and what replaces it.", "kind": "Short Read" },
-      { "title": "The Situation Finder", "description": "Three questions. Routes you to the exact roster and scripts built for your household.", "kind": "Self-Triage Quiz" },
-      { "title": "The Decision Tree", "description": "Breastfeeding? Bottle? No partner? One diagram routes you to your system.", "kind": "Decision Tree" },
-      { "title": "Roster Safety & Boundary Rules", "description": "The non-negotiable guardrails both adults agree to before signing the roster.", "kind": "Guardrails" },
-      { "title": "Three Roster Templates - A, B, and C", "description": "A: Breastfeeding-compatible split shift. B: Alternating full shift for bottle/expressed milk. C: Support-web roster for solo mothers or absent partners.", "kind": "Fillable Contracts" },
-      { "title": "The Sleep Banker / Recovery Bank", "description": "A credit-and-debit system that makes invisible exhaustion visible - and redeemable - before it turns into resentment.", "kind": "Fairness Ledger" },
-      { "title": "Seven Script Cards", "description": "The exact words for: initiating the conversation, defusing \"I have work tomorrow,\" handling the baby-prefers-you excuse, the 2 AM emergency handoff, the Sunday review, the no-blame reset, and extended family criticism.", "kind": "Scripts" },
-      { "title": "The Fridge Shift Chart", "description": "One page. Both adults see it every night. No app, no memory, no argument.", "kind": "Printable" },
-      { "title": "The 14-Day Shift Tracker", "description": "Track sleep opportunity blocks, partner initiative, handoff friction, and exhaustion - so you have evidence, not just feelings.", "kind": "Tracker" },
-      { "title": "The Rescue Card - Bad Night Protocol", "description": "What to do when the baby is sick, teething, or the roster collapses. Includes a pocket-sized print version.", "kind": "Rescue" },
-      { "title": "The Re-entry Protocol", "description": "Slid back to the old pattern? Three steps to restart without guilt, blame, or starting over from scratch.", "kind": "Re-entry" },
-      { "title": "Safety Gate - When Exhaustion Needs More Than a Night Plan", "description": "A clear checklist that separates ordinary exhaustion from something that needs professional support - with verified crisis numbers for Nigeria, the UK, and North America.", "kind": "Safety" }
+      {
+        "title": "The Argument That Ends the War",
+        "kind": "Guide",
+        "description": "Why 'just ask for help' keeps failing, and what replaces it.",
+        "icon": "roadmap"
+      },
+      {
+        "title": "Tonight's Shift Chart + Contract Templates",
+        "kind": "Do",
+        "description": "Three templates (breastfeeding split / formula alternating / no-partner support web) plus the fillable shift chart.",
+        "icon": "checklist"
+      },
+      {
+        "title": "Which Night Model Fits Us?",
+        "kind": "Decide",
+        "description": "A short decision tree that routes you to the right template in minutes.",
+        "icon": "route"
+      },
+      {
+        "title": "14-Day Night Tracker",
+        "kind": "Track",
+        "description": "Log protected blocks, partner initiative and arguments - your own evidence.",
+        "icon": "tracker"
+      },
+      {
+        "title": "Seven Script Cards",
+        "kind": "Communicate",
+        "description": "Ready words for the seven hardest moments - calm, firm, no war.",
+        "icon": "scripts"
+      },
+      {
+        "title": "Bad Night Protocol + Safety Gate",
+        "kind": "Rescue",
+        "description": "What to do when a night collapses - and when exhaustion needs more than a night plan.",
+        "icon": "rescue"
+      }
     ]
   },
   "before_after": {
-    "label": "What changes",
+    "label": "Before / After",
+    "headline": "From she-does-everything to an agreement",
+    "intro": "The change is observable, not a feeling.",
     "before_items": [
-      "Every night renegotiated at 3 AM",
-      "\"Helping\" means one diaper change",
-      "Invisible exhaustion turning into resentment",
-      "\"I don't know what to say\"",
-      "Arguments about whose turn it is",
-      "No way back when the system breaks"
+      "Nights/week with zero protected block: all of them",
+      "Arguments about 'whose turn' several times a week",
+      "Resentment building in silence"
     ],
     "after_items": [
-      "A pre-agreed roster - nobody has to ask",
-      "A named, non-optional shift with a clear start time",
-      "A fairness ledger that makes credits visible and time-bound",
-      "Seven scripts built for the exact conversation",
-      "A Sunday 5-minute review instead",
-      "A re-entry protocol designed to restart without blame"
+      "A protected block >=3h on most nights",
+      "'Whose turn' arguments <=1x/week",
+      "Partner initiates his shift without being reminded"
     ]
   },
   "who_for": {
+    "label": "Who it's for",
+    "headline": "Built for the mother running every night alone",
+    "intro": "Read the not-for list as carefully as the for list.",
     "for_label": "This is for you if",
     "for_items": [
-      "You are 0-6 months postpartum and doing the majority - or all - of the night care alone.",
-      "You are breastfeeding, bottle-feeding, or combination feeding, and your partner is home but not consistently contributing to nights.",
-      "You have asked for help before and gotten a one-off gesture, not a system.",
-      "You are a solo mother or have an absent partner - and you need to build a support web, not a couple's roster.",
-      "You are done arguing about whose turn it is and ready to replace the argument with a contract."
+      "You are 0-12 weeks postpartum and doing 100% of nights",
+      "Your partner is present but 'helping' means one nappy change",
+      "You are breastfeeding and believed you had no choice but to do it all",
+      "You have no partner at home and need a support-web roster"
     ],
-    "not_for_label": "This is NOT for you if",
+    "not_for_label": "This is not",
     "not_for_items": [
-      "You are looking for infant sleep training advice. This product coordinates adults - not babies.",
-      "You need clinical postpartum mental health support. If that is where you are, go directly to the Safety Gate - it routes you to verified crisis support for Nigeria, the UK, and North America."
-    ]
+      "Baby sleep training or a newborn sleep program",
+      "A diagnosis or treatment for postpartum depression or any condition",
+      "A guarantee that every night will work"
+    ],
+    "note": "When exhaustion stops being 'tired', this system stops and routes out to professional care."
   },
   "promise": {
     "label": "What we promise - and what we don't",
-    "we_do": "We promise you a system. A written roster. A fairness ledger. Precision scripts. A rescue plan. A re-entry route.",
-    "we_do_not": "We do not promise you a specific number of hours of sleep. We cannot control your baby's needs, your partner's cooperation, or your household's reality. What we can do is remove the structural reasons nights fail - the asking, the negotiating, the invisible debt - and replace them with a default that works even when you are too exhausted to be generous.",
-    "evidence_label": "Educational content informed by relationship research, postpartum health guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
+    "headline": "A written agreement, not a guarantee.",
+    "we_do_label": "We promise you",
+    "we_do": "A written, fair night-shift system both adults follow, protecting a 4-5 hour sleep opportunity for the mother whenever circumstances allow - without renegotiating it every night.",
+    "we_do_not_label": "We do not promise you",
+    "we_do_not": "We do not promise sleep (a newborn still wakes), a cure for exhaustion, a mental-health or relationship outcome, or that any single night will go to plan. This is a coordination system, not medical care.",
+    "evidence_label": "Educational content informed by relationship research, postpartum guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
   },
   "inside": {
-    "label": "Inside Every Night, Just Me",
+    "label": "Inside",
+    "headline": "What is in the system",
+    "intro": "Six working components, not chapters to read once.",
     "items": [
-      "13 standalone modules - work through them in order or jump to what you need tonight",
-      "3 fillable roster contracts (breastfeeding / bottle / solo)",
-      "7 script cards for every predictable objection and conversation",
-      "The Sleep Banker fairness ledger - written credits, written redemptions, 7-day expiration",
-      "A printable Fridge Shift Chart",
-      "A 14-day shift tracker (system performance, not just compliance)",
-      "A Bad Night Rescue Card with pocket print version",
-      "A Re-entry Protocol for when the system breaks",
-      "A Safety Gate with verified crisis numbers (Nigeria, UK, North America)"
+      "The Argument That Ends the War (short read)",
+      "Three contract templates + Tonight's Shift Chart",
+      "Which Night Model Fits Us? (decision tree)",
+      "14-Day Night Tracker",
+      "Seven Script Cards",
+      "Bad Night Protocol + safety gate"
     ]
   },
   "final_cta": {
-    "headline": "Stop negotiating at 3 AM.",
-    "body": "Get the written system, the fairness ledger, and the exact words - so the night has a clear owner, and you can sleep.",
+    "eyebrow": "The night needs an owner",
+    "headline": "Give the night a roster tonight.",
+    "body": "Fill in the shift chart, send one line from the script pack, and there is a named, written shift by bedtime.",
     "cta_label": "Get Every Night, Just Me",
-    "trust_line": "Educational content. Not medical advice. For postpartum couples and solo mothers, 0-6 months."
+    "trust_line": "Educational content - not medical, clinical, or mental-health advice. This coordinates night-care between adults; it never diagnoses or treats any condition and never replaces professional care.",
+    "evidence_label": "Educational content informed by relationship research, postpartum guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
   },
   "next": {
-    "label": "What comes next",
-    "note": "These are not upsells. They are the next situations on the same journey.",
+    "label": "Where this leads",
+    "headline": "The next situations",
+    "intro": "Night division is one node on a journey.",
+    "note": "These are next situations in the library; their canonical records are being rebuilt.",
     "items": [
-      { "title": "I Do Everything", "reason": "The daytime version - household division of labour, not just nights." },
-      { "title": "We Became Roommates", "reason": "The relationship distance - once sleep stabilises, the emotional gap often shows up." },
-      { "title": "Beyond the Restroom", "reason": "Return to work - if your leave is ending, nights and pumping schedules need to interlock." }
+      {
+        "title": "The daytime division of labour",
+        "reason": "The daytime counterpart to the night roster.",
+        "code": "V09",
+        "product_id": ""
+      },
+      {
+        "title": "Reconnection once sleep stabilises",
+        "reason": "The emotional distance that surfaces when the nights calm down.",
+        "code": "V11",
+        "product_id": ""
+      },
+      {
+        "title": "Returning to work",
+        "reason": "Nights and pumping schedules must interlock when leave ends.",
+        "code": "V19",
+        "product_id": ""
+      }
     ]
   }
 }

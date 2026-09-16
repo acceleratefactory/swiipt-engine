@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-NS-COMMUNICATE-001",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "title": "Seven Script Cards",
+  "job": "COMMUNICATE",
+  "format": "scripts",
+  "source_path": "content/scripts.md",
+  "experience_mode": "utility",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}
