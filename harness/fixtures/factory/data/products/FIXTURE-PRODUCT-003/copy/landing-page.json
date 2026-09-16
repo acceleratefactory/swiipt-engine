@@ -7,16 +7,16 @@
     "composition": "behavior_change"
   },
   "hero": {
-    "headline": "Beyond the Restroom: 30-Day Return-to-Work OS",
+    "headline": "Fixture Product Three",
     "subheadline": "The 30 Days Before and After Maternity Leave Ends - Rights, Pumping Logistics and the Evening Bridge",
     "body": "Return date is ~30 days out; nothing is prepared: no freezer bank, no pump-space agreement, no childcare backup, no morning system; she oscillates between denial and 2am panic. She has no operating system for the transition, so week one back becomes supply crash + workplace embarrassment + evening meltdowns + guilt that eats her. A dated operating system for the return: rights-backed ask locked in writing, feeding lane chosen, freezer bank built, mornings drilled - week one becomes execution, not improvisation.",
     "cta_label": "Get the System",
     "trust_line": "Educational content - not medical or legal advice.",
     "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment.",
     "artifact": {
-      "head_label": "5 steps · Beyond the Restroom: 30-Day Return-to-Work OS",
+      "head_label": "5 steps · Fixture Product Three",
       "sub": "The 30 Days Before and After Maternity Leave Ends - Rights, Pumping Logistics and the Evening Bridge",
-      "table_label": "Beyond the Restroom: 30-Day Return-to-Work OS - at a glance",
+      "table_label": "Fixture Product Three - at a glance",
       "header": [
         "Your plan",
         "What it does"
@@ -112,7 +112,7 @@
       "See TR situation.emotional_stake.",
       "The cost: week-one chaos predicted, supply vulnerable to skipped blocks, and partner load unrenegotiated."
     ],
-    "punch": "This is not a personal failing. It is a system gap - and Beyond the Restroom: 30-Day Return-to-Work OS closes it.",
+    "punch": "This is not a personal failing. It is a system gap - and Fixture Product Three closes it.",
     "timeline": {
       "label": "What return to work actually looks like",
       "ticks": [
@@ -145,7 +145,7 @@
     }
   },
   "modules": {
-    "label": "What Beyond the Restroom: 30-Day Return-to-Work OS gives you",
+    "label": "What Fixture Product Three gives you",
     "headline": "5 modules. One written system.",
     "intro": "Work through them in order, or jump straight to what today needs. Each module stands alone - together they form one system.",
     "items": [
@@ -229,7 +229,7 @@
     "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
   },
   "inside": {
-    "label": "Inside Beyond the Restroom: 30-Day Return-to-Work OS",
+    "label": "Inside Fixture Product Three",
     "headline": "Everything you get. Nothing padded.",
     "intro": "The full kit, at a glance - for the skimmers.",
     "items": [
@@ -244,7 +244,7 @@
     "eyebrow": "The return to work needs a system",
     "headline": "A dated 30-day operating system: rights-backed workplace…",
     "body": "A dated operating system for the return: rights-backed ask locked in writing, feeding lane chosen, freezer bank built, mornings drilled - week one becomes execution, not improvisation. A dated 30-day operating system: rights-backed workplace ask locked, feeding lane chosen, freezer bank built, childcare drilled, morning/evening anchors running - so week one back is execution, not improvisation.",
-    "cta_label": "Get Beyond the Restroom: 30-Day Return-to-Work OS",
+    "cta_label": "Get Fixture Product Three",
     "trust_line": "Educational content - not medical or legal advice.",
     "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
   },
@@ -255,16 +255,16 @@
     "note": "These are not upsells. They are the next situations on the same journey.",
     "items": [
       {
-        "title": "The No-Village C-Section",
-        "transformation_id": "TR-PPL-CS-FIRST14DAYS-001",
-        "product_id": "PPL-CS-FIRST14DAYS-001",
+        "title": "Fixture Product Three",
+        "transformation_id": "FIXTURE-TR-003",
+        "product_id": "FIXTURE-PRODUCT-003",
         "code": "CS",
         "reason": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork"
       },
       {
-        "title": "Cord Care That Won't Land You in A&E",
-        "transformation_id": "TR-PPL-CORD-CARE-001",
-        "product_id": "PPL-CORD-CARE-001",
+        "title": "Fixture Product One",
+        "transformation_id": "FIXTURE-TR-001",
+        "product_id": "FIXTURE-PRODUCT-001",
         "code": "CORD",
         "reason": "One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately"
       }

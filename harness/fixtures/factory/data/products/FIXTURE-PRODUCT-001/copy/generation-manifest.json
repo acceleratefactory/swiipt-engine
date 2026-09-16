@@ -294,8 +294,8 @@
       "reentry_protocol": "Restart at Stage 3 (routine) with whoever now performs baby care; no guilt reset"
     },
     "next_situation": [
-      "TR-PPL-CS-FIRST14DAYS-001",
-      "TR-PPL-OMUGWO-TERMS-001"
+      "FIXTURE-TR-003",
+      "FIXTURE-TR-003"
     ]
   }
 }

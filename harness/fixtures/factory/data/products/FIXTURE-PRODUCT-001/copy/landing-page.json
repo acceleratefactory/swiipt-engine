@@ -262,16 +262,16 @@
     "note": "These are not upsells. They are the next situations on the same journey.",
     "items": [
       {
-        "title": "The No-Village C-Section",
-        "transformation_id": "TR-PPL-CS-FIRST14DAYS-001",
-        "product_id": "PPL-CS-FIRST14DAYS-001",
+        "title": "Fixture Product Three",
+        "transformation_id": "FIXTURE-TR-003",
+        "product_id": "FIXTURE-PRODUCT-003",
         "code": "CS",
         "reason": "A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork"
       },
       {
-        "title": "Omugwo on Your Terms",
-        "transformation_id": "TR-PPL-OMUGWO-TERMS-001",
-        "product_id": "PPL-OMUGWO-TERMS-001",
+        "title": "Fixture Product Three",
+        "transformation_id": "FIXTURE-TR-003",
+        "product_id": "FIXTURE-PRODUCT-003",
         "code": "OMUGWO",
         "reason": "A written three-zone agreement (hers/together/doctor-backed) that gives grandma proud ownership of real work, protects medical non-negotiables as the DOCTOR'S rules not hers, and preserves both the tradition and the mother"
       }
