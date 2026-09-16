@@ -12,7 +12,7 @@ import { BrandTruthService } from "./brand.js";
 const VAL_DIR = join(MAE_DIR, "data", "validations");
 const SENSITIVE_DOMAINS = ["health", "grief", "financial_hardship", "family_conflict", "clinical", "medical"];
 
-function deriveCriteria(angle) {
+function deriveCriteria(angle, opts = {}) {
   const crfs = (angle.tier3.source_evidence || []).map((e) => CustomerRealityService.get(e.ref_id)).filter(Boolean);
   const esState = angle.tier1.emotional_stake.evidence_status;
   const corroborated = ["directly_stated", "strongly_evidenced"].includes(esState) ||
@@ -23,8 +23,11 @@ function deriveCriteria(angle) {
   let c1 = highFreq && corroborated ? "strong"
     : ((angle.tier3.source_evidence || []).some((e) => /medium/i.test(e.evidence_weight || "")) || crfs.length) ? "moderate" : "weak";
 
-  // C2 Proof Availability vs Product Truth
-  const ptr = angle.tier3.product_truth_ref ? TruthService.get("product", angle.tier3.product_truth_ref) : null;
+  // C2 Proof Availability vs Product Truth.
+  // Product Truth is a DERIVED reference, not a persisted authority: prefer the authoritative factory
+  // projection supplied to this transaction; fall back to the persisted truth store. A reference that
+  // neither the transaction supplies nor the store carries cannot be substantiated -> weak_fail (never bypassed).
+  const ptr = TruthService.resolveProductTruth(angle.tier3.product_truth_ref, opts.product_truth);
   let c2 = "weak_fail";
   if (ptr) {
     const text = `${angle.tier2.angle} ${angle.tier2.insight.text}`.toLowerCase();
@@ -58,7 +61,7 @@ export const AngleValidationService = {
   nextId(scope, existing = existingIds(VAL_DIR)) { return makeId("validation", scope, existing); },
 
   evaluate(angle, opts = {}) {
-    const derived = deriveCriteria(angle);
+    const derived = deriveCriteria(angle, opts);
     const criteria = opts.criteria ? { ...derived.criteria, ...opts.criteria } : derived.criteria;
     if (opts.platform_fitness) criteria.platform_fitness = opts.platform_fitness;
     const corroborated = Object.prototype.hasOwnProperty.call(opts, "corroborated") ? opts.corroborated : derived.corroborated;

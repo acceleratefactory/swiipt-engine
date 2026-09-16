@@ -55,6 +55,20 @@ export const TruthService = {
     if (!c) fail(CODES.REFERENCE_UNRESOLVED, `unknown truth source: ${truth}`);
     return findById(c, id, { scope: "production" }) || (includeFixtures ? findById(c, id, { scope: "test" }) : null);
   },
+  /**
+   * Resolve a Product Truth reference for a validation/authoring transaction.
+   * Canonical model (product-truth-reference.schema.json): a PTR is a READ-ONLY DERIVED PROJECTION of the
+   * factory records ("the MAE never shadows Product Truth; it references it") — not an independently
+   * persisted authority. It carries no factory fingerprint, so a persisted copy could silently go stale;
+   * therefore resolution prefers the AUTHORITATIVE projection supplied to the transaction (a fresh
+   * deterministic projection of factory Product Truth) and only then the persisted truth store.
+   * Returns null when neither resolves — callers must fail downstream, never fabricate.
+   */
+  resolveProductTruth(ref_id, supplied = null) {
+    if (!ref_id) return null;
+    if (supplied && supplied.id === ref_id) return supplied;
+    return this.get("product", ref_id);
+  },
   /** Query CRF/MIF by tag/filter (S2 §9 — simple tagging/normalisation, no vector DB). */
   query(truth, filter = {}, { includeFixtures = true } = {}) {
     const c = TRUTH_COLLECTIONS[truth];

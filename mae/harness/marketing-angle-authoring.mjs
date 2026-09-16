@@ -592,9 +592,11 @@ export function authorMarketingAngles(input = {}) {
         lifecycle.mechanism = `${lifecycle.mechanism} [transition applied: ${transitioned.status}]`;
       } catch (e) { report.warnings.push(`angle lifecycle transition unavailable: ${e.message}`); }
       report.provenance.lifecycle = lifecycle;
-      // EXISTING validation gate (persist:false - nothing is written)
+      // EXISTING validation gate (persist:false - nothing is written).
+      // Product Truth is supplied as the authoritative factory projection (the PTR is a derived
+      // reference, never a persisted authority) so C2 resolves against THIS transaction's truth.
       let validation = null;
-      try { validation = AngleValidationService.evaluate(linked, { persist: false }); }
+      try { validation = AngleValidationService.evaluate(linked, { persist: false, product_truth: projection.record }); }
       catch (e) { report.warnings.push(`angle validation could not run: ${e.message}`); statuses.push(AUTHOR_STATUS.AUTHORING_REQUIRED); }
       // provenance completeness before a candidate is eligible for validation
       const provenance = {
@@ -606,8 +608,11 @@ export function authorMarketingAngles(input = {}) {
         field_ledger: ledger,
       };
       const uri = (id) => (!id ? false : !!(TruthService.get("product", id) || TruthService.get("customer", id) || TruthService.get("market", id) || CustomerRealityService.get(id) || MarketIntelligenceService.get(id)));
+      // the Product Truth reference resolves when this transaction supplies its authoritative projection,
+      // or when the persisted store carries it (fixtures / explicitly prepared store).
+      const suppliedPtr = projection.record && projection.record.id === linked.tier3.product_truth_ref ? projection.record : null;
       const resolution = {
-        product_truth: uri(linked.tier3.product_truth_ref),
+        product_truth: uri(linked.tier3.product_truth_ref) || !!suppliedPtr,
         customer_truth: linked.tier3.source_evidence.map((s) => ({ ref_id: s.ref_id, resolved: uri(s.ref_id) })),
         market_truth: (linked.tier3.market_truth_support ?? []).map((s) => ({ ref_id: s.ref_id, resolved: uri(s.ref_id) })),
       };

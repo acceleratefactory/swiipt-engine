@@ -547,9 +547,14 @@ test("I1 the EXISTING validator is used and reported", () => {
   assert.equal(r.validations.length, 1);
 });
 
-test("I2 the validator file is unmodified by this wave", () => {
-  assert.equal(fileText("mae/services/validation.js"), gitHash("mae/services/validation.js"));
+test("I2 the angle service is untouched and the validator keeps its substance", () => {
+  // angle.js is unchanged. validation.js changed ONLY to resolve Product Truth from the transaction's
+  // authoritative projection (the PTR is a derived reference, not a persisted authority) — the verdict
+  // logic (proof_availability / isRed / isYellow) is untouched. See mae/harness/product-truth-contract.test.mjs.
   assert.equal(fileText("mae/services/angle.js"), gitHash("mae/services/angle.js"));
+  const src = fileText("mae/services/validation.js");
+  assert.ok(src.includes("resolveProductTruth"));
+  assert.ok(src.includes("proof_availability") && src.includes("isRed") && src.includes("isYellow"));
 });
 
 test("I3 the fixture verdict is GREEN with sensitive-domain human review (unchanged behaviour)", () => {
@@ -839,9 +844,10 @@ test("N7 CORD-CARE: supplying authoritative research produces a validated candid
   assert.equal(r.candidate_angles[0].product_id, CORD);
   const v = r.validations[0];
   assert.ok(["GREEN", "YELLOW", "RED"].includes(v.verdict));
-  assert.equal(v.provisional, true);                                   // derived PTR is not persisted (dry run)
-  assert.ok(/dry-run policy/.test(v.provisional_reason));
-  assert.equal(v.validator_resolution.product_truth, false);
+  // Product Truth is a derived projection supplied to the transaction, so C2 resolves (no false provisional)
+  assert.equal(v.provisional, false);
+  assert.equal(v.validator_resolution.product_truth, true);
+  assert.equal(v.provisional_reason, null);
 });
 
 // =============================================================================================
@@ -863,5 +869,5 @@ test("O2 the CLI accepts explicit research ids (fixture benchmark)", () => {
   assert.equal(parsed.status, AUTHOR_STATUS.READY_FOR_VALIDATION);
   assert.equal(parsed.candidate_count, 1);
   assert.ok(["GREEN", "YELLOW", "RED"].includes(parsed.validations[0].verdict));
-  assert.equal(parsed.validations[0].provisional, true);               // real product: derived PTR not persisted
+  assert.equal(parsed.validations[0].provisional, false);              // Product Truth resolved from the supplied projection
 });
