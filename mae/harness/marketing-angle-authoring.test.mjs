@@ -195,11 +195,11 @@ test("C8 created_at is an authoritative timestamp, never generated at run time",
 });
 
 test("C9 a missing transformation blocks the projection (SOURCE_REQUIRED, no fake record)", () => {
-  const p = projectProductTruth({ product_id: "PPL-NIGHT-SHIFT-001" });
+  const p = projectProductTruth({ product_id: "FIXTURE-PRODUCT-002", root: FIXTURE_ROOT });
   assert.equal(p.ok, false);
   assert.equal(p.record, null);
   // repository-equivalent state remains intact: the bridge reports SOURCE_REQUIRED and fabricates nothing
-  const r = authorMarketingAngles({ product_id: "PPL-NIGHT-SHIFT-001" });
+  const r = authorMarketingAngles({ product_id: "FIXTURE-PRODUCT-002", root: FIXTURE_ROOT });
   assert.equal(r.status, AUTHOR_STATUS.SOURCE_REQUIRED);
   assert.equal(r.truth_readiness.product_truth, TRUTH_READINESS.MISSING);
   assert.equal(r.candidate_angles.length, 0);

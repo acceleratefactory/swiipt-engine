@@ -1,0 +1,290 @@
+{
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "library_id": "m01",
+  "submarket_id": "parents-sleep-night-division",
+  "status": "validated",
+  "situation": {
+    "life_state": "newborn-nights-first-12-weeks",
+    "person": "Breastfeeding or formula-feeding mother, 0-12 weeks postpartum, doing 100% of night care while her partner sleeps through or is minimally involved (or, for some buyers, with no partner in the home at all)",
+    "specific_situation": "She is running every night alone - feeding, settling, soothing - while her partner sleeps, works away, or believes 'helping' means one nappy change. There is no agreed system, so every night is renegotiated by exhaustion and resentment.",
+    "timeframe": "0-12 weeks postpartum (newborn phase, until night sleep patterns change)",
+    "trigger": "The partner's leave ends / he returns to work - nights silently become 100% hers without a conversation, and every 2am wake-up re-opens whose turn it is.",
+    "problem": "She cannot get a single protected sleep block of 4-5 hours, is approaching or past the point of physical and cognitive breakdown, and the relationship is absorbing the damage in silence.",
+    "failed_attempt": "Asking for help in vague terms ('can you help more'), which produced a one-off gesture (he took the baby one Saturday morning) instead of a system; resentment now builds in silence because re-raising it feels like complaining.",
+    "constraints": [
+      "Often still breastfeeding, so 'sleep through the night' is not simply available to her",
+      "Cultural norms assign night care to the mother by default",
+      "Asking directly for help can feel like an accusation",
+      "For some buyers there is no partner in the home at all",
+      "A deep-sleeper partner may not wake even when the baby cries nearby"
+    ],
+    "emotional_stake": "She is not just tired - she keeps score alone. Every uninterrupted hour he gets feels like proof her exhaustion is invisible, and naming it makes her the difficult one. Rage at his calm breathing while she feeds, grief for the relationship, and fear that this is now permanent.",
+    "desired_transformation": "A written, fair night-shift system both adults follow - protecting a 4-5 hour sleep opportunity for the mother whenever circumstances allow - without the nightly argument about whose turn it is."
+  },
+  "before_state": {
+    "current_behavior": [
+      "Doing 100% of nights, every night, for weeks",
+      "Waking for every feed/settle alone while the partner sleeps",
+      "Hinting, sighing, or arguing sideways about unrelated things instead of naming the problem"
+    ],
+    "current_conditions": [
+      "No agreed night system; every night renegotiated by exhaustion",
+      "A breastfeeding schedule, or a baby who refuses a bottle",
+      "Culturally-gendered night-care norms; possibly no partner in the home"
+    ],
+    "emotional_state": [
+      "Rage at the partner's calm breathing while she feeds",
+      "Grief for the relationship",
+      "Fear that this is now permanent",
+      "Belief that 'sleep when the baby sleeps' is a cruel joke, not advice"
+    ],
+    "practical_consequences": [
+      "Zero protected sleep blocks (nights/week with a >=3h block)",
+      "Physical and cognitive breakdown approaching",
+      "Short-tempered with the baby and partner by day",
+      "The marriage absorbing damage in silence"
+    ],
+    "failed_attempts": [
+      "'Can you help more' - produced a one-off gesture, not a system",
+      "Hinting and sighing (nothing changed)",
+      "Pumping / introducing a bottle (baby refused)"
+    ],
+    "environmental_constraints": [
+      "Breastfeeding math makes a full night off impossible without a planned hand-off",
+      "Partner assumes the provider role exempts him from night care",
+      "A mother-in-law may actively undermine night help ('his sleep matters more')"
+    ],
+    "people_involved": [
+      "Mother",
+      "Partner",
+      "Newborn baby",
+      "Maternal/paternal grandmother (where present)"
+    ]
+  },
+  "after_state": {
+    "new_capabilities": [
+      "Runs a written night contract both partners follow",
+      "Gives the partner a named, non-optional shift rather than 'help'",
+      "Uses language for asking that does not feel like an accusation"
+    ],
+    "improvements": [
+      "One 4-5 hour protected sleep opportunity block per night, most nights",
+      "Partner has a named shift and initiates it without being reminded",
+      "A weekly 5-minute renegotiation ritual replaces nightly arguments"
+    ],
+    "systems_created": [
+      "A written night contract (one of three templates: breastfeeding-compatible split / formula-expressed alternating / no-partner support-web)",
+      "A shift chart posted for 3am reference",
+      "A sleep-banker ledger (credits and paybacks) redeemed within 7 days"
+    ],
+    "remaining_limits": [
+      "Does not remove a breastfeeding baby's need to feed overnight - it schedules a real hand-off, not a full night off",
+      "Does not diagnose or treat postpartum depression, anxiety, or any medical condition",
+      "Does not guarantee every night works; bad nights and relapse are expected and handled by protocol",
+      "Does not replace professional care when exhaustion is more than tiredness"
+    ],
+    "evidence_of_change": [
+      "Fewer nights per week with zero protected sleep opportunity (versus baseline)",
+      "Partner initiates his shift without being reminded on at least 4 of 7 nights",
+      "Arguments about 'whose turn' reduced to <=1x/week",
+      "Self-reported exhaustion and resentment each reduced by >=3 points at Day 30"
+    ]
+  },
+  "mechanism": {
+    "core_mechanism": "Convert a nightly, exhaustion-driven negotiation into a written, pre-agreed default: a roster both adults follow, a sleep-banker ledger that makes invisible exhaustion visible and tradeable, and ready scripts that pre-negotiate the resistant partner's objections.",
+    "mechanisms": [
+      "A written roster removes the emotional labour of asking (negotiation becomes a pre-agreed default; the schedule asks, not her)",
+      "Reframes the partner from 'helper' to 'co-manager' - a status upgrade instead of a request for charity",
+      "Schedules milk hand-off (pumped bottle, or partner brings the baby to feed and returns her to the crib) so the mother's protected block is physically real",
+      "A sleep banker makes invisible exhaustion visible and tradeable (1 credit = covering a 3-5h night block; 1 payback = a morning sleep-in or 3h afternoon nap; redeemed within 7 days)",
+      "Pre-negotiates predictable objections ('I have work tomorrow', 'I don't hear the baby', 'my mother says this is your job') with ready scripts"
+    ],
+    "why_it_should_work": "The recurring failure is not unwillingness but the absence of a system: with no written default, the night is renegotiated every time by two people running on no sleep, and the default becomes she owns all of it. Making the division explicit, scheduled and ledged - and giving the partner a named shift rather than a vague request - replaces an endless negotiation with an agreed rule.",
+    "evidence_basis": [
+      {
+        "claim": "The night-division problem is a parent operating-system problem, not a baby-sleep problem: nobody owns the night in advance, so the default becomes the mother owns all of it",
+        "status": "model_inference"
+      },
+      {
+        "claim": "The recurring failure pattern is vague 'asking for help', which produces one-off gestures instead of a system; resentment then builds in silence",
+        "status": "lived_experience"
+      },
+      {
+        "claim": "Cultural norms assign night care to the mother by default, and in diaspora households the 'lost village' removes the family help that would otherwise absorb part of the night",
+        "status": "sourced_evidence",
+        "source": "Postpartum Library/SLEEP DEPRIVATION.md submarket C research (PLOS One marital-dissatisfaction NINA; LSU Nigerian-immigrant parenting; London Met first-gen Nigerian mothers UK PND; Hekint diaspora omugwo; PLOS One Black immigrant mothers UK)"
+      },
+      {
+        "claim": "For a breastfeeding mother a protected block requires a planned milk hand-off; without it the block is fictional",
+        "status": "lived_experience"
+      },
+      {
+        "claim": "Journey: the daytime division-of-labour counterpart, relationship reconnection, and return-to-work are the next situations on this journey (represented in the library as V09 / V11 / V19); their canonical Transformation records do not yet exist, so next_transformation is recorded empty with this documented reason",
+        "status": "model_inference"
+      }
+    ]
+  },
+  "transformation_path": [
+    {
+      "stage": "Diagnose (Day 1)",
+      "objective": "Map the current broken night reality",
+      "customer_action": [
+        "Record who wakes, how often, who does what, and total protected hours per night",
+        "Record how she feels by 6am"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Choose the model (Day 2)",
+      "objective": "Pick the right contract template for her situation",
+      "customer_action": [
+        "Run the Situation Finder / decision tree",
+        "Choose Template A (breastfeeding-compatible split), Template B (formula/expressed alternating), or Roster C (no-partner support web)"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Draft the contract (Day 3)",
+      "objective": "Turn the chosen model into a written schedule",
+      "customer_action": [
+        "Fill in actual clock times and whose shift starts/ends when",
+        "Define what counts as an emergency override"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Negotiate (Days 4-5)",
+      "objective": "Present it as a system, not a complaint",
+      "customer_action": [
+        "Use the script bank to open the conversation",
+        "Handle the predictable objections ('I have work tomorrow', 'I don't hear the baby')"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Run it (Days 6-12)",
+      "objective": "Operate the contract for a full week",
+      "customer_action": [
+        "Follow the shift chart",
+        "Log each night in the tracker",
+        "Include one weekend sleep-bank catch-up"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Review (Day 13)",
+      "objective": "Find what broke and what worked",
+      "customer_action": [
+        "Review the tracker",
+        "Renegotiate using the weekly check-in template"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Reinforce (Days 14+)",
+      "objective": "Lock in the working version",
+      "customer_action": [
+        "Keep the working contract",
+        "Revisit every 2 weeks as the baby's sleep changes"
+      ],
+      "required_assets": []
+    }
+  ],
+  "failure_point_map": [
+    {
+      "failure_type": "bad night",
+      "scenario": "Baby is sick or teething and both shifts blow up",
+      "rescue_protocol": "Bad Night Protocol card: default to whoever's turn it technically is; the override triggers automatic next-night compensation"
+    },
+    {
+      "failure_type": "missed shift",
+      "scenario": "Partner sleeps through his shift once",
+      "rescue_protocol": "No-blame reset script - a data point, not a violation; adjust the alarm/handoff method"
+    },
+    {
+      "failure_type": "resistance",
+      "scenario": "Partner pushes back on the whole system",
+      "rescue_protocol": "Scripted response bank; escalate to a 'trial it for one week' framing if there is outright refusal"
+    },
+    {
+      "failure_type": "overwhelm",
+      "scenario": "She cannot even follow her own half of the plan",
+      "rescue_protocol": "Simplify-to-minimum version: one non-negotiable block only, drop everything else temporarily"
+    },
+    {
+      "failure_type": "relapse",
+      "scenario": "They quietly slide back to her-does-everything after two good weeks",
+      "rescue_protocol": "Re-entry protocol - no guilt framing, restart from the Run phase"
+    },
+    {
+      "failure_type": "escalation",
+      "scenario": "She reports symptoms beyond exhaustion (hopelessness, intrusive thoughts, unable to function by day)",
+      "rescue_protocol": "Non-diagnostic exhaustion check; explicit stop-and-route to the verified shared Nigeria + diaspora crisis/escalation list - this system does not attempt to diagnose or handle it"
+    }
+  ],
+  "first_win": {
+    "time_limit_minutes": 15,
+    "action": "Fill in 'Tonight's Shift Chart': pick a template (A/B/C), write in two clock times, and text the partner one pre-written line from the script bank.",
+    "observable_change": "By tonight there is a named, written shift and one sentence has been sent instead of having the same fight again."
+  },
+  "tsm": {
+    "before_baseline": [
+      "Nights per week with zero sleep block of >=3 hours",
+      "Self-reported exhaustion (1-10)",
+      "Self-reported resentment toward partner (1-10)",
+      "Reports arguing about 'whose turn' more than 3x/week (yes/no)"
+    ],
+    "success_indicators": [
+      "Protected sleep opportunity block of >=3 hours on at least 5 of 7 nights",
+      "Self-reported exhaustion reduced by >=3 points",
+      "Self-reported resentment reduced by >=3 points",
+      "'Whose turn' arguments reduced to <=1x/week or eliminated",
+      "Partner initiates his shift without being reminded on at least 4 of 7 nights"
+    ],
+    "measurement_days": [0, 7, 14, 30],
+    "success_threshold": "60%+ of buyers who complete Days 1-14 report meeting the sleep-opportunity-protection and argument-reduction criteria at Day 30 (owner-approved business call).",
+    "measurement_method": "Day 0 / Day 7 / Day 14 / Day 30 short check-in (3 questions), plus the 14-day tracker as raw data.",
+    "incomplete_progress_interpretation": "Partial adherence is expected; a heavy night or a missed shift is a data point, not a failure - the contract is adjusted rather than abandoned.",
+    "next_action_on_miss": "Re-run the Diagnose/Negotiate step with the specific person who missed the shift; adjust the alarm/handoff method; if the whole system collapsed, restart at the Run phase (not Day 1)."
+  },
+  "maintenance": {
+    "maintenance_system": "Renegotiate the contract every 2 weeks as the baby's sleep pattern changes - this is expected, not a failure.",
+    "relapse_protocol": "If they slide back to she-does-everything, restart at the Negotiate step (Day 4); the diagnosis and model choice do not need repeating.",
+    "reentry_protocol": "One-page 'we fell off - here's how we get back on' card; no guilt framing."
+  },
+  "next_transformation": [],
+  "evidence": [
+    {
+      "claim": "The night-division failure repeats every single night and sleep debt compounds within days, making it urgent rather than a slow-burn problem",
+      "status": "model_inference"
+    },
+    {
+      "claim": "Cultural norms assign night care to the mother by default; in diaspora households the loss of the extended-family 'village' increases isolation",
+      "status": "sourced_evidence",
+      "source": "Postpartum Library/SLEEP DEPRIVATION.md submarket C (PLOS One; LSU; London Met; Hekint)"
+    },
+    {
+      "claim": "Research disposition: this finding is a STANDALONE_TRANSFORMATION in library m01 and was promoted to this transformation record",
+      "status": "lived_experience"
+    }
+  ],
+  "safety": {
+    "risk_level": "moderate",
+    "scope_boundary": "This transformation coordinates the division of night care between adults ONLY. It never diagnoses or treats postpartum depression, anxiety, or any medical condition; it never prescribes infant sleep-training or safe-sleep practice; and it never replaces professional care. When exhaustion is more than tiredness, it stops and routes out to the verified shared crisis/escalation list.",
+    "red_flags": [
+      "Hopelessness or persistent low mood beyond ordinary tiredness",
+      "Intrusive thoughts",
+      "Unable to function during the day"
+    ],
+    "escalation_rules": [
+      "Route to the verified shared Nigeria + diaspora crisis/escalation list (Product Pipeline/MEMORY.md) - never invent numbers",
+      "This system does not attempt to diagnose or handle these; it stops and routes out"
+    ]
+  },
+  "research_disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Distinct situation (night division between adults) plus a distinct meaningful transformation (protected sleep via a written roster). Validated and scored 88/100 in the postpartum naming audit; built as V06 'Every Night, Just Me' and live on the platform as transformation #84 / system #85 / product #86.",
+    "assigned_at": "2026-08-19",
+    "reclassification_history": []
+  }
+}

@@ -706,7 +706,7 @@ test("L1 the authoritative opportunity was found and expects TR-PPL-NIGHT-SHIFT-
   assert.equal(NIGHTSHIFT.opportunity_id, "OPP-PPL-NIGHTSHIFT-001");
   assert.equal(NIGHTSHIFT.disposition.promoted_transformation_id, "TR-PPL-NIGHT-SHIFT-001");
   assert.equal(NIGHTSHIFT.status, "promoted_to_candidate");
-  assert.equal(existsSync(join(ROOT, "data", "transformations", "TR-PPL-NIGHT-SHIFT-001.json")), false);
+  assert.equal(existsSync(join(ROOT, "data", "transformations", "TR-PPL-NIGHT-SHIFT-001.json")), true);
 });
 
 test("L2 the NIGHT-SHIFT run produces a schema-valid candidate (evidence sufficient)", () => {
