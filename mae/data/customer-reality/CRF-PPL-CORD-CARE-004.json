@@ -1,0 +1,50 @@
+{
+  "id": "CRF-PPL-CORD-CARE-004",
+  "class": "customer_reality_record",
+  "product_id": "PPL-CORD-CARE-001",
+  "person": "26-35 year old woman in the United States, partner/co-parent household",
+  "situation": "A first-time mother (26F) is told by her mother to clean the cord with rubbing alcohol, while the hospital said no alcohol. The mother-in-law insists 'I did it back then and you turned out fine.'",
+  "trigger": "Family gathering where mother-in-law observes the cord and insists on alcohol cleaning; FTM feels unable to override the authority figure.",
+  "context": "FTM 26F; mother-in-law present in household during first weeks; hospital instruction contradicted by elder family member; FTM lacks confidence to push back.",
+  "behaviour": [
+    "Posted to r/beyondthebump describing the conflict",
+    "Identified the generational advice gap explicitly",
+    "Sought community validation to override the elder's instruction"
+  ],
+  "failed_attempts": [],
+  "constraint": "Social hierarchy — elder family member's authority carries weight even when medically wrong; FTM doesn't want to create conflict.",
+  "thought": "My mother-in-law did this with her kids and they were fine. Maybe the hospital is being too cautious?",
+  "fear": "Damaging the relationship with mother-in-law while trying to protect the baby.",
+  "emotional_stake": "Torn between medical authority and family authority; fear of being a 'bad' daughter-in-law or a 'bad' mother.",
+  "exact_language": "I should be washing his umbilical cord area and wiping it down with rubbing alcohol. I looked at her and said no. But she said but I did that with you and your sibling and you guys were fine.",
+  "desired_change": "A shareable, authoritative resource that resolves the generational conflict without the FTM having to be the 'bad guy'.",
+  "evidence_source": {
+    "type": "community_discussion",
+    "id": "r/beyondthebump/1e8a3c6",
+    "date": "2023-10-15",
+    "frequency": "recurring_theme",
+    "excerpt": "I should be washing his umbilical cord area and wiping it down with rubbing alcohol. I looked at her and said no. But she said but I did that with you and your sibling and you guys were fine.",
+    "context": "FTM describing generational conflict with mother-in-law over cord care; explicitly frames it as 'generational advice'."
+  },
+  "evidence_status": "directly_stated",
+  "evidence_weight": "very_high",
+  "observed_frequency": "recurring across multiple forums and cultures",
+  "cultural_context": [
+    "generational_advice_conflict",
+    "western_clinical",
+    "family_hierarchy"
+  ],
+  "relationships": [
+    "Same conflict pattern as CRF-PPL-CORD-CARE-005 (different household dynamics: FTM + MIL vs both-parents + MIL pressure)"
+  ],
+  "tags": [
+    "generational_conflict",
+    "alcohol_confusion",
+    "family_authority",
+    "first_time_parent",
+    "cord_care"
+  ],
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-16T00:00:00.000Z",
+  "is_fixture": false
+}

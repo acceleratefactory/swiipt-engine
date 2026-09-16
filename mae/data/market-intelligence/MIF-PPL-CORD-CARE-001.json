@@ -1,0 +1,15 @@
+{
+  "id": "MIF-PPL-CORD-CARE-001",
+  "class": "market_intelligence_record",
+  "product_id": "PPL-CORD-CARE-001",
+  "category": "trend",
+  "statement": "Clinical guidance shifted away from alcohol/antiseptic cord care toward dry cord care; alcohol does not reduce omphalitis risk and is associated with a longer cord separation time, so a parent following an older generation's 'wipe it with alcohol' habit is following superseded advice.",
+  "evidence": "Meta-analysis (Al-Shehri, Cureus 2019, PMID 31523534): alcohol 70% vs dry care, 13 studies / 4967 infants / 6 RCTs — alcohol significantly associated with longer cord separation time (MD +1.93 days, 95% CI 0.80-3.06) with no significant difference in omphalitis risk. WHO Essential Newborn Care (2024) and Merck Manual present dry care as standard.",
+  "evidence_status": "directly_stated",
+  "evidence_weight": "high",
+  "freshness": "Meta-analysis 2019; WHO ENC provider guide 2024",
+  "source": "PMID 31523534 (Cureus 2019); WHO ENC provider guide May 2024; Merck Manual",
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-16T00:00:00.000Z",
+  "is_fixture": false
+}

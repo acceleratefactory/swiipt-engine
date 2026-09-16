@@ -1,0 +1,58 @@
+{
+  "id": "CRF-PPL-CORD-CARE-006",
+  "class": "customer_reality_record",
+  "product_id": "PPL-CORD-CARE-001",
+  "person": "New mother in Ghana, extended family household",
+  "situation": "A new mother in Ghana faces pressure from her grandmother (primary caregiver figure) to apply traditional cord-care substances — shea butter, toothpaste, or a leaf-and-salt mixture — to the baby's umbilical cord stump.",
+  "trigger": "Grandmother observes the cord and offers to apply her preferred substance; the mother is caught between clinical guidance (from a clinic/health worker) and deeply rooted traditional practice.",
+  "context": "63% of unapproved cord dressings in Ghana are applied by grandmothers (PMC6630491). The grandmother's authority in the household is absolute on child-care matters. The mother may not have direct access to a clinic or health worker at the moment of decision.",
+  "behaviour": [
+    "Mother accepts grandmother's intervention (most common outcome per the research)",
+    "Mother may attempt to resist but lacks the language or authority to override",
+    "Mother may seek validation from health worker (if accessible) to counter grandmother"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "Mother may have tried to follow clinic advice but grandmother overruled"
+    }
+  ],
+  "constraint": "Grandmother is the primary caregiver figure; the mother's authority is subordinate in the household hierarchy; traditional practices are deeply rooted and carry social weight.",
+  "thought": "My grandmother raised all of us with shea butter and we turned out fine. The clinic may be right but grandmother knows best.",
+  "fear": "Defying grandmother's authority; being seen as an ungrateful or ignorant daughter; the cord falling off 'too slowly' if traditional methods aren't applied.",
+  "emotional_stake": "Torn between two authority systems (clinic vs grandmother) with no clear resolution path.",
+  "exact_language": "Shea butter is applied to the cord stump because it is believed to hasten cord separation. Some grandmothers use toothpaste or a leaf-and-salt mixture.",
+  "desired_change": "A culturally respectful way to explain why the cord needs to dry naturally, without offending the grandmother or undermining her authority.",
+  "evidence_source": {
+    "type": "documented_research",
+    "id": "PMC6630491",
+    "date": "2019-07-01",
+    "frequency": "prevalent_in_region",
+    "excerpt": "63% of unapproved cord dressings are applied by grandmothers...Shea butter is applied to the cord stump because it is believed to hasten cord separation.",
+    "context": "Qualitative focus group study in Ghana (Asante-Darko & Norvishis, 2019). 54.8% of caregivers believe the cord falls off by day 4, contributing to anxiety when it doesn't."
+  },
+  "evidence_status": "directly_stated",
+  "evidence_weight": "very_high",
+  "observed_frequency": "prevalent_in_region",
+  "cultural_context": [
+    "west_african",
+    "ghana",
+    "extended_family",
+    "grandmother_authority",
+    "traditional_medicine",
+    "tropical_climate"
+  ],
+  "relationships": [
+    "Same grandmother-authority pattern as CRF-PPL-CORD-CARE-005 (Nigerian household, binder); Ghana variant adds shea butter/toothpaste/leaf-salt substances",
+    "Same generational-advice conflict as CRF-PPL-CORD-CARE-004 (American context, alcohol); Ghana variant is substance-specific"
+  ],
+  "tags": [
+    "grandmother_authority",
+    "traditional_substances",
+    "ghana",
+    "west_african",
+    "cord_care"
+  ],
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-16T00:00:00.000Z",
+  "is_fixture": false
+}

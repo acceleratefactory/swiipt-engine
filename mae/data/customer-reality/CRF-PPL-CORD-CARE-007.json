@@ -1,0 +1,60 @@
+{
+  "id": "CRF-PPL-CORD-CARE-007",
+  "class": "customer_reality_record",
+  "product_id": "PPL-CORD-CARE-001",
+  "person": "New mother in Nigeria (Rivers State), nuclear or extended household",
+  "situation": "A new mother in Nigeria's Rivers State is expected to follow community cord-care norms: 76.7% of mothers in her region use methylated spirit, 17.6% petroleum jelly, 13.8% herbal preparations, and 17.7% hot water — all practices that deviate from WHO dry-care guidance.",
+  "trigger": "The mother's own upbringing and community norms dictate the cord-care substances; a 2025 survey of 232 mothers found these practices are prevalent across the state.",
+  "context": "Rivers State, Nigeria (2025 survey, 232 mothers). 76.7% methylated spirit, 40% chlorhexidine, 15.9% toothpaste, 17.6% petroleum jelly, 13.8% herbal preparations, 12.5% breastmilk, 17.7% hot water. These are not 'mistakes' — they are the default community practice, passed down through generations.",
+  "behaviour": [
+    "Mother follows community norm (methylated spirit or herbal preparation)",
+    "Mother may have been told by clinic to use dry care but community practice overrides",
+    "Mother may not have access to chlorhexidine even though 40% use it (availability gap)"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "Mother may have tried dry care but family/community pressure overruled"
+    }
+  ],
+  "constraint": "Community practice is the default; clinical guidance is aspirational; access to recommended products (chlorhexidine) is limited; cultural authority favors traditional practice.",
+  "thought": "Everyone in my community uses methylated spirit. The clinic said dry care but that's not how we do it here.",
+  "fear": "Deviation from community norm; being seen as ignoring tradition; the cord not healing properly without intervention.",
+  "emotional_stake": "Identity — following community practice is part of being a 'good mother' in this context.",
+  "exact_language": "76.7% methylated spirit, 40% chlorhexidine, 15.9% toothpaste, 17.6% petroleum jelly, 13.8% herbal preparations, 12.5% breastmilk, 17.7% hot water.",
+  "desired_change": "A culturally grounded explanation of why dry care works, framed within (not against) the mother's identity as a good mother in her community.",
+  "evidence_source": {
+    "type": "documented_research",
+    "id": "Nigeria_Rivers_State_2025",
+    "date": "2025-01-01",
+    "frequency": "prevalent_in_region",
+    "excerpt": "76.7% methylated spirit, 40% chlorhexidine, 15.9% toothpaste, 17.6% petroleum jelly, 13.8% herbal preparations, 12.5% breastmilk, 17.7% hot water.",
+    "context": "Cross-sectional survey of 232 mothers in Rivers State, Nigeria (2025). Documents prevalence of non-WHO cord-care practices."
+  },
+  "evidence_status": "directly_stated",
+  "evidence_weight": "very_high",
+  "observed_frequency": "prevalent_in_region",
+  "cultural_context": [
+    "west_african",
+    "nigerian",
+    "rivers_state",
+    "community_norms",
+    "traditional_medicine",
+    "tropical_climate",
+    "resource_limited"
+  ],
+  "relationships": [
+    "Same West African traditional-substance pattern as CRF-PPL-CORD-CARE-006 (Ghana, grandmother-driven); Nigeria variant is community-norm-driven",
+    "Same Nigerian context as CRF-PPL-CORD-CARE-005 but Rivers State is a specific regional variant with documented prevalence data"
+  ],
+  "tags": [
+    "community_norms",
+    "methylated_spirit",
+    "nigerian",
+    "rivers_state",
+    "traditional_substances",
+    "cord_care"
+  ],
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-16T00:00:00.000Z",
+  "is_fixture": false
+}

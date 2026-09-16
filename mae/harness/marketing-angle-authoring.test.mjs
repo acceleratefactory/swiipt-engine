@@ -25,6 +25,7 @@ import { validate } from "../lib/schema.js";
 import { EVIDENCE_STATE, EVIDENCE_RANK, isValidState, assertNoUnsupportedCertainty } from "../lib/evidence.js";
 import { AngleValidationService } from "../services/validation.js";
 import { BrandTruthService } from "../services/brand.js";
+import { buildCsecAngle } from "./fixtures.mjs";
 
 const MAE = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const ROOT = join(MAE, "..");
@@ -47,6 +48,11 @@ const DAY6 = () => ({ product_id: "PROD-CSEC", product_truth: clone(PTR), crf: [
 const runDay6 = (patch = {}) => authorMarketingAngles({ ...DAY6(), ...patch });
 const fresh = (m, patch) => authorMarketingAngles({ product_id: "PROD-CSEC", product_truth: clone(PTR), crf: [patch(m)], mif: [clone(MIF11), clone(MIF17)] });
 const cord = (opts = {}) => authorMarketingAngles({ product_id: CORD, ...opts });
+// Controlled missing-source input (never depends on an empty production directory): explicitly
+// reference research ids that exist in NO scope, so the empty-truth / refusal behaviour is exercised
+// as an isolated input while the real product's production truth is otherwise complete.
+const ABSENT_RESEARCH = { crf_ids: ["CRF-TEST-ABSENT-000"], mif_ids: ["MIF-TEST-ABSENT-000"] };
+const cordAbsentResearch = () => authorMarketingAngles({ product_id: CORD, ...ABSENT_RESEARCH });
 const productionFiles = () => {
   const out = {};
   for (const c of ["customer-reality", "market-intelligence", "angles", "validations"]) {
@@ -76,12 +82,17 @@ test("A3 the evidence state vocabulary is the canonical one", () => {
   assert.equal(EVIDENCE_RANK.directly_stated > EVIDENCE_RANK.hypothesis, true);
 });
 
-test("A4 production truth data is empty while fixture truth exists (state of record)", () => {
+test("A4 production truth data is present (8 CORD-CARE CRFs, 5 MIFs) and distinct from fixtures", () => {
   const prod = productionFiles();
-  assert.deepEqual(prod["customer-reality"], []);
-  assert.deepEqual(prod["market-intelligence"], []);
-  assert.ok(prod.angles.includes("ANG-CSEC-006.json"));
-  assert.equal(R(join(MAE, "data", "angles", "ANG-CSEC-006.json")).is_fixture, true);
+  const crf = prod["customer-reality"].filter((f) => f.startsWith("CRF-PPL-CORD-CARE-"));
+  const mif = prod["market-intelligence"].filter((f) => f.startsWith("MIF-PPL-CORD-CARE-"));
+  assert.equal(crf.length, 8, "expected the 8 canonical production CRFs");
+  assert.equal(mif.length, 5, "expected the 5 canonical production MIFs");
+  // the fixture corpus remains separate and unchanged
+  assert.ok(existsSync(join(FIX, "customer-reality", "CRF-CSEC-014.json")));
+  assert.ok(existsSync(join(FIX, "market-intelligence", "MIF-CSEC-011.json")));
+  // the derived Day-6 angle fixture is reproducible from the tracked builder (fixtures.mjs)
+  assert.equal(buildCsecAngle().is_fixture, true);
 });
 
 // =============================================================================================
@@ -184,6 +195,11 @@ test("C9 a missing transformation blocks the projection (SOURCE_REQUIRED, no fak
   const p = projectProductTruth({ product_id: "PPL-NIGHT-SHIFT-001" });
   assert.equal(p.ok, false);
   assert.equal(p.record, null);
+  // repository-equivalent state remains intact: the bridge reports SOURCE_REQUIRED and fabricates nothing
+  const r = authorMarketingAngles({ product_id: "PPL-NIGHT-SHIFT-001" });
+  assert.equal(r.status, AUTHOR_STATUS.SOURCE_REQUIRED);
+  assert.equal(r.truth_readiness.product_truth, TRUTH_READINESS.MISSING);
+  assert.equal(r.candidate_angles.length, 0);
 });
 
 // =============================================================================================
@@ -196,17 +212,25 @@ test("D1 real CRF records load by id (canonical contract)", () => {
   assert.ok(res.records.every((e) => e.source_scope === "fixture"));
 });
 
-test("D2 production CRF scope for a real product is empty and is not fabricated", () => {
+test("D2 production CRF scope for a real product is discovered; an explicit absent source is never fabricated", () => {
+  // production state: the canonical CORD-CARE CRF corpus is discovered (8 records, production scope)
   const res = resolveCustomerTruth({ product_id: CORD });
-  assert.deepEqual(res.records, []);
-  assert.equal(authorMarketingAngles({ product_id: CORD }).truth_readiness.customer_truth, TRUTH_READINESS.MISSING);
+  assert.equal(res.records.length, 8);
+  assert.ok(res.records.every((e) => e.source_scope === "production"));
+  assert.equal(authorMarketingAngles({ product_id: CORD }).truth_readiness.customer_truth, TRUTH_READINESS.READY);
+  // controlled missing-source input: explicit ids that exist nowhere yield an empty scope (never fabricated)
+  const none = resolveCustomerTruth({ product_id: CORD, crf_ids: ["CRF-TEST-ABSENT-000"] });
+  assert.deepEqual(none.records, []);
+  assert.equal(cordAbsentResearch().truth_readiness.customer_truth, TRUTH_READINESS.MISSING);
 });
 
-test("D3 CORD-CARE returns CUSTOMER_RESEARCH_REQUIRED with the exact missing input", () => {
-  const r = cord();
+test("D3 a product with an explicit absent customer source returns CUSTOMER_RESEARCH_REQUIRED with the exact missing input", () => {
+  const r = cordAbsentResearch();
   assert.equal(r.status, AUTHOR_STATUS.CUSTOMER_RESEARCH_REQUIRED);
   assert.ok(r.missing_inputs.some((m) => /customer_research_missing/.test(m)));
   assert.equal(r.candidate_angles.length, 0);
+  // the real production product now has customer truth and proceeds to its canonical next state
+  assert.equal(cord().status, AUTHOR_STATUS.READY_FOR_VALIDATION);
 });
 
 test("D4 fact / interpretation / hypothesis states are preserved end-to-end", () => {
@@ -281,8 +305,12 @@ test("E1 real MIF records load by id (canonical contract)", () => {
   assert.ok(res.records.every((e) => typeof e.record.category === "string"));
 });
 
-test("E2 missing production MIF is not fabricated; CORD-CARE reports MARKET_RESEARCH_REQUIRED", () => {
-  const r = cord();
+test("E2 production MIF corpus is discovered; an explicit absent market source is not fabricated", () => {
+  // production state: the canonical CORD-CARE MIF corpus is discovered (5 records)
+  assert.equal(resolveMarketTruth({ product_id: CORD }).records.length, 5);
+  assert.equal(cord().truth_readiness.market_truth, TRUTH_READINESS.READY);
+  // controlled missing-source input: explicit absent mif id -> MARKET_RESEARCH_REQUIRED, never fabricated
+  const r = cordAbsentResearch();
   assert.ok(r.missing_inputs.some((m) => /market_research_missing/.test(m)));
   assert.equal(r.truth_readiness.market_truth, TRUTH_READINESS.MISSING);
 });
@@ -365,15 +393,21 @@ test("F5 governance tags are derived, never authored customer claims", () => {
 // G. FOUR TRUTHS READINESS
 // =============================================================================================
 test("G1 readiness is computed per truth and never assumed", () => {
-  const r = cord();
+  // controlled missing-source input: customer + market absent -> readiness computed per truth
+  const r = cordAbsentResearch();
   assert.deepEqual(r.truth_readiness, { product_truth: "READY", customer_truth: "MISSING", market_truth: "MISSING", brand_truth: "READY" });
   assert.equal(r.four_truths_ready, false);
+  // production state: the real product now has all four truths ready
+  assert.deepEqual(cord().truth_readiness, { product_truth: "READY", customer_truth: "READY", market_truth: "READY", brand_truth: "READY" });
 });
 
-test("G2 product truth existing does not make the Four Truths ready by itself", () => {
-  const r = cord();
+test("G2 product/brand truth existing does not make the Four Truths ready by itself", () => {
+  const r = cordAbsentResearch();
   assert.equal(r.truth_readiness.product_truth, TRUTH_READINESS.READY);
+  assert.equal(r.truth_readiness.brand_truth, TRUTH_READINESS.READY);
   assert.notEqual(r.status, AUTHOR_STATUS.READY_FOR_VALIDATION);
+  assert.equal(r.four_truths_ready, false);
+  assert.equal(r.candidate_angles.length, 0);   // no research -> no angle (never fabricated)
 });
 
 test("G3 all four truths ready is required before a candidate can exist", () => {
@@ -383,10 +417,13 @@ test("G3 all four truths ready is required before a candidate can exist", () => 
   assert.equal(r.candidate_angles.length, 1);
 });
 
-test("G4 exact blockers are listed for the real product", () => {
-  const r = cord();
+test("G4 exact blockers are listed for a missing-source input; none remain for the real production product", () => {
+  // controlled missing-source input: both research truths absent -> exact blockers reported
+  const r = cordAbsentResearch();
   assert.ok(r.missing_inputs.some((m) => m.startsWith("customer_research_missing")));
   assert.ok(r.missing_inputs.some((m) => m.startsWith("market_research_missing")));
+  // production state: the real product has no research blocker
+  assert.deepEqual(cord().missing_inputs.filter((m) => /_research_missing/.test(m)), []);
 });
 
 // =============================================================================================
@@ -578,12 +615,15 @@ test("I10 validation never writes (persist false) and no validation record is cr
 // J. FIXTURE COMPATIBILITY
 // =============================================================================================
 const FIXTURE_FILES = [
+  // the derived Day-6 angle/validation artifacts are git-ignored and carry a build-time created_at;
+  // they are reproducible from the tracked builder (./fixtures.mjs). Snapshot them only when present
+  // so this suite is self-contained from a fresh checkout (no dependency on ignored local files).
   "mae/data/angles/ANG-CSEC-006.json", "mae/data/validations/VAL-CSEC-006.json",
   "mae/data/fixtures/customer-reality/CRF-CSEC-014.json", "mae/data/fixtures/customer-reality/CRF-CSEC-021.json",
   "mae/data/fixtures/customer-reality/CRF-CSEC-033.json",
   "mae/data/fixtures/market-intelligence/MIF-CSEC-011.json", "mae/data/fixtures/market-intelligence/MIF-CSEC-017.json",
   "mae/data/fixtures/product-truth/PTR-CSEC-001.json", "mae/data/brand-truth.json",
-];
+].filter((p) => existsSync(join(ROOT, p)));
 const FIXTURE_SNAPSHOT = new Map(FIXTURE_FILES.map((p) => [p, fileText(p)]));
 const fixturesUnchanged = () => FIXTURE_FILES.filter((p) => fileText(p) !== FIXTURE_SNAPSHOT.get(p));
 
@@ -600,8 +640,9 @@ test("J3 the tracked fixture files are also unchanged versus HEAD", () => {
     assert.equal(fileText(p), gitHash(p), p);
   }
 });
-test("J4 (mae/data/angles and mae/data/validations are git-ignored - snapshot comparison is the proof)", () => {
-  assert.equal(existsSync(join(MAE, "data", "angles", "ANG-CSEC-006.json")), true);
+test("J4 the derived angle/validation artifacts (git-ignored) are unchanged when present", () => {
+  // derived at build time (created_at) -> not durable source; when present (authoring machine),
+  // prove this wave did not modify them. Absent on a fresh checkout (reproducible from fixtures.mjs).
   assert.deepEqual(fixturesUnchanged().filter((p) => /angles\/|validations\//.test(p)), []);
 });
 test("J5 the fixture snapshot still matches after full authoring runs", () => {
@@ -611,7 +652,7 @@ test("J5 the fixture snapshot still matches after full authoring runs", () => {
 });
 test("J6 the authored candidate is structurally compatible with the fixture angle", () => {
   const authored = runDay6().candidate_angles[0];
-  const fixture = R(join(MAE, "data", "angles", "ANG-CSEC-006.json"));
+  const fixture = buildCsecAngle();   // tracked builder — no dependency on an ignored local file
   assert.deepEqual(Object.keys(authored).sort(), Object.keys(fixture).sort());
   assert.deepEqual(Object.keys(authored.tier1).sort(), Object.keys(fixture.tier1).sort());
   assert.deepEqual(Object.keys(authored.tier2).sort(), Object.keys(fixture.tier2).sort());
@@ -681,11 +722,15 @@ test("L2 write mode is explicitly refused during this wave", () => {
 });
 
 test("L3 no production Product Truth / CRF / MIF / angle / validation file is created", () => {
+  const before = productionFiles();
   runDay6({ mode: "write" });
-  assert.deepEqual(productionFiles()["customer-reality"], []);
-  assert.deepEqual(productionFiles()["market-intelligence"], []);
-  assert.deepEqual(productionFiles().angles, ["ANG-CSEC-006.json"]);
-  assert.deepEqual(productionFiles().validations, ["VAL-CSEC-006.json"]);
+  const after = productionFiles();
+  assert.deepEqual(after, before, "no production file may be created by the author");   // write mode refused
+  // no author-generated angle/validation is written for either target (the derived Day-6 fixtures are
+  // not authored here and are only present off the checkpoint)
+  assert.ok(!after.angles.includes("ANG-PROD-CSEC.json"));
+  assert.ok(!after.validations.includes("VAL-PROD-CSEC.json"));
+  assert.ok(!after.angles.includes("ANG-PPL-CORD-CARE-001.json"));
 });
 
 test("L4 the real product record and transformation are untouched", () => {
@@ -733,16 +778,26 @@ test("N1 CORD-CARE: Product Truth derived, with sources and rejected-claim audit
   assert.ok(p.record.prohibited_claims.length >= 3);
 });
 
-test("N2 CORD-CARE: Customer Truth unavailable in production (exact requirement reported)", () => {
+test("N2 CORD-CARE: Customer Truth available from production (8 CRFs discovered)", () => {
   const r = cord();
-  assert.deepEqual(r.customer_truth_sources, []);
-  assert.ok(r.missing_inputs.some((m) => /customer_research_missing/.test(m)));
+  assert.equal(r.customer_truth_sources.length, 8);
+  assert.ok(r.customer_truth_sources.every((s) => s.scope === "production" && s.is_fixture === false));
+  assert.equal(r.truth_readiness.customer_truth, TRUTH_READINESS.READY);
+  // controlled missing-source input still reports the exact requirement, never fabricates
+  const missing = cordAbsentResearch();
+  assert.deepEqual(missing.customer_truth_sources, []);
+  assert.ok(missing.missing_inputs.some((m) => /customer_research_missing/.test(m)));
 });
 
-test("N3 CORD-CARE: Market Truth unavailable in production (exact requirement reported)", () => {
+test("N3 CORD-CARE: Market Truth available from production (5 MIFs discovered)", () => {
   const r = cord();
-  assert.deepEqual(r.market_truth_sources, []);
-  assert.ok(r.missing_inputs.some((m) => /market_research_missing/.test(m)));
+  assert.equal(r.market_truth_sources.length, 5);
+  assert.ok(r.market_truth_sources.every((s) => s.scope === "production" && s.is_fixture === false));
+  assert.equal(r.truth_readiness.market_truth, TRUTH_READINESS.READY);
+  // controlled missing-source input still reports the exact requirement, never fabricates
+  const missing = cordAbsentResearch();
+  assert.deepEqual(missing.market_truth_sources, []);
+  assert.ok(missing.missing_inputs.some((m) => /market_research_missing/.test(m)));
 });
 
 test("N4 CORD-CARE: Brand Truth available from the canonical source", () => {
@@ -752,12 +807,18 @@ test("N4 CORD-CARE: Brand Truth available from the canonical source", () => {
   assert.equal(r.truth_readiness.brand_truth, TRUTH_READINESS.READY);
 });
 
-test("N5 CORD-CARE: Four Truths NOT READY and no angle is fabricated", () => {
+test("N5 CORD-CARE: Four Truths READY; a controlled missing source fabricates no angle", () => {
+  // production state: all four truths ready -> canonical next state reached
   const r = cord();
-  assert.equal(r.four_truths_ready, false);
-  assert.equal(r.candidate_angles.length, 0);
-  assert.equal(r.validations.length, 0);
-  assert.equal(r.status, AUTHOR_STATUS.CUSTOMER_RESEARCH_REQUIRED);
+  assert.equal(r.four_truths_ready, true);
+  assert.equal(r.status, AUTHOR_STATUS.READY_FOR_VALIDATION);
+  assert.equal(r.candidate_angles.length, 1);
+  // controlled missing-source input: not ready, and nothing is fabricated
+  const missing = cordAbsentResearch();
+  assert.equal(missing.four_truths_ready, false);
+  assert.equal(missing.candidate_angles.length, 0);
+  assert.equal(missing.validations.length, 0);
+  assert.equal(missing.status, AUTHOR_STATUS.CUSTOMER_RESEARCH_REQUIRED);
 });
 
 test("N6 CORD-CARE: QA release-governance state does not leak into marketing truth", () => {
@@ -786,13 +847,14 @@ test("N7 CORD-CARE: supplying authoritative research produces a validated candid
 // =============================================================================================
 // O. CLI
 // =============================================================================================
-test("O1 the CLI reports the real product state", () => {
+test("O1 the CLI reports the real production state (Four Truths READY)", () => {
   const out = execFileSync(process.execPath, [join(MAE, "harness", "marketing-angle-authoring.mjs"), CORD], { encoding: "utf8" });
   const parsed = JSON.parse(out);
   assert.equal(parsed.author_version, AUTHOR_VERSION);
-  assert.equal(parsed.status, AUTHOR_STATUS.CUSTOMER_RESEARCH_REQUIRED);
-  assert.equal(parsed.four_truths_ready, false);
-  assert.equal(parsed.candidate_count, 0);
+  assert.equal(parsed.status, AUTHOR_STATUS.READY_FOR_VALIDATION);
+  assert.equal(parsed.four_truths_ready, true);
+  assert.equal(parsed.candidate_count, 1);
+  assert.deepEqual(parsed.truth_readiness, { product_truth: "READY", customer_truth: "READY", market_truth: "READY", brand_truth: "READY" });
 });
 
 test("O2 the CLI accepts explicit research ids (fixture benchmark)", () => {

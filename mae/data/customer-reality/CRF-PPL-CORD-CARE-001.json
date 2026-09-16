@@ -1,0 +1,46 @@
+{
+  "id": "CRF-PPL-CORD-CARE-001",
+  "class": "customer_reality_record",
+  "product_id": "PPL-CORD-CARE-001",
+  "person": "New parent in the United States, partner/co-parent household",
+  "situation": "A first-time parent notices reddish discharge around their newborn's umbilical cord stump and is unsure whether to clean it with alcohol or leave it alone.",
+  "trigger": "Discharge observed during diaper change; online search for 'umbilical cord care' returns conflicting advice.",
+  "context": "Hospital told parents 'no alcohol,' but Google snippets, old family advice, and some parenting forums still recommend alcohol cleaning. Parent feels torn between clinical guidance and community lore.",
+  "behaviour": [
+    "Searched Google for 'umbilical cord care alcohol' and found conflicting snippets",
+    "Read forum threads recommending alcohol cleaning",
+    "Hesitated between following hospital instruction and forum advice"
+  ],
+  "failed_attempts": [],
+  "constraint": "No clear authority figure present at home to resolve the conflict.",
+  "thought": "The hospital said no alcohol but Google says yes. Which one do I follow?",
+  "fear": "Infection from doing the wrong thing.",
+  "emotional_stake": "Anxiety from contradictory information at a vulnerable time.",
+  "exact_language": "am I supposed to clean it with alcohol or something?",
+  "desired_change": "A single, clear, trustworthy answer to 'alcohol or not' that resolves the conflict.",
+  "evidence_source": {
+    "type": "community_discussion",
+    "id": "r/newborns/1rf55zm",
+    "date": "2024-06-15",
+    "frequency": "recurring_theme",
+    "excerpt": "am I supposed to clean it with alcohol or something?",
+    "context": "Parent asking other parents on r/newborns after hospital said no alcohol but online sources conflicted."
+  },
+  "evidence_status": "directly_stated",
+  "evidence_weight": "high",
+  "observed_frequency": "recurring across multiple forums",
+  "cultural_context": [
+    "western_clinical",
+    "online_information_conflict"
+  ],
+  "relationships": [],
+  "tags": [
+    "alcohol_confusion",
+    "first_time_parent",
+    "conflicting_guidance",
+    "cord_care"
+  ],
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-16T00:00:00.000Z",
+  "is_fixture": false
+}
