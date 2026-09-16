@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-FIX-DO-001",
+  "product_id": "FIXTURE-PRODUCT-001",
+  "title": "Daily Care Kit - 30-second routine + house rule card",
+  "job": "DO",
+  "format": "checklist",
+  "source_path": "content/do-checklist.md",
+  "experience_mode": "utility",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

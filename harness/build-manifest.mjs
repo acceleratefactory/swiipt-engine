@@ -22,15 +22,20 @@ for (const f of readdirSync(join(root, "schemas")).filter((x) => x.endsWith(".sc
   try { ajv.addSchema(sch); } catch (e) { /* already added */ }
 }
 const MANIFEST_SCHEMA = "https://swiipt.com/factory/schemas/publish-manifest.schema.json";
-const pid = process.argv[2];
-const outArg = process.argv[3] ?? `data/products/${pid}/publish/manifest.json`;
-if (!pid) { console.error("usage: build-manifest.mjs <PRODUCT_ID> [out]"); process.exit(2); }
+const argv = process.argv.slice(2);
+const dataRootIx = argv.indexOf("--data-root");
+const dataRootArg = dataRootIx >= 0 ? argv[dataRootIx + 1] : null;
+const dataRoot = dataRootArg ? resolve(dataRootArg) : root;
+const positional = argv.filter((a, i) => !a.startsWith("--") && !(dataRootIx >= 0 && i === dataRootIx + 1));
+const pid = positional[0];
+const outArg = positional[1] ?? `data/products/${pid}/publish/manifest.json`;
+if (!pid) { console.error("usage: build-manifest.mjs <PRODUCT_ID> [out] [--data-root <dir>]"); process.exit(2); }
 
-const pdir = join(root, "data", "products", pid);
+const pdir = join(dataRoot, "data", "products", pid);
 const p = JSON.parse(readFileSync(join(pdir, "product.json"), "utf8"));
 const trId = p.identity.transformation_id;
 let tr = null;
-const trPath = join(root, "data", "transformations", `${trId}.json`);
+const trPath = join(dataRoot, "data", "transformations", `${trId}.json`);
 if (existsSync(trPath)) tr = JSON.parse(readFileSync(trPath, "utf8"));
 
 const jobMap = {
@@ -210,5 +215,5 @@ if (!ajv.validate(MANIFEST_SCHEMA, manifest)) {
   for (const e of ajv.errors) console.error(`  ${e.instancePath || "(root)"} ${e.message}`);
   process.exit(1);
 }
-writeFileSync(resolve(root, outArg), JSON.stringify(manifest, null, 2) + "\n");
+writeFileSync(resolve(dataRoot, outArg), JSON.stringify(manifest, null, 2) + "\n");
 console.log(`manifest -> ${outArg} (${assets.length} assets, ${(JSON.stringify(manifest).length / 1024).toFixed(1)} KB, schema-valid)`);

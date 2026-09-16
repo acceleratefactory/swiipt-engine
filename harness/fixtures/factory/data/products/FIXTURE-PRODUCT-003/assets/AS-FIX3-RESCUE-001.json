@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-FIX3-RESCUE-001",
+  "product_id": "FIXTURE-PRODUCT-003",
+  "title": "Red flags & rescue routing (in guide/checklist)",
+  "job": "RESCUE",
+  "format": "protocol",
+  "source_path": "content/bundle-w19.md#rescue-card.md",
+  "experience_mode": "functional",
+  "required": true,
+  "safety_relevant": true,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

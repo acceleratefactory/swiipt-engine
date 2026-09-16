@@ -57,14 +57,14 @@ const STOP = new Set(["NEVER", "SCOPE_DRIFT", "UNSUPPORTED", "SAFETY_ISSUE"]);
 const sev = (status) => (STOP.has(status) ? "BLOCKER" : "WARNING");
 
 /** Conservative scope-drift check: does generated content still reference the approved situation? */
-export function scopeCheck(brief, p) {
+export function scopeCheck(brief, p, { root: dataRoot = root } = {}) {
   const findings = [];
   const sig = (s) => new Set(String(s || "").toLowerCase().split(/[^a-z]+/).filter((w) => w.length >= 5));
   const sitWords = new Set([...sig(brief.situation?.person), ...sig(brief.situation?.specific_situation), ...sig(brief.situation?.problem)]);
   if (!sitWords.size) return findings;
   let contentWords = new Set();
   for (const rel of ["copy/landing-page.json", "copy/product-page.json"]) {
-    const fp = join(root, "data", "products", brief.product_id, rel);
+    const fp = join(dataRoot, "data", "products", brief.product_id, rel);
     if (existsSync(fp)) { try { contentWords = new Set([...contentWords, ...sig(readFileSync(fp, "utf8"))]); } catch { /* ignore */ } }
   }
   if (!contentWords.size) return findings;
@@ -103,19 +103,19 @@ export function checkChangeControl(prevProduct, nextProduct) {
 }
 
 // ---- public entry ----
-export async function runCritic(productId, { strict = false, env = process.env } = {}) {
-  const briefRes = buildGenerationBrief(productId);
+export async function runCritic(productId, { strict = false, env = process.env, root: dataRoot = root } = {}) {
+  const briefRes = buildGenerationBrief(productId, { root: dataRoot });
   if (!briefRes.ok) {
     return { product_id: productId, status: briefRes.status, critic_status: briefRes.status, llm_status: "NOT_RUN", llm_provider: "none",
       findings: briefRes.findings, blockers: briefRes.findings.length, warnings: 0 };
   }
   const brief = briefRes.brief;
-  const p = JSON.parse(readFileSync(join(root, "data", "products", productId, "product.json"), "utf8"));
+  const p = JSON.parse(readFileSync(join(dataRoot, "data", "products", productId, "product.json"), "utf8"));
 
   const deterministic = [
-    ...scopeCheck(brief, p),
+    ...scopeCheck(brief, p, { root: dataRoot }),
     ...transformationCheck(brief),
-    ...runWritingChecks(productId).findings,
+    ...runWritingChecks(productId, { root: dataRoot }).findings,
   ];
 
   const providerName = (env.WRITING_CRITIC_PROVIDER || "none").toLowerCase();

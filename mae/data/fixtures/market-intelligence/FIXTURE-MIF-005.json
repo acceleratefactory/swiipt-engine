@@ -1,0 +1,15 @@
+{
+  "id": "FIXTURE-MIF-005",
+  "class": "market_intelligence_record",
+  "product_id": "FIXTURE-PRODUCT-001",
+  "category": "cliche",
+  "statement": "A recurring scare-language pattern in cord-care discussions ('it smells like rotting flesh') frames normal stump healing as disgusting, alarming, or dangerous, creating unnecessary fear and a pressure to intervene ('do something').",
+  "evidence": "r/beyondthebump 'Newborn umbilical cord': 'It smells like rotting flesh lol its on her blankets and clothes. I decided to keep her naked for a few days to help with the drying.' r/newborns 'umbilical stump residue': 'There is no bad smell and the area is not red or hot and she doesn't bother it.' The same clinical situation (pre-separation smell, wet residue) is either framed as disgusting/alarming or reframed as normal by different parents.",
+  "evidence_status": "analyst_interpretation",
+  "evidence_weight": "medium",
+  "freshness": "2022-2026",
+  "source": "r/beyondthebump niy06i; r/newborns 1rf55zm",
+  "provenance": "synthetic_fixture",
+  "created_at": "2026-09-16T00:00:00.000Z",
+  "is_fixture": true
+}

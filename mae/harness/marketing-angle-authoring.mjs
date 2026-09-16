@@ -661,6 +661,7 @@ if (invokedDirectly) {
     product_id: pid,
     crf_ids: (get("--crf") ?? "").split(",").filter(Boolean),
     mif_ids: (get("--mif") ?? "").split(",").filter(Boolean),
+    ...(get("--root") ? { root: resolve(get("--root")) } : {}),
   });
   console.log(JSON.stringify({
     status: report.status, product_id: report.product_id, transformation_id: report.transformation_id,

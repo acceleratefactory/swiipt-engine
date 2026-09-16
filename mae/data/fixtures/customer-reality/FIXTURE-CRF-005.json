@@ -1,0 +1,52 @@
+{
+  "id": "FIXTURE-CRF-005",
+  "class": "customer_reality_record",
+  "product_id": "FIXTURE-PRODUCT-001",
+  "person": "New parent in Nigeria, extended family household",
+  "situation": "A new parent in a tropical household watches the cord stump stay wet for days and the mother-in-law pressures them to apply a binder ('put something like a binder on it') to help it dry.",
+  "trigger": "Wet cord persisting past day 3; MIL observes and begins making indirect comments about 'doing something about it'.",
+  "context": "Tropical climate (high humidity); extended family present in the home; MIL has authority in household decisions; no air conditioning; the cord is not drying as quickly as expected.",
+  "behaviour": [
+    "Posted to r/newborns describing the MIL pressure",
+    "Identified the indirect communication pattern ('indirectly telling us')",
+    "Resisted the binder advice but felt unable to firmly refuse"
+  ],
+  "failed_attempts": [],
+  "constraint": "Cultural deference to elder family members in the household; no clinical authority figure present to mediate.",
+  "thought": "The cord is taking too long to dry. Maybe the MIL is right — maybe we should do something.",
+  "fear": "The cord not falling off; the baby being uncomfortable; family conflict.",
+  "emotional_stake": "Feeling incompetent as a new parent while being pressured by someone with more experience.",
+  "exact_language": "My MIL wants to do something about it. I don't know what she wants to do but she is indirectly telling us to put something like a binder on it.",
+  "desired_change": "A culturally respectful way to explain why the cord needs to dry naturally, without offending the MIL.",
+  "evidence_source": {
+    "type": "community_discussion",
+    "id": "r/newborns/zkq2o4",
+    "date": "2023-05-12",
+    "frequency": "recurring_theme",
+    "excerpt": "My MIL wants to do something about it. I don't know what she wants to do but she is indirectly telling us to put something like a binder on it.",
+    "context": "Parent in tropical climate describing MIL pressure to intervene; community advised leaving it alone."
+  },
+  "evidence_status": "directly_stated",
+  "evidence_weight": "very_high",
+  "observed_frequency": "recurring across multiple forums and cultures",
+  "cultural_context": [
+    "tropical_climate",
+    "extended_family",
+    "mil_pressure",
+    "binder_tradition",
+    "nigerian_household"
+  ],
+  "relationships": [
+    "Same conflict pattern as CRF-PPL-CORD-CARE-004 but different household dynamics (both-parents + MIL vs FTM + MIL in American context)"
+  ],
+  "tags": [
+    "mil_pressure",
+    "binder_tradition",
+    "tropical_climate",
+    "extended_family",
+    "cord_care"
+  ],
+  "provenance": "synthetic_fixture",
+  "created_at": "2026-09-16T00:00:00.000Z",
+  "is_fixture": true
+}

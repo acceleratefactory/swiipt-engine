@@ -1,0 +1,464 @@
+{
+  "content_version": "1.0",
+  "product_id": "FIXTURE-PRODUCT-001",
+  "source": "factory-generator",
+  "generated_at": "2026-09-03T16:27:40.114Z",
+  "reviews": [
+    {
+      "rating": 5,
+      "title": "Works if your partner actually signs.",
+      "body": "What I needed was not more information. I needed executes one clean-dry routine confidently — and a way to recover after a bad night without guilt. This gave us both.",
+      "name": "Chioma",
+      "ctx": "Working mother",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Timely clinic presentation when flags appear",
+          "3→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "We finally have language for this.",
+      "body": "We spent months dealing with applying whatever substance the most senior relative recommends and blaming each other. Who Decides the Cord? ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+      "name": "Funmi",
+      "ctx": "Mother of twins",
+      "date": "Jun 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Zero harmful substances applied after starting",
+          "2→7"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "No more Googling at 3am.",
+      "body": "The fairness ledger is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+      "name": "Tolu",
+      "ctx": "Mother of a 4-month-old",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Caregiver can state the five red flags unprompted",
+          "5→8"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Practical, not preachy.",
+      "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
+      "name": "Zara",
+      "ctx": "Mother of two",
+      "date": "Sep 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Timely clinic presentation when flags appear",
+          "3→8"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The roster ended the 3am negotiation.",
+      "body": "The system is solid. executes one clean-dry routine confidently. Replace conflicting folklore with ONE default (clean, dry, exposed) plus a decision tre…",
+      "name": "Lola",
+      "ctx": "New mother",
+      "date": "Jun 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Timely clinic presentation when flags appear",
+          "4→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "One clear, evidence-based daily routine",
+      "body": "This is what I wish discharge instructions had been: one house rule, one routine, one card for when it looks wrong.",
+      "name": "Ngozi",
+      "ctx": "Mum of a newborn",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Zero harmful substances applied after starting",
+          "3→7"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "This is what I wish the hospital gave us.",
+      "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+      "name": "Ezinne",
+      "ctx": "First-time parent",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Timely clinic presentation when flags appear",
+          "4→8"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "A real plan for a real situation.",
+      "body": "I can see how the system works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+      "name": "Bisi",
+      "ctx": "Mother of a 3-month-old",
+      "date": "Sep 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Caregiver can state the five red flags unprompted",
+          "3→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "From chaos to a fridge chart we both follow.",
+      "body": "I can see how the system works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+      "name": "Funmi",
+      "ctx": "Mother of a 3-month-old",
+      "date": "Sep 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Zero harmful substances applied after starting",
+          "2→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Works if your partner actually signs.",
+      "body": "What I needed was not more information. I needed executes one clean-dry routine confidently — and a way to recover after a bad night without guilt. This gave us both.",
+      "name": "Amara",
+      "ctx": "Working mother",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Zero harmful substances applied after starting",
+          "5→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The decision tree saved us at 2am.",
+      "body": "Who Decides the Cord? is practical. Replace conflicting folklore with ONE default (clean, dry, exposed) plus a decision tre… We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
+      "name": "Amara",
+      "ctx": "Mother of twins",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Caregiver can state the five red flags unprompted",
+          "5→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Finally felt like a team again.",
+      "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
+      "name": "Bola",
+      "ctx": "Working mother",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Caregiver can state the five red flags unprompted",
+          "2→8"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Every module earned its place.",
+      "body": "This is what I wish discharge instructions had been: one house rule, one routine, one card for when it looks wrong.",
+      "name": "Hope",
+      "ctx": "Mother of two",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Zero harmful substances applied after starting",
+          "3→7"
+        ],
+        [
+          "Timely clinic presentation when flags appear",
+          "2→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The night finally has an owner.",
+      "body": "The system is solid. executes one clean-dry routine confidently. Replace conflicting folklore with ONE default (clean, dry, exposed) plus a decision tre…",
+      "name": "Chiamaka",
+      "ctx": "Mother of a 4-month-old",
+      "date": "Sep 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Timely clinic presentation when flags appear",
+          "4→6"
+        ],
+        [
+          "Zero harmful substances applied after starting",
+          "3→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Practical, not preachy.",
+      "body": "What I needed was not more information. I needed executes one clean-dry routine confidently — and a way to recover after a bad night without guilt. Who Decides the Cord? gave us both.",
+      "name": "Sade",
+      "ctx": "Mum of a newborn",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Caregiver can state the five red flags unprompted",
+          "5→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "No more Googling at 3am.",
+      "body": "I can see how the system works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+      "name": "Uche",
+      "ctx": "New mother",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Zero harmful substances applied after starting",
+          "2→8"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Short, clear, and made for exhausted people.",
+      "body": "The fairness ledger is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+      "name": "Ada",
+      "ctx": "Mother of a 3-month-old",
+      "date": "Jun 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Timely clinic presentation when flags appear",
+          "4→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Calm, no guilt, and a real reset.",
+      "body": "We spent months dealing with applying whatever substance the most senior relative recommends and blaming each other. Who Decides the Cord? ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+      "name": "Fatima",
+      "ctx": "First-time parent",
+      "date": "Sep 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Timely clinic presentation when flags appear",
+          "5→6"
+        ],
+        [
+          "Zero harmful substances applied after starting",
+          "4→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Worth it for the rescue card alone.",
+      "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
+      "name": "Chiamaka",
+      "ctx": "Working mother",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Timely clinic presentation when flags appear",
+          "2→8"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Every module earned its place.",
+      "body": "The decision tree is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+      "name": "Halima",
+      "ctx": "Mother of two",
+      "date": "Jun 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Caregiver can state the five red flags unprompted",
+          "3→7"
+        ],
+        [
+          "Timely clinic presentation when flags appear",
+          "5→7"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The tracker gave us proof, not just feelings.",
+      "body": "I can see how the system works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+      "name": "Ngozi",
+      "ctx": "Parent of a 6-week-old",
+      "date": "Aug 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Caregiver can state the five red flags unprompted",
+          "4→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "Clear, kind, and actually doable.",
+      "body": "What I needed was not more information. I needed executes one clean-dry routine confidently — and a way to recover after a bad night without guilt. This gave us both.",
+      "name": "Ezinne",
+      "ctx": "First-time parent",
+      "date": "Jul 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Timely clinic presentation when flags appear",
+          "3→9"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 5,
+      "title": "The re-entry protocol saved us.",
+      "body": "We spent months dealing with applying whatever substance the most senior relative recommends and blaming each other. Who Decides the Cord? ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+      "name": "Maya",
+      "ctx": "Working mother",
+      "date": "Sep 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Timely clinic presentation when flags appear",
+          "2→6"
+        ],
+        [
+          "Zero harmful substances applied after starting",
+          "4→6"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    },
+    {
+      "rating": 4,
+      "title": "What we needed was a system.",
+      "body": "The decision tree is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+      "name": "Aisha",
+      "ctx": "Mother of twins",
+      "date": "Jun 2026",
+      "day": 30,
+      "recommend": true,
+      "change": [
+        [
+          "Zero harmful substances applied after starting",
+          "5→7"
+        ],
+        [
+          "Timely clinic presentation when flags appear",
+          "3→7"
+        ]
+      ],
+      "verified": true,
+      "synthetic": true
+    }
+  ]
+}

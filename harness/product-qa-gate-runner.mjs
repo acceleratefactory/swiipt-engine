@@ -788,15 +788,17 @@ export function runProductQaGates(productId, { mode = "dry-run", qaLedger = null
 const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url));
 if (invokedDirectly) {
   const args = process.argv.slice(2);
-  const pid = args.find((a) => !a.startsWith("--") && args[args.indexOf(a) - 1] !== "--report");
   const get = (flag) => { const i = args.indexOf(flag); return i > -1 ? args[i + 1] : null; };
+  const pid = args.find((a) => !a.startsWith("--") && args[args.indexOf(a) - 1] !== "--report" && args[args.indexOf(a) - 1] !== "--root");
   if (!pid) {
-    console.error("usage: node harness/product-qa-gate-runner.mjs <PRODUCT_ID> [--write] [--report <file.json>]");
+    console.error("usage: node harness/product-qa-gate-runner.mjs <PRODUCT_ID> [--write] [--report <file.json>] [--root <dir>]");
     process.exit(2);
   }
+  const rootArg = get("--root");
   const result = runProductQaGates(pid, {
     mode: args.includes("--write") ? "write" : "dry-run",
     report_path: get("--report"),
+    ...(rootArg ? { root: resolve(rootArg) } : {}),
   });
   const out = {
     runner_version: result.run_report.runner_version,

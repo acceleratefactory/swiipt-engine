@@ -26,15 +26,18 @@ import { buildCsecAngle } from "./fixtures.mjs";
 const MAE = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const R = (p) => JSON.parse(readFileSync(p, "utf8"));
 const clone = (o) => JSON.parse(JSON.stringify(o));
-const CORD = "PPL-CORD-CARE-001";
-const SECOND = "PPL-RTWORK-OS-001";     // generic second product (own TR + mechanism + evidence)
+const FIXTURE_ROOT = join(MAE, "..", "harness", "fixtures", "factory");
+const CRF_IDS = Array.from({ length: 8 }, (_, i) => `FIXTURE-CRF-${String(i + 1).padStart(3, "0")}`);
+const MIF_IDS = Array.from({ length: 5 }, (_, i) => `FIXTURE-MIF-${String(i + 1).padStart(3, "0")}`);
+const CORD = "FIXTURE-PRODUCT-001";
+const SECOND = "FIXTURE-PRODUCT-003";     // generic second product (own TR + mechanism + evidence)
 const FIX = join(MAE, "data", "fixtures");
 const CRF14 = R(join(FIX, "customer-reality", "CRF-CSEC-014.json"));
 const CRF33 = R(join(FIX, "customer-reality", "CRF-CSEC-033.json"));
 const MIF11 = R(join(FIX, "market-intelligence", "MIF-CSEC-011.json"));
 const MIF17 = R(join(FIX, "market-intelligence", "MIF-CSEC-017.json"));
 
-const cordRun = () => authorMarketingAngles({ product_id: CORD });
+const cordRun = () => authorMarketingAngles({ product_id: CORD, root: FIXTURE_ROOT, crf_ids: CRF_IDS, mif_ids: MIF_IDS });
 const cordCandidate = (patch = null) => { const c = cordRun().candidate_angles[0]; return patch ? patch(clone(c)) : c; };
 const evalWith = (angle, opts = {}) => AngleValidationService.evaluate(angle, { persist: false, ...opts });
 const evalStore = (angle) => AngleValidationService.evaluate(angle, { persist: false });   // no supplied projection
@@ -42,8 +45,8 @@ const dirSnapshot = (d) => (existsSync(join(MAE, "data", d)) ? readdirSync(join(
 
 // ── 1. projected PTR is resolvable by validation under the canonical model ──────────────────────
 test("PTC01 projected Product Truth resolves via TruthService.resolveProductTruth (supplied, then store)", () => {
-  const ptr = projectProductTruth({ product_id: CORD }).record;
-  assert.equal(ptr.id, "PTR-PPL-CORD-CARE-001");
+  const ptr = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT }).record;
+  assert.equal(ptr.id, "PTR-FIXTURE-PRODUCT-001");
   assert.equal(TruthService.resolveProductTruth(ptr.id, ptr), ptr);            // supplied projection wins
   assert.equal(TruthService.resolveProductTruth(ptr.id, null), null);          // never persisted for this run
   const fixture = R(join(FIX, "product-truth", "PTR-CSEC-001.json"));
@@ -61,7 +64,7 @@ test("PTC02 C2 no longer false-fails when the authoritative projection is suppli
 
 // ── 3. missing Product Truth still fails C2 ─────────────────────────────────────────────────────
 test("PTC03 a Product Truth reference that resolves nowhere still fails C2 (RED)", () => {
-  const ptr = projectProductTruth({ product_id: CORD }).record;
+  const ptr = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT }).record;
   const c = cordCandidate((x) => { x.tier3.product_truth_ref = "PTR-DOES-NOT-EXIST-999"; return x; });
   const v = evalWith(c, { product_truth: ptr });                              // supplied id != ref -> unresolved
   assert.equal(v.criteria.proof_availability, "weak_fail");
@@ -70,7 +73,7 @@ test("PTC03 a Product Truth reference that resolves nowhere still fails C2 (RED)
 
 // ── 4. malformed / mismatched Product Truth does not resolve ────────────────────────────────────
 test("PTC04 a mismatched supplied projection does not resolve the reference (no accidental pass)", () => {
-  const ptr = projectProductTruth({ product_id: CORD }).record;
+  const ptr = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT }).record;
   const wrong = { ...clone(ptr), id: "PTR-SOME-OTHER-001" };
   assert.equal(TruthService.resolveProductTruth(ptr.id, wrong), null);        // id must match
   const c = cordCandidate();
@@ -123,10 +126,10 @@ test("PTC08 the resolution correction carries no product-specific code", () => {
 
 // ── 9. generic second-product fixture works ─────────────────────────────────────────────────────
 test("PTC09 a generic second product resolves its Product Truth the same way", () => {
-  const r = authorMarketingAngles({ product_id: SECOND, crf: [clone(CRF14)], mif: [clone(MIF11), clone(MIF17)] });
+  const r = authorMarketingAngles({ product_id: SECOND, root: FIXTURE_ROOT, crf: [clone(CRF14)], mif: [clone(MIF11), clone(MIF17)] });
   assert.equal(r.status, "READY_FOR_VALIDATION");
   assert.equal(r.candidate_angles.length, 1);
-  assert.equal(r.candidate_angles[0].tier3.product_truth_ref, "PTR-PPL-RTWORK-OS-001");
+  assert.equal(r.candidate_angles[0].tier3.product_truth_ref, "PTR-FIXTURE-PRODUCT-003");
   const v = r.validations[0];
   assert.equal(v.provisional, false);
   assert.equal(v.validator_resolution.product_truth, true);
@@ -144,15 +147,15 @@ test("PTC10 dry-run authoring writes no product-truth / angle / validation file"
 
 // ── 11. no dual authoritative truth ─────────────────────────────────────────────────────────────
 test("PTC11 the PTR is a derived factory reference, never an independent authority", () => {
-  const ptr = projectProductTruth({ product_id: CORD }).record;
+  const ptr = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT }).record;
   assert.equal(ptr.source.system, "product_factory");                          // provenance back to factory
-  assert.ok(ptr.source.ref.includes("PPL-CORD-CARE-001"));
+  assert.ok(ptr.source.ref.includes("FIXTURE-PRODUCT-001"));
   assert.equal(existsSync(join(MAE, "data", "product-truth")), false);         // no persisted competing copy
 });
 
 // ── 12. stale projection behavior is safe ───────────────────────────────────────────────────────
 test("PTC12 no persisted PTR exists to go stale; resolution prefers the fresh projection", () => {
-  const fresh = projectProductTruth({ product_id: CORD }).record;
+  const fresh = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT }).record;
   const staleish = { ...clone(fresh), mechanism: { ...fresh.mechanism, core_mechanism: "STALE" } };
   // the transaction's authoritative projection wins, so a stale copy can never be silently consumed
   assert.equal(TruthService.resolveProductTruth(fresh.id, fresh), fresh);
@@ -162,11 +165,11 @@ test("PTC12 no persisted PTR exists to go stale; resolution prefers the fresh pr
 
 // ── 13. Product Truth provenance preserved ──────────────────────────────────────────────────────
 test("PTC13 the projection preserves factory provenance, version and evidence state", () => {
-  const ptr = projectProductTruth({ product_id: CORD }).record;
+  const ptr = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT }).record;
   validate("product-truth-reference.schema.json", ptr, ptr.id);
   assert.equal(ptr.class, "product_truth_reference");
   assert.equal(ptr.provenance, "evidence_backed");
-  assert.ok(ptr.transformation_id === "TR-PPL-CORD-CARE-001");
+  assert.ok(ptr.transformation_id === "FIXTURE-TR-001");
   assert.ok(/^\d+\.\d+/.test(ptr.version));
   assert.ok((ptr.evidence || []).length > 0);
 });
@@ -224,8 +227,8 @@ test("PTC20 CRF/MIF discovery and records are unaffected by the fix", () => {
   const r = cordRun();
   assert.equal(r.customer_truth_sources.length, 8);
   assert.equal(r.market_truth_sources.length, 5);
-  assert.ok(r.customer_truth_sources.every((s) => s.scope === "production" && s.is_fixture === false));
-  assert.ok(r.market_truth_sources.every((s) => s.scope === "production" && s.is_fixture === false));
+  assert.ok(r.customer_truth_sources.every((s) => s.scope === "fixture" && s.is_fixture === true));
+  assert.ok(r.market_truth_sources.every((s) => s.scope === "fixture" && s.is_fixture === true));
   const crf = R(join(MAE, "data", "customer-reality", "CRF-PPL-CORD-CARE-004.json"));
   validate("customer-reality-record.schema.json", crf, crf.id);
   const mif = R(join(MAE, "data", "market-intelligence", "MIF-PPL-CORD-CARE-004.json"));

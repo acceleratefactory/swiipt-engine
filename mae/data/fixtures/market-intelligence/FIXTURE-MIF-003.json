@@ -1,0 +1,16 @@
+{
+  "id": "FIXTURE-MIF-003",
+  "class": "market_intelligence_record",
+  "product_id": "FIXTURE-PRODUCT-001",
+  "category": "gap",
+  "statement": "Within the newborn cord-care product and guidance set reviewed, offerings are clinical/educational (alcohol-free dry care, drying sprays, kits, hospital handouts) and none was found to help a mother navigate family/elder pressure to apply traditional substances or outdated alcohol wiping; within that reviewed set the emotional-relational dimension is unserved.",
+  "evidence": "Reviewed set = clinical info pages (BabyCenter, Cloudnine, Merck, hospital handouts, WHO ENC) plus a few drying-spray/kits items (a pediatrician-recommended drying spray referenced in r/newborns). None of the reviewed material addresses navigating the grandmother/MIL dimension that recurs in customer threads (see CRF-PPL-CORD-CARE-004/005).",
+  "evidence_status": "analyst_interpretation",
+  "evidence_weight": "medium_high",
+  "scan_coverage_note": "Scan coverage: reviewed English-web newborn cord-care product/guidance pages (BabyCenter, Cloudnine, Merck, WHO Essential Newborn Care, hospital handouts) and a drying-spray item referenced in r/newborns, plus cord-care discussion on r/newborns and r/beyondthebump (see CRF-PPL-CORD-CARE-004/005). NOT scanned: paid ad catalogs, non-English and offline community marketplaces (Nairaland was CAPTCHA-blocked), Facebook groups, and Nigeria/Ghana retail shelves. The absence observation is limited to the reviewed set.",
+  "freshness": "2024-2026",
+  "source": "r/newborns drying-spray comment; BabyCenter/Cloudnine/Merck/WHO ENC; CRF-PPL-CORD-CARE-004/005",
+  "provenance": "synthetic_fixture",
+  "created_at": "2026-09-16T00:00:00.000Z",
+  "is_fixture": true
+}

@@ -1,0 +1,15 @@
+{
+  "id": "FIXTURE-MIF-002",
+  "class": "market_intelligence_record",
+  "product_id": "FIXTURE-PRODUCT-001",
+  "category": "objection",
+  "statement": "A recurring objection to dry cord care is family authority: 'I did X with you/your siblings and you were fine', which pressures mothers to follow outdated or traditional practices (alcohol wiping, applied substances, heat) against current guidance.",
+  "evidence": "Reddit r/beyondthebump 'backwards advice' post: 'She always tells me \"But I did that with you and your sibling\"'; Ghana FGD grandmothers reporting shea butter/toothpaste/leaf-salt; Punch Nigeria reporting the lantern-heat belief. Family/elder pressure is the stated driver across these sources.",
+  "evidence_status": "analyst_interpretation",
+  "evidence_weight": "medium_high",
+  "freshness": "2022-2026 (community); 2019-2021 (research/reporting)",
+  "source": "r/beyondthebump 1e8a3c6; PMC6630491; Punch HealthWise 2021",
+  "provenance": "synthetic_fixture",
+  "created_at": "2026-09-16T00:00:00.000Z",
+  "is_fixture": true
+}

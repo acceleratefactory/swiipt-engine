@@ -1,0 +1,46 @@
+{
+  "id": "FIXTURE-CRF-002",
+  "class": "customer_reality_record",
+  "product_id": "FIXTURE-PRODUCT-001",
+  "person": "New parent in the United States, partner/co-parent household",
+  "situation": "A parent notices a foul smell coming from their newborn's umbilical cord area after 11 days and is alarmed, interpreting it as a sign of infection.",
+  "trigger": "Smell observed during a diaper change at day 11 postpartum; parent immediately searches forums for 'smelly umbilical cord'.",
+  "context": "Parent is already on edge; baby has had a previous fungal infection requiring antibiotics. The smell triggers alarm disproportionate to the normal pre-separation process.",
+  "behaviour": [
+    "Posted to r/beyondthebump describing the smell",
+    "Kept the baby naked for several days hoping to aid drying",
+    "Sought reassurance from other parents online"
+  ],
+  "failed_attempts": [],
+  "constraint": "No medical professional available at the moment; forum is the fastest source of reassurance.",
+  "thought": "It smells like rotting flesh — something must be wrong. The cord should have fallen off by now.",
+  "fear": "Serious infection requiring medical intervention; judgment for not catching it sooner.",
+  "emotional_stake": "Guilt and fear amplified by the visceral nature of the smell.",
+  "exact_language": "It smells like rotting flesh lol its on her blankets and clothes. I decided to keep her naked for a few days to help with the drying.",
+  "desired_change": "Reassurance that smell is normal; clear timeline for when to worry vs when to wait.",
+  "evidence_source": {
+    "type": "community_discussion",
+    "id": "r/beyondthebump/niy06i",
+    "date": "2022-03-10",
+    "frequency": "recurring_theme",
+    "excerpt": "It smells like rotting flesh lol its on her blankets and clothes. I decided to keep her naked for a few days to help with the drying.",
+    "context": "Parent posting about smell alarm at day 11; community reassured it was normal pre-separation."
+  },
+  "evidence_status": "directly_stated",
+  "evidence_weight": "high",
+  "observed_frequency": "recurring across multiple forums",
+  "cultural_context": [
+    "western_clinical",
+    "first_time_parent_anxiety"
+  ],
+  "relationships": [],
+  "tags": [
+    "smell_anxiety",
+    "stall_extended",
+    "infection_fear",
+    "cord_care"
+  ],
+  "provenance": "synthetic_fixture",
+  "created_at": "2026-09-16T00:00:00.000Z",
+  "is_fixture": true
+}

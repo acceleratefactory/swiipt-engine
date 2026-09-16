@@ -111,8 +111,8 @@ export function checkAssetStructure(content, where) {
 // ---- per-product run ----
 function readIf(p) { return existsSync(p) ? readFileSync(p, "utf8") : null; }
 
-export function runWritingChecks(productId) {
-  const pdir = join(root, "data", "products", productId);
+export function runWritingChecks(productId, { root: dataRoot = root } = {}) {
+  const pdir = join(dataRoot, "data", "products", productId);
   const p = JSON.parse(readFileSync(join(pdir, "product.json"), "utf8"));
   const voice = p.generation?.voice ?? {};
   const findings = [];

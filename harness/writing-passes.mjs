@@ -37,12 +37,12 @@ const PASS4 = new Set(["asset_raw_html", "asset_widget_unbalanced"]);
 const PASS5 = new Set(["voice_monotony", "voice_person"]);
 const PASS6 = new Set(["NEVER_phrase", "filler", "repetition", "heading_excess", "bullet_excess"]);
 
-export function runPasses(productId, { generate = true } = {}) {
+export function runPasses(productId, { generate = true, root: dataRoot = root } = {}) {
   const cfg = loadConfig();
   const passes = [];
 
   // ---- Pass 1: contract ingestion ----
-  const briefRes = buildGenerationBrief(productId);
+  const briefRes = buildGenerationBrief(productId, { root: dataRoot });
   passes.push({ id: 1, name: "contract_ingestion", status: briefRes.ok ? "PASS" : briefRes.status, findings: briefRes.findings });
   if (!briefRes.ok) {
     return { product_id: productId, writing_control_version: cfg.writing_control_version, status: briefRes.status,
@@ -72,7 +72,7 @@ export function runPasses(productId, { generate = true } = {}) {
   }
 
   // ---- Passes 4-6: deterministic writing controls ----
-  const wc = runWritingChecks(productId);
+  const wc = runWritingChecks(productId, { root: dataRoot });
   const p4 = wc.findings.filter((f) => PASS4.has(f.code));
   const p5 = wc.findings.filter((f) => PASS5.has(f.code));
   const p6 = wc.findings.filter((f) => PASS6.has(f.code));

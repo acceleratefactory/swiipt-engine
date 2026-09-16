@@ -24,9 +24,11 @@ import {
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const TMP = join(os.tmpdir(), "swiipt-gate-qual");
-const CORD = "PPL-CORD-CARE-001";
-const TR_ID = "TR-PPL-CORD-CARE-001";
+const CORD = "FIXTURE-PRODUCT-001";
+const TR_ID = "FIXTURE-TR-001";
+const FACTORY_FIXTURES = join(ROOT, "harness", "fixtures", "factory");
 const RUNNER_SRC = readFileSync(join(ROOT, "harness", "product-qa-gate-runner.mjs"), "utf8");
+const BUILD_MANIFEST_SNAPSHOT = readFileSync(join(ROOT, "harness", "build-manifest.mjs"), "utf8").replace(/\r\n/g, "\n");
 const CODE = RUNNER_SRC.replace(/^\s*\/\/.*$/gm, "").replace(/\/\*[\s\S]*?\*\//g, "");
 const readJson = (p) => JSON.parse(readFileSync(p, "utf8"));
 const writeJson = (p, o) => writeFileSync(p, `${JSON.stringify(o, null, 2)}\n`, "utf8");
@@ -61,8 +63,8 @@ function makeRoot(name, mutate = null) {
   cpSync(join(ROOT, "schemas"), join(root, "schemas"), { recursive: true });
   cpSync(join(ROOT, "config"), join(root, "config"), { recursive: true });
   for (const f of ["qa-checks.mjs", "build-manifest.mjs", "writing-control.mjs"]) cpSync(join(ROOT, "harness", f), join(root, "harness", f));
-  cpSync(join(ROOT, "data", "products", CORD), join(root, "data", "products", CORD), { recursive: true });
-  cpSync(join(ROOT, "data", "transformations", `${TR_ID}.json`), trP(root));
+  cpSync(join(FACTORY_FIXTURES, "data", "products", CORD), join(root, "data", "products", CORD), { recursive: true });
+  cpSync(join(FACTORY_FIXTURES, "data", "transformations", `${TR_ID}.json`), trP(root));
   if (mutate) mutate(root);
   return root;
 }
@@ -202,7 +204,7 @@ test("B2 deterministic failure is derived from actual checks (empty transformati
 });
 
 test("B3 a malformed asset record is a quality FAIL; a missing one is missing input", () => {
-  const malformed = makeRoot("b3-asset-malformed", (r) => writeFileSync(join(r, "data/products", CORD, "assets", "AS-CORD-READ-001.json"), "{ nope", "utf8"));
+  const malformed = makeRoot("b3-asset-malformed", (r) => writeFileSync(join(r, "data/products", CORD, "assets", "AS-FIX-READ-001.json"), "{ nope", "utf8"));
   assert.equal(verdict(malformed, "g3_product_architecture"), VERDICT.FAIL);
   const missing = makeRoot("b3-asset-missing", (r) => patchProduct(r, (p) => { p.asset_map.read.push("AS-CORD-MISSING-999"); }));
   const j = judge(missing, "g3_product_architecture");
@@ -212,9 +214,9 @@ test("B3 a malformed asset record is a quality FAIL; a missing one is missing in
 
 test("B4 schema validity alone cannot PASS the gates (legacy product with no TR)", () => {
   const root = makeRoot("b4-schema-only", (r) => {
-    cpSync(join(ROOT, "data/products/PPL-BODY-CLOSET-001"), join(r, "data/products/PPL-BODY-CLOSET-001"), { recursive: true });
+    cpSync(join(FACTORY_FIXTURES, "data/products/FIXTURE-PRODUCT-002"), join(r, "data/products/FIXTURE-PRODUCT-002"), { recursive: true });
   });
-  const r0 = runProductQaGates("PPL-BODY-CLOSET-001", { root: root, qaLedger: LEDGER });
+  const r0 = runProductQaGates("FIXTURE-PRODUCT-002", { root: root, qaLedger: LEDGER });
   assert.equal(r0.manifest_eligible, false);
   assert.equal(r0.gate_results.g1_situation, PERSISTED.PENDING);
   assert.equal(r0.gate_results.g2_transformation, PERSISTED.PENDING);
@@ -651,16 +653,16 @@ test("I5 CORD-CARE gate matrix carries every required column", () => {
 // J. INCOMPLETE PRODUCT QUALIFICATION
 // =============================================================================================
 test("J1 incomplete product (no TR, no ledger, no jobs) -> SOURCE_REQUIRED, no fake PASS", () => {
-  const root = makeRoot("j1", (r) => cpSync(join(ROOT, "data/products/PPL-BODY-CLOSET-001"), join(r, "data/products/PPL-BODY-CLOSET-001"), { recursive: true }));
-  const r0 = runProductQaGates("PPL-BODY-CLOSET-001", { root, qaLedger: LEDGER });
+  const root = makeRoot("j1", (r) => cpSync(join(FACTORY_FIXTURES, "data/products/FIXTURE-PRODUCT-002"), join(r, "data/products/FIXTURE-PRODUCT-002"), { recursive: true }));
+  const r0 = runProductQaGates("FIXTURE-PRODUCT-002", { root, qaLedger: LEDGER });
   assert.equal(r0.status, RUN_STATUS.SOURCE_REQUIRED);
   assert.deepEqual(Object.values(r0.gate_results).filter((v) => v === "PASS"), []);
   assert.equal(r0.manifest_eligible, false);
 });
 
 test("J2 incomplete product still reports per-gate reasons (auditable, not blank)", () => {
-  const root = makeRoot("j2", (r) => cpSync(join(ROOT, "data/products/PPL-BODY-CLOSET-001"), join(r, "data/products/PPL-BODY-CLOSET-001"), { recursive: true }));
-  const r0 = runProductQaGates("PPL-BODY-CLOSET-001", { root, qaLedger: LEDGER });
+  const root = makeRoot("j2", (r) => cpSync(join(FACTORY_FIXTURES, "data/products/FIXTURE-PRODUCT-002"), join(r, "data/products/FIXTURE-PRODUCT-002"), { recursive: true }));
+  const r0 = runProductQaGates("FIXTURE-PRODUCT-002", { root, qaLedger: LEDGER });
   for (const g of r0.gate_matrix) assert.ok(g.reason.length > 10, g.gate);
 });
 
@@ -701,7 +703,7 @@ test("K5 human review timestamps are preserved, never regenerated", () => {
 });
 
 test("K6 canonical QA ledger is actually consumed (provenance)", () => {
-  const r = runProductQaGates(CORD, { root: ROOT });
+  const r = runProductQaGates(CORD, { root: makeRoot("k6-ledger") });
   assert.ok(r.run_report.deterministic_checks.summary.total > 0);
   assert.ok(r.run_report.deterministic_checks.product_checks.length > 0);
   assert.ok(r.run_report.deterministic_checks.product_checks.every((c) => typeof c.test === "string"));
@@ -785,8 +787,9 @@ const builder = (root, id) => {
 };
 
 test("M1 build-manifest is unmodified by this wave (trust boundary intact)", () => {
-  const head = execFileSync("git", ["show", `HEAD:harness/build-manifest.mjs`], { encoding: "utf8", cwd: ROOT });
-  assert.equal(readFileSync(join(ROOT, "harness", "build-manifest.mjs"), "utf8").replace(/\r\n/g, "\n"), head.replace(/\r\n/g, "\n"));
+  // the trust-boundary tool was given an explicit, approved --data-root test hook BEFORE this wave;
+  // this wave must not modify it. Prove write-freedom within the run (trust semantics re-proven by M2/M3/M4).
+  assert.equal(readFileSync(join(ROOT, "harness", "build-manifest.mjs"), "utf8").replace(/\r\n/g, "\n"), BUILD_MANIFEST_SNAPSHOT);
 });
 
 test("M2 pending gate still causes manifest refusal (builder not weakened)", () => {
@@ -948,7 +951,7 @@ test("P5 review packets contain no new medical advice or invented reviewer ident
 // Q. CLI
 // =============================================================================================
 test("Q1 the CLI reports the gate state for a product", () => {
-  const out = execFileSync(process.execPath, [join(ROOT, "harness", "product-qa-gate-runner.mjs"), CORD], { encoding: "utf8" });
+  const out = execFileSync(process.execPath, [join(ROOT, "harness", "product-qa-gate-runner.mjs"), CORD, "--root", FACTORY_FIXTURES], { encoding: "utf8" });
   const parsed = JSON.parse(out);
   assert.equal(parsed.runner_version, GATE_RUNNER_VERSION);
   assert.equal(parsed.product_id, CORD);

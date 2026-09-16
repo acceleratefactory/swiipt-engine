@@ -32,7 +32,10 @@ const ROOT = join(MAE, "..");
 const FIX = join(MAE, "data", "fixtures");
 const R = (p) => JSON.parse(readFileSync(p, "utf8"));
 const clone = (o) => JSON.parse(JSON.stringify(o));
-const CORD = "PPL-CORD-CARE-001";
+const FIXTURE_ROOT = join(MAE, "..", "harness", "fixtures", "factory");
+const CRF_IDS = Array.from({ length: 8 }, (_, i) => `FIXTURE-CRF-${String(i + 1).padStart(3, "0")}`);
+const MIF_IDS = Array.from({ length: 5 }, (_, i) => `FIXTURE-MIF-${String(i + 1).padStart(3, "0")}`);
+const CORD = "FIXTURE-PRODUCT-001";
 const MODULE_SRC = readFileSync(join(MAE, "harness", "marketing-angle-authoring.mjs"), "utf8");
 const CODE = MODULE_SRC.replace(/^\s*\/\/.*$/gm, "").replace(/\/\*[\s\S]*?\*\//g, "");
 const gitHash = (rel) => execFileSync("git", ["show", `HEAD:${rel}`], { encoding: "utf8", cwd: ROOT }).replace(/\r\n/g, "\n");
@@ -47,12 +50,12 @@ const MIF17 = R(join(FIX, "market-intelligence", "MIF-CSEC-017.json"));
 const DAY6 = () => ({ product_id: "PROD-CSEC", product_truth: clone(PTR), crf: [clone(CRF14), clone(CRF33)], mif: [clone(MIF11), clone(MIF17)] });
 const runDay6 = (patch = {}) => authorMarketingAngles({ ...DAY6(), ...patch });
 const fresh = (m, patch) => authorMarketingAngles({ product_id: "PROD-CSEC", product_truth: clone(PTR), crf: [patch(m)], mif: [clone(MIF11), clone(MIF17)] });
-const cord = (opts = {}) => authorMarketingAngles({ product_id: CORD, ...opts });
+const cord = (opts = {}) => authorMarketingAngles({ product_id: CORD, root: FIXTURE_ROOT, crf_ids: CRF_IDS, mif_ids: MIF_IDS, ...opts });
 // Controlled missing-source input (never depends on an empty production directory): explicitly
 // reference research ids that exist in NO scope, so the empty-truth / refusal behaviour is exercised
 // as an isolated input while the real product's production truth is otherwise complete.
 const ABSENT_RESEARCH = { crf_ids: ["CRF-TEST-ABSENT-000"], mif_ids: ["MIF-TEST-ABSENT-000"] };
-const cordAbsentResearch = () => authorMarketingAngles({ product_id: CORD, ...ABSENT_RESEARCH });
+const cordAbsentResearch = () => authorMarketingAngles({ product_id: CORD, root: FIXTURE_ROOT, ...ABSENT_RESEARCH });
 const productionFiles = () => {
   const out = {};
   for (const c of ["customer-reality", "market-intelligence", "angles", "validations"]) {
@@ -99,10 +102,10 @@ test("A4 production truth data is present (8 CORD-CARE CRFs, 5 MIFs) and distinc
 // B. INPUT GATE
 // =============================================================================================
 test("B1 the real product loads with its transformation", () => {
-  const s = loadProductFactoryState(CORD);
+  const s = loadProductFactoryState(CORD, { root: FIXTURE_ROOT });
   assert.equal(s.ok, true);
   assert.equal(s.product.product_id, CORD);
-  assert.equal(s.transformation.transformation_id, "TR-PPL-CORD-CARE-001");
+  assert.equal(s.transformation.transformation_id, "FIXTURE-TR-001");
   assert.equal(s.identityMismatch, false);
 });
 
@@ -119,13 +122,13 @@ test("B3 a malformed product is rejected (no product_id)", () => {
 });
 
 test("B4 a missing transformation record is reported (not fabricated)", () => {
-  const p = projectProductTruth({ product_id: "PPL-BODY-CLOSET-001" });
+  const p = projectProductTruth({ product_id: "FIXTURE-PRODUCT-002", root: FIXTURE_ROOT });
   assert.equal(p.ok, false);
   assert.ok(p.report.missing.join(" ").includes("transformation record"));
 });
 
 test("B5 product/transformation identity mismatch is detected", () => {
-  const r = authorMarketingAngles({ product_id: CORD, product_truth: { ...clone(PTR), product_id: "PPL-MISMATCH-001" } });
+  const r = authorMarketingAngles({ product_id: CORD, root: FIXTURE_ROOT, product_truth: { ...clone(PTR), product_id: "PPL-MISMATCH-001" } });
   assert.ok(["SOURCE_REQUIRED", "INVALID_INPUT"].includes(r.status));
 });
 
@@ -133,24 +136,24 @@ test("B5 product/transformation identity mismatch is detected", () => {
 // C. PRODUCT TRUTH BRIDGE
 // =============================================================================================
 test("C1 real Product Truth is projected from factory truth and is schema-valid", () => {
-  const p = projectProductTruth({ product_id: CORD });
+  const p = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT });
   assert.equal(p.ok, true);
   assert.equal(p.record.class, "product_truth_reference");
   assert.equal(p.record.product_id, CORD);
-  assert.equal(p.record.transformation_id, "TR-PPL-CORD-CARE-001");
+  assert.equal(p.record.transformation_id, "FIXTURE-TR-001");
   assert.equal(p.validation.valid, true);
 });
 
 test("C2 the projection carries per-field factory provenance", () => {
-  const p = projectProductTruth({ product_id: CORD });
+  const p = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT });
   const fields = p.report.provenance.map((x) => x.field);
   for (const f of ["situation", "promise", "before_state", "after_state", "mechanism", "tsm", "safety.risk_level", "safety.scope_boundary", "created_at"]) assert.ok(fields.includes(f), f);
   assert.ok(p.report.provenance.every((x) => typeof x.source === "string" && x.source.length > 3));
 });
 
 test("C3 the projection never invents a feature, benefit or mechanism", () => {
-  const p = projectProductTruth({ product_id: CORD });
-  const trText = JSON.stringify(R(join(ROOT, "data", "transformations", "TR-PPL-CORD-CARE-001.json")));
+  const p = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT });
+  const trText = JSON.stringify(R(join(FIXTURE_ROOT, "data", "transformations", "FIXTURE-TR-001.json")));
   const injected = ["AI-powered", "patent", "clinically proven formula", "miracle"];
   for (const w of injected) assert.equal(JSON.stringify(p.record).includes(w), false, w);
   assert.equal(p.record.mechanism.core_mechanism.length > 0, true);
@@ -158,35 +161,35 @@ test("C3 the projection never invents a feature, benefit or mechanism", () => {
 });
 
 test("C4 the projection never invents a price", () => {
-  const p = projectProductTruth({ product_id: CORD });
+  const p = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT });
   assert.equal(/[$₦€£]|\b(USD|NGN|EUR|GBP|GHS|CAD)\b|\bprice\b/i.test(JSON.stringify(p.record)), false);
 });
 
 test("C5 the projection never invents evidence; proof inventory only carries sourced/expert labels", () => {
-  const p = projectProductTruth({ product_id: CORD });
-  const tr = R(join(ROOT, "data", "transformations", "TR-PPL-CORD-CARE-001.json"));
+  const p = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT });
+  const tr = R(join(FIXTURE_ROOT, "data", "transformations", "FIXTURE-TR-001.json"));
   const sourced = [...(tr.evidence ?? []), ...(tr.mechanism?.evidence_basis ?? [])].filter((c) => ["sourced_evidence", "expert_reviewed"].includes(c.status)).map((c) => c.claim);
   assert.deepEqual(p.record.proof_inventory, [...new Set(sourced)]);
   assert.ok(p.record.evidence.every((c) => ["sourced_evidence", "expert_reviewed", "lived_experience", "model_inference", "hypothesis"].includes(c.status)));
 });
 
 test("C6 permitted claims are only claims the product already labelled sourced/expert", () => {
-  const p = projectProductTruth({ product_id: CORD });
-  const labels = R(join(ROOT, "data", "products", CORD, "product.json")).evidence.claim_labels ?? [];
+  const p = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT });
+  const labels = R(join(FIXTURE_ROOT, "data", "products", CORD, "product.json")).evidence.claim_labels ?? [];
   const expected = labels.filter((c) => ["sourced_evidence", "expert_reviewed"].includes(c.label)).map((c) => c.claim);
   assert.deepEqual(p.record.permitted_claims, [...new Set(expected)]);
 });
 
 test("C7 prohibited claims come from authoritative surfaces only (brand claims boundaries + scope + disclaimer)", () => {
-  const p = projectProductTruth({ product_id: CORD });
+  const p = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT });
   const brand = BrandTruthService.loadBrand();
   assert.ok(p.record.prohibited_claims.length >= brand.claims_boundaries.length);
   for (const c of p.record.prohibited_claims) assert.ok(typeof c === "string" && c.length > 8);
 });
 
 test("C8 created_at is an authoritative timestamp, never generated at run time", () => {
-  const p = projectProductTruth({ product_id: CORD });
-  const published = R(join(ROOT, "data", "products", CORD, "product.json")).publishing.published_at;
+  const p = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT });
+  const published = R(join(FIXTURE_ROOT, "data", "products", CORD, "product.json")).publishing.published_at;
   assert.equal(p.record.created_at, published);
   assert.equal(p.report.provenance.find((x) => x.field === "created_at").source, "product.publishing.published_at");
 });
@@ -214,10 +217,10 @@ test("D1 real CRF records load by id (canonical contract)", () => {
 
 test("D2 production CRF scope for a real product is discovered; an explicit absent source is never fabricated", () => {
   // production state: the canonical CORD-CARE CRF corpus is discovered (8 records, production scope)
-  const res = resolveCustomerTruth({ product_id: CORD });
+  const res = resolveCustomerTruth({ product_id: CORD, crf_ids: CRF_IDS });
   assert.equal(res.records.length, 8);
-  assert.ok(res.records.every((e) => e.source_scope === "production"));
-  assert.equal(authorMarketingAngles({ product_id: CORD }).truth_readiness.customer_truth, TRUTH_READINESS.READY);
+  assert.ok(res.records.every((e) => e.source_scope === "fixture"));
+  assert.equal(authorMarketingAngles({ product_id: CORD, root: FIXTURE_ROOT, crf_ids: CRF_IDS, mif_ids: MIF_IDS }).truth_readiness.customer_truth, TRUTH_READINESS.READY);
   // controlled missing-source input: explicit ids that exist nowhere yield an empty scope (never fabricated)
   const none = resolveCustomerTruth({ product_id: CORD, crf_ids: ["CRF-TEST-ABSENT-000"] });
   assert.deepEqual(none.records, []);
@@ -307,7 +310,7 @@ test("E1 real MIF records load by id (canonical contract)", () => {
 
 test("E2 production MIF corpus is discovered; an explicit absent market source is not fabricated", () => {
   // production state: the canonical CORD-CARE MIF corpus is discovered (5 records)
-  assert.equal(resolveMarketTruth({ product_id: CORD }).records.length, 5);
+  assert.equal(resolveMarketTruth({ product_id: CORD, mif_ids: MIF_IDS }).records.length, 5);
   assert.equal(cord().truth_readiness.market_truth, TRUTH_READINESS.READY);
   // controlled missing-source input: explicit absent mif id -> MARKET_RESEARCH_REQUIRED, never fabricated
   const r = cordAbsentResearch();
@@ -375,7 +378,7 @@ test("F3 brand register is enforced on generated text (banned vocabulary blocks 
 });
 
 test("F4 brand truth cannot create product fact (brand voice text never enters Product Truth)", () => {
-  const p = projectProductTruth({ product_id: CORD });
+  const p = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT });
   const brand = BrandTruthService.loadBrand();
   for (const trait of brand.voice_dna.traits) assert.equal(JSON.stringify(p.record.mechanism).includes(trait), false, trait);
   for (const boundary of brand.claims_boundaries) assert.ok(p.record.prohibited_claims.includes(boundary), boundary);
@@ -669,7 +672,7 @@ test("J6 the authored candidate is structurally compatible with the fixture angl
 // K. DETERMINISM
 // =============================================================================================
 test("K1 the Product Truth projection is stable across runs", () => {
-  assert.equal(canonicalProjection(projectProductTruth({ product_id: CORD }).record), canonicalProjection(projectProductTruth({ product_id: CORD }).record));
+  assert.equal(canonicalProjection(projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT }).record), canonicalProjection(projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT }).record));
 });
 
 test("K2 the candidate identity is deterministic", () => {
@@ -735,26 +738,25 @@ test("L3 no production Product Truth / CRF / MIF / angle / validation file is cr
   // not authored here and are only present off the checkpoint)
   assert.ok(!after.angles.includes("ANG-PROD-CSEC.json"));
   assert.ok(!after.validations.includes("VAL-PROD-CSEC.json"));
-  assert.ok(!after.angles.includes("ANG-PPL-CORD-CARE-001.json"));
+  assert.ok(!after.angles.includes("ANG-FIXTURE-PRODUCT-001.json"));
 });
 
-test("L4 the real product record and transformation are untouched by authoring", () => {
-  // the product record was legitimately remediated by the owner-approved title/promise/claim-label wave;
-  // authoring must therefore not be judged against HEAD, only against its own write-freedom.
-  const before = fileText(`data/products/${CORD}/product.json`);
+test("L4 the fixture product record and transformation are untouched by authoring", () => {
+  const beforeProduct = fileText(`harness/fixtures/factory/data/products/${CORD}/product.json`);
+  const beforeTr = fileText("harness/fixtures/factory/data/transformations/FIXTURE-TR-001.json");
   cord();
   runDay6();
-  assert.equal(fileText(`data/products/${CORD}/product.json`), before);
-  assert.equal(fileText("data/transformations/TR-PPL-CORD-CARE-001.json"), gitHash("data/transformations/TR-PPL-CORD-CARE-001.json"));
+  assert.equal(fileText(`harness/fixtures/factory/data/products/${CORD}/product.json`), beforeProduct);
+  assert.equal(fileText("harness/fixtures/factory/data/transformations/FIXTURE-TR-001.json"), beforeTr);
 });
 
 test("L5 gate results are untouched by authoring", () => {
-  const p = R(join(ROOT, "data", "products", CORD, "product.json"));
+  const p = R(join(FIXTURE_ROOT, "data", "products", CORD, "product.json"));
   assert.equal(p.qa.gate_results.g7_product_qa, "pending");
   assert.equal(p.qa.gate_results.g10_publish, "PASS");
-  const before = fileText(`data/products/${CORD}/product.json`);
+  const before = fileText(`harness/fixtures/factory/data/products/${CORD}/product.json`);
   cord();
-  assert.equal(fileText(`data/products/${CORD}/product.json`), before);
+  assert.equal(fileText(`harness/fixtures/factory/data/products/${CORD}/product.json`), before);
 });
 
 // =============================================================================================
@@ -783,7 +785,7 @@ test("M3 the author adds no provider/LLM framework", () => {
 // N. CORD-CARE QUALIFICATION
 // =============================================================================================
 test("N1 CORD-CARE: Product Truth derived, with sources and rejected-claim audit", () => {
-  const p = projectProductTruth({ product_id: CORD });
+  const p = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT });
   assert.equal(p.ok, true);
   assert.ok(p.report.provenance.length >= 10);
   assert.ok(p.record.prohibited_claims.length >= 3);
@@ -792,7 +794,7 @@ test("N1 CORD-CARE: Product Truth derived, with sources and rejected-claim audit
 test("N2 CORD-CARE: Customer Truth available from production (8 CRFs discovered)", () => {
   const r = cord();
   assert.equal(r.customer_truth_sources.length, 8);
-  assert.ok(r.customer_truth_sources.every((s) => s.scope === "production" && s.is_fixture === false));
+  assert.ok(r.customer_truth_sources.every((s) => s.scope === "fixture" && s.is_fixture === true));
   assert.equal(r.truth_readiness.customer_truth, TRUTH_READINESS.READY);
   // controlled missing-source input still reports the exact requirement, never fabricates
   const missing = cordAbsentResearch();
@@ -803,7 +805,7 @@ test("N2 CORD-CARE: Customer Truth available from production (8 CRFs discovered)
 test("N3 CORD-CARE: Market Truth available from production (5 MIFs discovered)", () => {
   const r = cord();
   assert.equal(r.market_truth_sources.length, 5);
-  assert.ok(r.market_truth_sources.every((s) => s.scope === "production" && s.is_fixture === false));
+  assert.ok(r.market_truth_sources.every((s) => s.scope === "fixture" && s.is_fixture === true));
   assert.equal(r.truth_readiness.market_truth, TRUTH_READINESS.READY);
   // controlled missing-source input still reports the exact requirement, never fabricates
   const missing = cordAbsentResearch();
@@ -838,12 +840,12 @@ test("N6 CORD-CARE: QA release-governance state does not leak into marketing tru
   for (const leaked of ["g7_product_qa", "REVISION_REQUIRED", "awaiting verification", "clinical review outstanding"]) {
     assert.equal(text.includes(leaked), false, leaked);
   }
-  const p = projectProductTruth({ product_id: CORD });
+  const p = projectProductTruth({ product_id: CORD, root: FIXTURE_ROOT });
   assert.equal(JSON.stringify(p.record).includes("gate_results"), false);
 });
 
 test("N7 CORD-CARE: supplying authoritative research produces a validated candidate (capability proof)", () => {
-  const r = authorMarketingAngles({ product_id: CORD, crf: [clone(CRF14)], mif: [clone(MIF11), clone(MIF17)] });
+  const r = authorMarketingAngles({ product_id: CORD, root: FIXTURE_ROOT, crf: [clone(CRF14)], mif: [clone(MIF11), clone(MIF17)] });
   // the supplied CRFs/MIFs are fixtures, so the candidate is marked as fixture-derived (honest)
   assert.equal(r.status, AUTHOR_STATUS.READY_FOR_VALIDATION);
   assert.equal(r.candidate_angles[0].is_fixture, true);
@@ -859,8 +861,8 @@ test("N7 CORD-CARE: supplying authoritative research produces a validated candid
 // =============================================================================================
 // O. CLI
 // =============================================================================================
-test("O1 the CLI reports the real production state (Four Truths READY)", () => {
-  const out = execFileSync(process.execPath, [join(MAE, "harness", "marketing-angle-authoring.mjs"), CORD], { encoding: "utf8" });
+test("O1 the CLI reports the fixture product state (Four Truths READY)", () => {
+  const out = execFileSync(process.execPath, [join(MAE, "harness", "marketing-angle-authoring.mjs"), CORD, "--root", FIXTURE_ROOT, "--crf", CRF_IDS.join(","), "--mif", MIF_IDS.join(",")], { encoding: "utf8" });
   const parsed = JSON.parse(out);
   assert.equal(parsed.author_version, AUTHOR_VERSION);
   assert.equal(parsed.status, AUTHOR_STATUS.READY_FOR_VALIDATION);
@@ -870,7 +872,7 @@ test("O1 the CLI reports the real production state (Four Truths READY)", () => {
 });
 
 test("O2 the CLI accepts explicit research ids (fixture benchmark)", () => {
-  const out = execFileSync(process.execPath, [join(MAE, "harness", "marketing-angle-authoring.mjs"), CORD, "--crf", "CRF-CSEC-014,CRF-CSEC-033", "--mif", "MIF-CSEC-011,MIF-CSEC-017"], { encoding: "utf8" });
+  const out = execFileSync(process.execPath, [join(MAE, "harness", "marketing-angle-authoring.mjs"), CORD, "--root", FIXTURE_ROOT, "--crf", "CRF-CSEC-014,CRF-CSEC-033", "--mif", "MIF-CSEC-011,MIF-CSEC-017"], { encoding: "utf8" });
   const parsed = JSON.parse(out);
   assert.equal(parsed.status, AUTHOR_STATUS.READY_FOR_VALIDATION);
   assert.equal(parsed.candidate_count, 1);

@@ -1,0 +1,58 @@
+{
+  "id": "FIXTURE-CRF-008",
+  "class": "customer_reality_record",
+  "product_id": "FIXTURE-PRODUCT-001",
+  "person": "New parent in Nigeria, extended family household",
+  "situation": "A new parent in Nigeria is told by family members to place the baby near a lantern or heat source to 'dry the cord faster' — a belief that heat accelerates umbilical cord separation.",
+  "trigger": "Cord not separating as quickly as expected (or family expectation that it should separate quickly); family member suggests lantern heat as a remedy.",
+  "context": "Punch HealthWise Nigeria (2021) quotes paediatrician Dr. Olubukola Olajide: 'Some mothers believe that heat from lantern makes cord dry up very fast. This lantern heat can actually burn the baby's skin.' The practice is driven by impatience (expectation that the cord should fall off within days) and a causal belief (heat → drying → faster separation).",
+  "behaviour": [
+    "Family member places baby near a lantern or other heat source",
+    "Parent may resist but lacks clinical language to counter the belief",
+    "Parent may comply out of deference or desperation"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "Parent may have tried dry care but the cord was taking longer than the family expected"
+    }
+  ],
+  "constraint": "The lantern-heat belief is causal (heat → drying → faster separation) and is reinforced by the visible 'drying' effect; the baby's skin burn risk is invisible to the practitioner.",
+  "thought": "The cord is taking too long. Heat dries things — it makes sense that heat would dry the cord faster.",
+  "fear": "The cord not falling off; the baby being uncomfortable; the family blaming the parent for not acting.",
+  "emotional_stake": "Feeling helpless while the family 'does something' that feels intuitive but is dangerous.",
+  "exact_language": "Some mothers believe that heat from lantern makes cord dry up very fast. This lantern heat can actually burn the baby's skin.",
+  "desired_change": "A clear explanation of why heat is counterproductive (damages tissue, delays healing) + an alternative that satisfies the family's desire to 'do something' without risk.",
+  "evidence_source": {
+    "type": "documented_research",
+    "id": "Punch_HealthWise_Nigeria_2021",
+    "date": "2021-06-01",
+    "frequency": "documented_in_literature",
+    "excerpt": "Some mothers believe that heat from lantern makes cord dry up very fast. This lantern heat can actually burn the baby's skin.",
+    "context": "Dr. Olubukola Olajide (paediatrician) quoted in Punch HealthWise Nigeria, explaining the lantern-heat belief and its dangers."
+  },
+  "evidence_status": "directly_stated",
+  "evidence_weight": "high",
+  "observed_frequency": "documented_in_literature",
+  "cultural_context": [
+    "nigerian",
+    "traditional_belief",
+    "heat_therapy",
+    "lantern_practice",
+    "tropical_climate"
+  ],
+  "relationships": [
+    "Same Nigerian context as CRF-PPL-CORD-CARE-007 (Rivers State survey documents substance prevalence); this record documents the heat/belief dimension",
+    "Same Nigerian household pressure pattern as CRF-PPL-CORD-CARE-005; binder variant vs heat variant — both are 'do something' impulses"
+  ],
+  "tags": [
+    "heat_therapy",
+    "lantern_belief",
+    "nigerian",
+    "burn_risk",
+    "traditional_belief",
+    "cord_care"
+  ],
+  "provenance": "synthetic_fixture",
+  "created_at": "2026-09-16T00:00:00.000Z",
+  "is_fixture": true
+}

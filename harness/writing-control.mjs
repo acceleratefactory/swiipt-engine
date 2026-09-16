@@ -40,10 +40,10 @@ function finding(code, status, detail) {
  * Assemble the generation contract for a product and decide if generation may proceed.
  * @returns {{ product_id:string, ok:boolean, status:string, findings:Array, inputs:Object, brief:Object|null }}
  */
-export function buildGenerationBrief(productId) {
+export function buildGenerationBrief(productId, { root: dataRoot = root } = {}) {
   const cfg = loadConfig();
   const findings = [];
-  const pdir = join(root, "data", "products", productId);
+  const pdir = join(dataRoot, "data", "products", productId);
   const pfile = join(pdir, "product.json");
 
   // MISSING: product record itself
@@ -55,7 +55,7 @@ export function buildGenerationBrief(productId) {
 
   // Transformation Specification
   const trId = p.identity?.transformation_id;
-  const trFile = trId ? join(root, "data", "transformations", `${trId}.json`) : null;
+  const trFile = trId ? join(dataRoot, "data", "transformations", `${trId}.json`) : null;
   const tr = trId && trFile && existsSync(trFile) ? JSON.parse(readFileSync(trFile, "utf8")) : null;
   if (!tr) {
     findings.push(finding("transformation_specification_missing", "SOURCE_REQUIRED",

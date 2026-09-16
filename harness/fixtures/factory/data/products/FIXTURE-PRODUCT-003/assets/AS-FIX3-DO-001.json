@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-FIX3-DO-001",
+  "product_id": "FIXTURE-PRODUCT-003",
+  "title": "The Operating Checklist (before/after anchors)",
+  "job": "DO",
+  "format": "checklist",
+  "source_path": "content/bundle-w19.md#do-checklist.md",
+  "experience_mode": "functional",
+  "required": false,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": ""
+}

@@ -1,0 +1,301 @@
+{
+  "manifest_version": "1.0",
+  "product_id": "FIXTURE-PRODUCT-001",
+  "transformation_id": "FIXTURE-TR-001",
+  "product_schema_version": "1.0",
+  "writing_control_version": "1.0",
+  "research_version": null,
+  "architecture_version": "1.0",
+  "voice_spec_version": "global",
+  "generator_model": "deterministic",
+  "generation_timestamp": "2026-09-11T20:20:40.909Z",
+  "revision_number": 0,
+  "qa_status": "pending",
+  "evidence_status": "Sourced evidence compiled 2026-08-24 from WHO/AAP/peer-reviewed literature; Gate O clinical sign-off by owner/reviewer still pending before launch marketing",
+  "safety_status": "risk:clinical gate:pending",
+  "publish_status": "published",
+  "status": "WARNING",
+  "passes": [
+    {
+      "id": 1,
+      "name": "contract_ingestion",
+      "status": "PASS",
+      "findings": 0
+    },
+    {
+      "id": 2,
+      "name": "architecture_check",
+      "status": "PASS",
+      "findings": 0
+    },
+    {
+      "id": 3,
+      "name": "content_generation",
+      "status": "PASS",
+      "findings": 0
+    },
+    {
+      "id": 4,
+      "name": "implementation_asset_generation",
+      "status": "PASS",
+      "findings": 0
+    },
+    {
+      "id": 5,
+      "name": "voice_pass",
+      "status": "PASS",
+      "findings": 0
+    },
+    {
+      "id": 6,
+      "name": "anti_ai_pass",
+      "status": "WARNING",
+      "findings": 4
+    },
+    {
+      "id": 7,
+      "name": "transformation_qa_handoff",
+      "status": "PASS",
+      "findings": 0
+    }
+  ],
+  "critic": {
+    "status": "WARNING",
+    "llm_status": "NOT_RUN",
+    "llm_provider": "none",
+    "blockers": 0,
+    "warnings": 4
+  },
+  "warnings": [
+    {
+      "code": "heading_excess",
+      "status": "WRITING_QUALITY_ISSUE",
+      "detail": "heading density 20.9/1000w > 14",
+      "where": "AS-FIX-DO-001",
+      "severity": "WARNING"
+    },
+    {
+      "code": "bullet_excess",
+      "status": "WRITING_QUALITY_ISSUE",
+      "detail": "bullet ratio 0.49 > 0.4",
+      "where": "AS-FIX-DO-001",
+      "severity": "WARNING"
+    },
+    {
+      "code": "heading_excess",
+      "status": "WRITING_QUALITY_ISSUE",
+      "detail": "heading density 18.9/1000w > 14",
+      "where": "AS-FIX-TRACK-001",
+      "severity": "WARNING"
+    },
+    {
+      "code": "heading_excess",
+      "status": "WRITING_QUALITY_ISSUE",
+      "detail": "heading density 16.9/1000w > 14",
+      "where": "AS-FIX-RESCUE-001",
+      "severity": "WARNING"
+    }
+  ],
+  "revisions": [
+    {
+      "failed_component": "AS-FIX-DO-001",
+      "reason": "heading density 20.9/1000w > 14",
+      "required_change": "improve (style/structure)",
+      "upstream_dependency": null,
+      "status": "WRITING_QUALITY_ISSUE",
+      "severity": "WARNING"
+    },
+    {
+      "failed_component": "AS-FIX-DO-001",
+      "reason": "bullet ratio 0.49 > 0.4",
+      "required_change": "improve (style/structure)",
+      "upstream_dependency": null,
+      "status": "WRITING_QUALITY_ISSUE",
+      "severity": "WARNING"
+    },
+    {
+      "failed_component": "AS-FIX-TRACK-001",
+      "reason": "heading density 18.9/1000w > 14",
+      "required_change": "improve (style/structure)",
+      "upstream_dependency": null,
+      "status": "WRITING_QUALITY_ISSUE",
+      "severity": "WARNING"
+    },
+    {
+      "failed_component": "AS-FIX-RESCUE-001",
+      "reason": "heading density 16.9/1000w > 14",
+      "required_change": "improve (style/structure)",
+      "upstream_dependency": null,
+      "status": "WRITING_QUALITY_ISSUE",
+      "severity": "WARNING"
+    }
+  ],
+  "handoff": {
+    "target_customer": "Mother or primary caregiver of a newborn (0-3 weeks), in Nigeria/Africa or the diaspora, responsible for daily umbilical stump care - often with conflicting advice from grandmothers, aunties and hospital staff about what to apply and what to avoid",
+    "approved_situation": "The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different",
+    "before_state": {
+      "current_behavior": [
+        "Applying whatever substance the most senior relative recommends",
+        "Cleaning the stump with multiple antiseptics",
+        "Covering the stump with belly bands or coins"
+      ],
+      "current_conditions": [
+        "Stump kept moist under coverings",
+        "Substances applied on top of hospital instructions",
+        "No agreed household rule for who decides cord questions"
+      ],
+      "emotional_state": [
+        "Anxious every diaper change",
+        "Afraid to contradict elders",
+        "Guilt and fear about causing infection"
+      ],
+      "practical_consequences": [
+        "Moist covered stumps heal slower",
+        "Harmful substances introduced",
+        "Infection signs missed or over-reacted to"
+      ],
+      "failed_attempts": [
+        "Toothpaste, shea butter, methylated spirit layered together",
+        "Hot compresses",
+        "Asking three different people and getting three answers"
+      ],
+      "environmental_constraints": [
+        "Extended-family caregiving norms",
+        "Home birth or early discharge common",
+        "Chlorhexidine gel not stocked in many pharmacies"
+      ],
+      "people_involved": [
+        "Mother",
+        "Maternal/paternal grandmother (omugwo)",
+        "Partner",
+        "Community elders"
+      ]
+    },
+    "desired_after_state": {
+      "new_capabilities": [
+        "Executes one clean-dry routine confidently",
+        "Can name which traditional substances are dangerous vs unnecessary",
+        "Runs a daily 30-second check with clear pass/fail criteria"
+      ],
+      "improvements": [
+        "Stump stays dry and exposed",
+        "Fewer substances near the stump",
+        "Family conflict reduced by pre-agreed rules"
+      ],
+      "systems_created": [
+        "A written cord-care house rule everyone in the home follows",
+        "A daily check log"
+      ],
+      "remaining_limits": [
+        "Cannot diagnose infection remotely",
+        "Does not replace newborn wellness visits",
+        "Some separation-time variation remains normal"
+      ],
+      "evidence_of_change": [
+        "Zero harmful substances applied after starting",
+        "Caregiver can state the five red flags unprompted",
+        "Timely clinic presentation when flags appear"
+      ]
+    },
+    "mechanism": "Replace conflicting folklore with ONE default (clean, dry, exposed) plus a decision tree that converts anxiety into observable criteria, and scripts that de-escalate family pressure without confrontation",
+    "key_actions": [
+      "Establish the baseline: what is currently being applied, by whom, and why",
+      "Install ONE written household cord rule before opinions arrive",
+      "Execute clean-dry-exposed care with a 30-second daily check",
+      "Convert worry into triage using observable criteria",
+      "Handle separation event, granuloma awareness, delayed separation"
+    ],
+    "first_win": {
+      "time_limit_minutes": 15,
+      "action": "Write the House Rule ('Nothing goes on the stump. Clean, dry, exposed.') on the fridge card and send the respect-script message to the two most influential relatives",
+      "observable_change": "A posted rule exists and the household's next response to advice is the script, not an argument"
+    },
+    "failure_points": [
+      {
+        "failure_type": "relative applies substance anyway",
+        "scenario": "Grandmother applies toothpaste/sheabutter during a nap",
+        "rescue_protocol": "Do-not-blame reset script: clean gently with water, restate house rule, move stump-supplies out of reach; log the incident, watch 48h extra"
+      },
+      {
+        "failure_type": "stump looks 'wrong' but baby is well",
+        "scenario": "Yellowish crusting or mild smell causes panic at midnight",
+        "rescue_protocol": "Decision tree normal/worry branches; if no red flags, continue routine and re-check in 12h; document photo for clinic"
+      },
+      {
+        "failure_type": "red flag appears",
+        "scenario": "Spreading redness, pus, fever >=38C or lethargy",
+        "rescue_protocol": "Rescue card: same-day medical care - emergency numbers per region; do not apply anything else to the stump"
+      },
+      {
+        "failure_type": "cord not separated by day 21",
+        "scenario": "Stump still attached at 3 weeks",
+        "rescue_protocol": "Book medical review; note whether dry or moist; no pulling, twisting, or home removal attempts"
+      },
+      {
+        "failure_type": "overwhelm / caregiver change",
+        "scenario": "New helper arrives week two with fresh advice",
+        "rescue_protocol": "Handover card: new helper reads the one-page house rule before touching baby care duties"
+      }
+    ],
+    "rescue_system": [
+      {
+        "failure_type": "relative applies substance anyway",
+        "scenario": "Grandmother applies toothpaste/sheabutter during a nap",
+        "rescue_protocol": "Do-not-blame reset script: clean gently with water, restate house rule, move stump-supplies out of reach; log the incident, watch 48h extra"
+      },
+      {
+        "failure_type": "stump looks 'wrong' but baby is well",
+        "scenario": "Yellowish crusting or mild smell causes panic at midnight",
+        "rescue_protocol": "Decision tree normal/worry branches; if no red flags, continue routine and re-check in 12h; document photo for clinic"
+      },
+      {
+        "failure_type": "red flag appears",
+        "scenario": "Spreading redness, pus, fever >=38C or lethargy",
+        "rescue_protocol": "Rescue card: same-day medical care - emergency numbers per region; do not apply anything else to the stump"
+      },
+      {
+        "failure_type": "cord not separated by day 21",
+        "scenario": "Stump still attached at 3 weeks",
+        "rescue_protocol": "Book medical review; note whether dry or moist; no pulling, twisting, or home removal attempts"
+      },
+      {
+        "failure_type": "overwhelm / caregiver change",
+        "scenario": "New helper arrives week two with fresh advice",
+        "rescue_protocol": "Handover card: new helper reads the one-page house rule before touching baby care duties"
+      }
+    ],
+    "tsm": {
+      "before_baseline": [
+        "Number of substances applied to stump in last 48h",
+        "Household disagreement events about cord care",
+        "Caregiver can list red flags (yes/no)",
+        "Daily check performed (yes/no)"
+      ],
+      "success_indicators": [
+        "Zero harmful substances applied from Day 1 to separation",
+        "Daily check completed >=90% of days",
+        "All red-flag events resulted in same-day care",
+        "Zero major family conflicts over cord care"
+      ],
+      "measurement_days": [
+        0,
+        7,
+        14,
+        30
+      ],
+      "success_threshold": "60%+ of completers meet >=3 of 4 indicators at Day 30 review",
+      "measurement_method": "Self-reported daily log + structured Day-30 check-in against baseline",
+      "incomplete_progress_interpretation": "Partial adherence is expected during family pressure spikes; only harmful-substance exposure resets progress to Day 1 of run phase",
+      "next_action_on_miss": "Re-run the Diagnose stage with the specific person who applied substances; install handover card for helpers"
+    },
+    "maintenance": {
+      "maintenance_system": "After separation: weekly navel check inside bath routine until fully healed",
+      "relapse_protocol": "If any substance is applied again post-separation due to rash/bleeding worries: stop, photograph, route through decision tree rather than home treatment",
+      "reentry_protocol": "Restart at Stage 3 (routine) with whoever now performs baby care; no guilt reset"
+    },
+    "next_situation": [
+      "TR-PPL-CS-FIRST14DAYS-001",
+      "TR-PPL-OMUGWO-TERMS-001"
+    ]
+  }
+}

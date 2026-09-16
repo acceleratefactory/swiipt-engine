@@ -13,6 +13,9 @@ import { runCritic, buildRevisionPlan, checkChangeControl, scopeCheck } from "./
 import { runPasses } from "./writing-passes.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const FIXTURE_ROOT = join(root, "harness", "fixtures", "factory");
+const FIX = "FIXTURE-PRODUCT-001";
+const FIX_NO_TR = "FIXTURE-PRODUCT-002";
 const queue = [];
 const T = (name, fn) => queue.push([name, fn]);
 
@@ -28,9 +31,9 @@ T("config valid against writing-control.schema.json", () => {
 });
 
 // 2. contract ingestion: READY when the TR is complete; SOURCE_REQUIRED when it is thin
-T("CORD-CARE contract -> READY", () => assert.equal(buildGenerationBrief("PPL-CORD-CARE-001").status, "READY"));
+T("CORD-CARE contract -> READY", () => assert.equal(buildGenerationBrief(FIX, { root: FIXTURE_ROOT }).status, "READY"));
 T("NIGHT-SHIFT contract -> SOURCE_REQUIRED (missing TR)", () => {
-  const r = buildGenerationBrief("PPL-NIGHT-SHIFT-001");
+  const r = buildGenerationBrief(FIX_NO_TR, { root: FIXTURE_ROOT });
   assert.equal(r.status, "SOURCE_REQUIRED");
   assert.ok(r.findings.some((f) => f.code === "transformation_specification_missing"));
 });
@@ -64,13 +67,13 @@ T("unbalanced widget is UNSUPPORTED blocker", () => {
 
 // 6. scope-drift protection
 T("scope drift flags when content shares no situation language", () => {
-  const cord = buildGenerationBrief("PPL-CORD-CARE-001");
+  const cord = buildGenerationBrief(FIX, { root: FIXTURE_ROOT });
   const fake = { ...cord.brief, situation: { person: "quantum astrophysics", specific_situation: "rocket thermodynamics propulsion", problem: "cryptocurrency algorithmic trading" } };
-  assert.ok(scopeCheck(fake, {}).some((f) => f.status === "SCOPE_DRIFT"));
+  assert.ok(scopeCheck(fake, {}, { root: FIXTURE_ROOT }).some((f) => f.status === "SCOPE_DRIFT"));
 });
 T("no false scope drift on a real product", () => {
-  const cord = buildGenerationBrief("PPL-CORD-CARE-001");
-  assert.equal(scopeCheck(cord.brief, {}).length, 0);
+  const cord = buildGenerationBrief(FIX, { root: FIXTURE_ROOT });
+  assert.equal(scopeCheck(cord.brief, {}, { root: FIXTURE_ROOT }).length, 0);
 });
 
 // 7. change control
@@ -82,30 +85,30 @@ T("change control flags a protected-field change", () => {
 
 // 8. controlled passes
 T("passes: CORD-CARE runs 1-7; NIGHT-SHIFT stops at 1", () => {
-  assert.equal(runPasses("PPL-CORD-CARE-001", { generate: false }).passes.length, 7);
-  const ns = runPasses("PPL-NIGHT-SHIFT-001", { generate: false });
+  assert.equal(runPasses(FIX, { generate: false, root: FIXTURE_ROOT }).passes.length, 7);
+  const ns = runPasses(FIX_NO_TR, { generate: false, root: FIXTURE_ROOT });
   assert.equal(ns.status, "SOURCE_REQUIRED");
   assert.equal(ns.passes.length, 1);
 });
 
 // 9. critic behaviour (never a fake PASS)
 T("critic: LLM NOT_RUN; strict -> HUMAN_REVIEW", async () => {
-  const normal = await runCritic("PPL-CORD-CARE-001", { strict: false });
+  const normal = await runCritic(FIX, { strict: false, root: FIXTURE_ROOT });
   assert.equal(normal.llm_status, "NOT_RUN");
   assert.notEqual(normal.status, "PASS");
-  assert.equal((await runCritic("PPL-CORD-CARE-001", { strict: true })).status, "HUMAN_REVIEW");
+  assert.equal((await runCritic(FIX, { strict: true, root: FIXTURE_ROOT })).status, "HUMAN_REVIEW");
 });
 
 // 10. targeted revision plan
 T("revision plan maps a finding", async () => {
-  const plan = buildRevisionPlan(await runCritic("PPL-CORD-CARE-001"));
+  const plan = buildRevisionPlan(await runCritic(FIX, { root: FIXTURE_ROOT }));
   assert.ok(plan.length >= 1);
   assert.ok(plan[0].failed_component && plan[0].reason && plan[0].required_change);
 });
 
 // 11. generation manifest record (§34)
 T("generation-manifest.json has all §34 fields", () => {
-  const fp = join(root, "data", "products", "PPL-CORD-CARE-001", "copy", "generation-manifest.json");
+  const fp = join(FIXTURE_ROOT, "data", "products", FIX, "copy", "generation-manifest.json");
   assert.ok(existsSync(fp), "expected the Phase-5 execution record to exist");
   const m = JSON.parse(readFileSync(fp, "utf8"));
   for (const k of loadConfig().generation_manifest.required_fields) assert.ok(k in m, "missing field " + k);

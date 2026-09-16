@@ -13,9 +13,10 @@ import Ajv from "ajv/dist/2020.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const MID = "https://swiipt.com/factory/schemas/publish-manifest.schema.json";
-const PRODUCT = "PPL-CORD-CARE-001";
-const PF = join(root, "data", "products", PRODUCT, "product.json");
-const OUT = join(root, "data", "products", PRODUCT, "publish", "_test-manifest.json");
+const FIXTURE_ROOT = join(root, "harness", "fixtures", "factory");
+const PRODUCT = "FIXTURE-PRODUCT-001";
+const PF = join(FIXTURE_ROOT, "data", "products", PRODUCT, "product.json");
+const OUT = join(FIXTURE_ROOT, "data", "products", PRODUCT, "publish", "_test-manifest.json");
 const queue = [];
 const T = (name, fn) => queue.push([name, fn]);
 
@@ -30,8 +31,8 @@ function ajvPool() {
   }
   return ajv;
 }
-const manifestPath = (d) => join(root, "data", "products", d, "publish", "manifest.json");
-const manifests = () => readdirSync(join(root, "data", "products")).filter((d) => existsSync(manifestPath(d)));
+const manifestPath = (d) => join(FIXTURE_ROOT, "data", "products", d, "publish", "manifest.json");
+const manifests = () => readdirSync(join(FIXTURE_ROOT, "data", "products")).filter((d) => existsSync(manifestPath(d)));
 
 // Inject gate/auth state into a real product record, run fn(), always restore.
 function withRecord(mutate, fn) {
@@ -58,7 +59,7 @@ const allGatesPass = (p) => {
 const authorize = (p) => { p.publishing.authorization = { status: "READY_TO_PUBLISH", authorized_by: "Owner", authorized_at: "2026-09-11T00:00:00Z" }; };
 function build() {
   try {
-    execFileSync(process.execPath, [join(root, "harness", "build-manifest.mjs"), PRODUCT, OUT], { cwd: root, stdio: "pipe" });
+    execFileSync(process.execPath, [join(root, "harness", "build-manifest.mjs"), PRODUCT, OUT, "--data-root", FIXTURE_ROOT], { cwd: root, stdio: "pipe" });
     const m = JSON.parse(readFileSync(OUT, "utf8"));
     return { ok: true, manifest: m };
   } catch (e) { return { ok: false, code: e.status }; }

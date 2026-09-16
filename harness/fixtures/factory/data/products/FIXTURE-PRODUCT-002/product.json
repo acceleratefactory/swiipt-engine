@@ -1,0 +1,120 @@
+{
+  "product_id": "FIXTURE-PRODUCT-002",
+  "version": "0.1.0",
+  "status": "published",
+  "identity": {
+    "name": "Fixture Product Two (legacy, incomplete)",
+    "subtitle": "Synthetic incomplete fixture - no TR, no QA ledger, no jobs.",
+    "one_line_promise": "Synthetic incomplete fixture.",
+    "library_id": "m01",
+    "transformation_id": "FIXTURE-TR-MISSING-002",
+    "journey_position": "m01 newborn first weeks -> feeds forward into C-Section First-14-Days (surgical recovery) and Omugwo on Your Terms (family boundaries)"
+  },
+  "commercial_role": {
+    "role": "core",
+    "parent_product_id": null,
+    "related_product_ids": []
+  },
+  "customer": {
+    "target_person": "Mother or primary caregiver of a newborn (0-3 weeks), in Nigeria/Africa or the diaspora, receiving conflicting cord advice from elders and staff",
+    "situation": "The stump is attached; relatives push traditional substances while hospital instructions were vague; she fears infection and blame in both directions",
+    "trigger": "Hospital discharge + arrival of family helpers with strong opinions",
+    "constraints": [
+      "Conflicting authority figures at home",
+      "No early paediatric appointment",
+      "Fear of elder conflict"
+    ],
+    "emotional_stake": "Believes a preventable infection could kill her baby and that she would be blamed"
+  },
+  "transformation": {
+    "before_state": {},
+    "after_state": {},
+    "mechanism": {},
+    "path": [],
+    "first_win": {},
+    "failure_map": {},
+    "rescue_protocols": {},
+    "reentry": {},
+    "maintenance": {},
+    "next_transformation_ids": []
+  },
+  "tsm": {},
+  "asset_map": {},
+  "content": {},
+  "commerce": {
+    "price": {
+      "base_usd": 29
+    },
+    "currency_rules": {
+      "model": "manual_per_currency",
+      "display": "geo_controlled",
+      "prices": {
+        "NGN": 45000,
+        "EUR": 27,
+        "GHS": 450
+      },
+      "note": "PLACEHOLDER pricing - owner to set real prices later (owner directive)"
+    },
+    "offer": {},
+    "access_rules": {
+      "grant_type": "one_time_digital"
+    },
+    "upsells": [],
+    "bundles": []
+  },
+  "design": {
+    "experience_type": "functional",
+    "theme": "swiipt-brand-tokens",
+    "components": [
+      "header",
+      "progress indicator",
+      "cards",
+      "checklist",
+      "callouts",
+      "safety alerts",
+      "scripts",
+      "rescue cards",
+      "completion check"
+    ],
+    "responsive_requirements": [
+      "mobile-first: checklist and rescue card usable one-handed"
+    ],
+    "accessibility_requirements": [
+      "WCAG-AA baseline",
+      "no color-only meaning on triage tables",
+      "keyboard-operable decision tree"
+    ]
+  },
+  "evidence": {
+    "sources": [],
+    "claim_labels": [],
+    "review_status": "Synthetic incomplete fixture"
+  },
+  "safety": {
+    "risk_level": "clinical",
+    "disclaimer": "Educational content - not medical, clinical, or mental-health advice. Never diagnoses or treats. Any suspected infection goes to professional care the same day.",
+    "red_flags": [
+      "spreading periumbilical redness",
+      "purulent/foul discharge",
+      "swelling/hardening/hot skin around stump",
+      "fever >=38C or hypothermia/floppiness",
+      "poor feeding/lethargy/inconsolable crying",
+      "uncontrolled bleeding",
+      "stump attached >21 days"
+    ],
+    "escalation_rules": [
+      "Any single red flag = same-day medical care; fever/lethargy = emergency now",
+      "Regional emergency lines from verified shared crisis list (Nigeria 112, UK 999, US/Canada 911)",
+      "Never wait-and-see with newborn red flags"
+    ]
+  },
+  "qa": {
+    "deterministic_tests": [],
+    "ai_tests": [],
+    "gate_results": {}
+  },
+  "publishing": {},
+  "generation": {
+    "writing_control_version": "1.0"
+  }
+}
