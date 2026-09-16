@@ -20,5 +20,11 @@ TITLE: BAD NIGHT PROTOCOL + WHEN EXHAUSTION NEEDS MORE
 - intrusive thoughts
 - being unable to function during the day
 
-Do not wait. Use the verified shared crisis/escalation list (Product Pipeline/MEMORY.md) - the real, verified numbers for Nigeria and the diaspora. If you are in immediate danger, contact your local emergency number now.
+Do not wait. Use the verified shared crisis/escalation list, routed in three tiers - **RED = emergency now · AMBER = urgent today · GREEN = supported this week**:
+
+- **Nigeria** - Emergency **112** (toll-free, no airtime needed) or 199 · MANI 24/7 free confidential **0809 111 6264** or **0811 168 0686** · SURPIN 24/7 suicide/mental health **+234 806 210 6493**. Nigeria has no 988-style number.
+- **United Kingdom** - Emergency **999** · Samaritans 24/7 **116 123**
+- **United States & Canada** - Emergency **911** · Crisis Lifeline **988** (text HOME to 741741)
+
+If you are in immediate danger, contact your local emergency number now.
 [[/RESCUE]]
