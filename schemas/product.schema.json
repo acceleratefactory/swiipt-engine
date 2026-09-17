@@ -391,12 +391,22 @@
     },
     "human_review": {
       "type": "object",
-      "description": "Pre-revenue text intelligence: explicit, blocking HUMAN_REVIEW state. In PRE_REVENUE mode, SUPERVISOR_REQUIRED and HUMAN_REVIEW_REQUIRED route here (the Premium Supervisor is DEFERRED_UNTIL_REVENUE). While status is PENDING_HUMAN_REVIEW or BLOCKED, no publish manifest can be built. Never auto-resolved or auto-approved.",
+      "description": "Human governance review. PER-AUTHORITY: `reviews.<gate>` is the record a gate consumes, and each gate reads ONLY its own authority's record (an evidence reviewer can never satisfy the clinical gate). The legacy top-level fields are retained for migration and are NOT gate authority. Never auto-resolved or auto-approved.",
       "additionalProperties": false,
       "required": ["status", "reason", "created_at"],
       "properties": {
         "status": { "enum": ["PENDING_HUMAN_REVIEW", "RESOLVED", "BLOCKED"] },
         "reason": { "type": "string", "minLength": 1 },
+        "reviews": {
+          "type": "object",
+          "description": "Per-authority human reviews written by harness/review-jobs.mjs. Only a named human may author one.",
+          "additionalProperties": false,
+          "properties": {
+            "g4_evidence": { "$ref": "#/$defs/authority_review" },
+            "g5_safety": { "$ref": "#/$defs/authority_review" },
+            "g9_journey": { "$ref": "#/$defs/authority_review" }
+          }
+        },
         "escalation_class": { "enum": ["NO_ESCALATION", "DETERMINISTIC_BLOCK", "SUPERVISOR_OPTIONAL", "SUPERVISOR_REQUIRED", "HUMAN_REVIEW_REQUIRED"] },
         "unresolved_issue": { "type": "string" },
         "deterministic_findings": { "type": "array", "items": { "type": "string" } },
@@ -455,6 +465,35 @@
     },
     "gate_result": {
       "enum": ["pending", "PASS", "FAIL"]
+    },
+    "authority_review": {
+      "type": "object",
+      "description": "One human review authority's decision for one gate. Written only by harness/review-jobs.mjs from a schema-validated, named-human submission. The gate runner additionally requires: matching authority, RESOLVED, reviewer_kind HUMAN, no blocking findings, and input_hash equal to the CURRENT narrow review input (staleness).",
+      "additionalProperties": false,
+      "required": ["authority", "status", "review_job_id", "input_hash", "reviewed_at"],
+      "properties": {
+        "authority": { "enum": ["EVIDENCE_AUTHORITY", "CLINICAL_AUTHORITY", "JOURNEY_AUTHORITY"] },
+        "status": { "enum": ["RESOLVED", "REVISION_REQUIRED", "SOURCE_REQUIRED", "BLOCKED"] },
+        "review_job_id": { "type": "string", "minLength": 1 },
+        "review_type": { "type": "string" },
+        "input_hash": { "type": "string", "minLength": 8 },
+        "input_version": { "type": "string" },
+        "reviewed_at": { "type": "string", "format": "date-time" },
+        "resolved_at": { "type": ["string", "null"], "format": "date-time" },
+        "resolved_by": { "type": "string", "minLength": 1 },
+        "reviewer_kind": { "const": "HUMAN" },
+        "reviewer_role": { "type": ["string", "null"] },
+        "reviewer_qualification": { "type": ["string", "null"] },
+        "independent_from_builder": { "type": ["boolean", "null"] },
+        "resolution": { "type": "string", "minLength": 1 },
+        "item_count": { "type": "integer", "minimum": 0 },
+        "item_decisions": { "type": "array", "items": { "type": "object" } },
+        "source_required": { "type": "array", "items": { "type": "string" } },
+        "revision_required": { "type": "array", "items": { "type": "string" } },
+        "escalations": { "type": "array", "items": { "type": "string" } },
+        "defects": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": ["string", "null"] }
+      }
     }
   }
 }

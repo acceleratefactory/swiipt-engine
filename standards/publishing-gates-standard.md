@@ -43,3 +43,34 @@ publication** - and can never repair an incomplete product itself.
 Automation eliminates manual labour, never human governance. Humans retain: transformation
 boundary · high-risk medical/safety approval · major claims · pricing strategy · brand-level
 exceptions · publication override in exceptional cases.
+
+## 5 - Human review operating layer
+
+Gates 4, 5 and 9 are satisfied ONLY by a human decision recorded per authority. The operating layer
+(`harness/review-jobs.mjs` + `harness/review-inputs.mjs`, contract `schemas/review-job.schema.json`)
+derives the required reviews from canonical Product/Transformation data, generates idempotent review
+jobs, presents them in a human-readable console, validates a structured submission, writes the
+decision into `product.human_review.reviews.<gate>` and re-runs `harness/product-qa-gate-runner.mjs`.
+
+**Authority separation (non-negotiable).** Each gate consumes ONLY its own authority's record:
+
+| Gate | Authority | Reviewer |
+|---|---|---|
+| g4 evidence | `EVIDENCE_AUTHORITY` | independent evidence reviewer (never the builder) |
+| g5 safety | `CLINICAL_AUTHORITY` | qualified clinical/safety reviewer (clinical requirement follows `risk_level` moderate/high/clinical) |
+| g9 customer journey | `JOURNEY_AUTHORITY` | authorised human operator walk-through |
+
+An evidence reviewer can never satisfy the clinical or journey gate; a clinician can never satisfy the
+evidence or journey gate; no reviewer can satisfy g10 (owner authorization only).
+
+**Human-only.** A record is accepted only when `reviewer_kind: "HUMAN"` and a named human reviewer is
+recorded. AI/automation/builder identities are refused; anonymous approval is refused; partial reviews
+never resolve a gate.
+
+**Freshness.** Every record carries the narrow `input_hash` of the material its authority owns
+(`harness/review-inputs.mjs`). The gate runner rejects a record whose hash no longer matches, so a stale
+approval can never silently satisfy a gate - while an unrelated change (marketing, design, README) does
+not invalidate a valid review.
+
+**No parallel governance.** The review job is an operational unit, not an approval truth: the canonical
+truth remains `product.human_review.reviews.<gate>` + the gate runner.

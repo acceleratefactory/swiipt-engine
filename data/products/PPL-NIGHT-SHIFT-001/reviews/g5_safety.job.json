@@ -1,0 +1,334 @@
+{
+  "review_job_id": "RJ-PPL-NIGHT-SHIFT-001-g5_safety",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "gate": "g5_safety",
+  "review_type": "CLINICAL_SAFETY_REVIEW",
+  "required_authority": "CLINICAL_AUTHORITY",
+  "clinical_required": true,
+  "risk_level": "moderate",
+  "status": "PENDING",
+  "reviewer_requirement": {
+    "role": "Qualified clinical / safety reviewer",
+    "qualification": "Perinatal / paediatric / mental-health clinical qualification as appropriate to the item's risk domain",
+    "independence": "Never the builder/author of the product or transformation"
+  },
+  "assigned_reviewer": null,
+  "input_refs": [
+    "product.safety",
+    "TR-PPL-NIGHT-SHIFT-001.safety",
+    "asset content safety guardrails"
+  ],
+  "input_hash": "373919b0c868c289185d7b684463363b01bbfabc9e6d80d2c764857527da3100",
+  "input_version": "1.0",
+  "items": [
+    {
+      "item_id": "S-01",
+      "content": "Educational content - not medical, clinical, or mental-health advice. This system coordinates night-care between adults; it never diagnoses or treats any condition and never replaces professional care.",
+      "risk_domain": "scope/disclaimer",
+      "location": "product.safety.disclaimer",
+      "review_question": "Is this scope/disclaimer item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical + product safety",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": "",
+      "expertise": "clinical + product safety"
+    },
+    {
+      "item_id": "S-02",
+      "content": "An overwhelming sense of hopelessness, emptiness, or sadness that does not lift even after a good sleep block",
+      "risk_domain": "maternal mental-health / safety",
+      "location": "product.safety.red_flags + transformation.safety.red_flags",
+      "review_question": "Is this maternal mental-health / safety item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-03",
+      "content": "Intense anxiety, panic, or rapid heartbeats when thinking about the baby's sleep or night-time",
+      "risk_domain": "maternal mental-health / safety",
+      "location": "product.safety.red_flags + transformation.safety.red_flags",
+      "review_question": "Is this maternal mental-health / safety item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-04",
+      "content": "Being unable to fall asleep even when the baby is sleeping and a partner is on duty",
+      "risk_domain": "maternal mental-health / safety",
+      "location": "product.safety.red_flags + transformation.safety.red_flags",
+      "review_question": "Is this maternal mental-health / safety item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-05",
+      "content": "Intrusive, frightening thoughts of harm coming to yourself or the baby",
+      "risk_domain": "maternal mental-health / safety",
+      "location": "product.safety.red_flags + transformation.safety.red_flags",
+      "review_question": "Is this maternal mental-health / safety item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-06",
+      "content": "Feeling disconnected from your baby, or feeling as though they would be better off without you",
+      "risk_domain": "maternal mental-health / safety",
+      "location": "product.safety.red_flags + transformation.safety.red_flags",
+      "review_question": "Is this maternal mental-health / safety item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-07",
+      "content": "Two or more red flags, consistently, for more than two weeks = seek professional assessment; do not try to manage this with sleep schedules alone",
+      "risk_domain": "escalation",
+      "location": "product.safety.escalation_rules + transformation.safety.escalation_rules",
+      "review_question": "Is this escalation item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-08",
+      "content": "Any acute red flag (thoughts of harm; feeling the baby would be better off without you; physical symptoms such as chest pain, fainting, uncontrolled bleeding, or fever) = act today, not later",
+      "risk_domain": "escalation",
+      "location": "product.safety.escalation_rules + transformation.safety.escalation_rules",
+      "review_question": "Is this escalation item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-09",
+      "content": "Any red flag = stop and route to the verified shared crisis/escalation list (never invent numbers)",
+      "risk_domain": "escalation",
+      "location": "product.safety.escalation_rules + transformation.safety.escalation_rules",
+      "review_question": "Is this escalation item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-10",
+      "content": "This system does not attempt to diagnose or handle these; it stops and routes out",
+      "risk_domain": "escalation",
+      "location": "product.safety.escalation_rules + transformation.safety.escalation_rules",
+      "review_question": "Is this escalation item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-11",
+      "content": "For immediate danger, use the emergency number for the person's country from the verified shared list",
+      "risk_domain": "escalation",
+      "location": "product.safety.escalation_rules + transformation.safety.escalation_rules",
+      "review_question": "Is this escalation item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-12",
+      "content": "Any acute red flag (thoughts of harm; feeling the baby would be better off without you) = act today, not later",
+      "risk_domain": "escalation",
+      "location": "product.safety.escalation_rules + transformation.safety.escalation_rules",
+      "review_question": "Is this escalation item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-13",
+      "content": "Route to the verified shared Nigeria + diaspora crisis/escalation list (three-tier RED/AMBER/GREEN) - never invent numbers",
+      "risk_domain": "escalation",
+      "location": "product.safety.escalation_rules + transformation.safety.escalation_rules",
+      "review_question": "Is this escalation item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-14",
+      "content": "This transformation coordinates the division of night care between adults ONLY. It never diagnoses or treats postpartum depression, anxiety, or any medical condition; it never prescribes infant sleep-training, and it carries WHO/paediatric safe-sleep, vigilance and no-earplugs guardrails as non-negotiable boundary rules rather than as practice advice (any specific safe-sleep arrangement is deferred to the family's paediatrician or midwife); and it never replaces professional care. When exhaustion is more than tiredness, it stops and routes out to the verified shared crisis/escalation list.",
+      "risk_domain": "scope boundary",
+      "location": "TR-PPL-NIGHT-SHIFT-001.safety.scope_boundary",
+      "review_question": "Is this scope boundary item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-15",
+      "content": "Infant safety is paramount.",
+      "risk_domain": "infant safe-sleep",
+      "location": "content/do-worksheet.md",
+      "review_question": "Is this infant safe-sleep item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": "",
+      "guardrail_source": "safety-standard section 4 (safe sleep)",
+      "source": "asset content"
+    },
+    {
+      "item_id": "S-16",
+      "content": "The active shift manager stays fully awake.",
+      "risk_domain": "vigilance",
+      "location": "content/do-worksheet.md",
+      "review_question": "Is this vigilance item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": "",
+      "guardrail_source": "safety-standard section 4 (vigilance)",
+      "source": "asset content"
+    },
+    {
+      "item_id": "S-17",
+      "content": "No earplugs or sleep aids on shift.",
+      "risk_domain": "vigilance",
+      "location": "content/do-worksheet.md",
+      "review_question": "Is this vigilance item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": "",
+      "guardrail_source": "safety-standard section 4 (no sedation on shift)",
+      "source": "asset content"
+    },
+    {
+      "item_id": "S-18",
+      "content": "The baby always overrides the roster.",
+      "risk_domain": "baby-first assessment",
+      "location": "content/do-worksheet.md",
+      "review_question": "Is this baby-first assessment item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": "",
+      "guardrail_source": "safety-standard section 4 (baby-first)",
+      "source": "asset content"
+    }
+  ],
+  "item_count": 18,
+  "created_at": "2026-09-17T21:54:47.388Z",
+  "updated_at": "2026-09-17T21:55:01.810Z",
+  "started_at": null,
+  "submitted_at": null,
+  "saved_progress_at": null,
+  "decision": null,
+  "canonical_record_ref": "product.human_review.reviews.g5_safety",
+  "revision": 1,
+  "superseded_at": null,
+  "superseded_reason": null
+}

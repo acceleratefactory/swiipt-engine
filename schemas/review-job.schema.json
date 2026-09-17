@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/review-job.schema.json",
+  "title": "Swiipt Human Review Job",
+  "description": "Canonical operational unit for a required HUMAN review authority (g4 evidence / g5 clinical-safety / g9 journey). It EXTENDS the existing governance architecture: the job is the reviewable unit, the human decision is written back into the EXISTING product.human_review per-authority record, and harness/product-qa-gate-runner.mjs remains the only gate authority. It is not a parallel approval ledger.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_job_id", "product_id", "transformation_id", "gate", "review_type",
+    "required_authority", "clinical_required", "status", "reviewer_requirement",
+    "input_hash", "input_version", "items", "item_count", "created_at", "updated_at",
+    "canonical_record_ref", "revision"
+  ],
+  "properties": {
+    "review_job_id": { "type": "string", "minLength": 1, "description": "Deterministic: RJ-<product_id>-<gate>." },
+    "product_id": { "type": "string", "minLength": 1 },
+    "transformation_id": { "type": ["string", "null"] },
+    "gate": { "enum": ["g4_evidence", "g5_safety", "g9_journey"] },
+    "review_type": { "enum": ["EVIDENCE_REVIEW", "CLINICAL_SAFETY_REVIEW", "JOURNEY_REVIEW"] },
+    "required_authority": { "enum": ["EVIDENCE_AUTHORITY", "CLINICAL_AUTHORITY", "JOURNEY_AUTHORITY"] },
+    "clinical_required": { "type": "boolean", "description": "g5 only: true when canonical risk_level requires CLINICAL authority (moderate|high|clinical)." },
+    "risk_level": { "type": ["string", "null"] },
+    "status": { "enum": ["PENDING", "ASSIGNED", "IN_REVIEW", "SUBMITTED", "RESOLVED", "REVISION_REQUIRED", "SOURCE_REQUIRED", "BLOCKED", "STALE"] },
+    "reviewer_requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "independence"],
+      "properties": {
+        "role": { "type": "string", "minLength": 1 },
+        "qualification": { "type": ["string", "null"] },
+        "independence": { "type": "string", "minLength": 1 }
+      }
+    },
+    "assigned_reviewer": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["name", "role", "assigned_at"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "role": { "type": "string", "minLength": 1 },
+        "qualification": { "type": ["string", "null"] },
+        "assigned_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "input_refs": { "type": "object", "description": "Canonical references the reviewer needs (never a duplicate of the product record)." },
+    "input_hash": { "type": "string", "minLength": 8, "description": "Narrow hash of the material THIS authority owns (staleness binding)." },
+    "input_version": { "type": "string", "minLength": 1 },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Item-level review unit. The canonical ID (claim_id/item_id/step n) is preserved verbatim.",
+        "required": ["item_id", "dispositions_allowed", "reviewer_disposition"],
+        "properties": {
+          "item_id": { "type": "string", "minLength": 1 },
+          "dispositions_allowed": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "reviewer_disposition": { "type": "string" },
+          "reviewer_notes": { "type": "string" }
+        }
+      }
+    },
+    "item_count": { "type": "integer", "minimum": 0 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "started_at": { "type": ["string", "null"], "format": "date-time" },
+    "submitted_at": { "type": ["string", "null"], "format": "date-time" },
+    "saved_progress_at": { "type": ["string", "null"], "format": "date-time" },
+    "decision": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["overall", "resolved_by", "reviewer_kind", "authority", "resolved_at", "input_hash_reviewed", "item_decisions"],
+      "properties": {
+        "overall": { "enum": ["RESOLVED", "REVISION_REQUIRED", "SOURCE_REQUIRED", "BLOCKED"] },
+        "resolved_by": { "type": "string", "minLength": 1 },
+        "reviewer_kind": { "const": "HUMAN", "description": "Only a human may decide. AI/automation/builder identities are refused." },
+        "reviewer_role": { "type": ["string", "null"] },
+        "reviewer_qualification": { "type": ["string", "null"] },
+        "independent_from_builder": { "type": ["boolean", "null"] },
+        "authority": { "enum": ["EVIDENCE_AUTHORITY", "CLINICAL_AUTHORITY", "JOURNEY_AUTHORITY"] },
+        "resolved_at": { "type": "string", "format": "date-time" },
+        "input_hash_reviewed": { "type": "string", "minLength": 8, "description": "The job input_hash at submission time; the gate runner rejects a stale hash." },
+        "item_decisions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["item_id", "disposition"],
+            "properties": {
+              "item_id": { "type": "string", "minLength": 1 },
+              "disposition": { "type": "string", "minLength": 1 },
+              "notes": { "type": "string" }
+            }
+          }
+        },
+        "source_required": { "type": "array", "items": { "type": "string" } },
+        "revision_required": { "type": "array", "items": { "type": "string" } },
+        "escalations": { "type": "array", "items": { "type": "string" } },
+        "defects": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "canonical_record_ref": { "type": "string", "description": "e.g. product.human_review.reviews.g4_evidence" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "superseded_at": { "type": ["string", "null"], "format": "date-time" },
+    "superseded_reason": { "type": ["string", "null"] }
+  }
+}

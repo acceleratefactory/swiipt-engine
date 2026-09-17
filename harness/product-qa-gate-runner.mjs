@@ -28,6 +28,7 @@ import { execFileSync } from "node:child_process";
 import Ajv from "ajv/dist/2020.js";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { reviewInputFor } from "./review-inputs.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -310,22 +311,39 @@ function evalG3(inp) {
   return gate("g3_product_architecture", VERDICT.PASS, "role + asset map/resolution + embedded transformation blocks + TSM present", { inputs: ["product.asset_map", "product.transformation", "product.tsm", ...(tr ? [inp.trId] : [])] });
 }
 
-function evidenceReviewState(inp) {
-  const hr = inp.product.human_review ?? null;
-  if (!hr) return { present: false, resolved: false, reason: "no canonical human review record (product.human_review) present" };
-  if (hr.status !== "RESOLVED") return { present: true, resolved: false, reason: `human review status is ${hr.status}` };
-  if (!isStr(hr.resolved_by) || !isStr(hr.resolution)) return { present: true, resolved: false, reason: "human review is RESOLVED but lacks resolved_by/resolution" };
-  const refs = Array.isArray(hr.evidence_references) ? hr.evidence_references : [];
-  return { present: true, resolved: true, refs, reviewer: hr.resolved_by, reason: "human review RESOLVED" };
+/**
+ * Per-authority human review state (task section 34).
+ *
+ * A gate consumes ONLY its own authority's record, so an evidence reviewer can never satisfy the
+ * clinical gate and a clinician can never satisfy the evidence or journey gate. A record is only
+ * accepted when it is: the right authority, RESOLVED, authored by a NAMED HUMAN (never AI/automation),
+ * free of blocking item findings, and bound to the CURRENT narrow review input (task section 30) so a
+ * stale human approval can never silently satisfy a gate.
+ */
+const AUTOMATED_REVIEWER = /^(ai|a\.i\.|opencode|open-code|bot|automation|automatic|system|machine|llm|gpt|model|builder|generator|null|unknown|n\/a|none|test)/i;
+function authorityReview(inp, gate, authority) {
+  const reviews = inp.product?.human_review?.reviews ?? null;
+  const r = reviews?.[gate] ?? null;
+  if (!r) return { present: false, resolved: false, reason: `no ${gate} review record (product.human_review.reviews.${gate})` };
+  if (r.authority !== authority) return { present: true, resolved: false, reason: `review record authority '${r.authority}' is not '${authority}' - a different authority cannot satisfy this gate` };
+  if (r.status !== "RESOLVED") return { present: true, resolved: false, reason: `${gate} review status is ${r.status}` };
+  if (!isStr(r.resolved_by) || !isStr(r.resolution)) return { present: true, resolved: false, reason: `${gate} review is RESOLVED but lacks resolved_by/resolution` };
+  if (r.reviewer_kind !== "HUMAN" || AUTOMATED_REVIEWER.test(String(r.resolved_by).trim())) {
+    return { present: true, resolved: false, reason: `${gate} review was not authored by a named human reviewer (reviewer_kind='${r.reviewer_kind ?? "missing"}', resolved_by='${r.resolved_by}')` };
+  }
+  const blocking = [...(r.source_required ?? []), ...(r.revision_required ?? []), ...(r.escalations ?? []), ...(r.defects ?? [])];
+  if (blocking.length) return { present: true, resolved: false, reason: `${gate} review carries ${blocking.length} blocking finding(s): ${blocking.slice(0, 6).join(", ")}` };
+  let current = null;
+  try { current = reviewInputFor(gate, inp.product, inp.transformation).input_hash; } catch { current = null; }
+  if (!isStr(r.input_hash) || r.input_hash !== current) {
+    return { present: true, resolved: false, reason: `${gate} review is STALE (reviewed ${String(r.input_hash ?? "nothing").slice(0, 12)}, current ${String(current).slice(0, 12)}) - the governed material changed after review` };
+  }
+  const refs = Array.isArray(r.item_decisions) ? r.item_decisions.map((d) => d?.item_id).filter(isStr) : [];
+  return { present: true, resolved: true, refs, reviewer: r.resolved_by, role: r.reviewer_role ?? null, qualification: r.reviewer_qualification ?? null, reviewed_at: r.reviewed_at ?? r.resolved_at ?? null, input_hash: r.input_hash, reason: `${gate} review RESOLVED by ${r.resolved_by}` };
 }
-function safetyReviewState(inp) {
-  const hr = inp.product.human_review ?? null;
-  if (!hr) return { present: false, resolved: false, reason: "no canonical human/clinical review record (product.human_review) present" };
-  if (hr.status !== "RESOLVED") return { present: true, resolved: false, reason: `human/clinical review status is ${hr.status}` };
-  if (!isStr(hr.resolved_by)) return { present: true, resolved: false, reason: "review is RESOLVED but has no resolved_by" };
-  const refs = Array.isArray(hr.safety_references) ? hr.safety_references : [];
-  return { present: true, resolved: true, refs, reviewer: hr.resolved_by, reason: "clinical/human review RESOLVED" };
-}
+const evidenceReviewState = (inp) => authorityReview(inp, "g4_evidence", "EVIDENCE_AUTHORITY");
+const safetyReviewState = (inp) => authorityReview(inp, "g5_safety", "CLINICAL_AUTHORITY");
+const journeyReviewState = (inp) => authorityReview(inp, "g9_journey", "JOURNEY_AUTHORITY");
 
 function evalG4(inp) {
   const id = "g4_evidence";
@@ -484,16 +502,16 @@ function evalG9(inp) {
   const wp = inp.product.publishing?.wordpress_ids ?? {};
   if (!wp.transformation_id || !wp.tsystem_id || !wp.product_id) missing.push("product.publishing.wordpress_ids (platform walk-through requires real platform ids)");
   if (missing.length) return { ...missingInput(id, missing.join(", ")), inputs: ["product.content", "product.publishing.wordpress_ids", inp.trId] };
-  const hr = inp.product.human_review ?? null;
-  if (!hr || hr.status !== "RESOLVED" || !isStr(hr.resolved_by)) {
-    return gate(id, VERDICT.REVIEW_REQUIRED, "technical journey prerequisites present; real walk-through (discover -> purchase -> access -> onboarding -> first win -> path -> completion -> TSM check-in -> next transformation) requires a recorded human/platform test", {
-      inputs: ["product.content", "product.publishing.wordpress_ids"],
-      missing_requirements: ["recorded journey walk-through (product.human_review RESOLVED with resolved_by/resolution)"],
-      human_action: "Operator runs the live journey walk-through and records the outcome",
-      architectural_gap: "no dedicated journey-test record exists in the product schema; the canonical review surface (product.human_review) is reused",
+  const review = journeyReviewState(inp);
+  if (!review.resolved) {
+    return gate(id, VERDICT.REVIEW_REQUIRED, `technical journey prerequisites present; real walk-through (discover -> purchase -> access -> onboarding -> first win -> path -> completion -> TSM check-in -> next transformation) requires a recorded human walk-through (${review.reason})`, {
+      inputs: ["product.content", "product.publishing.wordpress_ids", "product.human_review.reviews.g9_journey"],
+      missing_requirements: ["recorded journey walk-through (product.human_review.reviews.g9_journey RESOLVED by a named human, bound to the current journey input hash)"],
+      human_action: "Operator runs the live journey walk-through and submits the structured g9 review (harness/review-jobs.mjs)",
+      review,
     });
   }
-  return gate(id, VERDICT.PASS, "technical prerequisites present and a resolved human/platform walk-through is recorded", { inputs: ["product.content", "product.publishing.wordpress_ids"], review_refs: [hr.resolved_by] });
+  return gate(id, VERDICT.PASS, "technical prerequisites present and a resolved human walk-through is recorded", { inputs: ["product.content", "product.publishing.wordpress_ids"], review_refs: [review.reviewer], review });
 }
 
 function evalG10(inp) {

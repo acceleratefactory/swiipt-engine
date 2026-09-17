@@ -21,6 +21,7 @@ import {
   canonicalProjection, GATE_RUNNER_VERSION, GATES, GATE_DEPENDENCIES, GATE1_KEYS, TSM_ELEMENTS, CLAIM_LABELS,
   PERSISTED, VERDICT, RUN_STATUS, MANIFEST_VERDICTS, AI_TEST_STATUSES,
 } from "./product-qa-gate-runner.mjs";
+import { reviewInputFor } from "./review-inputs.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const TMP = join(os.tmpdir(), "swiipt-gate-qual");
@@ -62,7 +63,7 @@ function makeRoot(name, mutate = null) {
   mkdirSync(join(root, "config"), { recursive: true });
   cpSync(join(ROOT, "schemas"), join(root, "schemas"), { recursive: true });
   cpSync(join(ROOT, "config"), join(root, "config"), { recursive: true });
-  for (const f of ["qa-checks.mjs", "build-manifest.mjs", "writing-control.mjs", "transformation-architect.mjs", "globality.mjs", "applicability.mjs"]) cpSync(join(ROOT, "harness", f), join(root, "harness", f));
+  for (const f of ["qa-checks.mjs", "build-manifest.mjs", "writing-control.mjs", "transformation-architect.mjs", "globality.mjs", "applicability.mjs", "review-inputs.mjs"]) cpSync(join(ROOT, "harness", f), join(root, "harness", f));
   cpSync(join(FACTORY_FIXTURES, "data", "products", CORD), join(root, "data", "products", CORD), { recursive: true });
   cpSync(join(FACTORY_FIXTURES, "data", "transformations", `${TR_ID}.json`), trP(root));
   if (mutate) mutate(root);
@@ -73,7 +74,7 @@ mkdirSync(TMP, { recursive: true });
 
 /** A fully authorized/complete fixture (all gates satisfiable). */
 function completeRoot(name = "complete") {
-  return makeRoot(name, (root) => {
+  const root = makeRoot(name, (root) => {
     patchProduct(root, (p) => {
       const allPass = Object.fromEntries(GATES.map((g) => [g.id, "PASS"]));
       p.qa.gate_results = allPass;
@@ -91,13 +92,52 @@ function completeRoot(name = "complete") {
         maintenance: { maintenance_system: "m" }, next_transformation_ids: [],
       };
       p.publishing = { ...p.publishing, authorization: { status: "READY_TO_PUBLISH", authorized_by: "Owner", authorized_at: "2026-09-11T20:41:37.614Z" } };
-      p.human_review = {
-        status: "RESOLVED", reason: "evidence + safety review complete", escalation_class: "HUMAN_REVIEW_REQUIRED",
-        evidence_references: ["WHO 2014"], safety_references: ["red-flag set"], created_at: "2026-09-10T08:00:00Z",
-        resolved_at: "2026-09-11T09:00:00Z", resolved_by: "Owner", resolution: "approved with clinical sign-off",
-      };
     });
+    // per-authority reviews must be bound to the narrow input hash of the FINAL material, so this
+    // runs only after the material changes above are on disk (task sections 30 + 34)
+    setHumanReviews(root);
   });
+  return root;
+}
+
+/** Build the per-authority human-review records bound to the CURRENT narrow review input. */
+function passReviews(root, { reviewer = "Owner", role = "Reviewer", reviewer_kind = "HUMAN", overrides = {} } = {}) {
+  const p = readJson(pPath(root));
+  const t = readJson(trP(root));
+  const mk = (gate, authority) => ({
+    authority,
+    status: "RESOLVED",
+    review_job_id: `RJ-${CORD}-${gate}`,
+    input_hash: reviewInputFor(gate, p, t).input_hash,
+    input_version: "1.0",
+    reviewed_at: "2026-09-11T09:00:00Z",
+    resolved_at: "2026-09-11T09:00:00Z",
+    resolved_by: reviewer,
+    reviewer_kind,
+    reviewer_role: role,
+    resolution: "approved",
+    item_decisions: [{ item_id: "X-01", disposition: "SUPPORTED" }],
+    source_required: [], revision_required: [], escalations: [], defects: [],
+    ...(overrides[gate] ?? {}),
+  });
+  return {
+    status: "RESOLVED",
+    reason: "human authority reviews complete",
+    created_at: "2026-09-10T08:00:00Z",
+    reviews: {
+      g4_evidence: mk("g4_evidence", "EVIDENCE_AUTHORITY"),
+      g5_safety: mk("g5_safety", "CLINICAL_AUTHORITY"),
+      g9_journey: mk("g9_journey", "JOURNEY_AUTHORITY"),
+    },
+  };
+}
+
+/** Write the human-review block. Call only AFTER material changes are on disk (hash binding). */
+function setHumanReviews(root, opts = {}) {
+  const p = readJson(pPath(root));
+  p.human_review = passReviews(root, opts);
+  writeJson(pPath(root), p);
+  return p.human_review;
 }
 
 // =============================================================================================
@@ -314,13 +354,15 @@ test("D7 g4 review with no reviewer identity -> REVIEW_REQUIRED", () => {
 });
 
 function evidenceReviewRoot(name, { evidence_refs = [], safety_refs = [], reviewer = "Owner" } = {}) {
-  return makeRoot(name, (r) => patchProduct(r, (p) => {
-    p.human_review = {
-      status: "RESOLVED", reason: "review complete", created_at: "2026-09-10T08:00:00Z",
-      evidence_references: evidence_refs, safety_references: safety_refs,
-      ...(reviewer ? { resolved_by: reviewer, resolved_at: "2026-09-11T09:00:00Z", resolution: "approved" } : {}),
-    };
-  }));
+  const root = makeRoot(name);
+  // refs are now carried by the item decisions; the record must be bound to the current narrow input
+  setHumanReviews(root, { reviewer: reviewer ?? null, overrides: reviewer ? {} : {} });
+  if (reviewer === null) {
+    const p = readJson(pPath(root));
+    for (const g of Object.values(p.human_review.reviews)) { delete g.resolved_by; }
+    writeJson(pPath(root), p);
+  }
+  return root;
 }
 
 test("D8 g4 evidence review packet contains only existing authoritative material", () => {
@@ -593,11 +635,11 @@ test("H13 g9 missing platform ids -> SOURCE_REQUIRED", () => {
   assert.ok(j.reason.includes("wordpress_ids"));
 });
 
-test("H14 g9 technical prerequisites + no walk-through record -> REVIEW_REQUIRED with the architectural gap reported", () => {
+test("H14 g9 technical prerequisites + no walk-through record -> REVIEW_REQUIRED naming the per-authority record", () => {
   const root = makeRoot("h14");
   const j = judge(root, "g9_customer_journey");
   assert.equal(j.current_verdict, VERDICT.REVIEW_REQUIRED);
-  assert.ok(/no dedicated journey-test record/.test(j.architectural_gap ?? ""));
+  assert.ok(/product\.human_review\.reviews\.g9_journey/.test(j.missing_requirements.join(" ")), "the closed gap must now name the canonical per-authority record");
 });
 
 test("H15 g8 payment/delivery runtime is explicitly delegated to the g9 walk-through (not silently skipped)", () => {
