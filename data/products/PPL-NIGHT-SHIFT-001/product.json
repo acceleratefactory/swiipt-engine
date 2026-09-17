@@ -245,22 +245,144 @@
     ],
     "ai_tests": [
       {
-        "test": "L_safety_integrity",
-        "status": "REVISION_REQUIRED",
-        "severity": "MAJOR",
-        "reason": "Self-review only - the builder cannot self-approve. Independent AI-QA plus a human safety/clinical confirmation of the exhaustion gate are required before publication."
+        "test": "A_situation_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "The product's situation matches the approved situation exactly.",
+        "evidence": [
+          "identity.customer.situation and transformation_record.situation.specific_situation",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "B_scope_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "The product stays within the declared scope of night‑care coordination between adults.",
+        "evidence": [
+          "transformation_record.mechanism and asset_map",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "C_transformation_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "The promise matches the approved after‑state transformation; no stronger or weaker claim is made.",
+        "evidence": [
+          "identity.one_line_promise and landing_page.promise.we_do",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "D_mechanism_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "The mechanism explains how the change occurs and is consistent with the transformation.",
+        "evidence": [
+          "transformation_record.mechanism.core_mechanism and mechanisms list",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "E_action_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "The supplied actions/tools (read, do, decide, track, communicate, rescue) are sufficient and relevant to the mechanism.",
+        "evidence": [
+          "asset_map",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "F_sequence_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "The implementation sequence (Diagnose → Choose → Draft → Negotiate → Run → Review → Reinforce) is coherent and completable.",
+        "evidence": [
+          "transformation_record.transformation_path",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "G_first_win_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "A first win is achievable within 15 minutes and yields a real, observable change.",
+        "evidence": [
+          "transformation_record.first_win",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "H_failure_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Declared failure points (bad night, missed shift, resistance, overwhelm, relapse, escalation) are explicitly acknowledged.",
+        "evidence": [
+          "transformation_record.failure_point_map",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "I_rescue_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Each failure point has a defined rescue protocol or re‑entry path.",
+        "evidence": [
+          "transformation_record.failure_point_map",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "J_tsm_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "The TSM defines baseline, success indicators, measurement days, method and threshold.",
+        "evidence": [
+          "transformation_record.tsm",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "M_format_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Deliverable formats (read, do, decide, track, communicate, rescue) suit their intended jobs.",
+        "evidence": [
+          "asset_map",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "N_emotional_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "The tone acknowledges exhaustion, resentment and fear without manipulation or false promises.",
+        "evidence": [
+          "landing_page.hero.body, who_for.intro, promise.we_do_not",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
+      },
+      {
+        "test": "Q_copy_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Copy is honest, concrete and free of fabricated or exaggerated claims.",
+        "evidence": [
+          "landing_page.promise.we_do_not, faq.items",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
       },
       {
         "test": "R_drift_integrity",
         "status": "PASS",
         "severity": "none",
-        "reason": "Content matches the approved situation (night-care division between adults); no neighbouring problem absorbed."
-      },
-      {
-        "test": "K_evidence_integrity",
-        "status": "PASS",
-        "severity": "none",
-        "reason": "Every material claim carries a label; no invented clinical citations or statistics."
+        "reason": "Removing the title, the situation definition remains identical to the approved situation; no drift detected.",
+        "evidence": [
+          "identity.customer.situation vs landing_page.situation_block.body",
+          "ai-qa-execution.json#ef7d3a027cea"
+        ]
       }
     ],
     "gate_results": {

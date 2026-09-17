@@ -11,7 +11,7 @@ Generator  (DeepSeek V4 Flash · ACTIVE INCUMBENT)
     ↓
 Deterministic QA  (truth · schema · evidence/provenance · safety · acceptance · writing controls · transformation QA · publishing gates · AUTHORITATIVE)
     ↓
-Primary Critic  (xKiro Mistral Large 2512 · QUALIFIED)
+Primary Critic  (NVIDIA Nemotron 3 Super 120B A12B · QUALIFIED)
     ↓
 Escalation
     NO_ESCALATION          → continue
@@ -28,7 +28,7 @@ Generator
    ↓
 Deterministic QA
    ↓
-Mistral Critic
+Nemotron Critic
    ↓
 ┌──────────────────────────────┐
 │                              │
@@ -48,7 +48,7 @@ Continue                 HUMAN_REVIEW
 |---|---|---|
 | Generator | `nvidia / deepseek-ai/deepseek-v4-flash-0731` | **ACTIVE_INCUMBENT** (incumbent, *not* permanently qualified) |
 | Deterministic system | truth, schema, evidence/provenance, safety, acceptance, writing controls, transformation QA, publishing gates | **AUTHORITATIVE** |
-| Primary critic | `xkiro / mistralai/mistral-large-2512` | **QUALIFIED_PRIMARY_CRITIC** (known limitation: missed one invented-evidence case; mitigated by deterministic evidence/provenance) |
+| Primary critic | `nvidia / nvidia/nemotron-3-super-120b-a12b` | **QUALIFIED_PRIMARY_CRITIC** (qualification evidence: `bench/results/2026-09-12T14-47-54-197Z-results.json`, F1 0.933 · known limitation: missed one invented-evidence case; mitigated by deterministic evidence/provenance) |
 | Premium supervisor | permanent architectural role | **DEFERRED_UNTIL_REVENUE** · fallback **HUMAN_REVIEW** · qualification **UNFILLED** |
 
 ## Machine-readable configuration
@@ -83,13 +83,13 @@ never manufacture provenance. Missing evidence can never become `PASS`.
 ## Non-negotiables
 1. Do not remove the Premium Supervisor architecture. 2. Do not mark the supervisor as `PASS`.
 3. Do not manufacture a supervisor result. 4. Never silently convert `SUPERVISOR_REQUIRED` into `PASS`.
-5. Do not weaken deterministic QA. 6. Deterministic gates outrank the Mistral critic.
+5. Do not weaken deterministic QA. 6. Deterministic gates outrank any AI critic.
 7. The generator is never its own critic. 8. `HUMAN_REVIEW` never means automatic approval.
 9. `HUMAN_REVIEW` blocks until explicitly resolved. 10. The supervisor benchmark, schema, A–L cases,
 thresholds, provider boundaries and qualification framework remain intact.
 
 ## Activation path (later, when revenue justifies paid inference)
-`deterministic QA → Mistral critic → Premium Supervisor where required → Human Review where still
+`deterministic QA → qualified AI critic → Premium Supervisor where required → Human Review where still
 unresolved`. Inserting a qualified supervisor requires **no redesign** — it fills the existing slot.
 
 ## Tests

@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/product-ai-qa-result.schema.json",
+  "title": "Swiipt Product AI-QA Result",
+  "description": "Structured output contract for the canonical Product-level INDEPENDENT AI-QA review (gate g7). This is the machine-readable form of the reviewer output already defined by standards/qa-standard.md sections 3-5 and consumed by schemas/product.schema.json (qa.ai_tests). It is deliberately NOT a second QA framework and NOT a parallel QA store: the harness projects the AI-owned rows into the EXISTING product.qa.ai_tests contract and the existing harness/product-qa-gate-runner.mjs recomputes g7. Acceptance Tests and Publishing Gates remain authoritative.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_type",
+    "review_version",
+    "overall_status",
+    "tests",
+    "authority_flags",
+    "blocking_issues",
+    "non_blocking_issues",
+    "scope_drift",
+    "safety_issues",
+    "required_changes",
+    "missing_information"
+  ],
+  "properties": {
+    "review_type": {
+      "const": "product_acceptance_ai_qa",
+      "description": "Discriminator. The canonical Product acceptance reviewer."
+    },
+    "review_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Review contract version (mirrors AI_QA_REVIEW_VERSION)."
+    },
+    "overall_status": {
+      "enum": ["PASS", "FAIL", "REVISION_REQUIRED"],
+      "description": "Reviewer verdict (qa-standard section 5). PASS requires every test to pass."
+    },
+    "tests": {
+      "type": "array",
+      "minItems": 14,
+      "maxItems": 14,
+      "description": "The AI-owned Product acceptance tests only (A-J, M, N, Q, R). Evidence (K), clinical/safety (L), human journey (O) and deterministic ecosystem (P) results are NOT returned here - see authority_flags.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["test", "status", "severity", "finding", "evidence_location", "recommended_action"],
+        "properties": {
+          "test": {
+            "enum": [
+              "A_situation_integrity",
+              "B_scope_integrity",
+              "C_transformation_integrity",
+              "D_mechanism_integrity",
+              "E_action_integrity",
+              "F_sequence_integrity",
+              "G_first_win_integrity",
+              "H_failure_integrity",
+              "I_rescue_integrity",
+              "J_tsm_integrity",
+              "M_format_integrity",
+              "N_emotional_integrity",
+              "Q_copy_integrity",
+              "R_drift_integrity"
+            ]
+          },
+          "status": {
+            "enum": ["PASS", "FAIL", "REVISION_REQUIRED", "SOURCE_REQUIRED", "HUMAN_REVIEW"],
+            "description": "PASS | FAIL | REVISION_REQUIRED are the canonical ledger statuses. SOURCE_REQUIRED and HUMAN_REVIEW are honest non-PASS states that the harness records explicitly and never converts into PASS."
+          },
+          "severity": {
+            "enum": ["none", "BLOCKER", "MAJOR", "MINOR", "OBSERVATION"],
+            "description": "qa-standard section 4 severity model, verbatim."
+          },
+          "finding": {
+            "type": "string",
+            "minLength": 1,
+            "description": "What was observed, in terms of the supplied canonical material only."
+          },
+          "evidence_location": {
+            "type": "string",
+            "description": "Where in the supplied material the observation is anchored (field path, asset id, content section). Empty string when the test passes without a specific anchor."
+          },
+          "recommended_action": {
+            "type": "string",
+            "description": "Required correction when the status is not PASS. Empty string when passing."
+          }
+        }
+      }
+    },
+    "authority_flags": {
+      "type": "array",
+      "description": "Concerns the reviewer is NOT authorised to decide, surfaced for the owning authority (evidence/clinical/human/deterministic). The reviewer never returns a PASS for these tests and never substitutes for the owning gate. Items are advisory notes to another authority, so extra descriptive keys are tolerated; the four required keys are enforced.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["authority", "test", "severity", "finding"],
+        "properties": {
+          "authority": { "enum": ["EVIDENCE_AUTHORITY", "CLINICAL_AUTHORITY", "HUMAN_AUTHORITY", "DETERMINISTIC"] },
+          "test": { "enum": ["K_evidence_integrity", "L_safety_integrity", "O_journey_integrity", "P_ecosystem_integrity"] },
+          "severity": { "enum": ["none", "BLOCKER", "MAJOR", "MINOR", "OBSERVATION"] },
+          "finding": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "blocking_issues": { "type": "array", "items": { "type": "string" } },
+    "non_blocking_issues": { "type": "array", "items": { "type": "string" } },
+    "scope_drift": {
+      "type": "boolean",
+      "description": "qa-standard section 5: did the product change its situation definition while keeping its name (test R)."
+    },
+    "safety_issues": { "type": "array", "items": { "type": "string" } },
+    "required_changes": { "type": "array", "items": { "type": "string" } },
+    "missing_information": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Information the reviewer needed and could not find in the supplied canonical material. The reviewer must never invent it."
+    }
+  }
+}

@@ -26,11 +26,32 @@
   },
 
   "primary_critic": {
-    "provider": "xkiro",
-    "model": "mistralai/mistral-large-2512",
+    "provider": "nvidia",
+    "model": "nvidia/nemotron-3-super-120b-a12b",
     "status": "QUALIFIED_PRIMARY_CRITIC",
     "known_limitation": "missed one invented-evidence case during qualification",
-    "mitigation": "deterministic evidence/provenance checks remain authoritative over critic inference"
+    "mitigation": "deterministic evidence/provenance checks remain authoritative over critic inference",
+    "qualification_reference": {
+      "artifact": "bench/results/2026-09-12T14-47-54-197Z-results.json",
+      "task_hash": "c2eba1753b5cf477c6a7cb80bf4a6426f7462546355ccb2d03baad5793215c93",
+      "metrics": {
+        "provider_reliability": 1.0,
+        "schema_reliability": 1.0,
+        "precision": 1.0,
+        "recall": 0.875,
+        "f1": 0.933,
+        "severity_accuracy": 0.875
+      },
+      "thresholds": {
+        "provider_reliability": 1.0,
+        "schema_reliability": 1.0,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.8,
+        "severity_accuracy": 0.8
+      },
+      "note": "Resolved by harness/product-ai-qa.mjs::canonicalQualification from the repository's own immutable benchmark artifacts. Exactly one critic identity met CRITIC_ELIGIBILITY. Historical artifacts are never rewritten."
+    }
   },
 
   "premium_supervisor": {

@@ -64,3 +64,36 @@ must be visible) from **descriptive history** (what past customers reported — 
 of geography). A regional regulatory action is prescriptive where it applies and descriptive
 history everywhere else; reclassifying descriptive history as prescriptive guidance (or vice versa)
 is a safety issue.
+
+## 8 · Test ownership — who decides which acceptance test
+
+The A–R set is split by authority. The independent AI reviewer decides ONLY the AI-judgment tests;
+it never impersonates the evidence reviewer, the clinician, the human journey reviewer or the owner.
+
+| Tests | Owner | Where the result lives |
+|---|---|---|
+| A B C D E F G H I J M N Q R | AI_JUDGMENT (independent critic) | `qa.ai_tests` (written by `harness/product-ai-qa.mjs`) |
+| K evidence integrity | EVIDENCE_AUTHORITY (g4) | evidence review surface |
+| L safety integrity | CLINICAL_AUTHORITY (g5) | clinical/safety review surface |
+| O journey integrity | HUMAN_AUTHORITY (g9) | human journey review surface |
+| P ecosystem integrity | DETERMINISTIC | `harness/qa-checks.mjs` / gate runner |
+
+Consequences, by construction:
+
+- a `g7` PASS never resolves g4, g5, g9 or g10 — those gates do not read `qa.ai_tests` at all;
+- a critic observation about K/L/O/P is recorded as an **authority escalation** and blocks a g7
+  PASS from being written while the owning authority has an open BLOCKER/MAJOR;
+- non-PASS reviewer states (`SOURCE_REQUIRED`, `HUMAN_REVIEW`) are preserved in the ledger `reason`
+  and never converted into PASS.
+
+## 9 · Canonical AI-QA execution path
+
+`harness/product-ai-qa.mjs` is the canonical producer of `qa.ai_tests`
+(`node harness/product-ai-qa.mjs <PRODUCT_ID> [--live] [--write] [--replace]`; dry-run by default).
+It refuses to run without a critic that the repository's own immutable qualification artifacts
+qualify (`harness/product-ai-qa.mjs::qualificationGuard` + `bench/text-provider-bench.mjs::CRITIC_ELIGIBILITY`),
+refuses a critic identical to the generator, and never substitutes a model on provider failure.
+
+The producer does NOT decide the gate: `harness/product-qa-gate-runner.mjs` recomputes `g7` from the
+written ledger. The configured critic must always match the qualification evidence — the minimum
+invariant that prevents "config says model A while the evidence proves model B".

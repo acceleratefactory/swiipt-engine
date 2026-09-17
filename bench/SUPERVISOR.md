@@ -12,7 +12,7 @@ DeepSeek V4 Flash (generator incumbent, NVIDIA)
     ↓  Generation
 Deterministic Swiipt QA
     ↓
-Mistral Large 2512 (primary AI critic, xKiro — QUALIFIED)
+NVIDIA Nemotron 3 Super 120B A12B (primary AI critic, nvidia — QUALIFIED)
     ↓
 PASS ──────────────────────────────→ Continue
     ↓ ESCALATION CONDITION

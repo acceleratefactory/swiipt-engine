@@ -149,11 +149,25 @@ test("15. generator remains ACTIVE_INCUMBENT", () => {
 });
 
 // 16
-test("16. Mistral remains QUALIFIED_PRIMARY_CRITIC", () => {
-  assert.equal(cfg.primary_critic.provider, "xkiro");
-  assert.equal(cfg.primary_critic.model, "mistralai/mistral-large-2512");
+test("16. the canonical primary critic is the model the repository's own qualification evidence qualifies", () => {
+  assert.equal(cfg.primary_critic.provider, "nvidia");
+  assert.equal(cfg.primary_critic.model, "nvidia/nemotron-3-super-120b-a12b");
   assert.equal(cfg.primary_critic.status, "QUALIFIED_PRIMARY_CRITIC");
   assert.ok(cfg.primary_critic.known_limitation, "known limitation must stay documented");
+  // Recurrence guard (task section 33): the config must point at the immutable artifact that
+  // qualifies THIS critic, and that artifact must actually record this critic as eligible.
+  const ref = cfg.primary_critic.qualification_reference;
+  assert.ok(ref && ref.artifact, "qualification_reference.artifact is required so config can never drift from evidence");
+  const artifactPath = join(root, ref.artifact);
+  assert.ok(existsSync(artifactPath), `qualification artifact must exist: ${ref.artifact}`);
+  const doc = JSON.parse(readFileSync(artifactPath, "utf8"));
+  const rec = (doc.critics || []).find((c) => String(c.model).endsWith("nemotron-3-super-120b-a12b"));
+  assert.ok(rec, "the referenced qualification artifact must contain the configured critic");
+  assert.equal(rec.model, cfg.primary_critic.model, "configured critic must equal the critic recorded in the qualification artifact");
+  assert.equal(rec.model_identity, "OK", "qualified critic must have verified model identity");
+  assert.equal(doc.comparison.recommended_critic, cfg.primary_critic.model, "artifact must actually recommend the configured critic");
+  assert.equal(doc.task_hash, ref.task_hash, "documented task_hash must match the immutable artifact");
+  for (const [m, v] of Object.entries(ref.thresholds)) assert.ok(Number(rec[m]) >= v, `${m} must meet its frozen threshold`);
 });
 
 // 17

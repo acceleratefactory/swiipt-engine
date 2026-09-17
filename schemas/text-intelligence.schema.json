@@ -39,7 +39,20 @@
         "model": { "type": "string", "minLength": 1 },
         "status": { "enum": ["QUALIFIED_PRIMARY_CRITIC"] },
         "known_limitation": { "type": "string" },
-        "mitigation": { "type": "string" }
+        "mitigation": { "type": "string" },
+        "qualification_reference": {
+          "type": "object",
+          "description": "The immutable repository artifact that qualifies THIS critic. Prevents the recurrence of config naming model A while the qualification evidence proves model B (task section 33).",
+          "additionalProperties": false,
+          "required": ["artifact", "task_hash", "metrics", "thresholds"],
+          "properties": {
+            "artifact": { "type": "string", "minLength": 1 },
+            "task_hash": { "type": "string", "minLength": 1 },
+            "metrics": { "type": "object" },
+            "thresholds": { "type": "object" },
+            "note": { "type": "string" }
+          }
+        }
       }
     },
     "premium_supervisor": {

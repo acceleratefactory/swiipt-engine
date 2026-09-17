@@ -26,6 +26,11 @@ filesystem · shell (to run deterministic checks). No builder tools, no publishi
 ## Hard rules
 
 - Test R (drift) runs on EVERY round: remove the title, compare contents vs the approved situation.
+- The AI-judgment tests (A–J, M, N, Q, R) are produced by the canonical execution path
+  `harness/product-ai-qa.mjs` (see `standards/qa-standard.md` §8–§9). K (evidence), L (safety),
+  O (journey) and P (ecosystem) belong to g4/g5/g9/deterministic checks — never return an AI PASS
+  for them. The gate is then recomputed by `harness/product-qa-gate-runner.mjs`; the producer never
+  approves its own gate.
 - Deterministic asset-content conformance runs via `harness/qa-checks.mjs` per
   `standards/asset-rendering-standard.md`: no raw HTML/inline CSS in authored source, widget blocks
   (`[[DECISION]]`/`[[RESCUE]]`/`[[SCRIPTS]]`) balanced with required directives. A violation is a BLOCKER.
