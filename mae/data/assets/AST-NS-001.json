@@ -1,0 +1,58 @@
+{
+  "id": "AST-NS-001",
+  "class": "asset_record",
+  "asset_version": 1,
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "angle_id": "ANG-NS-001",
+  "angle_verdict": "GREEN",
+  "asset_type": "SOCIAL_STATIC",
+  "asset_role": "IDENTIFICATION",
+  "platform": "facebook",
+  "asset_purpose": "stop_scroll_identification",
+  "asset_brief_id": "BRIEF-NS-001",
+  "generation_record_id": "GEN-NS-001",
+  "qa_record_id": "QA-NS-001",
+  "visual_grounding_block_id": null,
+  "locked_phrase_set_id": "LPS-NS-001",
+  "template_version": "1.0",
+  "platform_format": "feed_square",
+  "weighting_profile": {
+    "customer": 30,
+    "brand": 25,
+    "market": 20,
+    "product": 25
+  },
+  "source_truth_refs": [
+    {
+      "type": "product_truth",
+      "ref_id": "TR-PPL-NIGHT-SHIFT-001",
+      "weight": "primary"
+    },
+    {
+      "type": "brand_truth",
+      "ref_id": "BRAND-001",
+      "weight": "primary"
+    },
+    {
+      "type": "angle",
+      "ref_id": "ANG-NS-001",
+      "weight": "primary"
+    }
+  ],
+  "family_id": "FAM-NS-001",
+  "family_role": "IDENTIFICATION",
+  "emotional_intensity": "moderate",
+  "cta_level": "moderate",
+  "content": {
+    "hook_text": "A request creates a favour. A schedule creates a default. The night does not need more goodwill. It needs an owner and a roster.",
+    "problem_text": "Nobody owns the night, so the default becomes you own all of it. Doing 100% of nights, every night, for weeks.",
+    "bold_line": "A written roster removes the emotional labour of asking — the schedule asks, not you. Gives your partner a named shift, not 'help' — a status upgrade, not charity."
+  },
+  "content_hash": "c8729fac8ccf2ea02a86c9b54f329b862d0a283fc105e39103f7064360b8ee20",
+  "status": "DRAFT",
+  "human_review_record_id": null,
+  "manual_override_record_id": null,
+  "media_artifact_ids": [],
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

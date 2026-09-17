@@ -1,0 +1,48 @@
+{
+  "id": "VG-NS-OBJ-001",
+  "class": "visual_grounding",
+  "scene": "Parent holding sleeping baby, phone with notification visible, warm lamp light, late evening",
+  "subject": "Parent holding sleeping baby, phone with notification, warm lamp light",
+  "environment": "Dim bedroom or living room, warm lamp light, late evening, realistic Nigerian home",
+  "gesture_posture": "Parent seated, holding sleeping baby, phone in other hand showing notification or message, gentle and tired but not despairing",
+  "props": {
+    "sleeping baby in arms",
+    "phone with visible notification or message",
+    "warm lamp or small light source",
+    "everyday home items in background"
+  },
+  "wardrobe": "Simple home clothes, realistic for late evening with baby",
+  "lighting": "Warm lamp light, soft and intimate, no harsh shadows",
+  "composition": "Close-up or medium shot, parent and baby central, phone visible but not dominant, warm and intimate framing",
+  "exclusions": [
+    "No distress or frustration expressions",
+    "No clinical or medical setting",
+    "No luxury or aspirational lifestyle",
+    "No symmetrical AI-face composition",
+    "No dramatic or cinematic staging",
+    "No baby facing camera directly",
+    "No fabricated product UI on phone screen"
+  ],
+  "cultural_markers": [
+    "Nigerian parent, realistic home environment",
+    "Phone as notification source, not primary focus",
+    "Warm lamp light as real evening setting",
+    "Baby held naturally, not staged"
+  ],
+  "emotional_tone": "Tender, tired, quiet — the real moment of holding a sleeping baby while the system works",
+  "detail_classes": {
+    "source_grounded": [
+      "sleeping_baby_in_arms",
+      "phone_with_notification",
+      "warm_lamp_light",
+      "late_evening_setting"
+    ],
+    "production_instruction": [
+      "phone notification should be visible but not readable (no fabricated UI)",
+      "baby should be sleeping naturally, not posed",
+      "warm lamp light should be the primary light source",
+      "intimate framing, not wide or cinematic",
+      "parent should look tired but tender, not stressed"
+    ]
+  }
+}

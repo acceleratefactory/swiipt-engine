@@ -1,0 +1,45 @@
+{
+  "id": "VG-NS-MYTH-001",
+  "class": "visual_grounding",
+  "scene": "Parents in bedroom, calm coexistence — printed schedule visible, no conflict",
+  "subject": "Two parents in bedroom, morning light, calm coexistence",
+  "environment": "Bedroom, morning light, clean and tidy, realistic Nigerian middle-class home",
+  "gesture_posture": "Parents standing near door, relaxed posture, one parent checking printed schedule on wall",
+  "props": {
+    "printed schedule on wall or fridge",
+    "small baby items in background",
+    "natural morning light"
+  },
+  "wardrobe": "Everyday casual home clothes, realistic for Nigerian parents",
+  "lighting": "Warm morning light from window, soft and natural",
+  "composition": "Two-shot of parents near the schedule, schedule visible in frame, calm and settled tone",
+  "exclusions": [
+    "No argument or conflict scene",
+    "No stressed or angry expressions",
+    "No clinical or hospital setting",
+    "No symmetrical AI-face composition",
+    "No generic stock photo family",
+    "No luxury or aspirational lifestyle",
+    "No child visible in this frame"
+  ],
+  "cultural_markers": [
+    "Nigerian parents, realistic middle-class home",
+    "Printed schedule as shared tool, not imposed by one parent",
+    "Morning routine, everyday domestic setting"
+  ],
+  "emotional_tone": "Calm, settled, cooperative — the system working without drama",
+  "detail_classes": {
+    "source_grounded": [
+      "printed_schedule_visible",
+      "morning_light",
+      "parents_near_door",
+      "calm_coexistence"
+    ],
+    "production_instruction": [
+      "schedule should be clearly readable as a printed document",
+      "no conflict or tension in body language",
+      "warm color temperature",
+      "realistic Nigerian home environment"
+    ]
+  }
+}

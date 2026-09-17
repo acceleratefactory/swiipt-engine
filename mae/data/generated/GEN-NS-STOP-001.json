@@ -1,0 +1,24 @@
+{
+  "id": "GEN-NS-STOP-001",
+  "class": "generated_asset_record",
+  "angle_id": "ANG-NS-001",
+  "brief_id": "BRIEF-NS-STOP-001",
+  "asset_type": "SOCIAL_STATIC",
+  "platform": "facebook",
+  "candidates": [
+    {
+      "id": "CAND-GEN-NS-STOP-001-001",
+      "content": {
+        "problem_text": "",
+        "bold_line": ""
+      }
+    }
+  ],
+  "generation_version": "1.0",
+  "prompt_version": "1.0",
+  "provider": "deterministic",
+  "model": "none",
+  "selected": true,
+  "status": "GENERATED",
+  "created_at": "2026-09-17T11:39:04.275Z"
+}

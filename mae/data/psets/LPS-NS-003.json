@@ -1,0 +1,20 @@
+{
+  "id": "LPS-NS-003",
+  "class": "locked_phrase_set",
+  "angle_id": "ANG-NS-003",
+  "family_id": "FAM-NS-003",
+  "phrases": [
+    "He believes helping means one nappy change.",
+    "Asking directly for help can feel like an accusation.",
+    "So you stop asking — and the default quietly becomes you own all of it.",
+    "A written roster reframes him from helper to co-manager.",
+    "A named shift, not charity.",
+    "The schedule asks, not you.",
+    "A request creates a favour. A schedule creates a default."
+  ],
+  "established_by_asset_id": "AST-NS-MYTH-001",
+  "version": 1,
+  "status": "ACTIVE",
+  "date_established": "2026-09-16T00:00:00Z",
+  "created_at": "2026-09-16T00:00:00Z"
+}

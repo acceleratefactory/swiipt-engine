@@ -1,0 +1,20 @@
+{
+  "id": "LPS-NS-002",
+  "class": "locked_phrase_set",
+  "angle_id": "ANG-NS-002",
+  "family_id": "FAM-NS-002",
+  "phrases": [
+    "The score is kept in your head.",
+    "Every uninterrupted hour he gets feels like proof your exhaustion is invisible.",
+    "Naming it makes you the difficult one.",
+    "A written roster replaces silent bookkeeping with an observable system.",
+    "The sleep banker makes the invisible exhaustion visible and tradeable.",
+    "A request creates a favour. A schedule creates a default.",
+    "Give the night a roster tonight."
+  ],
+  "established_by_asset_id": "AST-NS-PROB-001",
+  "version": 1,
+  "status": "ACTIVE",
+  "date_established": "2026-09-16T00:00:00Z",
+  "created_at": "2026-09-16T00:00:00Z"
+}

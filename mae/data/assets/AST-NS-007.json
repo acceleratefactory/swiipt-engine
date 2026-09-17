@@ -1,0 +1,61 @@
+{
+  "id": "AST-NS-007",
+  "class": "asset_record",
+  "asset_version": 1,
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "angle_id": "ANG-NS-002",
+  "angle_verdict": "GREEN",
+  "asset_type": "SOCIAL_REEL",
+  "asset_role": "PROBLEM",
+  "platform": "instagram",
+  "asset_purpose": "problem",
+  "asset_brief_id": "BRIEF-NS-007",
+  "generation_record_id": "GEN-NS-007",
+  "qa_record_id": "QA-NS-007",
+  "visual_grounding_block_id": null,
+  "locked_phrase_set_id": "LPS-NS-002",
+  "template_version": "1.0",
+  "platform_format": "reel_vertical",
+  "weighting_profile": {
+    "customer": 35,
+    "brand": 25,
+    "market": 20,
+    "product": 20
+  },
+  "source_truth_refs": [
+    {
+      "type": "product_truth",
+      "ref_id": "TR-PPL-NIGHT-SHIFT-001",
+      "weight": "primary"
+    },
+    {
+      "type": "brand_truth",
+      "ref_id": "BRAND-001",
+      "weight": "primary"
+    },
+    {
+      "type": "angle",
+      "ref_id": "ANG-NS-002",
+      "weight": "primary"
+    }
+  ],
+  "family_id": "FAM-NS-002",
+  "family_role": "PROBLEM",
+  "emotional_intensity": "high",
+  "cta_level": "low",
+  "content": {
+    "script": {
+      "opening_hook": "A request creates a favour. A schedule creates a default. The night does not need more goodwill. It needs an owner and a roster.",
+      "problem_narrative": "Every uninterrupted hour he gets feels like proof her exhaustion is invisible, and naming it makes her the difficult one. 'Can you help more?' produced a one-off gesture, not a system.",
+      "desired_change": "Nights with zero protected block become a protected block of 3+ hours on most nights. 'Whose turn' arguments drop from several times a week to once a week or less. The partner initiates his shift without being reminded.",
+      "safety_line": "This is general parenting information — not medical advice."
+    }
+  },
+  "content_hash": "f9fd2804c9e600defca7b4eac33cf70eb9145eabfedc259aa5c802dff30133c8",
+  "status": "DRAFT",
+  "human_review_record_id": null,
+  "manual_override_record_id": null,
+  "media_artifact_ids": [],
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

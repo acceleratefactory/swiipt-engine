@@ -1,0 +1,58 @@
+{
+  "id": "AST-NS-016",
+  "class": "asset_record",
+  "asset_version": 1,
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "angle_id": "ANG-NS-005",
+  "angle_verdict": "GREEN",
+  "asset_type": "GENERIC",
+  "asset_role": "OBJECTION",
+  "platform": "whatsapp",
+  "asset_purpose": "objection_handling",
+  "asset_brief_id": "BRIEF-NS-016",
+  "generation_record_id": "GEN-NS-016",
+  "qa_record_id": "QA-NS-016",
+  "visual_grounding_block_id": null,
+  "locked_phrase_set_id": "LPS-NS-005",
+  "template_version": "1.0",
+  "platform_format": "broadcast",
+  "weighting_profile": {
+    "customer": 45,
+    "brand": 35,
+    "market": 15,
+    "product": 5
+  },
+  "source_truth_refs": [
+    {
+      "type": "product_truth",
+      "ref_id": "TR-PPL-NIGHT-SHIFT-001",
+      "weight": "primary"
+    },
+    {
+      "type": "brand_truth",
+      "ref_id": "BRAND-001",
+      "weight": "primary"
+    },
+    {
+      "type": "angle",
+      "ref_id": "ANG-NS-005",
+      "weight": "primary"
+    }
+  ],
+  "family_id": "FAM-NS-005",
+  "family_role": "OBJECTION",
+  "emotional_intensity": "low",
+  "cta_level": "low",
+  "content": {
+    "hook_text": "The breastfeeding objection is real — and solvable. The contract does not pretend otherwise. It schedules a hand-off so that your protected block is real, not fictional.",
+    "problem_text": "Often still breastfeeding, so 'sleep through the night' is not simply available to her. The partner's objection ('you're breastfeeding anyway') feels unanswerable.",
+    "bold_line": "Schedules milk hand-off (a pumped bottle, or your partner brings the baby to you to feed and returns her to the crib) so the mother's protected block is physically real — not a sleep-through-the-night promise."
+  },
+  "content_hash": "d31943d2044f4ef561565a3124e7aa9fb9bb7efcdacfc15106f5852292710dd8",
+  "status": "DRAFT",
+  "human_review_record_id": null,
+  "manual_override_record_id": null,
+  "media_artifact_ids": [],
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

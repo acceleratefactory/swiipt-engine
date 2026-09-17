@@ -1,0 +1,65 @@
+{
+  "id": "ANG-NS-005",
+  "class": "marketing_angle_record",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "status": "DRAFT",
+  "created_at": "2026-09-16T00:00:00Z",
+
+  "tier1": {
+    "customer": "Breastfeeding mother, 0-12 weeks postpartum, doing 100% of night care while her partner sleeps through or is minimally involved",
+    "scene": "You wake for every feed — alone. He doesn't know what help looks like. You are breastfeeding, so 'sleep through the night' is not simply available to you.",
+    "pain": "Often still breastfeeding, so 'sleep through the night' is not simply available to her. The partner's objection ('you're breastfeeding anyway') feels unanswerable.",
+    "failed_attempt": "You believed you had no choice but to do it all — because breastfeeding means the baby comes to you, every time, and no one else can take that shift.",
+    "emotional_stake": {
+      "text": "She is not just tired — she keeps score alone. Every uninterrupted hour he gets feels like proof her exhaustion is invisible, and naming it makes her the difficult one. Rage at his calm breathing while she feeds, grief for the relationship, and fear that this is now permanent.",
+      "evidence_status": "strongly_evidenced"
+    }
+  },
+
+  "tier2": {
+    "insight": {
+      "text": "The breastfeeding objection is real — and solvable. The contract does not pretend otherwise. It schedules a hand-off so that your protected block is real, not fictional.",
+      "label": "Strategic Synthesis"
+    },
+    "mechanism": {
+      "text": "Schedules milk hand-off (a pumped bottle, or your partner brings the baby to you to feed and returns her to the crib) so the mother's protected block is physically real — not a sleep-through-the-night promise.",
+      "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001 mechanism.mechanisms[2]"
+    },
+    "desired_change": "Nights with zero protected block become a protected block of 3+ hours on most nights, even while breastfeeding. The hand-off is scheduled, not negotiated nightly. 'Whose turn' arguments drop from several times a week to once a week or less.",
+    "angle": "You are breastfeeding, so you believed you had no choice but to do it all. The breastfeeding objection is real — and solvable. The contract schedules a hand-off: a pumped bottle, or your partner brings the baby to you to feed and returns her to the crib. Your protected block is real, not fictional.",
+    "asset_purpose": "objection"
+  },
+
+  "tier3": {
+    "source_evidence": [
+      {
+        "ref_id": "TR-PPL-NIGHT-SHIFT-001",
+        "role": "product_truth",
+        "observed_frequency": "single_source",
+        "evidence_weight": "primary"
+      },
+      {
+        "ref_id": "PPL-NIGHT-SHIFT-001/landing-page.json",
+        "role": "customer_reality_signals",
+        "observed_frequency": "single_source",
+        "evidence_weight": "supporting"
+      },
+      {
+        "ref_id": "PPL-NIGHT-SHIFT-001/read-guide.md",
+        "role": "customer_reality_signals",
+        "observed_frequency": "single_source",
+        "evidence_weight": "supporting"
+      }
+    ],
+    "counter_evidence_acknowledged": "This is not baby sleep training, and it is not a substitute for medical or mental-health care. When exhaustion is more than tiredness, stop and route out.",
+    "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001",
+    "brand_truth_compliance": "PENDING_REVIEW",
+    "truth_conflict_log": []
+  },
+
+  "tags": ["postpartum", "night-care", "sleep", "breastfeeding", "objection", "hand-off"],
+  "provenance": "inference",
+  "is_fixture": false,
+  "restrictions": []
+}

@@ -1,0 +1,44 @@
+{
+  "id": "GEN-NS-006",
+  "class": "generated_asset_record",
+  "angle_id": "ANG-NS-002",
+  "brief_id": "BRIEF-NS-006",
+  "asset_type": "SOCIAL_CAROUSEL",
+  "platform": "instagram",
+  "candidates": [
+    {
+      "id": "CAND-GEN-NS-006-001",
+      "content": {
+        "slides": [
+          {
+            "text": "A request creates a favour. A schedule creates a default. The night does not need more goodwill. It needs an owner and a roster.",
+            "style": "hook"
+          },
+          {
+            "text": "Every uninterrupted hour he gets feels like proof her exhaustion is invisible, and naming it makes her the difficult one.",
+            "style": "problem"
+          },
+          {
+            "text": "A written roster replaces silent bookkeeping with an observable system. The sleep banker makes exhaustion visible and tradeable — credits and paybacks turn private resentment into a ledger both adults can see.",
+            "style": "mechanism"
+          },
+          {
+            "text": "Nights with zero protected block become a protected block of 3+ hours on most nights. 'Whose turn' arguments drop from several times a week to once a week or less. The partner initiates his shift without being reminded.",
+            "style": "desired"
+          },
+          {
+            "text": "The score is kept in your head. Every uninterrupted hour he gets feels like proof your exhaustion is invisible. Naming it makes you the difficult one. A written roster replaces silent bookkeeping with an observable system — the sleep banker makes the invisible exhaustion visible and tradeable. Give the night a roster tonight.",
+            "style": "cta"
+          }
+        ]
+      }
+    }
+  ],
+  "generation_version": "1.0",
+  "prompt_version": "1.0",
+  "provider": "deterministic",
+  "model": "none",
+  "selected": true,
+  "status": "GENERATED",
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

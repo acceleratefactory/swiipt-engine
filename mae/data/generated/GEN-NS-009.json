@@ -1,0 +1,25 @@
+{
+  "id": "GEN-NS-009",
+  "class": "generated_asset_record",
+  "angle_id": "ANG-NS-003",
+  "brief_id": "BRIEF-NS-009",
+  "asset_type": "SOCIAL_STATIC",
+  "platform": "instagram",
+  "candidates": [
+    {
+      "id": "CAND-GEN-NS-009-001",
+      "content": {
+        "hook_text": "A request creates a favour. A schedule creates a default. Giving your partner a named shift is a status upgrade, not charity.",
+        "problem_text": "Asking directly for help can feel like an accusation. The partner's one-off gesture resets the expectation: he helped once, so the default remains she owns all of it.",
+        "bold_line": "Reframes the partner from 'helper' to 'co-manager' — a status upgrade instead of a request for charity. A written roster removes the emotional labour of asking: the schedule asks, not her."
+      }
+    }
+  ],
+  "generation_version": "1.0",
+  "prompt_version": "1.0",
+  "provider": "deterministic",
+  "model": "none",
+  "selected": true,
+  "status": "GENERATED",
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

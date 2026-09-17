@@ -1,0 +1,58 @@
+{
+  "id": "AST-NS-009",
+  "class": "asset_record",
+  "asset_version": 1,
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "angle_id": "ANG-NS-003",
+  "angle_verdict": "GREEN",
+  "asset_type": "SOCIAL_STATIC",
+  "asset_role": "MYTH_REFRAME",
+  "platform": "instagram",
+  "asset_purpose": "myth_reframe",
+  "asset_brief_id": "BRIEF-NS-009",
+  "generation_record_id": "GEN-NS-009",
+  "qa_record_id": "QA-NS-009",
+  "visual_grounding_block_id": null,
+  "locked_phrase_set_id": "LPS-NS-003",
+  "template_version": "1.0",
+  "platform_format": "feed_square",
+  "weighting_profile": {
+    "customer": 30,
+    "brand": 25,
+    "market": 20,
+    "product": 25
+  },
+  "source_truth_refs": [
+    {
+      "type": "product_truth",
+      "ref_id": "TR-PPL-NIGHT-SHIFT-001",
+      "weight": "primary"
+    },
+    {
+      "type": "brand_truth",
+      "ref_id": "BRAND-001",
+      "weight": "primary"
+    },
+    {
+      "type": "angle",
+      "ref_id": "ANG-NS-003",
+      "weight": "primary"
+    }
+  ],
+  "family_id": "FAM-NS-003",
+  "family_role": "MYTH_REFRAME",
+  "emotional_intensity": "moderate",
+  "cta_level": "moderate",
+  "content": {
+    "hook_text": "A request creates a favour. A schedule creates a default. Giving your partner a named shift is a status upgrade, not charity.",
+    "problem_text": "Asking directly for help can feel like an accusation. The partner's one-off gesture resets the expectation: he helped once, so the default remains she owns all of it.",
+    "bold_line": "Reframes the partner from 'helper' to 'co-manager' — a status upgrade instead of a request for charity. A written roster removes the emotional labour of asking: the schedule asks, not her."
+  },
+  "content_hash": "fa7d66da69748e0327bac4e3ee3b0c11f9509996013f6ebcad7e5cfa86a9269f",
+  "status": "DRAFT",
+  "human_review_record_id": null,
+  "manual_override_record_id": null,
+  "media_artifact_ids": [],
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

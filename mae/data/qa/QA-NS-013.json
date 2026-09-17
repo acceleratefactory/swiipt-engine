@@ -1,0 +1,123 @@
+{
+  "id": "QA-NS-013",
+  "class": "qa_record",
+  "asset_id": "AST-NS-013",
+  "angle_id": "ANG-NS-004",
+  "brief_id": "BRIEF-NS-013",
+  "gates": [
+    {
+      "gate": "GATE_1_ANTI_SLOP",
+      "input_ref": "AST-NS-013",
+      "result": "PASS",
+      "reason": null,
+      "remediation": null,
+      "traceability": {
+        "check": "anti_slop_pattern",
+        "sub_checks": [
+          "no_ai_filler",
+          "no_generic_claims",
+          "no_hype_language"
+        ]
+      }
+    },
+    {
+      "gate": "GATE_2_INTERCHANGEABILITY",
+      "input_ref": "AST-NS-013",
+      "result": "PASS",
+      "reason": null,
+      "remediation": null,
+      "traceability": {
+        "check": "interchangeability",
+        "sub_checks": [
+          "unique_hook",
+          "specific_reference",
+          "not_swappable"
+        ]
+      }
+    },
+    {
+      "gate": "GATE_3_PLATFORM_FITNESS",
+      "input_ref": "AST-NS-013",
+      "result": "PASS",
+      "reason": null,
+      "remediation": null,
+      "traceability": {
+        "check": "platform_fitness",
+        "sub_checks": [
+          "format_correct",
+          "length_appropriate",
+          "no_prohibited_elements"
+        ]
+      }
+    },
+    {
+      "gate": "GATE_4_BRAND_CULTURAL",
+      "input_ref": "AST-NS-013",
+      "result": "PASS",
+      "reason": null,
+      "remediation": null,
+      "traceability": {
+        "check": "brand_cultural",
+        "sub_checks": [
+          "voice_dna_match",
+          "no_brand_boundary_violations",
+          "cultural_sensitivity"
+        ]
+      }
+    },
+    {
+      "gate": "GATE_5_TRUTH_COMPLIANCE",
+      "input_ref": "AST-NS-013",
+      "result": "PASS",
+      "reason": null,
+      "remediation": null,
+      "traceability": {
+        "check": "truth_compliance",
+        "sub_checks": [
+          "product_truth_alignment",
+          "claims_scope_honest",
+          "no_forbidden_phrases"
+        ]
+      }
+    },
+    {
+      "gate": "GATE_6_CONSISTENCY_LOCK",
+      "input_ref": "AST-NS-013",
+      "result": "PASS",
+      "reason": null,
+      "remediation": null,
+      "traceability": {
+        "check": "consistency_lock",
+        "sub_checks": [
+          "locked_phrases_used",
+          "no_contradictions",
+          "family_consistency"
+        ]
+      }
+    },
+    {
+      "gate": "GATE_7_HUMAN_REVIEW",
+      "input_ref": "AST-NS-013",
+      "result": "NOT_TRIGGERED",
+      "reason": "Automated pre-review passed; human review pending",
+      "remediation": null,
+      "traceability": {
+        "check": "human_review",
+        "sub_checks": [
+          "automated_screening"
+        ]
+      }
+    }
+  ],
+  "overall": "PASS",
+  "severity": "none",
+  "qa_status": "QA_PENDING",
+  "traceability": {
+    "checks_run": 7,
+    "checks_passed": 6,
+    "checks_flagged": 0,
+    "checks_not_triggered": 1,
+    "overall_result": "PASS"
+  },
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

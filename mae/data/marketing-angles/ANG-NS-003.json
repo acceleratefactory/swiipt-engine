@@ -1,0 +1,65 @@
+{
+  "id": "ANG-NS-003",
+  "class": "marketing_angle_record",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "status": "DRAFT",
+  "created_at": "2026-09-16T00:00:00Z",
+
+  "tier1": {
+    "customer": "Breastfeeding or formula-feeding mother, 0-12 weeks postpartum, doing 100% of night care while her partner sleeps through or is minimally involved",
+    "scene": "'Can you help more?' produced a one-off gesture, not a system. He believes helping means one nappy change.",
+    "pain": "Asking directly for help can feel like an accusation. The partner's one-off gesture resets the expectation: he helped once, so the default remains she owns all of it.",
+    "failed_attempt": "Asking directly for help can feel like an accusation — so she stops asking, and the default quietly becomes she owns all of it.",
+    "emotional_stake": {
+      "text": "Rage at his calm breathing while she feeds; grief for the relationship; and fear that this is now permanent. She stops asking because naming it makes her the difficult one.",
+      "evidence_status": "strongly_evidenced"
+    }
+  },
+
+  "tier2": {
+    "insight": {
+      "text": "A request creates a favour. A schedule creates a default. Giving your partner a named shift is a status upgrade, not charity.",
+      "label": "Strategic Synthesis"
+    },
+    "mechanism": {
+      "text": "Reframes the partner from 'helper' to 'co-manager' — a status upgrade instead of a request for charity. A written roster removes the emotional labour of asking: the schedule asks, not her.",
+      "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001 mechanism.mechanisms[1], mechanism.mechanisms[0]"
+    },
+    "desired_change": "Nights with zero protected block become a protected block of 3+ hours on most nights. 'Whose turn' arguments drop from several times a week to once a week or less. The partner initiates his shift without being reminded.",
+    "angle": "He believes helping means one nappy change. Asking directly for help can feel like an accusation, so you stop asking — and the default quietly becomes you own all of it. A written roster reframes him from helper to co-manager: a named shift, not charity. The schedule asks, not you.",
+    "asset_purpose": "myth_reframe"
+  },
+
+  "tier3": {
+    "source_evidence": [
+      {
+        "ref_id": "TR-PPL-NIGHT-SHIFT-001",
+        "role": "product_truth",
+        "observed_frequency": "single_source",
+        "evidence_weight": "primary"
+      },
+      {
+        "ref_id": "PPL-NIGHT-SHIFT-001/landing-page.json",
+        "role": "customer_reality_signals",
+        "observed_frequency": "single_source",
+        "evidence_weight": "supporting"
+      },
+      {
+        "ref_id": "PPL-NIGHT-SHIFT-001/read-guide.md",
+        "role": "customer_reality_signals",
+        "observed_frequency": "single_source",
+        "evidence_weight": "supporting"
+      }
+    ],
+    "counter_evidence_acknowledged": "This is not baby sleep training, and it is not a substitute for medical or mental-health care. When exhaustion is more than tiredness, stop and route out.",
+    "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001",
+    "brand_truth_compliance": "PENDING_REVIEW",
+    "truth_conflict_log": []
+  },
+
+  "tags": ["postpartum", "night-care", "sleep", "partner-resistance", "myth-reframe", "co-manager"],
+  "provenance": "inference",
+  "is_fixture": false,
+  "restrictions": []
+}

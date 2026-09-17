@@ -1,0 +1,25 @@
+{
+  "id": "GEN-NS-003",
+  "class": "generated_asset_record",
+  "angle_id": "ANG-NS-001",
+  "brief_id": "BRIEF-NS-003",
+  "asset_type": "GENERIC",
+  "platform": "whatsapp",
+  "candidates": [
+    {
+      "id": "CAND-GEN-NS-003-001",
+      "content": {
+        "hook_text": "A request creates a favour. A schedule creates a default. The night does not need more goodwill. It needs an owner and a roster.",
+        "problem_text": "Nobody owns the night, so the default becomes you own all of it. Doing 100% of nights, every night, for weeks.",
+        "bold_line": "A written roster removes the emotional labour of asking — the schedule asks, not you. Gives your partner a named shift, not 'help' — a status upgrade, not charity."
+      }
+    }
+  ],
+  "generation_version": "1.0",
+  "prompt_version": "1.0",
+  "provider": "deterministic",
+  "model": "none",
+  "selected": true,
+  "status": "GENERATED",
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

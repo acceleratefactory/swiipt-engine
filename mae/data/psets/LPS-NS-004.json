@@ -1,0 +1,20 @@
+{
+  "id": "LPS-NS-004",
+  "class": "locked_phrase_set",
+  "angle_id": "ANG-NS-004",
+  "family_id": "FAM-NS-004",
+  "phrases": [
+    "Nobody helps you; you are all by yourself.",
+    "Cultural norms assign night care to the mother by default.",
+    "There is no agreed system — so every night is renegotiated by exhaustion.",
+    "A roster does not require a partner.",
+    "It requires a named shift and a named person to cover it.",
+    "Build a support web, not a marriage contract.",
+    "Give the night a schedule tonight."
+  ],
+  "established_by_asset_id": "AST-NS-STORY-001",
+  "version": 1,
+  "status": "ACTIVE",
+  "date_established": "2026-09-16T00:00:00Z",
+  "created_at": "2026-09-16T00:00:00Z"
+}

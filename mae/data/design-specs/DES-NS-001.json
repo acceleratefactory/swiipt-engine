@@ -1,0 +1,56 @@
+{
+  "design_id": "DES-NS-001",
+  "design_version": "1.0",
+  "angle_id": "ANG-NS-001",
+  "angle_verdict": "GREEN",
+  "asset_brief_id": "BRIEF-NS-001",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "asset_family_id": "FAM-NS-001",
+  "asset_type": "SOCIAL_STATIC",
+  "asset_purpose": "STOP_SCROLL",
+  "content_pattern": "STATEMENT",
+  "layout_family": "TYPE_DOMINANT",
+  "platform": "instagram",
+  "placement": "feed",
+  "platform_format": "FEED_SQUARE",
+  "canvas": { "width": 1080, "height": 1080, "aspect_ratio": "1:1", "px_density": 72 },
+  "safe_zones": { "top": 120, "bottom": 120, "left": 80, "right": 80 },
+  "copy_blocks": [
+    { "role": "headline", "text": "You are not lazy. You are carrying the entire night alone.", "source_ref": "ANG-NS-001.tier2.angle" },
+    { "role": "supporting_line", "text": "One schedule changes everything.", "source_ref": "ANG-NS-001.tier2.desired_change" },
+    { "role": "cta", "text": "See how", "source_ref": null }
+  ],
+  "typography_roles": [
+    { "role": "headline", "scale": 48, "weight": 700, "line_height": 1.2, "alignment": "LEFT", "max_width": 800 },
+    { "role": "supporting_line", "scale": 24, "weight": 400, "line_height": 1.4, "alignment": "LEFT", "max_width": 700 },
+    { "role": "cta", "scale": 18, "weight": 600, "line_height": 1.0, "alignment": "LEFT", "max_width": 300 }
+  ],
+  "brand_tokens_version": "BRAND-001",
+  "logo_policy": { "position": "bottom-right", "size": "small", "opacity": 0.7 },
+  "cta_policy": { "required": true, "copy_role": "cta", "placement": "bottom-left", "prominence": "secondary" },
+  "background_policy": { "kind": "solid" },
+  "truth_requirements": { "weighting_profile": "social_static", "truth_refs": ["TRUTH-PRODUCT", "TRUTH-CUSTOMER"] },
+  "hierarchy": ["headline", "supporting_line", "cta"],
+  "alignment": "LEFT",
+  "spacing": { "class": "STANDARD" },
+  "density": "STANDARD",
+  "accessibility": { "min_type_size": 18, "contrast_floor": 4.5, "alt_text": "Text graphic: You are not lazy. You are carrying the entire night alone. One schedule changes everything." },
+  "export_format": ["png"],
+  "production_mode": "DETERMINISTIC_TYPE_ONLY",
+  "source_classification": {
+    "source_grounded": ["headline_from_angle", "supporting_line_from_angle", "platform_specs_from_brand"],
+    "production_instruction": ["type_dominant_layout", "solid_background", "brand_color_palette"]
+  },
+  "prohibited_elements": ["stock_photos", "AI_generated_faces", "gradient_blobs", "floating_mockups", "emoji_overload", "fake_testimonials", "clinical_imagery"],
+  "required_elements": ["brand_color_background", "clear_headline_hierarchy", "single_CTA"],
+  "provenance": {
+    "angle_id": "ANG-NS-001",
+    "asset_brief_id": "BRIEF-NS-001",
+    "truth_refs": ["TRUTH-PRODUCT", "TRUTH-CUSTOMER"],
+    "copy_refs": ["BRIEF-NS-001.content_grounding"],
+    "evidence_refs": ["ANG-NS-001.tier3.source_evidence"],
+    "source_media_refs": [],
+    "brand_tokens_version": "BRAND-001"
+  }
+}

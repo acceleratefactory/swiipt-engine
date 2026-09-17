@@ -1,0 +1,215 @@
+{
+  "id": "SEQ-NS-001",
+  "class": "sequence_record",
+  "campaign_id": "CAMP-NS-001",
+  "sequence_type": "LAUNCH",
+  "audience_state": "postpartum-mother-0-12-weeks-night-care",
+  "objective": "Introduce the night-shift problem, build emotional recognition, present the roster mechanism, handle objections, and drive purchase through a structured multi-platform sequence.",
+  "entry_conditions": [
+    "audience matches postpartum mother 0-12 weeks",
+    "audience doing 100% of night care",
+    "audience has not yet purchased PPL-NIGHT-SHIFT-001"
+  ],
+  "exit_conditions": [
+    "audience has purchased PPL-NIGHT-SHIFT-001",
+    "audience has opted out of marketing",
+    "campaign window has expired"
+  ],
+  "items": [
+    {
+      "position": 1,
+      "asset_id": "AST-NS-STOP-001",
+      "family_id": "FAM-NS-001",
+      "role": "STOP_SCROLL_IDENTIFICATION",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 2,
+      "asset_id": "AST-NS-001",
+      "family_id": "FAM-NS-001",
+      "role": "IDENTIFICATION",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 3,
+      "asset_id": "AST-NS-002",
+      "family_id": "FAM-NS-001",
+      "role": "IDENTIFICATION",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 4,
+      "asset_id": "AST-NS-003",
+      "family_id": "FAM-NS-001",
+      "role": "IDENTIFICATION",
+      "cta_level": "low",
+      "emotional_intensity": "low",
+      "proof_type": null
+    },
+    {
+      "position": 5,
+      "asset_id": "AST-NS-PROB-001",
+      "family_id": "FAM-NS-002",
+      "role": "PROBLEM",
+      "cta_level": "low",
+      "emotional_intensity": "high",
+      "proof_type": null
+    },
+    {
+      "position": 6,
+      "asset_id": "AST-NS-004",
+      "family_id": "FAM-NS-002",
+      "role": "PROBLEM",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 7,
+      "asset_id": "AST-NS-005",
+      "family_id": "FAM-NS-002",
+      "role": "PROBLEM",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 8,
+      "asset_id": "AST-NS-006",
+      "family_id": "FAM-NS-002",
+      "role": "PROBLEM",
+      "cta_level": "moderate",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 9,
+      "asset_id": "AST-NS-007",
+      "family_id": "FAM-NS-002",
+      "role": "PROBLEM",
+      "cta_level": "moderate",
+      "emotional_intensity": "high",
+      "proof_type": null
+    },
+    {
+      "position": 10,
+      "asset_id": "AST-NS-MYTH-001",
+      "family_id": "FAM-NS-003",
+      "role": "MYTH_REFRAME",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 11,
+      "asset_id": "AST-NS-008",
+      "family_id": "FAM-NS-003",
+      "role": "MYTH_REFRAME",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 12,
+      "asset_id": "AST-NS-009",
+      "family_id": "FAM-NS-003",
+      "role": "MYTH_REFRAME",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 13,
+      "asset_id": "AST-NS-010",
+      "family_id": "FAM-NS-003",
+      "role": "MYTH_REFRAME",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 14,
+      "asset_id": "AST-NS-STORY-001",
+      "family_id": "FAM-NS-004",
+      "role": "STORY",
+      "cta_level": "low",
+      "emotional_intensity": "high",
+      "proof_type": null
+    },
+    {
+      "position": 15,
+      "asset_id": "AST-NS-011",
+      "family_id": "FAM-NS-004",
+      "role": "STORY",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 16,
+      "asset_id": "AST-NS-012",
+      "family_id": "FAM-NS-004",
+      "role": "STORY",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 17,
+      "asset_id": "AST-NS-013",
+      "family_id": "FAM-NS-004",
+      "role": "STORY",
+      "cta_level": "moderate",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 18,
+      "asset_id": "AST-NS-OBJ-001",
+      "family_id": "FAM-NS-005",
+      "role": "OBJECTION",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 19,
+      "asset_id": "AST-NS-014",
+      "family_id": "FAM-NS-005",
+      "role": "OBJECTION",
+      "cta_level": "low",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 20,
+      "asset_id": "AST-NS-015",
+      "family_id": "FAM-NS-005",
+      "role": "OBJECTION",
+      "cta_level": "moderate",
+      "emotional_intensity": "moderate",
+      "proof_type": null
+    },
+    {
+      "position": 21,
+      "asset_id": "AST-NS-016",
+      "family_id": "FAM-NS-005",
+      "role": "OBJECTION",
+      "cta_level": "high",
+      "emotional_intensity": "low",
+      "proof_type": null
+    }
+  ],
+  "gap_request_ids": [],
+  "sequence_qa": null,
+  "status": "READY",
+  "created_at": "2026-09-17T00:00:00Z",
+  "updated_at": null,
+  "state_history": []
+}

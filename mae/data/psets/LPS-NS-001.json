@@ -1,0 +1,20 @@
+{
+  "id": "LPS-NS-001",
+  "class": "locked_phrase_set",
+  "angle_id": "ANG-NS-001",
+  "family_id": "FAM-NS-001",
+  "phrases": [
+    "The night has no owner.",
+    "You wake for every feed — alone.",
+    "'Can you help more?' produced a one-off gesture, not a system.",
+    "A request creates a favour. A schedule creates a default.",
+    "The night does not need more goodwill. It needs an owner and a roster.",
+    "A written roster removes the emotional labour of asking — the schedule asks, not you.",
+    "Give the night a roster tonight."
+  ],
+  "established_by_asset_id": "AST-NS-STOP-001",
+  "version": 1,
+  "status": "ACTIVE",
+  "date_established": "2026-09-16T00:00:00Z",
+  "created_at": "2026-09-16T00:00:00Z"
+}

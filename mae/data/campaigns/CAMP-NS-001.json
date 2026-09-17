@@ -1,0 +1,35 @@
+{
+  "id": "CAMP-NS-001",
+  "class": "campaign_record",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "objective": "Launch V06 'Every Night, Just Me' to postpartum mothers doing 100% of night care, driving awareness → understanding → purchase through a multi-platform asset sequence across 5 angle families.",
+  "audience_states": [
+    "postpartum-mother-0-12-weeks-night-care",
+    "postpartum-mother-exhausted-resentful-partner",
+    "postpartum-mother-seeking-night-system"
+  ],
+  "sequence_ids": [
+    "SEQ-NS-001"
+  ],
+  "window": null,
+  "offer": {
+    "product_id": "PPL-NIGHT-SHIFT-001",
+    "type": "direct_purchase",
+    "price_display": "geo_aware",
+    "membership_discount": true
+  },
+  "kpi_set": [
+    "stop_scroll_rate",
+    "click_through_rate",
+    "landing_page_view_rate",
+    "add_to_cart_rate",
+    "purchase_conversion_rate",
+    "cost_per_acquisition"
+  ],
+  "gap_request_ids": [],
+  "campaign_qa": null,
+  "status": "ASSEMBLED",
+  "created_at": "2026-09-17T00:00:00Z",
+  "updated_at": null,
+  "state_history": []
+}

@@ -1,0 +1,64 @@
+{
+  "id": "VG-NS-STOP-001",
+  "class": "visual_grounding",
+  "scene": "Tired new parent caught mid-scroll at 2am, phone screen reflecting on face",
+  "environment": "Dimly lit bedroom at night. Baby bassinet or cot visible at edge of frame. Scattered feeding supplies and baby items on nightstand.",
+  "subject": "Nigerian woman in her late 20s or early 30s, visibly tired but relatable. Not styled — real postpartum body, natural hair or simple wrap.",
+  "gesture_posture": "Propped against pillows or sitting on edge of bed, phone held in one hand. Eyes half-closed, face catching blue screen light. One hand possibly near face — not posed, just caught.",
+  "props": [
+    "Phone with screen lit",
+    "Baby bassinet or cot",
+    "Feeding supplies on nightstand",
+    "Scattered baby items",
+    "Nursing pillow or blanket"
+  ],
+  "wardrobe": "Nursing bra or tank top, oversized t-shirt or night gown. Not styled for camera.",
+  "lighting": "Phone screen as key practical light on face. Warm bedside lamp or nightlight as fill. Deep shadows elsewhere. Night scene.",
+  "cultural_markers": [
+    "West African features",
+    "Relatable postpartum home setting",
+    "Not aspirational interior — real lived space",
+    "Baby items reflect actual newborn needs"
+  ],
+  "emotional_tone": "Exhaustion mixed with quiet frustration. Not crying, not smiling — just tired and scrolling.",
+  "composition": "Close-up or medium close-up. Phone screen light on face is focal point. Shallow depth of field on background items. Rule of thirds — face left or right, bassinet at opposite edge.",
+  "exclusions": [
+    "No stock-photo smile",
+    "No perfectly styled nursery",
+    "No clinical hospital setting",
+    "No symmetrical AI face",
+    "No gradient blobs or floating mockups",
+    "No generic stock composition",
+    "No mixed icon families",
+    "No Canva/Headspace/hospital-portal aesthetic",
+    "No text overlay in the image itself",
+    "No gamification implied for sensitive subjects",
+    "No fear-mongering or shame framing"
+  ],
+  "detail_classes": {
+    "scene": "source_grounded",
+    "environment": "source_grounded",
+    "subject": "source_grounded",
+    "gesture_posture": "production_instruction",
+    "props": "source_grounded",
+    "wardrobe": "production_instruction",
+    "lighting": "production_instruction",
+    "cultural_markers": "source_grounded",
+    "emotional_tone": "source_grounded",
+    "composition": "production_instruction"
+  },
+  "provenance": {
+    "angle_id": "ANG-NS-001",
+    "customer_truth_refs": [
+      "TR-PPL-NIGHT-SHIFT-001::signals.reality",
+      "copy/read-guide.md::night-shift-experience"
+    ],
+    "product_truth_refs": [
+      "TR-PPL-NIGHT-SHIFT-001::mechanism.core_mechanism"
+    ],
+    "brand_truth_version": "BRAND-001",
+    "platform": null,
+    "asset_purpose": "stop_scroll_identification",
+    "derivation": "Customer truth: new parents scroll at 2am when baby sleeps. Visual shows the moment before seeking help."
+  }
+}

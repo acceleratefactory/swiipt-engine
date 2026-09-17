@@ -1,0 +1,60 @@
+{
+  "design_id": "DES-NS-010",
+  "design_version": 1,
+  "angle_id": "ANG-NS-004",
+  "angle_verdict": "GREEN",
+  "asset_brief_id": "BRIEF-NS-013",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "asset_type": "SOCIAL_CAROUSEL",
+  "asset_purpose": "story",
+  "content_pattern": "narrative",
+  "layout_family": "CARD_SEQUENCE",
+  "platform": "instagram",
+  "placement": "feed",
+  "platform_format": "1080x1080",
+  "canvas": { "width": 1080, "height": 1080 },
+  "safe_zones": { "top": 120, "bottom": 120, "left": 80, "right": 80 },
+  "copy_blocks": {
+    "slide_1_hook": { "text": "She has no partner to negotiate with. The roster still works.", "role": "primary_headline", "max_chars": 70, "slide": 1 },
+    "slide_2_reality": { "text": "Single parents do not have the luxury of 'discussing' who wakes up. The baby wakes. Someone must get up.", "role": "body_text", "max_chars": 130, "slide": 2 },
+    "slide_3_roster": { "text": "The roster adapted for one: named blocks, not negotiations. Predictable. No Resentment.", "role": "body_text", "max_chars": 110, "slide": 3 },
+    "slide_4_support": { "text": "Support web: who can you call on the hard nights? A roster names them too.", "role": "body_text", "max_chars": 100, "slide": 4 },
+    "slide_5_outcome": { "text": "Predictability is the outcome. Not a perfect baby. Not a full night. Just a plan.", "role": "secondary_headline", "max_chars": 100, "slide": 5 },
+    "cta": { "text": "See the system", "role": "call_to_action", "max_chars": 30, "slide": 5 }
+  },
+  "typography_roles": {
+    "primary_headline": { "font_weight": "700", "font_size_px": 42, "line_height": 1.2, "color": "#FFFFFF", "position": "top_third" },
+    "body_text": { "font_weight": "400", "font_size_px": 24, "line_height": 1.5, "color": "#D4D4D4", "position": "middle" },
+    "secondary_headline": { "font_weight": "600", "font_size_px": 28, "line_height": 1.3, "color": "#F4A261", "position": "middle_lower" },
+    "call_to_action": { "font_weight": "600", "font_size_px": 18, "line_height": 1.4, "color": "#F4A261", "position": "bottom_third" }
+  },
+  "brand_tokens_version": "BRAND-001",
+  "logo_policy": { "position": "bottom_right", "clearance_px": 40, "opacity": 0.8 },
+  "cta_policy": { "style": "text_only", "color": "#F4A261", "no_button_background": true },
+  "background_policy": { "style": "solid_color", "color": "#1A1A2E", "no_gradient": true, "no_stock_photo": true },
+  "truth_requirements": {
+    "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001",
+    "evidence_status": "strongly_evidenced",
+    "no_unsupported_claims": true
+  },
+  "hierarchy": ["primary_headline", "body_text", "secondary_headline", "call_to_action"],
+  "alignment": { "horizontal": "left", "vertical": "center" },
+  "spacing": { "block_gap_px": 32, "section_padding_px": 48 },
+  "density": "medium",
+  "accessibility": { "min_contrast_ratio": 4.5, "text_not_on_busy_background": true },
+  "export_format": "PNG",
+  "production_mode": "TEMPLATE_DRIVEN",
+  "source_classification": "EVIDENCE_GROUNDED",
+  "prohibited_elements": ["gradient_blobs", "stock_photos", "floating_mockups", "emoji", "ALL_CAPS_BODY", "pity_framing"],
+  "required_elements": ["brand_logo", "hook_text", "slide_numbers", "cta_text"],
+  "carousel_config": {
+    "total_slides": 5,
+    "slide_order": ["slide_1_hook", "slide_2_reality", "slide_3_roster", "slide_4_support", "slide_5_outcome"],
+    "swipe_indicator": true,
+    "slide_counter_position": "bottom_right"
+  },
+  "provenance": "evidence_backed",
+  "status": "APPROVED",
+  "created_at": "2026-09-11T00:00:00Z"
+}

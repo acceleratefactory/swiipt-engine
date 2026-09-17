@@ -1,0 +1,58 @@
+{
+  "design_id": "DES-NS-004",
+  "design_version": 1,
+  "angle_id": "ANG-NS-002",
+  "angle_verdict": "GREEN",
+  "asset_brief_id": "BRIEF-NS-006",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "asset_type": "SOCIAL_CAROUSEL",
+  "asset_purpose": "problem",
+  "content_pattern": "narrative",
+  "layout_family": "CARD_SEQUENCE",
+  "platform": "instagram",
+  "placement": "feed",
+  "platform_format": "1080x1080",
+  "canvas": { "width": 1080, "height": 1080 },
+  "safe_zones": { "top": 120, "bottom": 120, "left": 80, "right": 80 },
+  "copy_blocks": {
+    "slide_1_hook": { "text": "The real cost of the night argument is not the lost sleep.", "role": "primary_headline", "max_chars": 80, "slide": 1 },
+    "slide_2_spiral": { "text": "One parent wakes. The other sleeps through it. By morning, neither feels seen. The resentment spirals.", "role": "body_text", "max_chars": 140, "slide": 2 },
+    "slide_3_repeat": { "text": "This repeats every night because there is no system — just two exhausted people making promises in the dark.", "role": "body_text", "max_chars": 130, "slide": 3 },
+    "slide_4_shift": { "text": "A roster does not fix the exhaustion. It fixes the resentment. That is the real difference.", "role": "body_text", "max_chars": 110, "slide": 4 },
+    "cta": { "text": "See the system that ends the argument", "role": "call_to_action", "max_chars": 50, "slide": 4 }
+  },
+  "typography_roles": {
+    "primary_headline": { "font_weight": "700", "font_size_px": 42, "line_height": 1.2, "color": "#FFFFFF", "position": "top_third" },
+    "body_text": { "font_weight": "400", "font_size_px": 24, "line_height": 1.5, "color": "#D4D4D4", "position": "middle" },
+    "call_to_action": { "font_weight": "600", "font_size_px": 18, "line_height": 1.4, "color": "#F4A261", "position": "bottom_third" }
+  },
+  "brand_tokens_version": "BRAND-001",
+  "logo_policy": { "position": "bottom_right", "clearance_px": 40, "opacity": 0.8 },
+  "cta_policy": { "style": "text_only", "color": "#F4A261", "no_button_background": true },
+  "background_policy": { "style": "solid_color", "color": "#1A1A2E", "no_gradient": true, "no_stock_photo": true },
+  "truth_requirements": {
+    "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001",
+    "evidence_status": "directly_stated",
+    "no_unsupported_claims": true
+  },
+  "hierarchy": ["primary_headline", "body_text", "call_to_action"],
+  "alignment": { "horizontal": "left", "vertical": "center" },
+  "spacing": { "block_gap_px": 32, "section_padding_px": 48 },
+  "density": "medium",
+  "accessibility": { "min_contrast_ratio": 4.5, "text_not_on_busy_background": true },
+  "export_format": "PNG",
+  "production_mode": "TEMPLATE_DRIVEN",
+  "source_classification": "EVIDENCE_GROUNDED",
+  "prohibited_elements": ["gradient_blobs", "stock_photos", "floating_mockups", "emoji", "ALL_CAPS_BODY"],
+  "required_elements": ["brand_logo", "hook_text", "slide_numbers", "cta_text"],
+  "carousel_config": {
+    "total_slides": 4,
+    "slide_order": ["slide_1_hook", "slide_2_spiral", "slide_3_repeat", "slide_4_shift"],
+    "swipe_indicator": true,
+    "slide_counter_position": "bottom_right"
+  },
+  "provenance": "evidence_backed",
+  "status": "APPROVED",
+  "created_at": "2026-09-11T00:00:00Z"
+}

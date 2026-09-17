@@ -1,0 +1,58 @@
+{
+  "id": "AST-NS-004",
+  "class": "asset_record",
+  "asset_version": 1,
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "angle_id": "ANG-NS-002",
+  "angle_verdict": "GREEN",
+  "asset_type": "SOCIAL_STATIC",
+  "asset_role": "PROBLEM",
+  "platform": "facebook",
+  "asset_purpose": "problem",
+  "asset_brief_id": "BRIEF-NS-004",
+  "generation_record_id": "GEN-NS-004",
+  "qa_record_id": "QA-NS-004",
+  "visual_grounding_block_id": null,
+  "locked_phrase_set_id": "LPS-NS-002",
+  "template_version": "1.0",
+  "platform_format": "feed_square",
+  "weighting_profile": {
+    "customer": 30,
+    "brand": 25,
+    "market": 20,
+    "product": 25
+  },
+  "source_truth_refs": [
+    {
+      "type": "product_truth",
+      "ref_id": "TR-PPL-NIGHT-SHIFT-001",
+      "weight": "primary"
+    },
+    {
+      "type": "brand_truth",
+      "ref_id": "BRAND-001",
+      "weight": "primary"
+    },
+    {
+      "type": "angle",
+      "ref_id": "ANG-NS-002",
+      "weight": "primary"
+    }
+  ],
+  "family_id": "FAM-NS-002",
+  "family_role": "PROBLEM",
+  "emotional_intensity": "moderate",
+  "cta_level": "moderate",
+  "content": {
+    "hook_text": "A request creates a favour. A schedule creates a default. The night does not need more goodwill. It needs an owner and a roster.",
+    "problem_text": "Every uninterrupted hour he gets feels like proof her exhaustion is invisible, and naming it makes her the difficult one.",
+    "bold_line": "A written roster replaces silent bookkeeping with an observable system. The sleep banker makes exhaustion visible and tradeable — credits and paybacks turn private resentment into a ledger both adults can see."
+  },
+  "content_hash": "59318fa6bd6400c888828bcc8813298159838d0cc3350940233f28354422374a",
+  "status": "DRAFT",
+  "human_review_record_id": null,
+  "manual_override_record_id": null,
+  "media_artifact_ids": [],
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

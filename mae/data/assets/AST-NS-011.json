@@ -1,0 +1,58 @@
+{
+  "id": "AST-NS-011",
+  "class": "asset_record",
+  "asset_version": 1,
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "angle_id": "ANG-NS-004",
+  "angle_verdict": "GREEN",
+  "asset_type": "SOCIAL_STATIC",
+  "asset_role": "STORY",
+  "platform": "facebook",
+  "asset_purpose": "story_sequence",
+  "asset_brief_id": "BRIEF-NS-011",
+  "generation_record_id": "GEN-NS-011",
+  "qa_record_id": "QA-NS-011",
+  "visual_grounding_block_id": null,
+  "locked_phrase_set_id": "LPS-NS-004",
+  "template_version": "1.0",
+  "platform_format": "feed_square",
+  "weighting_profile": {
+    "customer": 30,
+    "brand": 25,
+    "market": 20,
+    "product": 25
+  },
+  "source_truth_refs": [
+    {
+      "type": "product_truth",
+      "ref_id": "TR-PPL-NIGHT-SHIFT-001",
+      "weight": "primary"
+    },
+    {
+      "type": "brand_truth",
+      "ref_id": "BRAND-001",
+      "weight": "primary"
+    },
+    {
+      "type": "angle",
+      "ref_id": "ANG-NS-004",
+      "weight": "primary"
+    }
+  ],
+  "family_id": "FAM-NS-004",
+  "family_role": "STORY",
+  "emotional_intensity": "moderate",
+  "cta_level": "moderate",
+  "content": {
+    "hook_text": "A roster does not require a partner. It requires a named shift and a named person to cover it — a support web, not a marriage contract. The night still needs an owner and a schedule.",
+    "problem_text": "Nobody owns the night, so the default becomes she owns all of it. Doing 100% of nights, every night, for weeks — with no partner shift to hand off to.",
+    "bold_line": "Schedules a support-web roster — named shifts for family, friends, or paid help — so the mother's protected block is physically real. A sleep banker makes exhaustion visible and tradeable even without a partner."
+  },
+  "content_hash": "9942058ab0aab470cf4907865128ce611d6837590758cd7586cf29253851f719",
+  "status": "DRAFT",
+  "human_review_record_id": null,
+  "manual_override_record_id": null,
+  "media_artifact_ids": [],
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

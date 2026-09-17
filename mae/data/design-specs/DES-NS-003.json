@@ -1,0 +1,50 @@
+{
+  "design_id": "DES-NS-003",
+  "design_version": 1,
+  "angle_id": "ANG-NS-002",
+  "angle_verdict": "GREEN",
+  "asset_brief_id": "BRIEF-NS-005",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "asset_type": "SOCIAL_STATIC",
+  "asset_purpose": "problem",
+  "content_pattern": "statement",
+  "layout_family": "TYPE_DOMINANT",
+  "platform": "instagram",
+  "placement": "feed",
+  "platform_format": "1080x1080",
+  "canvas": { "width": 1080, "height": 1080 },
+  "safe_zones": { "top": 120, "bottom": 120, "left": 80, "right": 80 },
+  "copy_blocks": {
+    "hook": { "text": "The real cost of the night argument is not the lost sleep. It is the resentment that stays awake long after the baby sleeps.", "role": "primary_headline", "max_chars": 120 },
+    "bridge": { "text": "Resentment builds when one parent always carries the night. The other partner is not lazy — they just never got a system.", "role": "body_text", "max_chars": 180 },
+    "cta": { "text": "Read the postpartum night guide", "role": "call_to_action", "max_chars": 50 }
+  },
+  "typography_roles": {
+    "primary_headline": { "font_weight": "700", "font_size_px": 42, "line_height": 1.2, "color": "#FFFFFF", "position": "top_third" },
+    "body_text": { "font_weight": "400", "font_size_px": 22, "line_height": 1.5, "color": "#D4D4D4", "position": "middle" },
+    "call_to_action": { "font_weight": "600", "font_size_px": 18, "line_height": 1.4, "color": "#F4A261", "position": "bottom_third" }
+  },
+  "brand_tokens_version": "BRAND-001",
+  "logo_policy": { "position": "bottom_right", "clearance_px": 40, "opacity": 0.8 },
+  "cta_policy": { "style": "text_only", "color": "#F4A261", "no_button_background": true },
+  "background_policy": { "style": "solid_color", "color": "#1A1A2E", "no_gradient": true, "no_stock_photo": true },
+  "truth_requirements": {
+    "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001",
+    "evidence_status": "directly_stated",
+    "no_unsupported_claims": true
+  },
+  "hierarchy": ["primary_headline", "body_text", "call_to_action"],
+  "alignment": { "horizontal": "left", "vertical": "center" },
+  "spacing": { "block_gap_px": 32, "section_padding_px": 48 },
+  "density": "low",
+  "accessibility": { "min_contrast_ratio": 4.5, "text_not_on_busy_background": true },
+  "export_format": "PNG",
+  "production_mode": "TEMPLATE_DRIVEN",
+  "source_classification": "EVIDENCE_GROUNDED",
+  "prohibited_elements": ["gradient_blobs", "stock_photos", "floating_mockups", "emoji", "ALL_CAPS_BODY"],
+  "required_elements": ["brand_logo", "hook_text", "cta_text"],
+  "provenance": "evidence_backed",
+  "status": "APPROVED",
+  "created_at": "2026-09-11T00:00:00Z"
+}

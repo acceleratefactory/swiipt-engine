@@ -1,0 +1,65 @@
+{
+  "id": "ANG-NS-002",
+  "class": "marketing_angle_record",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "status": "DRAFT",
+  "created_at": "2026-09-16T00:00:00Z",
+
+  "tier1": {
+    "customer": "Breastfeeding or formula-feeding mother, 0-12 weeks postpartum, doing 100% of night care while her partner sleeps through or is minimally involved",
+    "scene": "You wake for every feed — alone. He doesn't know what help looks like. The score is kept in your head.",
+    "pain": "Every uninterrupted hour he gets feels like proof her exhaustion is invisible, and naming it makes her the difficult one.",
+    "failed_attempt": "'Can you help more?' produced a one-off gesture, not a system.",
+    "emotional_stake": {
+      "text": "She keeps score alone. Every uninterrupted hour he gets feels like proof her exhaustion is invisible, and naming it makes her the difficult one. Rage at his calm breathing while she feeds, grief for the relationship, and fear that this is now permanent.",
+      "evidence_status": "strongly_evidenced"
+    }
+  },
+
+  "tier2": {
+    "insight": {
+      "text": "A request creates a favour. A schedule creates a default. The night does not need more goodwill. It needs an owner and a roster.",
+      "label": "Strategic Synthesis"
+    },
+    "mechanism": {
+      "text": "A written roster replaces silent bookkeeping with an observable system. The sleep banker makes exhaustion visible and tradeable — credits and paybacks turn private resentment into a ledger both adults can see.",
+      "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001 mechanism.mechanisms[0], mechanism.mechanisms[3]"
+    },
+    "desired_change": "Nights with zero protected block become a protected block of 3+ hours on most nights. 'Whose turn' arguments drop from several times a week to once a week or less. The partner initiates his shift without being reminded.",
+    "angle": "The score is kept in your head. Every uninterrupted hour he gets feels like proof your exhaustion is invisible. Naming it makes you the difficult one. A written roster replaces silent bookkeeping with an observable system — the sleep banker makes the invisible exhaustion visible and tradeable. Give the night a roster tonight.",
+    "asset_purpose": "problem"
+  },
+
+  "tier3": {
+    "source_evidence": [
+      {
+        "ref_id": "TR-PPL-NIGHT-SHIFT-001",
+        "role": "product_truth",
+        "observed_frequency": "single_source",
+        "evidence_weight": "primary"
+      },
+      {
+        "ref_id": "PPL-NIGHT-SHIFT-001/landing-page.json",
+        "role": "customer_reality_signals",
+        "observed_frequency": "single_source",
+        "evidence_weight": "supporting"
+      },
+      {
+        "ref_id": "PPL-NIGHT-SHIFT-001/read-guide.md",
+        "role": "customer_reality_signals",
+        "observed_frequency": "single_source",
+        "evidence_weight": "supporting"
+      }
+    ],
+    "counter_evidence_acknowledged": "This is not baby sleep training, and it is not a substitute for medical or mental-health care. When exhaustion is more than tiredness, stop and route out.",
+    "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001",
+    "brand_truth_compliance": "PENDING_REVIEW",
+    "truth_conflict_log": []
+  },
+
+  "tags": ["postpartum", "night-care", "sleep", "resentment", "score-keeping", "partner"],
+  "provenance": "inference",
+  "is_fixture": false,
+  "restrictions": []
+}

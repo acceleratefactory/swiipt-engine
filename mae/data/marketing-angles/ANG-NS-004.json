@@ -1,0 +1,65 @@
+{
+  "id": "ANG-NS-004",
+  "class": "marketing_angle_record",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "status": "DRAFT",
+  "created_at": "2026-09-16T00:00:00Z",
+
+  "tier1": {
+    "customer": "Breastfeeding or formula-feeding mother, 0-12 weeks postpartum, doing 100% of night care with no partner in the home at all",
+    "scene": "There is no partner to negotiate with. Cultural norms assign night care to the mother by default, and there is no agreed system — so every night is renegotiated by exhaustion.",
+    "pain": "Nobody owns the night, so the default becomes she owns all of it. Doing 100% of nights, every night, for weeks — with no partner shift to hand off to.",
+    "failed_attempt": "There is no agreed system, so every night is renegotiated by exhaustion and resentment. Asking for help from extended family or friends can feel like admitting failure.",
+    "emotional_stake": {
+      "text": "She is not just tired — she keeps score alone. Nobody helps you; you are all by yourself. Every uninterrupted hour someone else gets feels like proof her exhaustion is invisible.",
+      "evidence_status": "strongly_evidenced"
+    }
+  },
+
+  "tier2": {
+    "insight": {
+      "text": "A roster does not require a partner. It requires a named shift and a named person to cover it — a support web, not a marriage contract. The night still needs an owner and a schedule.",
+      "label": "Strategic Synthesis"
+    },
+    "mechanism": {
+      "text": "Schedules a support-web roster — named shifts for family, friends, or paid help — so the mother's protected block is physically real. A sleep banker makes exhaustion visible and tradeable even without a partner.",
+      "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001 mechanism.mechanisms[0], mechanism.mechanisms[3]"
+    },
+    "desired_change": "Nights with zero protected block become a protected block of 3+ hours on most nights. The support web covers named shifts instead of the mother owning every night alone.",
+    "angle": "Nobody helps you; you are all by yourself. Cultural norms assign night care to the mother by default, and there is no agreed system. A roster does not require a partner — it requires a named shift and a named person to cover it. Build a support web, not a marriage contract. Give the night a schedule tonight.",
+    "asset_purpose": "story"
+  },
+
+  "tier3": {
+    "source_evidence": [
+      {
+        "ref_id": "TR-PPL-NIGHT-SHIFT-001",
+        "role": "product_truth",
+        "observed_frequency": "single_source",
+        "evidence_weight": "primary"
+      },
+      {
+        "ref_id": "PPL-NIGHT-SHIFT-001/landing-page.json",
+        "role": "customer_reality_signals",
+        "observed_frequency": "single_source",
+        "evidence_weight": "supporting"
+      },
+      {
+        "ref_id": "PPL-NIGHT-SHIFT-001/read-guide.md",
+        "role": "customer_reality_signals",
+        "observed_frequency": "single_source",
+        "evidence_weight": "supporting"
+      }
+    ],
+    "counter_evidence_acknowledged": "This is not baby sleep training, and it is not a substitute for medical or mental-health care. When exhaustion is more than tiredness, stop and route out.",
+    "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001",
+    "brand_truth_compliance": "PENDING_REVIEW",
+    "truth_conflict_log": []
+  },
+
+  "tags": ["postpartum", "night-care", "sleep", "single-parent", "support-web", "no-partner"],
+  "provenance": "inference",
+  "is_fixture": false,
+  "restrictions": []
+}

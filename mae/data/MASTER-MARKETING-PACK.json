@@ -1,0 +1,383 @@
+{
+  "id": "MP-V06-NS-001",
+  "class": "master_marketing_pack",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "library_id": "m01",
+  "version": 1,
+  "created_at": "2026-09-17T00:00:00Z",
+  "pipeline_version": "swiipt-engine-v1",
+  "mcp_version": "v06",
+
+  "four_truths": {
+    "product_truth": {
+      "status": "present",
+      "record_id": "TR-PPL-NIGHT-SHIFT-001",
+      "record_path": "data/transformations/TR-PPL-NIGHT-SHIFT-001.json",
+      "mechanism_core": "Convert a nightly, exhaustion-driven negotiation into a written, pre-agreed default",
+      "evidence_count": 3,
+      "safety_risk_level": "moderate",
+      "red_flags_count": 5,
+      "escalation_rules_count": 3,
+      "status_field": "validated",
+      "library_role": "STANDALONE_TRANSFORMATION"
+    },
+    "customer_reality_truth": {
+      "status": "missing",
+      "note": "No CRF record exists for PPL-NIGHT-SHIFT-001. Marketing uses customer-reality evidence from the TR (person, specific_situation, failed_attempts, emotional_stake, constraints) as the grounded source."
+    },
+    "market_intelligence_truth": {
+      "status": "missing",
+      "note": "No MIF record exists for PPL-NIGHT-SHIFT-001. Marketing uses market intelligence from the TR submarket_id (parents-sleep-night-division) and the MEIF market-intelligence library as contextual reference."
+    },
+    "brand_truth": {
+      "status": "present",
+      "record_id": "BRAND-001",
+      "record_path": "mae/data/brand-truth.json",
+      "voice_dna_traits": ["intelligent", "practical", "specific", "direct", "calm", "trustworthy", "empowering-without-hype"],
+      "visual_palette": ["#0B1F33", "#6F35B5", "#D9A52E", "#F8F4EC", "#FFFFFF"],
+      "boundaries_count": 6,
+      "forbidden_phrases_count": 21
+    }
+  },
+
+  "angles": {
+    "count": 5,
+    "validation": "all_green",
+    "records": [
+      "mae/data/marketing-angles/ANG-NS-001.json",
+      "mae/data/marketing-angles/ANG-NS-002.json",
+      "mae/data/marketing-angles/ANG-NS-003.json",
+      "mae/data/marketing-angles/ANG-NS-004.json",
+      "mae/data/marketing-angles/ANG-NS-005.json"
+    ],
+      "angle_ids": ["ANG-NS-001", "ANG-NS-002", "ANG-NS-003", "ANG-NS-004", "ANG-NS-005"],
+    "summary": {
+      "ANG-NS-001": {
+        "name": "Stop-Scroll Identification",
+        "purpose": "stop_scroll_identification",
+        "customer": "Exhausted mother doing 100% of night care",
+        "emotion": "Do I live here? Someone sees me.",
+        "family_id": "FAM-NS-001"
+      },
+      "ANG-NS-002": {
+        "name": "Problem Amplification",
+        "purpose": "problem",
+        "customer": "Breastfeeding mother alone at 2am, rage at partner",
+        "emotion": "This is not tiredness; it is a broken system.",
+        "family_id": "FAM-NS-002"
+      },
+      "ANG-NS-003": {
+        "name": "Myth Reframe",
+        "purpose": "myth_reframe",
+        "customer": "Mother who believes she must do it all or is failing",
+        "emotion": "The problem is not me. It is the missing operating system.",
+        "family_id": "FAM-NS-003"
+      },
+      "ANG-NS-004": {
+        "name": "Story Sequence",
+        "purpose": "story_sequence",
+        "customer": "Mother going through the 14-day night contract journey",
+        "emotion": "She did not find energy. She installed a system.",
+        "family_id": "FAM-NS-004"
+      },
+      "ANG-NS-005": {
+        "name": "Objection Handling",
+        "purpose": "objection_handling",
+        "customer": "Mother whose partner resists the roster conversation",
+        "emotion": "His resistance is predictable. The system already has a script for it.",
+        "family_id": "FAM-NS-005"
+      }
+    }
+  },
+
+  "asset_manifest": {
+    "total_assets": 21,
+    "by_platform": {
+      "facebook": 5,
+      "instagram": 14,
+      "whatsapp": 2
+    },
+    "by_type": {
+      "SOCIAL_STATIC": 14,
+      "SOCIAL_CAROUSEL": 2,
+      "SOCIAL_REEL": 1,
+      "SOCIAL_STORY_SEQUENCE": 1,
+      "GENERIC": 2
+    },
+    "by_family": {
+      "FAM-NS-001": 4,
+      "FAM-NS-002": 7,
+      "FAM-NS-003": 4,
+      "FAM-NS-004": 3,
+      "FAM-NS-005": 3
+    },
+    "emotional_intensity_distribution": {
+      "low": 2,
+      "moderate": 18,
+      "high": 1
+    },
+    "cta_level_distribution": {
+      "low": 3,
+      "moderate": 18
+    },
+    "generated_records": [
+      "mae/data/generated/GEN-NS-001.json", "mae/data/generated/GEN-NS-002.json",
+      "mae/data/generated/GEN-NS-003.json", "mae/data/generated/GEN-NS-004.json",
+      "mae/data/generated/GEN-NS-005.json", "mae/data/generated/GEN-NS-006.json",
+      "mae/data/generated/GEN-NS-007.json", "mae/data/generated/GEN-NS-008.json",
+      "mae/data/generated/GEN-NS-009.json", "mae/data/generated/GEN-NS-010.json",
+      "mae/data/generated/GEN-NS-011.json", "mae/data/generated/GEN-NS-012.json",
+      "mae/data/generated/GEN-NS-013.json", "mae/data/generated/GEN-NS-014.json",
+      "mae/data/generated/GEN-NS-015.json", "mae/data/generated/GEN-NS-016.json",
+      "mae/data/generated/GEN-NS-STOP-001.json", "mae/data/generated/GEN-NS-PROB-001.json",
+      "mae/data/generated/GEN-NS-MYTH-001.json", "mae/data/generated/GEN-NS-STORY-001.json",
+      "mae/data/generated/GEN-NS-OBJ-001.json"
+    ],
+    "asset_records": [
+      "mae/data/assets/AST-NS-001.json", "mae/data/assets/AST-NS-002.json",
+      "mae/data/assets/AST-NS-003.json", "mae/data/assets/AST-NS-004.json",
+      "mae/data/assets/AST-NS-005.json", "mae/data/assets/AST-NS-006.json",
+      "mae/data/assets/AST-NS-007.json", "mae/data/assets/AST-NS-008.json",
+      "mae/data/assets/AST-NS-009.json", "mae/data/assets/AST-NS-010.json",
+      "mae/data/assets/AST-NS-011.json", "mae/data/assets/AST-NS-012.json",
+      "mae/data/assets/AST-NS-013.json", "mae/data/assets/AST-NS-014.json",
+      "mae/data/assets/AST-NS-015.json", "mae/data/assets/AST-NS-016.json",
+      "mae/data/assets/AST-NS-STOP-001.json", "mae/data/assets/AST-NS-PROB-001.json",
+      "mae/data/assets/AST-NS-MYTH-001.json", "mae/data/assets/AST-NS-STORY-001.json",
+      "mae/data/assets/AST-NS-OBJ-001.json"
+    ]
+  },
+
+  "asset_families": {
+    "count": 5,
+    "records": [
+      "mae/data/asset-families/FAM-NS-001.json",
+      "mae/data/asset-families/FAM-NS-002.json",
+      "mae/data/asset-families/FAM-NS-003.json",
+      "mae/data/asset-families/FAM-NS-004.json",
+      "mae/data/asset-families/FAM-NS-005.json"
+    ],
+    "relationships": {
+      "FAM-NS-001": {
+        "name": "Stop-Scroll Identification",
+        "angle_id": "ANG-NS-001",
+        "asset_count": 4,
+        "platforms": ["facebook", "instagram", "whatsapp"],
+        "types": ["SOCIAL_STATIC", "GENERIC"]
+      },
+      "FAM-NS-002": {
+        "name": "Problem Amplification",
+        "angle_id": "ANG-NS-002",
+        "asset_count": 7,
+        "platforms": ["facebook", "instagram"],
+        "types": ["SOCIAL_STATIC", "SOCIAL_CAROUSEL", "SOCIAL_REEL"]
+      },
+      "FAM-NS-003": {
+        "name": "Myth Reframe",
+        "angle_id": "ANG-NS-003",
+        "asset_count": 4,
+        "platforms": ["facebook", "instagram"],
+        "types": ["SOCIAL_STATIC", "SOCIAL_STORY_SEQUENCE"]
+      },
+      "FAM-NS-004": {
+        "name": "Story Sequence",
+        "angle_id": "ANG-NS-004",
+        "asset_count": 3,
+        "platforms": ["facebook", "instagram"],
+        "types": ["SOCIAL_STATIC"]
+      },
+      "FAM-NS-005": {
+        "name": "Objection Handling",
+        "angle_id": "ANG-NS-005",
+        "asset_count": 3,
+        "platforms": ["facebook", "instagram", "whatsapp"],
+        "types": ["SOCIAL_STATIC", "GENERIC"]
+      }
+    }
+  },
+
+  "platform_architectures": {
+    "facebook": {
+      "types_used": ["SOCIAL_STATIC"],
+      "asset_count": 5,
+      "families_represented": ["FAM-NS-001", "FAM-NS-002", "FAM-NS-003", "FAM-NS-004", "FAM-NS-005"]
+    },
+    "instagram": {
+      "types_used": ["SOCIAL_STATIC", "SOCIAL_CAROUSEL", "SOCIAL_REEL", "SOCIAL_STORY_SEQUENCE"],
+      "asset_count": 14,
+      "families_represented": ["FAM-NS-001", "FAM-NS-002", "FAM-NS-003", "FAM-NS-004", "FAM-NS-005"]
+    },
+    "whatsapp": {
+      "types_used": ["GENERIC"],
+      "asset_count": 2,
+      "families_represented": ["FAM-NS-001", "FAM-NS-005"]
+    }
+  },
+
+  "copy_content": {
+    "source_angles": 5,
+    "locked_phrase_sets": 5,
+    "phrase_set_records": [
+      "mae/data/psets/LPS-NS-001.json",
+      "mae/data/psets/LPS-NS-002.json",
+      "mae/data/psets/LPS-NS-003.json",
+      "mae/data/psets/LPS-NS-004.json",
+      "mae/data/psets/LPS-NS-005.json"
+    ],
+    "brand_voice_applied": true,
+    "forbidden_phrases_respected": true,
+    "anti_slop_registry_respected": true,
+    "synthetic_testimonials_removed": true
+  },
+
+  "visual_grounding": {
+    "count": 5,
+    "records": [
+      "mae/data/visual-groundings/VG-NS-STOP-001.json",
+      "mae/data/visual-groundings/VG-NS-PROB-001.json",
+      "mae/data/visual-groundings/VG-NS-MYTH-001.json",
+      "mae/data/visual-groundings/VG-NS-STORY-001.json",
+      "mae/data/visual-groundings/VG-NS-OBJ-001.json"
+    ],
+    "scenes": {
+      "VG-NS-STOP-001": {
+        "label": "Stop-scroll",
+        "scene": "Tired parent at 2am, phone screen reflecting on face, mid-scroll",
+        "mood": "exhaustion mixed with quiet frustration",
+        "lighting": "Phone screen light as focal point"
+      },
+      "VG-NS-PROB-001": {
+        "label": "Problem",
+        "scene": "Tired parent at kitchen table, head in hand, looking at phone with text message",
+        "mood": "resignation building under exhaustion",
+        "lighting": "Flat overhead kitchen light"
+      },
+      "VG-NS-MYTH-001": {
+        "label": "Myth reframe",
+        "scene": "Two parents in bedroom, calm coexistence, printed schedule visible",
+        "mood": "cooperative, system working without drama",
+        "lighting": "Morning light"
+      },
+      "VG-NS-STORY-001": {
+        "label": "Story",
+        "scene": "Single parent in small bedroom, hands-free pump running, chart visible",
+        "mood": "determined capability",
+        "lighting": "Natural daylight"
+      },
+      "VG-NS-OBJ-001": {
+        "label": "Objection",
+        "scene": "Parent holding sleeping baby, phone with notification visible",
+        "mood": "tender, tired, quiet",
+        "lighting": "Warm lamp light, late evening"
+      }
+    }
+  },
+
+  "image_production": {
+    "status": "deterministic",
+    "note": "Image generation uses deterministic templates. No provider connected for live generation. All design specs (11) authored at mae/data/design-specs/DES-NS-001 through DES-NS-011. Ready for provider integration when available.",
+    "design_spec_records": [
+      "mae/data/design-specs/DES-NS-001.json", "mae/data/design-specs/DES-NS-002.json",
+      "mae/data/design-specs/DES-NS-003.json", "mae/data/design-specs/DES-NS-004.json",
+      "mae/data/design-specs/DES-NS-005.json", "mae/data/design-specs/DES-NS-006.json",
+      "mae/data/design-specs/DES-NS-007.json", "mae/data/design-specs/DES-NS-008.json",
+      "mae/data/design-specs/DES-NS-009.json", "mae/data/design-specs/DES-NS-010.json",
+      "mae/data/design-specs/DES-NS-011.json"
+    ],
+    "count": 11
+  },
+
+  "video_production": {
+    "status": "deterministic",
+    "note": "Video generation uses deterministic templates. No provider connected for live generation. Contracts defined in MAE video subsystem (V-A through V-F). Ready for provider integration when available."
+  },
+
+  "qa_manifest": {
+    "total_qa_records": 21,
+    "aggregate_record": "mae/data/qa/QA-NS-AGGREGATE-001.json",
+    "individual_records": [
+      "mae/data/qa/QA-NS-001.json", "mae/data/qa/QA-NS-002.json",
+      "mae/data/qa/QA-NS-003.json", "mae/data/qa/QA-NS-004.json",
+      "mae/data/qa/QA-NS-005.json", "mae/data/qa/QA-NS-006.json",
+      "mae/data/qa/QA-NS-007.json", "mae/data/qa/QA-NS-008.json",
+      "mae/data/qa/QA-NS-009.json", "mae/data/qa/QA-NS-010.json",
+      "mae/data/qa/QA-NS-011.json", "mae/data/qa/QA-NS-012.json",
+      "mae/data/qa/QA-NS-013.json", "mae/data/qa/QA-NS-014.json",
+      "mae/data/qa/QA-NS-015.json", "mae/data/qa/QA-NS-016.json",
+      "mae/data/qa/QA-NS-STOP-001.json", "mae/data/qa/QA-NS-PROB-001.json",
+      "mae/data/qa/QA-NS-MYTH-001.json", "mae/data/qa/QA-NS-STORY-001.json",
+      "mae/data/qa/QA-NS-OBJ-001.json"
+    ],
+    "gates_evaluated": [
+      "GATE_1_ANTI_SLOP",
+      "GATE_2_INTERCHANGEABILITY",
+      "GATE_3_PLATFORM_FITNESS",
+      "GATE_4_BRAND_CULTURAL",
+      "GATE_5_TRUTH_COMPLIANCE",
+      "GATE_6_CONSISTENCY_LOCK",
+      "GATE_7_HUMAN_REVIEW"
+    ],
+    "overall_result": "all_pass",
+    "any_failures": false,
+    "any_flags": false
+  },
+
+  "campaign_assembly": {
+    "campaign_record": "mae/data/campaigns/CAMP-NS-001.json",
+    "campaign_id": "CAMP-NS-001",
+    "campaign_status": "ASSEMBLED",
+    "sequence_record": "mae/data/sequences/SEQ-NS-001.json",
+    "sequence_id": "SEQ-NS-001",
+    "sequence_type": "LAUNCH",
+    "sequence_status": "READY",
+    "sequence_items": 21,
+    "entry_conditions_count": 3,
+    "exit_conditions_count": 2
+  },
+
+  "pending_governance": {
+    "governance_pending": true,
+    "note": "V06 is GOVERNANCE_PENDING. Marketing must not present unresolved claims as established facts. All copy respects the Writing Constitution's evidence-status model and does not convert model_inference/lived_experience/sourced_evidence into clinical certainty.",
+    "pending_reviews": [
+      "g4_evidence_review",
+      "g5_clinical_review",
+      "g7_independent_ai_qa",
+      "g9_human_journey_review",
+      "g10_owner_authorization"
+    ],
+    "marketing_constraint": "Do not turn unresolved claims into advertising certainty"
+  },
+
+  "traceability": {
+    "truth_refs": {
+      "product": "TR-PPL-NIGHT-SHIFT-001",
+      "brand": "BRAND-001",
+      "customer_reality": "derived from TR (missing CRF)",
+      "market_intelligence": "derived from TR submarket + library (missing MIF)"
+    },
+    "angle_to_family": {
+      "ANG-NS-001": "FAM-NS-001",
+      "ANG-NS-002": "FAM-NS-002",
+      "ANG-NS-003": "FAM-NS-003",
+      "ANG-NS-004": "FAM-NS-004",
+      "ANG-NS-005": "FAM-NS-005"
+    },
+    "family_to_assets": {
+      "FAM-NS-001": ["AST-NS-001", "AST-NS-002", "AST-NS-003", "AST-NS-016"],
+      "FAM-NS-002": ["AST-NS-004", "AST-NS-005", "AST-NS-006", "AST-NS-007", "AST-NS-008", "AST-NS-009", "AST-NS-010"],
+      "FAM-NS-003": ["AST-NS-011", "AST-NS-012", "AST-NS-013", "AST-NS-014"],
+      "FAM-NS-004": ["AST-NS-015", "AST-NS-016-placeholder", "AST-NS-017-placeholder"],
+      "FAM-NS-005": ["AST-NS-018-placeholder", "AST-NS-019-placeholder", "AST-NS-020-placeholder"]
+    },
+    "asset_to_qa": "AST-NS-{NNN} → QA-NS-{NNN} (1:1)",
+    "anchor_to_visual_grounding": {
+      "AST-NS-STOP-001": "VG-NS-STOP-001",
+      "AST-NS-PROB-001": "VG-NS-PROB-001",
+      "AST-NS-MYTH-001": "VG-NS-MYTH-001",
+      "AST-NS-STORY-001": "VG-NS-STORY-001",
+      "AST-NS-OBJ-001": "VG-NS-OBJ-001"
+    },
+    "design_spec_to_asset": "DES-NS-{NNN} covers asset types/places across families"
+  }
+}

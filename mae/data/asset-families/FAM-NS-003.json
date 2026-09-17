@@ -1,0 +1,52 @@
+{
+  "id": "FAM-NS-003",
+  "class": "asset_family_record",
+  "family_version": 1,
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "source_angle_id": "ANG-NS-003",
+  "angle_verdict": "GREEN",
+  "angle_version": 1,
+  "platform_scope": ["facebook_feed", "instagram_feed", "instagram_story"],
+  "primary_audience": "Postpartum mothers who have a partner contributing minimally at night — partner exists but defaults to 'I have work tomorrow' or 'You're breastfeeding anyway'",
+  "primary_customer_situation": "Mother whose partner offers token help (one fetch per week) while sleeping 8 hours; the gap between effort is invisible to the partner",
+  "core_angle_hook": "The 'minimal effort partner' myth: working tomorrow ≠ can't help tonight — 3 hours of broken sleep isn't rest, it's survival",
+  "primary_mechanism": "Reframe the comparison: both parents had the same pre-baby sleep. Night waking didn't reduce your capacity — it revealed the gap. Roster makes contribution visible and equal.",
+  "anchor_asset_id": "AST-NS-MYTH-001",
+  "approved_asset_ids": [
+    "AST-NS-MYTH-001",
+    "AST-NS-MYTH-001-FB",
+    "AST-NS-MYTH-001-IG",
+    "AST-NS-MYTH-001-STORY"
+  ],
+  "role_map": {
+    "AST-NS-MYTH-001": "anchor_concept",
+    "AST-NS-MYTH-001-FB": "facebook_feed_static",
+    "AST-NS-MYTH-001-IG": "instagram_feed_static",
+    "AST-NS-MYTH-001-STORY": "instagram_story_sequence"
+  },
+  "truth_source_refs": {
+    "product_truth": "TR-PPL-NIGHT-SHIFT-001",
+    "brand_truth": "BRAND-001",
+    "customer_reality": "CRF-PPL-CORD-CARE-001 (adjacent signals — no CRF exists for this product)",
+    "market_intelligence": "none (no MIF exists for this product)"
+  },
+  "weighting_profile_refs": ["social_static", "story_sequence"],
+  "locked_phrase_set_id": "LPS-NS-003",
+  "sequence_eligibility": ["launch_sequence", "nurture_sequence", "re_engagement_sequence"],
+  "evergreen_eligible": true,
+  "emotional_intensity_profile": {
+    "high": 6,
+    "medium": 7,
+    "low": 5,
+    "conversion": 4
+  },
+  "coverage": {
+    "content_pillars": ["partner_contribution", "sleep_comparison", "effort_gap"],
+    "customer_stages": ["consideration", "evaluation"],
+    "emotional_range": ["frustration", "validation", "clarity"],
+    "platform_coverage": ["facebook", "instagram", "story"]
+  },
+  "family_status": "BUILDING",
+  "created_at": "2026-09-16T12:00:00Z"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "VG-NS-PROB-001",
+  "class": "visual_grounding",
+  "scene": "Tired parent at kitchen table, head in one hand, looking at phone with a text message visible",
+  "environment": "Small kitchen or dining area, early morning or late evening. Child-related items on table. Flat overhead lighting.",
+  "subject": "Nigerian woman in her late 20s or early 30s. Not styled — real postpartum body, natural hair or simple wrap.",
+  "gesture_posture": "Sitting at table, one hand supporting head, other hand holding phone. Slumped shoulders, face showing exhaustion and building resentment. Not crying — just worn down.",
+  "props": [
+    "Phone with message notification visible",
+    "Child-related items on table",
+    "Crumpled feeding schedule or notes",
+    "Cold or half-finished drink",
+    "Simple kitchen setting"
+  ],
+  "wardrobe": "Nightgown or house clothes. Wrinkled, not styled.",
+  "lighting": "Flat overhead kitchen light. No warmth. Functional, not atmospheric.",
+  "cultural_markers": [
+    "West African features",
+    "Relatable Nigerian home kitchen",
+    "Not aspirational interior",
+    "Real postpartum domestic setting"
+  ],
+  "emotional_tone": "Resentment building under exhaustion. Not explosive — slow burn. The face of someone who has asked and stopped asking.",
+  "composition": "Medium shot. Subject at table, phone visible. Shallow depth of field on background. Subject slightly off-center.",
+  "exclusions": [
+    "No stock-photo anger",
+    "No dramatic crying",
+    "No styled interior",
+    "No symmetrical AI face",
+    "No gradient blobs or floating mockups",
+    "No generic stock composition",
+    "No mixed icon families",
+    "No text overlay in the image itself",
+    "No fear-mongering or shame framing"
+  ],
+  "detail_classes": {
+    "scene": "source_grounded",
+    "environment": "source_grounded",
+    "subject": "source_grounded",
+    "gesture_posture": "production_instruction",
+    "props": "source_grounded",
+    "wardrobe": "production_instruction",
+    "lighting": "production_instruction",
+    "cultural_markers": "source_grounded",
+    "emotional_tone": "source_grounded",
+    "composition": "production_instruction"
+  },
+  "provenance": {
+    "angle_id": "ANG-NS-002",
+    "customer_truth_refs": [
+      "TR-PPL-NIGHT-SHIFT-001::signals.reality",
+      "copy/read-guide.md::resentment-pattern"
+    ],
+    "product_truth_refs": [
+      "TR-PPL-NIGHT-SHIFT-001::mechanism.core_mechanism"
+    ],
+    "brand_truth_version": "BRAND-001",
+    "platform": null,
+    "asset_purpose": "problem",
+    "derivation": "Customer truth: the resentment spiral is quiet and domestic, not dramatic. Visual shows the slow-burn moment."
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "GEN-NS-013",
+  "class": "generated_asset_record",
+  "angle_id": "ANG-NS-004",
+  "brief_id": "BRIEF-NS-013",
+  "asset_type": "SOCIAL_CAROUSEL",
+  "platform": "instagram",
+  "candidates": [
+    {
+      "id": "CAND-GEN-NS-013-001",
+      "content": {
+        "slides": [
+          {
+            "text": "A roster does not require a partner. It requires a named shift and a named person to cover it — a support web, not a marriage contract. The night still needs an owner and a schedule.",
+            "style": "hook"
+          },
+          {
+            "text": "Nobody owns the night, so the default becomes she owns all of it. Doing 100% of nights, every night, for weeks — with no partner shift to hand off to.",
+            "style": "problem"
+          },
+          {
+            "text": "Schedules a support-web roster — named shifts for family, friends, or paid help — so the mother's protected block is physically real. A sleep banker makes exhaustion visible and tradeable even without a partner.",
+            "style": "mechanism"
+          },
+          {
+            "text": "Nights with zero protected block become a protected block of 3+ hours on most nights. The support web covers named shifts instead of the mother owning every night alone.",
+            "style": "desired"
+          },
+          {
+            "text": "Nobody helps you; you are all by yourself. Cultural norms assign night care to the mother by default, and there is no agreed system. A roster does not require a partner — it requires a named shift and a named person to cover it. Build a support web, not a marriage contract. Give the night a schedule tonight.",
+            "style": "cta"
+          }
+        ]
+      }
+    }
+  ],
+  "generation_version": "1.0",
+  "prompt_version": "1.0",
+  "provider": "deterministic",
+  "model": "none",
+  "selected": true,
+  "status": "GENERATED",
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

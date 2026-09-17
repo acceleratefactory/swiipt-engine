@@ -1,0 +1,54 @@
+{
+  "id": "FAM-NS-002",
+  "class": "asset_family_record",
+  "family_version": 1,
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "source_angle_id": "ANG-NS-002",
+  "angle_verdict": "GREEN",
+  "angle_version": 1,
+  "platform_scope": ["facebook_feed", "instagram_feed", "instagram_carousel", "reel"],
+  "primary_audience": "Postpartum mothers 0-12 months who feel the resentment building but haven't named it yet; may still be trying to 'handle it all'",
+  "primary_customer_situation": "Mother who 'manages everything' while partner is 'just not getting it' — the gap between what she expected and what's happening is widening",
+  "core_angle_hook": "The resentment spiral: you manage everything, they 'don't get it', you lose yourself — this is the problem to solve before it solves you",
+  "primary_mechanism": "Naming the pattern (manage → resentment → loss of self) as the first step; the roster system breaks the cycle",
+  "anchor_asset_id": "AST-NS-PROB-001",
+  "approved_asset_ids": [
+    "AST-NS-PROB-001",
+    "AST-NS-PROB-001-FB",
+    "AST-NS-PROB-001-IG",
+    "AST-NS-PROB-001-CAR",
+    "AST-NS-PROB-001-REEL"
+  ],
+  "role_map": {
+    "AST-NS-PROB-001": "anchor_concept",
+    "AST-NS-PROB-001-FB": "facebook_feed_static",
+    "AST-NS-PROB-001-IG": "instagram_feed_static",
+    "AST-NS-PROB-001-CAR": "instagram_carousel",
+    "AST-NS-PROB-001-REEL": "instagram_reel"
+  },
+  "truth_source_refs": {
+    "product_truth": "TR-PPL-NIGHT-SHIFT-001",
+    "brand_truth": "BRAND-001",
+    "customer_reality": "CRF-PPL-CORD-CARE-001 (adjacent signals — no CRF exists for this product)",
+    "market_intelligence": "none (no MIF exists for this product)"
+  },
+  "weighting_profile_refs": ["social_static", "social_carousel", "reel"],
+  "locked_phrase_set_id": "LPS-NS-002",
+  "sequence_eligibility": ["launch_sequence", "nurture_sequence", "retargeting_sequence"],
+  "evergreen_eligible": true,
+  "emotional_intensity_profile": {
+    "high": 7,
+    "medium": 8,
+    "low": 4,
+    "conversion": 3
+  },
+  "coverage": {
+    "content_pillars": ["resentment_cycle", "partnership_gap", "loss_of_self"],
+    "customer_stages": ["awareness", "consideration"],
+    "emotional_range": ["resentment", "grief", "hope_for_change"],
+    "platform_coverage": ["facebook", "instagram", "reel"]
+  },
+  "family_status": "BUILDING",
+  "created_at": "2026-09-16T12:00:00Z"
+}
