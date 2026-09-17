@@ -1,0 +1,241 @@
+{
+  "transformation_id": "TR-PPL-MENTAL-TRIAGE-001",
+  "library_id": "m01",
+  "submarket_id": "postpartum-new-parent-life-mind-n-postpartum-screen-and-rout",
+  "status": "candidate",
+  "situation": {
+    "life_state": "mind-n-postpartum-screen-and-route",
+    "person": "Mother around 4 weeks postpartum in the first 8 weeks with lingering symptoms, Googling at 2am while the household sleeps",
+    "specific_situation": "Low mood, numbness and frightening thoughts linger past the two-week blues mark without a name, so she minimizes them by day and searches them by night, and no route to professional care is ever taken.",
+    "timeframe": "first 8 weeks with lingering symptoms",
+    "trigger": "Symptoms lingering past the two-week mark after a difficult delivery, now alone all day.",
+    "problem": "No non-diagnostic screen exists, therefore distress stays unnamed and no route to professional care is ever taken.",
+    "failed_attempt": "Prayed harder and the guilt only deepened; told herself it was just the blues and it did not pass; Googled and found worst-case diagnoses.",
+    "constraints": [
+      "without a name, so she minimizes them by day and searches"
+    ],
+    "emotional_stake": "Fears she is a bad mother and a fraud for not glowing, and fears being seen as possessed or faithless if she speaks.",
+    "desired_transformation": "She can name what is happening without diagnosing, and a written same-day route to professional care exists and is followed."
+  },
+  "before_state": {
+    "current_behavior": [
+      "Low mood, numbness and frightening thoughts linger past the two-week blues mark without a name, so she minimizes them by day and searches them by night, and no route to professional care is ever taken."
+    ],
+    "current_conditions": [
+      "No non-diagnostic screen exists, therefore distress stays unnamed and no route to professional care is ever taken."
+    ],
+    "emotional_state": [
+      "Fears she is a bad mother and a fraud for not glowing, and fears being seen as possessed or faithless if she speaks."
+    ],
+    "practical_consequences": [
+      "No non-diagnostic screen exists, therefore distress stays unnamed and no route to professional care is ever taken.",
+      "Low mood, numbness and frightening thoughts linger past the two-week blues mark without a name, so she minimizes them by day and searches them by night, and no route to professional care is ever taken."
+    ],
+    "failed_attempts": [
+      "Prayed harder and the guilt only deepened",
+      "told herself it was just the blues and it did not pass",
+      "Googled and found worst-case diagnoses."
+    ],
+    "environmental_constraints": [
+      "without a name, so she minimizes them by day and searches"
+    ],
+    "people_involved": [
+      "Mother"
+    ]
+  },
+  "after_state": {
+    "new_capabilities": [
+      "She can name what is happening without diagnosing, and a written same-day route to professional care exists and is followed."
+    ],
+    "improvements": [],
+    "systems_created": [
+      "Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.",
+      "Keep the myth-bust list that separates blues language from seek-care language on the fridge.",
+      "Use the permission-slip script that states needing care is not failed motherhood.",
+      "Save the same-day route card with the crisis list and a named contact, and follow it the day a red flag appears."
+    ],
+    "remaining_limits": [
+      "Not covered by this transformation: Never a diagnosis and never treatment; where the screen indicates clinical concern, professional care takes over entirely."
+    ],
+    "evidence_of_change": [
+      "She can name what is happening without diagnosing, and a written same-day route to professional care exists and is followed.",
+      "Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.",
+      "Keep the myth-bust list that separates blues language from seek-care language on the fridge.",
+      "Use the permission-slip script that states needing care is not failed motherhood.",
+      "Save the same-day route card with the crisis list and a named contact, and follow it the day a red flag appears."
+    ]
+  },
+  "mechanism": {
+    "core_mechanism": "Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.",
+    "mechanisms": [
+      "Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.",
+      "Keep the myth-bust list that separates blues language from seek-care language on the fridge.",
+      "Use the permission-slip script that states needing care is not failed motherhood.",
+      "Save the same-day route card with the crisis list and a named contact, and follow it the day a red flag appears."
+    ],
+    "why_it_should_work": "Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.; Keep the myth-bust list that separates blues language from seek-care language on the fridge.; Use the permission-slip script that states needing care is not failed motherhood.; Save the same-day route card with the crisis list and a named contact, and follow it the day a red flag appears.",
+    "evidence_basis": [
+      {
+        "claim": "Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Keep the myth-bust list that separates blues language from seek-care language on the fridge.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Use the permission-slip script that states needing care is not failed motherhood.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Save the same-day route card with the crisis list and a named contact, and follow it the day a red flag appears.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "They said the blues pass in two weeks. It’s been a month.",
+        "status": "model_inference"
+      },
+      {
+        "claim": "I’d never hurt him",
+        "status": "model_inference"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md"
+      }
+    ]
+  },
+  "transformation_path": [
+    {
+      "stage": "Stage 1: tracker mechanism",
+      "objective": "Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 2: list mechanism",
+      "objective": "Keep the myth-bust list that separates blues language from seek-care language on the fridge.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 3: script mechanism",
+      "objective": "Use the permission-slip script that states needing care is not failed motherhood.",
+      "customer_action": [
+        "Have the pre-agreed conversation the mechanism describes"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 4: card mechanism",
+      "objective": "Save the same-day route card with the crisis list and a named contact, and follow it the day a red flag appears.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    }
+  ],
+  "failure_point_map": [
+    {
+      "failure_type": "documented failed attempt",
+      "scenario": "Prayed harder and the guilt only deepened",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.)"
+    },
+    {
+      "failure_type": "documented failed attempt",
+      "scenario": "told herself it was just the blues and it did not pass",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Keep the myth-bust list that separates blues language from seek-care language on the fridge.)"
+    },
+    {
+      "failure_type": "documented failed attempt",
+      "scenario": "Googled and found worst-case diagnoses.",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.)"
+    },
+    {
+      "failure_type": "constraint pressure",
+      "scenario": "without a name, so she minimizes them by day and searches",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.)"
+    }
+  ],
+  "first_win": {
+    "time_limit_minutes": 15,
+    "action": "Produce and post the named artefact; then follow the routine it sets",
+    "observable_change": "She can name what is happening without diagnosing, and a written same-day route to professional care exists and is followed."
+  },
+  "tsm": {
+    "before_baseline": [
+      "No non-diagnostic screen exists, therefore distress stays unnamed and no route to professional care is ever taken.",
+      "Low mood, numbness and frightening thoughts linger past the two-week blues mark without a name, so she minimizes them by day and searches them by night, and no route to professional care is ever taken.",
+      "told herself it was just the blues and it did not pass"
+    ],
+    "success_indicators": [
+      "She can name what is happening without diagnosing, and a written same-day route to professional care exists and is followed.",
+      "Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.",
+      "Keep the myth-bust list that separates blues language from seek-care language on the fridge.",
+      "Use the permission-slip script that states needing care is not failed motherhood.",
+      "Save the same-day route card with the crisis list and a named contact, and follow it the day a red flag appears."
+    ],
+    "measurement_days": [
+      0,
+      7,
+      14,
+      30
+    ],
+    "success_threshold": "PENDING OWNER APPROVAL: business call per transformation-standard 4 / safety-standard 5 - the runner must not decide the success threshold; owner approves",
+    "measurement_method": "Self-reported log of the stage-1 artefact plus a structured check-in against the Day-0 baseline at the scheduled check-ins",
+    "incomplete_progress_interpretation": "Partial adherence is expected; the recorded failure modes (documented failed attempt, constraint pressure) are handled by their rescue protocols rather than treated as transformation failure",
+    "next_action_on_miss": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.)"
+  },
+  "maintenance": {
+    "maintenance_system": "Keep fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person. as the standing default after the measurement window",
+    "relapse_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Fill the mood-and-numbness tracker each evening and review the colour pattern with a trusted person.)",
+    "reentry_protocol": "Re-enter at Stage 1: tracker mechanism without a guilt reset"
+  },
+  "next_transformation": [],
+  "evidence": [
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md"
+    },
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md"
+    },
+    {
+      "claim": "They said the blues pass in two weeks. It’s been a month.",
+      "status": "model_inference",
+      "source": "OPP-PPL-TRIAGE-001"
+    },
+    {
+      "claim": "I’d never hurt him",
+      "status": "model_inference",
+      "source": "OPP-PPL-TRIAGE-001"
+    }
+  ],
+  "safety": {
+    "risk_level": "clinical",
+    "scope_boundary": "This transformation coordinates MIND N. Postpartum screen and route - blues versus clinical concern only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus.",
+    "red_flags": [],
+    "escalation_rules": [
+      "Route per the verified shared crisis/escalation list (RED = emergency now, AMBER = urgent today, GREEN = supported this week) - safety-standard 3; no numbers are invented here"
+    ]
+  },
+  "research_disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Distinct recurring situation (lingering symptoms past the blues window with no name and no route) plus a distinct meaningful transformation (named concern plus a same-day route to care). Symptoms are sourced; the screen-and-route mechanism is hypothesis pending clinical review. Journey routing pending: no authoritative adjacent transformation id was supplied for this situation (recorded as a routing gap, not invented). Candidate generated by transformation-architect@1 from the opportunity record; promotion to validated is owner/validator authority.",
+    "assigned_at": "2026-09-17",
+    "reclassification_history": []
+  }
+}

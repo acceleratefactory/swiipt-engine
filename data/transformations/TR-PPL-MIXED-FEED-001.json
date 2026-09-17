@@ -1,0 +1,249 @@
+{
+  "transformation_id": "TR-PPL-MIXED-FEED-001",
+  "library_id": "m01",
+  "submarket_id": "postpartum-new-parent-life-feed-c-shame-free-combo-feeding",
+  "status": "candidate",
+  "situation": {
+    "life_state": "feed-c-shame-free-combo-feeding",
+    "person": "Nigerian mother around 2 months postpartum with shaky supply who added formula in the first 12 weeks, judged by breast-is-best relatives and just-give-formula friends",
+    "specific_situation": "She nurses when she can and tops up when she must, but hides the tins and lies at the market because both camps shame her. Every feed is negotiated under surveillance, so feeding never settles into a routine and she cannot ask for help openly.",
+    "timeframe": "first 12 weeks",
+    "trigger": "Late or low milk with weight loss, then a nurse said top up with formula.",
+    "problem": "No defensible combo routine exists, therefore every bottle restarts the argument and the shame.",
+    "failed_attempt": "Tried exclusive breastfeeding, pap with tiger-nut and oats, and prayer, and nothing changed in two weeks except bloating.",
+    "constraints": [
+      "cannot ask for help openly"
+    ],
+    "emotional_stake": "Wants to be a good mother, not a failed one; the shame feels heavier than the baby.",
+    "desired_transformation": "She can nurse when she can and top up when she needs, and can say it out loud without flinching; the combo plan is posted and followed."
+  },
+  "before_state": {
+    "current_behavior": [
+      "She nurses when she can and tops up when she must, but hides the tins and lies at the market because both camps shame her.",
+      "Every feed is negotiated under surveillance, so feeding never settles into a routine and she cannot ask for help openly."
+    ],
+    "current_conditions": [
+      "No defensible combo routine exists, therefore every bottle restarts the argument and the shame."
+    ],
+    "emotional_state": [
+      "Wants to be a good mother, not a failed one",
+      "the shame feels heavier than the baby."
+    ],
+    "practical_consequences": [
+      "No defensible combo routine exists, therefore every bottle restarts the argument and the shame.",
+      "She nurses when she can and tops up when she must, but hides the tins and lies at the market because both camps shame her.",
+      "Every feed is negotiated under surveillance, so feeding never settles into a routine and she cannot ask for help openly."
+    ],
+    "failed_attempts": [
+      "Tried exclusive breastfeeding, pap with tiger-nut and oats, and prayer, and nothing changed in two weeks except bloating."
+    ],
+    "environmental_constraints": [
+      "cannot ask for help openly"
+    ],
+    "people_involved": [
+      "Mother",
+      "Baby"
+    ]
+  },
+  "after_state": {
+    "new_capabilities": [
+      "She can nurse when she can and top up when she needs, and can say it out loud without flinching"
+    ],
+    "improvements": [
+      "the combo plan is posted and followed."
+    ],
+    "systems_created": [
+      "the combo plan is posted and followed.",
+      "Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.",
+      "Keep the supply reality checklist of wet nappies, weight gain and behaviour, and review it before any top-up.",
+      "Use the Hold-Your-Ground script cards when relatives or in-laws challenge the bottle.",
+      "Prepare every bottle with the measured-scoop and safe-storage routine written on the storage card."
+    ],
+    "remaining_limits": [
+      "Not covered by this transformation: Does not answer whether supply is adequate; when adequacy is the question, the supply reality check is the adjacent situation."
+    ],
+    "evidence_of_change": [
+      "She can nurse when she can and top up when she needs, and can say it out loud without flinching",
+      "the combo plan is posted and followed.",
+      "Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.",
+      "Keep the supply reality checklist of wet nappies, weight gain and behaviour, and review it before any top-up.",
+      "Use the Hold-Your-Ground script cards when relatives or in-laws challenge the bottle.",
+      "Prepare every bottle with the measured-scoop and safe-storage routine written on the storage card."
+    ]
+  },
+  "mechanism": {
+    "core_mechanism": "Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.",
+    "mechanisms": [
+      "Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.",
+      "Keep the supply reality checklist of wet nappies, weight gain and behaviour, and review it before any top-up.",
+      "Use the Hold-Your-Ground script cards when relatives or in-laws challenge the bottle.",
+      "Prepare every bottle with the measured-scoop and safe-storage routine written on the storage card."
+    ],
+    "why_it_should_work": "Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.; Keep the supply reality checklist of wet nappies, weight gain and behaviour, and review it before any top-up.; Use the Hold-Your-Ground script cards when relatives or in-laws challenge the bottle.; Prepare every bottle with the measured-scoop and safe-storage routine written on the storage card.",
+    "evidence_basis": [
+      {
+        "claim": "Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Keep the supply reality checklist of wet nappies, weight gain and behaviour, and review it before any top-up.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Use the Hold-Your-Ground script cards when relatives or in-laws challenge the bottle.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Prepare every bottle with the measured-scoop and safe-storage routine written on the storage card.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "I do both and I feel like a fraud either way",
+        "status": "model_inference"
+      },
+      {
+        "claim": "shame is heavier than the baby",
+        "status": "model_inference"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/ONE-HANDED NUTRITION.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/ONE-HANDED NUTRITION.md"
+      }
+    ]
+  },
+  "transformation_path": [
+    {
+      "stage": "Stage 1: routine mechanism",
+      "objective": "Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 2: checklist mechanism",
+      "objective": "Keep the supply reality checklist of wet nappies, weight gain and behaviour, and review it before any top-up.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 3: script mechanism",
+      "objective": "Use the Hold-Your-Ground script cards when relatives or in-laws challenge the bottle.",
+      "customer_action": [
+        "Have the pre-agreed conversation the mechanism describes"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 4: routine mechanism",
+      "objective": "Prepare every bottle with the measured-scoop and safe-storage routine written on the storage card.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    }
+  ],
+  "failure_point_map": [
+    {
+      "failure_type": "documented failed attempt",
+      "scenario": "Tried exclusive breastfeeding, pap with tiger-nut and oats, and prayer, and nothing changed in two weeks except bloating.",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.)"
+    },
+    {
+      "failure_type": "constraint pressure",
+      "scenario": "cannot ask for help openly",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.)"
+    }
+  ],
+  "first_win": {
+    "time_limit_minutes": 15,
+    "action": "Produce and post the named artefact; then follow the routine it sets",
+    "observable_change": "She can nurse when she can and top up when she needs, and can say it out loud without flinching"
+  },
+  "tsm": {
+    "before_baseline": [
+      "No defensible combo routine exists, therefore every bottle restarts the argument and the shame.",
+      "Every feed is negotiated under surveillance, so feeding never settles into a routine and she cannot ask for help openly."
+    ],
+    "success_indicators": [
+      "She can nurse when she can and top up when she needs, and can say it out loud without flinching",
+      "the combo plan is posted and followed.",
+      "Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.",
+      "Keep the supply reality checklist of wet nappies, weight gain and behaviour, and review it before any top-up.",
+      "Use the Hold-Your-Ground script cards when relatives or in-laws challenge the bottle.",
+      "Prepare every bottle with the measured-scoop and safe-storage routine written on the storage card."
+    ],
+    "measurement_days": [
+      0,
+      7,
+      14,
+      30
+    ],
+    "success_threshold": "PENDING OWNER APPROVAL: business call per transformation-standard 4 / safety-standard 5 - the runner must not decide the success threshold; owner approves",
+    "measurement_method": "Self-reported log of the stage-1 artefact plus a structured check-in against the Day-0 baseline at the scheduled check-ins",
+    "incomplete_progress_interpretation": "Partial adherence is expected; the recorded failure modes (documented failed attempt, constraint pressure) are handled by their rescue protocols rather than treated as transformation failure",
+    "next_action_on_miss": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.)"
+  },
+  "maintenance": {
+    "maintenance_system": "Keep the combo plan is posted and followed. as the standing default after the measurement window",
+    "relapse_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the breast-first plus paced formula top-up routine and log each feed on the combo chart to protect supply.)",
+    "reentry_protocol": "Re-enter at Stage 1: routine mechanism without a guilt reset"
+  },
+  "next_transformation": [
+    "TR-PPL-SUPPLY-REALITY-001"
+  ],
+  "evidence": [
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md"
+    },
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md"
+    },
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/ONE-HANDED NUTRITION.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/ONE-HANDED NUTRITION.md"
+    },
+    {
+      "claim": "I do both and I feel like a fraud either way",
+      "status": "model_inference",
+      "source": "OPP-PPL-FEED-001"
+    },
+    {
+      "claim": "shame is heavier than the baby",
+      "status": "model_inference",
+      "source": "OPP-PPL-FEED-001"
+    }
+  ],
+  "safety": {
+    "risk_level": "moderate",
+    "scope_boundary": "This transformation coordinates FEED C. Shame-free combo feeding - breast plus formula without hiding only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus.",
+    "red_flags": [],
+    "escalation_rules": [
+      "Route per the verified shared crisis/escalation list (RED = emergency now, AMBER = urgent today, GREEN = supported this week) - safety-standard 3; no numbers are invented here"
+    ]
+  },
+  "research_disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Distinct recurring situation (combo-feeding stigma under dual surveillance) plus a distinct meaningful transformation (a culturally defensible combo plan that can be stated aloud). Sourced from SUBMARKET C research and the lived-experience record; mechanism assembled as inference. Candidate generated by transformation-architect@1 from the opportunity record; promotion to validated is owner/validator authority.",
+    "assigned_at": "2026-09-17",
+    "reclassification_history": []
+  }
+}

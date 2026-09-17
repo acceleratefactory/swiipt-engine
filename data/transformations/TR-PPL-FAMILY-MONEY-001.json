@@ -1,0 +1,230 @@
+{
+  "transformation_id": "TR-PPL-FAMILY-MONEY-001",
+  "library_id": "m01",
+  "submarket_id": "postpartum-new-parent-life-money-a-first-year-household-mone",
+  "status": "candidate",
+  "situation": {
+    "life_state": "money-a-first-year-household-money",
+    "person": "Expecting and first-year parents in a Nigerian household with irregular income in the first 12 months, facing new baby costs while pay is paused or shrunk",
+    "specific_situation": "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight.",
+    "timeframe": "first 12 months",
+    "trigger": "Her salary stopped but the bills did not, and the hospital asked for a deposit before admission.",
+    "problem": "No first-year budget exists, therefore money disappears and the couple fights over baby spending.",
+    "failed_attempt": "Followed a UK baby checklist, joined three mum groups, got a huge obligation list, and deletes the cart only to re-add everything.",
+    "constraints": [
+      "without a single trusted number, so every purchase is",
+      "without ruin, and to feel like a smart mother rather than"
+    ],
+    "emotional_stake": "Wants to prove competence as a mother by providing without ruin, and to feel like a smart mother rather than a guilty one.",
+    "desired_transformation": "The household can state one trusted budget number and keep a baby fund; the budget chart is posted and followed."
+  },
+  "before_state": {
+    "current_behavior": [
+      "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight."
+    ],
+    "current_conditions": [
+      "No first-year budget exists, therefore money disappears and the couple fights over baby spending."
+    ],
+    "emotional_state": [
+      "Wants to prove competence as a mother by providing without ruin, and to feel like a smart mother rather than a guilty one."
+    ],
+    "practical_consequences": [
+      "No first-year budget exists, therefore money disappears and the couple fights over baby spending.",
+      "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight."
+    ],
+    "failed_attempts": [
+      "Followed a UK baby checklist, joined three mum groups, got a huge obligation list, and deletes the cart only to re-add everything."
+    ],
+    "environmental_constraints": [
+      "without a single trusted number, so every purchase is",
+      "without ruin, and to feel like a smart mother rather than"
+    ],
+    "people_involved": [
+      "Mother",
+      "Baby",
+      "Parents"
+    ]
+  },
+  "after_state": {
+    "new_capabilities": [
+      "The household can state one trusted budget number and keep a baby fund"
+    ],
+    "improvements": [
+      "the budget chart is posted and followed."
+    ],
+    "systems_created": [
+      "the budget chart is posted and followed.",
+      "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+      "Sort every planned purchase into the Buy, Wait and Never list before spending.",
+      "Keep the thirty-day use audit log and resell whatever the baby never used.",
+      "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys."
+    ],
+    "remaining_limits": [],
+    "evidence_of_change": [
+      "The household can state one trusted budget number and keep a baby fund",
+      "the budget chart is posted and followed.",
+      "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+      "Sort every planned purchase into the Buy, Wait and Never list before spending.",
+      "Keep the thirty-day use audit log and resell whatever the baby never used.",
+      "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys."
+    ]
+  },
+  "mechanism": {
+    "core_mechanism": "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+    "mechanisms": [
+      "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+      "Sort every planned purchase into the Buy, Wait and Never list before spending.",
+      "Keep the thirty-day use audit log and resell whatever the baby never used.",
+      "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys."
+    ],
+    "why_it_should_work": "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.; Sort every planned purchase into the Buy, Wait and Never list before spending.; Keep the thirty-day use audit log and resell whatever the baby never used.; Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys.",
+    "evidence_basis": [
+      {
+        "claim": "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Sort every planned purchase into the Buy, Wait and Never list before spending.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Keep the thirty-day use audit log and resell whatever the baby never used.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "My salary stopped but the bills didn’t",
+        "status": "model_inference"
+      },
+      {
+        "claim": "Every week 5,000 naira disappears on diapers",
+        "status": "model_inference"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md"
+      }
+    ]
+  },
+  "transformation_path": [
+    {
+      "stage": "Stage 1: chart mechanism",
+      "objective": "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 2: list mechanism",
+      "objective": "Sort every planned purchase into the Buy, Wait and Never list before spending.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 3: log mechanism",
+      "objective": "Keep the thirty-day use audit log and resell whatever the baby never used.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 4: card mechanism",
+      "objective": "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    }
+  ],
+  "failure_point_map": [
+    {
+      "failure_type": "documented failed attempt",
+      "scenario": "Followed a UK baby checklist, joined three mum groups, got a huge obligation list, and deletes the cart only to re-add everything.",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Sort every planned purchase into the Buy, Wait and Never list before spending.)"
+    },
+    {
+      "failure_type": "constraint pressure",
+      "scenario": "without a single trusted number, so every purchase is",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Sort every planned purchase into the Buy, Wait and Never list before spending.)"
+    },
+    {
+      "failure_type": "constraint pressure",
+      "scenario": "without ruin, and to feel like a smart mother rather than",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.)"
+    }
+  ],
+  "first_win": {
+    "time_limit_minutes": 15,
+    "action": "Produce and post the named artefact; then follow the routine it sets",
+    "observable_change": "The household can state one trusted budget number and keep a baby fund"
+  },
+  "tsm": {
+    "before_baseline": [
+      "No first-year budget exists, therefore money disappears and the couple fights over baby spending.",
+      "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight."
+    ],
+    "success_indicators": [
+      "The household can state one trusted budget number and keep a baby fund",
+      "the budget chart is posted and followed.",
+      "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+      "Sort every planned purchase into the Buy, Wait and Never list before spending.",
+      "Keep the thirty-day use audit log and resell whatever the baby never used.",
+      "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys."
+    ],
+    "measurement_days": [
+      0,
+      7,
+      14,
+      30
+    ],
+    "success_threshold": "PENDING OWNER APPROVAL: business call per transformation-standard 4 / safety-standard 5 - the runner must not decide the success threshold; owner approves",
+    "measurement_method": "Self-reported log of the stage-1 artefact plus a structured check-in against the Day-0 baseline at the scheduled check-ins",
+    "incomplete_progress_interpretation": "Partial adherence is expected; the recorded failure modes (documented failed attempt, constraint pressure) are handled by their rescue protocols rather than treated as transformation failure",
+    "next_action_on_miss": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Sort every planned purchase into the Buy, Wait and Never list before spending.)"
+  },
+  "maintenance": {
+    "maintenance_system": "Keep the budget chart is posted and followed. as the standing default after the measurement window",
+    "relapse_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Sort every planned purchase into the Buy, Wait and Never list before spending.)",
+    "reentry_protocol": "Re-enter at Stage 1: chart mechanism without a guilt reset"
+  },
+  "next_transformation": [],
+  "evidence": [
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md"
+    },
+    {
+      "claim": "My salary stopped but the bills didn’t",
+      "status": "model_inference",
+      "source": "OPP-PPL-MONEY-001"
+    },
+    {
+      "claim": "Every week 5,000 naira disappears on diapers",
+      "status": "model_inference",
+      "source": "OPP-PPL-MONEY-001"
+    }
+  ],
+  "safety": {
+    "risk_level": "moderate",
+    "scope_boundary": "This transformation coordinates MONEY A. First-year household money - one number and a baby fund only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus.",
+    "red_flags": [],
+    "escalation_rules": [
+      "Route per the verified shared crisis/escalation list (RED = emergency now, AMBER = urgent today, GREEN = supported this week) - safety-standard 3; no numbers are invented here"
+    ]
+  },
+  "research_disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Distinct recurring situation (first-year cost shock plus income drop without a trusted number) plus a distinct meaningful transformation (one budget number plus a baby fund). Sourced from NICHE 1-33 across expenses, income changes, financial decisions and hidden markets. Journey routing pending: no authoritative adjacent transformation id was supplied for this situation (recorded as a routing gap, not invented). Candidate generated by transformation-architect@1 from the opportunity record; promotion to validated is owner/validator authority.",
+    "assigned_at": "2026-09-17",
+    "reclassification_history": []
+  }
+}

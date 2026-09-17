@@ -1,0 +1,252 @@
+{
+  "transformation_id": "TR-PPL-CORE-REBUILD-001",
+  "library_id": "m01",
+  "submarket_id": "postpartum-new-parent-life-body-a-diastasis-and-core-rebuild",
+  "status": "candidate",
+  "situation": {
+    "life_state": "body-a-diastasis-and-core-rebuild",
+    "person": "Nigerian mother between 6 weeks and 6 months postpartum, at home and in diaspora, with a two-to-three-finger gap above the navel, who cannot lift her toddler without coning and pain",
+    "specific_situation": "Her belly cones and bulges whenever she sits up or laughs, so she avoids movement entirely or repeats the crunches that made the ridge worse. Without a progression she cannot trust her own body, and she cannot pick up her own child.",
+    "timeframe": "6 months postpartum",
+    "trigger": "The six-week check named the gap, then a video reel and an owambe photo made the pooch impossible to ignore.",
+    "problem": "No safe progression exists, therefore she either does nothing and weakens further, or repeats harmful exercise.",
+    "failed_attempt": "Tried a waist trainer that worsened breathing with no change, detox teas suspected fake, and crunches and sit-ups that raised a ridge, so she stopped everything; the nurse offered no plan.",
+    "constraints": [
+      "Without a progression she cannot trust her own body, and",
+      "without coning and pain"
+    ],
+    "emotional_stake": "Wants to be seen as a finished, capable woman rather than a still-pregnant body that others pity or question.",
+    "desired_transformation": "She can brace, lift and move without coning, and the finger-width number trends down; the progression chart is posted and followed."
+  },
+  "before_state": {
+    "current_behavior": [
+      "Her belly cones and bulges whenever she sits up or laughs, so she avoids movement entirely or repeats the crunches that made the ridge worse.",
+      "Without a progression she cannot trust her own body, and she cannot pick up her own child."
+    ],
+    "current_conditions": [
+      "No safe progression exists, therefore she either does nothing and weakens further, or repeats harmful exercise."
+    ],
+    "emotional_state": [
+      "Wants to be seen as a finished, capable woman rather than a still-pregnant body that others pity or question."
+    ],
+    "practical_consequences": [
+      "No safe progression exists, therefore she either does nothing and weakens further, or repeats harmful exercise.",
+      "Her belly cones and bulges whenever she sits up or laughs, so she avoids movement entirely or repeats the crunches that made the ridge worse.",
+      "Tried a waist trainer that worsened breathing with no change, detox teas suspected fake, and crunches and sit-ups that raised a ridge, so she stopped everything"
+    ],
+    "failed_attempts": [
+      "Tried a waist trainer that worsened breathing with no change, detox teas suspected fake, and crunches and sit-ups that raised a ridge, so she stopped everything",
+      "the nurse offered no plan."
+    ],
+    "environmental_constraints": [
+      "Without a progression she cannot trust her own body, and",
+      "without coning and pain"
+    ],
+    "people_involved": [
+      "Mother",
+      "Toddler",
+      "Child"
+    ]
+  },
+  "after_state": {
+    "new_capabilities": [
+      "She can brace, lift and move without coning, and the finger-width number trends down"
+    ],
+    "improvements": [
+      "the progression chart is posted and followed."
+    ],
+    "systems_created": [
+      "the progression chart is posted and followed.",
+      "Run the finger-width self-test card tonight and write down the gap number as the Day-0 baseline.",
+      "Follow the ten-minute breathing plus TVA-bracing routine each morning before any lifting.",
+      "Keep the Never-Do list on the wall and check every exercise against it before starting.",
+      "Use the floor-to-cot lift chart that braces the transverse before every lift."
+    ],
+    "remaining_limits": [
+      "Not covered by this transformation: Does not cover acute post-surgical recovery; in the first 14 days after caesarean, the surgical recovery transformation applies."
+    ],
+    "evidence_of_change": [
+      "She can brace, lift and move without coning, and the finger-width number trends down",
+      "the progression chart is posted and followed.",
+      "Run the finger-width self-test card tonight and write down the gap number as the Day-0 baseline.",
+      "Follow the ten-minute breathing plus TVA-bracing routine each morning before any lifting.",
+      "Keep the Never-Do list on the wall and check every exercise against it before starting.",
+      "Use the floor-to-cot lift chart that braces the transverse before every lift."
+    ]
+  },
+  "mechanism": {
+    "core_mechanism": "Run the finger-width self-test card tonight and write down the gap number as the Day-0 baseline.",
+    "mechanisms": [
+      "Run the finger-width self-test card tonight and write down the gap number as the Day-0 baseline.",
+      "Follow the ten-minute breathing plus TVA-bracing routine each morning before any lifting.",
+      "Keep the Never-Do list on the wall and check every exercise against it before starting.",
+      "Use the floor-to-cot lift chart that braces the transverse before every lift."
+    ],
+    "why_it_should_work": "Run the finger-width self-test card tonight and write down the gap number as the Day-0 baseline.; Follow the ten-minute breathing plus TVA-bracing routine each morning before any lifting.; Keep the Never-Do list on the wall and check every exercise against it before starting.; Use the floor-to-cot lift chart that braces the transverse before every lift.",
+    "evidence_basis": [
+      {
+        "claim": "Run the finger-width self-test card tonight and write down the gap number as the Day-0 baseline.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Follow the ten-minute breathing plus TVA-bracing routine each morning before any lifting.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Keep the Never-Do list on the wall and check every exercise against it before starting.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Use the floor-to-cot lift chart that braces the transverse before every lift.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Crunches and sit-ups felt ridge and bulge, scared, stopped",
+        "status": "model_inference"
+      },
+      {
+        "claim": "my gap is 3 fingers",
+        "status": "model_inference"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/DIASTASIS CORE RECOVERY.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/DIASTASIS CORE RECOVERY.md"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/POSTPARTUM BODY RECOVERY.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/POSTPARTUM BODY RECOVERY.md"
+      }
+    ]
+  },
+  "transformation_path": [
+    {
+      "stage": "Stage 1: card mechanism",
+      "objective": "Run the finger-width self-test card tonight and write down the gap number as the Day-0 baseline.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 2: routine mechanism",
+      "objective": "Follow the ten-minute breathing plus TVA-bracing routine each morning before any lifting.",
+      "customer_action": [
+        "Apply this mechanism as stated (verbatim in the stage objective)"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 3: list mechanism",
+      "objective": "Keep the Never-Do list on the wall and check every exercise against it before starting.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 4: chart mechanism",
+      "objective": "Use the floor-to-cot lift chart that braces the transverse before every lift.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    }
+  ],
+  "failure_point_map": [
+    {
+      "failure_type": "documented failed attempt",
+      "scenario": "Tried a waist trainer that worsened breathing with no change, detox teas suspected fake, and crunches and sit-ups that raised a ridge, so she stopped everything",
+      "rescue_protocol": "Apply this mechanism as stated (verbatim in the stage objective) (source mechanism, verbatim: Follow the ten-minute breathing plus TVA-bracing routine each morning before any lifting.)"
+    },
+    {
+      "failure_type": "documented failed attempt",
+      "scenario": "the nurse offered no plan.",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the finger-width self-test card tonight and write down the gap number as the Day-0 baseline.)"
+    },
+    {
+      "failure_type": "constraint pressure",
+      "scenario": "Without a progression she cannot trust her own body, and",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the finger-width self-test card tonight and write down the gap number as the Day-0 baseline.)"
+    },
+    {
+      "failure_type": "constraint pressure",
+      "scenario": "without coning and pain",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the finger-width self-test card tonight and write down the gap number as the Day-0 baseline.)"
+    }
+  ],
+  "first_win": {
+    "time_limit_minutes": 15,
+    "action": "Produce and post the named artefact; then follow the routine it sets",
+    "observable_change": "She can brace, lift and move without coning, and the finger-width number trends down"
+  },
+  "tsm": {
+    "before_baseline": [
+      "No safe progression exists, therefore she either does nothing and weakens further, or repeats harmful exercise.",
+      "Without a progression she cannot trust her own body, and she cannot pick up her own child.",
+      "Tried a waist trainer that worsened breathing with no change, detox teas suspected fake, and crunches and sit-ups that raised a ridge, so she stopped everything",
+      "the nurse offered no plan."
+    ],
+    "success_indicators": [
+      "She can brace, lift and move without coning, and the finger-width number trends down",
+      "the progression chart is posted and followed.",
+      "Run the finger-width self-test card tonight and write down the gap number as the Day-0 baseline.",
+      "Follow the ten-minute breathing plus TVA-bracing routine each morning before any lifting.",
+      "Keep the Never-Do list on the wall and check every exercise against it before starting.",
+      "Use the floor-to-cot lift chart that braces the transverse before every lift."
+    ],
+    "measurement_days": [
+      0,
+      7,
+      14,
+      30
+    ],
+    "success_threshold": "PENDING OWNER APPROVAL: business call per transformation-standard 4 / safety-standard 5 - the runner must not decide the success threshold; owner approves",
+    "measurement_method": "Self-reported log of the stage-1 artefact plus a structured check-in against the Day-0 baseline at the scheduled check-ins",
+    "incomplete_progress_interpretation": "Partial adherence is expected; the recorded failure modes (documented failed attempt, constraint pressure) are handled by their rescue protocols rather than treated as transformation failure",
+    "next_action_on_miss": "Apply this mechanism as stated (verbatim in the stage objective) (source mechanism, verbatim: Follow the ten-minute breathing plus TVA-bracing routine each morning before any lifting.)"
+  },
+  "maintenance": {
+    "maintenance_system": "Keep the progression chart is posted and followed. as the standing default after the measurement window",
+    "relapse_protocol": "Apply this mechanism as stated (verbatim in the stage objective) (source mechanism, verbatim: Follow the ten-minute breathing plus TVA-bracing routine each morning before any lifting.)",
+    "reentry_protocol": "Re-enter at Stage 1: card mechanism without a guilt reset"
+  },
+  "next_transformation": [],
+  "evidence": [
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/DIASTASIS CORE RECOVERY.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/DIASTASIS CORE RECOVERY.md"
+    },
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/POSTPARTUM BODY RECOVERY.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/POSTPARTUM BODY RECOVERY.md"
+    },
+    {
+      "claim": "Crunches and sit-ups felt ridge and bulge, scared, stopped",
+      "status": "model_inference",
+      "source": "OPP-PPL-CORE-001"
+    },
+    {
+      "claim": "my gap is 3 fingers",
+      "status": "model_inference",
+      "source": "OPP-PPL-CORE-001"
+    }
+  ],
+  "safety": {
+    "risk_level": "moderate",
+    "scope_boundary": "This transformation coordinates BODY A. Diastasis and core rebuild - pressure-safe progression only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus.",
+    "red_flags": [],
+    "escalation_rules": [
+      "Route per the verified shared crisis/escalation list (RED = emergency now, AMBER = urgent today, GREEN = supported this week) - safety-standard 3; no numbers are invented here"
+    ]
+  },
+  "research_disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Distinct recurring situation (diastasis with coning and pain, failed by generic exercise) plus a distinct meaningful transformation (pressure-safe progressive rebuild). Sourced from the 13-niche diastasis corpus and body-recovery research. Journey routing pending: no authoritative adjacent transformation id was supplied for this situation (recorded as a routing gap, not invented). Candidate generated by transformation-architect@1 from the opportunity record; promotion to validated is owner/validator authority.",
+    "assigned_at": "2026-09-17",
+    "reclassification_history": []
+  }
+}

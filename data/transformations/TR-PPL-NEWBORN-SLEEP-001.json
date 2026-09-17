@@ -1,0 +1,271 @@
+{
+  "transformation_id": "TR-PPL-NEWBORN-SLEEP-001",
+  "library_id": "m01",
+  "submarket_id": "postpartum-new-parent-life-sleep-a-newborn-sleep-survival",
+  "status": "candidate",
+  "situation": {
+    "life_state": "sleep-a-newborn-sleep-survival",
+    "person": "First-time mother and father of a 0–16-week-old baby in the first 12 weeks postpartum, whose newborn sleeps only on the chest and who have not slept more than 90 minutes at a stretch since discharge",
+    "specific_situation": "The baby sleeps only on the chest and wakes the moment she is lowered. Nights run in 90-minute fragments with no agreed settle routine, so every night is improvised at 3am. Day and night are flipped, because the baby is wakeful from 1am to 5am while the parents cannot rest by day and no omugwo help exists.",
+    "timeframe": "first 12 weeks postpartum",
+    "trigger": "Discharge home with a newborn whose sleep biology nobody explained; the first night the baby will not settle except on the chest.",
+    "problem": "No independent sleep stretch and no safe rest plan exist, so the parents doze unsafely on the sofa because no other rest is available.",
+    "failed_attempt": "Tried the bouncer, swaddling, keeping the baby up, dark rooms, dream feeds and formula top-ups, and read contradictory advice across nine videos, so nothing stuck.",
+    "constraints": [
+      "cannot rest by day and no omugwo help exists",
+      "Feels like a wife he shows up for, not a single mother with a"
+    ],
+    "emotional_stake": "Feels like a wife he shows up for, not a single mother with a roommate; in their community a new mother is never left to carry the night alone.",
+    "desired_transformation": "The baby can be settled and sleep stretches lengthen; a written rest plan is posted and followed so each parent gets protected rest without unsafe dozing."
+  },
+  "before_state": {
+    "current_behavior": [
+      "The baby sleeps only on the chest and wakes the moment she is lowered.",
+      "Nights run in 90-minute fragments with no agreed settle routine, so every night is improvised at 3am.",
+      "Day and night are flipped, because the baby is wakeful from 1am to 5am while the parents cannot rest by day and no omugwo help exists."
+    ],
+    "current_conditions": [
+      "No independent sleep stretch and no safe rest plan exist, so the parents doze unsafely on the sofa because no other rest is available."
+    ],
+    "emotional_state": [
+      "Feels like a wife he shows up for, not a single mother with a roommate",
+      "in their community a new mother is never left to carry the night alone."
+    ],
+    "practical_consequences": [
+      "No independent sleep stretch and no safe rest plan exist, so the parents doze unsafely on the sofa because no other rest is available.",
+      "Nights run in 90-minute fragments with no agreed settle routine, so every night is improvised at 3am.",
+      "Day and night are flipped, because the baby is wakeful from 1am to 5am while the parents cannot rest by day and no omugwo help exists.",
+      "Tried the bouncer, swaddling, keeping the baby up, dark rooms, dream feeds and formula top-ups, and read contradictory advice across nine videos, so nothing stuck."
+    ],
+    "failed_attempts": [
+      "Tried the bouncer, swaddling, keeping the baby up, dark rooms, dream feeds and formula top-ups, and read contradictory advice across nine videos, so nothing stuck."
+    ],
+    "environmental_constraints": [
+      "cannot rest by day and no omugwo help exists",
+      "Feels like a wife he shows up for, not a single mother with a"
+    ],
+    "people_involved": [
+      "Mother",
+      "Father",
+      "Wife",
+      "Baby",
+      "Newborn",
+      "Parents"
+    ]
+  },
+  "after_state": {
+    "new_capabilities": [
+      "The baby can be settled and sleep stretches lengthen",
+      "a written rest plan is posted and followed so each parent gets protected rest without unsafe dozing."
+    ],
+    "improvements": [],
+    "systems_created": [
+      "a written rest plan is posted and followed so each parent gets protected rest without unsafe dozing.",
+      "Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.",
+      "Use the settle-and-transfer routine at every sleep: swaddle, side-settle, then lower to the crib while drowsy, and log each transfer.",
+      "Fill the Normal-versus-Call-The-Doctor red-flag card and keep it on the fridge so worry stops driving every night.",
+      "Agree the calm-hours rule in daylight and post the rest roster so night care is scheduled, not improvised."
+    ],
+    "remaining_limits": [
+      "Not covered by this transformation: Does not replace the adult night-division roster; when night division between adults becomes the problem, TR-PPL-NIGHT-SHIFT-001 is the next situation."
+    ],
+    "evidence_of_change": [
+      "a written rest plan is posted and followed so each parent gets protected rest without unsafe dozing.",
+      "Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.",
+      "Use the settle-and-transfer routine at every sleep: swaddle, side-settle, then lower to the crib while drowsy, and log each transfer.",
+      "Fill the Normal-versus-Call-The-Doctor red-flag card and keep it on the fridge so worry stops driving every night.",
+      "Agree the calm-hours rule in daylight and post the rest roster so night care is scheduled, not improvised."
+    ]
+  },
+  "mechanism": {
+    "core_mechanism": "Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.",
+    "mechanisms": [
+      "Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.",
+      "Use the settle-and-transfer routine at every sleep: swaddle, side-settle, then lower to the crib while drowsy, and log each transfer.",
+      "Fill the Normal-versus-Call-The-Doctor red-flag card and keep it on the fridge so worry stops driving every night.",
+      "Agree the calm-hours rule in daylight and post the rest roster so night care is scheduled, not improvised."
+    ],
+    "why_it_should_work": "Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.; Use the settle-and-transfer routine at every sleep: swaddle, side-settle, then lower to the crib while drowsy, and log each transfer.; Fill the Normal-versus-Call-The-Doctor red-flag card and keep it on the fridge so worry stops driving every night.; Agree the calm-hours rule in daylight and post the rest roster so night care is scheduled, not improvised.",
+    "evidence_basis": [
+      {
+        "claim": "Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Use the settle-and-transfer routine at every sleep: swaddle, side-settle, then lower to the crib while drowsy, and log each transfer.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Fill the Normal-versus-Call-The-Doctor red-flag card and keep it on the fridge so worry stops driving every night.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Agree the calm-hours rule in daylight and post the rest roster so night care is scheduled, not improvised.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "haven’t slept more than 90 minutes at a stretch since he was born",
+        "status": "model_inference"
+      },
+      {
+        "claim": "terrified of dozing on the sofa",
+        "status": "model_inference"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/THE FIRSTS MARKET.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/THE FIRSTS MARKET.md"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/NEW PARENT OPERATING SYSTEM.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/NEW PARENT OPERATING SYSTEM.md"
+      }
+    ]
+  },
+  "transformation_path": [
+    {
+      "stage": "Stage 1: chart mechanism",
+      "objective": "Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 2: routine mechanism",
+      "objective": "Use the settle-and-transfer routine at every sleep: swaddle, side-settle, then lower to the crib while drowsy, and log each transfer.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 3: card mechanism",
+      "objective": "Fill the Normal-versus-Call-The-Doctor red-flag card and keep it on the fridge so worry stops driving every night.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 4: roster mechanism",
+      "objective": "Agree the calm-hours rule in daylight and post the rest roster so night care is scheduled, not improvised.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    }
+  ],
+  "failure_point_map": [
+    {
+      "failure_type": "documented failed attempt",
+      "scenario": "Tried the bouncer, swaddling, keeping the baby up, dark rooms, dream feeds and formula top-ups, and read contradictory advice across nine videos, so nothing stuck.",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.)"
+    },
+    {
+      "failure_type": "constraint pressure",
+      "scenario": "cannot rest by day and no omugwo help exists",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.)"
+    },
+    {
+      "failure_type": "constraint pressure",
+      "scenario": "Feels like a wife he shows up for, not a single mother with a",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.)"
+    }
+  ],
+  "first_win": {
+    "time_limit_minutes": 15,
+    "action": "Produce and post the named artefact; then follow the routine it sets",
+    "observable_change": "a written rest plan is posted and followed so each parent gets protected rest without unsafe dozing."
+  },
+  "tsm": {
+    "before_baseline": [
+      "No independent sleep stretch and no safe rest plan exist, so the parents doze unsafely on the sofa because no other rest is available.",
+      "Nights run in 90-minute fragments with no agreed settle routine, so every night is improvised at 3am.",
+      "Day and night are flipped, because the baby is wakeful from 1am to 5am while the parents cannot rest by day and no omugwo help exists."
+    ],
+    "success_indicators": [
+      "The baby can be settled and sleep stretches lengthen",
+      "a written rest plan is posted and followed so each parent gets protected rest without unsafe dozing.",
+      "Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.",
+      "Use the settle-and-transfer routine at every sleep: swaddle, side-settle, then lower to the crib while drowsy, and log each transfer.",
+      "Fill the Normal-versus-Call-The-Doctor red-flag card and keep it on the fridge so worry stops driving every night.",
+      "Agree the calm-hours rule in daylight and post the rest roster so night care is scheduled, not improvised."
+    ],
+    "measurement_days": [
+      0,
+      7,
+      14,
+      30
+    ],
+    "success_threshold": "PENDING OWNER APPROVAL: business call per transformation-standard 4 / safety-standard 5 - the runner must not decide the success threshold; owner approves",
+    "measurement_method": "Self-reported log of the stage-1 artefact plus a structured check-in against the Day-0 baseline at the scheduled check-ins",
+    "incomplete_progress_interpretation": "Partial adherence is expected; the recorded failure modes (documented failed attempt, constraint pressure) are handled by their rescue protocols rather than treated as transformation failure",
+    "next_action_on_miss": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.)"
+  },
+  "maintenance": {
+    "maintenance_system": "Keep a written rest plan is posted and followed so each parent gets protected rest without unsafe dozing. as the standing default after the measurement window",
+    "relapse_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run a day-night reset for seven nights with bright mornings, dim nights and a fixed wake time, logged on the sleep chart.)",
+    "reentry_protocol": "Re-enter at Stage 1: chart mechanism without a guilt reset"
+  },
+  "next_transformation": [
+    "TR-PPL-NIGHT-SHIFT-001"
+  ],
+  "evidence": [
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md"
+    },
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md"
+    },
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/THE FIRSTS MARKET.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/THE FIRSTS MARKET.md"
+    },
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/NEW PARENT OPERATING SYSTEM.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/NEW PARENT OPERATING SYSTEM.md"
+    },
+    {
+      "claim": "haven’t slept more than 90 minutes at a stretch since he was born",
+      "status": "model_inference",
+      "source": "OPP-PPL-SLEEP-001"
+    },
+    {
+      "claim": "terrified of dozing on the sofa",
+      "status": "model_inference",
+      "source": "OPP-PPL-SLEEP-001"
+    }
+  ],
+  "safety": {
+    "risk_level": "moderate",
+    "scope_boundary": "This transformation coordinates SLEEP A. Newborn sleep survival - settling, day-night rhythm and safe rest only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus.",
+    "red_flags": [],
+    "escalation_rules": [
+      "Route per the verified shared crisis/escalation list (RED = emergency now, AMBER = urgent today, GREEN = supported this week) - safety-standard 3; no numbers are invented here"
+    ]
+  },
+  "research_disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Distinct recurring situation (newborn sleep biology misread as failure) plus a distinct meaningful transformation (settled independent sleep plus a posted rest plan). Sourced from the 22-niche SLEEP DEPRIVATION validation and first-night-home research; mechanism assembled as inference from named sources. Candidate generated by transformation-architect@1 from the opportunity record; promotion to validated is owner/validator authority.",
+    "assigned_at": "2026-09-17",
+    "reclassification_history": []
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "transformation_id": "TR-PPL-SUPPLY-REALITY-001",
+  "library_id": "m01",
+  "submarket_id": "postpartum-new-parent-life-feed-a-milk-supply-reality-check",
+  "status": "candidate",
+  "situation": {
+    "life_state": "feed-a-milk-supply-reality-check",
+    "person": "Thirty-year-old Lagos mother at 3 weeks postpartum in the first 12 weeks whose baby fusses after feeds, who pumps 20 millilitres and panics that the milk is gone",
+    "specific_situation": "She cannot tell whether the baby is full or starving, so she counts every wet nappy, weighs the baby on a kitchen scale, and scrolls signs of low supply at 3am without ever reaching certainty.",
+    "timeframe": "first 12 weeks whose baby fusses after",
+    "trigger": "Baby fussing after feeds with breasts that feel empty, plus relatives saying the milk is watery.",
+    "problem": "No trusted adequacy check exists, therefore anxiety decides every feed and unnecessary top-ups multiply.",
+    "failed_attempt": "Tried pap with tiger-nut and oats to bring milk, and nothing changed in two weeks except bloating; Googled and weighed him on a kitchen scale.",
+    "constraints": [
+      "without ever reaching certainty",
+      "feels like her body failing him in front of the family"
+    ],
+    "emotional_stake": "Breastfeeding equals her worth as a mother, so an empty-feeling breast feels like her body failing him in front of the family.",
+    "desired_transformation": "She can read wet nappies, weight gain and behaviour, and knows when a top-up is truly needed; the adequacy checklist is posted and followed."
+  },
+  "before_state": {
+    "current_behavior": [
+      "She cannot tell whether the baby is full or starving, so she counts every wet nappy, weighs the baby on a kitchen scale, and scrolls signs of low supply at 3am without ever reaching certainty."
+    ],
+    "current_conditions": [
+      "No trusted adequacy check exists, therefore anxiety decides every feed and unnecessary top-ups multiply."
+    ],
+    "emotional_state": [
+      "Breastfeeding equals her worth as a mother, so an empty-feeling breast feels like her body failing him in front of the family."
+    ],
+    "practical_consequences": [
+      "No trusted adequacy check exists, therefore anxiety decides every feed and unnecessary top-ups multiply.",
+      "She cannot tell whether the baby is full or starving, so she counts every wet nappy, weighs the baby on a kitchen scale, and scrolls signs of low supply at 3am without ever reaching certainty.",
+      "Breastfeeding equals her worth as a mother, so an empty-feeling breast feels like her body failing him in front of the family."
+    ],
+    "failed_attempts": [
+      "Tried pap with tiger-nut and oats to bring milk, and nothing changed in two weeks except bloating",
+      "Googled and weighed him on a kitchen scale."
+    ],
+    "environmental_constraints": [
+      "without ever reaching certainty",
+      "feels like her body failing him in front of the family"
+    ],
+    "people_involved": [
+      "Mother",
+      "Baby",
+      "Family"
+    ]
+  },
+  "after_state": {
+    "new_capabilities": [
+      "She can read wet nappies, weight gain and behaviour, and knows when a top-up is truly needed"
+    ],
+    "improvements": [
+      "the adequacy checklist is posted and followed."
+    ],
+    "systems_created": [
+      "the adequacy checklist is posted and followed.",
+      "Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.",
+      "Keep the breast-first plus paced top-up log for five to seven days so supply is protected while certainty builds.",
+      "Use the stop-the-scroll card that names the three adequacy signals before opening another search.",
+      "Prepare the omugwo support-foods list with the written safety caveat and follow it for one week."
+    ],
+    "remaining_limits": [
+      "Not covered by this transformation: Does not settle combo-feeding stigma; when shame rather than adequacy is the problem, the combo-feeding transformation is adjacent."
+    ],
+    "evidence_of_change": [
+      "the adequacy checklist is posted and followed.",
+      "Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.",
+      "Keep the breast-first plus paced top-up log for five to seven days so supply is protected while certainty builds.",
+      "Use the stop-the-scroll card that names the three adequacy signals before opening another search.",
+      "Prepare the omugwo support-foods list with the written safety caveat and follow it for one week."
+    ]
+  },
+  "mechanism": {
+    "core_mechanism": "Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.",
+    "mechanisms": [
+      "Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.",
+      "Keep the breast-first plus paced top-up log for five to seven days so supply is protected while certainty builds.",
+      "Use the stop-the-scroll card that names the three adequacy signals before opening another search.",
+      "Prepare the omugwo support-foods list with the written safety caveat and follow it for one week."
+    ],
+    "why_it_should_work": "Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.; Keep the breast-first plus paced top-up log for five to seven days so supply is protected while certainty builds.; Use the stop-the-scroll card that names the three adequacy signals before opening another search.; Prepare the omugwo support-foods list with the written safety caveat and follow it for one week.",
+    "evidence_basis": [
+      {
+        "claim": "Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Keep the breast-first plus paced top-up log for five to seven days so supply is protected while certainty builds.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Use the stop-the-scroll card that names the three adequacy signals before opening another search.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "Prepare the omugwo support-foods list with the written safety caveat and follow it for one week.",
+        "status": "hypothesis"
+      },
+      {
+        "claim": "He feeds 12 times a day and my breasts feel empty",
+        "status": "model_inference"
+      },
+      {
+        "claim": "Googled, weighed him on a kitchen scale",
+        "status": "model_inference"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md"
+      },
+      {
+        "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/ONE-HANDED NUTRITION.md",
+        "status": "sourced_evidence",
+        "source": "Product Pipeline/Postpartum Library/ONE-HANDED NUTRITION.md"
+      }
+    ]
+  },
+  "transformation_path": [
+    {
+      "stage": "Stage 1: checklist mechanism",
+      "objective": "Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 2: log mechanism",
+      "objective": "Keep the breast-first plus paced top-up log for five to seven days so supply is protected while certainty builds.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 3: card mechanism",
+      "objective": "Use the stop-the-scroll card that names the three adequacy signals before opening another search.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    },
+    {
+      "stage": "Stage 4: list mechanism",
+      "objective": "Prepare the omugwo support-foods list with the written safety caveat and follow it for one week.",
+      "customer_action": [
+        "Produce and post the named artefact; then follow the routine it sets"
+      ],
+      "required_assets": []
+    }
+  ],
+  "failure_point_map": [
+    {
+      "failure_type": "documented failed attempt",
+      "scenario": "Tried pap with tiger-nut and oats to bring milk, and nothing changed in two weeks except bloating",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.)"
+    },
+    {
+      "failure_type": "documented failed attempt",
+      "scenario": "Googled and weighed him on a kitchen scale.",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.)"
+    },
+    {
+      "failure_type": "constraint pressure",
+      "scenario": "without ever reaching certainty",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Keep the breast-first plus paced top-up log for five to seven days so supply is protected while certainty builds.)"
+    },
+    {
+      "failure_type": "constraint pressure",
+      "scenario": "feels like her body failing him in front of the family",
+      "rescue_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.)"
+    }
+  ],
+  "first_win": {
+    "time_limit_minutes": 15,
+    "action": "Produce and post the named artefact; then follow the routine it sets",
+    "observable_change": "the adequacy checklist is posted and followed."
+  },
+  "tsm": {
+    "before_baseline": [
+      "No trusted adequacy check exists, therefore anxiety decides every feed and unnecessary top-ups multiply.",
+      "She cannot tell whether the baby is full or starving, so she counts every wet nappy, weighs the baby on a kitchen scale, and scrolls signs of low supply at 3am without ever reaching certainty."
+    ],
+    "success_indicators": [
+      "She can read wet nappies, weight gain and behaviour, and knows when a top-up is truly needed",
+      "the adequacy checklist is posted and followed.",
+      "Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.",
+      "Keep the breast-first plus paced top-up log for five to seven days so supply is protected while certainty builds.",
+      "Use the stop-the-scroll card that names the three adequacy signals before opening another search.",
+      "Prepare the omugwo support-foods list with the written safety caveat and follow it for one week."
+    ],
+    "measurement_days": [
+      0,
+      7,
+      14,
+      30
+    ],
+    "success_threshold": "PENDING OWNER APPROVAL: business call per transformation-standard 4 / safety-standard 5 - the runner must not decide the success threshold; owner approves",
+    "measurement_method": "Self-reported log of the stage-1 artefact plus a structured check-in against the Day-0 baseline at the scheduled check-ins",
+    "incomplete_progress_interpretation": "Partial adherence is expected; the recorded failure modes (documented failed attempt, constraint pressure) are handled by their rescue protocols rather than treated as transformation failure",
+    "next_action_on_miss": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.)"
+  },
+  "maintenance": {
+    "maintenance_system": "Keep the adequacy checklist is posted and followed. as the standing default after the measurement window",
+    "relapse_protocol": "Produce and post the named artefact; then follow the routine it sets (source mechanism, verbatim: Run the three-signal adequacy checklist of wet nappies, weight gain and behaviour at tonight’s first feed and tick each marker.)",
+    "reentry_protocol": "Re-enter at Stage 1: checklist mechanism without a guilt reset"
+  },
+  "next_transformation": [],
+  "evidence": [
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md"
+    },
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/NEWBORN ROUTINES.md"
+    },
+    {
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/ONE-HANDED NUTRITION.md",
+      "status": "sourced_evidence",
+      "source": "Product Pipeline/Postpartum Library/ONE-HANDED NUTRITION.md"
+    },
+    {
+      "claim": "He feeds 12 times a day and my breasts feel empty",
+      "status": "model_inference",
+      "source": "OPP-PPL-SUPPLY-001"
+    },
+    {
+      "claim": "Googled, weighed him on a kitchen scale",
+      "status": "model_inference",
+      "source": "OPP-PPL-SUPPLY-001"
+    }
+  ],
+  "safety": {
+    "risk_level": "moderate",
+    "scope_boundary": "This transformation coordinates FEED A. Milk-supply reality check - adequacy markers before top-ups only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus.",
+    "red_flags": [],
+    "escalation_rules": [
+      "Route per the verified shared crisis/escalation list (RED = emergency now, AMBER = urgent today, GREEN = supported this week) - safety-standard 3; no numbers are invented here"
+    ]
+  },
+  "research_disposition": {
+    "library_role": "STANDALONE_TRANSFORMATION",
+    "rationale": "Distinct recurring situation (adequacy uncertainty driving anxiety-led top-ups) plus a distinct meaningful transformation (observable adequacy literacy). Sourced from BFF A2, NEWBORN A4 and NUTRITION C1 research. Journey routing pending: no authoritative adjacent transformation id was supplied for this situation (recorded as a routing gap, not invented). Candidate generated by transformation-architect@1 from the opportunity record; promotion to validated is owner/validator authority.",
+    "assigned_at": "2026-09-17",
+    "reclassification_history": []
+  }
+}
