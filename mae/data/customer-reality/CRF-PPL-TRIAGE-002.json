@@ -1,0 +1,47 @@
+{
+  "id": "CRF-PPL-TRIAGE-002",
+  "class": "customer_reality_record",
+  "person": "Mother experiencing frightening intrusive images she would never act on",
+  "situation": "Horrible pictures flash uninvited; she is terrified of the thoughts themselves",
+  "trigger": "Intrusive images arriving without warning during routine care",
+  "context": "Verbatim research lines in Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md N13; research-file record, not independent testimony. Handled with care; no identifiers.",
+  "behaviour": [
+    "Hides the thoughts from everyone",
+    "Searches symptoms alone at night"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "suppressing the images through willpower and prayer"
+    }
+  ],
+  "constraint": "Speaking the thoughts risks being judged dangerous or possessed",
+  "thought": "If I tell anyone, they will take my baby away.",
+  "fear": "The thoughts mean she is harmful; disclosure means separation",
+  "emotional_stake": "Safety of the baby plus her own moral standing",
+  "exact_language": "Horrible pictures flash in my head. I’d never hurt him, but the thoughts feel real.",
+  "desired_change": "Understanding that intrusive thoughts require assessment, plus a same-day route to care",
+  "evidence_source": {
+    "type": "documented_research",
+    "id": "Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md N13 (research record)",
+    "date": null,
+    "frequency": "research-file record",
+    "excerpt": "Horrible pictures flash in my head. I’d never hurt him, but the thoughts feel real.",
+    "context": "Authored research record; independent voice-of-customer capture commissioned separately"
+  },
+  "evidence_status": "analyst_interpretation",
+  "evidence_weight": "low",
+  "observed_frequency": "research-file record",
+  "cultural_context": [
+    "stigma_silence",
+    "possession_stigma"
+  ],
+  "relationships": [],
+  "tags": [
+    "intrusive_thoughts",
+    "hidden_distress",
+    "same_day_route"
+  ],
+  "provenance": "inference",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

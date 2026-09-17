@@ -1,0 +1,14 @@
+{
+  "id": "MIF-PPL-FEED-001",
+  "class": "market_intelligence_record",
+  "category": "competitor",
+  "statement": "Combo-feeding guidance exists as free guides (NCT mixed-feeding, KellyMom combination hub, LLL GB essentials, First Steps Nutrition Trust PDFs) plus UNICEF service standards; all are information or pro-maximisation standards, none is a confidence/track/script transformation for a mother under dual surveillance.",
+  "evidence": "NCT mixed-feeding guide; KellyMom combination pages; LLL GB essentials; FSNT July-2024 infant-milks PDF; UNICEF UK maximising-breastmilk standards. All accessed 2026-09-17.",
+  "evidence_status": "strongly_evidenced",
+  "evidence_weight": "medium_high",
+  "freshness": "accessed 2026-09-17",
+  "source": "https://www.nct.org.uk/information/baby-toddler/feeding-your-baby-or-toddler/mixed-feeding-combining-breastfeeding-and-bottle-feeding; https://kellymom.com/nutrition/milk/infant-formula; https://laleche.org.uk/breastfeeding-essentials; https://www.unicef.org.uk/babyfriendly/baby-friendly-resources/implementing-standards-resources/maximising-breastmilk",
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

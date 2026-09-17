@@ -1,0 +1,47 @@
+{
+  "id": "CRF-PPL-SLEEP-001",
+  "class": "customer_reality_record",
+  "person": "First-time parent of a newborn who sleeps only on the chest",
+  "situation": "At 3am with the baby on the chest after repeated failed transfers to the back",
+  "trigger": "Every transfer wakes the baby within minutes",
+  "context": "r/newborns thread by u/ICXC-ni-ka, 2025-01-19, observed 2026-09-17.",
+  "behaviour": [
+    "Attempted repeated back transfers through the night",
+    "Held the baby on the chest to get any sleep"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "transferring to the back; cuddle-curl arrangements"
+    }
+  ],
+  "constraint": "Back-naps cap at about ten minutes; no second pair of hands at 3am",
+  "thought": "Is he breathing? Should I feed him again?",
+  "fear": "Unsafe sleep while exhausted; something wrong going unnoticed",
+  "emotional_stake": "Vigilance as love; terror of failing the one job",
+  "exact_language": "Coming to you at 3am with my sweet little guy on my chest after a handful of attempts to transfer him to his back.",
+  "desired_change": "A transfer that holds plus a safe way to rest",
+  "evidence_source": {
+    "type": "community_discussion",
+    "id": "reddit.com/r/newborns/comments/1i4uu8r (2025-01-19)",
+    "date": "2025-01-19",
+    "frequency": "single thread observed",
+    "excerpt": "Coming to you at 3am with my sweet little guy on my chest after a handful of attempts to transfer him to his back.",
+    "context": "First-night/3am chest-sleep with failed transfers (14-week-old, back-naps ≤10 min)"
+  },
+  "evidence_status": "directly_stated",
+  "evidence_weight": "high",
+  "observed_frequency": "single thread observed",
+  "cultural_context": [
+    "online_peer_support",
+    "first_night_home"
+  ],
+  "relationships": [],
+  "tags": [
+    "transfer_failure",
+    "chest_sleep",
+    "3am"
+  ],
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

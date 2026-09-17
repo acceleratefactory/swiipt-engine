@@ -222,6 +222,21 @@
       "claim": "I’d never hurt him",
       "status": "model_inference",
       "source": "OPP-PPL-TRIAGE-001"
+    },
+    {
+      "claim": "WHO postnatal guideline Rec. 18: universal screening for postpartum depression and anxiety with a validated instrument plus diagnostic and management services for positives.",
+      "status": "sourced_evidence",
+      "source": "WHO postnatal guideline 2022"
+    },
+    {
+      "claim": "ACOG: screen everyone at initial prenatal, later in pregnancy, and postpartum with a validated instrument; any affirmative self-harm/suicide answer requires immediate likelihood, acuteness and severity assessment.",
+      "status": "sourced_evidence",
+      "source": "ACOG CPG No. 4 perinatal mental health (2023)"
+    },
+    {
+      "claim": "NHS: baby blues resolve within about two weeks; beyond that or worsening requires professional help; postpartum psychosis is a same-day medical emergency.",
+      "status": "sourced_evidence",
+      "source": "NHS postnatal depression + post-partum psychosis guidance"
     }
   ],
   "safety": {

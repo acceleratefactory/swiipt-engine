@@ -239,6 +239,26 @@
       "claim": "Googled, weighed him on a kitchen scale",
       "status": "model_inference",
       "source": "OPP-PPL-SUPPLY-001"
+    },
+    {
+      "claim": "NHS adequacy boundaries: 2–3 wet nappies in the first 48 hours; at least 6 every 24 hours from day five; at least 2 yellow day-four stools; back to birth weight by two weeks; rhythmic suck-swallow with rounded cheeks.",
+      "status": "sourced_evidence",
+      "source": "NHS enough-milk guidance (reviewed 2026-04-30)"
+    },
+    {
+      "claim": "ABM: 7% weight loss at days 5–6 warrants monitoring every 24–48 hours; 10% is an indicator for infant evaluation, not an automatic marker for supplementation.",
+      "status": "sourced_evidence",
+      "source": "ABM Protocol #3 supplementation (2017)"
+    },
+    {
+      "claim": "Pumps do not measure supply: expressed volume differs from infant intake; pump output must never be used alone to judge adequacy.",
+      "status": "sourced_evidence",
+      "source": "Australian Breastfeeding Association expressing and low-supply guidance"
+    },
+    {
+      "claim": "Evening cluster feeding with fussing is a normal pattern and must not be read as proof of low supply.",
+      "status": "model_inference",
+      "source": "Authoring Wave 1 evidence review (NEWBORN ROUTINES.md A5 witching-hour literature)"
     }
   ],
   "safety": {

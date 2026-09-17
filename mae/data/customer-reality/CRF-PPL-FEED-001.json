@@ -1,0 +1,47 @@
+{
+  "id": "CRF-PPL-FEED-001",
+  "class": "customer_reality_record",
+  "person": "Mother combining breast and formula who wants both without choosing a camp",
+  "situation": "Posted asking whether other parents feed both breast milk and formula",
+  "trigger": "Refusing the forced choice between exclusive camps",
+  "context": "r/beyondthebump thread posted 30 Dec 2024, observed 2026-09-17 via search excerpt; full thread not re-fetched.",
+  "behaviour": [
+    "Asked openly for combo-feeding company",
+    "Framed both methods as beneficial"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "finding combo voices in exclusive-feeding spaces"
+    }
+  ],
+  "constraint": "Most visible discourse picks one side",
+  "thought": "There must be others doing both — why is no one saying so?",
+  "fear": "Being judged whichever way she feeds",
+  "emotional_stake": "Permission to feed pragmatically without moral demotion",
+  "exact_language": "I don’t want to rely solely on breast milk but I don’t want to exclusively formula feed either. I think both have its benefits.",
+  "desired_change": "A visible, shameless middle path with company",
+  "evidence_source": {
+    "type": "community_discussion",
+    "id": "reddit.com/r/beyondthebump/comments/1hpr2er (2024-12-30)",
+    "date": "2024-12-30",
+    "frequency": "single thread observed",
+    "excerpt": "I don’t want to rely solely on breast milk but I don’t want to exclusively formula feed either. I think both have its benefits.",
+    "context": "Permission-seeking combo post; full thread not re-fetched"
+  },
+  "evidence_status": "strongly_evidenced",
+  "evidence_weight": "medium",
+  "observed_frequency": "single thread observed",
+  "cultural_context": [
+    "online_peer_support",
+    "feeding_camps"
+  ],
+  "relationships": [],
+  "tags": [
+    "combo_feeding",
+    "permission",
+    "middle_path"
+  ],
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

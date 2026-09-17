@@ -252,6 +252,26 @@
       "claim": "terrified of dozing on the sofa",
       "status": "model_inference",
       "source": "OPP-PPL-SLEEP-001"
+    },
+    {
+      "claim": "AAP 2022 safe-sleep policy: back-to-sleep every sleep; firm, flat, noninclined surface; room-sharing without bed-sharing ideally for the first 6 months; never fall asleep on a sofa or armchair with an infant.",
+      "status": "sourced_evidence",
+      "source": "AAP safe sleep policy statement + technical report 2022 (doi:10.1542/peds.2022-057991)"
+    },
+    {
+      "claim": "WHO postnatal guideline 2022: place the baby supine during the first year; listed newborn danger signs (not feeding well, convulsions, fast breathing, fever, hypothermia, early or prolonged jaundice) require care-seeking.",
+      "status": "sourced_evidence",
+      "source": "WHO recommendations on maternal and newborn care for a positive postnatal experience 2022"
+    },
+    {
+      "claim": "NHS newborn guidance teaches day/night cues behaviourally (light, noise, routine at night) and states short fragmented newborn sleep is normal; it does not prescribe sleep-training outcomes.",
+      "status": "sourced_evidence",
+      "source": "NHS newborn sleep and safe sleep guidance (accessed 2026-09-17)"
+    },
+    {
+      "claim": "Parent-invented shift splits plus a written rest roster directly prevent the highest-risk outcome in this situation, unintentional sofa or armchair sleep.",
+      "status": "model_inference",
+      "source": "Authoring Wave 1 evidence review (community shift practice + AAP harm ranking)"
     }
   ],
   "safety": {

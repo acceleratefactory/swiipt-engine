@@ -1,0 +1,47 @@
+{
+  "id": "CRF-PPL-TRIAGE-001",
+  "class": "customer_reality_record",
+  "person": "Mother who feels nothing where joy is expected and fears what that means",
+  "situation": "Flat, guilty emptiness persisting past the blues window, hidden from family",
+  "trigger": "Numbness that did not lift after two weeks",
+  "context": "Verbatim research lines in Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md N1; research-file record, not independent testimony. Handled with care; no identifiers.",
+  "behaviour": [
+    "Performs happiness in front of family",
+    "Cries in private spaces"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "waiting for the glow to arrive on its own"
+    }
+  ],
+  "constraint": "Happiness is socially mandatory; numbness is unspeakable",
+  "thought": "Why do I feel nothing — does that make me a fraud or a bad mother?",
+  "fear": "Being seen as ungrateful, possessed, or faithless",
+  "emotional_stake": "Moral standing as a mother before family, God, and self",
+  "exact_language": "Everyone says I should be the happiest woman alive… why do I feel nothing — and why do I feel like a fraud for not glowing?",
+  "desired_change": "A name for what is happening plus a same-day route to care",
+  "evidence_source": {
+    "type": "documented_research",
+    "id": "Postpartum Library/POSTPARTUM MENTAL EMOTIONAL LIFE.md N1 (research record)",
+    "date": null,
+    "frequency": "research-file record",
+    "excerpt": "Everyone says I should be the happiest woman alive… why do I feel nothing — and why do I feel like a fraud for not glowing?",
+    "context": "Authored research record; independent voice-of-customer capture commissioned separately"
+  },
+  "evidence_status": "analyst_interpretation",
+  "evidence_weight": "low",
+  "observed_frequency": "research-file record",
+  "cultural_context": [
+    "stigma_silence",
+    "faith_pressure"
+  ],
+  "relationships": [],
+  "tags": [
+    "numbness",
+    "joyless",
+    "hidden_distress"
+  ],
+  "provenance": "inference",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

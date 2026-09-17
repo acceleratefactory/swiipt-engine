@@ -1,0 +1,47 @@
+{
+  "id": "CRF-PPL-SLEEP-002",
+  "class": "customer_reality_record",
+  "person": "Parents of a contact-only sleeper running couch shifts for three months",
+  "situation": "Four-hour holding shifts on the couch because the baby allows only contact sleep",
+  "trigger": "Contact-only sleep day and night with no safe alternative arranged",
+  "context": "r/NewParents thread by u/cerra001, 2026-03-19, observed 2026-09-17.",
+  "behaviour": [
+    "Ran 4-hour holding shifts on the couch",
+    "Tried drowsy-but-awake, mattress warming, feet-first lowering, white noise, waiting 20 minutes"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "drowsy-but-awake, mattress warming, feet-first lowering, white noise, waiting"
+    }
+  ],
+  "constraint": "Sofa is the only surface where shifts happen; destruction after three months",
+  "thought": "We have tried everything and the couch is all that works.",
+  "fear": "Falling asleep holding her on the sofa",
+  "emotional_stake": "Exhaustion as proof of devotion; guilt about unsafe arrangements",
+  "exact_language": "We’ve ended up doing 4-hour shifts on the couch holding her… but we’re totally destroyed after 3 months.",
+  "desired_change": "A shift plan that does not depend on the sofa",
+  "evidence_source": {
+    "type": "community_discussion",
+    "id": "reddit.com/r/NewParents/comments/1ryeqzw (2026-03-19)",
+    "date": "2026-03-19",
+    "frequency": "single thread observed",
+    "excerpt": "We’ve ended up doing 4-hour shifts on the couch holding her… but we’re totally destroyed after 3 months.",
+    "context": "Parent-invented shift splits plus sofa danger; tried-everything list included"
+  },
+  "evidence_status": "directly_stated",
+  "evidence_weight": "high",
+  "observed_frequency": "single thread observed",
+  "cultural_context": [
+    "online_peer_support",
+    "shift_improvisation"
+  ],
+  "relationships": [],
+  "tags": [
+    "contact_sleep",
+    "sofa_danger",
+    "shift_work"
+  ],
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

@@ -1,0 +1,14 @@
+{
+  "id": "MIF-PPL-CORE-002",
+  "class": "market_intelligence_record",
+  "category": "myth",
+  "statement": "The market simultaneously sells \"never crunch\" absolutism and \"100% resolved in 12 weeks\" guarantees with testimonial inch-loss and before/after photos; the evidence base (2021–2023 skeptical SRs vs 2025–26 favourable-but-very-low-certainty NMAs; Gluppe 2023 curl-up-no-harm RCT) supports neither absolute.",
+  "evidence": "Zhu 2025 / Bigdeli 2025 / Benjamin 2023 review positions; Gluppe et al. J Physiother 2023. Accessed 2026-09-17.",
+  "evidence_status": "analyst_interpretation",
+  "evidence_weight": "medium",
+  "freshness": "reviews 2021–2026; accessed 2026-09-17",
+  "source": "Authoring Wave 1 evidence review (review-positions synthesis; not a new review)",
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

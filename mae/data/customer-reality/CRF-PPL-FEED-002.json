@@ -1,0 +1,47 @@
+{
+  "id": "CRF-PPL-FEED-002",
+  "class": "customer_reality_record",
+  "person": "Nigerian mother around 2 months postpartum with shaky supply who added formula",
+  "situation": "Nurses when she can and tops up when she must, hiding the tins from relatives",
+  "trigger": "Late/low milk plus a nurse directive to top up",
+  "context": "Authored research avatar and pains in Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md SUBMARKET C; verbatim lines from the research file, not independent testimony.",
+  "behaviour": [
+    "Hides formula tins",
+    "Lies at the market about exclusive breastfeeding"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "exclusive breastfeeding, teas, and prayer"
+    }
+  ],
+  "constraint": "Husband-enforced exclusivity plus mother-in-law feed-watching",
+  "thought": "If they see the tin, I am lazy and Western.",
+  "fear": "Exposure, shaming, and being overruled on feeding",
+  "emotional_stake": "Good-mother identity under dual surveillance",
+  "exact_language": "I give him formula and a part of me grieves. Everyone acts like I quit.",
+  "desired_change": "Nurse-when-able plus top-up-when-needed, stated aloud without flinching",
+  "evidence_source": {
+    "type": "documented_research",
+    "id": "Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md SUBMARKET C (research avatar pains)",
+    "date": null,
+    "frequency": "research-file record",
+    "excerpt": "I give him formula and a part of me grieves. Everyone acts like I quit.",
+    "context": "Authored avatar lines in the research corpus; independent voice-of-customer capture still required"
+  },
+  "evidence_status": "analyst_interpretation",
+  "evidence_weight": "low",
+  "observed_frequency": "research-file record",
+  "cultural_context": [
+    "nigerian_compound",
+    "dual_surveillance"
+  ],
+  "relationships": [],
+  "tags": [
+    "combo_feeding",
+    "shame",
+    "hidden_formula"
+  ],
+  "provenance": "inference",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

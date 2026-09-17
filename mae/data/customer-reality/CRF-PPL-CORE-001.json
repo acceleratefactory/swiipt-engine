@@ -1,0 +1,48 @@
+{
+  "id": "CRF-PPL-CORE-001",
+  "class": "customer_reality_record",
+  "person": "Mother 7 months postpartum plateaued on diastasis recovery, building TVA tension with a 2-finger gap",
+  "situation": "Healing plateaued and she is tired of being careful with no progress marker moving",
+  "trigger": "Months of careful exercise with a gap that will not close further",
+  "context": "r/fitpregnancy thread, 2026-04-18, observed 2026-09-17.",
+  "behaviour": [
+    "Did physio-prescribed exercises through and after pregnancy",
+    "Tracked TVA tension as the progress signal"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "generic ab work and careful rest without a progression"
+    }
+  ],
+  "constraint": "No next rung defined after the initial physio block",
+  "thought": "Am I done, stuck, or doing the wrong exercises?",
+  "fear": "Making the gap worse by progressing wrongly",
+  "emotional_stake": "Competence and bodily trust after months of caution",
+  "exact_language": "I am 7 months pp, went to PT during and after pregnancy and did all the exercises. PT said I’ve advanced enough with building tension in my TVA that my 2-finger gap is not an issue",
+  "desired_change": "A defined next progression with a moving marker",
+  "evidence_source": {
+    "type": "community_discussion",
+    "id": "reddit.com/r/fitpregnancy/comments/1sp19a6 (2026-04-18)",
+    "date": "2026-04-18",
+    "frequency": "single thread observed",
+    "excerpt": "I am 7 months pp, went to PT during and after pregnancy and did all the exercises. PT said I’ve advanced enough with building tension in my TVA that my 2-finger gap is not an issue",
+    "context": "TVA-tension milestone language reaching patients; plateau frustration"
+  },
+  "evidence_status": "directly_stated",
+  "evidence_weight": "high",
+  "observed_frequency": "single thread observed",
+  "cultural_context": [
+    "online_peer_support",
+    "physio_guided"
+  ],
+  "relationships": [],
+  "tags": [
+    "diastasis",
+    "plateau",
+    "TVA",
+    "progression"
+  ],
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

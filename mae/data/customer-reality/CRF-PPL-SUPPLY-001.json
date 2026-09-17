@@ -1,0 +1,48 @@
+{
+  "id": "CRF-PPL-SUPPLY-001",
+  "class": "customer_reality_record",
+  "person": "Lagos marketing executive, 3 months postpartum, back at work with no private pumping space",
+  "situation": "Locked in a restroom to pump while engorged; supply dropping; blaming herself",
+  "trigger": "Return to a workplace with no lactation accommodation",
+  "context": "Guardian Nigeria 2026-08-01 interview (\"Doris\"), as cited in Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md §A6; secondary citation, primary page not re-fetched.",
+  "behaviour": [
+    "Hid in the restroom to pump",
+    "Watched supply drop while blaming herself"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "asking HR informally and using the restroom"
+    }
+  ],
+  "constraint": "No lactation room, no fridge, unreliable power; 12-week leave already spent",
+  "thought": "If I cannot pump at work, my milk will disappear and it is my fault.",
+  "fear": "Supply crash plus job loss at once",
+  "emotional_stake": "Failing as employee and as mother simultaneously",
+  "exact_language": "I ended up locking myself in the restroom… my breasts were painfully engorged.",
+  "desired_change": "A discreet pumping routine plus a rights-backed conversation with her employer",
+  "evidence_source": {
+    "type": "documented_research",
+    "id": "Postpartum Library/BREASTFEEDING FEEDING JOURNEY.md §A6 (Guardian Nigeria 2026-08-01, secondary citation)",
+    "date": "2026-08-01",
+    "frequency": "single interview",
+    "excerpt": "I ended up locking myself in the restroom… my breasts were painfully engorged.",
+    "context": "Workplace pumping without accommodation; primary page not re-fetched"
+  },
+  "evidence_status": "strongly_evidenced",
+  "evidence_weight": "medium",
+  "observed_frequency": "single interview",
+  "cultural_context": [
+    "nigerian_urban",
+    "workplace_inflexibility"
+  ],
+  "relationships": [],
+  "tags": [
+    "pumping",
+    "workplace",
+    "supply_crash",
+    "restroom"
+  ],
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

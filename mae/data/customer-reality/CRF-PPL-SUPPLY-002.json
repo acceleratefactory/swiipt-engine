@@ -1,0 +1,47 @@
+{
+  "id": "CRF-PPL-SUPPLY-002",
+  "class": "customer_reality_record",
+  "person": "Breastfeeding mother reading peer advice online while doubting her supply",
+  "situation": "Cannot pump much and reads it as proof of low supply",
+  "trigger": "Low pump output after a fussy feed",
+  "context": "r/breastfeeding peer thread observed 2026-09-17 via search excerpt; full thread not re-fetched.",
+  "behaviour": [
+    "Compared pump output to adequacy",
+    "Sought peer correction online"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "judging supply by pump volume"
+    }
+  ],
+  "constraint": "No clinician in the loop at 3am; only peer voices",
+  "thought": "The pump shows almost nothing, so there must be almost nothing.",
+  "fear": "Starving the baby unknowingly",
+  "emotional_stake": "Bodily competence as a mother, judged by millilitres",
+  "exact_language": "Not being able to pump much is not an indicator of low supply.",
+  "desired_change": "A trusted adequacy check that does not depend on the pump",
+  "evidence_source": {
+    "type": "community_discussion",
+    "id": "reddit.com/r/breastfeeding (pump-output thread, observed 2026-09-17)",
+    "date": null,
+    "frequency": "single thread observed",
+    "excerpt": "Not being able to pump much is not an indicator of low supply.",
+    "context": "Peer correction toward latch/weighted-feed assessment; full thread not re-fetched"
+  },
+  "evidence_status": "strongly_evidenced",
+  "evidence_weight": "medium",
+  "observed_frequency": "single thread observed",
+  "cultural_context": [
+    "online_peer_support",
+    "pump_culture"
+  ],
+  "relationships": [],
+  "tags": [
+    "pump_output",
+    "supply_panic",
+    "peer_correction"
+  ],
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

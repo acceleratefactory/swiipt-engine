@@ -1,0 +1,46 @@
+{
+  "id": "CRF-PPL-MONEY-002",
+  "class": "customer_reality_record",
+  "person": "Nigerian father facing birth and naming-ceremony costs on a strained household budget",
+  "situation": "Hospital, naming and visitor costs land at once while income is stretched",
+  "trigger": "Overlapping birth bills plus cultural ceremony expectations",
+  "context": "Tribune (2026) headline reporting a father’s words, as cited in Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md §REAL RESEARCH BASE [S12]; secondary citation, primary page not re-fetched.",
+  "behaviour": [
+    "Named the collision of baby, wife-nursing and money pressure in press-quoted words"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "absorbing the costs silently as provider"
+    }
+  ],
+  "constraint": "Provider-role pressure forbids admitting the shortfall",
+  "thought": "A proper father should cover this without complaint — but the numbers do not fit.",
+  "fear": "Public shame of failing at the provider role",
+  "emotional_stake": "Competence-as-provider proven under impossible arithmetic",
+  "exact_language": "You have a crying baby, your wife is nursing… you don’t have enough money",
+  "desired_change": "Costs that fit the household without humiliation",
+  "evidence_source": {
+    "type": "documented_research",
+    "id": "Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md §REAL RESEARCH BASE [S12] (Tribune 2026, secondary citation)",
+    "date": "2026",
+    "frequency": "single reported quote",
+    "excerpt": "You have a crying baby, your wife is nursing… you don’t have enough money",
+    "context": "Press-reported paternal money pressure; primary page not re-fetched"
+  },
+  "evidence_status": "strongly_evidenced",
+  "evidence_weight": "medium",
+  "observed_frequency": "single reported quote",
+  "cultural_context": [
+    "nigerian_urban",
+    "provider_role_pressure"
+  ],
+  "relationships": [],
+  "tags": [
+    "father_pressure",
+    "ceremony_costs",
+    "family_money"
+  ],
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

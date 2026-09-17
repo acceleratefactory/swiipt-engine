@@ -211,6 +211,21 @@
       "claim": "Every week 5,000 naira disappears on diapers",
       "status": "model_inference",
       "source": "OPP-PPL-MONEY-001"
+    },
+    {
+      "claim": "Nigerian statutory maternity minimum: 12 weeks leave at no less than 50% wages with 6 months continuous service; nursing breaks 2x30 min; no statutory paternity leave.",
+      "status": "sourced_evidence",
+      "source": "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)"
+    },
+    {
+      "claim": "Nigeria ranked last in first-year baby affordability: nappies/wipes/rash-cream ≈123.6% of average annual wage; formula ≈131.1%; figures dated June 2026 under an affordable-options methodology.",
+      "status": "sourced_evidence",
+      "source": "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)"
+    },
+    {
+      "claim": "Lagos 2026 tier-split birth ranges and 2026 retail formula listings are dated snapshots for mechanism calibration, not surveyed national prices.",
+      "status": "model_inference",
+      "source": "Authoring Wave 1 evidence review (lagos.cool 2026-05-07; CSi Grocery 2026 listings)"
     }
   ],
   "safety": {

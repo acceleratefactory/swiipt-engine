@@ -233,6 +233,26 @@
       "claim": "my gap is 3 fingers",
       "status": "model_inference",
       "source": "OPP-PPL-CORE-001"
+    },
+    {
+      "claim": "Structured deep-plus-superficial core programmes reduce inter-rectus distance more than isolated or passive approaches; overall certainty low to moderate — interpret cautiously.",
+      "status": "sourced_evidence",
+      "source": "Bigdeli et al. network meta-analysis 2025 (doi:10.1038/s41598-025-22574-2)"
+    },
+    {
+      "claim": "Finger-width palpation tracks consistently but has poor concurrent validity against ultrasound and must never be presented as a clinical measurement.",
+      "status": "sourced_evidence",
+      "source": "Ojukwu et al. Enugu palpation-validity study (PMID 37929234)"
+    },
+    {
+      "claim": "Postpartum runners with pelvic-floor symptoms should be referred to a specialised professional before progressing to impact; heaviness, leaking, visible gap, pelvic pain and bleeding beyond 8 weeks are referral signals.",
+      "status": "sourced_evidence",
+      "source": "BJSM return-to-running consensus + ACPSEM-endorsed guideline"
+    },
+    {
+      "claim": "Intra-abdominal-pressure management with pelvic-floor co-activation is the rationale for the precautionary avoid-list; individual avoid-items are consensus caution, not RCT-proven harm.",
+      "status": "model_inference",
+      "source": "Authoring Wave 1 evidence review (NMA discussion; Gluppe 2023 contradiction recorded)"
     }
   ],
   "safety": {

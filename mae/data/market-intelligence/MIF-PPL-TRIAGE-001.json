@@ -1,0 +1,14 @@
+{
+  "id": "MIF-PPL-TRIAGE-001",
+  "class": "market_intelligence_record",
+  "category": "competitor",
+  "statement": "Postpartum mental-health navigation exists as helplines and content (PSI provider directory + 50+ support groups + peer mentors + psychiatric consult line; HelpLine explicitly not crisis; NHS perinatal content + talking-therapies self-referral) and as apps (Canopie self-guided sessions + membership; MamaLift 8-week self-help + prescription-only FDA-cleared MamaLift Plus with SuMMER sham-controlled results); no open self-screen path exists to copy, and crisis lines are services, not products.",
+  "evidence": "PSI postpartum.net helpline page (fetched 2026-09-17); NHS Every Mind Matters + postnatal depression pages; Canopie store page; Curio MamaLift pages. Accessed 2026-09-17.",
+  "evidence_status": "strongly_evidenced",
+  "evidence_weight": "medium_high",
+  "freshness": "accessed 2026-09-17",
+  "source": "https://postpartum.net/get-help/psi-helpline; https://www.nhs.uk/mental-health/conditions/postnatal-depression",
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

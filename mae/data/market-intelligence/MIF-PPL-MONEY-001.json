@@ -1,0 +1,14 @@
+{
+  "id": "MIF-PPL-MONEY-001",
+  "class": "market_intelligence_record",
+  "category": "competitor",
+  "statement": "Baby-cost calculators (BabyCenter ≈$20,745 first-year total; FirstYearCost ≈$24,761 range $18,374–$34,785; Momcozy $14,700–$36,000+) sell single blended averages on US assumptions, while the one Nigeria-specific guide found (BudgetWise Nigeria, 2026-02-02) publishes a ₦500k–₦1m blended range with no calculator, no audit/resell loop, and unstated method.",
+  "evidence": "BabyCenter baby-cost calculator page; FirstYearCost.com 2026 multi-calculator pages; Momcozy first-year calculator page; BudgetWise Nigeria 2026-02-02 guide. All accessed 2026-09-17.",
+  "evidence_status": "strongly_evidenced",
+  "evidence_weight": "medium_high",
+  "freshness": "accessed 2026-09-17",
+  "source": "https://www.babycenter.com/baby-cost-calculator; https://firstyearcost.com/; https://momcozy.com/pages/first-year-baby-cost-calculator; https://budgetwise.com.ng/how-new-parents-can-budget-smartly-for-a-baby/",
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

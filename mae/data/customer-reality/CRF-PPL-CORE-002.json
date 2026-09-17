@@ -1,0 +1,47 @@
+{
+  "id": "CRF-PPL-CORE-002",
+  "class": "customer_reality_record",
+  "person": "Mother whose postpartum belly still looks pregnant months after birth",
+  "situation": "Asked by her own mother-in-law when she is due; avoids family events",
+  "trigger": "Owambe photo season plus direct family questioning",
+  "context": "Authored research niche in Postpartum Library/DIASTASIS CORE RECOVERY.md Niche 3; verbatim lines from the research file, not independent testimony.",
+  "behaviour": [
+    "Avoids family events and photos",
+    "Hides the belly from her husband"
+  ],
+  "failed_attempts": [
+    {
+      "tried": "waist trainers and old ab routines"
+    }
+  ],
+  "constraint": "No safe progression known; fear of worsening the split",
+  "thought": "Everyone can see I still look pregnant.",
+  "fear": "Permanent bodily change plus public shaming",
+  "emotional_stake": "Visibility as a finished, competent woman",
+  "exact_language": "I lost the baby but my stomach still looks pregnant. My own mother-in-law asked me when I’m due. I wanted to disappear. I avoid family events now.",
+  "desired_change": "A pooch that no longer announces itself; photos without cropping",
+  "evidence_source": {
+    "type": "documented_research",
+    "id": "Postpartum Library/DIASTASIS CORE RECOVERY.md Niche 3 (research niche record)",
+    "date": null,
+    "frequency": "research-file record",
+    "excerpt": "I lost the baby but my stomach still looks pregnant. My own mother-in-law asked me when I’m due. I wanted to disappear. I avoid family events now.",
+    "context": "Authored niche record; independent voice-of-customer capture still required"
+  },
+  "evidence_status": "analyst_interpretation",
+  "evidence_weight": "low",
+  "observed_frequency": "research-file record",
+  "cultural_context": [
+    "nigerian_family_events",
+    "body_visibility"
+  ],
+  "relationships": [],
+  "tags": [
+    "diastasis",
+    "shame",
+    "event_avoidance"
+  ],
+  "provenance": "inference",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

@@ -230,6 +230,31 @@
       "claim": "shame is heavier than the baby",
       "status": "model_inference",
       "source": "OPP-PPL-FEED-001"
+    },
+    {
+      "claim": "NHS mixed-feeding guidance: introducing formula affects breast-milk production; maintain supply by expressing regularly; use slow-flow teats; cut down gradually to minimise mastitis risk.",
+      "status": "sourced_evidence",
+      "source": "NHS mixed/combination feeding guidance (reviewed 2026-06-01; 2026-02-05)"
+    },
+    {
+      "claim": "WHO home formula preparation: reconstitute with water no cooler than 70 C; discard unfinished bottles; refrigerate promptly; sterilise all equipment.",
+      "status": "sourced_evidence",
+      "source": "WHO safe preparation and storage of powdered infant formula guideline"
+    },
+    {
+      "claim": "UNICEF UK: any breastfeeding is valuable; where supplementation occurs, use the minimum consistent with safety and plan return to full breastfeeding; mothers who combine remain breastfeeding mothers.",
+      "status": "sourced_evidence",
+      "source": "UNICEF UK Baby Friendly maximising-breastmilk standards (2022-02-11)"
+    },
+    {
+      "claim": "Paced-bottle technique is consensus practice with preliminary-only outcome evidence; it must never be presented as proven to preserve breastfeeding.",
+      "status": "model_inference",
+      "source": "Authoring Wave 1 evidence review (Kotowski 2020; Ventura 2025)"
+    },
+    {
+      "claim": "UK formula-stigma survey figures describe UK mothers who used formula and must never be restated as Nigerian combo-feeding prevalence.",
+      "status": "model_inference",
+      "source": "Authoring Wave 1 evidence review (Fallon et al. 2016 scope containment)"
     }
   ],
   "safety": {

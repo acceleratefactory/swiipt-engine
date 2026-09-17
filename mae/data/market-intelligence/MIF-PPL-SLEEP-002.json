@@ -1,0 +1,14 @@
+{
+  "id": "MIF-PPL-SLEEP-002",
+  "class": "market_intelligence_record",
+  "category": "gap",
+  "statement": "No culturally-tailored Nigerian/African newborn-sleep product exists at a low-ticket tier (repo market-gap line, SLEEP DEPRIVATION.md); the free-authority lane (NHS pages, AAP 2022 statement, WHO 2022 guideline, Lullaby Trust guides) gives correct boundaries but no sequenced 7-night plan, log, shift contract, or transfer drill.",
+  "evidence": "SLEEP DEPRIVATION.md market-gap line; NHS newborn sleep + safe-sleep pages; AAP 2022 policy; WHO 2022 postnatal guideline. Accessed 2026-09-17.",
+  "evidence_status": "strongly_evidenced",
+  "evidence_weight": "medium_high",
+  "freshness": "accessed 2026-09-17",
+  "source": "Product Pipeline/Postpartum Library/SLEEP DEPRIVATION.md (market-gap line); https://www.nhs.uk/baby/caring-for-a-newborn/helping-your-baby-to-sleep/",
+  "provenance": "evidence_backed",
+  "created_at": "2026-09-17T00:00:00.000Z",
+  "is_fixture": false
+}

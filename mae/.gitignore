@@ -19,9 +19,21 @@ data/*
 !data/customer-reality/
 data/customer-reality/*
 !data/customer-reality/CRF-PPL-CORD-CARE-*.json
+!data/customer-reality/CRF-PPL-SLEEP-*.json
+!data/customer-reality/CRF-PPL-FEED-*.json
+!data/customer-reality/CRF-PPL-SUPPLY-*.json
+!data/customer-reality/CRF-PPL-CORE-*.json
+!data/customer-reality/CRF-PPL-MONEY-*.json
+!data/customer-reality/CRF-PPL-TRIAGE-*.json
 !data/market-intelligence/
 data/market-intelligence/*
 !data/market-intelligence/MIF-PPL-CORD-CARE-*.json
+!data/market-intelligence/MIF-PPL-MONEY-*.json
+!data/market-intelligence/MIF-PPL-SUPPLY-*.json
+!data/market-intelligence/MIF-PPL-FEED-*.json
+!data/market-intelligence/MIF-PPL-SLEEP-*.json
+!data/market-intelligence/MIF-PPL-CORE-*.json
+!data/market-intelligence/MIF-PPL-TRIAGE-*.json
 #
 # `data/_prod-candidates/` is an ingestion STAGING area (workflow input to ingest-crf/mif.ts into the
 # collections above), not a store collection — it stays ignored. No duplicate candidate records are
