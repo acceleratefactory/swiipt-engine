@@ -1,0 +1,120 @@
+{
+  "id": "BRIEF-NS-007",
+  "class": "asset_brief",
+  "angle_id": "ANG-NS-002",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "family_id": "FAM-NS-002",
+  "asset_type": "SOCIAL_REEL",
+  "platform": "instagram",
+  "asset_purpose": "problem",
+  "truth_weighting": {
+    "customer": 35,
+    "brand": 25,
+    "market": 20,
+    "product": 20
+  },
+  "content_grounding": {
+    "foreground": [
+      {
+        "field": "hook_text",
+        "value": "The real cost of the night argument is not the lost sleep. It is the resentment that stays awake long after the baby sleeps.",
+        "source_ref": "ANG-NS-002.tier2.insight.text"
+      },
+      {
+        "field": "mechanism_text",
+        "value": "The resentment is not caused by one bad night. It is caused by no system that prevents the next one.",
+        "source_ref": "ANG-NS-002.tier2.mechanism.text"
+      },
+      {
+        "field": "video_structure",
+        "value": "0-3s: Hook text overlay. 3-12s: The argument pattern. 12-20s: The spiral visual. 20-25s: What a roster does.",
+        "source_ref": "ANG-NS-002.tier2.asset_purpose"
+      }
+    ],
+    "background": [
+      {
+        "field": "resentment_spiral",
+        "value": "Every night argument repeats. Nothing changes. The mother starts doing it alone because it is easier than fighting.",
+        "source_ref": "ANG-NS-002.tier1.customer"
+      },
+      {
+        "field": "scorekeeping",
+        "value": "We both work. We both get tired. Why is it always me?",
+        "source_ref": "ANG-NS-002.tier1.scene"
+      },
+      {
+        "field": "observable_system",
+        "value": "The resentment lives because there is no visible system proving the nights are shared.",
+        "source_ref": "ANG-NS-002.tier2.mechanism.text"
+      }
+    ]
+  },
+  "brand_constraints": {
+    "forbidden_phrases": [
+      "In today's fast-paced world",
+      "Embark on a journey",
+      "Transform your life",
+      "Unlock your potential",
+      "Take your life to the next level",
+      "Don't miss out",
+      "Game-changer",
+      "Level up",
+      "Crush your goals",
+      "Hustle culture",
+      "Rise and grind",
+      "Believe in yourself",
+      "You deserve this",
+      "Treat yourself",
+      "Self-care is not selfish",
+      "You are enough",
+      "Live your best life",
+      "Good vibes only",
+      "No days off",
+      "Be the best version of yourself",
+      "Wake up and win"
+    ],
+    "prohibited_behaviors": [
+      "fake empathy",
+      "motivational filler",
+      "artificial urgency",
+      "exaggerated outcomes",
+      "shame/fear inflation",
+      "manufactured dependency",
+      "unnecessary conclusions",
+      "forced humour",
+      "rhetorical-question overload",
+      "filler transitions",
+      "repetitive encouragement"
+    ],
+    "brand_boundaries": {
+      "register": "calm, trustworthy, empowering-without-hype",
+      "tone": "intelligent, practical, specific, direct, warm without sentimentality",
+      "forbidden_registers": [
+        "motivation-speaker",
+        "clinical",
+        "therapy-speak",
+        "corporate-SaaS",
+        "fake-enthusiastic"
+      ]
+    }
+  },
+  "platform_rules": {
+    "platform": "instagram",
+    "format": "reel",
+    "recommended_specs": {
+      "video_dimensions": "1080x1920px",
+      "duration": "15-30s",
+      "aspect_ratio": "9:16",
+      "caption_max_chars": 2200
+    },
+    "style_direction": "text-overlay driven, no stock footage, clean transitions, brand-color palette"
+  },
+  "structural_template": {
+    "role": "motion_concept",
+    "purpose": "problem",
+    "description": "Short-form video surfacing the problem. Text-driven motion, no stock footage."
+  },
+  "audience": null,
+  "status": "DRAFT",
+  "created_at": "2026-09-16T00:00:00Z"
+}

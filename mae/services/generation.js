@@ -7,6 +7,7 @@ import { makeId, existingIds } from "../lib/ids.js";
 import { join } from "node:path";
 import { fail, CODES } from "../lib/errors.js";
 import { BrandTruthService } from "./brand.js";
+import { contentCompleteness } from "../lib/content-contract.js";
 
 const GEN_DIR = join(MAE_DIR, "data", "generated");
 export const MAX_REGENERATIONS = 3;
@@ -129,15 +130,19 @@ export const GenerationService = {
     const candidates = [];
     let regeneration = 0;
     let failures = [];
+    let completeness = { complete: false, failures: [] };
     while (regeneration < MAX_REGENERATIONS) {
       const content = provider === "deterministic" ? this.compose(brief, { lockedPhraseSet }) : this.compose(brief, { lockedPhraseSet });
       candidates.push({ id: `cand-${regeneration + 1}`, content, provider, attempt: regeneration + 1 });
       const findings = this.validateOutput(content, brief);
-      failures = findings;
-      if (!findings.length) break;
+      // GENERATION GUARD (content completeness): an incomplete draft is never a success state.
+      completeness = contentCompleteness(brief.asset_type, content);
+      failures = [...findings, ...completeness.failures.map((f) => ({ code: f.code, detail: f.detail }))];
+      if (!failures.length) break;
       regeneration++;
     }
-    const status = failures.length && regeneration >= MAX_REGENERATIONS ? "BRIEF_REVIEW_REQUIRED" : "GENERATED";
+    const status = !completeness.complete ? "REVISION_REQUIRED"
+      : (failures.length && regeneration >= MAX_REGENERATIONS ? "BRIEF_REVIEW_REQUIRED" : "GENERATED");
     const record = {
       id: id || this.nextId((brief.angle_id || "GEN").replace(/^ANG-/, "").split("-")[0] || "GEN"),
       class: "generated_asset_record",

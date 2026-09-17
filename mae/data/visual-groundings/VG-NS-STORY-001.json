@@ -5,12 +5,12 @@
   "subject": "Single parent in small bedroom, hands-free pump, chart on wall, natural daylight",
   "environment": "Small bedroom, natural daylight from window, realistic Nigerian home, lived-in and real",
   "gesture_posture": "Parent sitting on bed or chair, hands-free pump visible, looking at chart or phone with determination, not despair",
-  "props": {
+  "props": [
     "hands-free pump or pumping setup",
     "chart or schedule on wall or bedside",
     "phone or small notebook",
     "everyday baby items"
-  },
+  ],
   "wardrobe": "Simple, practical home clothes — realistic for a single parent managing alone",
   "lighting": "Natural daylight from window, soft and honest — not dramatic or cinematic",
   "composition": "Single parent centered, pump and chart visible, natural and grounded framing, showing capability not victimhood",

@@ -39,3 +39,43 @@ data/market-intelligence/*
 # collections above), not a store collection — it stays ignored. No duplicate candidate records are
 # committed; the persisted production records are the single canonical copy.
 data/_prod-candidates/
+
+# ── V06 marketing campaign — canonical pre-approval campaign set ───────────────────────────────
+# Every artifact referenced by MASTER-MARKETING-PACK.json MUST be part of the tracked canonical set
+# (artifact-closure invariant, mae/services/marketing-pack.js). The pack and the campaign
+# collections it references are committed; unrelated CSEC/test-generated records in the same
+# collections stay ignored.
+!data/MASTER-MARKETING-PACK.json
+!data/marketing-angles/
+data/marketing-angles/*
+!data/marketing-angles/ANG-NS-*.json
+!data/asset-families/
+data/asset-families/*
+!data/asset-families/FAM-NS-*.json
+!data/assets/
+data/assets/*
+!data/assets/AST-NS-*.json
+!data/generated/
+data/generated/*
+!data/generated/GEN-NS-*.json
+!data/qa/
+data/qa/*
+!data/qa/QA-NS-*.json
+!data/psets/
+data/psets/*
+!data/psets/LPS-NS-*.json
+!data/design-specs/
+data/design-specs/*
+!data/design-specs/DES-NS-*.json
+!data/visual-groundings/
+data/visual-groundings/*
+!data/visual-groundings/VG-NS-*.json
+!data/campaigns/
+data/campaigns/*
+!data/campaigns/CAMP-NS-*.json
+!data/sequences/
+data/sequences/*
+!data/sequences/SEQ-NS-*.json
+!data/briefs/
+data/briefs/*
+!data/briefs/BRIEF-NS-*.json

@@ -7,7 +7,11 @@
   "source_angle_id": "ANG-NS-005",
   "angle_verdict": "GREEN",
   "angle_version": 1,
-  "platform_scope": ["facebook_feed", "instagram_feed", "whatsapp_broadcast"],
+  "platform_scope": [
+    "facebook_feed",
+    "instagram_feed",
+    "whatsapp_broadcast"
+  ],
   "primary_audience": "Breastfeeding mothers whose baby won't take a bottle — partner 'can't help' at night because the baby won't settle without the breast",
   "primary_customer_situation": "Mother locked into every night wake because baby refuses bottle; partner excluded from night duty by default, not by choice",
   "core_angle_hook": "The breastfeeding trap: 'I can't help because the baby won't take a bottle' — but night shifts aren't just feeds. The roster covers the rest.",
@@ -15,15 +19,15 @@
   "anchor_asset_id": "AST-NS-OBJ-001",
   "approved_asset_ids": [
     "AST-NS-OBJ-001",
-    "AST-NS-OBJ-001-FB",
-    "AST-NS-OBJ-001-IG",
-    "AST-NS-OBJ-001-WA"
+    "AST-NS-014",
+    "AST-NS-015",
+    "AST-NS-016"
   ],
   "role_map": {
     "AST-NS-OBJ-001": "anchor_concept",
-    "AST-NS-OBJ-001-FB": "facebook_feed_static",
-    "AST-NS-OBJ-001-IG": "instagram_feed_static",
-    "AST-NS-OBJ-001-WA": "whatsapp_broadcast_text"
+    "AST-NS-014": "facebook_feed_static",
+    "AST-NS-015": "instagram_feed_static",
+    "AST-NS-016": "whatsapp_broadcast_text"
   },
   "truth_source_refs": {
     "product_truth": "TR-PPL-NIGHT-SHIFT-001",
@@ -31,9 +35,16 @@
     "customer_reality": "CRF-PPL-CORD-CARE-001 (adjacent signals — no CRF exists for this product)",
     "market_intelligence": "none (no MIF exists for this product)"
   },
-  "weighting_profile_refs": ["whatsapp_broadcast", "social_static"],
+  "weighting_profile_refs": [
+    "whatsapp_broadcast",
+    "social_static"
+  ],
   "locked_phrase_set_id": "LPS-NS-005",
-  "sequence_eligibility": ["launch_sequence", "nurture_sequence", "retargeting_sequence"],
+  "sequence_eligibility": [
+    "launch_sequence",
+    "nurture_sequence",
+    "retargeting_sequence"
+  ],
   "evergreen_eligible": true,
   "emotional_intensity_profile": {
     "high": 7,
@@ -42,10 +53,26 @@
     "conversion": 3
   },
   "coverage": {
-    "content_pillars": ["breastfeeding_night_shift", "bottle_refusal_objection", "partner_inclusion"],
-    "customer_stages": ["awareness", "consideration", "objection_handling"],
-    "emotional_range": ["frustration", "relief", "empowerment"],
-    "platform_coverage": ["facebook", "instagram", "whatsapp"]
+    "content_pillars": [
+      "breastfeeding_night_shift",
+      "bottle_refusal_objection",
+      "partner_inclusion"
+    ],
+    "customer_stages": [
+      "awareness",
+      "consideration",
+      "objection_handling"
+    ],
+    "emotional_range": [
+      "frustration",
+      "relief",
+      "empowerment"
+    ],
+    "platform_coverage": [
+      "facebook",
+      "instagram",
+      "whatsapp"
+    ]
   },
   "family_status": "BUILDING",
   "created_at": "2026-09-16T12:00:00Z"

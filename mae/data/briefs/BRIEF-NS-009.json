@@ -1,0 +1,120 @@
+{
+  "id": "BRIEF-NS-009",
+  "class": "asset_brief",
+  "angle_id": "ANG-NS-003",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "family_id": "FAM-NS-003",
+  "asset_type": "SOCIAL_STATIC",
+  "platform": "instagram",
+  "asset_purpose": "myth_reframe",
+  "truth_weighting": {
+    "customer": 30,
+    "brand": 25,
+    "market": 20,
+    "product": 25
+  },
+  "content_grounding": {
+    "foreground": [
+      {
+        "field": "hook_text",
+        "value": "Calling your partner a 'helper' guarantees they will never own the night.",
+        "source_ref": "ANG-NS-003.tier2.insight.text"
+      },
+      {
+        "field": "mechanism_text",
+        "value": "The word 'helper' creates a manager and a subordinate. The roster creates two co-managers with named shifts.",
+        "source_ref": "ANG-NS-003.tier2.mechanism.text"
+      },
+      {
+        "field": "desired_change_text",
+        "value": "Replace 'helping' language with shift ownership language.",
+        "source_ref": "ANG-NS-003.tier2.desired_change"
+      }
+    ],
+    "background": [
+      {
+        "field": "helper_myth",
+        "value": "She asks him to help. He says yes. She still manages everything. Nothing actually changes.",
+        "source_ref": "ANG-NS-003.tier1.customer"
+      },
+      {
+        "field": "schedule_asks_not_you",
+        "value": "A roster does not ask you to help your partner. It asks you to show up for your shift.",
+        "source_ref": "LPS-NS-003"
+      },
+      {
+        "field": "co_manager",
+        "value": "Two co-managers with named shifts, not one manager assigning tasks.",
+        "source_ref": "LPS-NS-003"
+      }
+    ]
+  },
+  "brand_constraints": {
+    "forbidden_phrases": [
+      "In today's fast-paced world",
+      "Embark on a journey",
+      "Transform your life",
+      "Unlock your potential",
+      "Take your life to the next level",
+      "Don't miss out",
+      "Game-changer",
+      "Level up",
+      "Crush your goals",
+      "Hustle culture",
+      "Rise and grind",
+      "Believe in yourself",
+      "You deserve this",
+      "Treat yourself",
+      "Self-care is not selfish",
+      "You are enough",
+      "Live your best life",
+      "Good vibes only",
+      "No days off",
+      "Be the best version of yourself",
+      "Wake up and win"
+    ],
+    "prohibited_behaviors": [
+      "fake empathy",
+      "motivational filler",
+      "artificial urgency",
+      "exaggerated outcomes",
+      "shame/fear inflation",
+      "manufactured dependency",
+      "unnecessary conclusions",
+      "forced humour",
+      "rhetorical-question overload",
+      "filler transitions",
+      "repetitive encouragement"
+    ],
+    "brand_boundaries": {
+      "register": "calm, trustworthy, empowering-without-hype",
+      "tone": "intelligent, practical, specific, direct, warm without sentimentality",
+      "forbidden_registers": [
+        "motivation-speaker",
+        "clinical",
+        "therapy-speak",
+        "corporate-SaaS",
+        "fake-enthusiastic"
+      ]
+    }
+  },
+  "platform_rules": {
+    "platform": "instagram",
+    "format": "feed_static",
+    "recommended_specs": {
+      "image_dimensions": "1080x1080px or 1080x1350px",
+      "text_overlay_max": "20% of image area",
+      "caption_max_chars": 2200,
+      "first_line_hook_chars": 125
+    },
+    "style_direction": "clean typography on solid brand-color background, no stock imagery, no faces"
+  },
+  "structural_template": {
+    "role": "concept_visual",
+    "purpose": "myth_reframe",
+    "description": "Reframe the myth. Contrast old language vs new language."
+  },
+  "audience": null,
+  "status": "DRAFT",
+  "created_at": "2026-09-16T00:00:00Z"
+}

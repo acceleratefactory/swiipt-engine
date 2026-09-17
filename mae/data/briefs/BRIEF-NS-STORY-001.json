@@ -1,0 +1,29 @@
+{
+  "id": "BRIEF-NS-STORY-001",
+  "class": "asset_brief",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "angle_id": "ANG-NS-004",
+  "asset_type": "SOCIAL_STORY_SEQUENCE",
+  "asset_purpose": "story_sequence",
+  "asset_role": "STORY",
+  "platform": "instagram",
+  "platform_format": "story_vertical",
+  "content_grounding": {
+    "core_message": "A roster does not require a partner. It requires a named shift and a named person to cover it — a support web, not a marriage contract. The night still needs an owner and a schedule.",
+    "problem_summary": "Nobody owns the night, so the default becomes she owns all of it. Doing 100% of nights, every night, for weeks — with no partner shift to hand off to.",
+    "message_trajectory": "Hook → Problem → Mechanism → Desired Change → CTA"
+  },
+  "truth_compliance": {
+    "brand_voice_dna": "intelligent, practical, specific, direct, warm without sentimentality",
+    "brand_boundary_check": "No hype, no fear, no clinical register",
+    "product_truth_alignment": "TR-PPL-NIGHT-SHIFT-001 mechanism.mechanisms[0], mechanism.mechanisms[3]",
+    "claims_scope": "General parenting information only — not medical advice"
+  },
+  "emotional_intensity": "moderate",
+  "cta_level": "low",
+  "platform_compliance": {
+    "required": [],
+    "forbidden": []
+  },
+  "created_at": "2026-09-17T11:36:38.864Z"
+}

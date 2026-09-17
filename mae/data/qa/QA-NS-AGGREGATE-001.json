@@ -3,7 +3,6 @@
   "class": "qa_aggregate_manifest",
   "manifest_type": "marketing_qa_validation",
   "product_id": "PPL-NIGHT-SHIFT-001",
-  "product_name": "Every Night, Just Me",
   "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
   "manifest_version": 1,
   "scope": "v06_marketing_production",
@@ -15,7 +14,7 @@
     "overall_status": "PASS",
     "severity": "none",
     "total_gates": 7,
-    "gates_with_all_pass": 7,
+    "gates_with_all_pass": 6,
     "gates_with_not_triggered": 1,
     "human_review_required": false,
     "truth_compliance_all_pass": true,
@@ -33,7 +32,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "facebook",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-002",
@@ -42,7 +41,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-003",
@@ -51,7 +50,7 @@
       "asset_type": "GENERIC",
       "platform": "whatsapp",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-004",
@@ -60,7 +59,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "facebook",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-005",
@@ -69,7 +68,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-006",
@@ -78,7 +77,7 @@
       "asset_type": "SOCIAL_CAROUSEL",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-007",
@@ -87,7 +86,7 @@
       "asset_type": "SOCIAL_REEL",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-008",
@@ -96,7 +95,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "facebook",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-009",
@@ -105,7 +104,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-010",
@@ -114,7 +113,7 @@
       "asset_type": "SOCIAL_STORY_SEQUENCE",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-011",
@@ -123,7 +122,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "facebook",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-012",
@@ -132,7 +131,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-013",
@@ -141,7 +140,7 @@
       "asset_type": "SOCIAL_CAROUSEL",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-014",
@@ -150,7 +149,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "facebook",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-015",
@@ -159,7 +158,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-016",
@@ -168,7 +167,7 @@
       "asset_type": "GENERIC",
       "platform": "whatsapp",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-STOP-001",
@@ -177,8 +176,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)",
-      "note": "Anchor asset — content from brief, not generated"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-PROB-001",
@@ -187,8 +185,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)",
-      "note": "Anchor asset — content from brief, not generated"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-MYTH-001",
@@ -197,18 +194,16 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)",
-      "note": "Anchor asset — content from brief, not generated"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-STORY-001",
       "asset_id": "AST-NS-STORY-001",
       "brief_id": "BRIEF-NS-STORY-001",
-      "asset_type": "SOCIAL_STATIC",
+      "asset_type": "SOCIAL_STORY_SEQUENCE",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)",
-      "note": "Anchor asset — content from brief, not generated"
+      "gates_summary": "6/7 PASS"
     },
     {
       "qa_id": "QA-NS-OBJ-001",
@@ -217,8 +212,7 @@
       "asset_type": "SOCIAL_STATIC",
       "platform": "instagram",
       "overall": "PASS",
-      "gates_summary": "7/7 PASS (GATE_7 NOT_TRIGGERED)",
-      "note": "Anchor asset — content from brief, not generated"
+      "gates_summary": "6/7 PASS"
     }
   ],
   "gate_analysis": {
@@ -226,49 +220,43 @@
       "status": "ALL_PASS",
       "records_passing": 21,
       "records_failing": 0,
-      "records_flagged": 0,
       "notes": "All 21 records verified: Tier 1 and Tier 2 anti-slop patterns clean; no forbidden phrases from writing-control.v1.json; blame patterns clean; universality patterns clean"
     },
     "GATE_2_INTERCHANGEABILITY": {
       "status": "ALL_PASS",
       "records_passing": 21,
       "records_failing": 0,
-      "records_flagged": 0,
       "notes": "All 21 records verified: brief-based assets have anchor count >=2; anchor assets have anchor count >=1; proper asset_purpose and platform mapping"
     },
     "GATE_3_PLATFORM_FITNESS": {
       "status": "ALL_PASS",
       "records_passing": 21,
       "records_failing": 0,
-      "records_flagged": 0,
       "notes": "All 21 records verified: platform-specific format compliance; facebook/instagram/whatsapp all correct; asset_type matches platform requirements"
     },
     "GATE_4_BRAND_CULTURAL": {
       "status": "ALL_PASS",
       "records_passing": 21,
       "records_failing": 0,
-      "records_flagged": 0,
       "notes": "All 21 records verified: brand voice DNA compliance (intelligent, practical, specific, direct, warm without sentimentality); forbidden phrases clean; cultural integrity maintained; no clinical/sales/motivational register"
     },
     "GATE_5_TRUTH_COMPLIANCE": {
       "status": "ALL_PASS",
       "records_passing": 21,
       "records_failing": 0,
-      "records_flagged": 0,
       "notes": "All 21 records verified: truth traceability present; no overclaim patterns; no interpretation leakage; no absence claims; universality patterns clean; health/safety/sleep/mental-health/feeding/clinical-adjacent/outcome claims protected"
     },
     "GATE_6_CONSISTENCY_LOCK": {
       "status": "ALL_PASS",
       "records_passing": 21,
       "records_failing": 0,
-      "records_flagged": 0,
       "notes": "All 21 records verified: Locked Phrase Set references present; source_truth_refs traceable to LPS records; cross-reference chain complete (brief→angle→family→LPS)"
     },
     "GATE_7_HUMAN_REVIEW": {
-      "status": "ALL_PASS",
+      "status": "ALL_NOT_TRIGGERED",
       "records_passing": 0,
-      "records_not_triggered": 21,
       "records_failing": 0,
+      "records_not_triggered": 21,
       "notes": "GATE_7_HUMAN_REVIEW is NOT_TRIGGERED for all 21 records — governance is pending (g4 evidence review, g5 clinical review, g7 independent AI QA, g9 human journey review, g10 owner authorization) — MAE pre-revenue mode requires human review before publication"
     }
   },
@@ -360,11 +348,11 @@
     "family_count": 5,
     "total_assets": 21,
     "assets_per_family": {
-      "FAM-NS-001_stop_scroll_identification": 4,
-      "FAM-NS-002_problem": 7,
-      "FAM-NS-003_myth_reframe": 4,
-      "FAM-NS-004_story_sequence": 3,
-      "FAM-NS-005_objection_handling": 3
+      "FAM-NS-001": 4,
+      "FAM-NS-002": 5,
+      "FAM-NS-003": 4,
+      "FAM-NS-004": 4,
+      "FAM-NS-005": 4
     },
     "platform_distribution": {
       "facebook": 5,
@@ -372,20 +360,20 @@
       "whatsapp": 2
     },
     "asset_type_distribution": {
-      "SOCIAL_STATIC": 14,
+      "GENERIC": 2,
       "SOCIAL_CAROUSEL": 2,
       "SOCIAL_REEL": 1,
-      "SOCIAL_STORY_SEQUENCE": 1,
-      "GENERIC": 2
+      "SOCIAL_STATIC": 14,
+      "SOCIAL_STORY_SEQUENCE": 2
     },
     "emotional_intensity_distribution": {
+      "high": 1,
       "low": 2,
-      "moderate": 18,
-      "high": 1
+      "moderate": 18
     },
     "cta_level_distribution": {
-      "low": 3,
-      "moderate": 18
+      "low": 5,
+      "moderate": 16
     },
     "status": "COHERENT"
   },

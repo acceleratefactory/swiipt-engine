@@ -5,11 +5,11 @@
   "subject": "Two parents in bedroom, morning light, calm coexistence",
   "environment": "Bedroom, morning light, clean and tidy, realistic Nigerian middle-class home",
   "gesture_posture": "Parents standing near door, relaxed posture, one parent checking printed schedule on wall",
-  "props": {
+  "props": [
     "printed schedule on wall or fridge",
     "small baby items in background",
     "natural morning light"
-  },
+  ],
   "wardrobe": "Everyday casual home clothes, realistic for Nigerian parents",
   "lighting": "Warm morning light from window, soft and natural",
   "composition": "Two-shot of parents near the schedule, schedule visible in frame, calm and settled tone",

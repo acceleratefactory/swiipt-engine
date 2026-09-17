@@ -7,7 +7,11 @@
   "source_angle_id": "ANG-NS-001",
   "angle_verdict": "GREEN",
   "angle_version": 1,
-  "platform_scope": ["facebook_feed", "instagram_feed", "whatsapp_broadcast"],
+  "platform_scope": [
+    "facebook_feed",
+    "instagram_feed",
+    "whatsapp_broadcast"
+  ],
   "primary_audience": "Postpartum mothers 0-12 months, primarily nighttime primary caregivers experiencing decision fatigue and invisible labor around night shifts",
   "primary_customer_situation": "Mother doing 5+ night wakes alone while partner sleeps through; resentful; exhausted; losing sense of self",
   "core_angle_hook": "Mental load of night coordination is the real problem, not night waking itself",
@@ -15,15 +19,15 @@
   "anchor_asset_id": "AST-NS-STOP-001",
   "approved_asset_ids": [
     "AST-NS-STOP-001",
-    "AST-NS-STOP-001-FB",
-    "AST-NS-STOP-001-IG",
-    "AST-NS-STOP-001-WA"
+    "AST-NS-001",
+    "AST-NS-002",
+    "AST-NS-003"
   ],
   "role_map": {
     "AST-NS-STOP-001": "anchor_concept",
-    "AST-NS-STOP-001-FB": "facebook_feed_static",
-    "AST-NS-STOP-001-IG": "instagram_feed_static",
-    "AST-NS-STOP-001-WA": "whatsapp_broadcast_text"
+    "AST-NS-001": "facebook_feed_static",
+    "AST-NS-002": "instagram_feed_static",
+    "AST-NS-003": "whatsapp_broadcast_text"
   },
   "truth_source_refs": {
     "product_truth": "TR-PPL-NIGHT-SHIFT-001",
@@ -31,9 +35,16 @@
     "customer_reality": "CRF-PPL-CORD-CARE-001 (adjacent signals — no CRF exists for this product)",
     "market_intelligence": "none (no MIF exists for this product)"
   },
-  "weighting_profile_refs": ["whatsapp_broadcast", "social_static"],
+  "weighting_profile_refs": [
+    "whatsapp_broadcast",
+    "social_static"
+  ],
   "locked_phrase_set_id": "LPS-NS-001",
-  "sequence_eligibility": ["launch_sequence", "nurture_sequence", "retargeting_sequence"],
+  "sequence_eligibility": [
+    "launch_sequence",
+    "nurture_sequence",
+    "retargeting_sequence"
+  ],
   "evergreen_eligible": true,
   "emotional_intensity_profile": {
     "high": 8,
@@ -42,10 +53,25 @@
     "conversion": 2
   },
   "coverage": {
-    "content_pillars": ["mental_load", "decision_fatigue", "night_coordination"],
-    "customer_stages": ["awareness", "consideration"],
-    "emotional_range": ["resentment", "exhaustion", "longing_for_normalcy"],
-    "platform_coverage": ["facebook", "instagram", "whatsapp"]
+    "content_pillars": [
+      "mental_load",
+      "decision_fatigue",
+      "night_coordination"
+    ],
+    "customer_stages": [
+      "awareness",
+      "consideration"
+    ],
+    "emotional_range": [
+      "resentment",
+      "exhaustion",
+      "longing_for_normalcy"
+    ],
+    "platform_coverage": [
+      "facebook",
+      "instagram",
+      "whatsapp"
+    ]
   },
   "family_status": "BUILDING",
   "created_at": "2026-09-16T12:00:00Z"

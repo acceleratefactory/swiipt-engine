@@ -7,7 +7,11 @@
   "source_angle_id": "ANG-NS-004",
   "angle_verdict": "GREEN",
   "angle_version": 1,
-  "platform_scope": ["facebook_feed", "instagram_feed", "instagram_carousel"],
+  "platform_scope": [
+    "facebook_feed",
+    "instagram_feed",
+    "instagram_carousel"
+  ],
   "primary_audience": "Single parents or mothers whose partner is absent/unequipped/disabled — no co-parenting dynamic to negotiate with",
   "primary_customer_situation": "Mother doing every night wake alone with no partner to share with; no roster possible because there's only one person",
   "core_angle_hook": "The single parent: no partner to argue with, just exhaustion. The system still works — it builds recovery windows you design for yourself",
@@ -15,15 +19,15 @@
   "anchor_asset_id": "AST-NS-STORY-001",
   "approved_asset_ids": [
     "AST-NS-STORY-001",
-    "AST-NS-STORY-001-FB",
-    "AST-NS-STORY-001-IG",
-    "AST-NS-STORY-001-CAR"
+    "AST-NS-011",
+    "AST-NS-012",
+    "AST-NS-013"
   ],
   "role_map": {
     "AST-NS-STORY-001": "anchor_concept",
-    "AST-NS-STORY-001-FB": "facebook_feed_static",
-    "AST-NS-STORY-001-IG": "instagram_feed_static",
-    "AST-NS-STORY-001-CAR": "instagram_carousel"
+    "AST-NS-011": "facebook_feed_static",
+    "AST-NS-012": "instagram_feed_static",
+    "AST-NS-013": "instagram_carousel"
   },
   "truth_source_refs": {
     "product_truth": "TR-PPL-NIGHT-SHIFT-001",
@@ -31,9 +35,16 @@
     "customer_reality": "CRF-PPL-CORD-CARE-001 (adjacent signals — no CRF exists for this product)",
     "market_intelligence": "none (no MIF exists for this product)"
   },
-  "weighting_profile_refs": ["social_static", "social_carousel"],
+  "weighting_profile_refs": [
+    "social_static",
+    "social_carousel"
+  ],
   "locked_phrase_set_id": "LPS-NS-004",
-  "sequence_eligibility": ["launch_sequence", "nurture_sequence", "re_engagement_sequence"],
+  "sequence_eligibility": [
+    "launch_sequence",
+    "nurture_sequence",
+    "re_engagement_sequence"
+  ],
   "evergreen_eligible": true,
   "emotional_intensity_profile": {
     "high": 8,
@@ -42,10 +53,25 @@
     "conversion": 2
   },
   "coverage": {
-    "content_pillars": ["solo_parenting", "self_recovery", "adapted_system"],
-    "customer_stages": ["awareness", "consideration", "adoption"],
-    "emotional_range": ["isolation", "determination", "self_compassion"],
-    "platform_coverage": ["facebook", "instagram"]
+    "content_pillars": [
+      "solo_parenting",
+      "self_recovery",
+      "adapted_system"
+    ],
+    "customer_stages": [
+      "awareness",
+      "consideration",
+      "adoption"
+    ],
+    "emotional_range": [
+      "isolation",
+      "determination",
+      "self_compassion"
+    ],
+    "platform_coverage": [
+      "facebook",
+      "instagram"
+    ]
   },
   "family_status": "BUILDING",
   "created_at": "2026-09-16T12:00:00Z"

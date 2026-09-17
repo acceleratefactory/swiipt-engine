@@ -5,12 +5,12 @@
   "subject": "Parent holding sleeping baby, phone with notification, warm lamp light",
   "environment": "Dim bedroom or living room, warm lamp light, late evening, realistic Nigerian home",
   "gesture_posture": "Parent seated, holding sleeping baby, phone in other hand showing notification or message, gentle and tired but not despairing",
-  "props": {
+  "props": [
     "sleeping baby in arms",
     "phone with visible notification or message",
     "warm lamp or small light source",
     "everyday home items in background"
-  },
+  ],
   "wardrobe": "Simple home clothes, realistic for late evening with baby",
   "lighting": "Warm lamp light, soft and intimate, no harsh shadows",
   "composition": "Close-up or medium shot, parent and baby central, phone visible but not dominant, warm and intimate framing",

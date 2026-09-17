@@ -23,14 +23,14 @@
   },
   "typography_roles": {
     "primary_headline": { "font_weight": "700", "font_size_px": 38, "line_height": 1.2, "color": "#FFFFFF", "position": "top_third" },
-    "body_text": { "font_weight": "400", "font_size_px": 22, "line_height": 1.5, "color": "#D4D4D4", "position": "middle" },
-    "secondary_headline": { "font_weight": "600", "font_size_px": 26, "line_height": 1.3, "color": "#F4A261", "position": "middle_lower" },
-    "call_to_action": { "font_weight": "600", "font_size_px": 18, "line_height": 1.4, "color": "#F4A261", "position": "bottom_third" }
+    "body_text": { "font_weight": "400", "font_size_px": 22, "line_height": 1.5, "color": "#F8F4EC", "position": "middle" },
+    "secondary_headline": { "font_weight": "600", "font_size_px": 26, "line_height": 1.3, "color": "#D9A52E", "position": "middle_lower" },
+    "call_to_action": { "font_weight": "600", "font_size_px": 18, "line_height": 1.4, "color": "#D9A52E", "position": "bottom_third" }
   },
   "brand_tokens_version": "BRAND-001",
   "logo_policy": { "position": "bottom_right", "clearance_px": 40, "opacity": 0.8 },
-  "cta_policy": { "style": "text_only", "color": "#F4A261", "no_button_background": true },
-  "background_policy": { "style": "solid_color", "color": "#1A1A2E", "no_gradient": true, "no_stock_photo": true },
+  "cta_policy": { "style": "text_only", "color": "#D9A52E", "no_button_background": true },
+  "background_policy": { "style": "solid_color", "color": "#0B1F33", "no_gradient": true, "no_stock_photo": true },
   "truth_requirements": {
     "product_truth_ref": "TR-PPL-NIGHT-SHIFT-001",
     "evidence_status": "directly_stated",

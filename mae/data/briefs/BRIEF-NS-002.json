@@ -1,0 +1,120 @@
+{
+  "id": "BRIEF-NS-002",
+  "class": "asset_brief",
+  "angle_id": "ANG-NS-001",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "family_id": "FAM-NS-001",
+  "asset_type": "SOCIAL_STATIC",
+  "platform": "instagram",
+  "asset_purpose": "stop_scroll_identification",
+  "truth_weighting": {
+    "customer": 45,
+    "brand": 35,
+    "market": 15,
+    "product": 5
+  },
+  "content_grounding": {
+    "foreground": [
+      {
+        "field": "hook_text",
+        "value": "The night has no owner. That is the problem.",
+        "source_ref": "ANG-NS-001.tier2.insight.text"
+      },
+      {
+        "field": "mechanism_text",
+        "value": "When both parents assume the other will wake, nobody plans for the night. The roster replaces guesswork with structure.",
+        "source_ref": "ANG-NS-001.tier2.mechanism.text"
+      },
+      {
+        "field": "desired_change_text",
+        "value": "Replace unspoken expectation with a visible, fair night plan.",
+        "source_ref": "ANG-NS-001.tier2.desired_change"
+      }
+    ],
+    "background": [
+      {
+        "field": "mental_load",
+        "value": "The mother tracks every waking, even when it is not her night.",
+        "source_ref": "ANG-NS-001.tier1.customer"
+      },
+      {
+        "field": "no_ownership",
+        "value": "Neither parent says 'this is my night.' The default becomes the mother.",
+        "source_ref": "ANG-NS-001.tier1.pain"
+      },
+      {
+        "field": "roster_phrase",
+        "value": "A roster does not split the nights. It makes them visible.",
+        "source_ref": "LPS-NS-001"
+      }
+    ]
+  },
+  "brand_constraints": {
+    "forbidden_phrases": [
+      "In today's fast-paced world",
+      "Embark on a journey",
+      "Transform your life",
+      "Unlock your potential",
+      "Take your life to the next level",
+      "Don't miss out",
+      "Game-changer",
+      "Level up",
+      "Crush your goals",
+      "Hustle culture",
+      "Rise and grind",
+      "Believe in yourself",
+      "You deserve this",
+      "Treat yourself",
+      "Self-care is not selfish",
+      "You are enough",
+      "Live your best life",
+      "Good vibes only",
+      "No days off",
+      "Be the best version of yourself",
+      "Wake up and win"
+    ],
+    "prohibited_behaviors": [
+      "fake empathy",
+      "motivational filler",
+      "artificial urgency",
+      "exaggerated outcomes",
+      "shame/fear inflation",
+      "manufactured dependency",
+      "unnecessary conclusions",
+      "forced humour",
+      "rhetorical-question overload",
+      "filler transitions",
+      "repetitive encouragement"
+    ],
+    "brand_boundaries": {
+      "register": "calm, trustworthy, empowering-without-hype",
+      "tone": "intelligent, practical, specific, direct, warm without sentimentality",
+      "forbidden_registers": [
+        "motivation-speaker",
+        "clinical",
+        "therapy-speak",
+        "corporate-SaaS",
+        "fake-enthusiastic"
+      ]
+    }
+  },
+  "platform_rules": {
+    "platform": "instagram",
+    "format": "feed_static",
+    "recommended_specs": {
+      "image_dimensions": "1080x1080px or 1080x1350px",
+      "text_overlay_max": "20% of image area",
+      "caption_max_chars": 2200,
+      "first_line_hook_chars": 125
+    },
+    "style_direction": "clean typography on solid brand-color background, no stock imagery, no faces"
+  },
+  "structural_template": {
+    "role": "anchor_concept",
+    "purpose": "stop_scroll_identification",
+    "description": "Establish the angle concept. Clean concept visual or typography-first layout."
+  },
+  "audience": null,
+  "status": "DRAFT",
+  "created_at": "2026-09-16T00:00:00Z"
+}

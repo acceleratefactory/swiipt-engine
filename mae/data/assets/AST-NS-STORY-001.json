@@ -1,0 +1,77 @@
+{
+  "id": "AST-NS-STORY-001",
+  "class": "asset_record",
+  "asset_version": 1,
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "transformation_id": "TR-PPL-NIGHT-SHIFT-001",
+  "angle_id": "ANG-NS-004",
+  "angle_verdict": "GREEN",
+  "asset_type": "SOCIAL_STORY_SEQUENCE",
+  "asset_role": "STORY",
+  "platform": "instagram",
+  "asset_purpose": "story_sequence",
+  "asset_brief_id": "BRIEF-NS-STORY-001",
+  "generation_record_id": "GEN-NS-STORY-001",
+  "qa_record_id": "QA-NS-STORY-001",
+  "visual_grounding_block_id": null,
+  "locked_phrase_set_id": "LPS-NS-004",
+  "template_version": "1.0",
+  "platform_format": "story_vertical",
+  "weighting_profile": {
+    "customer": 40,
+    "brand": 30,
+    "market": 15,
+    "product": 15
+  },
+  "source_truth_refs": [
+    {
+      "type": "product_truth",
+      "ref_id": "TR-PPL-NIGHT-SHIFT-001",
+      "weight": "primary"
+    },
+    {
+      "type": "brand_truth",
+      "ref_id": "BRAND-001",
+      "weight": "primary"
+    },
+    {
+      "type": "angle",
+      "ref_id": "ANG-NS-004",
+      "weight": "primary"
+    }
+  ],
+  "family_id": "FAM-NS-004",
+  "family_role": "STORY",
+  "emotional_intensity": "moderate",
+  "cta_level": "low",
+  "content": {
+    "sequence": [
+      {
+        "step": 1,
+        "text": "A roster does not require a partner. It requires a named shift and a named person to cover it — a support web, not a marriage contract. The night still needs an owner and a schedule.",
+        "type": "hook"
+      },
+      {
+        "step": 2,
+        "text": "Nobody owns the night, so the default becomes she owns all of it. Doing 100% of nights, every night, for weeks — with no partner shift to hand off to.",
+        "type": "problem"
+      },
+      {
+        "step": 3,
+        "text": "Schedules a support-web roster — named shifts for family, friends, or paid help — so the mother's protected block is physically real. A sleep banker makes exhaustion visible and tradeable even without a partner.",
+        "type": "insight"
+      },
+      {
+        "step": 4,
+        "text": "Nights with zero protected block become a protected block of 3+ hours on most nights. The support web covers named shifts instead of the mother owning every night alone.",
+        "type": "cta"
+      }
+    ]
+  },
+  "content_hash": "1c73d80fb500ee367e8c2cc45c0d69f662986b7605bc16a96866f4f54dec7f4f",
+  "status": "DRAFT",
+  "human_review_record_id": null,
+  "manual_override_record_id": null,
+  "media_artifact_ids": [],
+  "created_at": "2026-09-17T11:39:04.295Z"
+}

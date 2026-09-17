@@ -8,7 +8,7 @@
   "angle_verdict": "GREEN",
   "asset_type": "SOCIAL_STATIC",
   "asset_role": "MYTH_REFRAME",
-  "platform": "facebook",
+  "platform": "instagram",
   "asset_purpose": "myth_reframe",
   "asset_brief_id": "BRIEF-NS-MYTH-001",
   "generation_record_id": "GEN-NS-MYTH-001",
@@ -45,10 +45,11 @@
   "emotional_intensity": "moderate",
   "cta_level": "moderate",
   "content": {
-    "problem_text": "",
-    "bold_line": ""
+    "hook_text": "A request creates a favour. A schedule creates a default. Giving your partner a named shift is a status upgrade, not charity.",
+    "problem_text": "Asking directly for help can feel like an accusation. The partner's one-off gesture resets the expectation: he helped once, so the default remains she owns all of it.",
+    "bold_line": "Reframes the partner from 'helper' to 'co-manager' — a status upgrade instead of a request for charity. A written roster removes the emotional labour of asking: the schedule asks, not her."
   },
-  "content_hash": "6e7c13fc0e7b4210c6036e22fe8b2b27ef36ec30fcbc0608d6142c5dadca29a0",
+  "content_hash": "fa7d66da69748e0327bac4e3ee3b0c11f9509996013f6ebcad7e5cfa86a9269f",
   "status": "DRAFT",
   "human_review_record_id": null,
   "manual_override_record_id": null,

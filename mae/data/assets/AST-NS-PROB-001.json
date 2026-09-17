@@ -8,7 +8,7 @@
   "angle_verdict": "GREEN",
   "asset_type": "SOCIAL_STATIC",
   "asset_role": "PROBLEM",
-  "platform": "facebook",
+  "platform": "instagram",
   "asset_purpose": "problem",
   "asset_brief_id": "BRIEF-NS-PROB-001",
   "generation_record_id": "GEN-NS-PROB-001",
@@ -45,10 +45,11 @@
   "emotional_intensity": "moderate",
   "cta_level": "moderate",
   "content": {
-    "problem_text": "",
-    "bold_line": ""
+    "hook_text": "A request creates a favour. A schedule creates a default. The night does not need more goodwill. It needs an owner and a roster.",
+    "problem_text": "Every uninterrupted hour he gets feels like proof her exhaustion is invisible, and naming it makes her the difficult one.",
+    "bold_line": "A written roster replaces silent bookkeeping with an observable system. The sleep banker makes exhaustion visible and tradeable — credits and paybacks turn private resentment into a ledger both adults can see."
   },
-  "content_hash": "6e7c13fc0e7b4210c6036e22fe8b2b27ef36ec30fcbc0608d6142c5dadca29a0",
+  "content_hash": "59318fa6bd6400c888828bcc8813298159838d0cc3350940233f28354422374a",
   "status": "DRAFT",
   "human_review_record_id": null,
   "manual_override_record_id": null,

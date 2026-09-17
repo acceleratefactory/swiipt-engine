@@ -1,0 +1,29 @@
+{
+  "id": "BRIEF-NS-STOP-001",
+  "class": "asset_brief",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "angle_id": "ANG-NS-001",
+  "asset_type": "SOCIAL_STATIC",
+  "asset_purpose": "stop_scroll_identification",
+  "asset_role": "IDENTIFICATION",
+  "platform": "instagram",
+  "platform_format": "feed_square",
+  "content_grounding": {
+    "core_message": "A request creates a favour. A schedule creates a default. The night does not need more goodwill. It needs an owner and a roster.",
+    "problem_summary": "Nobody owns the night, so the default becomes you own all of it. Doing 100% of nights, every night, for weeks.",
+    "message_trajectory": "Hook → Problem → Mechanism → Desired Change → CTA"
+  },
+  "truth_compliance": {
+    "brand_voice_dna": "intelligent, practical, specific, direct, warm without sentimentality",
+    "brand_boundary_check": "No hype, no fear, no clinical register",
+    "product_truth_alignment": "TR-PPL-NIGHT-SHIFT-001 mechanism.mechanisms[0], mechanism.mechanisms[1]",
+    "claims_scope": "General parenting information only — not medical advice"
+  },
+  "emotional_intensity": "moderate",
+  "cta_level": "moderate",
+  "platform_compliance": {
+    "required": [],
+    "forbidden": []
+  },
+  "created_at": "2026-09-17T11:36:38.862Z"
+}

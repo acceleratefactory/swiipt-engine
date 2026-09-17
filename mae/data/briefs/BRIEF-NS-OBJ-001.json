@@ -1,0 +1,29 @@
+{
+  "id": "BRIEF-NS-OBJ-001",
+  "class": "asset_brief",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "angle_id": "ANG-NS-005",
+  "asset_type": "SOCIAL_STATIC",
+  "asset_purpose": "objection_handling",
+  "asset_role": "OBJECTION",
+  "platform": "instagram",
+  "platform_format": "feed_square",
+  "content_grounding": {
+    "core_message": "The breastfeeding objection is real — and solvable. The contract does not pretend otherwise. It schedules a hand-off so that your protected block is real, not fictional.",
+    "problem_summary": "Often still breastfeeding, so 'sleep through the night' is not simply available to her. The partner's objection ('you're breastfeeding anyway') feels unanswerable.",
+    "message_trajectory": "Hook → Problem → Mechanism → Desired Change → CTA"
+  },
+  "truth_compliance": {
+    "brand_voice_dna": "intelligent, practical, specific, direct, warm without sentimentality",
+    "brand_boundary_check": "No hype, no fear, no clinical register",
+    "product_truth_alignment": "TR-PPL-NIGHT-SHIFT-001 mechanism.mechanisms[2]",
+    "claims_scope": "General parenting information only — not medical advice"
+  },
+  "emotional_intensity": "moderate",
+  "cta_level": "moderate",
+  "platform_compliance": {
+    "required": [],
+    "forbidden": []
+  },
+  "created_at": "2026-09-17T11:36:38.864Z"
+}
