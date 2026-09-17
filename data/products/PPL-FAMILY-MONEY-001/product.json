@@ -1,0 +1,245 @@
+{
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "version": "0.1.0",
+  "status": "spec",
+  "identity": {
+    "name": "The One-Number Baby Budget",
+    "subtitle": "A first-year household money system that replaces cart panic and silent shortfalls with one trusted budget number, a Buy/Wait/Never list, and a 30-day use audit.",
+    "one_line_promise": "A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.",
+    "library_id": "m01",
+    "transformation_id": "TR-PPL-FAMILY-MONEY-001",
+    "journey_position": "m01 first-year household money; entry point — onward journey links pending"
+  },
+  "commercial_role": {
+    "role": "core",
+    "parent_product_id": null,
+    "related_product_ids": []
+  },
+  "customer": {
+    "target_person": "Expecting and first-year parents in a Nigerian household with irregular income, facing new baby costs while pay is paused or shrunk.",
+    "situation": "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight.",
+    "trigger": "Her salary stopped but the bills did not, and the hospital asked for a deposit before admission.",
+    "constraints": [
+      "No trusted single budget number; prices vary by market, week, tier and pack size.",
+      "Irregular income months make any fixed monthly budget fail.",
+      "Provider-role pressure and family purchase expectations punish admitting shortfalls."
+    ],
+    "emotional_stake": "Wants to prove competence as a mother by providing without ruin, and to feel like a smart mother rather than a guilty one."
+  },
+  "transformation": {
+    "before_state": {
+      "summary": "No first-year budget exists; money disappears into feared purchases and re-added carts while the couple fights over baby spending."
+    },
+    "after_state": {
+      "summary": "The household states one trusted budget number and keeps a baby fund; the budget chart is posted and followed, and unused purchases are resold."
+    },
+    "mechanism": {
+      "core": "Turn an feared, unmeasured stream of baby spending into one trusted budget number plus a standing Buy/Wait/Never discipline and a 30-day use audit.",
+      "mechanisms": [
+        "A real baby budget quiz converts unknown spending into one stated number both partners can see.",
+        "Buy/Wait/Never classification stops fear-buying before money leaves the household.",
+        "A 30-day use audit plus resell converts mistaken purchases back into fund money.",
+        "Corner-shop cost-swaps replace three weekly overspends with planned buys."
+      ],
+      "why_it_should_work": "The recurring failure is not irresponsibility but the absence of a number: with no trusted total, every purchase is judged in isolation and fear decides. A posted number, a classification rule and a dated audit replace isolated fear-decisions with a visible system.",
+      "see": "TR-PPL-FAMILY-MONEY-001 mechanism block (hypothesis-labelled; efficacy untested)"
+    },
+    "path": [
+      {
+        "stage": "Stage 1: chart mechanism",
+        "objective": "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge."
+      },
+      {
+        "stage": "Stage 2: list mechanism",
+        "objective": "Sort every planned purchase into the Buy, Wait and Never list before spending."
+      },
+      {
+        "stage": "Stage 3: log mechanism",
+        "objective": "Keep the thirty-day use audit log and resell whatever the baby never used."
+      },
+      {
+        "stage": "Stage 4: card mechanism",
+        "objective": "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys."
+      }
+    ],
+    "first_win": {
+      "within": "15 minutes",
+      "action": "Delete the fear-items from the cart and capture the first budget snapshot: one number, three swaps, tonight.",
+      "see": "TR-PPL-FAMILY-MONEY-001 first_win"
+    },
+    "failure_map": {
+      "see": "TR-PPL-FAMILY-MONEY-001 failure_point_map (cart-delete loop; no trusted number; irregular income)"
+    },
+    "rescue_protocols": {
+      "see": "TR-PPL-FAMILY-MONEY-001 failure_point_map rescue protocols (specified assets pending build)"
+    },
+    "reentry": {
+      "protocol": "Restart the current audit cycle from the budget chart; re-run the quiz only if income or household shape changed."
+    },
+    "maintenance": {
+      "system": "Keep the posted budget chart and the 30-day audit as the standing default after the measurement window."
+    },
+    "next_transformation_ids": []
+  },
+  "tsm": {
+    "individual_progress_metrics": [
+      "Decision clarity: the household can state one trusted first-year budget number.",
+      "A completed Buy/Wait/Never classification covering the planned purchases.",
+      "A documented first-year cost range with source dates.",
+      "A completed 30-day use audit with resell actions logged."
+    ],
+    "cohort_threshold": "PENDING OWNER APPROVAL: cohort/product success threshold is a business call per transformation-standard 4 — never auto-approved; owner/product validation required.",
+    "measurement_days": [
+      0,
+      7,
+      14,
+      30
+    ],
+    "measurement_method": "Self-reported log of the budget chart plus a structured check-in against the Day-0 baseline at the scheduled check-ins (mirrors TR measurement method).",
+    "note": "Individual metrics measure actual before→after movement (a stated number, a classified list, a completed audit) — never engagement, pages read, or quiz scores. No scientifically validated threshold exists; none is claimed."
+  },
+  "asset_map": {
+    "read": [],
+    "do": [],
+    "decide": [],
+    "track": [],
+    "communicate": [],
+    "rescue": [],
+    "reentry": [],
+    "maintenance": []
+  },
+  "content": {
+    "landing_page": null,
+    "product_page": null,
+    "faq": null,
+    "specifications": null,
+    "deliverables": null,
+    "onboarding": null,
+    "completion": null,
+    "reviews": "copy/reviews.json"
+  },
+  "commerce": {
+    "price": {
+      "note": "Price is an owner business call; no figure is set at specification stage."
+    },
+    "currency_rules": {
+      "model": "manual_per_currency",
+      "display": "geo_controlled",
+      "note": "Display is geo-controlled; store base is USD (owner-locked)."
+    },
+    "offer": {},
+    "access_rules": {
+      "grant_type": "one_time_digital",
+      "note": "Draft access model; commercial terms require owner approval."
+    },
+    "upsells": [],
+    "bundles": []
+  },
+  "design": {
+    "experience_type": "interactive",
+    "theme": "swiipt-brand-tokens",
+    "components": [
+      "header",
+      "progress indicator",
+      "cards",
+      "buttons",
+      "inputs",
+      "quiz questions",
+      "decision nodes",
+      "callouts",
+      "trackers",
+      "checklists",
+      "completion check"
+    ],
+    "responsive_requirements": [
+      "mobile-first: quiz, calculator inputs and audit log usable one-handed on low-bandwidth connections"
+    ],
+    "accessibility_requirements": [
+      "WCAG-AA baseline",
+      "keyboard-operable calculator and inputs",
+      "no colour-only meaning in budget status"
+    ]
+  },
+  "evidence": {
+    "sources": [
+      "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+      "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+      "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+      "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+      "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+      "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+    ],
+    "claim_labels": [
+      {
+        "claim": "A posted budget number plus Buy/Wait/Never discipline plus a dated audit calms fear-buying",
+        "label": "model_inference"
+      },
+      {
+        "claim": "Nigeria ranked last in first-year baby affordability under an affordable-options methodology (June 2026 figures)",
+        "label": "sourced_evidence",
+        "source": "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)"
+      },
+      {
+        "claim": "Statutory maternity minimum is 12 weeks at ≥50% pay with 6 months service; no statutory paternity leave",
+        "label": "sourced_evidence",
+        "source": "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)"
+      },
+      {
+        "claim": "No universal Nigerian average baby cost is asserted anywhere in this product",
+        "label": "model_inference"
+      },
+      {
+        "claim": "Buy/Wait/Never plus audit efficacy is untested and must never be presented as proven savings",
+        "label": "hypothesis"
+      }
+    ],
+    "review_status": "Specification stage. Gate 4 evidence review not run. Labels reflect authoring-wave classification; percentages and dated figures live in the evidence package, never as product claims."
+  },
+  "safety": {
+    "risk_level": "moderate",
+    "disclaimer": "Educational content — not medical, clinical, or mental-health advice. Money guidance is general education, not regulated personal financial advice; it never guarantees savings, affordability, debt outcomes, income growth, or investment returns.",
+    "red_flags": [],
+    "escalation_rules": [
+      "Route per the verified shared crisis/escalation list (RED = emergency now, AMBER = urgent today, GREEN = supported this week) - safety-standard 3; no numbers are invented here"
+    ]
+  },
+  "qa": {
+    "deterministic_tests": [],
+    "ai_tests": [],
+    "gate_results": {
+      "g0_research_disposition": "pending",
+      "g1_situation": "pending",
+      "g2_transformation": "pending",
+      "g3_product_architecture": "pending",
+      "g4_evidence": "pending",
+      "g5_safety": "pending",
+      "g6_content": "pending",
+      "g7_product_qa": "pending",
+      "g8_commerce": "pending",
+      "g9_customer_journey": "pending",
+      "g10_publish": "pending"
+    }
+  },
+  "publishing": {
+    "manifest_version": "1.0",
+    "wordpress_ids": {},
+    "published_at": null
+  },
+  "generation": {
+    "writing_control_version": "1.0",
+    "profile": "money-plain",
+    "voice": {
+      "formality": "plain and direct; no corporate or motivational register",
+      "warmth": "steady and respectful; never sentimental",
+      "directness": "high; name the number and the next action",
+      "technical_depth": "everyday arithmetic only; no financial jargon",
+      "emotional_intensity": "low; calm",
+      "sentence_length": "short",
+      "cultural_context": "Nigerian household realities — market days, irregular pay, provider-role pressure; respectful, never shaming",
+      "humour": "none",
+      "terminology": "naira amounts always with date and tier; Buy/Wait/Never; one number; audit",
+      "reading_level": "plain; comfortable for JSS3 reading level",
+      "first_second_person": "second-person practical — you and your household"
+    }
+  }
+}
