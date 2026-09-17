@@ -99,6 +99,17 @@ export function deriveAssetCounts(assets = []) {
   };
 }
 
+/** Display labels for the canonical asset purposes (mirrors the angle purposes; not a new taxonomy). */
+const PURPOSE_LABELS = Object.freeze({
+  stop_scroll_identification: "Stop-Scroll Identification",
+  problem: "Problem Amplification",
+  myth_reframe: "Myth Reframe",
+  story: "Story Sequence",
+  story_sequence: "Story Sequence",
+  objection: "Objection Handling",
+  objection_handling: "Objection Handling",
+});
+
 /**
  * Build a canonical Master Marketing Pack purely by DERIVATION from the governed records.
  * Summaries, relationships and traceability are computed - never hand-maintained.
@@ -122,9 +133,10 @@ export function buildMarketingPack(input = {}) {
   // ---- angles ----
   const angleSummary = {};
   for (const a of angles) {
+    const purpose = a.tier2?.asset_purpose ?? null;
     angleSummary[a.id] = {
-      name: a.tier2?.insight?.label ?? a.id,
-      purpose: a.tier2?.asset_purpose ?? null,
+      name: PURPOSE_LABELS[purpose] ?? a.id,
+      purpose,
       customer: a.tier1?.customer ?? null,
       emotion: a.tier1?.emotional_stake?.text ?? null,
       family_id: [...famById.values()].find((f) => f.source_angle_id === a.id)?.id ?? null,

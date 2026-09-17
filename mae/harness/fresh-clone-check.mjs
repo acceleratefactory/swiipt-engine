@@ -37,6 +37,7 @@ try {
 
   // load only what exists in the tracked reconstruction
   const readAll = (sub, re) => readdirSync(join(dataDir, sub)).filter((f) => re.test(f)).map((f) => rd(join(sub, f)));
+  const readQa = () => readdirSync(join(dataDir, "qa")).filter((f) => /^QA-NS-.*\.json$/.test(f) && !/AGGREGATE/.test(f)).map((f) => rd(join("qa", f)));
 
   const pack = rd("MASTER-MARKETING-PACK.json");
   const records = {
@@ -44,7 +45,7 @@ try {
     families: readAll("asset-families", /^FAM-NS-.*\.json$/),
     assets: readAll("assets", /^AST-NS-.*\.json$/),
     generated: readAll("generated", /^GEN-NS-.*\.json$/),
-    qa: readAll("qa", /^QA-NS-.*\.json$/),
+    qa: readQa(),
     design_specs: readAll("design-specs", /^DES-NS-.*\.json$/),
     visual_groundings: readAll("visual-groundings", /^VG-NS-.*\.json$/),
     psets: readAll("psets", /^LPS-NS-.*\.json$/),
