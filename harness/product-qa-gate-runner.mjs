@@ -248,11 +248,19 @@ const failed = (id, what) => gate(id, VERDICT.FAIL, `quality failure: ${what}`, 
 function evalG0(inp) {
   const tr = inp.transformation;
   if (!tr) return missingInput("g0_research_disposition", `transformation record ${inp.trId ?? "(unset)"} (research disposition source)`);
+  // Phase K: a product may reference only a transformation that reached the required lifecycle
+  // state (schemas/product.schema.json identity.transformation_id; schemas/transformation.schema.json
+  // status: validated-or-better is required before any product specification may reference it).
+  if (!["validated", "active"].includes(tr.status)) {
+    return gate("g0_research_disposition", VERDICT.SOURCE_REQUIRED,
+      `transformation ${tr.transformation_id} is "${tr.status}": the validated-or-better lifecycle state is required before product specification`,
+      { inputs: [inp.trId], missing_requirements: [`transformation ${inp.trId} must be validated (run harness/validate-transformation.mjs)`], human_action: "Owner/validator completes the governed validation transition" });
+  }
   const d = tr.research_disposition;
   if (!isObj(d) || !isStr(d.library_role) || !isStr(d.rationale)) return missingInput("g0_research_disposition", "transformation.research_disposition {library_role, rationale}");
   const roles = ["STANDALONE_TRANSFORMATION", "ENTRY_PRODUCT", "UPSELL", "ORDER_BUMP", "BUNDLE_COMPONENT", "MODULE", "BONUS_FREE_GIFT", "LEAD_MAGNET", "MARKETING_ANGLE", "SUPPORTING_ASSET", "JOURNEY_NODE", "FUTURE_RESEARCH", "EVIDENCE_GAP"];
   if (!roles.includes(d.library_role)) return failed("g0_research_disposition", `research_disposition.library_role "${d.library_role}" is not one of the 13 canonical roles`);
-  return gate("g0_research_disposition", VERDICT.PASS, `research disposition recorded: ${d.library_role} (rationale present)`, { inputs: ["transformation.research_disposition"], source_refs: [inp.trId] });
+  return gate("g0_research_disposition", VERDICT.PASS, `research disposition recorded: ${d.library_role} (transformation lifecycle: ${tr.status})`, { inputs: ["transformation.research_disposition", "transformation.status"], source_refs: [inp.trId] });
 }
 
 function evalG1(inp) {

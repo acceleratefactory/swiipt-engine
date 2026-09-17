@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/research-gap.schema.json",
+  "title": "Swiipt Research / Evidence Gap",
+  "description": "Canonical persisted representation of an unresolved research/evidence need (research-to-transformation pipeline V1, Phases F/G/H). Deliberately SEPARATE from the MAE campaign-inventory GapRequest: campaign gaps are non-blocking marketing-inventory shortages, research gaps carry provenance/applicability/blocking semantics for the research pipeline. A gap is never resolved without the evidence its resolution criteria require.",
+  "type": "object",
+  "required": [
+    "gap_id", "class", "domain", "description", "why_it_matters", "required_evidence",
+    "blocking_stage", "severity", "status", "created_at"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "gap_id": { "type": "string", "pattern": "^GAP-RES-" },
+    "class": { "const": "research_gap" },
+    "domain": {
+      "enum": ["SOURCE", "CUSTOMER_TRUTH", "MARKET_TRUTH", "APPLICABILITY", "MECHANISM", "SAFETY", "CLINICAL", "JURISDICTION", "IMPLEMENTATION", "MEASUREMENT", "OTHER"]
+    },
+    "source_ref": { "type": ["string", "null"], "description": "The research source/record the gap relates to, when known." },
+    "opportunity_id": { "type": ["string", "null"] },
+    "transformation_id": { "type": ["string", "null"] },
+    "product_id": { "type": ["string", "null"] },
+    "description": { "type": "string", "minLength": 1 },
+    "why_it_matters": { "type": "string", "minLength": 1 },
+    "required_evidence": { "type": "string", "minLength": 1, "description": "Machine-readable statement of what evidence/information would resolve the gap." },
+    "evidence_refs": { "type": "array", "items": { "type": "string" } },
+    "blocking_stage": {
+      "enum": ["SOURCE", "OPPORTUNITY", "TRANSFORMATION_CANDIDATE", "TRANSFORMATION_VALIDATED", "PRODUCT_SPECIFICATION", "PRODUCT_BUILD", "PRODUCT_QA", "PUBLICATION"]
+    },
+    "severity": { "enum": ["low", "medium", "high"] },
+    "blocks_progression": { "type": "boolean", "description": "Whether an OPEN gap blocks its blocking_stage. A gap must block only the stage it genuinely affects." },
+    "status": { "enum": ["OPEN", "RESOLVED", "WAIVED"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "resolved_at": { "type": ["string", "null"], "format": "date-time" },
+    "resolution_source": { "type": ["string", "null"], "description": "Where the resolving evidence came from (a governed resolver: human, approved agent, provider, document)." },
+    "resolution_evidence_refs": { "type": "array", "items": { "type": "string" } },
+    "resolution_notes": { "type": ["string", "null"] },
+    "re_evaluation_required": { "type": "boolean" },
+    "resolution_criteria": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requires_evidence": { "type": "boolean", "description": "When true, a resolution must cite evidence; status=RESOLVED with no evidence is refused." },
+        "evaluator": { "type": ["string", "null"], "description": "Name of the deterministic re-evaluation applied to close the gap." }
+      }
+    }
+  }
+}

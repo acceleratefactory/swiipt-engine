@@ -38,6 +38,26 @@ let tr = null;
 const trPath = join(dataRoot, "data", "transformations", `${trId}.json`);
 if (existsSync(trPath)) tr = JSON.parse(readFileSync(trPath, "utf8"));
 
+// Phase K (defense in depth): a product may reference only a validated-or-better transformation.
+if (tr && !["validated", "active"].includes(tr.status)) {
+  console.error(`FAIL ${pid}: transformation ${trId} is "${tr.status}" - only a validated-or-better transformation may be published. Run harness/validate-transformation.mjs.`);
+  process.exit(3);
+}
+
+// Phase G (defense in depth): open blocking research/evidence gaps stop manifest construction.
+const gapDir = join(dataRoot, "data", "research-gaps");
+if (existsSync(gapDir)) {
+  const openGaps = readdirSync(gapDir).filter((f) => f.endsWith(".json"))
+    .map((f) => { try { return JSON.parse(readFileSync(join(gapDir, f), "utf8")); } catch { return null; } })
+    .filter(Boolean)
+    .filter((g) => g.status === "OPEN" && g.blocks_progression !== false &&
+      (g.transformation_id === trId || g.product_id === pid || (g.transformation_id === null && g.product_id === null && !g.opportunity_id)));
+  if (openGaps.length) {
+    console.error(`FAIL ${pid}: ${openGaps.length} open blocking research gap(s): ${openGaps.map((g) => g.gap_id).join(", ")}. Resolve or waive them (harness/pipeline.mjs) before publication.`);
+    process.exit(3);
+  }
+}
+
 const jobMap = {
   READ: "READ", DO: "DO", DECIDE: "DECIDE", TRACK: "TRACK", CALCULATE: "CALCULATE",
   COMMUNICATE: "COMMUNICATE", RESCUE: "RESCUE", RE_ENTER: "RE_ENTER",

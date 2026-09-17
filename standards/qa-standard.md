@@ -55,3 +55,12 @@ The reviewer evaluates independently from the builder. **The builder does not ge
 self-approve.** The AI cannot override a safety gate. QA results are written into the product
 record (`qa.deterministic_tests`, `qa.ai_tests`, `qa.gate_results`) and only an all-PASS state
 produces a publish manifest.
+
+## 7 · Evidence applicability (prescriptive vs descriptive)
+
+QA distinguishes **evidence-based warnings** (prescriptive safety guidance from sourced evidence —
+must be visible) from **descriptive history** (what past customers reported — preserved in
+`voice.applicability`/`evidence_summary.history`, never shown as customer instructions regardless
+of geography). A regional regulatory action is prescriptive where it applies and descriptive
+history everywhere else; reclassifying descriptive history as prescriptive guidance (or vice versa)
+is a safety issue.

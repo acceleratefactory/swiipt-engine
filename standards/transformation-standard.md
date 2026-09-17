@@ -60,3 +60,14 @@ silently becoming mental-health treatment; C-section product silently becoming s
 Every transformation must answer: what situation does this solve · what transformation is
 delivered · what situation is likely next · what existing transformation naturally leads into it ·
 what products must NOT be attached because they solve the same situation.
+
+## 8 · Globality (global by default)
+
+Every transformation is global by default **where the underlying mechanism is globally true**.
+Source geography is where the request or evidence came from; applicability is where the mechanism
+holds — author the transformation **once**; cultural expressions are Context Adapters, not new
+transformations. The **causal relevance test** decides border status: only mechanism-dependent
+materials/practices/routes may be `CONTEXT_INTRINSIC`; everything else is `UNIVERSAL_CORE` with
+context-variable expression. The same nucleus discovered in any source geography must derive an
+identical transformation (only `provenance` differs). Never produce `PRODUCT-{COUNTRY}` variants
+unless the contract itself changes.

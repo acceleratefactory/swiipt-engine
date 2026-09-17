@@ -77,5 +77,23 @@
     "red_flags": ["any substance reached cord stump or baby's mouth", "baby fed anything besides milk", "unsafe sleep positioning imposed", "mother's mood darkening past two weeks or thoughts of harm"],
     "escalation_rules": ["Clinical incidents -> decision criteria + clinic line", "Mood crisis -> verified shared crisis list numbers immediately"]
   },
-  "research_disposition": { "library_role": "STANDALONE_TRANSFORMATION", "rationale": "Flagship #4 (score 83). Distinct situation (un-negotiated traditional help) + distinct transformation (three-zone terms system). Cultural wedge with globally relatable core (managing loving overreach).", "assigned_at": "2026-08-19", "reclassification_history": [] }
+  "research_disposition": { "library_role": "STANDALONE_TRANSFORMATION", "rationale": "Flagship #4 (score 83). Distinct situation (un-negotiated traditional help) + distinct transformation (three-zone terms system). Cultural wedge with globally relatable core (managing loving overreach).", "assigned_at": "2026-08-19", "reclassification_history": [] },
+  "applicability": {
+    "intrinsic_dimensions": [
+      "culture:omugwo",
+      "culture:mother-in-law"
+    ],
+    "context_variables": [],
+    "evidence_refs": [
+      "Punch Nigeria; NCBI African confinement reviews",
+      "WHO 2014/2022; AAP 2016",
+      "AJPR 2022; PMC11667800"
+    ],
+    "classification_source": "derived",
+    "source_context": "New mother receiving traditional postpartum help (omugwo) from her mother or mother-in-law who loves the baby fiercely but runs the household and baby-care by her own pre-1990s rules The helper arrives with strong practices - substances on the cord, herb water for baby, baby handed over at all hours, visitors flooding in - while hospital instructions said otherwise and the mother is too exhausted and polite to push back Helper's arrival immediately after discharge She cannot tell which traditions are harmless gold versus documented infection/danger risks, cannot refuse without triggering family war, and is sliding from mother to furniture in her own home A written three-zone agreement (hers/together/doctor-backed) that gives grandma proud ownership of real work, protects medical non-negotiables as the DOCTOR'S rules not hers, and preserves both the tradition and the mother",
+    "classification": "CONTEXT_INTRINSIC",
+    "basis": "material culture detected: omugwo, mother-in-law",
+    "uncertainty": "low",
+    "unresolved_questions": []
+  }
 }

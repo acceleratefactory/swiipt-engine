@@ -6,6 +6,7 @@ import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import Ajv from "ajv/dist/2020.js";
+import { sameNucleusModuloContext, nucleusSimilarity } from "./transformation-architect.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const ajv = new Ajv({ allErrors: true, strict: false });
@@ -184,10 +185,51 @@ for (const { dir, path, p } of productRecords) {
   }
 }
 
+// cross-product: country-clone prevention (globality invariant — one canonical product per
+// situation nucleus; geography labels alone must never fork a product)
+const nucleusOf = (p) => [p.customer?.target_person, p.customer?.situation, p.customer?.trigger].filter((s) => typeof s === "string" && s.trim()).join(" ");
+for (let i = 0; i < productRecords.length; i++) {
+  for (let j = i + 1; j < productRecords.length; j++) {
+    const a = productRecords[i], b = productRecords[j];
+    const ta = nucleusOf(a.p), tb = nucleusOf(b.p);
+    if (!ta.trim() || !tb.trim()) continue;
+    const sim = nucleusSimilarity(ta, tb);
+    const name = `${a.dir} vs ${b.dir}`;
+    if (!check(name, "no_country_clone", !sameNucleusModuloContext(ta, tb), `nucleus similarity ${sim.toFixed(3)}`)) fails++;
+  }
+}
+
 // cross-store: opportunity related_ids resolve
 for (const [id, o] of opps) {
   for (const r of o.related_opportunity_ids ?? []) {
     if (!opps.has(r)) { check(`data/opportunities/${id}.json`, `related_resolves:${r}`, false); fails++; }
+  }
+}
+
+// cross-transformation: applicability present + country-fork prevention (research-pipeline V1).
+// Names deliberately avoid the g7 canonical filter regex in harness/product-qa-gate-runner.mjs.
+const trDir = join(root, "data", "transformations");
+const trRecords = [];
+if (existsSync(trDir)) {
+  for (const f of readdirSync(trDir).filter((x) => /^TR-.*\.json$/.test(x))) {
+    const t = JSON.parse(readFileSync(join(trDir, f), "utf8"));
+    trRecords.push({ file: f, t });
+  }
+}
+const trNucleus = (t) => [t.situation?.person, t.situation?.specific_situation, t.situation?.trigger, t.situation?.problem, t.situation?.desired_transformation]
+  .filter((s) => typeof s === "string" && s.trim()).join(" ");
+for (const { file, t } of trRecords) {
+  const rel = `data/transformations/${file}`;
+  if (!check(rel, "g_transformation_applicability", !!(t.applicability && t.applicability.classification), "applicability classification present")) fails++;
+}
+for (let i = 0; i < trRecords.length; i++) {
+  for (let j = i + 1; j < trRecords.length; j++) {
+    const a = trRecords[i], b = trRecords[j];
+    const ta = trNucleus(a.t), tb = trNucleus(b.t);
+    if (!ta.trim() || !tb.trim()) continue;
+    const sim = nucleusSimilarity(ta, tb);
+    const name = `${a.file} vs ${b.file}`;
+    if (!check(name, "g_no_country_clone_transformations", !sameNucleusModuloContext(ta, tb), `nucleus similarity ${sim.toFixed(3)}`)) fails++;
   }
 }
 

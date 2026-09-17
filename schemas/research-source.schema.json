@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/research-source.schema.json",
+  "title": "Swiipt Research Source (ingestion record)",
+  "description": "Canonical record of a research document entering the factory (research-to-transformation pipeline V1, Phase A). The original source is preserved byte-for-byte; provenance is DESCRIPTIVE and never defines transformation identity or applicability.",
+  "type": "object",
+  "required": [
+    "source_id", "class", "source_type", "original_path", "preserved_path", "content_sha256",
+    "bytes", "ingested_at", "provenance", "extraction", "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "source_id": { "type": "string", "pattern": "^SRC-" },
+    "class": { "const": "research_source" },
+    "source_type": { "enum": ["markdown", "text", "structured_record"] },
+    "original_path": { "type": "string", "minLength": 1, "description": "Path the document was supplied from (verbatim)." },
+    "preserved_path": { "type": "string", "minLength": 1, "description": "Repo-relative path of the preserved byte-exact copy." },
+    "content_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "bytes": { "type": "integer", "minimum": 0 },
+    "ingested_at": { "type": "string", "format": "date-time" },
+    "source_provided_date": { "type": ["string", "null"], "description": "Date the source itself states, if any. Never invented." },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_label": { "type": ["string", "null"] },
+        "population": { "type": ["string", "null"] },
+        "geography": { "type": ["string", "null"] },
+        "jurisdiction": { "type": ["string", "null"] },
+        "cultural_context": { "type": "array", "items": { "type": "string" } },
+        "limitations": { "type": "array", "items": { "type": "string" } },
+        "evidence_status": { "type": ["string", "null"] }
+      }
+    },
+    "extraction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "findings_total", "records_created", "records_retained"],
+      "properties": {
+        "status": { "enum": ["EXTRACTED", "EXTRACTION_REQUIRED", "NO_FINDINGS"] },
+        "extractor": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "provider": { "type": ["string", "null"] },
+            "deterministic": { "type": "boolean" }
+          }
+        },
+        "findings_total": { "type": "integer", "minimum": 0 },
+        "records_created": { "type": "array", "items": { "type": "string" } },
+        "records_retained": { "type": "array", "items": { "type": "string" } },
+        "unresolved_questions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "status": { "enum": ["INGESTED", "EXTRACTED", "EXTRACTION_REQUIRED"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

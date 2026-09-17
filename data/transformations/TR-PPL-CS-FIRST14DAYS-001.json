@@ -83,5 +83,22 @@
     "red_flags": ["fever >=38C/chills", "spreading incision redness/swelling/opening/pus/foul fluid", "worsening pain after day 3-4", "soaking-a-pad-per-hour bleeding, large clots, foul lochia", "unilateral calf pain/swelling/heat", "chest pain or breathlessness", "severe unshift headache/vision changes", "blues past two weeks or thoughts of harm"],
     "escalation_rules": ["Fever + any incision sign = same hour", "Chest/calf signs = emergency now", "Mood crisis lines from verified shared list always active"]
   },
-  "research_disposition": { "library_role": "STANDALONE_TRANSFORMATION", "rationale": "Flagship #5 (score 80). Hidden market verbatim: 'How do I function normally again after a C-section while caring for a newborn?' Renamed per naming audit.", "assigned_at": "2026-08-19", "reclassification_history": [] }
+  "research_disposition": { "library_role": "STANDALONE_TRANSFORMATION", "rationale": "Flagship #5 (score 80). Hidden market verbatim: 'How do I function normally again after a C-section while caring for a newborn?' Renamed per naming audit.", "assigned_at": "2026-08-19", "reclassification_history": [] },
+  "applicability": {
+    "intrinsic_dimensions": [],
+    "context_variables": [
+      "hospital"
+    ],
+    "evidence_refs": [
+      "Mayo Clinic; Cleveland Clinic 2021; WebMD recovery guidance",
+      "WebMD; Medical News Today",
+      "Cleveland Clinic; WebMD"
+    ],
+    "classification_source": "derived",
+    "source_context": "Woman in the first two weeks after a C-section, home without nearby family support ('no village'), often with a partner back at work within days Recovering from major abdominal surgery while solely carrying newborn care - lifting rules, pain schedule, incision checks, feeding round the clock - alone Discharge from hospital into an empty house She does not know what is safe to do, how to manage pain and movement solo, what normal healing looks like versus infection, and collapses under the load by day 4 A day-by-day survival-and-function plan she can execute ALONE: pain on schedule, safe movement, clean incision watch, minimum-viable household - and clear red flags that end guesswork",
+    "classification": "CONTEXT_VARIABLE",
+    "basis": "context-variable factors detected (hospital); one canonical transformation with context-aware delivery",
+    "uncertainty": "low",
+    "unresolved_questions": []
+  }
 }

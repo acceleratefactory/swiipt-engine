@@ -90,3 +90,13 @@ Prioritize the intersection of: **specific person + specific life situation + ur
 clear desired outcome + existing spending/solutions + easy-to-understand promise.**
 Not automatically the biggest market. Output a ranked Tier 1/2/3 deeper-research queue
 (specificity, recurrence, friction, stakes, clarity of before→after).
+
+## 9 · Provenance firewall (source geography ≠ applicability)
+
+Source Geography (where a finding was requested/observed/described) is **provenance only** — it is
+stored verbatim in `scope_note`/`provenance` and never deleted, but it never restricts who the
+product serves. **Applicability is derived from the mechanism's causal relevance, never from the
+source geography.** Research depth must never create country-forks: the same nucleus found in
+multiple geographies yields one opportunity record with richer provenance, not multiple records.
+Field notes, survey names, and culturally specific sources remain attached as provenance; they do
+not become product borders.

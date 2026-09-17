@@ -316,6 +316,54 @@
           }
         }
       }
+    },
+    "applicability": {
+      "type": "object",
+      "description": "ANALYTICAL applicability determination (task research-pipeline V1). Distinct from DESCRIPTIVE provenance: it records whether the transformation contract materially depends on geography/culture/jurisdiction. UNIVERSAL_CORE = no identified material dependency; CONTEXT_VARIABLE = same canonical transformation with context-aware delivery; CONTEXT_INTRINSIC = culture/geography/jurisdiction materially defines the contract.",
+      "additionalProperties": false,
+      "required": ["classification", "basis"],
+      "properties": {
+        "classification": { "enum": ["UNIVERSAL_CORE", "CONTEXT_VARIABLE", "CONTEXT_INTRINSIC"] },
+        "basis": { "type": "string", "minLength": 1 },
+        "intrinsic_dimensions": { "type": "array", "items": { "type": "string" } },
+        "context_variables": { "type": "array", "items": { "type": "string" } },
+        "evidence_refs": { "type": "array", "items": { "type": "string" } },
+        "uncertainty": { "type": "string" },
+        "unresolved_questions": { "type": "array", "items": { "type": "string" } },
+        "classification_source": { "enum": ["declared", "derived"] },
+        "source_context": { "type": "string" }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "description": "Governed candidate -> validated transition record (Phase J). Written only by harness/validate-transformation.mjs after the canonical validation conditions are met. It authorizes the transformation boundary only and never implies clinical, evidence, safety or publication approval.",
+      "additionalProperties": false,
+      "required": ["status", "validated_by", "validated_at", "source_state", "target_state", "authority"],
+      "properties": {
+        "status": { "enum": ["validated"] },
+        "validated_by": { "type": "string", "minLength": 1 },
+        "validated_at": { "type": "string", "format": "date-time" },
+        "source_state": { "type": "string", "minLength": 1 },
+        "target_state": { "type": "string", "minLength": 1 },
+        "authority": { "type": "string", "minLength": 1 },
+        "rationale": { "type": "string" },
+        "not_implying": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "description": "DESCRIPTIVE research provenance carried onto the transformation (source/population/geography/limitations). Never defines identity or applicability.",
+      "additionalProperties": false,
+      "properties": {
+        "source_label": { "type": ["string", "null"] },
+        "source_date": { "type": ["string", "null"] },
+        "population": { "type": ["string", "null"] },
+        "geography": { "type": ["string", "null"] },
+        "jurisdiction": { "type": ["string", "null"] },
+        "cultural_context": { "type": "array", "items": { "type": "string" } },
+        "limitations": { "type": "array", "items": { "type": "string" } },
+        "evidence_status": { "type": ["string", "null"] }
+      }
     }
   },
   "$defs": {

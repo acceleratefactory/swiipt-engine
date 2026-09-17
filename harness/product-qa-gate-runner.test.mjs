@@ -62,7 +62,7 @@ function makeRoot(name, mutate = null) {
   mkdirSync(join(root, "config"), { recursive: true });
   cpSync(join(ROOT, "schemas"), join(root, "schemas"), { recursive: true });
   cpSync(join(ROOT, "config"), join(root, "config"), { recursive: true });
-  for (const f of ["qa-checks.mjs", "build-manifest.mjs", "writing-control.mjs"]) cpSync(join(ROOT, "harness", f), join(root, "harness", f));
+  for (const f of ["qa-checks.mjs", "build-manifest.mjs", "writing-control.mjs", "transformation-architect.mjs", "globality.mjs", "applicability.mjs"]) cpSync(join(ROOT, "harness", f), join(root, "harness", f));
   cpSync(join(FACTORY_FIXTURES, "data", "products", CORD), join(root, "data", "products", CORD), { recursive: true });
   cpSync(join(FACTORY_FIXTURES, "data", "transformations", `${TR_ID}.json`), trP(root));
   if (mutate) mutate(root);

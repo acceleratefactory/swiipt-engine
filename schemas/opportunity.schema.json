@@ -156,6 +156,38 @@
       "type": "array",
       "items": { "type": "string" },
       "description": "Duplicate/overlap tracking feeds the section 24 overlap test (same situation nucleus must not spawn duplicate products)."
+    },
+    "provenance": {
+      "type": "object",
+      "description": "DESCRIPTIVE research provenance (task research-pipeline V1 Phase B). Records where the research came from; it never defines transformation identity or applicability. Unknown values stay null.",
+      "additionalProperties": false,
+      "properties": {
+        "source_label": { "type": ["string", "null"], "description": "Human/document identifier of the source corpus." },
+        "source_date": { "type": ["string", "null"], "description": "Date the source states for the research (never invented)." },
+        "population": { "type": ["string", "null"], "description": "Population/cohort the research represents, if stated." },
+        "geography": { "type": ["string", "null"], "description": "Geography the research was collected in, if stated." },
+        "jurisdiction": { "type": ["string", "null"], "description": "Jurisdiction whose law/regulation is engaged, if any." },
+        "cultural_context": { "type": "array", "items": { "type": "string" } },
+        "limitations": { "type": "array", "items": { "type": "string" } },
+        "evidence_status": {
+          "enum": ["directly_stated", "strongly_evidenced", "analyst_interpretation", "hypothesis", null]
+        }
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "description": "ANALYTICAL applicability determination (Phase C). Distinct from provenance: it decides whether the transformation contract materially depends on geography/culture/jurisdiction.",
+      "additionalProperties": false,
+      "required": ["classification", "basis"],
+      "properties": {
+        "classification": { "enum": ["UNIVERSAL_CORE", "CONTEXT_VARIABLE", "CONTEXT_INTRINSIC"] },
+        "basis": { "type": "string", "minLength": 1 },
+        "intrinsic_dimensions": { "type": "array", "items": { "type": "string" } },
+        "context_variables": { "type": "array", "items": { "type": "string" } },
+        "evidence_refs": { "type": "array", "items": { "type": "string" } },
+        "uncertainty": { "type": "string" },
+        "unresolved_questions": { "type": "array", "items": { "type": "string" } }
+      }
     }
   },
   "allOf": [

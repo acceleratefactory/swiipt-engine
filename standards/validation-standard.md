@@ -66,3 +66,8 @@ validated opportunities remain in the library permanently.
 Two products cannot own the same situation nucleus. Compare situation → trigger → customer →
 desired transformation → mechanism → journey position, then classify: merge / module / marketing
 angle / upsell / bundle / distinct product. Titles differing is irrelevant.
+**Global-by-default:** two candidate products whose nuclei are similar **only modulo geography
+tokens** (same nucleus, different country framing) are classified as country-forks and merged —
+BLOCKER unless the contract itself changes. Deterministic check: `no_country_clone`
+(strip geography tokens → normalized token-Jaccard ≥ 0.85 with a distinct product_id = fork);
+genuine catalogue overlap scores far below this (live max ≈ 0.15).

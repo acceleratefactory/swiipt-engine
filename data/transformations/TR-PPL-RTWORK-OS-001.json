@@ -81,5 +81,22 @@
     "red_flags": ["mastitis signs (red hot wedge/fever/flu-feel) = clinician same day", "supply collapse across 3+ days = lactation support", "persistent hopelessness/dread = clinical support + crisis lines"],
     "escalation_rules": ["Medical -> clinician same-day", "Mood crisis -> verified shared crisis list", "Workplace rights violations -> documented escalation path per country card"]
   },
-  "research_disposition": { "library_role": "STANDALONE_TRANSFORMATION", "rationale": "Flagship #6 (score 79). Narrow window (the 30 days around return) = productizable per original validation; Western-first appeal strong; Nigerian legal facts verified/corrected.", "assigned_at": "2026-08-19", "reclassification_history": [] }
+  "research_disposition": { "library_role": "STANDALONE_TRANSFORMATION", "rationale": "Flagship #6 (score 79). Narrow window (the 30 days around return) = productizable per original validation; Western-first appeal strong; Nigerian legal facts verified/corrected.", "assigned_at": "2026-08-19", "reclassification_history": [] },
+  "applicability": {
+    "intrinsic_dimensions": [
+      "jurisdiction:maternity leave"
+    ],
+    "context_variables": [],
+    "evidence_refs": [
+      "US DOL/EEOC 2024; Maternity Action/NHS/HSE UK; Nigeria Labour Act s54(1)",
+      "CDC guidelines",
+      "NHS; CDC"
+    ],
+    "classification_source": "derived",
+    "source_context": "Employed/breastfeeding mother in the final month of maternity leave, dreading the return - pumping logistics, the morning hand-off, supply drop fear, guilt math - with no plan beyond a start date Return date is ~30 days out; nothing is prepared: no freezer bank, no pump-space agreement, no childcare backup, no morning system; she oscillates between denial and 2am panic The calendar: leave ends on a fixed date She has no operating system for the transition, so week one back becomes supply crash + workplace embarrassment + evening meltdowns + guilt that eats her A dated 30-day operating system: rights-backed workplace ask locked, feeding lane chosen, freezer bank built, childcare drilled, morning/evening anchors running - so week one back is execution, not improvisation",
+    "classification": "CONTEXT_INTRINSIC",
+    "basis": "jurisdictional dependency detected: maternity leave",
+    "uncertainty": "low",
+    "unresolved_questions": []
+  }
 }

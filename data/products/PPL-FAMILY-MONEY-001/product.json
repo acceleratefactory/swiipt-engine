@@ -16,7 +16,7 @@
     "related_product_ids": []
   },
   "customer": {
-    "target_person": "Expecting and first-year parents in a Nigerian household with irregular income, facing new baby costs while pay is paused or shrunk.",
+    "target_person": "Expecting and first-year parents facing new baby costs while household income is paused, shrunk or unpredictable, with no trusted budget number.",
     "situation": "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight.",
     "trigger": "Her salary stopped but the bills did not, and the hospital asked for a deposit before admission.",
     "constraints": [
@@ -235,10 +235,10 @@
       "technical_depth": "everyday arithmetic only; no financial jargon",
       "emotional_intensity": "low; calm",
       "sentence_length": "short",
-      "cultural_context": "Nigerian household realities — market days, irregular pay, provider-role pressure; respectful, never shaming",
+      "cultural_context": "Situation-first language; household and market realities taken from the customer's own inputs. Cultural and family dynamics (provider-role pressure, elder purchase expectations, ceremony obligations) surface only where relevant to that customer's reality — never as default decoration, never erased where material.",
       "humour": "none",
-      "terminology": "naira amounts always with date and tier; Buy/Wait/Never; one number; audit",
-      "reading_level": "plain; comfortable for JSS3 reading level",
+      "terminology": "amounts in the customer's selected currency, always with date, place and tier; Buy/Wait/Never; one number; audit",
+      "reading_level": "plain everyday language; short sentences; no financial literacy assumed",
       "first_second_person": "second-person practical — you and your household"
     }
   }

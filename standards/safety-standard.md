@@ -56,3 +56,11 @@ Clinical-adjacent products publish reviewer credentials + disclaimer. Only the o
 Gate N (evidence labels) and Gate O (clinical review). Production rule (locked): the owner decides
 the promise and product boundary; evidence decides clinical facts and safety thresholds; the
 factory translates both into the customer transformation experience.
+
+## 7 - Context-aware escalation (safety held, expression local)
+
+Safety thresholds and escalation paths **never weaken by customer context** — the same crisis
+routes, red-flag thresholds, and clinical boundaries apply globally. Expression may localize
+(contact numbers, available services, language) via Context Adapters, but the escalation
+instruction itself does not dilute. A customer context that lacks a listed service resolves to the
+nearest equivalent or the universal route — never to silence.

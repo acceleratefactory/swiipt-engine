@@ -28,6 +28,14 @@ import Ajv from "ajv/dist/2020.js";
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  GEOGRAPHY_TOKENS, extractGeographyTokens, stripGeographyTokens, nucleusSimilarity,
+  COUNTRY_CLONE_THRESHOLD, sameNucleusModuloContext,
+} from "./globality.mjs";
+import {
+  APPLICABILITY, APPLICABILITY_OUTCOMES, POSSIBLE_DUPLICATE_FLOOR,
+  deriveApplicability, canonicalizeSituation, situationNucleus, decideCatalogueOutcome,
+} from "./applicability.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -42,6 +50,11 @@ export const RUN_STATUS = Object.freeze({
   SCHEMA_INVALID: "SCHEMA_INVALID",
   ALREADY_EXISTS: "ALREADY_EXISTS",
   CONFLICT: "CONFLICT",
+  // Semantic catalogue comparison (Phase E) — a candidate is never written automatically when an
+  // equivalent or ambiguous existing canonical transformation is found.
+  EXISTING_TRANSFORMATION_MATCH: "EXISTING_TRANSFORMATION_MATCH",
+  CONTEXT_VARIANT_OF_EXISTING: "CONTEXT_VARIANT_OF_EXISTING",
+  POSSIBLE_DUPLICATE_REVIEW_REQUIRED: "POSSIBLE_DUPLICATE_REVIEW_REQUIRED",
 });
 
 /** Disposition roles that can carry a transformation nucleus (the other roles are non-transformation). */
@@ -101,7 +114,10 @@ const canonical = (v) => (Array.isArray(v) ? `[${v.map(canonical).join(",")}]`
     : JSON.stringify(v === undefined ? null : v));
 export const canonicalProjection = (value) => canonical(value);
 
-/** Verbatim spans from the authoritative input that read as constraints. */
+/** Verbatim spans from the authoritative input that read as constraints.
+ *  Phase I fix: a constraint is never clipped mid-sentence / mid-word. The extractor returns the
+ *  complete clause (or the complete matched span extended to a word boundary) — the original
+ *  70-character clip silently corrupted canonical meaning. Never drops the last word either. */
 export function extractConstraints(text) {
   const PATTERNS = [
     /\bno (?:overnight|family|help|support|one|space|time|energy|money|childcare|paid|practical) [a-z' ]{2,40}/i,
@@ -114,15 +130,15 @@ export function extractConstraints(text) {
   const out = [];
   for (const c of clauses(text)) {
     if (/^(?:so|because|therefore|then)\b/i.test(c)) continue;            // consequences are not constraints
+    const clause = norm(c);
     for (const re of PATTERNS) {
-      const m = c.match(re);
+      const m = clause.match(re);
       if (!m) continue;
-      let matched = norm(m[0]).replace(/[.,;]$/, "");
-      const at = norm(c).indexOf(matched);
-      const after = at > -1 ? norm(c)[at + matched.length] ?? "" : "";
-      if (after && /[A-Za-z0-9]/.test(after)) matched = matched.split(" ").slice(0, -1).join(" ");
-      const clipped = norm(c).split(" ").reduce((acc, w) => (acc + " " + w).trim().length <= 70 ? (acc ? `${acc} ${w}` : w) : acc, "");
-      out.push(matched.length && matched.length <= 70 ? matched : clipped);
+      // Phase I: return the COMPLETE clause — a constraint is never a mid-sentence fragment.
+      const raw = norm(m[0]);
+      let value = clause.replace(/[.,;:]+$/, "");
+      if (!value || value.split(/\s+/).filter(Boolean).length < 2) value = raw.replace(/[.,;:]+$/, "");
+      if (value) out.push(value);
       break;
     }
   }
@@ -469,6 +485,50 @@ function buildRouting({ next_transformation = [], adjacent_transformations = [],
 }
 
 // ------------------------------------------------------------------------------------------------
+// research/evidence gap drafts (Phases F/G) — structured, persisted by harness/research-gaps.mjs
+// ------------------------------------------------------------------------------------------------
+/**
+ * Turn the runner's ephemeral findings into structured gap DRAFTS (no id/timestamp — the gap
+ * service owns the persisted record and stamps identity/time). Nothing is fabricated: each draft
+ * restates a finding the runner already produced.
+ */
+export function collectGapDrafts({ opportunity, transformationId = null, missingInputs = [], missingEvidence = [], clinicalItems = [], applicability = null, routing = null }) {
+  const drafts = [];
+  const add = ({ domain, description, why, required, stage, severity, blocks = true, criteria = {}, evidence_refs = [] }) => drafts.push({
+    domain,
+    source_ref: norm(opportunity?.source ?? "") || null,
+    opportunity_id: opportunity?.opportunity_id ?? null,
+    transformation_id: transformationId ?? null,
+    description: norm(description),
+    why_it_matters: norm(why),
+    required_evidence: norm(required),
+    evidence_refs,
+    blocking_stage: stage,
+    severity,
+    status: "OPEN",
+    blocks_progression: blocks,
+    resolution_criteria: criteria,
+  });
+  const domainFor = (m) => (/^situation\./.test(m) ? "CUSTOMER_TRUTH" : /research_evidence/.test(m) ? "SOURCE" : "MECHANISM");
+  for (const m of missingInputs) {
+    add({ domain: domainFor(m), description: m, why: "the canonical transformation nucleus cannot be completed without this", required: `authoritative research supplying ${m}`, stage: "TRANSFORMATION_CANDIDATE", severity: "high" });
+  }
+  for (const m of missingEvidence) {
+    add({ domain: "MECHANISM", description: m, why: "without an observable change the record cannot progress beyond candidate", required: `sourced evidence of change for ${m}`, stage: "TRANSFORMATION_CANDIDATE", severity: "high" });
+  }
+  for (const c of clinicalItems) {
+    add({ domain: "CLINICAL", description: c, why: "clinical/safety review is a human authority and cannot be self-approved", required: `authoritative literature satisfying ${c}`, stage: "PRODUCT_SPECIFICATION", severity: "high" });
+  }
+  for (const q of (applicability?.unresolved_questions ?? [])) {
+    add({ domain: "APPLICABILITY", description: q, why: "unresolved applicability can cause inappropriate universalization", required: `applicability evidence resolving: ${q}`, stage: "PRODUCT_SPECIFICATION", severity: "medium", criteria: { requires_evidence: true } });
+  }
+  if (routing?.journey_gap) {
+    add({ domain: "IMPLEMENTATION", description: "journey routing gap: no authoritative next transformation supplied", why: "journey integrity is required before product handoff", required: "authoritative adjacent transformation id(s)", stage: "PRODUCT_SPECIFICATION", severity: "low", blocks: false, criteria: { requires_evidence: false } });
+  }
+  return drafts;
+}
+
+// ------------------------------------------------------------------------------------------------
 // main
 // ------------------------------------------------------------------------------------------------
 function reportBase(input) {
@@ -546,15 +606,34 @@ export function buildTransformationRecord(input = {}) {
   const situationRes = buildSituation(opportunity, library_map);
   const evidenceRes = resolveEvidence({ opportunity, research_evidence, source_allowlist });
   report.missing_inputs.push(...situationRes.missing, ...evidenceRes.rejected.map((r) => `research_evidence rejected: ${r.reason}`));
-  const beforeRes = buildBeforeState(opportunity, situationRes.situation);
+
+  // ---- applicability + globality (Phases C/D) ---------------------------------------
+  // DESCRIPTIVE provenance (opportunity.provenance) never defines applicability; the analytical
+  // classification is derived here (or taken from a declared record). Source geography is removed
+  // from canonical identity ONLY when the transformation is not context-intrinsic.
+  const applicabilityRes = deriveApplicability({
+    nucleusText: situationNucleus(situationRes.situation),
+    culturalContext: Array.isArray(opportunity.provenance?.cultural_context) ? opportunity.provenance.cultural_context : [],
+    supplied: opportunity.applicability ?? null,
+    evidenceRefs: uniq(opportunity.source_references ?? []),
+    provenanceContext: opportunity.provenance ?? null,
+  });
+  const canonRes = canonicalizeSituation(situationRes.situation, applicabilityRes);
+  const situation = canonRes.situation;
+  if (canonRes.unresolved_questions.length) {
+    applicabilityRes.unresolved_questions = [...new Set([...(applicabilityRes.unresolved_questions ?? []), ...canonRes.unresolved_questions])];
+  }
+  report.applicability = applicabilityRes;
+
+  const beforeRes = buildBeforeState(opportunity, situation);
   report.missing_inputs.push(...beforeRes.empty);
-  const afterRes = buildAfterState(opportunity, situationRes.situation);
+  const afterRes = buildAfterState(opportunity, situation);
   const mechRes = buildMechanism(opportunity, evidenceRes.entries);
   if (!isStr(mechRes.mechanism.core_mechanism) || !mechRes.hypotheses.length) report.missing_inputs.push("mechanism (no mechanism_hypotheses in the opportunity record)");
   const pathRes = buildPath(mechRes.hypotheses);
   if (!pathRes.path.length) report.missing_inputs.push("transformation_path");
   if (pathRes.duplicates.length) report.warnings.push(`duplicate path stages removed: ${pathRes.duplicates.length}`);
-  const failRes = buildFailureMap(opportunity, situationRes.situation, mechRes.hypotheses);
+  const failRes = buildFailureMap(opportunity, situation, mechRes.hypotheses);
   if (!failRes.failure_map.length) report.missing_inputs.push("failure_point_map (no documented failure signal with a non-generic rescue)");
   const firstWinRes = buildFirstWin(mechRes.hypotheses, afterRes.after_state, pathRes.path);
   if (!firstWinRes.first_win) report.missing_inputs.push(`first_win (${firstWinRes.reason})`);
@@ -567,6 +646,7 @@ export function buildTransformationRecord(input = {}) {
   // ---- honest refusal (before any assembly that would look complete) ----------------
   if (report.missing_inputs.length) {
     report.unresolved_questions.push("The opportunity record does not support the mandatory Gate-1 transformation nucleus; return upstream for research rather than filling it in.");
+    report.gaps = collectGapDrafts({ opportunity, transformationId, missingInputs: report.missing_inputs, missingEvidence: report.missing_evidence, applicability: applicabilityRes });
     return refused(RUN_STATUS.SOURCE_REQUIRED, report);
   }
 
@@ -579,7 +659,7 @@ export function buildTransformationRecord(input = {}) {
     ? input.measurement_days
     : null;
   const tsmRes = buildTsm({
-    opportunity, situation: situationRes.situation, beforeState: beforeRes.before_state,
+    opportunity, situation, beforeState: beforeRes.before_state,
     afterState: afterRes.after_state, failureMap: failRes.failure_map, maintenanceSeed,
     systems: afterRes.after_state.systems_created, measurementDays,
   });
@@ -594,9 +674,10 @@ export function buildTransformationRecord(input = {}) {
   const record = {
     transformation_id: transformationId,
     library_id: opportunity.life_area,
-    submarket_id: slug(`${opportunity.focus_market}-${situationRes.situation.life_state}`),
+    submarket_id: slug(`${opportunity.focus_market}-${situation.life_state}`),
     status: "candidate",
-    situation: situationRes.situation,
+    situation,
+    applicability: applicabilityRes,
     before_state: beforeRes.before_state,
     after_state: afterRes.after_state,
     mechanism: mechRes.mechanism,
@@ -652,7 +733,33 @@ export function buildTransformationRecord(input = {}) {
     measurementDays ? `tsm.measurement_days = [${measurementDays.join(", ")}] (supplied timing preserved).` : `tsm.measurement_days = [${DEFAULT_MEASUREMENT_DAYS.join(", ")}] (schema default).`,
     "mechanism/path/failure rescues are composed from the opportunity's own mechanism_hypotheses (verbatim); no mechanism was invented.",
     `risk_level ${risk.risk_level} from ${risk.source} (may only raise review, never lower it).`,
+    `applicability ${applicabilityRes.classification} (${applicabilityRes.classification_source}); canonical nucleus ${canonRes.changed ? `decontextualized: ${canonRes.changed_fields.join(", ")}` : "unchanged"}.`,
   );
+
+  // ---- semantic catalogue comparison (Phase E) --------------------------------------
+  // Pure over the supplied catalogue: never merges, never deletes. An equivalent or ambiguous
+  // nucleus is refused, so the factory never creates a second canonical transformation automatically.
+  const catalogue = Array.isArray(input.existing_transformations) ? input.existing_transformations : [];
+  const dedupe = decideCatalogueOutcome({
+    nucleusText: situationNucleus(record.situation),
+    existing: catalogue,
+    selfId: transformationId,
+    classification: applicabilityRes.classification,
+  });
+  report.dedupe = dedupe;
+  if (dedupe.best && dedupe.best.similarity >= COUNTRY_CLONE_THRESHOLD) {
+    report.warnings.push(`existing canonical transformation ${dedupe.best.transformation_id} already carries this nucleus (similarity ${dedupe.best.similarity}); no new record created`);
+    report.gaps = collectGapDrafts({ opportunity, transformationId, missingEvidence: report.missing_evidence, clinicalItems: report.clinical_review_items, applicability: applicabilityRes, routing: routingRes.routing });
+    return refused(RUN_STATUS.EXISTING_TRANSFORMATION_MATCH, report, { schema_valid: true, matched: dedupe.best });
+  }
+  if (dedupe.outcome === APPLICABILITY_OUTCOMES.POSSIBLE_DUPLICATE_REVIEW_REQUIRED) {
+    report.unresolved_questions.push(`possible duplicate of ${dedupe.best.transformation_id} (similarity ${dedupe.best.similarity}); review required before creating a new canonical transformation`);
+    report.gaps = collectGapDrafts({ opportunity, transformationId, missingEvidence: report.missing_evidence, clinicalItems: report.clinical_review_items, applicability: applicabilityRes, routing: routingRes.routing });
+    return refused(RUN_STATUS.POSSIBLE_DUPLICATE_REVIEW_REQUIRED, report, { schema_valid: true, matched: dedupe.best });
+  }
+
+  // ---- research/evidence gap drafts (Phases F/G) ------------------------------------
+  report.gaps = collectGapDrafts({ opportunity, transformationId, missingEvidence: report.missing_evidence, clinicalItems: report.clinical_review_items, applicability: applicabilityRes, routing: routingRes.routing });
 
   // ---- persistence ----------------------------------------------------------------
   let persisted = false;
@@ -672,6 +779,13 @@ export function buildTransformationRecord(input = {}) {
 
 /** Convenience alias used by the CLI and harness. */
 export const runTransformationArchitect = buildTransformationRecord;
+
+// ------------------------------------------------------------------------------------------------
+// globality invariant (global-by-default factory rule — deterministic helpers only)
+// ------------------------------------------------------------------------------------------------
+// The geography primitives live in harness/globality.mjs (shared with the applicability engine)
+// and are re-exported here so the existing public surface is unchanged.
+export { GEOGRAPHY_TOKENS, extractGeographyTokens, stripGeographyTokens, nucleusSimilarity, COUNTRY_CLONE_THRESHOLD, sameNucleusModuloContext };
 
 // ------------------------------------------------------------------------------------------------
 // CLI

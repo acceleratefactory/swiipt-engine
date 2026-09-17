@@ -42,7 +42,7 @@ Write to the actual situation; use concrete circumstances; use the customer's la
 
 ## 4 · Concrete before abstract
 
-Prefer *"You finally sit down to eat and the baby starts crying"* over *"New parenthood can make maintaining healthy routines difficult."* Recognition comes from specific situations, not demographic description.
+Prefer *"You finally sit down to eat and the baby starts crying"* over *"New parenthood can make maintaining healthy routines difficult."* Recognition comes from specific situations, not demographic description. **Never write fake-universal personas** ("Amara in Lagos and a mother in another place both…") — the product narrative carries the universal core; the marketing/applicability layer carries context resonance. Universality is proven by the mechanism, never by enumerating countries.
 
 ## 5 · Locks
 
@@ -75,7 +75,7 @@ Preserve approved evidence; distinguish education from diagnosis/treatment; pres
 
 ## 11 · Evidence preservation
 
-For evidence-dependent claims preserve CLAIM / SOURCE / EVIDENCE STRENGTH / CONTEXT / LIMITATION. Never turn correlation into causation, possibility into certainty, a narrow finding into a universal rule; never fabricate citations, invent consensus, or strengthen a claim for sales.
+For evidence-dependent claims preserve CLAIM / SOURCE / EVIDENCE STRENGTH / CONTEXT / LIMITATION. Never turn correlation into causation, possibility into certainty, a narrow finding into a universal rule; never fabricate citations, invent consensus, or strengthen a claim for sales. **Applicability is preserved, not flattened:** a region-scoped finding (regulatory action, subsidy, named study) keeps its scope label in the customer text; marketing may widen *resonance* ("families navigating extended-family care") but must never universalize the regional truth itself.
 
 ## 12 · Anti-hallucination
 

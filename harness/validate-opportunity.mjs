@@ -31,9 +31,13 @@ const TARGETS = {
   transformation: "https://swiipt.com/factory/schemas/transformation.schema.json",
   product: "https://swiipt.com/factory/schemas/product.schema.json",
   asset: "https://swiipt.com/factory/schemas/asset.schema.json",
+  research_gap: "https://swiipt.com/factory/schemas/research-gap.schema.json",
+  research_source: "https://swiipt.com/factory/schemas/research-source.schema.json",
 };
 
 function detectSchema(obj) {
+  if (obj.class === "research_gap" || "gap_id" in obj) return TARGETS.research_gap;
+  if (obj.class === "research_source" || "source_id" in obj) return TARGETS.research_source;
   if ("opportunity_id" in obj) return TARGETS.opportunity;
   if ("transformation_id" in obj) return TARGETS.transformation;
   if ("product_id" in obj && "identity" in obj) return TARGETS.product;

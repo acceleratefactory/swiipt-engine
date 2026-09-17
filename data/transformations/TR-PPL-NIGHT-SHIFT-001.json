@@ -290,5 +290,18 @@
     "rationale": "Distinct situation (night division between adults) plus a distinct meaningful transformation (protected sleep via a written roster). Validated and scored 88/100 in the postpartum naming audit; built as V06 'Every Night, Just Me' and live on the platform as transformation #84 / system #85 / product #86.",
     "assigned_at": "2026-08-19",
     "reclassification_history": []
+  },
+  "applicability": {
+    "intrinsic_dimensions": [],
+    "context_variables": [],
+    "evidence_refs": [
+      "Postpartum Library/SLEEP DEPRIVATION.md submarket C (PLOS One; LSU; London Met; Hekint)"
+    ],
+    "classification_source": "derived",
+    "source_context": "Breastfeeding or formula-feeding mother, 0-12 weeks postpartum, doing 100% of night care while her partner sleeps through or is minimally involved (or, for some buyers, with no partner in the home at all) She is running every night alone - feeding, settling, soothing - while her partner sleeps, works away, or believes 'helping' means one nappy change. There is no agreed system, so every night is renegotiated by exhaustion and resentment. The partner's leave ends / he returns to work - nights silently become 100% hers without a conversation, and every 2am wake-up re-opens whose turn it is. She cannot get a single protected sleep block of 4-5 hours, is approaching or past the point of physical and cognitive breakdown, and the relationship is absorbing the damage in silence. A written, fair night-shift system both adults follow - protecting a 4-5 hour sleep opportunity for the mother whenever circumstances allow - without the nightly argument about whose turn it is.",
+    "classification": "UNIVERSAL_CORE",
+    "basis": "no identified material dependency on geography, culture or jurisdiction in the current evidence",
+    "uncertainty": "low",
+    "unresolved_questions": []
   }
 }

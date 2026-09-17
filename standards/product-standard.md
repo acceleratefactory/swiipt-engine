@@ -58,3 +58,11 @@ Two products cannot own the same situation nucleus (see validation-standard §7)
   record** by the copy agent, so it cannot drift from the actual transformation.
 - Missing TSM, missing required asset, broken purchase/access, incorrect boundary = BLOCKER
   (severity model, §17).
+
+## 9 · One canonical product (global by default)
+
+One Transformation gets **one canonical product family**. The same mechanism in different source
+geographies must never become `PRODUCT-{NG,GH,UK,US,CA,EU}`; customer contexts are handled via
+**customer-input-first adaptation** (entered currency/prices/income/structure), never
+country-assumption. Multiple customers explicitly requesting the same product's contexts is a
+Context Adapter on one canonical product — never a duplicate product.

@@ -115,5 +115,27 @@
     "rationale": "Flagship #2 from naming audit (score 86). Distinct situation (daily cord decisions under family pressure) + distinct transformation (safe default routine + triage competence).",
     "assigned_at": "2026-08-19",
     "reclassification_history": []
+  },
+  "applicability": {
+    "intrinsic_dimensions": [],
+    "context_variables": [
+      "hospital"
+    ],
+    "evidence_refs": [
+      "WHO 2014/2022 postnatal care recommendations",
+      "WHO 2014; HNN Country Guidance 2015/2018",
+      "AAP Pediatrics 2016; Cleveland Clinic 2024",
+      "Onubogu et al. AJPR 2022 (Nnewi)",
+      "Shwe et al. NJCP 2021, PMID 34018987",
+      "StatPearls NBK513338; Cleveland Clinic 2024"
+    ],
+    "classification_source": "derived",
+    "source_context": "Mother or primary caregiver of a newborn (0-3 weeks), in Nigeria/Africa or the diaspora, responsible for daily umbilical stump care - often with conflicting advice from grandmothers, aunties and hospital staff about what to apply and what to avoid The baby's umbilical stump is still attached and must be kept clean and dry while relatives insist on traditional substances (toothpaste, shea butter, herbs, hot compresses) and hospital discharge instructions said something different Hospital discharge with vague cord instructions plus immediate arrival of family helpers with strong opinions She does not know which daily care routine is actually safe, which traditional practices are harmless versus dangerous, and which changes in the stump's appearance mean 'normal healing' versus 'infection needing a doctor tonight' One clear, evidence-based daily routine; confidence to protect the stump from harmful substances without family war; and the exact red flags that mean seek care immediately",
+    "classification": "CONTEXT_VARIABLE",
+    "basis": "context-variable factors detected (hospital); one canonical transformation with context-aware delivery",
+    "uncertainty": "medium",
+    "unresolved_questions": [
+      "confirm whether africa, diaspora, nigeria is incidental or material"
+    ]
   }
 }
