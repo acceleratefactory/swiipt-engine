@@ -36,7 +36,7 @@ The next morning, the conversation usually goes like this:
 
 That night, the baby cries. The mother lies awake waiting for the partner to wake up. He doesn't. She becomes furious, nudges him aggressively, or simply gets up herself, muttering in resentment. 
 
-Here is the hard truth: **Unstructured nightly negotiation fails 100% of the time.** 
+Here is the hard truth: **Unstructured nightly negotiation is structurally fragile.** 
 
 It fails for three structural reasons:
 1. **The Burden of Asking:** Asking your partner to "help" is actually cognitive labor. You have to wake up, evaluate if the cry is urgent, decide to wake him, and instruct him on what to do. By the time you've done all that, you are already fully awake and your sleep cycle is ruined.

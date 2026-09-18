@@ -16,7 +16,7 @@ The next morning, the conversation usually goes like this:
 
 That night, the baby cries. The mother lies awake waiting for the partner to wake up. He doesn't. She becomes furious, nudges him aggressively, or simply gets up herself, muttering in resentment.
 
-Here is the hard truth: **Unstructured nightly negotiation fails 100% of the time.**
+Here is the hard truth: **Unstructured nightly negotiation is structurally fragile.**
 
 It fails for three structural reasons:
 

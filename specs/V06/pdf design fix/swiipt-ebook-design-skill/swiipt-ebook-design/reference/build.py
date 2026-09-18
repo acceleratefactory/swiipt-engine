@@ -89,7 +89,6 @@ toc_items = [
     ("10", "The Rescue Card", "Bad Night Protocol \u2014 for when it all breaks", "PRINT"),
     ("11", "The Re-entry Protocol", "Restarting after a relapse, without guilt", "READ"),
     ("12", "The Safety Gate", "When exhaustion needs more than a roster", "READ"),
-    ("13", "Authoring Standard", "How every tool in this book was designed", "REFERENCE"),
 ]
 toc_html = ""
 for n, t, d, tag in toc_items:
@@ -99,7 +98,7 @@ add(f'''
 <div class="page">
   <div class="page-pad">
     <div class="eyebrow"><span class="num">ii</span>CONTENTS</div>
-    <h1 class="title">Thirteen Modules. <span class="accent">One System.</span></h1>
+    <h1 class="title">Twelve Modules. <span class="accent">One System.</span></h1>
     <p class="dek">Follow them in order the first time. After that, use the Contents to jump straight to whatever tonight requires.</p>
     <hr class="rule"/>
     <div class="toc-list">{toc_html}</div>
@@ -112,7 +111,7 @@ add(f'''
 # PAGE 4 — THE ROADMAP (visual journey timeline)
 # ============================================================
 roadmap_steps = [
-    ("1","Read","The Argument That Ends the War","Understand why unstructured \u201casking for help\u201d fails, structurally, every time."),
+    ("1","Read","The Argument That Ends the War","Understand why unstructured \u201casking for help\u201d is structurally fragile and where it commonly breaks down."),
     ("2","Find","The Situation Finder","Diagnose your household\u2019s exact night profile in three questions."),
     ("3","Decide","The Decision Tree","Select the roster template engineered for your feeding style and partner availability."),
     ("4","Learn","Safety &amp; Boundary Rules","Establish the non-negotiable guardrails for adult vigilance and baby care."),
@@ -180,7 +179,7 @@ add(f'''
   <div class="page-pad">
     <div class="eyebrow"><span class="num">01</span>THE READ &middot; 3 MIN</div>
     <h1 class="title">The Argument <span class="accent">That Ends the War</span></h1>
-    <p class="dek">Why unstructured &ldquo;asking for help&rdquo; fails &mdash; structurally, every single time.</p>
+    <p class="dek">Why unstructured &ldquo;asking for help&rdquo; is structurally fragile.</p>
     <hr class="rule"/>
     <p style="font-size:10.3pt; color:var(--text-secondary);">When you are waking up every 90 minutes to a crying baby while your partner sleeps peacefully in the next room, the issue feels deeply personal. It feels like a lack of love, a lack of awareness, or a lack of care.</p>
     <p style="font-size:10.3pt; color:var(--text-secondary);">The next morning, the conversation usually goes like this:</p>
@@ -189,7 +188,7 @@ add(f'''
       <div class="line"><span class="who">Partner:</span> <span class="say">&ldquo;Just tell me what to do, I&rsquo;ll help. But you know I have work tomorrow.&rdquo;</span></div>
     </div>
     <p style="font-size:10.3pt; color:var(--text-secondary);">That night, the baby cries. The mother lies awake waiting for the partner to wake up. He doesn&rsquo;t. She becomes furious, nudges him aggressively, or simply gets up herself, muttering in resentment.</p>
-    <div class="pullquote">Unstructured nightly negotiation fails 100% of the time.</div>
+    <div class="pullquote">Unstructured nightly negotiation is structurally fragile.</div>
     <p style="font-size:10.3pt; color:var(--text-secondary); margin-bottom:4pt;">It fails for three structural reasons:</p>
     <div class="reason-grid">
       <div class="reason"><div class="rn">1</div><div><div class="rt">The Burden of Asking</div><div class="rd">Asking your partner to &ldquo;help&rdquo; is cognitive labor. You wake, evaluate if the cry is urgent, decide to wake him, and instruct him. By then you are already fully awake and your sleep cycle is ruined.</div></div></div>
@@ -461,11 +460,11 @@ add(f'''
         </div>
         <div class="duty-cols">
           <div class="duty-col">
-            <div class="dc-head"><div class="sw" style="background:var(--navy);"></div>Helper &mdash; active manager</div>
+            <div class="dc-head"><div class="sw" style="background:var(--navy);"></div>Helper / Support Person &mdash; active manager</div>
             <ul><li>Diaper, soothe, bottle-feed</li><li>If direct breastfeeding required: brings baby to mother for feeding only, then takes baby back</li></ul>
           </div>
           <div class="duty-col">
-            <div class="dc-head"><div class="sw" style="background:var(--purple);"></div>Mother&rsquo;s role</div>
+            <div class="dc-head"><div class="sw" style="background:var(--purple);"></div>Mother &mdash; protected sleep</div>
             <ul><li>Sleep &mdash; that is the whole job</li><li>On nights with no helper: Survival Protocol (right)</li></ul>
           </div>
         </div>
@@ -720,9 +719,9 @@ add(f'''
         <div class="rc-phrase">&ldquo;I need a handoff. Now.&rdquo;</div>
 
         <div class="rc-emerg">
-          <div class="re-item"><div class="re-num">988</div><div class="re-country">USA &middot; Crisis Line</div></div>
-          <div class="re-item"><div class="re-num">111</div><div class="re-country">UK &middot; NHS</div></div>
-          <div class="re-item"><div class="re-num">112</div><div class="re-country">Nigeria &middot; Emergency</div></div>
+          <div class="re-item"><div class="re-num">988</div><div class="re-country">USA &middot; 988 Suicide &amp; Crisis Lifeline</div></div>
+          <div class="re-item"><div class="re-num">111</div><div class="re-country">UK &middot; NHS 111 &mdash; urgent medical help</div></div>
+          <div class="re-item"><div class="re-num">112</div><div class="re-country">Nigeria &middot; 112 &mdash; emergency services</div></div>
         </div>
       </div>
       <div class="rescue-below-label"><div class="dash"></div>{icon("scissors", color="#7B8794", size=11)}&nbsp;Cut out and keep near the crib or on the fridge&nbsp;{icon("scissors", color="#7B8794", size=11)}<div class="dash"></div></div>
@@ -826,42 +825,6 @@ add(f'''
     </div>
   </div>
   {footer_strap("Module 12 &middot; Safety Gate")}
-</div>
-''')
-
-# ============================================================
-# MODULE 13 — AUTHORING STANDARD (asset-type design map)
-# ============================================================
-map_rows = [
-    ("Callout", "Colored surface tint + left-weighted icon chip + uppercase label + body text. Color carries meaning: red = safety, amber = warning, blue = informational, green = resolution, blush = human/emotional.", "Inline, wherever a rule or warning appears", "Reader must recognize severity at a glance, without reading the paragraph first."),
-    ("Checklist", "Square checkbox glyph + left-aligned statement, generous line height, no numbering.", "Situation Finder options, Safety Gate self-assessment", "Checkboxes read as self-assessment tools, not sequential steps &mdash; order doesn&rsquo;t matter, completion does."),
-    ("Tracker", "Ruled table, alternating row shading, bordered cells sized for handwriting, banded review rows in a distinct tint.", "14-Day Shift Tracker, Recovery Bank Ledger", "A tracker must look writable &mdash; empty cells with visible boundaries invite a pen; paragraphs of text don&rsquo;t."),
-    ("Decision tree", "Boxed nodes connected by ruled lines in a true branching layout, root-to-leaf, leaf nodes color-filled to mark endpoints.", "Module 03, roster routing", "A decision is spatial. Rendering it as prose forces the reader to hold the whole tree in their head; a diagram holds it for them."),
-    ("Rescue card", "A bordered, drop-shadowed card object with its own header band, sized and centered like a physical index card, printed alone with cut guides.", "Module 10, Bad Night Protocol", "This asset is meant to leave the book. It has to look like an object you&rsquo;d actually pin to a wall, not a page you tore out."),
-    ("Script cards", "Individual bordered cards, one per script, with a numbered badge, a category tag, a &ldquo;when to use&rdquo; label, and the script itself set in serif italic like a quoted line.", "Module 07, seven cards across four pages", "Two cards per page with a cut line lets a reader build a physical deck &mdash; the italic serif signals &ldquo;these are words to say,&rdquo; not instructions to read."),
-    ("Schedule grid", "A horizontal proportional timeline bar segmented by shift, colored per owner, with a labeled handoff segment and duty columns beneath.", "Fridge Chart, Roster A/B/C templates", "Time-of-night handoffs are inherently visual; a bar the reader can glance at beats a sentence like &lsquo;the partner works 9pm to 2am.&rsquo;"),
-]
-map_html = ""
-for asset, pattern, used, why in map_rows:
-    map_html += f'<tr><td class="asset">{asset}</td><td>{pattern}</td><td>{used}</td><td>{why}</td></tr>'
-
-add(f'''
-<div class="page">
-  <div class="page-pad-sm">
-    <div class="eyebrow"><span class="num">13</span>REFERENCE &middot; DESIGN RATIONALE</div>
-    <h1 class="title" style="font-size:22pt;">The Authoring <span class="accent">Standard</span></h1>
-    <p class="dek" style="font-size:10pt; margin-bottom:6pt;">Every recurring asset in this book follows one of seven visual patterns, chosen deliberately rather than left to default paragraph formatting. This page documents the mapping.</p>
-    <hr class="rule" style="margin-bottom:4pt;"/>
-    <table class="map-table">
-      <tr><th style="width:11%;">Asset type</th><th style="width:34%;">Visual pattern</th><th style="width:20%;">Used in</th><th style="width:35%;">Why this pattern</th></tr>
-      {map_html}
-    </table>
-    <div class="callout info" style="margin-top:6pt;">
-      <div class="ic">{icon("compass", color="#fff", size=12)}</div>
-      <div class="body"><span class="label">Print behavior</span><div class="txt">Rescue Card, Script Cards, Fridge Chart, and the 14-Day Tracker are the only assets framed with a dashed border and gold <strong>PRINTABLE</strong> tag &mdash; a signal that the page is designed to be removed from the book and used as a standalone object, not just referenced on-screen.</div></div>
-    </div>
-  </div>
-  {footer_strap("Module 13 &middot; Authoring Standard")}
 </div>
 ''')
 
