@@ -66,7 +66,7 @@ add(f'''
       <tr><td class="k">The Transformation</td><td class="v">A written, fair night-shift system both partners follow &mdash; protecting a 4&ndash;5 hour sleep opportunity for the mother whenever circumstances allow, without the nightly argument about whose turn it is.</td></tr>
     </table>
     <div class="disclaimer-block">
-      <strong>Evidence &amp; scope.</strong> Educational content informed by relationship research, postpartum health guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment. Cultural-norm observations are labeled as informed by lived experience, not prescriptive clinical fact. See Module 5 and Module 13 for full safety guardrails and escalation routing.
+      <strong>Evidence &amp; scope.</strong> Educational content informed by relationship research, postpartum health guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment. Cultural-norm observations are labeled as informed by lived experience, not prescriptive clinical fact. See Module 5 for full safety guardrails and escalation routing.
     </div>
   </div>
   {footer_strap("Product Identity")}
