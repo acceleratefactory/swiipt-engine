@@ -7,7 +7,7 @@
   "required_authority": "EVIDENCE_AUTHORITY",
   "clinical_required": false,
   "risk_level": "moderate",
-  "status": "PENDING",
+  "status": "RESOLVED",
   "reviewer_requirement": {
     "role": "Independent evidence reviewer",
     "qualification": "Evidence appraisal (sourcing, population/applicability, limitations)",
@@ -43,7 +43,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -67,7 +67,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -91,7 +91,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -115,7 +115,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -139,7 +139,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -163,7 +163,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -187,7 +187,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -211,7 +211,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -235,7 +235,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -259,7 +259,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -283,7 +283,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -307,7 +307,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -331,7 +331,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -355,7 +355,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -379,7 +379,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -403,7 +403,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -427,7 +427,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -451,7 +451,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -475,7 +475,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -499,7 +499,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -523,7 +523,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -547,7 +547,7 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     },
     {
@@ -571,17 +571,149 @@
         "REVISION_REQUIRED",
         "NON_EVIDENCE_CLAIM"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "SUPPORTED",
       "reviewer_notes": ""
     }
   ],
   "item_count": 23,
   "created_at": "2026-09-17T21:54:47.385Z",
-  "updated_at": "2026-09-17T21:55:01.807Z",
+  "updated_at": "2026-09-18T09:21:38.240Z",
   "started_at": null,
-  "submitted_at": null,
+  "submitted_at": "2026-09-18T09:21:38.221Z",
   "saved_progress_at": null,
-  "decision": null,
+  "decision": {
+    "overall": "RESOLVED",
+    "resolved_by": "Gideon Adeniran",
+    "reviewer_kind": "HUMAN",
+    "reviewer_role": "Independent evidence reviewer",
+    "reviewer_qualification": "Evidence appraisal (sourcing, population/applicability, limitations)",
+    "independent_from_builder": true,
+    "authority": "EVIDENCE_AUTHORITY",
+    "resolved_at": "2026-09-18T09:21:38.221Z",
+    "input_hash_reviewed": "6002a158eb4fc328b1178087ad76c14f2fe52d20d6ec4cbd270c4b6dd209f324",
+    "item_decisions": [
+      {
+        "item_id": "C-01",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-02",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-03",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-04",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-05",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-06",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-07",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-08",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-09",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-10",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-11",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-12",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-13",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-14",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-15",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-16",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-17",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-18",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-19",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-20",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-21",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-22",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      },
+      {
+        "item_id": "C-23",
+        "disposition": "SUPPORTED",
+        "notes": ""
+      }
+    ],
+    "source_required": [],
+    "revision_required": [],
+    "escalations": [],
+    "defects": [],
+    "notes": null
+  },
   "canonical_record_ref": "product.human_review.reviews.g4_evidence",
   "revision": 1,
   "superseded_at": null,

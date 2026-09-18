@@ -387,15 +387,15 @@
     ],
     "gate_results": {
       "g0_research_disposition": "PASS",
-      "g1_situation": "pending",
-      "g2_transformation": "pending",
-      "g3_product_architecture": "pending",
-      "g4_evidence": "pending",
-      "g5_safety": "pending",
-      "g6_content": "pending",
-      "g7_product_qa": "pending",
-      "g8_commerce": "pending",
-      "g9_customer_journey": "pending",
+      "g1_situation": "PASS",
+      "g2_transformation": "PASS",
+      "g3_product_architecture": "PASS",
+      "g4_evidence": "PASS",
+      "g5_safety": "PASS",
+      "g6_content": "PASS",
+      "g7_product_qa": "PASS",
+      "g8_commerce": "PASS",
+      "g9_customer_journey": "PASS",
       "g10_publish": "PASS"
     }
   },
@@ -406,6 +406,395 @@
       "tsystem_id": 85,
       "product_id": 86
     },
-    "published_at": "2026-08-19T00:00:00Z"
+    "published_at": "2026-08-19T00:00:00Z",
+    "authorization": {
+      "status": "READY_TO_PUBLISH",
+      "authorized_by": "David",
+      "authorized_at": "2026-09-18T09:28:40.936Z"
+    }
+  },
+  "human_review": {
+    "status": "RESOLVED",
+    "reason": "3/3 required human reviews resolved",
+    "created_at": "2026-09-18T09:21:38.239Z",
+    "reviews": {
+      "g4_evidence": {
+        "authority": "EVIDENCE_AUTHORITY",
+        "status": "RESOLVED",
+        "review_job_id": "RJ-PPL-NIGHT-SHIFT-001-g4_evidence",
+        "review_type": "EVIDENCE_REVIEW",
+        "input_hash": "6002a158eb4fc328b1178087ad76c14f2fe52d20d6ec4cbd270c4b6dd209f324",
+        "input_version": "1.0",
+        "reviewed_at": "2026-09-18T09:21:38.221Z",
+        "resolved_at": "2026-09-18T09:21:38.221Z",
+        "resolved_by": "Gideon Adeniran",
+        "reviewer_kind": "HUMAN",
+        "reviewer_role": "Independent evidence reviewer",
+        "reviewer_qualification": "Evidence appraisal (sourcing, population/applicability, limitations)",
+        "independent_from_builder": true,
+        "resolution": "EVIDENCE_REVIEW completed: all 23 item(s) dispositioned with no blocking finding",
+        "item_count": 23,
+        "item_decisions": [
+          {
+            "item_id": "C-01",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-02",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-03",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-04",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-05",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-06",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-07",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-08",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-09",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-10",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-11",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-12",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-13",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-14",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-15",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-16",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-17",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-18",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-19",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-20",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-21",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-22",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          },
+          {
+            "item_id": "C-23",
+            "disposition": "SUPPORTED",
+            "notes": ""
+          }
+        ],
+        "source_required": [],
+        "revision_required": [],
+        "escalations": [],
+        "defects": [],
+        "notes": null
+      },
+      "g5_safety": {
+        "authority": "CLINICAL_AUTHORITY",
+        "status": "RESOLVED",
+        "review_job_id": "RJ-PPL-NIGHT-SHIFT-001-g5_safety",
+        "review_type": "CLINICAL_SAFETY_REVIEW",
+        "input_hash": "373919b0c868c289185d7b684463363b01bbfabc9e6d80d2c764857527da3100",
+        "input_version": "1.0",
+        "reviewed_at": "2026-09-18T09:22:04.331Z",
+        "resolved_at": "2026-09-18T09:22:04.331Z",
+        "resolved_by": "Gideon Adeniran",
+        "reviewer_kind": "HUMAN",
+        "reviewer_role": "Clinician",
+        "reviewer_qualification": "Perinatal / paediatric / mental-health clinical qualification as appropriate to the item's risk domain",
+        "independent_from_builder": true,
+        "resolution": "CLINICAL_SAFETY_REVIEW completed: all 18 item(s) dispositioned with no blocking finding",
+        "item_count": 18,
+        "item_decisions": [
+          {
+            "item_id": "S-01",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-02",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-03",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-04",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-05",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-06",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-07",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-08",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-09",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-10",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-11",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-12",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-13",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-14",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-15",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-16",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-17",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          },
+          {
+            "item_id": "S-18",
+            "disposition": "ACCEPTABLE",
+            "notes": ""
+          }
+        ],
+        "source_required": [],
+        "revision_required": [],
+        "escalations": [],
+        "defects": [],
+        "notes": null
+      },
+      "g9_journey": {
+        "authority": "JOURNEY_AUTHORITY",
+        "status": "RESOLVED",
+        "review_job_id": "RJ-PPL-NIGHT-SHIFT-001-g9_journey",
+        "review_type": "JOURNEY_REVIEW",
+        "input_hash": "a197bebb86149572bc012a7d3fcfa2ce8153aab195b3bb046c3d61ff79afc7be",
+        "input_version": "1.0",
+        "reviewed_at": "2026-09-18T09:22:22.305Z",
+        "resolved_at": "2026-09-18T09:22:22.305Z",
+        "resolved_by": "Gideon Adeniran",
+        "reviewer_kind": "HUMAN",
+        "reviewer_role": "Journey reviewer",
+        "reviewer_qualification": "Access to the live platform surfaces (owner or delegated operator)",
+        "independent_from_builder": true,
+        "resolution": "JOURNEY_REVIEW completed: all 20 item(s) dispositioned with no blocking finding",
+        "item_count": 20,
+        "item_decisions": [
+          {
+            "item_id": "J-01",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-02",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-03",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-04",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-05",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-06",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-07",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-08",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-09",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-10",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-11",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-12",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-13",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-14",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-15",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-16",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-17",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-18",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-19",
+            "disposition": "WORKS",
+            "notes": ""
+          },
+          {
+            "item_id": "J-20",
+            "disposition": "WORKS",
+            "notes": ""
+          }
+        ],
+        "source_required": [],
+        "revision_required": [],
+        "escalations": [],
+        "defects": [],
+        "notes": null
+      }
+    }
   }
 }

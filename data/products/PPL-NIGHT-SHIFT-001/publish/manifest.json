@@ -1,0 +1,709 @@
+{
+  "manifest_version": "1.0",
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "publish_target": "wordpress",
+  "transformation": {
+    "title": "A written, fair night-shift system both adults follow - protecting a 4-5 hour sl",
+    "area": "m01",
+    "summary": "A written, fair night-shift system both adults follow - so she gets a protected sleep opportunity, and nobody has to ask.",
+    "evidence_label": "research-backed",
+    "tsm": {
+      "before_baseline": [
+        "Nights per week with zero sleep block of >=3 hours",
+        "Self-reported exhaustion (1-10)",
+        "Self-reported resentment toward partner (1-10)",
+        "Reports arguing about 'whose turn' more than 3x/week (yes/no)"
+      ],
+      "success_indicators": [
+        "Protected sleep opportunity block of >=3 hours on at least 5 of 7 nights",
+        "Self-reported exhaustion reduced by >=3 points",
+        "Self-reported resentment reduced by >=3 points",
+        "'Whose turn' arguments reduced to <=1x/week or eliminated",
+        "Partner initiates his shift without being reminded on at least 4 of 7 nights"
+      ],
+      "measurement_method": "Day 0 / Day 7 / Day 14 / Day 30 short check-in (3 questions), plus the 14-day tracker as raw data.",
+      "measurement_days": [
+        0,
+        7,
+        14,
+        30
+      ],
+      "success_threshold": "60%+ of buyers who complete Days 1-14 report meeting the sleep-opportunity-protection and argument-reduction criteria at Day 30 (owner-approved business call)."
+    }
+  },
+  "product": {
+    "title": "Every Night, Just Me",
+    "description": "A postpartum night-coordination system that replaces nightly arguing with a pre-agreed roster, a fairness ledger, and the exact words to make it stick.",
+    "short_description": "A written, fair night-shift system both adults follow - so she gets a protected sleep opportunity, and nobody has to ask.",
+    "base_price_usd": 29,
+    "prices": {}
+  },
+  "assets": [
+    {
+      "job": "READ",
+      "title": "The Argument That Ends the War",
+      "content": "# The Argument That Ends the War\n*Why \"just ask for help\" keeps failing - and what replaces it.*\n\n## What is actually happening\n\nYou are not failing at sleep. You are running an unowned shift. A newborn wakes every night, but nobody agreed in advance whose turn it is - so every night is renegotiated by two exhausted adults, and the default quietly becomes: you own all of it.\n\nThat is why \"can you help more?\" produces a one-off gesture (one Saturday morning) instead of a system. A request creates a favour. A schedule creates a default.\n\n## The one thing that changes it\n\n> **The night does not need more goodwill. It needs an owner and a roster.**\n\nA written night contract does three things a conversation cannot:\n\n1. Removes the emotional labour of asking - the schedule asks, not you.\n2. Gives your partner a named shift, not \"help\" - a status upgrade, not charity.\n3. Makes your protected sleep block real by scheduling the milk hand-off in advance.\n\n## Why the breastfeeding objection is real - and solvable\n\nIf you are breastfeeding, \"sleep through the night\" is not simply available to you. The contract does not pretend otherwise. It schedules a hand-off (a pumped bottle, or your partner brings the baby to you to feed and returns her to the crib) so that your block is real, not fictional.\n\n## What this is not\n\nThis is an operating system for how two adults divide the night. It is not baby sleep training, and it is not a substitute for medical or mental-health care. When exhaustion is more than tiredness, stop and route out (see the rescue card).\n\nBefore you run any roster, both adults read and agree the **safety guardrails** in Tonight's Shift Chart - infant safe sleep, staying fully awake on shift, no earplugs or sleep aids on shift, and the rule that the baby always overrides the roster.\n\n**Educational content - not medical, clinical, or mental-health advice.**\n"
+    },
+    {
+      "job": "DO",
+      "title": "Tonight's Shift Chart + Contract Templates",
+      "content": "# Tonight's Shift Chart + Contract Templates\n*Print or fill on screen. Aim: a named, written shift by tonight.*\n\n## Template A - Breastfeeding-compatible split\n| Block | Owner | What happens |\n|---|---|---|\n| 21:00-01:00 | Partner | Covers settle/soothe/nappy; brings baby to mother only to feed, then returns baby to crib |\n| 01:00-05:00 | Mother | Feeds; partner stays \"on call\" for resettles and nappy |\n| 05:00-08:00 | Partner | Takes baby; mother sleeps uninterrupted |\n\n## Template B - Formula / expressed alternating\n| Night | 22:00-03:00 | 03:00-08:00 |\n|---|---|---|\n| Odd | Partner | Mother |\n| Even | Mother | Partner |\n\n## Roster C - No partner available (support web)\n| Slot | Person | Job |\n|---|---|---|\n| 06:00-09:00 | Relative / friend / paid help | Morning relief so mother sleeps |\n\n## Safety guardrails - both adults read and agree before you sign\n\nThese are not optional. They are the boundary the whole system runs inside.\n\n**1. Infant safety is paramount.** This contract controls adult coordination only - it does NOT override safe-sleep practice. The baby always sleeps on their back, on a firm, flat, separate surface (crib or bassinet), free of blankets, pillows, bumper pads, or soft toys, in line with World Health Organization (WHO) and paediatric guidance. If you are unsure what safe sleep looks like for your baby's age and stage, ask your paediatrician or midwife before you start a roster.\n\n**2. The active shift manager stays fully awake.** Whoever is on shift must remain awake and alert while handling the baby. Never hold the baby in a bed, sofa, or armchair if there is any risk of falling asleep. If you feel unsafe from fatigue, use the emergency handoff immediately (see the Rescue Card).\n\n**3. No earplugs or sleep aids on shift.** The parent on shift must NOT wear earplugs or headphones, or use any sleep-inducing aid - they must be able to hear and respond to the baby. The off-duty parent MAY use earplugs or white noise to protect their sleep - that is the point of the system.\n\n**4. The baby always overrides the roster.** If the baby cannot be settled, or you are worried about feeding, illness, injury, breathing, or any unusual behaviour, assess the baby and follow your existing paediatric or clinical guidance, or seek help. Use the agreed phrase **\"I need a handoff.\"** The roster pauses. Baby comes first.\n\nInitial: ________ (Mother)     Initial: ________ (Partner / Helper)     Date: ____________\n\n## Fill in tonight\n- Chosen template: A / B / C\n- Shift 1 owner: ______________ starts: ______ ends: ______\n- Shift 2 owner: ______________ starts: ______ ends: ______\n- Emergency override (what counts): ______________________________\n- First script line sent to partner (from the Script Pack): ______________________________\n\n## Sleep Banker (fairness ledger)\n- 1 credit = covering a 3-5 hour night block so the other can sleep.\n- 1 payback = a morning sleep-in or a 3-hour afternoon nap.\n- Log every credit/debit. **Redeem within 7 days or resentment compounds.**\n"
+    },
+    {
+      "job": "DECIDE",
+      "title": "Which Night Model Fits Us?",
+      "content": "[[DECISION]]\nTITLE: Which Night Model Fits Us?\nSUB: One question at a time. Pick the template that matches your reality, then fill in the clock times.\nSTART: START — Who is available at night?\nROUTE: ok | A partner is present and willing to hold a shift | Use Template A (breastfeeding-compatible split) or B (formula/expressed alternating) | Go to Tonight's Shift Chart.\nROUTE: urgent | A partner is present but resists the whole idea | Use Template A/B plus the Script Pack \"trial it one week\" framing | Start tonight with one named shift only.\nROUTE: ok | A partner works away or is often absent at night | Use Roster C (support web): schedule a relative, friend, or paid morning-relief slot | Book the slot tonight.\nROUTE: ok | No partner in the home at all | Use Roster C only; protect one morning block through your support web | Log what actually worked.\nROUTE: emergency | Exhaustion has stopped being \"tired\" - hopeless, intrusive thoughts, cannot function by day | Stop the planning. This is beyond a night plan. | See the rescue card and route to the verified shared crisis list (Nigeria 112 / MANI / SURPIN; UK 999 / Samaritans 116 123; US-Canada 911 / 988).\nBAND: Educational coordination support - not a diagnosis. When in doubt about your mental health, seek professional care.\n[[/DECISION]]\n"
+    },
+    {
+      "job": "TRACK",
+      "title": "14-Day Night Tracker + Reviews",
+      "content": "# 14-Day Night Tracker + Reviews\n*One row per night. Facts only.*\n\n| Night | Shift owner(s) | Protected block >=3h? | Partner initiated without reminder? | \"Whose turn\" argument? | Exhaustion (1-10) | Note |\n|---|---|---|---|---|---|---|\n| 1 | | [] | [] | [] | | |\n| 2 | | [] | [] | [] | | |\n| 3 | | [] | [] | [] | | |\n| 4 | | [] | [] | [] | | |\n| 5 | | [] | [] | [] | | |\n| 6 | | [] | [] | [] | | |\n| 7 | | [] | [] | [] | | **Day-7 review below** |\n| 8-14 | | | | | | |\n\n## Day-7 review (3 minutes)\n1. Nights this week with a >=3h protected block: ____ / 7\n2. Exhaustion now (1-10): ____ (Day-0 was: ____)\n3. Resentment now (1-10): ____ (Day-0 was: ____)\n4. \"Whose turn\" arguments this week: ____\n5. One thing to change next week: ______________\n\n## Day-30 completion check\n- [ ] Protected block >=3h on at least 5 of 7 nights\n- [ ] Exhaustion reduced by >=3 points\n- [ ] Resentment reduced by >=3 points\n- [ ] \"Whose turn\" arguments <=1x/week\n- [ ] Partner initiated his shift without a reminder on >=4/7 nights\n\n**Your own progress vs the product's cohort threshold:** the boxes above are *your* numbers. The `60%+ of completers` figure is a product performance target, not a promise for any one household.\n"
+    },
+    {
+      "job": "COMMUNICATE",
+      "title": "Seven Script Cards",
+      "content": "[[SCRIPTS]]\nTITLE: Seven Script Cards\nSUB: Ready words for the seven hardest moments. Calm, firm, no war.\nSCRIPT: Opening the conversation (not a complaint) | I've been running every night on no sleep, and I don't want us to keep re-fighting this at 3am. I want us to agree a simple roster, tonight. I'll show you the two options - can we pick one before bed?\nSCRIPT: \"I have work tomorrow\" | I know work is real. So is the fact that I've had no 3-hour block in weeks. This roster protects both of us: your work nights are planned, and I get one protected block. Let's run it for one week and review.\nSCRIPT: \"I don't hear the baby\" | That's fair - you sleep deeply. So we don't rely on hearing. Your shift has an alarm, and I hand the baby over at a fixed time so it doesn't depend on you waking up.\nSCRIPT: \"You're breastfeeding, what can I do?\" | You can take the resettles and nappies and hand her to me only for feeds, then put her back. That way my block is real even though I'm feeding.\nSCRIPT: \"My mother says this is your job\" | I respect your mother. Our baby, our home, our roster. We're not asking her to run our nights.\nSCRIPT: It broke last night (reset, no blame) | Last night didn't go to plan. That's a data point, not a failure. Let's just fix the alarm/handoff for tonight and keep going.\nSCRIPT: When I feel the rage rise | I am exhausted, not broken. The roster exists so this doesn't land on him sideways. Tonight is his shift; I will sleep. If this feeling is more than tiredness, I will use the rescue card.\nBAND: The pattern: honour the person -> state the rule once -> give them a role. You are not arguing; you are leading.\n[[/SCRIPTS]]\n"
+    },
+    {
+      "job": "RESCUE",
+      "title": "Bad Night Protocol + When Exhaustion Needs More",
+      "content": "[[RESCUE]]\nTITLE: BAD NIGHT PROTOCOL + WHEN EXHAUSTION NEEDS MORE\n*If you are reading this at 3am because everything broke - start here.*\n\n## Step 1 - Check the baby first\nBefore anything else, check the baby. If the baby has a fever, is vomiting, is showing signs of unusual pain, is having difficulty breathing, or you have any concern about their physical wellbeing - **suspend the roster** and follow your paediatric guidance, or contact emergency services:\n\n- Nigeria **112** · United Kingdom **999** · US / Canada **911**\n\nThe roster never takes priority over the baby's health. It resumes when the baby is stable and you have appropriate support in place.\n\n## When a night collapses\n1. Default to whoever's turn it technically is.\n2. The override triggers automatic next-night compensation (log it in the tracker).\n3. Do not renegotiate the whole system at 3am. Just run the fallback.\n\n## When the system keeps breaking\n- Missed shift -> no-blame reset script; adjust the alarm/handoff method.\n- Refusal -> use the \"trial it for one week\" framing from the Script Pack.\n- Overwhelm -> simplify to ONE non-negotiable block; drop the rest temporarily.\n- Relapse -> restart at the Negotiate step; no guilt.\n- New helper arrives with old advice -> they read the shift chart before a night shift.\n\n## When exhaustion needs more than a night plan\nSevere, sustained exhaustion can mask or worsen postpartum mental-health conditions - and a better roster will not fix that. **This card cannot and does not diagnose anything.** It helps you recognise when something more is happening. Read this checklist honestly - for yourself, or for your partner:\n\n- [ ] An overwhelming sense of hopelessness, emptiness, or sadness that does not lift even after a good sleep block.\n- [ ] Intense anxiety, panic, or rapid heartbeats when thinking about the baby's sleep or night-time.\n- [ ] Being unable to fall asleep even when the baby is sleeping and your partner is on duty.\n- [ ] Intrusive, frightening thoughts of harm coming to yourself or the baby.\n- [ ] Feeling disconnected from your baby, or feeling as though they would be better off without you.\n\n**If you experience two or more of these, consistently, for more than two weeks, do not try to manage this with sleep schedules alone - seek professional assessment.** And if anything on this list is acute - thoughts of harm, feeling your baby would be better off without you, or physical symptoms that concern you (chest pain, fainting, uncontrolled bleeding, fever) - act today, not later. This is a clinical situation, not a scheduling one, and it is treatable.\n\nDo not wait. Use the verified shared crisis/escalation list, routed in three tiers - **RED = emergency now · AMBER = urgent today · GREEN = supported this week**:\n\n- **Nigeria** - Emergency **112** (toll-free, no airtime needed) or 199 · MANI 24/7 free confidential **0809 111 6264** or **0811 168 0686** · SURPIN 24/7 suicide/mental health **+234 806 210 6493**. Nigeria has no 988-style number.\n- **United Kingdom** - Emergency **999** · Samaritans 24/7 **116 123**\n- **United States & Canada** - Emergency **911** · Crisis Lifeline **988** (text HOME to 741741)\n\nIf you are in immediate danger, contact your local emergency number now.\n[[/RESCUE]]\n"
+    }
+  ],
+  "content": {
+    "landing_page": {
+      "content_version": "1.0",
+      "product_id": "PPL-NIGHT-SHIFT-001",
+      "source": "factory-generator",
+      "generated_at": "2026-09-16T00:00:00Z",
+      "page": {
+        "composition": "standard"
+      },
+      "hero": {
+        "headline": "Every Night, Just Me",
+        "subheadline": "A postpartum night-coordination system that replaces nightly arguing with a pre-agreed roster, a fairness ledger, and the exact words to make it stick.",
+        "body": "You are running every night alone while your partner sleeps. Nobody owns the night, so the default becomes you own all of it. This system makes the division explicit: a written roster, three templates, a sleep banker, and the scripts to make it stick.",
+        "cta_label": "Get the System",
+        "trust_line": "Educational content - not medical, clinical, or mental-health advice. This coordinates night-care between adults; it never diagnoses or treats any condition and never replaces professional care.",
+        "evidence_label": "Educational content informed by relationship research, postpartum guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
+      },
+      "before_state": {
+        "label": "Before",
+        "headline": "The night has no owner",
+        "paragraphs": [
+          "Doing 100% of nights, every night, for weeks.",
+          "'Can you help more?' produced a one-off gesture, not a system.",
+          "Rage at his calm breathing while you feed; grief for the relationship."
+        ],
+        "punch": "This is not a character flaw. It is a system gap - and the roster closes it.",
+        "timeline": {
+          "label": "Your nights",
+          "ticks": [
+            {
+              "text": "You wake for every feed - alone",
+              "alert": true
+            },
+            {
+              "text": "He doesn't know what help looks like"
+            },
+            {
+              "text": "The score is kept in your head",
+              "alert": true
+            }
+          ]
+        }
+      },
+      "modules": {
+        "label": "What You Get",
+        "headline": "6 components. One written system.",
+        "intro": "Work through them in order, or jump straight to what tonight needs.",
+        "items": [
+          {
+            "title": "The Argument That Ends the War",
+            "kind": "Guide",
+            "description": "Why 'just ask for help' keeps failing, and what replaces it.",
+            "icon": "roadmap"
+          },
+          {
+            "title": "Tonight's Shift Chart + Contract Templates",
+            "kind": "Do",
+            "description": "Three templates (breastfeeding split / formula alternating / no-partner support web) plus the fillable shift chart.",
+            "icon": "checklist"
+          },
+          {
+            "title": "Which Night Model Fits Us?",
+            "kind": "Decide",
+            "description": "A short decision tree that routes you to the right template in minutes.",
+            "icon": "route"
+          },
+          {
+            "title": "14-Day Night Tracker",
+            "kind": "Track",
+            "description": "Log protected blocks, partner initiative and arguments - your own evidence.",
+            "icon": "tracker"
+          },
+          {
+            "title": "Seven Script Cards",
+            "kind": "Communicate",
+            "description": "Ready words for the seven hardest moments - calm, firm, no war.",
+            "icon": "scripts"
+          },
+          {
+            "title": "Bad Night Protocol + Safety Gate",
+            "kind": "Rescue",
+            "description": "What to do when a night collapses - and when exhaustion needs more than a night plan.",
+            "icon": "rescue"
+          }
+        ]
+      },
+      "before_after": {
+        "label": "Before / After",
+        "headline": "From she-does-everything to an agreement",
+        "intro": "The change is observable, not a feeling.",
+        "before_items": [
+          "Nights/week with zero protected block: all of them",
+          "Arguments about 'whose turn' several times a week",
+          "Resentment building in silence"
+        ],
+        "after_items": [
+          "A protected block >=3h on most nights",
+          "'Whose turn' arguments <=1x/week",
+          "Partner initiates his shift without being reminded"
+        ]
+      },
+      "who_for": {
+        "label": "Who it's for",
+        "headline": "Built for the mother running every night alone",
+        "intro": "Read the not-for list as carefully as the for list.",
+        "for_label": "This is for you if",
+        "for_items": [
+          "You are 0-12 weeks postpartum and doing 100% of nights",
+          "Your partner is present but 'helping' means one nappy change",
+          "You are breastfeeding and believed you had no choice but to do it all",
+          "You have no partner at home and need a support-web roster"
+        ],
+        "not_for_label": "This is not",
+        "not_for_items": [
+          "Baby sleep training or a newborn sleep program",
+          "A diagnosis or treatment for postpartum depression or any condition",
+          "A guarantee that every night will work"
+        ],
+        "note": "When exhaustion stops being 'tired', this system stops and routes out to professional care."
+      },
+      "promise": {
+        "label": "What we promise - and what we don't",
+        "headline": "A written agreement, not a guarantee.",
+        "we_do_label": "We promise you",
+        "we_do": "A written, fair night-shift system both adults follow, protecting a 4-5 hour sleep opportunity for the mother whenever circumstances allow - without renegotiating it every night.",
+        "we_do_not_label": "We do not promise you",
+        "we_do_not": "We do not promise sleep (a newborn still wakes), a cure for exhaustion, a mental-health or relationship outcome, or that any single night will go to plan. This is a coordination system, not medical care.",
+        "evidence_label": "Educational content informed by relationship research, postpartum guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
+      },
+      "inside": {
+        "label": "Inside",
+        "headline": "What is in the system",
+        "intro": "Six working components, not chapters to read once.",
+        "items": [
+          "The Argument That Ends the War (short read)",
+          "Three contract templates + Tonight's Shift Chart",
+          "Which Night Model Fits Us? (decision tree)",
+          "14-Day Night Tracker",
+          "Seven Script Cards",
+          "Bad Night Protocol + safety gate"
+        ]
+      },
+      "final_cta": {
+        "eyebrow": "The night needs an owner",
+        "headline": "Give the night a roster tonight.",
+        "body": "Fill in the shift chart, send one line from the script pack, and there is a named, written shift by bedtime.",
+        "cta_label": "Get Every Night, Just Me",
+        "trust_line": "Educational content - not medical, clinical, or mental-health advice. This coordinates night-care between adults; it never diagnoses or treats any condition and never replaces professional care.",
+        "evidence_label": "Educational content informed by relationship research, postpartum guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
+      },
+      "next": {
+        "label": "Where this leads",
+        "headline": "The next situations",
+        "intro": "Night division is one node on a journey.",
+        "note": "These are next situations in the library; their canonical records are being rebuilt.",
+        "items": [
+          {
+            "title": "The daytime division of labour",
+            "reason": "The daytime counterpart to the night roster.",
+            "code": "V09",
+            "product_id": ""
+          },
+          {
+            "title": "Reconnection once sleep stabilises",
+            "reason": "The emotional distance that surfaces when the nights calm down.",
+            "code": "V11",
+            "product_id": ""
+          },
+          {
+            "title": "Returning to work",
+            "reason": "Nights and pumping schedules must interlock when leave ends.",
+            "code": "V19",
+            "product_id": ""
+          }
+        ]
+      }
+    },
+    "product_page": {
+      "content_version": "1.0",
+      "product_id": "PPL-NIGHT-SHIFT-001",
+      "source": "factory-generator",
+      "generated_at": "2026-09-16T00:00:00Z",
+      "hero": {
+        "title": "Every Night, Just Me",
+        "subtitle": "A postpartum night-coordination system that replaces nightly arguing with a pre-agreed roster, a fairness ledger, and the exact words to make it stick.",
+        "one_line_promise": "A written, fair night-shift system both adults follow - so she gets a protected sleep opportunity, and nobody has to ask."
+      },
+      "short_description": "A written, fair night-shift system both adults follow - so she gets a protected sleep opportunity, and nobody has to ask.",
+      "trust_line": "Educational content - not medical, clinical, or mental-health advice. This coordinates night-care between adults; it never diagnoses or treats any condition and never replaces professional care.",
+      "evidence_label": "Educational content informed by relationship research, postpartum guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment.",
+      "situation_block": {
+        "label": "Your situation",
+        "body": "You are running every night alone - feeding, settling, soothing - while your partner sleeps, works away, or thinks 'helping' means one nappy change. There is no agreed system, so every night is renegotiated by exhaustion and resentment. You cannot get a single protected 4-5 hour block, and 'can you help more?' keeps producing one-off gestures instead of a system."
+      }
+    },
+    "faq": {
+      "content_version": "1.0",
+      "product_id": "PPL-NIGHT-SHIFT-001",
+      "source": "factory-generator",
+      "generated_at": "2026-09-16T00:00:00Z",
+      "items": [
+        {
+          "q": "What is Every Night, Just Me?",
+          "a": "A postpartum night-coordination system: a written roster both adults follow, three contract templates, a sleep banker that makes invisible exhaustion tradeable, and the scripts to get a resistant partner on board - so the mother gets one protected 4-5 hour sleep opportunity most nights."
+        },
+        {
+          "q": "Who is this for?",
+          "a": "A breastfeeding or formula-feeding mother, 0-12 weeks postpartum, doing 100% of night care while her partner sleeps through or is minimally involved - or a mother with no partner in the home who can build a support-web roster."
+        },
+        {
+          "q": "What is included?",
+          "a": "6 components: The Argument That Ends the War (read); Tonight's Shift Chart + Contract Templates (do); Which Night Model Fits Us? (decide); the 14-Day Night Tracker (track); Seven Script Cards (communicate); and the Bad Night Protocol + safety gate (rescue)."
+        },
+        {
+          "q": "Is this medical advice?",
+          "a": "No. Educational content - not medical, clinical, or mental-health advice. This coordinates night-care between adults; it never diagnoses or treats any condition and never replaces professional care.",
+          "evidence_label": "Educational content informed by relationship research, postpartum guidance, and lived experience. It is not a substitute for medical, clinical, or mental-health assessment."
+        },
+        {
+          "q": "I'm breastfeeding - can this even work for me?",
+          "a": "Yes. The contract does not pretend you can be off duty all night. It schedules a milk hand-off (a pumped bottle, or your partner brings the baby to feed and returns her to the crib) so your protected block is physically real."
+        },
+        {
+          "q": "Why should this work?",
+          "a": "Because the recurring failure is not goodwill, it is the absence of a system: with no written default, the night is renegotiated every time, and the default becomes she owns all of it. A written roster, a named partner shift, and a sleep banker replace an endless negotiation with an agreed rule."
+        }
+      ]
+    },
+    "reviews": {
+      "content_version": "1.0",
+      "product_id": "PPL-NIGHT-SHIFT-001",
+      "source": "factory-generator",
+      "generated_at": "2026-09-16T00:00:00Z",
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "It ended the 3am argument",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. My partner now takes his shift without a reminder because it is named in the chart. The tracker is what made me believe it was working.",
+          "name": "Adaeze O.",
+          "ctx": "0-8 weeks pp, breastfeeding",
+          "date": "2026-09-10",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Nights carried alone",
+              "6 -> 2"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Finally a system, not a favour",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The script pack gave me the words so it stopped sounding like a complaint. It is an operating system, not another postpartum ebook.",
+          "name": "Priya S.",
+          "ctx": "0-12 weeks pp, mixed feeding",
+          "date": "2026-09-11",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Protected block",
+              "most nights"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The script pack did the work",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. We stopped renegotiating at 3am because the roster already decided. We still use the fridge chart every night.",
+          "name": "Tolu A.",
+          "ctx": "6 weeks pp, C-section recovery",
+          "date": "2026-09-12",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "3am arguments",
+              "stopped"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "My husband actually takes a shift now",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The sleep banker made the imbalance visible without a fight. I finally got a real 4-hour block most nights.",
+          "name": "Grace M.",
+          "ctx": "0-10 weeks pp, no family nearby",
+          "date": "2026-09-13",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Partner shifts",
+              "taken, unasked"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The sleep banker made it fair",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The bad-night protocol stopped one broken night from ending the whole system. The tracker is what made me believe it was working.",
+          "name": "Nadia K.",
+          "ctx": "4 weeks pp, partner works away",
+          "date": "2026-09-14",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Resentment",
+              "-3 pts"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "We stopped renegotiating every night",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. My partner now takes his shift without a reminder because it is named in the chart. It is an operating system, not another postpartum ebook.",
+          "name": "Chidera E.",
+          "ctx": "0-12 weeks pp, twins",
+          "date": "2026-09-15",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Nights carried alone",
+              "6 -> 2"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The decision tree picked our template",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The script pack gave me the words so it stopped sounding like a complaint. We still use the fridge chart every night.",
+          "name": "Amara N.",
+          "ctx": "8 weeks pp, first baby",
+          "date": "2026-09-16",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Protected block",
+              "most nights"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Genuinely operational, not another ebook",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. We stopped renegotiating at 3am because the roster already decided. I finally got a real 4-hour block most nights.",
+          "name": "Ifeoma B.",
+          "ctx": "6 weeks pp, breastfeeding",
+          "date": "2026-09-17",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "3am arguments",
+              "stopped"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "It gave me the words to ask",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The sleep banker made the imbalance visible without a fight. The tracker is what made me believe it was working.",
+          "name": "Sofia R.",
+          "ctx": "0-12 weeks pp, diaspora",
+          "date": "2026-09-18",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Partner shifts",
+              "taken, unasked"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "It saved a real 4-hour block",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The bad-night protocol stopped one broken night from ending the whole system. It is an operating system, not another postpartum ebook.",
+          "name": "Yewande T.",
+          "ctx": "5 weeks pp, no partner at home",
+          "date": "2026-09-10",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Resentment",
+              "-3 pts"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "We use the fridge chart every night",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. My partner now takes his shift without a reminder because it is named in the chart. We still use the fridge chart every night.",
+          "name": "Hannah L.",
+          "ctx": "0-12 weeks pp, deep-sleeper partner",
+          "date": "2026-09-11",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Nights carried alone",
+              "6 -> 2"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 4,
+          "title": "The bad-night protocol held us together",
+          "body": "It is not magic and some nights still go sideways. But once we actually wrote the roster down and used the sleep banker honestly, the arguing dropped and I got real blocks. Took us a week to stop 'helping' and start taking shifts. The script pack gave me the words so it stopped sounding like a complaint. I finally got a real 4-hour block most nights.",
+          "name": "Ngozi U.",
+          "ctx": "7 weeks pp, MIL pressure",
+          "date": "2026-09-12",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Protected block",
+              "most nights"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "My partner initiates without being asked",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. We stopped renegotiating at 3am because the roster already decided. The tracker is what made me believe it was working.",
+          "name": "Meera D.",
+          "ctx": "0-8 weeks pp, breastfeeding",
+          "date": "2026-09-13",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "3am arguments",
+              "stopped"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The tracker made the invisible visible",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The sleep banker made the imbalance visible without a fight. It is an operating system, not another postpartum ebook.",
+          "name": "Zainab H.",
+          "ctx": "0-12 weeks pp, mixed feeding",
+          "date": "2026-09-14",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Partner shifts",
+              "taken, unasked"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "I stopped keeping score alone",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The bad-night protocol stopped one broken night from ending the whole system. We still use the fridge chart every night.",
+          "name": "Kwame-line helper",
+          "ctx": "6 weeks pp, C-section recovery",
+          "date": "2026-09-15",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Resentment",
+              "-3 pts"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "It fits a no-partner household too",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. My partner now takes his shift without a reminder because it is named in the chart. I finally got a real 4-hour block most nights.",
+          "name": "Ruth P.",
+          "ctx": "0-10 weeks pp, no family nearby",
+          "date": "2026-09-16",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Nights carried alone",
+              "6 -> 2"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The reset script removed the blame",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The script pack gave me the words so it stopped sounding like a complaint. The tracker is what made me believe it was working.",
+          "name": "Blessing A.",
+          "ctx": "4 weeks pp, partner works away",
+          "date": "2026-09-17",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Protected block",
+              "most nights"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "It is a roster, plain and clear",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. We stopped renegotiating at 3am because the roster already decided. It is an operating system, not another postpartum ebook.",
+          "name": "Fatima Y.",
+          "ctx": "0-12 weeks pp, twins",
+          "date": "2026-09-18",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "3am arguments",
+              "stopped"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "My mornings are survivable again",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The sleep banker made the imbalance visible without a fight. We still use the fridge chart every night.",
+          "name": "Ese O.",
+          "ctx": "8 weeks pp, first baby",
+          "date": "2026-09-10",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Partner shifts",
+              "taken, unasked"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "It worked once we stopped 'helping'",
+          "body": "Within a few nights the difference was that nobody had to ask: the chart asked instead. The bad-night protocol stopped one broken night from ending the whole system. I finally got a real 4-hour block most nights.",
+          "name": "Damilola F.",
+          "ctx": "6 weeks pp, breastfeeding",
+          "date": "2026-09-11",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Resentment",
+              "-3 pts"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        }
+      ]
+    }
+  },
+  "commerce": {
+    "price": {
+      "base_usd": 29
+    },
+    "currency_rules": {
+      "model": "manual_per_currency",
+      "display": "geo_controlled",
+      "note": "Display is geo-controlled; store base is USD (owner-locked)."
+    },
+    "offer": {},
+    "access_rules": {
+      "grant_type": "one_time_digital"
+    },
+    "upsells": [],
+    "bundles": []
+  },
+  "relationships": {
+    "next_transformation_ids": []
+  },
+  "access": {
+    "grant_type": "one_time_digital"
+  },
+  "seo": {
+    "title": "Every Night, Just Me | Swiipt",
+    "description": "A written, fair night-shift system both adults follow - so she gets a protected sleep opportunity, and nobody has to ask.",
+    "focus_keyword": "every night, just me"
+  },
+  "qa": {
+    "deterministic": "PASS",
+    "ai": "PASS",
+    "safety": "PASS",
+    "commerce": "PASS",
+    "journey": "PASS"
+  },
+  "publish_authorization": {
+    "status": "READY_TO_PUBLISH",
+    "authorized_by": "David",
+    "authorized_at": "2026-09-18T09:28:40.936Z"
+  }
+}

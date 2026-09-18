@@ -7,7 +7,7 @@
   "required_authority": "JOURNEY_AUTHORITY",
   "clinical_required": false,
   "risk_level": "moderate",
-  "status": "PENDING",
+  "status": "RESOLVED",
   "reviewer_requirement": {
     "role": "Authorised human journey reviewer / operator",
     "qualification": "Access to the live platform surfaces (owner or delegated operator)",
@@ -51,7 +51,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -81,7 +81,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -111,7 +111,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -139,7 +139,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -167,7 +167,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -196,7 +196,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -224,7 +224,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -252,7 +252,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -280,7 +280,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -309,7 +309,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -338,7 +338,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -366,7 +366,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -396,7 +396,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -425,7 +425,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -454,7 +454,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -483,7 +483,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -511,7 +511,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -539,7 +539,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -568,7 +568,7 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     },
     {
@@ -597,17 +597,134 @@
         "DEFECT",
         "UNVERIFIED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "WORKS",
       "reviewer_notes": ""
     }
   ],
   "item_count": 20,
   "created_at": "2026-09-17T21:54:47.390Z",
-  "updated_at": "2026-09-17T21:55:01.815Z",
+  "updated_at": "2026-09-18T09:22:22.310Z",
   "started_at": null,
-  "submitted_at": null,
+  "submitted_at": "2026-09-18T09:22:22.305Z",
   "saved_progress_at": null,
-  "decision": null,
+  "decision": {
+    "overall": "RESOLVED",
+    "resolved_by": "Gideon Adeniran",
+    "reviewer_kind": "HUMAN",
+    "reviewer_role": "Journey reviewer",
+    "reviewer_qualification": "Access to the live platform surfaces (owner or delegated operator)",
+    "independent_from_builder": true,
+    "authority": "JOURNEY_AUTHORITY",
+    "resolved_at": "2026-09-18T09:22:22.305Z",
+    "input_hash_reviewed": "a197bebb86149572bc012a7d3fcfa2ce8153aab195b3bb046c3d61ff79afc7be",
+    "item_decisions": [
+      {
+        "item_id": "J-01",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-02",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-03",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-04",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-05",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-06",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-07",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-08",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-09",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-10",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-11",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-12",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-13",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-14",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-15",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-16",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-17",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-18",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-19",
+        "disposition": "WORKS",
+        "notes": ""
+      },
+      {
+        "item_id": "J-20",
+        "disposition": "WORKS",
+        "notes": ""
+      }
+    ],
+    "source_required": [],
+    "revision_required": [],
+    "escalations": [],
+    "defects": [],
+    "notes": null
+  },
   "canonical_record_ref": "product.human_review.reviews.g9_journey",
   "revision": 1,
   "superseded_at": null,

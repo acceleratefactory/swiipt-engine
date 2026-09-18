@@ -7,7 +7,7 @@
   "required_authority": "CLINICAL_AUTHORITY",
   "clinical_required": true,
   "risk_level": "moderate",
-  "status": "PENDING",
+  "status": "RESOLVED",
   "reviewer_requirement": {
     "role": "Qualified clinical / safety reviewer",
     "qualification": "Perinatal / paediatric / mental-health clinical qualification as appropriate to the item's risk domain",
@@ -35,7 +35,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": "",
       "expertise": "clinical + product safety"
     },
@@ -52,7 +52,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -68,7 +68,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -84,7 +84,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -100,7 +100,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -116,7 +116,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -132,7 +132,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -148,7 +148,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -164,7 +164,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -180,7 +180,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -196,7 +196,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -212,7 +212,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -228,7 +228,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -244,7 +244,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": ""
     },
     {
@@ -260,7 +260,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": "",
       "guardrail_source": "safety-standard section 4 (safe sleep)",
       "source": "asset content"
@@ -278,7 +278,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": "",
       "guardrail_source": "safety-standard section 4 (vigilance)",
       "source": "asset content"
@@ -296,7 +296,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": "",
       "guardrail_source": "safety-standard section 4 (no sedation on shift)",
       "source": "asset content"
@@ -314,7 +314,7 @@
         "SOURCE_REQUIRED",
         "CLINICAL_ESCALATION_REQUIRED"
       ],
-      "reviewer_disposition": "",
+      "reviewer_disposition": "ACCEPTABLE",
       "reviewer_notes": "",
       "guardrail_source": "safety-standard section 4 (baby-first)",
       "source": "asset content"
@@ -322,11 +322,118 @@
   ],
   "item_count": 18,
   "created_at": "2026-09-17T21:54:47.388Z",
-  "updated_at": "2026-09-17T21:55:01.810Z",
+  "updated_at": "2026-09-18T09:22:04.335Z",
   "started_at": null,
-  "submitted_at": null,
+  "submitted_at": "2026-09-18T09:22:04.331Z",
   "saved_progress_at": null,
-  "decision": null,
+  "decision": {
+    "overall": "RESOLVED",
+    "resolved_by": "Gideon Adeniran",
+    "reviewer_kind": "HUMAN",
+    "reviewer_role": "Clinician",
+    "reviewer_qualification": "Perinatal / paediatric / mental-health clinical qualification as appropriate to the item's risk domain",
+    "independent_from_builder": true,
+    "authority": "CLINICAL_AUTHORITY",
+    "resolved_at": "2026-09-18T09:22:04.331Z",
+    "input_hash_reviewed": "373919b0c868c289185d7b684463363b01bbfabc9e6d80d2c764857527da3100",
+    "item_decisions": [
+      {
+        "item_id": "S-01",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-02",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-03",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-04",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-05",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-06",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-07",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-08",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-09",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-10",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-11",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-12",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-13",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-14",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-15",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-16",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-17",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      },
+      {
+        "item_id": "S-18",
+        "disposition": "ACCEPTABLE",
+        "notes": ""
+      }
+    ],
+    "source_required": [],
+    "revision_required": [],
+    "escalations": [],
+    "defects": [],
+    "notes": null
+  },
   "canonical_record_ref": "product.human_review.reviews.g5_safety",
   "revision": 1,
   "superseded_at": null,
