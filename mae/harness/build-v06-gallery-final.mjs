@@ -74,8 +74,9 @@ sheets["V06-CONTACT-REEL.png"] = sheet(groups.REELS.flatMap((g) => g.cells), 6, 
 
 /* ---------------------------------------------------------------- gallery html */
 function card(c) {
-  return `<figure class="pc"><div class="imgbox"><img src="${rel(c.src)}" alt="${esc(c.a)}"></div>
-  <figcaption><b>${esc(c.a)}</b><span>${esc(c.s)}</span></figcaption></figure>`;
+  // Each gallery image links to the ACTUAL generated file so the owner can open it full-size.
+  return `<figure class="pc"><a class="imgbox" href="${rel(c.src)}" target="_blank" rel="noopener" title="Open ${esc(rel(c.src))}"><img src="${rel(c.src)}" alt="${esc(c.a)}"></a>
+  <figcaption><b>${esc(c.a)}</b><span>${esc(c.s)}</span><span class="path">${esc(rel(c.src))}</span></figcaption></figure>`;
 }
 function section(title, items, render) {
   if (!items.length) return "";
@@ -94,10 +95,12 @@ main{padding:30px 42px 70px;max-width:1720px}
 section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:26px}
 h2{margin:0 0 16px;font:400 24px/1.2 Georgia,serif;color:var(--navy)}
 .row{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.pc{margin:0}.imgbox{background:var(--navy);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.pc{margin:0}.imgbox{display:block;background:var(--navy);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.imgbox:hover{border-color:var(--gold)}
 .pc img{display:block;width:100%;height:auto}
 figcaption{font-size:12.5px;padding:8px 2px 0;display:flex;flex-direction:column;gap:2px}
 figcaption b{color:var(--navy)}figcaption span{color:var(--mut);font-size:12px}
+.path{font-family:ui-monospace,Consolas,monospace;font-size:11px;color:#8FA4BB;word-break:break-all}
 table{border-collapse:collapse;font-size:13.5px;margin-top:6px}
 td,th{border:1px solid var(--line);padding:6px 11px;text-align:left}th{background:#F1F4F7;color:var(--navy)}
 .foot{color:var(--mut);font-size:13px;padding:0 42px 50px}
