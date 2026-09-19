@@ -310,6 +310,11 @@ else console.log("\nVALIDATION: PASS (22/22)");
 if (!VALIDATE_ONLY && !failed.length) {
   const reelKeyframes = relFiles.filter((f) => f.startsWith("Instagram/Reels/AST-NS-007/keyframe-") && f.endsWith(".png")).length;
   const reelTxt = relFiles.filter((f) => f.startsWith("Instagram/Reels/AST-NS-007/") && f.endsWith(".txt")).length;
+  // README is written first so the inventory can report the TRUE final file count
+  // (the validation walk above runs before README/ASSET-INVENTORY exist).
+  put(join(FINAL, "README.txt"), readmeText());
+  // +1: this inventory file itself is written after the walk.
+  const totalFiles = walk(FINAL).length + 1;
   const inv = `V06 CAMPAIGN — READY-TO-USE EXPORT INVENTORY
 Generated from the approved V06 campaign outputs. All media below is the current approved final render.
 
@@ -352,12 +357,12 @@ REEL (Instagram/Reels/AST-NS-007)
 CAMPAIGN
 - campaign sequence present: ${has("Campaign/CAMPAIGN-SEQUENCE.txt") ? "YES" : "NO"}
 
-TOTAL FILES: ${files.length}
+TOTAL FILES: ${totalFiles}
 `;
 
   put(join(FINAL, "ASSET-INVENTORY.txt"), inv);
 
-  const readme = `V06 MARKETING CAMPAIGN — READY-TO-USE EXPORT
+  function readmeText() { return `V06 MARKETING CAMPAIGN — READY-TO-USE EXPORT
 "Every Night, Just Me" · the finished, ready-to-use V06 campaign.
 
 This folder contains ONLY what is needed to publish, upload, post, schedule or share the
@@ -398,9 +403,8 @@ FILES DELIBERATELY NOT INCLUDED
   records, QA reports, raw generated scenes, product-evidence sources, previous/rejected
   renders, acceptance comparisons, regression benchmarks, production ledgers and JSON files all
   remain in the production workspace (one level up). They are audit material, not distribution
-  material.
-`;
-  put(join(FINAL, "README.txt"), readme);
+   material.
+`; }
 
   const zipPath = join(CAMPAIGN, "V06-FINAL-READY-TO-USE.zip");
   if (DO_ZIP) try {

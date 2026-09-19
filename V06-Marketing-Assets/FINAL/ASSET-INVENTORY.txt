@@ -40,4 +40,4 @@ REEL (Instagram/Reels/AST-NS-007)
 CAMPAIGN
 - campaign sequence present: YES
 
-TOTAL FILES: 66
+TOTAL FILES: 68

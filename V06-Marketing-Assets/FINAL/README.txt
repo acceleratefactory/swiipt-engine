@@ -39,4 +39,4 @@ FILES DELIBERATELY NOT INCLUDED
   records, QA reports, raw generated scenes, product-evidence sources, previous/rejected
   renders, acceptance comparisons, regression benchmarks, production ledgers and JSON files all
   remain in the production workspace (one level up). They are audit material, not distribution
-  material.
+   material.
