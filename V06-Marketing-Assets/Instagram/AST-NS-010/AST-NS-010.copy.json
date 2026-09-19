@@ -1,0 +1,47 @@
+{
+  "asset_id": "AST-NS-010",
+  "platform": "instagram",
+  "asset_type": "SOCIAL_STORY_SEQUENCE",
+  "format": "story_vertical",
+  "angle_id": "ANG-NS-003",
+  "family_id": "FAM-NS-003",
+  "purpose": "myth_reframe",
+  "cta_level": "low",
+  "locked_phrase_set_id": "LPS-NS-003",
+  "evidence_label": "GREEN",
+  "family_visual_grounding": "VG-NS-MYTH-001",
+  "weighting_profile": "Myth-busting post",
+  "visual_copy_on_image": [
+    "The word your partner hears every night: 'helper.'",
+    "It creates a hierarchy. One parent owns the night. The other just shows up when called.",
+    "The alternative: co-manager. Named shifts. A schedule that asks — not begs.",
+    "When you change the word, you change the ownership.",
+    "Read the night-shift guide"
+  ],
+  "cta_text": "Read the night-shift guide",
+  "post_copy": {
+    "sequence": [
+      {
+        "step": 1,
+        "text": "A request creates a favour. A schedule creates a default. Giving your partner a named shift is a status upgrade, not charity.",
+        "type": "hook"
+      },
+      {
+        "step": 2,
+        "text": "Asking directly for help can feel like an accusation. The partner's one-off gesture resets the expectation: he helped once, so the default remains she owns all of it.",
+        "type": "problem"
+      },
+      {
+        "step": 3,
+        "text": "Reframes the partner from 'helper' to 'co-manager' — a status upgrade instead of a request for charity. A written roster removes the emotional labour of asking: the schedule asks, not her.",
+        "type": "insight"
+      },
+      {
+        "step": 4,
+        "text": "Nights with zero protected block become a protected block of 3+ hours on most nights. 'Whose turn' arguments drop from several times a week to once a week or less. The partner initiates his shift without being reminded.",
+        "type": "cta"
+      }
+    ]
+  },
+  "source": "AST-NS-010 (approved asset record; byte-identical)"
+}

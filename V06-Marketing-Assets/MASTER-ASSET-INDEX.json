@@ -1,0 +1,417 @@
+{
+  "product_id": "PPL-NIGHT-SHIFT-001",
+  "asset_count": 21,
+  "generated": "2026-09-18T23:54:24.126Z",
+  "assets": [
+    {
+      "asset_id": "AST-NS-001",
+      "platform": "facebook",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-001",
+      "purpose": "stop_scroll_identification",
+      "family": "Identification",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "facebook/AST-NS-001/AST-NS-001.svg",
+        "png": "facebook/AST-NS-001/AST-NS-001.png",
+        "copy": "facebook/AST-NS-001/AST-NS-001.copy.md",
+        "prompt": "Prompts/Images/AST-NS-001.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-002",
+      "platform": "instagram",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-001",
+      "purpose": "stop_scroll_identification",
+      "family": "Identification",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "instagram/AST-NS-002/AST-NS-002.svg",
+        "png": "instagram/AST-NS-002/AST-NS-002.png",
+        "copy": "instagram/AST-NS-002/AST-NS-002.copy.md",
+        "prompt": "Prompts/Images/AST-NS-002.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-003",
+      "platform": "whatsapp",
+      "format": "broadcast",
+      "asset_type": "GENERIC",
+      "angle": "ANG-NS-001",
+      "purpose": "stop_scroll_identification",
+      "family": "Identification",
+      "cta_level": "low",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "whatsapp/AST-NS-003/AST-NS-003.svg",
+        "png": "whatsapp/AST-NS-003/AST-NS-003.png",
+        "copy": "whatsapp/AST-NS-003/AST-NS-003.copy.md",
+        "prompt": "Prompts/Images/AST-NS-003.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-004",
+      "platform": "facebook",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-002",
+      "purpose": "problem",
+      "family": "Problem",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "facebook/AST-NS-004/AST-NS-004.svg",
+        "png": null,
+        "copy": "facebook/AST-NS-004/AST-NS-004.copy.md",
+        "prompt": "Prompts/Images/AST-NS-004.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-005",
+      "platform": "instagram",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-002",
+      "purpose": "problem",
+      "family": "Problem",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "instagram/AST-NS-005/AST-NS-005.svg",
+        "png": null,
+        "copy": "instagram/AST-NS-005/AST-NS-005.copy.md",
+        "prompt": "Prompts/Images/AST-NS-005.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-006",
+      "platform": "instagram",
+      "format": "carousel_square",
+      "asset_type": "SOCIAL_CAROUSEL",
+      "angle": "ANG-NS-002",
+      "purpose": "problem",
+      "family": "Problem",
+      "cta_level": "moderate",
+      "status": "PRODUCTION_PACKAGE_READY",
+      "reason": "panel issues: bad=[2:TEXT_OVERFLOW,3:TEXT_OVERFLOW,4:TEXT_OVERFLOW] files=4/4 dims=1080x1080|1080x1080|1080x1080|1080x1080 want=1080x1080",
+      "files": {
+        "svg": "instagram/AST-NS-006/slide-01.svg",
+        "png": "instagram/AST-NS-006/slide-01.png",
+        "copy": "instagram/AST-NS-006/AST-NS-006.copy.md",
+        "prompt": "Prompts/Images/AST-NS-006.txt",
+        "slides": [
+          "instagram/AST-NS-006/slide-01.png",
+          "instagram/AST-NS-006/slide-02.png",
+          "instagram/AST-NS-006/slide-03.png",
+          "instagram/AST-NS-006/slide-04.png"
+        ]
+      }
+    },
+    {
+      "asset_id": "AST-NS-007",
+      "platform": "instagram",
+      "format": "reel_vertical",
+      "asset_type": "SOCIAL_REEL",
+      "angle": "ANG-NS-002",
+      "purpose": "problem",
+      "family": "Problem",
+      "cta_level": "low",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": null,
+        "png": null,
+        "copy": "instagram/AST-NS-007/AST-NS-007.copy.md",
+        "prompt": null,
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-008",
+      "platform": "facebook",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-003",
+      "purpose": "myth_reframe",
+      "family": "Myth reframe",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "facebook/AST-NS-008/AST-NS-008.svg",
+        "png": null,
+        "copy": "facebook/AST-NS-008/AST-NS-008.copy.md",
+        "prompt": "Prompts/Images/AST-NS-008.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-009",
+      "platform": "instagram",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-003",
+      "purpose": "myth_reframe",
+      "family": "Myth reframe",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "instagram/AST-NS-009/AST-NS-009.svg",
+        "png": null,
+        "copy": "instagram/AST-NS-009/AST-NS-009.copy.md",
+        "prompt": "Prompts/Images/AST-NS-009.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-010",
+      "platform": "instagram",
+      "format": "story_vertical",
+      "asset_type": "SOCIAL_STORY_SEQUENCE",
+      "angle": "ANG-NS-003",
+      "purpose": "myth_reframe",
+      "family": "Myth reframe",
+      "cta_level": "low",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": null,
+        "png": null,
+        "copy": "instagram/AST-NS-010/AST-NS-010.copy.md",
+        "prompt": "Prompts/Images/AST-NS-010.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-011",
+      "platform": "facebook",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-004",
+      "purpose": "story_sequence",
+      "family": "Story",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "facebook/AST-NS-011/AST-NS-011.svg",
+        "png": null,
+        "copy": "facebook/AST-NS-011/AST-NS-011.copy.md",
+        "prompt": "Prompts/Images/AST-NS-011.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-012",
+      "platform": "instagram",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-004",
+      "purpose": "story_sequence",
+      "family": "Story",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "instagram/AST-NS-012/AST-NS-012.svg",
+        "png": null,
+        "copy": "instagram/AST-NS-012/AST-NS-012.copy.md",
+        "prompt": "Prompts/Images/AST-NS-012.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-013",
+      "platform": "instagram",
+      "format": "carousel_square",
+      "asset_type": "SOCIAL_CAROUSEL",
+      "angle": "ANG-NS-004",
+      "purpose": "story_sequence",
+      "family": "Story",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "instagram/AST-NS-013/slide-01.svg",
+        "png": "instagram/AST-NS-013/slide-01.png",
+        "copy": "instagram/AST-NS-013/AST-NS-013.copy.md",
+        "prompt": "Prompts/Images/AST-NS-013.txt",
+        "slides": [
+          "instagram/AST-NS-013/slide-01.png",
+          "instagram/AST-NS-013/slide-02.png",
+          "instagram/AST-NS-013/slide-03.png",
+          "instagram/AST-NS-013/slide-04.png",
+          "instagram/AST-NS-013/slide-05.png"
+        ]
+      }
+    },
+    {
+      "asset_id": "AST-NS-014",
+      "platform": "facebook",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-005",
+      "purpose": "objection_handling",
+      "family": "Objection",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "facebook/AST-NS-014/AST-NS-014.svg",
+        "png": null,
+        "copy": "facebook/AST-NS-014/AST-NS-014.copy.md",
+        "prompt": "Prompts/Images/AST-NS-014.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-015",
+      "platform": "instagram",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-005",
+      "purpose": "objection_handling",
+      "family": "Objection",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "instagram/AST-NS-015/AST-NS-015.svg",
+        "png": null,
+        "copy": "instagram/AST-NS-015/AST-NS-015.copy.md",
+        "prompt": "Prompts/Images/AST-NS-015.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-016",
+      "platform": "whatsapp",
+      "format": "broadcast",
+      "asset_type": "GENERIC",
+      "angle": "ANG-NS-005",
+      "purpose": "objection_handling",
+      "family": "Objection",
+      "cta_level": "low",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "whatsapp/AST-NS-016/AST-NS-016.svg",
+        "png": null,
+        "copy": "whatsapp/AST-NS-016/AST-NS-016.copy.md",
+        "prompt": "Prompts/Images/AST-NS-016.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-STOP-001",
+      "platform": "instagram",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-001",
+      "purpose": "stop_scroll_identification",
+      "family": "Identification",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "instagram/AST-NS-STOP-001/AST-NS-STOP-001.svg",
+        "png": "instagram/AST-NS-STOP-001/AST-NS-STOP-001.png",
+        "copy": "instagram/AST-NS-STOP-001/AST-NS-STOP-001.copy.md",
+        "prompt": "Prompts/Images/AST-NS-STOP-001.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-PROB-001",
+      "platform": "instagram",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-002",
+      "purpose": "problem",
+      "family": "Problem",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "instagram/AST-NS-PROB-001/AST-NS-PROB-001.svg",
+        "png": null,
+        "copy": "instagram/AST-NS-PROB-001/AST-NS-PROB-001.copy.md",
+        "prompt": "Prompts/Images/AST-NS-PROB-001.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-MYTH-001",
+      "platform": "instagram",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-003",
+      "purpose": "myth_reframe",
+      "family": "Myth reframe",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "instagram/AST-NS-MYTH-001/AST-NS-MYTH-001.svg",
+        "png": null,
+        "copy": "instagram/AST-NS-MYTH-001/AST-NS-MYTH-001.copy.md",
+        "prompt": "Prompts/Images/AST-NS-MYTH-001.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-STORY-001",
+      "platform": "instagram",
+      "format": "story_vertical",
+      "asset_type": "SOCIAL_STORY_SEQUENCE",
+      "angle": "ANG-NS-004",
+      "purpose": "story_sequence",
+      "family": "Story",
+      "cta_level": "low",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": null,
+        "png": null,
+        "copy": "instagram/AST-NS-STORY-001/AST-NS-STORY-001.copy.md",
+        "prompt": "Prompts/Images/AST-NS-STORY-001.txt",
+        "slides": []
+      }
+    },
+    {
+      "asset_id": "AST-NS-OBJ-001",
+      "platform": "instagram",
+      "format": "feed_square",
+      "asset_type": "SOCIAL_STATIC",
+      "angle": "ANG-NS-005",
+      "purpose": "objection_handling",
+      "family": "Objection",
+      "cta_level": "moderate",
+      "status": "BLOCKED",
+      "reason": "no ledger entry",
+      "files": {
+        "svg": "instagram/AST-NS-OBJ-001/AST-NS-OBJ-001.svg",
+        "png": null,
+        "copy": "instagram/AST-NS-OBJ-001/AST-NS-OBJ-001.copy.md",
+        "prompt": "Prompts/Images/AST-NS-OBJ-001.txt",
+        "slides": []
+      }
+    }
+  ]
+}

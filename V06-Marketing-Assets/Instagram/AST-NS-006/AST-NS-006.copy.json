@@ -1,0 +1,47 @@
+{
+  "asset_id": "AST-NS-006",
+  "platform": "instagram",
+  "asset_type": "SOCIAL_CAROUSEL",
+  "format": "carousel_square",
+  "angle_id": "ANG-NS-002",
+  "family_id": "FAM-NS-002",
+  "purpose": "problem",
+  "cta_level": "moderate",
+  "locked_phrase_set_id": "LPS-NS-002",
+  "evidence_label": "GREEN",
+  "family_visual_grounding": "VG-NS-PROB-001",
+  "weighting_profile": "Problem-led social post",
+  "visual_copy_on_image": [
+    "The real cost of the night argument is not the lost sleep.",
+    "One parent wakes. The other sleeps through it. By morning, neither feels seen. The resentment spirals.",
+    "This repeats every night because there is no system — just two exhausted people making promises in the dark.",
+    "A roster does not fix the exhaustion. It fixes the resentment. That is the real difference.",
+    "See the system that ends the argument"
+  ],
+  "cta_text": "See the system that ends the argument",
+  "post_copy": {
+    "slides": [
+      {
+        "text": "A request creates a favour. A schedule creates a default. The night does not need more goodwill. It needs an owner and a roster.",
+        "style": "hook"
+      },
+      {
+        "text": "Every uninterrupted hour he gets feels like proof her exhaustion is invisible, and naming it makes her the difficult one.",
+        "style": "problem"
+      },
+      {
+        "text": "A written roster replaces silent bookkeeping with an observable system. The sleep banker makes exhaustion visible and tradeable — credits and paybacks turn private resentment into a ledger both adults can see.",
+        "style": "mechanism"
+      },
+      {
+        "text": "Nights with zero protected block become a protected block of 3+ hours on most nights. 'Whose turn' arguments drop from several times a week to once a week or less. The partner initiates his shift without being reminded.",
+        "style": "desired"
+      },
+      {
+        "text": "The score is kept in your head. Every uninterrupted hour he gets feels like proof your exhaustion is invisible. Naming it makes you the difficult one. A written roster replaces silent bookkeeping with an observable system — the sleep banker makes the invisible exhaustion visible and tradeable. Give the night a roster tonight.",
+        "style": "cta"
+      }
+    ]
+  },
+  "source": "AST-NS-006 (approved asset record; byte-identical)"
+}

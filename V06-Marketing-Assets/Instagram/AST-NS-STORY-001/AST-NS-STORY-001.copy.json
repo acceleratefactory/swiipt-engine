@@ -1,0 +1,47 @@
+{
+  "asset_id": "AST-NS-STORY-001",
+  "platform": "instagram",
+  "asset_type": "SOCIAL_STORY_SEQUENCE",
+  "format": "story_vertical",
+  "angle_id": "ANG-NS-004",
+  "family_id": "FAM-NS-004",
+  "purpose": "story_sequence",
+  "cta_level": "low",
+  "locked_phrase_set_id": "LPS-NS-004",
+  "evidence_label": "GREEN",
+  "family_visual_grounding": "VG-NS-STORY-001",
+  "weighting_profile": "Story/emotional post",
+  "visual_copy_on_image": [
+    "The word your partner hears every night: 'helper.'",
+    "It creates a hierarchy. One parent owns the night. The other just shows up when called.",
+    "The alternative: co-manager. Named shifts. A schedule that asks — not begs.",
+    "When you change the word, you change the ownership.",
+    "Read the night-shift guide"
+  ],
+  "cta_text": "Read the night-shift guide",
+  "post_copy": {
+    "sequence": [
+      {
+        "step": 1,
+        "text": "A roster does not require a partner. It requires a named shift and a named person to cover it — a support web, not a marriage contract. The night still needs an owner and a schedule.",
+        "type": "hook"
+      },
+      {
+        "step": 2,
+        "text": "Nobody owns the night, so the default becomes she owns all of it. Doing 100% of nights, every night, for weeks — with no partner shift to hand off to.",
+        "type": "problem"
+      },
+      {
+        "step": 3,
+        "text": "Schedules a support-web roster — named shifts for family, friends, or paid help — so the mother's protected block is physically real. A sleep banker makes exhaustion visible and tradeable even without a partner.",
+        "type": "insight"
+      },
+      {
+        "step": 4,
+        "text": "Nights with zero protected block become a protected block of 3+ hours on most nights. The support web covers named shifts instead of the mother owning every night alone.",
+        "type": "cta"
+      }
+    ]
+  },
+  "source": "AST-NS-STORY-001 (approved asset record; byte-identical)"
+}

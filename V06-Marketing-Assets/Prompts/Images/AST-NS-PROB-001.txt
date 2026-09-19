@@ -1,0 +1,44 @@
+IMAGE GENERATION PROMPT — AST-NS-PROB-001
+Asset: AST-NS-PROB-001 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-002
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Nigerian woman in her late 20s or early 30s. Not styled — real postpartum body, natural hair or simple wrap.
+  Wardrobe: Nightgown or house clothes. Wrinkled, not styled.
+  Posture/gesture: Sitting at table, one hand supporting head, other hand holding phone. Slumped shoulders, face showing exhaustion and building resentment. Not crying — just worn down.
+ENVIRONMENT:
+  Small kitchen or dining area, early morning or late evening. Child-related items on table. Flat overhead lighting.
+  Props: Phone with message notification visible; Child-related items on table; Crumpled feeding schedule or notes; Cold or half-finished drink; Simple kitchen setting
+LIGHTING:
+  Flat overhead kitchen light. No warmth. Functional, not atmospheric.
+COMPOSITION / FRAMING:
+  Medium shot. Subject at table, phone visible. Shallow depth of field on background. Subject slightly off-center.
+  Cultural markers (must be respected): West African features; Relatable Nigerian home kitchen; Not aspirational interior; Real postpartum domestic setting
+  Emotional tone: Resentment building under exhaustion. Not explosive — slow burn. The face of someone who has asked and stopped asking.
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No stock-photo anger
+  - No dramatic crying
+  - No styled interior
+  - No symmetrical AI face
+  - No gradient blobs or floating mockups
+  - No generic stock composition
+  - No mixed icon families
+  - No text overlay in the image itself
+  - No fear-mongering or shame framing
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - hook (primary_headline): The real cost of the night argument is not the lost sleep. It is the resentment that stays awake long after the baby sleeps.
+  - bridge (body_text): Resentment builds when one parent always carries the night. The other partner is not lazy — they just never got a system.
+  - cta (call_to_action): Read the postpartum night guide
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-002 / BRIEF-NS-PROB-001 / AST-NS-PROB-001 — approved marketing records (no invented angle, claim or statistic).

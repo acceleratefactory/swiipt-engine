@@ -1,0 +1,42 @@
+IMAGE GENERATION PROMPT — AST-NS-012
+Asset: AST-NS-012 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-004
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Single parent in small bedroom, hands-free pump, chart on wall, natural daylight
+  Wardrobe: Simple, practical home clothes — realistic for a single parent managing alone
+  Posture/gesture: Parent sitting on bed or chair, hands-free pump visible, looking at chart or phone with determination, not despair
+ENVIRONMENT:
+  Small bedroom, natural daylight from window, realistic Nigerian home, lived-in and real
+  Props: hands-free pump or pumping setup; chart or schedule on wall or bedside; phone or small notebook; everyday baby items
+LIGHTING:
+  Natural daylight from window, soft and honest — not dramatic or cinematic
+COMPOSITION / FRAMING:
+  Single parent centered, pump and chart visible, natural and grounded framing, showing capability not victimhood
+  Cultural markers (must be respected): Nigerian single parent, realistic home environment; Hands-free pump as practical tool, not luxury; Chart as self-made system, not imposed; Determined capability, not helplessness
+  Emotional tone: Determined, capable, grounded — doing this alone but with a system that works
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No isolation or loneliness framing
+  - No despair or sadness expressions
+  - No clinical or hospital setting
+  - No luxury or aspirational lifestyle
+  - No symmetrical AI-face composition
+  - No dramatic or cinematic lighting
+  - No exaggerated emotional staging
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - hook (primary_headline): She has no partner to negotiate with. The roster still works.
+  - bridge (body_text): A single mother built a night system for one. The baby sleeps better. She sleeps better. The roster did not require a second adult — it required a plan.
+  - cta (call_to_action): Link in bio
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-004 / BRIEF-NS-012 / AST-NS-012 — approved marketing records (no invented angle, claim or statistic).

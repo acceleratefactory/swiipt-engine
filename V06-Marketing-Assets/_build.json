@@ -1,0 +1,91 @@
+{
+  "built_at": "2026-09-18T23:21:44.934Z",
+  "statics": [
+    {
+      "asset": "AST-NS-001",
+      "status": "RENDERED"
+    },
+    {
+      "asset": "AST-NS-002",
+      "status": "RENDERED"
+    },
+    {
+      "asset": "AST-NS-003",
+      "status": "RENDERED"
+    },
+    {
+      "asset": "AST-NS-004",
+      "status": "PRODUCTION_PACKAGE_READY"
+    },
+    {
+      "asset": "AST-NS-005",
+      "status": "PRODUCTION_PACKAGE_READY"
+    },
+    {
+      "asset": "AST-NS-008",
+      "status": "PRODUCTION_PACKAGE_READY"
+    },
+    {
+      "asset": "AST-NS-009",
+      "status": "PRODUCTION_PACKAGE_READY"
+    },
+    {
+      "asset": "AST-NS-011",
+      "status": "PRODUCTION_PACKAGE_READY"
+    },
+    {
+      "asset": "AST-NS-012",
+      "status": "PRODUCTION_PACKAGE_READY"
+    },
+    {
+      "asset": "AST-NS-014",
+      "status": "PRODUCTION_PACKAGE_READY"
+    },
+    {
+      "asset": "AST-NS-015",
+      "status": "PRODUCTION_PACKAGE_READY"
+    },
+    {
+      "asset": "AST-NS-016",
+      "status": "PRODUCTION_PACKAGE_READY"
+    },
+    {
+      "asset": "AST-NS-STOP-001",
+      "status": "RENDERED"
+    },
+    {
+      "asset": "AST-NS-PROB-001",
+      "status": "PRODUCTION_PACKAGE_READY"
+    },
+    {
+      "asset": "AST-NS-MYTH-001",
+      "status": "PRODUCTION_PACKAGE_READY"
+    },
+    {
+      "asset": "AST-NS-OBJ-001",
+      "status": "PRODUCTION_PACKAGE_READY"
+    }
+  ],
+  "multis": [
+    {
+      "asset": "AST-NS-006",
+      "status": "PRODUCTION_PACKAGE_READY",
+      "panels": 4
+    },
+    {
+      "asset": "AST-NS-010",
+      "status": "BLOCKED"
+    },
+    {
+      "asset": "AST-NS-013",
+      "status": "PRODUCTION_PACKAGE_READY",
+      "panels": 5
+    },
+    {
+      "asset": "AST-NS-STORY-001",
+      "status": "BLOCKED"
+    }
+  ],
+  "mockups": 2,
+  "reel": "AST-NS-007"
+}

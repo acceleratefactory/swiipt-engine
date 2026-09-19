@@ -1,0 +1,33 @@
+{
+  "source_pdf": "v06-corrected.pdf",
+  "pages_copied": [
+    "V06-page-03.png",
+    "V06-page-06.png",
+    "V06-page-08.png",
+    "V06-page-12.png",
+    "V06-page-14.png",
+    "V06-page-18.png",
+    "V06-page-19.png",
+    "V06-page-20.png"
+  ],
+  "mockups": [
+    {
+      "file": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Product-Mockups\\mockup-phone-roster-c.png",
+      "dims": {
+        "width": 1080,
+        "height": 1080,
+        "bytes": 68949
+      },
+      "source_page": "V06-page-12.png"
+    },
+    {
+      "file": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Product-Mockups\\mockup-phone-rescue-card.png",
+      "dims": {
+        "width": 1080,
+        "height": 1080,
+        "bytes": 70092
+      },
+      "source_page": "V06-page-20.png"
+    }
+  ]
+}

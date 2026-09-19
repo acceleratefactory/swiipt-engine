@@ -1,0 +1,118 @@
+[
+  {
+    "asset": "AST-NS-006",
+    "status": "PRODUCTION_PACKAGE_READY",
+    "reason": "panel issues: bad=[2:TEXT_OVERFLOW,3:TEXT_OVERFLOW,4:TEXT_OVERFLOW] files=4/4 dims=1080x1080|1080x1080|1080x1080|1080x1080 want=1080x1080",
+    "files": [
+      {
+        "slide": 1,
+        "role": "COVER",
+        "svg": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\slide-01.svg",
+        "png": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\slide-01.png",
+        "dims": {
+          "width": 1080,
+          "height": 1080,
+          "bytes": 17880
+        },
+        "status": "READY"
+      },
+      {
+        "slide": 2,
+        "role": "DEEPEN",
+        "svg": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\slide-02.svg",
+        "png": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\slide-02.png",
+        "dims": {
+          "width": 1080,
+          "height": 1080,
+          "bytes": 21797
+        },
+        "status": "TEXT_OVERFLOW"
+      },
+      {
+        "slide": 3,
+        "role": "DEEPEN",
+        "svg": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\slide-03.svg",
+        "png": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\slide-03.png",
+        "dims": {
+          "width": 1080,
+          "height": 1080,
+          "bytes": 24622
+        },
+        "status": "TEXT_OVERFLOW"
+      },
+      {
+        "slide": 4,
+        "role": "ACT",
+        "svg": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\slide-04.svg",
+        "png": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\slide-04.png",
+        "dims": {
+          "width": 1080,
+          "height": 1080,
+          "bytes": 19487
+        },
+        "status": "TEXT_OVERFLOW"
+      }
+    ],
+    "panel_count": 4,
+    "slide_roles": [
+      "COVER",
+      "DEEPEN",
+      "DEEPEN",
+      "ACT"
+    ],
+    "manual_package": {
+      "spec_id": "DES-NS-004",
+      "canvas": {
+        "width": 1080,
+        "height": 1080,
+        "aspect_ratio": "1:1"
+      },
+      "slides": [
+        {
+          "n": 1,
+          "role": "COVER",
+          "copy": [
+            {
+              "role": "headline",
+              "text": "The real cost of the night argument is not the lost sleep."
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "role": "DEEPEN",
+          "copy": [
+            {
+              "role": "supporting_line",
+              "text": "One parent wakes. The other sleeps through it. By morning, neither feels seen. The resentment spirals."
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "role": "DEEPEN",
+          "copy": [
+            {
+              "role": "supporting_line",
+              "text": "This repeats every night because there is no system — just two exhausted people making promises in the dark."
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "role": "ACT",
+          "copy": [
+            {
+              "role": "supporting_line",
+              "text": "A roster does not fix the exhaustion. It fixes the resentment. That is the real difference."
+            },
+            {
+              "role": "cta",
+              "text": "See the system that ends the argument"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "asset_id": "AST-NS-007",
+  "platform": "instagram",
+  "asset_type": "SOCIAL_REEL",
+  "format": "reel_vertical",
+  "angle_id": "ANG-NS-002",
+  "family_id": "FAM-NS-002",
+  "purpose": "problem",
+  "cta_level": "low",
+  "locked_phrase_set_id": "LPS-NS-002",
+  "evidence_label": "GREEN",
+  "family_visual_grounding": "VG-NS-PROB-001",
+  "weighting_profile": "Problem-led social post",
+  "visual_copy_on_image": [],
+  "cta_text": null,
+  "post_copy": {
+    "script": {
+      "opening_hook": "A request creates a favour. A schedule creates a default. The night does not need more goodwill. It needs an owner and a roster.",
+      "problem_narrative": "Every uninterrupted hour he gets feels like proof her exhaustion is invisible, and naming it makes her the difficult one. 'Can you help more?' produced a one-off gesture, not a system.",
+      "desired_change": "Nights with zero protected block become a protected block of 3+ hours on most nights. 'Whose turn' arguments drop from several times a week to once a week or less. The partner initiates his shift without being reminded.",
+      "safety_line": "This is general parenting information — not medical advice."
+    }
+  },
+  "source": "AST-NS-007 (approved asset record; byte-identical)"
+}

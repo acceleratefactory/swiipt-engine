@@ -1,0 +1,46 @@
+IMAGE GENERATION PROMPT — AST-NS-STOP-001
+Asset: AST-NS-STOP-001 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-001
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Nigerian woman in her late 20s or early 30s, visibly tired but relatable. Not styled — real postpartum body, natural hair or simple wrap.
+  Wardrobe: Nursing bra or tank top, oversized t-shirt or night gown. Not styled for camera.
+  Posture/gesture: Propped against pillows or sitting on edge of bed, phone held in one hand. Eyes half-closed, face catching blue screen light. One hand possibly near face — not posed, just caught.
+ENVIRONMENT:
+  Dimly lit bedroom at night. Baby bassinet or cot visible at edge of frame. Scattered feeding supplies and baby items on nightstand.
+  Props: Phone with screen lit; Baby bassinet or cot; Feeding supplies on nightstand; Scattered baby items; Nursing pillow or blanket
+LIGHTING:
+  Phone screen as key practical light on face. Warm bedside lamp or nightlight as fill. Deep shadows elsewhere. Night scene.
+COMPOSITION / FRAMING:
+  Close-up or medium close-up. Phone screen light on face is focal point. Shallow depth of field on background items. Rule of thirds — face left or right, bassinet at opposite edge.
+  Cultural markers (must be respected): West African features; Relatable postpartum home setting; Not aspirational interior — real lived space; Baby items reflect actual newborn needs
+  Emotional tone: Exhaustion mixed with quiet frustration. Not crying, not smiling — just tired and scrolling.
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No stock-photo smile
+  - No perfectly styled nursery
+  - No clinical hospital setting
+  - No symmetrical AI face
+  - No gradient blobs or floating mockups
+  - No generic stock composition
+  - No mixed icon families
+  - No Canva/Headspace/hospital-portal aesthetic
+  - No text overlay in the image itself
+  - No gamification implied for sensitive subjects
+  - No fear-mongering or shame framing
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - headline: You are not lazy. You are carrying the entire night alone.
+  - supporting_line: One schedule changes everything.
+  - cta: See how
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-001 / BRIEF-NS-STOP-001 / AST-NS-STOP-001 — approved marketing records (no invented angle, claim or statistic).

@@ -1,0 +1,26 @@
+{
+  "asset_id": "AST-NS-002",
+  "platform": "instagram",
+  "asset_type": "SOCIAL_STATIC",
+  "format": "feed_square",
+  "angle_id": "ANG-NS-001",
+  "family_id": "FAM-NS-001",
+  "purpose": "stop_scroll_identification",
+  "cta_level": "moderate",
+  "locked_phrase_set_id": "LPS-NS-001",
+  "evidence_label": "GREEN",
+  "family_visual_grounding": "VG-NS-STOP-001",
+  "weighting_profile": "Situation-led social post",
+  "visual_copy_on_image": [
+    "You are not lazy. You are carrying the entire night alone.",
+    "One schedule changes everything.",
+    "See how"
+  ],
+  "cta_text": null,
+  "post_copy": {
+    "hook_text": "A request creates a favour. A schedule creates a default. The night does not need more goodwill. It needs an owner and a roster.",
+    "problem_text": "Nobody owns the night, so the default becomes you own all of it. Doing 100% of nights, every night, for weeks.",
+    "bold_line": "A written roster removes the emotional labour of asking — the schedule asks, not you. Gives your partner a named shift, not 'help' — a status upgrade, not charity."
+  },
+  "source": "AST-NS-002 (approved asset record; byte-identical)"
+}
