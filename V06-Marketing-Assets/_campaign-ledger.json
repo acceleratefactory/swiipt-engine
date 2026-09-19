@@ -1,0 +1,1471 @@
+{
+  "generated": "2026-09-19T19:18:46.312Z",
+  "compositor": "creative-compositor.mjs",
+  "provider_calls": 0,
+  "provider_spend_usd": 0,
+  "photography_policy": "NO_GENERIC_STOCK_PHOTO",
+  "assets": [
+    {
+      "asset": "AST-NS-001",
+      "platform": "facebook",
+      "type": "STATIC",
+      "treatment": "A",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 22.3,
+          "white_pct": 1.6,
+          "cream_pct": 1.6,
+          "rich_pct": 17.8,
+          "nonflat_pct": 76.1,
+          "third_rich_pct": [
+            14.3,
+            33.9,
+            5.3
+          ],
+          "third_navy_pct": [
+            13.1,
+            3.5,
+            50.3
+          ],
+          "third_nonflat_pct": [
+            86.7,
+            96.5,
+            45.1
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Facebook\\AST-NS-001\\final\\AST-NS-001.png",
+      "headline": "You are not lazy. You are carrying the entire night alone.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-002",
+      "platform": "instagram",
+      "type": "STATIC",
+      "treatment": "A",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 20.8,
+          "white_pct": 1.6,
+          "cream_pct": 1.6,
+          "rich_pct": 14.8,
+          "nonflat_pct": 77.6,
+          "third_rich_pct": [
+            13,
+            26.1,
+            5.4
+          ],
+          "third_navy_pct": [
+            12.9,
+            5,
+            44.6
+          ],
+          "third_nonflat_pct": [
+            87.1,
+            95,
+            50.8
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-002\\final\\AST-NS-002.png",
+      "headline": "You are not lazy. You are carrying the entire night alone.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-003",
+      "platform": "whatsapp",
+      "type": "STATIC",
+      "treatment": "A",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 27.2,
+          "white_pct": 1.6,
+          "cream_pct": 1.6,
+          "rich_pct": 11.7,
+          "nonflat_pct": 71.3,
+          "third_rich_pct": [
+            7.1,
+            17.8,
+            10.3
+          ],
+          "third_navy_pct": [
+            14.5,
+            7,
+            60
+          ],
+          "third_nonflat_pct": [
+            85.5,
+            93,
+            35.4
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\WhatsApp\\AST-NS-003\\final\\AST-NS-003.png",
+      "headline": "You are not lazy. You are carrying the entire night alone.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-004",
+      "platform": "facebook",
+      "type": "STATIC",
+      "treatment": "A",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 9.3,
+          "white_pct": 4.1,
+          "cream_pct": 4.1,
+          "rich_pct": 23.9,
+          "nonflat_pct": 86.6,
+          "third_rich_pct": [
+            13.3,
+            14.1,
+            44.3
+          ],
+          "third_navy_pct": [
+            0.8,
+            0.6,
+            26.5
+          ],
+          "third_nonflat_pct": [
+            97.5,
+            93.7,
+            68.5
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Facebook\\AST-NS-004\\final\\AST-NS-004.png",
+      "headline": "The real cost of the night argument is not the lost sleep. It is the resentment that stays awake long after the baby sleeps.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-005",
+      "platform": "instagram",
+      "type": "STATIC",
+      "treatment": "A",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 9.7,
+          "white_pct": 3.4,
+          "cream_pct": 3.4,
+          "rich_pct": 29.8,
+          "nonflat_pct": 86.9,
+          "third_rich_pct": [
+            22.7,
+            21.9,
+            44.6
+          ],
+          "third_navy_pct": [
+            2.2,
+            2.6,
+            24.2
+          ],
+          "third_nonflat_pct": [
+            97.7,
+            92.2,
+            70.8
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-005\\final\\AST-NS-005.png",
+      "headline": "The real cost of the night argument is not the lost sleep. It is the resentment that stays awake long after the baby sleeps.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-006",
+      "platform": "instagram",
+      "type": "CAROUSEL",
+      "treatment": "D",
+      "count": 4,
+      "dims": "1080x1080",
+      "slides": [
+        {
+          "slide": 1,
+          "treatment": "A",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 9.3,
+              "white_pct": 1.5,
+              "cream_pct": 1.5,
+              "rich_pct": 14.2,
+              "nonflat_pct": 89.1,
+              "third_rich_pct": [
+                8,
+                22.6,
+                12.1
+              ],
+              "third_navy_pct": [
+                0.9,
+                1.4,
+                25.7
+              ],
+              "third_nonflat_pct": [
+                99,
+                98.6,
+                69.8
+              ],
+              "regions": {}
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\final\\slide-01.png",
+          "headline": "The real cost of the night argument is not the lost sleep."
+        },
+        {
+          "slide": 2,
+          "treatment": "A",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 9,
+              "white_pct": 2.8,
+              "cream_pct": 2.8,
+              "rich_pct": 18.4,
+              "nonflat_pct": 88.1,
+              "third_rich_pct": [
+                8,
+                20.8,
+                26.6
+              ],
+              "third_navy_pct": [
+                0.6,
+                1.3,
+                25.3
+              ],
+              "third_nonflat_pct": [
+                99.4,
+                96.4,
+                68.6
+              ],
+              "regions": {}
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\final\\slide-02.png",
+          "headline": "One parent wakes. The other sleeps through it. By morning, neither feels seen. The resentment spirals."
+        },
+        {
+          "slide": 3,
+          "treatment": "C",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 95.2,
+              "white_pct": 2,
+              "cream_pct": 2,
+              "rich_pct": 1.5,
+              "nonflat_pct": 2.8,
+              "third_rich_pct": [
+                2.6,
+                1.6,
+                0.1
+              ],
+              "third_navy_pct": [
+                97.1,
+                88.6,
+                99.8
+              ],
+              "third_nonflat_pct": [
+                2.8,
+                5.4,
+                0.2
+              ],
+              "regions": {}
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\final\\slide-03.png",
+          "headline": "This repeats every night because there is no system — just two exhausted people making promises in the dark."
+        },
+        {
+          "slide": 4,
+          "treatment": "F",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 20.2,
+              "white_pct": 12.4,
+              "cream_pct": 13.1,
+              "rich_pct": 10.7,
+              "nonflat_pct": 66.7,
+              "third_rich_pct": [
+                14.9,
+                13.2,
+                4
+              ],
+              "third_navy_pct": [
+                24.3,
+                15.4,
+                21.1
+              ],
+              "third_nonflat_pct": [
+                64.6,
+                56.5,
+                78.9
+              ],
+              "regions": {
+                "evidence": {
+                  "rich_pct": 2.9,
+                  "navy_pct": 6.8,
+                  "nonflat_pct": 7.4,
+                  "luma_stddev": 61.05
+                }
+              }
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-006\\final\\slide-04.png",
+          "headline": "A roster does not fix the exhaustion. It fixes the resentment. That is the real difference."
+        }
+      ]
+    },
+    {
+      "asset": "AST-NS-007",
+      "platform": "instagram",
+      "type": "REEL",
+      "treatment": "E",
+      "status": "PRODUCTION_PACKAGE_READY_VIDEO_NOT_RENDERED",
+      "video_note": "PRODUCTION_PACKAGE_READY — VIDEO NOT YET RENDERED (no qualified video provider)",
+      "cover": {
+        "status": "RENDERED",
+        "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Reels\\AST-NS-007\\final\\cover.png",
+        "qa": {
+          "pass": true,
+          "notes": [],
+          "stats": {
+            "w": 1080,
+            "h": 1920,
+            "flat_navy_pct": 2.5,
+            "white_pct": 2.2,
+            "cream_pct": 2.2,
+            "rich_pct": 28.9,
+            "nonflat_pct": 95.3,
+            "third_rich_pct": [
+              16.3,
+              34.4,
+              36.1
+            ],
+            "third_navy_pct": [
+              0.2,
+              0,
+              7.3
+            ],
+            "third_nonflat_pct": [
+              99.3,
+              100,
+              86.6
+            ],
+            "regions": {}
+          }
+        }
+      },
+      "keyframes": [
+        {
+          "index": 1,
+          "label": "HOOK",
+          "status": "RENDERED",
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Reels\\AST-NS-007\\keyframe-hook.png"
+        },
+        {
+          "index": 2,
+          "label": "PROBLEM",
+          "status": "RENDERED",
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Reels\\AST-NS-007\\keyframe-problem.png"
+        },
+        {
+          "index": 3,
+          "label": "CHANGE",
+          "status": "RENDERED",
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Reels\\AST-NS-007\\keyframe-change.png"
+        },
+        {
+          "index": 4,
+          "label": "SAFETY",
+          "status": "RENDERED",
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Reels\\AST-NS-007\\keyframe-safety.png"
+        }
+      ],
+      "storyboard": {
+        "status": "RENDERED",
+        "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Reels\\AST-NS-007\\final\\storyboard.png"
+      },
+      "preserved": {
+        "video_prompt": "AST-NS-007.video-prompt.txt",
+        "package": "AST-NS-007.video-package.json"
+      }
+    },
+    {
+      "asset": "AST-NS-008",
+      "platform": "facebook",
+      "type": "STATIC",
+      "treatment": "C",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 1.2,
+          "white_pct": 0.1,
+          "cream_pct": 91.3,
+          "rich_pct": 2.9,
+          "nonflat_pct": 7.5,
+          "third_rich_pct": [
+            2.5,
+            1.8,
+            4.4
+          ],
+          "third_navy_pct": [
+            0.1,
+            3.5,
+            0
+          ],
+          "third_nonflat_pct": [
+            2.6,
+            15.4,
+            4.6
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Facebook\\AST-NS-008\\final\\AST-NS-008.png",
+      "headline": "Calling your partner a 'helper' guarantees they will never own the night.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-009",
+      "platform": "instagram",
+      "type": "STATIC",
+      "treatment": "C",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 1.2,
+          "white_pct": 0,
+          "cream_pct": 92,
+          "rich_pct": 2.2,
+          "nonflat_pct": 6.9,
+          "third_rich_pct": [
+            2.5,
+            1.8,
+            2.4
+          ],
+          "third_navy_pct": [
+            0.1,
+            3.5,
+            0
+          ],
+          "third_nonflat_pct": [
+            2.6,
+            15.4,
+            2.6
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-009\\final\\AST-NS-009.png",
+      "headline": "Calling your partner a 'helper' guarantees they will never own the night.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-010",
+      "platform": "instagram",
+      "type": "STORY",
+      "treatment": "D",
+      "count": 4,
+      "dims": "1080x1920",
+      "slides": [
+        {
+          "slide": 1,
+          "treatment": "A",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1920,
+              "flat_navy_pct": 21.1,
+              "white_pct": 3.2,
+              "cream_pct": 3.4,
+              "rich_pct": 28.7,
+              "nonflat_pct": 75.6,
+              "third_rich_pct": [
+                34.6,
+                50.4,
+                1.2
+              ],
+              "third_navy_pct": [
+                0,
+                0,
+                63.2
+              ],
+              "third_nonflat_pct": [
+                94.5,
+                98.2,
+                34.1
+              ],
+              "regions": {}
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-010\\final\\frame-01.png",
+          "headline": "The word your partner hears every night: 'helper.'"
+        },
+        {
+          "slide": 2,
+          "treatment": "C",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1920,
+              "flat_navy_pct": 1.1,
+              "white_pct": 0,
+              "cream_pct": 94.5,
+              "rich_pct": 0.8,
+              "nonflat_pct": 4.4,
+              "third_rich_pct": [
+                1.4,
+                0.9,
+                0
+              ],
+              "third_navy_pct": [
+                0,
+                3.3,
+                0
+              ],
+              "third_nonflat_pct": [
+                1.5,
+                11.8,
+                0
+              ],
+              "regions": {}
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-010\\final\\frame-02.png",
+          "headline": "It creates a hierarchy. One parent owns the night. The other just shows up when called."
+        },
+        {
+          "slide": 3,
+          "treatment": "B",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1920,
+              "flat_navy_pct": 16.3,
+              "white_pct": 21.9,
+              "cream_pct": 23.4,
+              "rich_pct": 7.8,
+              "nonflat_pct": 60.3,
+              "third_rich_pct": [
+                16.7,
+                6.2,
+                0.4
+              ],
+              "third_navy_pct": [
+                9.4,
+                16.4,
+                23.3
+              ],
+              "third_nonflat_pct": [
+                77.2,
+                35.5,
+                68.2
+              ],
+              "regions": {
+                "evidence": {
+                  "rich_pct": 3.8,
+                  "navy_pct": 7.1,
+                  "nonflat_pct": 6.1,
+                  "luma_stddev": 61.87
+                }
+              }
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-010\\final\\frame-03.png",
+          "headline": "The alternative: co-manager. Named shifts. A schedule that asks — not begs."
+        },
+        {
+          "slide": 4,
+          "treatment": "F",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1920,
+              "flat_navy_pct": 8.2,
+              "white_pct": 18.1,
+              "cream_pct": 19.3,
+              "rich_pct": 7.1,
+              "nonflat_pct": 72.5,
+              "third_rich_pct": [
+                12.7,
+                5,
+                3.6
+              ],
+              "third_navy_pct": [
+                6.2,
+                10.2,
+                8.3
+              ],
+              "third_nonflat_pct": [
+                92.1,
+                47.3,
+                78.2
+              ],
+              "regions": {
+                "evidence": {
+                  "rich_pct": 3.7,
+                  "navy_pct": 7.2,
+                  "nonflat_pct": 5.9,
+                  "luma_stddev": 62.08
+                }
+              }
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-010\\final\\frame-04.png",
+          "headline": "When you change the word, you change the ownership."
+        }
+      ]
+    },
+    {
+      "asset": "AST-NS-011",
+      "platform": "facebook",
+      "type": "STATIC",
+      "treatment": "A",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 17.7,
+          "white_pct": 2.4,
+          "cream_pct": 2.5,
+          "rich_pct": 28.6,
+          "nonflat_pct": 79.8,
+          "third_rich_pct": [
+            33.2,
+            30.1,
+            22.5
+          ],
+          "third_navy_pct": [
+            3.2,
+            0.7,
+            49.2
+          ],
+          "third_nonflat_pct": [
+            95.6,
+            96.3,
+            47.6
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Facebook\\AST-NS-011\\final\\AST-NS-011.png",
+      "headline": "She has no partner to negotiate with. The roster still works.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-012",
+      "platform": "instagram",
+      "type": "STATIC",
+      "treatment": "A",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 17.4,
+          "white_pct": 4.1,
+          "cream_pct": 4.7,
+          "rich_pct": 20.5,
+          "nonflat_pct": 78,
+          "third_rich_pct": [
+            22.1,
+            21.7,
+            17.8
+          ],
+          "third_navy_pct": [
+            0.3,
+            1.7,
+            50.2
+          ],
+          "third_nonflat_pct": [
+            94.8,
+            92.4,
+            46.7
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-012\\final\\AST-NS-012.png",
+      "headline": "She has no partner to negotiate with. The roster still works.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-013",
+      "platform": "instagram",
+      "type": "CAROUSEL",
+      "treatment": "D",
+      "count": 5,
+      "dims": "1080x1080",
+      "slides": [
+        {
+          "slide": 1,
+          "treatment": "A",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 15.2,
+              "white_pct": 3.9,
+              "cream_pct": 4.3,
+              "rich_pct": 12.1,
+              "nonflat_pct": 80.5,
+              "third_rich_pct": [
+                11.3,
+                15.3,
+                9.5
+              ],
+              "third_navy_pct": [
+                1.1,
+                1.6,
+                42.9
+              ],
+              "third_nonflat_pct": [
+                94.4,
+                94.8,
+                52.4
+              ],
+              "regions": {}
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-013\\final\\slide-01.png",
+          "headline": "She has no partner to negotiate with. The roster still works."
+        },
+        {
+          "slide": 2,
+          "treatment": "C",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 1.7,
+              "white_pct": 0,
+              "cream_pct": 90.4,
+              "rich_pct": 1.4,
+              "nonflat_pct": 7.9,
+              "third_rich_pct": [
+                2.6,
+                1.4,
+                0.1
+              ],
+              "third_navy_pct": [
+                0.1,
+                5.1,
+                0
+              ],
+              "third_nonflat_pct": [
+                2.8,
+                20.7,
+                0.1
+              ],
+              "regions": {}
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-013\\final\\slide-02.png",
+          "headline": "Single parents do not have the luxury of 'discussing' who wakes up. The baby wakes. Someone must get up."
+        },
+        {
+          "slide": 3,
+          "treatment": "B",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 36.3,
+              "white_pct": 32.3,
+              "cream_pct": 34.4,
+              "rich_pct": 4,
+              "nonflat_pct": 29.3,
+              "third_rich_pct": [
+                8.2,
+                3.3,
+                0.5
+              ],
+              "third_navy_pct": [
+                42.6,
+                34.3,
+                32
+              ],
+              "third_nonflat_pct": [
+                28.9,
+                19.4,
+                39.6
+              ],
+              "regions": {
+                "evidence": {
+                  "rich_pct": 3.6,
+                  "navy_pct": 7.1,
+                  "nonflat_pct": 5.9,
+                  "luma_stddev": 61.93
+                }
+              }
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-013\\final\\slide-03.png",
+          "headline": "The roster adapted for one: named blocks, not negotiations. Predictable. No Resentment."
+        },
+        {
+          "slide": 4,
+          "treatment": "C",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 1.2,
+              "white_pct": 0,
+              "cream_pct": 92.9,
+              "rich_pct": 1.3,
+              "nonflat_pct": 5.8,
+              "third_rich_pct": [
+                2.5,
+                1.3,
+                0
+              ],
+              "third_navy_pct": [
+                0.1,
+                3.6,
+                0
+              ],
+              "third_nonflat_pct": [
+                2.6,
+                14.9,
+                0
+              ],
+              "regions": {}
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-013\\final\\slide-04.png",
+          "headline": "Support web: who can you call on the hard nights? A roster names them too."
+        },
+        {
+          "slide": 5,
+          "treatment": "F",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 10.3,
+              "white_pct": 12.2,
+              "cream_pct": 12.9,
+              "rich_pct": 7.1,
+              "nonflat_pct": 76.8,
+              "third_rich_pct": [
+                11.2,
+                8.5,
+                1.8
+              ],
+              "third_navy_pct": [
+                6.3,
+                7,
+                17.6
+              ],
+              "third_nonflat_pct": [
+                82.7,
+                65.5,
+                82.4
+              ],
+              "regions": {
+                "evidence": {
+                  "rich_pct": 2.9,
+                  "navy_pct": 6.8,
+                  "nonflat_pct": 7.4,
+                  "luma_stddev": 61.04
+                }
+              }
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-013\\final\\slide-05.png",
+          "headline": "Predictability is the outcome. Not a perfect baby. Not a full night. Just a plan."
+        }
+      ]
+    },
+    {
+      "asset": "AST-NS-014",
+      "platform": "facebook",
+      "type": "STATIC",
+      "treatment": "B",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 28.4,
+          "white_pct": 29.5,
+          "cream_pct": 34.1,
+          "rich_pct": 4.5,
+          "nonflat_pct": 37.5,
+          "third_rich_pct": [
+            4.2,
+            3.8,
+            5.5
+          ],
+          "third_navy_pct": [
+            36.9,
+            20.8,
+            27.5
+          ],
+          "third_nonflat_pct": [
+            35.2,
+            33.3,
+            44.1
+          ],
+          "regions": {
+            "evidence": {
+              "rich_pct": 3.8,
+              "navy_pct": 7.7,
+              "nonflat_pct": 6.8,
+              "luma_stddev": 62.86
+            }
+          }
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Facebook\\AST-NS-014\\final\\AST-NS-014.png",
+      "headline": "The roster is not a promise that the baby will sleep. It is a plan for what happens when the baby wakes.",
+      "evidence_page": "page-18.png"
+    },
+    {
+      "asset": "AST-NS-015",
+      "platform": "instagram",
+      "type": "STATIC",
+      "treatment": "B",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 31.3,
+          "white_pct": 29.5,
+          "cream_pct": 34.1,
+          "rich_pct": 5,
+          "nonflat_pct": 34.7,
+          "third_rich_pct": [
+            6.2,
+            3.8,
+            5.1
+          ],
+          "third_navy_pct": [
+            39.7,
+            25.9,
+            28.3
+          ],
+          "third_nonflat_pct": [
+            32.5,
+            28.2,
+            43.3
+          ],
+          "regions": {
+            "evidence": {
+              "rich_pct": 3.8,
+              "navy_pct": 7.7,
+              "nonflat_pct": 6.8,
+              "luma_stddev": 62.87
+            }
+          }
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-015\\final\\AST-NS-015.png",
+      "headline": "The roster is not a promise that the baby will sleep. It is a plan for what happens when the baby wakes.",
+      "evidence_page": "page-18.png"
+    },
+    {
+      "asset": "AST-NS-016",
+      "platform": "whatsapp",
+      "type": "STATIC",
+      "treatment": "A",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 20.7,
+          "white_pct": 3,
+          "cream_pct": 3,
+          "rich_pct": 38.5,
+          "nonflat_pct": 76.2,
+          "third_rich_pct": [
+            47.5,
+            55.6,
+            12.4
+          ],
+          "third_navy_pct": [
+            5.8,
+            0.8,
+            55.6
+          ],
+          "third_nonflat_pct": [
+            94.1,
+            96,
+            38.6
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\WhatsApp\\AST-NS-016\\final\\AST-NS-016.png",
+      "headline": "The roster is not a promise that the baby will sleep. It is a plan for what happens when the baby wakes.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-STOP-001",
+      "platform": "instagram",
+      "type": "STATIC",
+      "treatment": "A",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 16.4,
+          "white_pct": 1.6,
+          "cream_pct": 1.6,
+          "rich_pct": 22.3,
+          "nonflat_pct": 82.1,
+          "third_rich_pct": [
+            12.8,
+            37.5,
+            16.6
+          ],
+          "third_navy_pct": [
+            3.1,
+            1.5,
+            44.6
+          ],
+          "third_nonflat_pct": [
+            96.8,
+            98.5,
+            50.8
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-STOP-001\\final\\AST-NS-STOP-001.png",
+      "headline": "You are not lazy. You are carrying the entire night alone.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-PROB-001",
+      "platform": "instagram",
+      "type": "STATIC",
+      "treatment": "A",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 10.8,
+          "white_pct": 3.4,
+          "cream_pct": 3.4,
+          "rich_pct": 18.1,
+          "nonflat_pct": 85.8,
+          "third_rich_pct": [
+            20,
+            14.7,
+            19.6
+          ],
+          "third_navy_pct": [
+            3.1,
+            0.6,
+            28.6
+          ],
+          "third_nonflat_pct": [
+            96.8,
+            94.2,
+            66.4
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-PROB-001\\final\\AST-NS-PROB-001.png",
+      "headline": "The real cost of the night argument is not the lost sleep. It is the resentment that stays awake long after the baby sleeps.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-MYTH-001",
+      "platform": "instagram",
+      "type": "STATIC",
+      "treatment": "C",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 1.9,
+          "white_pct": 0.1,
+          "cream_pct": 87.5,
+          "rich_pct": 3.2,
+          "nonflat_pct": 10.5,
+          "third_rich_pct": [
+            2.6,
+            1.6,
+            5.4
+          ],
+          "third_navy_pct": [
+            0.1,
+            5.7,
+            0
+          ],
+          "third_nonflat_pct": [
+            2.8,
+            23.3,
+            5.6
+          ],
+          "regions": {}
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-MYTH-001\\final\\AST-NS-MYTH-001.png",
+      "headline": "The real cost of the night argument is not the lost sleep. It is the resentment that stays awake long after the baby sleeps.",
+      "evidence_page": null
+    },
+    {
+      "asset": "AST-NS-STORY-001",
+      "platform": "instagram",
+      "type": "STORY",
+      "treatment": "D",
+      "count": 4,
+      "dims": "1080x1920",
+      "slides": [
+        {
+          "slide": 1,
+          "treatment": "A",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1920,
+              "flat_navy_pct": 23.6,
+              "white_pct": 1,
+              "cream_pct": 1.1,
+              "rich_pct": 30.6,
+              "nonflat_pct": 75.4,
+              "third_rich_pct": [
+                39.7,
+                50.9,
+                1
+              ],
+              "third_navy_pct": [
+                5.5,
+                0,
+                65.3
+              ],
+              "third_nonflat_pct": [
+                94.5,
+                99.6,
+                31.9
+              ],
+              "regions": {}
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-STORY-001\\final\\frame-01.png",
+          "headline": "The word your partner hears every night: 'helper.'"
+        },
+        {
+          "slide": 2,
+          "treatment": "C",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1920,
+              "flat_navy_pct": 1.1,
+              "white_pct": 0,
+              "cream_pct": 94.5,
+              "rich_pct": 0.8,
+              "nonflat_pct": 4.4,
+              "third_rich_pct": [
+                1.4,
+                0.9,
+                0
+              ],
+              "third_navy_pct": [
+                0,
+                3.3,
+                0
+              ],
+              "third_nonflat_pct": [
+                1.5,
+                11.8,
+                0
+              ],
+              "regions": {}
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-STORY-001\\final\\frame-02.png",
+          "headline": "It creates a hierarchy. One parent owns the night. The other just shows up when called."
+        },
+        {
+          "slide": 3,
+          "treatment": "B",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1920,
+              "flat_navy_pct": 31.3,
+              "white_pct": 21.9,
+              "cream_pct": 23.4,
+              "rich_pct": 2.3,
+              "nonflat_pct": 45.4,
+              "third_rich_pct": [
+                2.6,
+                2.6,
+                1.6
+              ],
+              "third_navy_pct": [
+                48.7,
+                23.9,
+                21.2
+              ],
+              "third_nonflat_pct": [
+                37.9,
+                27.9,
+                70.3
+              ],
+              "regions": {
+                "evidence": {
+                  "rich_pct": 3.8,
+                  "navy_pct": 7.1,
+                  "nonflat_pct": 6.1,
+                  "luma_stddev": 61.88
+                }
+              }
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-STORY-001\\final\\frame-03.png",
+          "headline": "The alternative: co-manager. Named shifts. A schedule that asks — not begs."
+        },
+        {
+          "slide": 4,
+          "treatment": "F",
+          "status": "RENDERED",
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1920,
+              "flat_navy_pct": 13.4,
+              "white_pct": 18.1,
+              "cream_pct": 19.3,
+              "rich_pct": 3.2,
+              "nonflat_pct": 67.3,
+              "third_rich_pct": [
+                1.5,
+                2.6,
+                5.5
+              ],
+              "third_navy_pct": [
+                18.2,
+                11.4,
+                10.6
+              ],
+              "third_nonflat_pct": [
+                80,
+                46,
+                75.9
+              ],
+              "regions": {
+                "evidence": {
+                  "rich_pct": 3.7,
+                  "navy_pct": 7.2,
+                  "nonflat_pct": 5.9,
+                  "luma_stddev": 62.08
+                }
+              }
+            }
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-STORY-001\\final\\frame-04.png",
+          "headline": "When you change the word, you change the ownership."
+        }
+      ]
+    },
+    {
+      "asset": "AST-NS-OBJ-001",
+      "platform": "instagram",
+      "type": "STATIC",
+      "treatment": "B",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": "1080x1080",
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 31.4,
+          "white_pct": 33.5,
+          "cream_pct": 34.3,
+          "rich_pct": 4.3,
+          "nonflat_pct": 34.3,
+          "third_rich_pct": [
+            4.8,
+            3.1,
+            5
+          ],
+          "third_navy_pct": [
+            41.3,
+            23.5,
+            29.5
+          ],
+          "third_nonflat_pct": [
+            28.5,
+            32.1,
+            42.2
+          ],
+          "regions": {
+            "evidence": {
+              "rich_pct": 2.2,
+              "navy_pct": 3.4,
+              "nonflat_pct": 10.4,
+              "luma_stddev": 45.25
+            }
+          }
+        }
+      },
+      "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-OBJ-001\\final\\AST-NS-OBJ-001.png",
+      "headline": "The roster is not a promise that the baby will sleep. It is a plan for what happens when the baby wakes.",
+      "evidence_page": "page-19.png"
+    }
+  ],
+  "totals": {
+    "approved_records": 21,
+    "statics": 16,
+    "carousel_sets": 2,
+    "carousel_slides": 9,
+    "story_sets": 2,
+    "story_frames": 8,
+    "reels": 1
+  }
+}

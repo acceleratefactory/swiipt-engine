@@ -1,0 +1,556 @@
+{
+  "benchmark": "V06 visual regression",
+  "purpose": "production integrity + treatment behaviour (not identical appearance)",
+  "recorded": "2026-09-19T19:28:03.039Z",
+  "compositor": "creative-compositor.mjs",
+  "tolerance": {
+    "nonflat": 14,
+    "navy": 14,
+    "third_navy": 16,
+    "evidence_stddev": 8
+  },
+  "assets": {
+    "AST-NS-001": {
+      "kind": "STATIC",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 76.1,
+        "navy": 22.3,
+        "white": 1.6,
+        "cream": 1.6,
+        "third_navy": 13.1,
+        "third_nonflat": 86.7,
+        "rich": 17.8
+      }
+    },
+    "AST-NS-002": {
+      "kind": "STATIC",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 77.6,
+        "navy": 20.8,
+        "white": 1.6,
+        "cream": 1.6,
+        "third_navy": 12.9,
+        "third_nonflat": 87.1,
+        "rich": 14.8
+      }
+    },
+    "AST-NS-003": {
+      "kind": "STATIC",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 71.3,
+        "navy": 27.2,
+        "white": 1.6,
+        "cream": 1.6,
+        "third_navy": 14.5,
+        "third_nonflat": 85.5,
+        "rich": 11.7
+      }
+    },
+    "AST-NS-004": {
+      "kind": "STATIC",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 86.6,
+        "navy": 9.3,
+        "white": 4.1,
+        "cream": 4.1,
+        "third_navy": 0.8,
+        "third_nonflat": 97.5,
+        "rich": 23.9
+      }
+    },
+    "AST-NS-005": {
+      "kind": "STATIC",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 86.9,
+        "navy": 9.7,
+        "white": 3.4,
+        "cream": 3.4,
+        "third_navy": 2.2,
+        "third_nonflat": 97.7,
+        "rich": 29.8
+      }
+    },
+    "AST-NS-006#1": {
+      "kind": "CAROUSEL",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 89.1,
+        "navy": 9.3,
+        "white": 1.5,
+        "cream": 1.5,
+        "third_navy": 0.9,
+        "third_nonflat": 99,
+        "rich": 14.2
+      }
+    },
+    "AST-NS-006#2": {
+      "kind": "CAROUSEL",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 88.1,
+        "navy": 9,
+        "white": 2.8,
+        "cream": 2.8,
+        "third_navy": 0.6,
+        "third_nonflat": 99.4,
+        "rich": 18.4
+      }
+    },
+    "AST-NS-006#3": {
+      "kind": "CAROUSEL",
+      "treatment": "C",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 2.8,
+        "navy": 95.2,
+        "white": 2,
+        "cream": 2,
+        "third_navy": 97.1,
+        "third_nonflat": 2.8,
+        "rich": 1.5
+      }
+    },
+    "AST-NS-006#4": {
+      "kind": "CAROUSEL",
+      "treatment": "F",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 66.7,
+        "navy": 20.2,
+        "white": 12.4,
+        "cream": 13.1,
+        "third_navy": 24.3,
+        "third_nonflat": 64.6,
+        "rich": 10.7,
+        "evidence_stddev": 61.05
+      }
+    },
+    "AST-NS-007#cover": {
+      "kind": "REEL",
+      "treatment": "E",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 95.3,
+        "navy": 2.5,
+        "white": 2.2,
+        "cream": 2.2,
+        "third_navy": 0.2,
+        "third_nonflat": 99.3,
+        "rich": 28.9
+      }
+    },
+    "AST-NS-007#kf1": {
+      "kind": "REEL",
+      "treatment": "C",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 1.3,
+        "navy": 96.9,
+        "white": 1.8,
+        "cream": 1.8,
+        "third_navy": 98.5,
+        "third_nonflat": 1.5,
+        "rich": 0.6
+      }
+    },
+    "AST-NS-007#kf2": {
+      "kind": "REEL",
+      "treatment": "C",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 7.9,
+        "navy": 2.3,
+        "white": 0,
+        "cream": 89.7,
+        "third_navy": 0,
+        "third_nonflat": 1.5,
+        "rich": 0.5
+      }
+    },
+    "AST-NS-007#kf3": {
+      "kind": "REEL",
+      "treatment": "C",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 1.9,
+        "navy": 95,
+        "white": 3.1,
+        "cream": 3.1,
+        "third_navy": 98.5,
+        "third_nonflat": 1.5,
+        "rich": 0.6
+      }
+    },
+    "AST-NS-007#kf4": {
+      "kind": "REEL",
+      "treatment": "C",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 4.5,
+        "navy": 0.8,
+        "white": 0.1,
+        "cream": 94.7,
+        "third_navy": 0,
+        "third_nonflat": 1.5,
+        "rich": 2.1
+      }
+    },
+    "AST-NS-008": {
+      "kind": "STATIC",
+      "treatment": "C",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 7.5,
+        "navy": 1.2,
+        "white": 0.1,
+        "cream": 91.3,
+        "third_navy": 0.1,
+        "third_nonflat": 2.6,
+        "rich": 2.9
+      }
+    },
+    "AST-NS-009": {
+      "kind": "STATIC",
+      "treatment": "C",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 6.9,
+        "navy": 1.2,
+        "white": 0,
+        "cream": 92,
+        "third_navy": 0.1,
+        "third_nonflat": 2.6,
+        "rich": 2.2
+      }
+    },
+    "AST-NS-010#1": {
+      "kind": "STORY",
+      "treatment": "A",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 75.6,
+        "navy": 21.1,
+        "white": 3.2,
+        "cream": 3.4,
+        "third_navy": 0,
+        "third_nonflat": 94.5,
+        "rich": 28.7
+      }
+    },
+    "AST-NS-010#2": {
+      "kind": "STORY",
+      "treatment": "C",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 4.4,
+        "navy": 1.1,
+        "white": 0,
+        "cream": 94.5,
+        "third_navy": 0,
+        "third_nonflat": 1.5,
+        "rich": 0.8
+      }
+    },
+    "AST-NS-010#3": {
+      "kind": "STORY",
+      "treatment": "B",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 60.3,
+        "navy": 16.3,
+        "white": 21.9,
+        "cream": 23.4,
+        "third_navy": 9.4,
+        "third_nonflat": 77.2,
+        "rich": 7.8,
+        "evidence_stddev": 61.87
+      }
+    },
+    "AST-NS-010#4": {
+      "kind": "STORY",
+      "treatment": "F",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 72.5,
+        "navy": 8.2,
+        "white": 18.1,
+        "cream": 19.3,
+        "third_navy": 6.2,
+        "third_nonflat": 92.1,
+        "rich": 7.1,
+        "evidence_stddev": 62.08
+      }
+    },
+    "AST-NS-011": {
+      "kind": "STATIC",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 79.8,
+        "navy": 17.7,
+        "white": 2.4,
+        "cream": 2.5,
+        "third_navy": 3.2,
+        "third_nonflat": 95.6,
+        "rich": 28.6
+      }
+    },
+    "AST-NS-012": {
+      "kind": "STATIC",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 78,
+        "navy": 17.4,
+        "white": 4.1,
+        "cream": 4.7,
+        "third_navy": 0.3,
+        "third_nonflat": 94.8,
+        "rich": 20.5
+      }
+    },
+    "AST-NS-013#1": {
+      "kind": "CAROUSEL",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 80.5,
+        "navy": 15.2,
+        "white": 3.9,
+        "cream": 4.3,
+        "third_navy": 1.1,
+        "third_nonflat": 94.4,
+        "rich": 12.1
+      }
+    },
+    "AST-NS-013#2": {
+      "kind": "CAROUSEL",
+      "treatment": "C",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 7.9,
+        "navy": 1.7,
+        "white": 0,
+        "cream": 90.4,
+        "third_navy": 0.1,
+        "third_nonflat": 2.8,
+        "rich": 1.4
+      }
+    },
+    "AST-NS-013#3": {
+      "kind": "CAROUSEL",
+      "treatment": "B",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 29.3,
+        "navy": 36.3,
+        "white": 32.3,
+        "cream": 34.4,
+        "third_navy": 42.6,
+        "third_nonflat": 28.9,
+        "rich": 4,
+        "evidence_stddev": 61.93
+      }
+    },
+    "AST-NS-013#4": {
+      "kind": "CAROUSEL",
+      "treatment": "C",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 5.8,
+        "navy": 1.2,
+        "white": 0,
+        "cream": 92.9,
+        "third_navy": 0.1,
+        "third_nonflat": 2.6,
+        "rich": 1.3
+      }
+    },
+    "AST-NS-013#5": {
+      "kind": "CAROUSEL",
+      "treatment": "F",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 76.8,
+        "navy": 10.3,
+        "white": 12.2,
+        "cream": 12.9,
+        "third_navy": 6.3,
+        "third_nonflat": 82.7,
+        "rich": 7.1,
+        "evidence_stddev": 61.04
+      }
+    },
+    "AST-NS-014": {
+      "kind": "STATIC",
+      "treatment": "B",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 37.5,
+        "navy": 28.4,
+        "white": 29.5,
+        "cream": 34.1,
+        "third_navy": 36.9,
+        "third_nonflat": 35.2,
+        "rich": 4.5,
+        "evidence_stddev": 62.86
+      }
+    },
+    "AST-NS-015": {
+      "kind": "STATIC",
+      "treatment": "B",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 34.7,
+        "navy": 31.3,
+        "white": 29.5,
+        "cream": 34.1,
+        "third_navy": 39.7,
+        "third_nonflat": 32.5,
+        "rich": 5,
+        "evidence_stddev": 62.87
+      }
+    },
+    "AST-NS-016": {
+      "kind": "STATIC",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 76.2,
+        "navy": 20.7,
+        "white": 3,
+        "cream": 3,
+        "third_navy": 5.8,
+        "third_nonflat": 94.1,
+        "rich": 38.5
+      }
+    },
+    "AST-NS-STOP-001": {
+      "kind": "STATIC",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 82.1,
+        "navy": 16.4,
+        "white": 1.6,
+        "cream": 1.6,
+        "third_navy": 3.1,
+        "third_nonflat": 96.8,
+        "rich": 22.3
+      }
+    },
+    "AST-NS-PROB-001": {
+      "kind": "STATIC",
+      "treatment": "A",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 85.8,
+        "navy": 10.8,
+        "white": 3.4,
+        "cream": 3.4,
+        "third_navy": 3.1,
+        "third_nonflat": 96.8,
+        "rich": 18.1
+      }
+    },
+    "AST-NS-MYTH-001": {
+      "kind": "STATIC",
+      "treatment": "C",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 10.5,
+        "navy": 1.9,
+        "white": 0.1,
+        "cream": 87.5,
+        "third_navy": 0.1,
+        "third_nonflat": 2.8,
+        "rich": 3.2
+      }
+    },
+    "AST-NS-STORY-001#1": {
+      "kind": "STORY",
+      "treatment": "A",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 75.4,
+        "navy": 23.6,
+        "white": 1,
+        "cream": 1.1,
+        "third_navy": 5.5,
+        "third_nonflat": 94.5,
+        "rich": 30.6
+      }
+    },
+    "AST-NS-STORY-001#2": {
+      "kind": "STORY",
+      "treatment": "C",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 4.4,
+        "navy": 1.1,
+        "white": 0,
+        "cream": 94.5,
+        "third_navy": 0,
+        "third_nonflat": 1.5,
+        "rich": 0.8
+      }
+    },
+    "AST-NS-STORY-001#3": {
+      "kind": "STORY",
+      "treatment": "B",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 45.4,
+        "navy": 31.3,
+        "white": 21.9,
+        "cream": 23.4,
+        "third_navy": 48.7,
+        "third_nonflat": 37.9,
+        "rich": 2.3,
+        "evidence_stddev": 61.88
+      }
+    },
+    "AST-NS-STORY-001#4": {
+      "kind": "STORY",
+      "treatment": "F",
+      "dims": "1080x1920",
+      "metrics": {
+        "nonflat": 67.3,
+        "navy": 13.4,
+        "white": 18.1,
+        "cream": 19.3,
+        "third_navy": 18.2,
+        "third_nonflat": 80,
+        "rich": 3.2,
+        "evidence_stddev": 62.08
+      }
+    },
+    "AST-NS-OBJ-001": {
+      "kind": "STATIC",
+      "treatment": "B",
+      "dims": "1080x1080",
+      "metrics": {
+        "nonflat": 34.3,
+        "navy": 31.4,
+        "white": 33.5,
+        "cream": 34.3,
+        "third_navy": 41.3,
+        "third_nonflat": 28.5,
+        "rich": 4.3,
+        "evidence_stddev": 45.25
+      }
+    }
+  }
+}

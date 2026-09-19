@@ -1,0 +1,425 @@
+{
+  "generated": "2026-09-19T17:17:25.861Z",
+  "provider_calls": 0,
+  "provider_spend_usd": 0,
+  "videos": [],
+  "assets": [
+    {
+      "asset": "AST-NS-001",
+      "treatment": "A",
+      "treatment_name": "EMOTIONAL_HOOK",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": {
+        "width": 1080,
+        "height": 1080,
+        "bytes": 1316788
+      },
+      "check": {
+        "img_ok": true,
+        "img_bad": [],
+        "text_ok": true,
+        "text_bad": [],
+        "cta": true,
+        "logo": true,
+        "verdict": "ok"
+      },
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 22.5,
+          "white_pct": 1.6,
+          "cream_pct": 1.6,
+          "rich_pct": 28.3,
+          "nonflat_pct": 75.9,
+          "third_rich_pct": [
+            15.6,
+            34.9,
+            34.5
+          ],
+          "third_navy_pct": [
+            13.4,
+            3.5,
+            50.7
+          ],
+          "third_nonflat_pct": [
+            86.4,
+            96.5,
+            44.7
+          ],
+          "regions": {}
+        }
+      },
+      "out": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Creative-Acceptance\\AST-NS-001\\corrected-final.png",
+      "headline": "You are not lazy. You are carrying the entire night alone.",
+      "support": "One schedule changes everything.",
+      "cta": "See how"
+    },
+    {
+      "asset": "AST-NS-014",
+      "treatment": "B",
+      "treatment_name": "PRODUCT_PROOF",
+      "evidence_page": "page-18.png",
+      "ok": true,
+      "status": "RENDERED",
+      "dims": {
+        "width": 1080,
+        "height": 1080,
+        "bytes": 779206
+      },
+      "check": {
+        "img_ok": true,
+        "img_bad": [],
+        "text_ok": true,
+        "text_bad": [],
+        "cta": true,
+        "logo": true,
+        "verdict": "ok"
+      },
+      "qa": {
+        "pass": true,
+        "notes": [],
+        "stats": {
+          "w": 1080,
+          "h": 1080,
+          "flat_navy_pct": 28,
+          "white_pct": 29.2,
+          "cream_pct": 33.7,
+          "rich_pct": 9.8,
+          "nonflat_pct": 38.3,
+          "third_rich_pct": [
+            12.3,
+            7.1,
+            9.9
+          ],
+          "third_navy_pct": [
+            36.9,
+            20,
+            27
+          ],
+          "third_nonflat_pct": [
+            36.6,
+            34.5,
+            43.8
+          ],
+          "regions": {
+            "evidence": {
+              "rich_pct": 11.5,
+              "navy_pct": 7.8,
+              "nonflat_pct": 6.9,
+              "luma_stddev": 62.98
+            }
+          }
+        }
+      },
+      "out": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Creative-Acceptance\\PRODUCT-PROOF\\corrected-final.png",
+      "headline": "The roster is not a promise that the baby will sleep. It is a plan for what happens when the baby wakes.",
+      "support": "You cannot control the baby. You can control who gets up. That is the only thing a night system actually fixes.",
+      "cta": "Read the night-shift guide"
+    },
+    {
+      "asset": "AST-NS-013",
+      "treatment": "D",
+      "treatment_name": "EDUCATIONAL_CAROUSEL",
+      "slide_count": 5,
+      "slides": [
+        {
+          "slide": 1,
+          "treatment": "A",
+          "ok": true,
+          "status": "RENDERED",
+          "dims": {
+            "width": 1080,
+            "height": 1080,
+            "bytes": 1325900
+          },
+          "check": {
+            "img_ok": true,
+            "img_bad": [],
+            "text_ok": true,
+            "text_bad": [],
+            "cta": false,
+            "logo": true,
+            "cta_required_missing": false,
+            "verdict": "ok"
+          },
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 15.2,
+              "white_pct": 3.9,
+              "cream_pct": 4.3,
+              "rich_pct": 21.3,
+              "nonflat_pct": 80.5,
+              "third_rich_pct": [
+                12,
+                16,
+                35.7
+              ],
+              "third_navy_pct": [
+                1.1,
+                1.6,
+                43
+              ],
+              "third_nonflat_pct": [
+                94.4,
+                94.8,
+                52.3
+              ],
+              "regions": {}
+            }
+          },
+          "out": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Creative-Acceptance\\CAROUSEL\\corrected\\slide-01.png",
+          "headline": "She has no partner to negotiate with. The roster still works.",
+          "support": "",
+          "cta": ""
+        },
+        {
+          "slide": 2,
+          "treatment": "C",
+          "ok": true,
+          "status": "RENDERED",
+          "dims": {
+            "width": 1080,
+            "height": 1080,
+            "bytes": 146893
+          },
+          "check": {
+            "img_ok": true,
+            "img_bad": [],
+            "text_ok": true,
+            "text_bad": [],
+            "cta": false,
+            "logo": true,
+            "cta_required_missing": false,
+            "verdict": "ok"
+          },
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 1.7,
+              "white_pct": 0,
+              "cream_pct": 90.2,
+              "rich_pct": 1.5,
+              "nonflat_pct": 8.1,
+              "third_rich_pct": [
+                2.9,
+                1.4,
+                0.3
+              ],
+              "third_navy_pct": [
+                0.1,
+                5.1,
+                0
+              ],
+              "third_nonflat_pct": [
+                3.1,
+                20.7,
+                0.5
+              ],
+              "regions": {}
+            }
+          },
+          "out": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Creative-Acceptance\\CAROUSEL\\corrected\\slide-02.png",
+          "headline": "Single parents do not have the luxury of 'discussing' who wakes up. The baby wakes. Someone must get up.",
+          "support": "Single parents do not have the luxury of 'discussing' who wakes up. The baby wakes. Someone must get up.",
+          "cta": ""
+        },
+        {
+          "slide": 3,
+          "treatment": "B",
+          "ok": true,
+          "status": "RENDERED",
+          "dims": {
+            "width": 1080,
+            "height": 1080,
+            "bytes": 741597
+          },
+          "check": {
+            "img_ok": true,
+            "img_bad": [],
+            "text_ok": true,
+            "text_bad": [],
+            "cta": false,
+            "logo": true,
+            "cta_required_missing": false,
+            "verdict": "ok"
+          },
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 35.8,
+              "white_pct": 31.9,
+              "cream_pct": 34,
+              "rich_pct": 8.8,
+              "nonflat_pct": 30.2,
+              "third_rich_pct": [
+                17.8,
+                6.4,
+                2.1
+              ],
+              "third_navy_pct": [
+                42.4,
+                33.2,
+                31.7
+              ],
+              "third_nonflat_pct": [
+                30.7,
+                20.9,
+                39.1
+              ],
+              "regions": {
+                "evidence": {
+                  "rich_pct": 11,
+                  "navy_pct": 7.2,
+                  "nonflat_pct": 6.1,
+                  "luma_stddev": 62.23
+                }
+              }
+            }
+          },
+          "out": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Creative-Acceptance\\CAROUSEL\\corrected\\slide-03.png",
+          "headline": "The roster adapted for one: named blocks, not negotiations. Predictable. No Resentment.",
+          "support": "The roster adapted for one: named blocks, not negotiations. Predictable. No Resentment.",
+          "cta": ""
+        },
+        {
+          "slide": 4,
+          "treatment": "C",
+          "ok": true,
+          "status": "RENDERED",
+          "dims": {
+            "width": 1080,
+            "height": 1080,
+            "bytes": 103248
+          },
+          "check": {
+            "img_ok": true,
+            "img_bad": [],
+            "text_ok": true,
+            "text_bad": [],
+            "cta": false,
+            "logo": true,
+            "cta_required_missing": false,
+            "verdict": "ok"
+          },
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 1.2,
+              "white_pct": 0,
+              "cream_pct": 92.7,
+              "rich_pct": 1.4,
+              "nonflat_pct": 6.1,
+              "third_rich_pct": [
+                2.7,
+                1.5,
+                0
+              ],
+              "third_navy_pct": [
+                0.1,
+                3.6,
+                0
+              ],
+              "third_nonflat_pct": [
+                3,
+                15.2,
+                0
+              ],
+              "regions": {}
+            }
+          },
+          "out": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Creative-Acceptance\\CAROUSEL\\corrected\\slide-04.png",
+          "headline": "Support web: who can you call on the hard nights? A roster names them too.",
+          "support": "Support web: who can you call on the hard nights? A roster names them too.",
+          "cta": ""
+        },
+        {
+          "slide": 5,
+          "treatment": "F",
+          "ok": true,
+          "status": "RENDERED",
+          "dims": {
+            "width": 1080,
+            "height": 1080,
+            "bytes": 1120329
+          },
+          "check": {
+            "img_ok": true,
+            "img_bad": [],
+            "text_ok": true,
+            "text_bad": [],
+            "cta": true,
+            "logo": true,
+            "verdict": "ok"
+          },
+          "qa": {
+            "pass": true,
+            "notes": [],
+            "stats": {
+              "w": 1080,
+              "h": 1080,
+              "flat_navy_pct": 10.4,
+              "white_pct": 12.1,
+              "cream_pct": 12.8,
+              "rich_pct": 10,
+              "nonflat_pct": 76.8,
+              "third_rich_pct": [
+                14.9,
+                12,
+                3.1
+              ],
+              "third_navy_pct": [
+                6.4,
+                7.2,
+                17.6
+              ],
+              "third_nonflat_pct": [
+                82.4,
+                65.5,
+                82.4
+              ],
+              "regions": {
+                "evidence": {
+                  "rich_pct": 4,
+                  "navy_pct": 6.1,
+                  "nonflat_pct": 63.7,
+                  "luma_stddev": 95.14
+                }
+              }
+            }
+          },
+          "out": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Creative-Acceptance\\CAROUSEL\\corrected\\slide-05.png",
+          "headline": "Predictability is the outcome. Not a perfect baby. Not a full night. Just a plan.",
+          "support": "",
+          "cta": "See the system"
+        }
+      ]
+    }
+  ],
+  "contact_sheet": {
+    "ok": true,
+    "status": "RENDERED",
+    "out": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Creative-Acceptance\\CAROUSEL\\contact-sheet.png",
+    "dims": {
+      "width": 1620,
+      "height": 700,
+      "bytes": 17185
+    }
+  }
+}
