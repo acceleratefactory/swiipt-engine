@@ -1,0 +1,58 @@
+{
+  "generated": "2026-09-19T14:42:38.256Z",
+  "provider_spend_usd": 0,
+  "assets": [
+    {
+      "asset": "AST-NS-STORY-001",
+      "status": "RENDERED",
+      "type": "SOCIAL_STORY_SEQUENCE",
+      "panels": [
+        {
+          "panel": 1,
+          "slide": 1,
+          "status": "RENDERED",
+          "dims": {
+            "width": 1080,
+            "height": 1920,
+            "bytes": 96985
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-STORY-001\\final\\frame-01.png"
+        },
+        {
+          "panel": 2,
+          "slide": 2,
+          "status": "RENDERED",
+          "dims": {
+            "width": 1080,
+            "height": 1920,
+            "bytes": 165758
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-STORY-001\\final\\frame-02.png"
+        },
+        {
+          "panel": 3,
+          "slide": 3,
+          "status": "RENDERED",
+          "dims": {
+            "width": 1080,
+            "height": 1920,
+            "bytes": 151056
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-STORY-001\\final\\frame-03.png"
+        },
+        {
+          "panel": 4,
+          "slide": 4,
+          "status": "RENDERED",
+          "dims": {
+            "width": 1080,
+            "height": 1920,
+            "bytes": 119993
+          },
+          "final": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Instagram\\AST-NS-STORY-001\\final\\frame-04.png"
+        }
+      ],
+      "count": 4
+    }
+  ]
+}

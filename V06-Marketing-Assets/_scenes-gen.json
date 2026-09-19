@@ -1,0 +1,18 @@
+{
+  "model": "ag/gemini-3.1-flash-image",
+  "route": "9Router /v1/images/generations (existing qualified/free route)",
+  "provider_spend_usd": 0,
+  "generated": "2026-09-19T14:46:45.327Z",
+  "scenes": [
+    {
+      "id": "AST-NS-007",
+      "key": "cover",
+      "status": "PROVIDER_SUCCESS",
+      "file": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Reels\\AST-NS-007\\raw-generated\\cover.jpg",
+      "mime": "image/jpeg",
+      "bytes": 756378,
+      "ms": 78791,
+      "model": "ag/gemini-3.1-flash-image"
+    }
+  ]
+}

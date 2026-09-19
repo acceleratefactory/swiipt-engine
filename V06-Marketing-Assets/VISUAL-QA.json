@@ -1,0 +1,362 @@
+{
+  "checked": [
+    {
+      "asset": "AST-NS-001",
+      "file": "AST-NS-001.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 103,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-002",
+      "file": "AST-NS-002.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 103,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-003",
+      "file": "AST-NS-003.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 105,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-004",
+      "file": "AST-NS-004.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 190,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-005",
+      "file": "AST-NS-005.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 187,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-006",
+      "file": "slide-01.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 80,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-006",
+      "file": "slide-02.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 141,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-006",
+      "file": "slide-03.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 161,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-006",
+      "file": "slide-04.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 147,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-007",
+      "file": "cover.png",
+      "w": 1080,
+      "h": 1920,
+      "kb": 259,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-007",
+      "file": "storyboard.png",
+      "w": 1920,
+      "h": 1080,
+      "kb": 84,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "storyboard_sheet"
+    },
+    {
+      "asset": "AST-NS-008",
+      "file": "AST-NS-008.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 133,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-009",
+      "file": "AST-NS-009.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 131,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-010",
+      "file": "frame-01.png",
+      "w": 1080,
+      "h": 1920,
+      "kb": 95,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-010",
+      "file": "frame-02.png",
+      "w": 1080,
+      "h": 1920,
+      "kb": 162,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-010",
+      "file": "frame-03.png",
+      "w": 1080,
+      "h": 1920,
+      "kb": 148,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-010",
+      "file": "frame-04.png",
+      "w": 1080,
+      "h": 1920,
+      "kb": 117,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-011",
+      "file": "AST-NS-011.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 125,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-012",
+      "file": "AST-NS-012.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 123,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-013",
+      "file": "slide-01.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 85,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-013",
+      "file": "slide-02.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 159,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-013",
+      "file": "slide-03.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 133,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-013",
+      "file": "slide-04.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 118,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-013",
+      "file": "slide-05.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 124,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-014",
+      "file": "AST-NS-014.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 162,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-015",
+      "file": "AST-NS-015.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 162,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-016",
+      "file": "AST-NS-016.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 162,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-STOP-001",
+      "file": "AST-NS-STOP-001.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 104,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-PROB-001",
+      "file": "AST-NS-PROB-001.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 187,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-MYTH-001",
+      "file": "AST-NS-MYTH-001.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 185,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-STORY-001",
+      "file": "frame-01.png",
+      "w": 1080,
+      "h": 1920,
+      "kb": 95,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-STORY-001",
+      "file": "frame-02.png",
+      "w": 1080,
+      "h": 1920,
+      "kb": 162,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-STORY-001",
+      "file": "frame-03.png",
+      "w": 1080,
+      "h": 1920,
+      "kb": 148,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-STORY-001",
+      "file": "frame-04.png",
+      "w": 1080,
+      "h": 1920,
+      "kb": 117,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    },
+    {
+      "asset": "AST-NS-OBJ-001",
+      "file": "AST-NS-OBJ-001.png",
+      "w": 1080,
+      "h": 1080,
+      "kb": 163,
+      "dim_ok": true,
+      "non_blank": true,
+      "kind": "platform_creative"
+    }
+  ],
+  "failures": [],
+  "warnings": [],
+  "summary": {
+    "assets": 21,
+    "final_creatives": 35,
+    "failures": 0,
+    "warnings": 0
+  }
+}
