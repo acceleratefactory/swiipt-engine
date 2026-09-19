@@ -1,0 +1,3 @@
+APPROVED TRANSITIONS (verbatim)
+
+0.4s cross dissolve

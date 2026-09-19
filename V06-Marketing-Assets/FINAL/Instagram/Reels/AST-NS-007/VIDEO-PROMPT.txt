@@ -1,0 +1,80 @@
+VIDEO GENERATION PROMPT — AST-NS-007
+
+SUBJECT:
+Subject: Nigerian woman in her late 20s or early 30s. Not styled — real postpartum body, natural hair or simple wrap.
+Posture: Sitting at table, one hand supporting head, other hand holding phone. Slumped shoulders, face showing exhaustion and building resentment. Not crying — just worn down.
+Expression: Resentment building under exhaustion. Not explosive — slow burn. The face of someone who has asked and stopped asking.
+Wardrobe: Nightgown or house clothes. Wrinkled, not styled.
+Identity continuity: same subject across all shots
+Permitted actions: domestic night-time tasks
+
+ENVIRONMENT:
+Location: Small kitchen or dining area, early morning or late evening. Child-related items on table. Flat overhead lighting.
+Time of day: night
+Lighting: Flat overhead kitchen light. No warmth. Functional, not atmospheric.
+Props: Phone with message notification visible, Child-related items on table, Crumpled feeding schedule or notes, Cold or half-finished drink, Simple kitchen setting
+Cultural markers: West African features, Relatable Nigerian home kitchen, Not aspirational interior, Real postpartum domestic setting
+Background: relatable domestic interior
+
+START STATE:
+Visual state: (none)
+Subject position: (none)
+Camera position: (none)
+Emotional state: (none)
+
+ACTION:
+Primary action: slow hand-held push-in on the subject
+Secondary actions: subtle head turn; phone screen light
+Gestures: rubbing eyes
+Shot actions: S1: subject alone at night, exhausted | S2: partner asleep, untouched night feed | S3: roster page being filled at the table | S4: resolve: named shift written, partner takes over
+
+CAMERA:
+Framing: medium close-up
+Position: eye level
+Movement: slow dolly in
+Focus: shallow depth of field
+Stability: handheld with mild sway
+Shot camera: S1: medium, static, locked | S2: wide, slow pan, handheld | S3: insert, push in, handheld | S4: medium close-up, static, locked
+
+MOTION:
+Speed: slow
+Direction: toward camera
+Physical constraints: no fast cuts
+Principle: Use the minimum motion necessary to communicate the validated angle. No cinematic sweeping cameras, dramatic body movement, exaggerated emotional performance, constant background movement, or gratuitous transitions unless explicitly required by the spec.
+
+TIMING:
+Total duration (s): 20
+Shot durations: S1=5s | S2=5s | S3=5s | S4=5s
+Action timing: (none)
+Hold timing: (none)
+Transition timing: (none)
+
+END STATE:
+Visual state: (none)
+Subject position: (none)
+Emotional state: (none)
+Intended meaning: (none)
+
+CONTINUITY:
+Identity: (none)
+Wardrobe: (none)
+Objects: (none)
+Environment: (none)
+Body anatomy: (none)
+
+AUDIO:
+Mode: NONE
+Notes: silent render; music direction only if platform permits (see audio direction)
+
+TEXT POLICY:
+Generated text allowed: false
+Deterministic overlay text: (applied deterministically downstream)
+Captions: true
+CTA: true
+Logo: true
+
+DO NOT SHOW:
+no clinical procedure; no infant distress staging; no jump cuts; no whip pan; No stock-photo anger; No dramatic crying; No styled interior; No symmetrical AI face; No gradient blobs or floating mockups; No generic stock composition; No mixed icon families; No text overlay in the image itself; No fear-mongering or shame framing; no fast zooms; no stereotyped imagery; no unsafe sleep depiction; no text artifacts
+
+NEGATIVE PROMPT:
+No stock-photo anger; No dramatic crying; No styled interior; No symmetrical AI face; No gradient blobs or floating mockups; No generic stock composition; No mixed icon families; No text overlay in the image itself; No fear-mongering or shame framing; no fast zooms; no stereotyped imagery; no unsafe sleep depiction; no text artifacts; no clinical procedure; no infant distress staging; no jump cuts; no whip pan

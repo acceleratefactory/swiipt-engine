@@ -1,0 +1,20 @@
+VIDEO EXPORT STATUS
+
+STATUS:
+PRODUCTION PACKAGE READY — VIDEO NOT YET RENDERED
+
+Expected final video filename : AST-NS-007.mp4
+Expected format              : MP4 (H.264 + AAC, platform-compatible)
+Expected aspect ratio        : 9:16  (1080x1920)
+Approved duration / timing   : 20 seconds
+Transitions                  : 0.4s cross dissolve
+
+Sources in this folder       : VIDEO-PROMPT.txt · SCRIPT.txt · VOICEOVER.txt · ON-SCREEN-TEXT.txt
+                               CAPTION.txt · SHOT-LIST.txt · TIMING.txt · TRANSITIONS.txt
+                               AUDIO-DIRECTION.txt · CTA.txt · COVER-IMAGE-PROMPT.txt
+                               cover.png · keyframe-*.png · storyboard.png
+
+When a qualified video provider is available, render from VIDEO-PROMPT.txt and place
+AST-NS-007.mp4 in THIS SAME folder, then update STATUS above to: RENDERED
+
+No raw video is present in this export. No placeholder or empty video file has been created.

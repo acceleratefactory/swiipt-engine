@@ -1,0 +1,51 @@
+EXACT IMAGE-GENERATION PROMPTS — INSTAGRAM
+Verbatim archived prompts. Do not summarise.
+
+========================================================
+AST-NS-010
+========================================================
+IMAGE GENERATION PROMPT — AST-NS-010
+Asset: AST-NS-010 · instagram · SOCIAL_STORY_SEQUENCE (story_vertical) · angle ANG-NS-003
+Intended dimensions: 1080×1920 px 
+
+SUBJECT:
+  Two parents in bedroom, morning light, calm coexistence
+  Wardrobe: Everyday casual home clothes, realistic for Nigerian parents
+  Posture/gesture: Parents standing near door, relaxed posture, one parent checking printed schedule on wall
+ENVIRONMENT:
+  Bedroom, morning light, clean and tidy, realistic Nigerian middle-class home
+  Props: printed schedule on wall or fridge; small baby items in background; natural morning light
+LIGHTING:
+  Warm morning light from window, soft and natural
+COMPOSITION / FRAMING:
+  Two-shot of parents near the schedule, schedule visible in frame, calm and settled tone
+  Cultural markers (must be respected): Nigerian parents, realistic middle-class home; Printed schedule as shared tool, not imposed by one parent; Morning routine, everyday domestic setting
+  Emotional tone: Calm, settled, cooperative — the system working without drama
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No argument or conflict scene
+  - No stressed or angry expressions
+  - No clinical or hospital setting
+  - No symmetrical AI-face composition
+  - No generic stock photo family
+  - No luxury or aspirational lifestyle
+  - No child visible in this frame
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - frame_1_word (primary_headline): The word your partner hears every night: 'helper.'
+  - frame_2_creates (body_text): It creates a hierarchy. One parent owns the night. The other just shows up when called.
+  - frame_3_alternative (body_text): The alternative: co-manager. Named shifts. A schedule that asks — not begs.
+  - frame_4_shift (secondary_headline): When you change the word, you change the ownership.
+  - cta (call_to_action): Read the night-shift guide
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-003 / BRIEF-NS-010 / AST-NS-010 — approved marketing records (no invented angle, claim or statistic).
+

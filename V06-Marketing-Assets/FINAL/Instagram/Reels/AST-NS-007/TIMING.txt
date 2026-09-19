@@ -1,0 +1,4 @@
+APPROVED TIMING (verbatim)
+
+Total duration: 20s
+Per shot: S1=5s, S2=5s, S3=5s, S4=5s

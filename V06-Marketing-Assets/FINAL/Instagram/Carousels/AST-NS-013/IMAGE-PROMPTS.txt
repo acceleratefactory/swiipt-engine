@@ -1,0 +1,287 @@
+EXACT IMAGE-GENERATION PROMPTS — INSTAGRAM
+Verbatim archived prompts. Do not summarise.
+
+========================================================
+AST-NS-013
+========================================================
+IMAGE GENERATION PROMPT — AST-NS-013
+Asset: AST-NS-013 · instagram · SOCIAL_CAROUSEL (carousel_square) · angle ANG-NS-004
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Single parent in small bedroom, hands-free pump, chart on wall, natural daylight
+  Wardrobe: Simple, practical home clothes — realistic for a single parent managing alone
+  Posture/gesture: Parent sitting on bed or chair, hands-free pump visible, looking at chart or phone with determination, not despair
+ENVIRONMENT:
+  Small bedroom, natural daylight from window, realistic Nigerian home, lived-in and real
+  Props: hands-free pump or pumping setup; chart or schedule on wall or bedside; phone or small notebook; everyday baby items
+LIGHTING:
+  Natural daylight from window, soft and honest — not dramatic or cinematic
+COMPOSITION / FRAMING:
+  Single parent centered, pump and chart visible, natural and grounded framing, showing capability not victimhood
+  Cultural markers (must be respected): Nigerian single parent, realistic home environment; Hands-free pump as practical tool, not luxury; Chart as self-made system, not imposed; Determined capability, not helplessness
+  Emotional tone: Determined, capable, grounded — doing this alone but with a system that works
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No isolation or loneliness framing
+  - No despair or sadness expressions
+  - No clinical or hospital setting
+  - No luxury or aspirational lifestyle
+  - No symmetrical AI-face composition
+  - No dramatic or cinematic lighting
+  - No exaggerated emotional staging
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - slide_1_hook (primary_headline): She has no partner to negotiate with. The roster still works.
+  - slide_2_reality (body_text): Single parents do not have the luxury of 'discussing' who wakes up. The baby wakes. Someone must get up.
+  - slide_3_roster (body_text): The roster adapted for one: named blocks, not negotiations. Predictable. No Resentment.
+  - slide_4_support (body_text): Support web: who can you call on the hard nights? A roster names them too.
+  - slide_5_outcome (secondary_headline): Predictability is the outcome. Not a perfect baby. Not a full night. Just a plan.
+  - cta (call_to_action): See the system
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-004 / BRIEF-NS-013 / AST-NS-013 — approved marketing records (no invented angle, claim or statistic).
+
+--- SLIDE 01 ---
+IMAGE GENERATION PROMPT — AST-NS-013
+Asset: AST-NS-013 · instagram · SOCIAL_CAROUSEL (carousel_square) · angle ANG-NS-004
+Intended dimensions: 1080×1080 px · slide 1
+
+SUBJECT:
+  Single parent in small bedroom, hands-free pump, chart on wall, natural daylight
+  Wardrobe: Simple, practical home clothes — realistic for a single parent managing alone
+  Posture/gesture: Parent sitting on bed or chair, hands-free pump visible, looking at chart or phone with determination, not despair
+ENVIRONMENT:
+  Small bedroom, natural daylight from window, realistic Nigerian home, lived-in and real
+  Props: hands-free pump or pumping setup; chart or schedule on wall or bedside; phone or small notebook; everyday baby items
+LIGHTING:
+  Natural daylight from window, soft and honest — not dramatic or cinematic
+COMPOSITION / FRAMING:
+  Single parent centered, pump and chart visible, natural and grounded framing, showing capability not victimhood
+  Cultural markers (must be respected): Nigerian single parent, realistic home environment; Hands-free pump as practical tool, not luxury; Chart as self-made system, not imposed; Determined capability, not helplessness
+  Emotional tone: Determined, capable, grounded — doing this alone but with a system that works
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No isolation or loneliness framing
+  - No despair or sadness expressions
+  - No clinical or hospital setting
+  - No luxury or aspirational lifestyle
+  - No symmetrical AI-face composition
+  - No dramatic or cinematic lighting
+  - No exaggerated emotional staging
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - slide_1_hook (primary_headline): She has no partner to negotiate with. The roster still works.
+  - slide_2_reality (body_text): Single parents do not have the luxury of 'discussing' who wakes up. The baby wakes. Someone must get up.
+  - slide_3_roster (body_text): The roster adapted for one: named blocks, not negotiations. Predictable. No Resentment.
+  - slide_4_support (body_text): Support web: who can you call on the hard nights? A roster names them too.
+  - slide_5_outcome (secondary_headline): Predictability is the outcome. Not a perfect baby. Not a full night. Just a plan.
+  - cta (call_to_action): See the system
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-004 / BRIEF-NS-013 / AST-NS-013 — approved marketing records (no invented angle, claim or statistic).
+
+--- SLIDE 02 ---
+IMAGE GENERATION PROMPT — AST-NS-013
+Asset: AST-NS-013 · instagram · SOCIAL_CAROUSEL (carousel_square) · angle ANG-NS-004
+Intended dimensions: 1080×1080 px · slide 2
+
+SUBJECT:
+  Single parent in small bedroom, hands-free pump, chart on wall, natural daylight
+  Wardrobe: Simple, practical home clothes — realistic for a single parent managing alone
+  Posture/gesture: Parent sitting on bed or chair, hands-free pump visible, looking at chart or phone with determination, not despair
+ENVIRONMENT:
+  Small bedroom, natural daylight from window, realistic Nigerian home, lived-in and real
+  Props: hands-free pump or pumping setup; chart or schedule on wall or bedside; phone or small notebook; everyday baby items
+LIGHTING:
+  Natural daylight from window, soft and honest — not dramatic or cinematic
+COMPOSITION / FRAMING:
+  Single parent centered, pump and chart visible, natural and grounded framing, showing capability not victimhood
+  Cultural markers (must be respected): Nigerian single parent, realistic home environment; Hands-free pump as practical tool, not luxury; Chart as self-made system, not imposed; Determined capability, not helplessness
+  Emotional tone: Determined, capable, grounded — doing this alone but with a system that works
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No isolation or loneliness framing
+  - No despair or sadness expressions
+  - No clinical or hospital setting
+  - No luxury or aspirational lifestyle
+  - No symmetrical AI-face composition
+  - No dramatic or cinematic lighting
+  - No exaggerated emotional staging
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - slide_1_hook (primary_headline): She has no partner to negotiate with. The roster still works.
+  - slide_2_reality (body_text): Single parents do not have the luxury of 'discussing' who wakes up. The baby wakes. Someone must get up.
+  - slide_3_roster (body_text): The roster adapted for one: named blocks, not negotiations. Predictable. No Resentment.
+  - slide_4_support (body_text): Support web: who can you call on the hard nights? A roster names them too.
+  - slide_5_outcome (secondary_headline): Predictability is the outcome. Not a perfect baby. Not a full night. Just a plan.
+  - cta (call_to_action): See the system
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-004 / BRIEF-NS-013 / AST-NS-013 — approved marketing records (no invented angle, claim or statistic).
+
+--- SLIDE 03 ---
+IMAGE GENERATION PROMPT — AST-NS-013
+Asset: AST-NS-013 · instagram · SOCIAL_CAROUSEL (carousel_square) · angle ANG-NS-004
+Intended dimensions: 1080×1080 px · slide 3
+
+SUBJECT:
+  Single parent in small bedroom, hands-free pump, chart on wall, natural daylight
+  Wardrobe: Simple, practical home clothes — realistic for a single parent managing alone
+  Posture/gesture: Parent sitting on bed or chair, hands-free pump visible, looking at chart or phone with determination, not despair
+ENVIRONMENT:
+  Small bedroom, natural daylight from window, realistic Nigerian home, lived-in and real
+  Props: hands-free pump or pumping setup; chart or schedule on wall or bedside; phone or small notebook; everyday baby items
+LIGHTING:
+  Natural daylight from window, soft and honest — not dramatic or cinematic
+COMPOSITION / FRAMING:
+  Single parent centered, pump and chart visible, natural and grounded framing, showing capability not victimhood
+  Cultural markers (must be respected): Nigerian single parent, realistic home environment; Hands-free pump as practical tool, not luxury; Chart as self-made system, not imposed; Determined capability, not helplessness
+  Emotional tone: Determined, capable, grounded — doing this alone but with a system that works
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No isolation or loneliness framing
+  - No despair or sadness expressions
+  - No clinical or hospital setting
+  - No luxury or aspirational lifestyle
+  - No symmetrical AI-face composition
+  - No dramatic or cinematic lighting
+  - No exaggerated emotional staging
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - slide_1_hook (primary_headline): She has no partner to negotiate with. The roster still works.
+  - slide_2_reality (body_text): Single parents do not have the luxury of 'discussing' who wakes up. The baby wakes. Someone must get up.
+  - slide_3_roster (body_text): The roster adapted for one: named blocks, not negotiations. Predictable. No Resentment.
+  - slide_4_support (body_text): Support web: who can you call on the hard nights? A roster names them too.
+  - slide_5_outcome (secondary_headline): Predictability is the outcome. Not a perfect baby. Not a full night. Just a plan.
+  - cta (call_to_action): See the system
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-004 / BRIEF-NS-013 / AST-NS-013 — approved marketing records (no invented angle, claim or statistic).
+
+--- SLIDE 04 ---
+IMAGE GENERATION PROMPT — AST-NS-013
+Asset: AST-NS-013 · instagram · SOCIAL_CAROUSEL (carousel_square) · angle ANG-NS-004
+Intended dimensions: 1080×1080 px · slide 4
+
+SUBJECT:
+  Single parent in small bedroom, hands-free pump, chart on wall, natural daylight
+  Wardrobe: Simple, practical home clothes — realistic for a single parent managing alone
+  Posture/gesture: Parent sitting on bed or chair, hands-free pump visible, looking at chart or phone with determination, not despair
+ENVIRONMENT:
+  Small bedroom, natural daylight from window, realistic Nigerian home, lived-in and real
+  Props: hands-free pump or pumping setup; chart or schedule on wall or bedside; phone or small notebook; everyday baby items
+LIGHTING:
+  Natural daylight from window, soft and honest — not dramatic or cinematic
+COMPOSITION / FRAMING:
+  Single parent centered, pump and chart visible, natural and grounded framing, showing capability not victimhood
+  Cultural markers (must be respected): Nigerian single parent, realistic home environment; Hands-free pump as practical tool, not luxury; Chart as self-made system, not imposed; Determined capability, not helplessness
+  Emotional tone: Determined, capable, grounded — doing this alone but with a system that works
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No isolation or loneliness framing
+  - No despair or sadness expressions
+  - No clinical or hospital setting
+  - No luxury or aspirational lifestyle
+  - No symmetrical AI-face composition
+  - No dramatic or cinematic lighting
+  - No exaggerated emotional staging
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - slide_1_hook (primary_headline): She has no partner to negotiate with. The roster still works.
+  - slide_2_reality (body_text): Single parents do not have the luxury of 'discussing' who wakes up. The baby wakes. Someone must get up.
+  - slide_3_roster (body_text): The roster adapted for one: named blocks, not negotiations. Predictable. No Resentment.
+  - slide_4_support (body_text): Support web: who can you call on the hard nights? A roster names them too.
+  - slide_5_outcome (secondary_headline): Predictability is the outcome. Not a perfect baby. Not a full night. Just a plan.
+  - cta (call_to_action): See the system
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-004 / BRIEF-NS-013 / AST-NS-013 — approved marketing records (no invented angle, claim or statistic).
+
+--- SLIDE 05 ---
+IMAGE GENERATION PROMPT — AST-NS-013
+Asset: AST-NS-013 · instagram · SOCIAL_CAROUSEL (carousel_square) · angle ANG-NS-004
+Intended dimensions: 1080×1080 px · slide 5
+
+SUBJECT:
+  Single parent in small bedroom, hands-free pump, chart on wall, natural daylight
+  Wardrobe: Simple, practical home clothes — realistic for a single parent managing alone
+  Posture/gesture: Parent sitting on bed or chair, hands-free pump visible, looking at chart or phone with determination, not despair
+ENVIRONMENT:
+  Small bedroom, natural daylight from window, realistic Nigerian home, lived-in and real
+  Props: hands-free pump or pumping setup; chart or schedule on wall or bedside; phone or small notebook; everyday baby items
+LIGHTING:
+  Natural daylight from window, soft and honest — not dramatic or cinematic
+COMPOSITION / FRAMING:
+  Single parent centered, pump and chart visible, natural and grounded framing, showing capability not victimhood
+  Cultural markers (must be respected): Nigerian single parent, realistic home environment; Hands-free pump as practical tool, not luxury; Chart as self-made system, not imposed; Determined capability, not helplessness
+  Emotional tone: Determined, capable, grounded — doing this alone but with a system that works
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No isolation or loneliness framing
+  - No despair or sadness expressions
+  - No clinical or hospital setting
+  - No luxury or aspirational lifestyle
+  - No symmetrical AI-face composition
+  - No dramatic or cinematic lighting
+  - No exaggerated emotional staging
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - slide_1_hook (primary_headline): She has no partner to negotiate with. The roster still works.
+  - slide_2_reality (body_text): Single parents do not have the luxury of 'discussing' who wakes up. The baby wakes. Someone must get up.
+  - slide_3_roster (body_text): The roster adapted for one: named blocks, not negotiations. Predictable. No Resentment.
+  - slide_4_support (body_text): Support web: who can you call on the hard nights? A roster names them too.
+  - slide_5_outcome (secondary_headline): Predictability is the outcome. Not a perfect baby. Not a full night. Just a plan.
+  - cta (call_to_action): See the system
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-004 / BRIEF-NS-013 / AST-NS-013 — approved marketing records (no invented angle, claim or statistic).
+

@@ -1,0 +1,440 @@
+EXACT IMAGE-GENERATION PROMPTS — INSTAGRAM
+Verbatim archived prompts. Do not summarise.
+
+========================================================
+AST-NS-002
+========================================================
+IMAGE GENERATION PROMPT — AST-NS-002
+Asset: AST-NS-002 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-001
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Nigerian woman in her late 20s or early 30s, visibly tired but relatable. Not styled — real postpartum body, natural hair or simple wrap.
+  Wardrobe: Nursing bra or tank top, oversized t-shirt or night gown. Not styled for camera.
+  Posture/gesture: Propped against pillows or sitting on edge of bed, phone held in one hand. Eyes half-closed, face catching blue screen light. One hand possibly near face — not posed, just caught.
+ENVIRONMENT:
+  Dimly lit bedroom at night. Baby bassinet or cot visible at edge of frame. Scattered feeding supplies and baby items on nightstand.
+  Props: Phone with screen lit; Baby bassinet or cot; Feeding supplies on nightstand; Scattered baby items; Nursing pillow or blanket
+LIGHTING:
+  Phone screen as key practical light on face. Warm bedside lamp or nightlight as fill. Deep shadows elsewhere. Night scene.
+COMPOSITION / FRAMING:
+  Close-up or medium close-up. Phone screen light on face is focal point. Shallow depth of field on background items. Rule of thirds — face left or right, bassinet at opposite edge.
+  Cultural markers (must be respected): West African features; Relatable postpartum home setting; Not aspirational interior — real lived space; Baby items reflect actual newborn needs
+  Emotional tone: Exhaustion mixed with quiet frustration. Not crying, not smiling — just tired and scrolling.
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No stock-photo smile
+  - No perfectly styled nursery
+  - No clinical hospital setting
+  - No symmetrical AI face
+  - No gradient blobs or floating mockups
+  - No generic stock composition
+  - No mixed icon families
+  - No Canva/Headspace/hospital-portal aesthetic
+  - No text overlay in the image itself
+  - No gamification implied for sensitive subjects
+  - No fear-mongering or shame framing
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - headline: You are not lazy. You are carrying the entire night alone.
+  - supporting_line: One schedule changes everything.
+  - cta: See how
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-001 / BRIEF-NS-002 / AST-NS-002 — approved marketing records (no invented angle, claim or statistic).
+
+
+========================================================
+AST-NS-005
+========================================================
+IMAGE GENERATION PROMPT — AST-NS-005
+Asset: AST-NS-005 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-002
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Nigerian woman in her late 20s or early 30s. Not styled — real postpartum body, natural hair or simple wrap.
+  Wardrobe: Nightgown or house clothes. Wrinkled, not styled.
+  Posture/gesture: Sitting at table, one hand supporting head, other hand holding phone. Slumped shoulders, face showing exhaustion and building resentment. Not crying — just worn down.
+ENVIRONMENT:
+  Small kitchen or dining area, early morning or late evening. Child-related items on table. Flat overhead lighting.
+  Props: Phone with message notification visible; Child-related items on table; Crumpled feeding schedule or notes; Cold or half-finished drink; Simple kitchen setting
+LIGHTING:
+  Flat overhead kitchen light. No warmth. Functional, not atmospheric.
+COMPOSITION / FRAMING:
+  Medium shot. Subject at table, phone visible. Shallow depth of field on background. Subject slightly off-center.
+  Cultural markers (must be respected): West African features; Relatable Nigerian home kitchen; Not aspirational interior; Real postpartum domestic setting
+  Emotional tone: Resentment building under exhaustion. Not explosive — slow burn. The face of someone who has asked and stopped asking.
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No stock-photo anger
+  - No dramatic crying
+  - No styled interior
+  - No symmetrical AI face
+  - No gradient blobs or floating mockups
+  - No generic stock composition
+  - No mixed icon families
+  - No text overlay in the image itself
+  - No fear-mongering or shame framing
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - hook (primary_headline): The real cost of the night argument is not the lost sleep. It is the resentment that stays awake long after the baby sleeps.
+  - bridge (body_text): Resentment builds when one parent always carries the night. The other partner is not lazy — they just never got a system.
+  - cta (call_to_action): Read the postpartum night guide
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-002 / BRIEF-NS-005 / AST-NS-005 — approved marketing records (no invented angle, claim or statistic).
+
+
+========================================================
+AST-NS-009
+========================================================
+IMAGE GENERATION PROMPT — AST-NS-009
+Asset: AST-NS-009 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-003
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Two parents in bedroom, morning light, calm coexistence
+  Wardrobe: Everyday casual home clothes, realistic for Nigerian parents
+  Posture/gesture: Parents standing near door, relaxed posture, one parent checking printed schedule on wall
+ENVIRONMENT:
+  Bedroom, morning light, clean and tidy, realistic Nigerian middle-class home
+  Props: printed schedule on wall or fridge; small baby items in background; natural morning light
+LIGHTING:
+  Warm morning light from window, soft and natural
+COMPOSITION / FRAMING:
+  Two-shot of parents near the schedule, schedule visible in frame, calm and settled tone
+  Cultural markers (must be respected): Nigerian parents, realistic middle-class home; Printed schedule as shared tool, not imposed by one parent; Morning routine, everyday domestic setting
+  Emotional tone: Calm, settled, cooperative — the system working without drama
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No argument or conflict scene
+  - No stressed or angry expressions
+  - No clinical or hospital setting
+  - No symmetrical AI-face composition
+  - No generic stock photo family
+  - No luxury or aspirational lifestyle
+  - No child visible in this frame
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - hook (primary_headline): Calling your partner a 'helper' guarantees they will never own the night.
+  - bridge (body_text): The word 'helper' creates a hierarchy. One parent leads. The other follows. That is not shared ownership — it is delegation.
+  - reframe (secondary_headline): The alternative: co-manager. Named shifts. A schedule that asks — not begs.
+  - cta (call_to_action): Link in bio
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-003 / BRIEF-NS-009 / AST-NS-009 — approved marketing records (no invented angle, claim or statistic).
+
+
+========================================================
+AST-NS-012
+========================================================
+IMAGE GENERATION PROMPT — AST-NS-012
+Asset: AST-NS-012 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-004
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Single parent in small bedroom, hands-free pump, chart on wall, natural daylight
+  Wardrobe: Simple, practical home clothes — realistic for a single parent managing alone
+  Posture/gesture: Parent sitting on bed or chair, hands-free pump visible, looking at chart or phone with determination, not despair
+ENVIRONMENT:
+  Small bedroom, natural daylight from window, realistic Nigerian home, lived-in and real
+  Props: hands-free pump or pumping setup; chart or schedule on wall or bedside; phone or small notebook; everyday baby items
+LIGHTING:
+  Natural daylight from window, soft and honest — not dramatic or cinematic
+COMPOSITION / FRAMING:
+  Single parent centered, pump and chart visible, natural and grounded framing, showing capability not victimhood
+  Cultural markers (must be respected): Nigerian single parent, realistic home environment; Hands-free pump as practical tool, not luxury; Chart as self-made system, not imposed; Determined capability, not helplessness
+  Emotional tone: Determined, capable, grounded — doing this alone but with a system that works
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No isolation or loneliness framing
+  - No despair or sadness expressions
+  - No clinical or hospital setting
+  - No luxury or aspirational lifestyle
+  - No symmetrical AI-face composition
+  - No dramatic or cinematic lighting
+  - No exaggerated emotional staging
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - hook (primary_headline): She has no partner to negotiate with. The roster still works.
+  - bridge (body_text): A single mother built a night system for one. The baby sleeps better. She sleeps better. The roster did not require a second adult — it required a plan.
+  - cta (call_to_action): Link in bio
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-004 / BRIEF-NS-012 / AST-NS-012 — approved marketing records (no invented angle, claim or statistic).
+
+
+========================================================
+AST-NS-015
+========================================================
+IMAGE GENERATION PROMPT — AST-NS-015
+Asset: AST-NS-015 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-005
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Parent holding sleeping baby, phone with notification, warm lamp light
+  Wardrobe: Simple home clothes, realistic for late evening with baby
+  Posture/gesture: Parent seated, holding sleeping baby, phone in other hand showing notification or message, gentle and tired but not despairing
+ENVIRONMENT:
+  Dim bedroom or living room, warm lamp light, late evening, realistic Nigerian home
+  Props: sleeping baby in arms; phone with visible notification or message; warm lamp or small light source; everyday home items in background
+LIGHTING:
+  Warm lamp light, soft and intimate, no harsh shadows
+COMPOSITION / FRAMING:
+  Close-up or medium shot, parent and baby central, phone visible but not dominant, warm and intimate framing
+  Cultural markers (must be respected): Nigerian parent, realistic home environment; Phone as notification source, not primary focus; Warm lamp light as real evening setting; Baby held naturally, not staged
+  Emotional tone: Tender, tired, quiet — the real moment of holding a sleeping baby while the system works
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No distress or frustration expressions
+  - No clinical or medical setting
+  - No luxury or aspirational lifestyle
+  - No symmetrical AI-face composition
+  - No dramatic or cinematic staging
+  - No baby facing camera directly
+  - No fabricated product UI on phone screen
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - hook (primary_headline): The roster is not a promise that the baby will sleep. It is a plan for what happens when the baby wakes.
+  - bridge (body_text): You cannot control the baby. You can control who gets up. That is the only thing a night system actually fixes.
+  - reframe (secondary_headline): The question is not: will the baby sleep through? The question is: what happens when the baby wakes?
+  - cta (call_to_action): Read the night-shift guide
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-005 / BRIEF-NS-015 / AST-NS-015 — approved marketing records (no invented angle, claim or statistic).
+
+
+========================================================
+AST-NS-STOP-001
+========================================================
+IMAGE GENERATION PROMPT — AST-NS-STOP-001
+Asset: AST-NS-STOP-001 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-001
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Nigerian woman in her late 20s or early 30s, visibly tired but relatable. Not styled — real postpartum body, natural hair or simple wrap.
+  Wardrobe: Nursing bra or tank top, oversized t-shirt or night gown. Not styled for camera.
+  Posture/gesture: Propped against pillows or sitting on edge of bed, phone held in one hand. Eyes half-closed, face catching blue screen light. One hand possibly near face — not posed, just caught.
+ENVIRONMENT:
+  Dimly lit bedroom at night. Baby bassinet or cot visible at edge of frame. Scattered feeding supplies and baby items on nightstand.
+  Props: Phone with screen lit; Baby bassinet or cot; Feeding supplies on nightstand; Scattered baby items; Nursing pillow or blanket
+LIGHTING:
+  Phone screen as key practical light on face. Warm bedside lamp or nightlight as fill. Deep shadows elsewhere. Night scene.
+COMPOSITION / FRAMING:
+  Close-up or medium close-up. Phone screen light on face is focal point. Shallow depth of field on background items. Rule of thirds — face left or right, bassinet at opposite edge.
+  Cultural markers (must be respected): West African features; Relatable postpartum home setting; Not aspirational interior — real lived space; Baby items reflect actual newborn needs
+  Emotional tone: Exhaustion mixed with quiet frustration. Not crying, not smiling — just tired and scrolling.
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No stock-photo smile
+  - No perfectly styled nursery
+  - No clinical hospital setting
+  - No symmetrical AI face
+  - No gradient blobs or floating mockups
+  - No generic stock composition
+  - No mixed icon families
+  - No Canva/Headspace/hospital-portal aesthetic
+  - No text overlay in the image itself
+  - No gamification implied for sensitive subjects
+  - No fear-mongering or shame framing
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - headline: You are not lazy. You are carrying the entire night alone.
+  - supporting_line: One schedule changes everything.
+  - cta: See how
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-001 / BRIEF-NS-STOP-001 / AST-NS-STOP-001 — approved marketing records (no invented angle, claim or statistic).
+
+
+========================================================
+AST-NS-PROB-001
+========================================================
+IMAGE GENERATION PROMPT — AST-NS-PROB-001
+Asset: AST-NS-PROB-001 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-002
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Nigerian woman in her late 20s or early 30s. Not styled — real postpartum body, natural hair or simple wrap.
+  Wardrobe: Nightgown or house clothes. Wrinkled, not styled.
+  Posture/gesture: Sitting at table, one hand supporting head, other hand holding phone. Slumped shoulders, face showing exhaustion and building resentment. Not crying — just worn down.
+ENVIRONMENT:
+  Small kitchen or dining area, early morning or late evening. Child-related items on table. Flat overhead lighting.
+  Props: Phone with message notification visible; Child-related items on table; Crumpled feeding schedule or notes; Cold or half-finished drink; Simple kitchen setting
+LIGHTING:
+  Flat overhead kitchen light. No warmth. Functional, not atmospheric.
+COMPOSITION / FRAMING:
+  Medium shot. Subject at table, phone visible. Shallow depth of field on background. Subject slightly off-center.
+  Cultural markers (must be respected): West African features; Relatable Nigerian home kitchen; Not aspirational interior; Real postpartum domestic setting
+  Emotional tone: Resentment building under exhaustion. Not explosive — slow burn. The face of someone who has asked and stopped asking.
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No stock-photo anger
+  - No dramatic crying
+  - No styled interior
+  - No symmetrical AI face
+  - No gradient blobs or floating mockups
+  - No generic stock composition
+  - No mixed icon families
+  - No text overlay in the image itself
+  - No fear-mongering or shame framing
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - hook (primary_headline): The real cost of the night argument is not the lost sleep. It is the resentment that stays awake long after the baby sleeps.
+  - bridge (body_text): Resentment builds when one parent always carries the night. The other partner is not lazy — they just never got a system.
+  - cta (call_to_action): Read the postpartum night guide
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-002 / BRIEF-NS-PROB-001 / AST-NS-PROB-001 — approved marketing records (no invented angle, claim or statistic).
+
+
+========================================================
+AST-NS-MYTH-001
+========================================================
+IMAGE GENERATION PROMPT — AST-NS-MYTH-001
+Asset: AST-NS-MYTH-001 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-003
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Two parents in bedroom, morning light, calm coexistence
+  Wardrobe: Everyday casual home clothes, realistic for Nigerian parents
+  Posture/gesture: Parents standing near door, relaxed posture, one parent checking printed schedule on wall
+ENVIRONMENT:
+  Bedroom, morning light, clean and tidy, realistic Nigerian middle-class home
+  Props: printed schedule on wall or fridge; small baby items in background; natural morning light
+LIGHTING:
+  Warm morning light from window, soft and natural
+COMPOSITION / FRAMING:
+  Two-shot of parents near the schedule, schedule visible in frame, calm and settled tone
+  Cultural markers (must be respected): Nigerian parents, realistic middle-class home; Printed schedule as shared tool, not imposed by one parent; Morning routine, everyday domestic setting
+  Emotional tone: Calm, settled, cooperative — the system working without drama
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No argument or conflict scene
+  - No stressed or angry expressions
+  - No clinical or hospital setting
+  - No symmetrical AI-face composition
+  - No generic stock photo family
+  - No luxury or aspirational lifestyle
+  - No child visible in this frame
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - hook (primary_headline): The real cost of the night argument is not the lost sleep. It is the resentment that stays awake long after the baby sleeps.
+  - bridge (body_text): Resentment builds when one parent always carries the night. The other partner is not lazy — they just never got a system.
+  - cta (call_to_action): Read the postpartum night guide
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-003 / BRIEF-NS-MYTH-001 / AST-NS-MYTH-001 — approved marketing records (no invented angle, claim or statistic).
+
+
+========================================================
+AST-NS-OBJ-001
+========================================================
+IMAGE GENERATION PROMPT — AST-NS-OBJ-001
+Asset: AST-NS-OBJ-001 · instagram · SOCIAL_STATIC (feed_square) · angle ANG-NS-005
+Intended dimensions: 1080×1080 px 
+
+SUBJECT:
+  Parent holding sleeping baby, phone with notification, warm lamp light
+  Wardrobe: Simple home clothes, realistic for late evening with baby
+  Posture/gesture: Parent seated, holding sleeping baby, phone in other hand showing notification or message, gentle and tired but not despairing
+ENVIRONMENT:
+  Dim bedroom or living room, warm lamp light, late evening, realistic Nigerian home
+  Props: sleeping baby in arms; phone with visible notification or message; warm lamp or small light source; everyday home items in background
+LIGHTING:
+  Warm lamp light, soft and intimate, no harsh shadows
+COMPOSITION / FRAMING:
+  Close-up or medium shot, parent and baby central, phone visible but not dominant, warm and intimate framing
+  Cultural markers (must be respected): Nigerian parent, realistic home environment; Phone as notification source, not primary focus; Warm lamp light as real evening setting; Baby held naturally, not staged
+  Emotional tone: Tender, tired, quiet — the real moment of holding a sleeping baby while the system works
+
+PRODUCT PLACEMENT:
+  Render NO text, logos, buttons or UI in the image. Reserved space for typography is provided
+  by the deterministic overlay below (important customer-facing text is never model-rendered).
+
+NEGATIVE / AVOID:
+  - No distress or frustration expressions
+  - No clinical or medical setting
+  - No luxury or aspirational lifestyle
+  - No symmetrical AI-face composition
+  - No dramatic or cinematic staging
+  - No baby facing camera directly
+  - No fabricated product UI on phone screen
+  - no text, no letters, no words, no watermark, no logo, no user interface
+  - no gradient blobs
+  - no stock-photo perfection
+
+DETERMINISTIC TEXT OVERLAY (applied after generation, exact approved copy):
+  - hook (primary_headline): The roster is not a promise that the baby will sleep. It is a plan for what happens when the baby wakes.
+  - bridge (body_text): You cannot control the baby. You can control who gets up. That is the only thing a night system actually fixes.
+  - reframe (secondary_headline): The question is not: will the baby sleep through? The question is: what happens when the baby wakes?
+  - cta (call_to_action): Read the night-shift guide
+
+BRAND:
+  SWIIPT system — navy #0B1F33, purple #6F35B5, gold #D9A52E, warm cream #F8F4EC; Inter + DM Serif Display only.
+SOURCE: ANG-NS-005 / BRIEF-NS-OBJ-001 / AST-NS-OBJ-001 — approved marketing records (no invented angle, claim or statistic).
+

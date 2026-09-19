@@ -1,0 +1,34 @@
+V06 CAMPAIGN SEQUENCE (verbatim order — formatting converted to plain text)
+Publish in this order. Order is the dependency.
+
+
+V06 Campaign Sequence — CAMP-NS-001 (Launch V06 'Every Night, Just Me' to postpartum mothers doing 100% of night care, driving awareness → understanding → purchase through a multi-platform asset sequence across 5 angle families.)
+
+Launch sequence `SEQ-NS-001` · LAUNCH · undefined
+1. AST-NS-STOP-001  |  instagram  |  role: Identification  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+2. AST-NS-001  |  facebook  |  role: Identification  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+3. AST-NS-002  |  instagram  |  role: Identification  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+4. AST-NS-003  |  whatsapp  |  role: Identification  |  CTA: low  |  emotional: low  |  campaign-record status: BLOCKED
+5. AST-NS-PROB-001  |  instagram  |  role: Problem  |  CTA: low  |  emotional: high  |  campaign-record status: BLOCKED
+6. AST-NS-004  |  facebook  |  role: Problem  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+7. AST-NS-005  |  instagram  |  role: Problem  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+8. AST-NS-006  |  instagram  |  role: Problem  |  CTA: moderate  |  emotional: moderate  |  campaign-record status: PRODUCTION_PACKAGE_READY
+9. AST-NS-007  |  instagram  |  role: Problem  |  CTA: moderate  |  emotional: high  |  campaign-record status: BLOCKED
+10. AST-NS-MYTH-001  |  instagram  |  role: Myth reframe  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+11. AST-NS-008  |  facebook  |  role: Myth reframe  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+12. AST-NS-009  |  instagram  |  role: Myth reframe  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+13. AST-NS-010  |  instagram  |  role: Myth reframe  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+14. AST-NS-STORY-001  |  instagram  |  role: Story  |  CTA: low  |  emotional: high  |  campaign-record status: BLOCKED
+15. AST-NS-011  |  facebook  |  role: Story  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+16. AST-NS-012  |  instagram  |  role: Story  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+17. AST-NS-013  |  instagram  |  role: Story  |  CTA: moderate  |  emotional: moderate  |  campaign-record status: BLOCKED
+18. AST-NS-OBJ-001  |  instagram  |  role: Objection  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+19. AST-NS-014  |  facebook  |  role: Objection  |  CTA: low  |  emotional: moderate  |  campaign-record status: BLOCKED
+20. AST-NS-015  |  instagram  |  role: Objection  |  CTA: moderate  |  emotional: moderate  |  campaign-record status: BLOCKED
+21. AST-NS-016  |  whatsapp  |  role: Objection  |  CTA: high  |  emotional: low  |  campaign-record status: BLOCKED
+
+Order is the dependency (1 → 21). CTA escalates across the sequence (positions 5/9/16 moderate, 21 high).
+
+Note: the campaign-record status column is historical. Current export state: all still
+creatives are rendered and included; the Reel raw video is pending a qualified provider
+(see Instagram/Reels/AST-NS-007/VIDEO-STATUS.txt).

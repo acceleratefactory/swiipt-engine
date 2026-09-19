@@ -1,0 +1,43 @@
+V06 CAMPAIGN — READY-TO-USE EXPORT INVENTORY
+Generated from the approved V06 campaign outputs. All media below is the current approved final render.
+
+FACEBOOK
+- 5 final creatives
+- posts present: YES
+- prompts present: YES
+
+INSTAGRAM FEED
+- 9 final creatives
+- captions present: YES
+- prompts present: YES
+
+INSTAGRAM CAROUSELS
+- 2 sets
+- 9 slides
+- captions present: YES
+- prompts present: YES
+
+INSTAGRAM STORIES
+- 2 sets
+- 8 frames
+- copy present: YES
+- prompts present: YES
+
+WHATSAPP
+- 2 final creatives
+- messages present: YES
+- prompts present: YES
+
+REEL (Instagram/Reels/AST-NS-007)
+- cover: YES
+- keyframes: 4 of 4
+- storyboard: YES
+- video prompt: YES
+- script: YES
+- production material: 12 text files
+- FINAL VIDEO STATUS: pending — see VIDEO-STATUS.txt
+
+CAMPAIGN
+- campaign sequence present: YES
+
+TOTAL FILES: 66

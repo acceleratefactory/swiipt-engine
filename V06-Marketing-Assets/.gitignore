@@ -1,3 +1,5 @@
 *.shot.html
 *.src.html
 
+# Distribution ZIP is a regenerable duplicate of FINAL/ (run mae/harness/export-final-campaign.mjs --zip)
+V06-FINAL-READY-TO-USE.zip

@@ -1,0 +1,18 @@
+APPROVED SHOT LIST (verbatim)
+
+S1: subject alone at night, exhausted
+    camera: framing=medium movement=static stability=locked
+    duration: 5s
+
+S2: partner asleep, untouched night feed
+    camera: framing=wide movement=slow pan stability=handheld
+    duration: 5s
+
+S3: roster page being filled at the table
+    camera: framing=insert movement=push in stability=handheld
+    duration: 5s
+
+S4: resolve: named shift written, partner takes over
+    camera: framing=medium close-up movement=static stability=locked
+    duration: 5s
+
