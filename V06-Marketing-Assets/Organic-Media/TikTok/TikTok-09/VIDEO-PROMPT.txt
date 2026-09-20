@@ -1,0 +1,14 @@
+============================================================
+VIDEO GENERATION PROMPT (TikTok)
+============================================================
+
+MASTER: reuse the Short-09 vertical master. Do not render a duplicate 9:16 master - one qualified 9:16 master serves YouTube Shorts, TikTok, and future IG/FB Reels, with platform-specific copy preserved in CAPTION.txt.
+
+NARRATION
+Almost every night argument is a timing problem. You are trying to make a decision at the worst possible moment, with the least possible judgement, about the most emotionally loaded thing in the house. Move the decision to 8 PM. Five minutes. Who is on tonight, do the times still make sense, is anything unusual tomorrow? Adjust tonight only. Then the night contains no negotiation at all - only the plan you already agreed.
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain, no sensationalised exhaustion.

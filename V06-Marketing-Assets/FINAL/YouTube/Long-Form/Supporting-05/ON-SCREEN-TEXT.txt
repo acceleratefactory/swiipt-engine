@@ -1,0 +1,26 @@
+ON-SCREEN TEXT (deterministic; short lines only)
+
+[The plan was always going to break some nights]
+  If you are watching this at 3 AM because the plan collapsed, the first thing to know is that this is not evidence the plan was wrong.
+  A plan that survives every night is not a robust plan; it is a plan that has not met a sick baby yet.
+[Check the baby first]
+  Before anything else, check the baby.
+  If the baby has a fever, is vomiting, is showing signs of unusual pain, is having difficulty breathing, or you have any concern about their physical wellbeing, suspend the roster and follow your paediatric guidance or contact emergency services.
+[The bad-night fallback]
+  When a night collapses, the protocol is three lines long.
+  Default to whoever's turn it technically is - do not re-litigate the fairness of the whole system at 3 AM.
+[The four ways it usually breaks]
+  There are four common failures, and each has a specific response.
+  A missed shift - your partner slept through it - gets a no-blame reset: it is one data point, not a violation, so you adjust the alarm or the handoff method rather than the relationship.
+[The no-blame reset]
+  The most important word in the whole protocol is 'data'.
+  If a missed shift becomes a character judgement, the system stops being usable, because now every failure costs a fight.
+[How to review a bad night without a fight]
+  The day after a bad night, do not review it in the middle of the day when you are both tired and busy.
+  Put it at the scheduled weekly review, or at the five minutes before bed.
+[When a helper arrives with old advice]
+  One failure point deserves its own line, because it catches households out after the hardest part is over: a new helper - a relative, a visiting mother, a paid night nurse - arrives with their own idea of whose job the night is.
+  The rule is simple and not personal: they read the shift chart before their first night shift.
+[When exhaustion needs more than a night plan]
+  One more thing, and it is the most important thing in this episode.
+  Severe, sustained exhaustion can mask or worsen postpartum mental-health conditions, and a better roster will not fix that.

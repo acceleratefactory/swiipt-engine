@@ -1,0 +1,7 @@
+ON-SCREEN TEXT (deterministic, in order)
+
+01  PLAN FAILED?
+02  1. Check the baby first.
+03  2. Default to whoever's turn it is.
+04  3. Log it - tomorrow compensates.
+05  Do not redesign anything at 3 AM.

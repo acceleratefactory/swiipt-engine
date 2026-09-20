@@ -1,0 +1,14 @@
+============================================================
+VIDEO GENERATION PROMPT (TikTok)
+============================================================
+
+MASTER: reuse the Short-01 vertical master. Do not render a duplicate 9:16 master - one qualified 9:16 master serves YouTube Shorts, TikTok, and future IG/FB Reels, with platform-specific copy preserved in CAPTION.txt.
+
+NARRATION
+You are not lazy. You have not failed. You are running an unowned shift. A newborn wakes every night, but nobody agreed in advance whose turn it is - so it gets decided again at 3 AM, every night, by two people who have not slept. And the person already awake keeps deciding it. That is how one parent quietly ends up owning every night. No schedule and no system. Just a default nobody wrote down.
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain, no sensationalised exhaustion.

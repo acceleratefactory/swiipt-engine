@@ -1,0 +1,29 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 3-5 minutes long-form YouTube episode, 16:9 1920x1080.
+
+DISCIPLINE
+  Documentary/editorial treatment. Real postpartum domestic settings, unposed subjects,
+  available light. Cut on the narration beats - not on a music drop. No stock library
+  footage, no AI-generated faces, no staged pain expression, no hospital imagery.
+  Product evidence is composited deterministically from the real V06 pages, never generated.
+
+STRUCTURE
+  0:00  There is no single correct roster - Why one model cannot fit every household
+  0:40  Template A - the breastfeeding-compatible split - Named blocks with a scheduled feed hand-off
+  2:00  Template B - alternating nights - Formula or expressed feeding
+  3:10  Roster C - no partner available - The support web and the protected morning block
+  4:20  How to choose in two minutes - The one question that routes you
+  5:10  Fill in the clock times - Making the model real tonight
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt. Never model-generate on-screen words.
+
+AUDIO
+  Narration from VOICEOVER.txt. No invented claims. Platform-permitted music only.
+
+PRODUCT EVIDENCE
+  Display the real V06 pages listed in PRODUCT-EVIDENCE-PLAN.txt as the implementation
+  mechanism at the narration moments indicated. Never render an imitation.

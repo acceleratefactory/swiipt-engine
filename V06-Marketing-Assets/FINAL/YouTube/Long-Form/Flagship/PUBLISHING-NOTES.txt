@@ -1,0 +1,10 @@
+PUBLISHING NOTES
+
+Series     : SWIIPT | WHAT DO I DO NOW?
+Tagline    : Practical systems for the exact moments life gets difficult.
+Title test : 4 candidates evaluated against truthfulness, situation specificity, search intent, curiosity, non-clickbait integrity and product relevance.
+Selected   : How Exhausted Parents Can Split Newborn Nights Without Renegotiating at 3 AM
+Rationale  : Situation-specific, names the real difficulty (renegotiating at 3 AM), matches search intent for splitting newborn nights, and promises an operational answer rather than a feeling. No urgency, no outcome guarantee.
+Truth      : every claim traces to TR-PPL-NIGHT-SHIFT-001 (situation, mechanism, failure points, safety boundaries).
+Safety     : reviewed V06 language used verbatim for safe sleep, on-shift alertness, and escalation. No diagnosis, no medical advice, no fear clickbait.
+Thumbnail  : finished 1280x720 asset; complements the title rather than repeating it.

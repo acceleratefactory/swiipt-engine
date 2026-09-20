@@ -1,0 +1,22 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 20-60s vertical 9:16 (1080x1920) explainer.
+
+NARRATION
+This is what a newborn night roster actually looks like. It is not a parenting philosophy. It is a page. One block for the working parent before their sleep. One block around the feeds, with the hand-off written in: your partner brings the baby to you, you feed, your partner takes the baby back. One protected block that is genuinely yours. And a rule at the bottom: the baby always overrides the roster. That is the whole system, on one page, decided before the night.
+
+VISUAL
+- The roster page on a table, straight on, handwritten (static)
+- Insert: the hand-off line being written
+- Fridge, chart in place, evening light (wide)
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt: A NEWBORN NIGHT ROSTER | is a page, not a philosophy. | Named blocks. Fixed times. | Feed hand-off written in. | The baby always overrides the roster.
+
+PRODUCT EVIDENCE
+  Display the real V06 page page-12.png as the implementation mechanism. Never model-generate it.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain.

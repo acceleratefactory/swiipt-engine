@@ -1,0 +1,22 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 20-60s vertical 9:16 (1080x1920) explainer.
+
+NARRATION
+One parent works tomorrow. That is real - and it is not a reason for the other parent to own every single night. A working parent usually cannot own 1 AM to 5 AM. They can often own 9 PM to midnight, before their own sleep, or 5 AM to 7 AM, after it. The work night changes the size of the block, not whether one exists. Write the block you can actually keep.
+
+VISUAL
+- Working parent leaving early, bag by the door (medium)
+- Insert: the shift chart with a work-night block filled
+- Morning block: parent with baby, other asleep (medium)
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt: 'I WORK TOMORROW' | is real - | but it is not | 'so you own every night'. | Name the block you can actually keep.
+
+PRODUCT EVIDENCE
+  Display the real V06 page page-12.png as the implementation mechanism. Never model-generate it.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain.

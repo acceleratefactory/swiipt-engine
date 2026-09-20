@@ -1,0 +1,20 @@
+SHOT LIST (deterministic plan; numbered shots, not a rendered edit)
+
+SHOT 01  0:00  The plan was always going to break some nights
+    visual: The plan was always going to break some nights
+    on-screen: deterministic caption for this beat
+SHOT 02  0:35  Check the baby first
+    visual: Check the baby first
+    on-screen: deterministic caption for this beat
+SHOT 03  1:30  The bad-night fallback
+    visual: The bad-night fallback
+    on-screen: deterministic caption for this beat
+SHOT 04  2:40  The four ways it usually breaks
+    visual: The four ways it usually breaks
+    on-screen: deterministic caption for this beat
+SHOT 05  4:00  The no-blame reset
+    visual: The no-blame reset
+    on-screen: deterministic caption for this beat
+SHOT 06  5:00  When exhaustion needs more than a night plan
+    visual: When exhaustion needs more than a night plan
+    on-screen: deterministic caption for this beat

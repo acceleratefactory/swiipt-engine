@@ -1,0 +1,7 @@
+ON-SCREEN TEXT (deterministic, in order)
+
+01  A NEWBORN NIGHT ROSTER
+02  is a page, not a philosophy.
+03  Named blocks. Fixed times.
+04  Feed hand-off written in.
+05  The baby always overrides the roster.

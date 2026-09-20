@@ -1,0 +1,7 @@
+ON-SCREEN TEXT (deterministic, in order)
+
+01  YOU ARE DECIDING
+02  AT THE WORST POSSIBLE TIME.
+03  Move it to 8 PM.
+04  Five minutes.
+05  Adjust tonight only.

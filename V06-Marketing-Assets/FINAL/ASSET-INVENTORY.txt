@@ -40,4 +40,29 @@ REEL (Instagram/Reels/AST-NS-007)
 CAMPAIGN
 - campaign sequence present: YES
 
-TOTAL FILES: 68
+YOUTUBE LONG-FORM
+- 6 packages (flagship + supporting)
+- finished thumbnails (1280x720): 6
+- scripts, voiceovers, on-screen text, scene plans, shot lists, video prompts, product-evidence plans present
+- video status: pending (see each VIDEO-STATUS.txt) — no MP4 rendered
+
+YOUTUBE SHORTS
+- 10 Short packages (9:16)
+- vertical covers where produced; captions, CTAs and video status present
+
+TIKTOK
+- 10 TikTok packages
+- platform-specific captions; one 9:16 master per unit reused across platforms
+
+PINTEREST
+- 10 finished Pins (1000x1500, 2:3)
+- titles, descriptions, CTAs present; image prompts where a generated scene was used
+
+EMAIL
+- 5 emails (subject, preheader, body, CTA)
+
+ORGANIC MEDIA SEQUENCE
+- publishing sequence: YES
+- cross-platform reuse map: YES
+
+TOTAL FILES: 382

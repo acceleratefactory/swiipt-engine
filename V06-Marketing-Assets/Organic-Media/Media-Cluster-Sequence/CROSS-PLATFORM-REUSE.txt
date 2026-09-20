@@ -1,0 +1,27 @@
+============================================================
+CROSS-PLATFORM REUSE MAP
+============================================================
+
+One qualified 9:16 master serves multiple platforms. Platform-specific COPY is preserved
+separately (each platform folder carries its own CAPTION/CAPTION.txt).
+
+MASTER       PLATFORMS                                                   
+Short-01     YouTube Short -> TikTok-01 -> future IG Reel -> future FB Reel
+Short-02     YouTube Short -> TikTok-02 -> future IG Reel -> future FB Reel
+Short-03     YouTube Short -> TikTok-03 -> future IG Reel -> future FB Reel
+Short-04     YouTube Short -> TikTok-04 -> future IG Reel -> future FB Reel
+Short-05     YouTube Short -> TikTok-05 -> future IG Reel -> future FB Reel
+Short-06     YouTube Short -> TikTok-06 -> future IG Reel -> future FB Reel
+Short-07     YouTube Short -> TikTok-07 -> future IG Reel -> future FB Reel
+Short-08     YouTube Short -> TikTok-08 -> future IG Reel -> future FB Reel
+Short-09     YouTube Short -> TikTok-09 -> future IG Reel -> future FB Reel
+Short-10     YouTube Short -> TikTok-10 -> future IG Reel -> future FB Reel
+
+IMAGES
+- YouTube long-form thumbnails (6) are 16:9 and platform-specific: they do not reuse short masters.
+- Pinterest Pins (10) are 2:3 and platform-specific: product-evidence Pins are deterministic (no scene),
+  scene Pins reuse the existing approved V06 generated scenes.
+- No duplicate raw video should be rendered where the same master truthfully serves two platforms.
+
+COPY
+- TikTok captions differ from YouTube Short captions on purpose; the underlying Truth does not.

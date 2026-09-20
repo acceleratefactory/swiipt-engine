@@ -1,0 +1,8 @@
+ON-SCREEN TEXT (deterministic, in order)
+
+01  'WAKE ME IF YOU NEED HELP'
+02  It transfers the decision,
+03  not the work.
+04  Exhaustion sets the bar too high.
+05  Replace the offer with a default.
+06  This block is mine.

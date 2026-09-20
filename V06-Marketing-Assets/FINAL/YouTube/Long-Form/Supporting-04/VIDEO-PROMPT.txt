@@ -1,0 +1,29 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 3-4 minutes long-form YouTube episode, 16:9 1920x1080.
+
+DISCIPLINE
+  Documentary/editorial treatment. Real postpartum domestic settings, unposed subjects,
+  available light. Cut on the narration beats - not on a music drop. No stock library
+  footage, no AI-generated faces, no staged pain expression, no hospital imagery.
+  Product evidence is composited deterministically from the real V06 pages, never generated.
+
+STRUCTURE
+  0:00  The 3 AM argument is really an 8 PM gap - The decision that never got made
+  0:40  What the fridge chart is - Two times, one name, on paper
+  1:40  Why it lives on the fridge and not in an app - Visibility beats completeness
+  2:40  Filling it in - a worked example - A real split for a real household
+  3:50  The 8 PM five-minute review - Making the decision before the night
+  4:40  When the chart changes - Adapting it as the baby's pattern changes
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt. Never model-generate on-screen words.
+
+AUDIO
+  Narration from VOICEOVER.txt. No invented claims. Platform-permitted music only.
+
+PRODUCT EVIDENCE
+  Display the real V06 pages listed in PRODUCT-EVIDENCE-PLAN.txt as the implementation
+  mechanism at the narration moments indicated. Never render an imitation.

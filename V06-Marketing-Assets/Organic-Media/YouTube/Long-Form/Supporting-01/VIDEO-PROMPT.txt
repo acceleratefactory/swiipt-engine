@@ -1,0 +1,30 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 3-5 minutes long-form YouTube episode, 16:9 1920x1080.
+
+DISCIPLINE
+  Documentary/editorial treatment. Real postpartum domestic settings, unposed subjects,
+  available light. Cut on the narration beats - not on a music drop. No stock library
+  footage, no AI-generated faces, no staged pain expression, no hospital imagery.
+  Product evidence is composited deterministically from the real V06 pages, never generated.
+
+STRUCTURE
+  0:00  The offer everyone makes - 'Wake me if you need help'
+  0:25  Why it transfers the decision, not the work - The awake person still owns the judgement call
+  1:20  The 3 AM calculation - Deciding whether it is 'bad enough' while exhausted
+  2:30  What replaces it - A named shift and a fixed time
+  3:40  The hand-off that does not need you to ask - Alarms, fixed times, and the deep-sleeper objection
+  4:40  Keeping the goodwill, losing the guesswork - Same intention, different mechanism
+  5:30  Start tonight - One named block
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt. Never model-generate on-screen words.
+
+AUDIO
+  Narration from VOICEOVER.txt. No invented claims. Platform-permitted music only.
+
+PRODUCT EVIDENCE
+  Display the real V06 pages listed in PRODUCT-EVIDENCE-PLAN.txt as the implementation
+  mechanism at the narration moments indicated. Never render an imitation.

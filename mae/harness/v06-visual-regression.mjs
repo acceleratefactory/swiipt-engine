@@ -10,8 +10,8 @@
 //
 //   node mae/harness/v06-visual-regression.mjs --record    (write/refresh the benchmark)
 //   node mae/harness/v06-visual-regression.mjs             (verify current campaign)
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
+import { join, resolve, relative } from "node:path";
 import { stats } from "./png-decode.mjs";
 
 const OUT = resolve("V06-Marketing-Assets");
@@ -38,8 +38,38 @@ function probe(final, treatment, dims) {
   return r;
 }
 
+/** Scaffold-integrity profile for an organic creative: the centre must carry real content
+ *  (photo detail or the real product artifact), never a flat navy/blank field. */
+function organicProbe(p) {
+  const s0 = stats(p);
+  const region = { center: { x: Math.round(s0.w * 0.25), y: Math.round(s0.h * 0.25), w: Math.round(s0.w * 0.5), h: Math.round(s0.h * 0.5) } };
+  const s = stats(p, region);
+  return { w: s.w, h: s.h, navy: s.flat_navy_pct, nonflat: s.nonflat_pct, white: s.white_pct, cream: s.cream_pct, center_stddev: s.regions.center.luma_stddev };
+}
+
 const ledger = JSON.parse(readFileSync(LEDGER, "utf8"));
 const rows = [];
+
+// ---- organic media cluster images (ledger-independent: discovered from disk) -----------------
+// Probes a scaffold-integrity profile for every rendered organic creative. Both layout families
+// (photo-led and artifact-led) must carry real content in the centre, never a flat navy/blank field.
+const ORGANIC = join(OUT, "Organic-Media");
+function organicWalk(d, out = []) {
+  if (!existsSync(d)) return out;
+  for (const e of readdirSync(d, { withFileTypes: true })) {
+    const p = join(d, e.name);
+    if (e.isDirectory()) organicWalk(p, out);
+    else if (p.toLowerCase().endsWith(".png")) out.push(p);
+  }
+  return out;
+}
+const organicRows = organicWalk(ORGANIC).map((p) => ({
+  id: relative(OUT, p).replace(/\\/g, "/"),
+  kind: "ORGANIC",
+  treatment: "n/a",
+  dims: "",
+  final: p,
+}));
 for (const a of ledger.assets) {
   if (a.type === "STATIC") rows.push({ id: a.asset, kind: "STATIC", treatment: a.treatment, dims: a.dims, final: a.final });
   else if (a.type === "CAROUSEL" || a.type === "STORY") for (const s of a.slides) rows.push({ id: `${a.asset}#${s.slide}`, kind: a.type, treatment: s.treatment, dims: a.dims, final: s.final });
@@ -56,8 +86,13 @@ if (RECORD) {
     if (!existsSync(r.final)) { console.log("MISSING", r.id); continue; }
     bench.assets[r.id] = { kind: r.kind, treatment: r.treatment, dims: r.dims, metrics: probe(r.final, r.treatment, r.dims) };
   }
+  bench.organic = {};
+  for (const r of organicRows) {
+    if (!existsSync(r.final)) continue;
+    bench.organic[r.id] = organicProbe(r.final);
+  }
   writeFileSync(BENCH, JSON.stringify(bench, null, 2) + "\n", "utf8");
-  console.log(`recorded ${Object.keys(bench.assets).length} benchmark entries -> ${BENCH}`);
+  console.log(`recorded ${Object.keys(bench.assets).length} social + ${Object.keys(bench.organic).length} organic benchmark entries -> ${BENCH}`);
   process.exit(0);
 }
 
@@ -95,6 +130,23 @@ for (const [id, exp] of Object.entries(bench.assets)) {
   if (exp.treatment === "B" && m.evidence_stddev != null && E.evidence_stddev != null && m.evidence_stddev < E.evidence_stddev - T.evidence_stddev) failures.push(`${id}: artifact detail degraded ${E.evidence_stddev} -> ${m.evidence_stddev}`);
 }
 
-console.log(`V06 visual regression: checked ${checked} creatives, ${missing} missing, ${failures.length} failures`);
+// ---- organic media cluster ----
+let organicChecked = 0;
+if (bench.organic) {
+  for (const r of organicRows) {
+    const exp = bench.organic[r.id];
+    if (!existsSync(r.final)) { failures.push(`${r.id}: organic creative missing`); continue; }
+    if (!exp) { failures.push(`${r.id}: new organic creative not in benchmark (re-run --record)`); continue; }
+    organicChecked++;
+    const m = organicProbe(r.final);
+    if (m.navy > 55) failures.push(`${r.id}: navy scaffold — flat navy ${m.navy}% (>55)`);
+    if (m.center_stddev < 10) failures.push(`${r.id}: blank centre — stddev ${m.center_stddev} (<10)`);
+    if (exp.center_stddev != null && m.center_stddev < exp.center_stddev - 12) failures.push(`${r.id}: centre detail collapsed ${exp.center_stddev} -> ${m.center_stddev}`);
+    if (m.nonflat + m.white + m.cream < 30) failures.push(`${r.id}: almost no content (nonflat+white+cream ${(m.nonflat + m.white + m.cream).toFixed(1)}%)`);
+  }
+}
+checked += organicChecked;
+
+console.log(`V06 visual regression: checked ${checked} creatives (${organicChecked} organic), ${missing} missing, ${failures.length} failures`);
 if (failures.length) { for (const f of failures.slice(0, 40)) console.log("  FAIL", f); process.exitCode = 1; }
 else console.log("RESULT: PASS — production integrity and treatment behaviour intact");

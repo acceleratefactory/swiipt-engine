@@ -1,0 +1,22 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 20-60s vertical 9:16 (1080x1920) explainer.
+
+NARRATION
+This is the least glamorous thing in the whole system and it does the most work: a fridge chart. Two clock times, one name per block, written by hand, in the same place every day. It goes on the fridge and not in an app because information you have to open is information you will renegotiate. Tonight is already decided. So the only question left at 3 AM is a practical one, not a fairness one.
+
+VISUAL
+- Fridge door, chart held by a magnet, straight on (static)
+- Hand writing two clock times (insert)
+- Night: parent reads the chart by fridge light (medium)
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt: THE FRIDGE CHART | Two times. One name each. | Handwritten. Same place daily. | Not an app - | information you open is information you renegotiate.
+
+PRODUCT EVIDENCE
+  Display the real V06 page page-18.png as the implementation mechanism. Never model-generate it.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain.

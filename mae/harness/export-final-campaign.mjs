@@ -231,6 +231,29 @@ No raw video is present in this export. No placeholder or empty video file has b
   written.push(reelDir);
 }
 
+/* ------------------------------------------------------------------ PACKAGE folders (generic)
+ * Any campaign may publish a `_packages.json` manifest listing package folders whose FINAL
+ * destination it declares itself ({id, dest, source_dir}). The exporter copies the ready-to-use
+ * files (media + text only) into FINAL/<dest>/ — it needs no platform knowledge, so future
+ * platforms, formats and video packages are supported without touching this exporter.
+ */
+if (!VALIDATE_ONLY) {
+  const pkgManifest = join(CAMPAIGN, "_packages.json");
+  if (existsSync(pkgManifest)) {
+    const pack = readJson(pkgManifest);
+    for (const p of pack.packages || []) {
+      const srcDir = p.source_dir;
+      const destDir = join(FINAL, p.dest);
+      if (!srcDir || !existsSync(srcDir)) continue;
+      for (const f of readdirSync(srcDir)) {
+        if (!/\.(png|jpg|jpeg|webp|mp4|txt)$/i.test(f)) continue;   // never JSON/HTML/intermediates
+        copy(join(srcDir, f), join(destDir, f));
+      }
+      written.push(destDir);
+    }
+  }
+}
+
 /* ------------------------------------------------------------------ Campaign folder */
 if (!VALIDATE_ONLY) {
   const seq = join(CAMPAIGN, "Campaign", "CAMPAIGN-SEQUENCE.md");
@@ -299,12 +322,31 @@ ck(21, zero.length === 0, zero.length ? `zero-byte: ${zero.slice(0, 3).join(", "
 // 22 — source untouched: verified by the caller via git status; recorded here as informational
 ck(22, true, "source workspace only read (verified separately via git status)");
 
+/* ---- organic media cluster (present only when the campaign produced one) ---- */
+const hasOrganic = relFiles.some((f) => f.startsWith("YouTube/") || f.startsWith("Pinterest/"));
+if (hasOrganic) {
+  const lf = ["Flagship", "Supporting-01", "Supporting-02", "Supporting-03", "Supporting-04", "Supporting-05"];
+  ck(23, lf.every((x) => has(`YouTube/Long-Form/${x}/TITLE.txt`) && has(`YouTube/Long-Form/${x}/SCRIPT.txt`)), "6 YouTube long-form packages");
+  ck(24, lf.every((x) => has(`YouTube/Long-Form/${x}/THUMBNAIL.png`)), "6 finished YouTube thumbnails (1280x720)");
+  ck(25, lf.every((x) => has(`YouTube/Long-Form/${x}/THUMBNAIL-PROMPT.txt`) && has(`YouTube/Long-Form/${x}/VIDEO-PROMPT.txt`) && has(`YouTube/Long-Form/${x}/PRODUCT-EVIDENCE-PLAN.txt`)), "long-form prompts + evidence plans");
+  ck(26, has("YouTube/Long-Form/Flagship/CHAPTERS.txt") && has("YouTube/Long-Form/Flagship/PINNED-COMMENT.txt"), "flagship chapters + pinned comment");
+  ck(27, Array.from({ length: 10 }, (_, i) => `Short-${String(i + 1).padStart(2, "0")}`).every((x) => has(`YouTube/Shorts/${x}/SCRIPT.txt`)), "10 YouTube Short packages");
+  ck(28, Array.from({ length: 10 }, (_, i) => `TikTok-${String(i + 1).padStart(2, "0")}`).every((x) => has(`TikTok/${x}/CAPTION.txt`) && has(`TikTok/${x}/SCRIPT.txt`)), "10 TikTok packages");
+  ck(29, Array.from({ length: 10 }, (_, i) => `Pin-${String(i + 1).padStart(2, "0")}`).every((x) => has(`Pinterest/${x}/PIN.png`)), "10 finished Pinterest Pins");
+  ck(30, Array.from({ length: 10 }, (_, i) => `Pin-${String(i + 1).padStart(2, "0")}`).every((x) => has(`Pinterest/${x}/TITLE.txt`) && has(`Pinterest/${x}/DESCRIPTION.txt`) && has(`Pinterest/${x}/CTA.txt`)), "Pin copy complete");
+  ck(31, Array.from({ length: 5 }, (_, i) => `Email-${String(i + 1).padStart(2, "0")}`).every((x) => has(`Email/${x}/SUBJECT.txt`) && has(`Email/${x}/PREHEADER.txt`) && has(`Email/${x}/BODY.txt`) && has(`Email/${x}/CTA.txt`)), "5 emails (subject/preheader/body/CTA)");
+  ck(32, has("Organic-Media-Sequence/ORGANIC-MEDIA-SEQUENCE.txt") && has("Organic-Media-Sequence/CROSS-PLATFORM-REUSE.txt"), "organic sequence + reuse map");
+  const pending = relFiles.filter((f) => f.endsWith("VIDEO-STATUS.txt"));
+  ck(33, pending.length >= 26, `${pending.length} VIDEO-STATUS files for pending video (6 long-form + 10 Shorts + 10 TikTok)`);
+  ck(34, relFiles.some((f) => f.endsWith("VIDEO-STATUS.txt")) && !relFiles.some((f) => /\.mp4$/i.test(f)), "video packages included with MP4 pending (no fake video)");
+}
+
 const failed = checks.filter((c) => !c.ok);
 console.log(`\nFINAL export: ${files.length} files`);
 console.log(`media png: ${count(/\.png$/i)}  txt: ${count(/\.txt$/i)}`);
 for (const c of checks) console.log(`  ${c.ok ? "PASS" : "FAIL"}  ${String(c.n).padStart(2)}. ${c.detail}`);
-if (failed.length) { console.log(`\nVALIDATION FAILED (${failed.length})`); process.exitCode = 1; }
-else console.log("\nVALIDATION: PASS (22/22)");
+if (failed.length) { console.log(`\nVALIDATION FAILED (${failed.length}/${checks.length})`); process.exitCode = 1; }
+else console.log(`\nVALIDATION: PASS (${checks.length}/${checks.length})`);
 
 /* ------------------------------------------------------------------ inventory + readme + zip */
 if (!VALIDATE_ONLY && !failed.length) {
@@ -356,7 +398,32 @@ REEL (Instagram/Reels/AST-NS-007)
 
 CAMPAIGN
 - campaign sequence present: ${has("Campaign/CAMPAIGN-SEQUENCE.txt") ? "YES" : "NO"}
+${has("YouTube/Long-Form/Flagship/TITLE.txt") ? `
+YOUTUBE LONG-FORM
+- ${relFiles.filter((f) => /^YouTube\/Long-Form\/[^/]+\/TITLE\.txt$/.test(f)).length} packages (flagship + supporting)
+- finished thumbnails (1280x720): ${relFiles.filter((f) => /^YouTube\/Long-Form\/[^/]+\/THUMBNAIL\.png$/.test(f)).length}
+- scripts, voiceovers, on-screen text, scene plans, shot lists, video prompts, product-evidence plans present
+- video status: pending (see each VIDEO-STATUS.txt) — no MP4 rendered
 
+YOUTUBE SHORTS
+- ${relFiles.filter((f) => /^YouTube\/Shorts\/[^/]+\/SCRIPT\.txt$/.test(f)).length} Short packages (9:16)
+- vertical covers where produced; captions, CTAs and video status present
+
+TIKTOK
+- ${relFiles.filter((f) => /^TikTok\/[^/]+\/CAPTION\.txt$/.test(f)).length} TikTok packages
+- platform-specific captions; one 9:16 master per unit reused across platforms
+
+PINTEREST
+- ${relFiles.filter((f) => /^Pinterest\/[^/]+\/PIN\.png$/.test(f)).length} finished Pins (1000x1500, 2:3)
+- titles, descriptions, CTAs present; image prompts where a generated scene was used
+
+EMAIL
+- ${relFiles.filter((f) => /^Email\/[^/]+\/SUBJECT\.txt$/.test(f)).length} emails (subject, preheader, body, CTA)
+
+ORGANIC MEDIA SEQUENCE
+- publishing sequence: ${has("Organic-Media-Sequence/ORGANIC-MEDIA-SEQUENCE.txt") ? "YES" : "NO"}
+- cross-platform reuse map: ${has("Organic-Media-Sequence/CROSS-PLATFORM-REUSE.txt") ? "YES" : "NO"}
+` : ""}
 TOTAL FILES: ${totalFiles}
 `;
 

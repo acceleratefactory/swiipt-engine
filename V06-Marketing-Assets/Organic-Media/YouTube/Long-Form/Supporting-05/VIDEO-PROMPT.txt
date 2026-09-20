@@ -1,0 +1,29 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 3-5 minutes long-form YouTube episode, 16:9 1920x1080.
+
+DISCIPLINE
+  Documentary/editorial treatment. Real postpartum domestic settings, unposed subjects,
+  available light. Cut on the narration beats - not on a music drop. No stock library
+  footage, no AI-generated faces, no staged pain expression, no hospital imagery.
+  Product evidence is composited deterministically from the real V06 pages, never generated.
+
+STRUCTURE
+  0:00  The plan was always going to break some nights - A bad night is not a failed system
+  0:35  Check the baby first - The roster never outranks the baby's health
+  1:30  The bad-night fallback - Default to turn; compensate next night
+  2:40  The four ways it usually breaks - Missed shift, refusal, overwhelm, relapse
+  4:00  The no-blame reset - A data point, not a violation
+  5:00  When exhaustion needs more than a night plan - Where a roster stops
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt. Never model-generate on-screen words.
+
+AUDIO
+  Narration from VOICEOVER.txt. No invented claims. Platform-permitted music only.
+
+PRODUCT EVIDENCE
+  Display the real V06 pages listed in PRODUCT-EVIDENCE-PLAN.txt as the implementation
+  mechanism at the narration moments indicated. Never render an imitation.

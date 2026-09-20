@@ -1,0 +1,13 @@
+============================================================
+THUMBNAIL IMAGE-GENERATION PROMPT (exact, archived)
+============================================================
+
+Source scene: AST-NS-014 — generated from the approved V06 Visual Grounding Block.
+Text overlay (deterministic, rendered last): "YOUR PLAN COLLAPSED."
+Format: 1280x720 PNG, 16:9.
+
+============================================================
+EXACT ARCHIVED SCENE PROMPT
+============================================================
+
+Parent holding sleeping baby, phone with notification, warm lamp light Wardrobe: Simple home clothes, realistic for late evening with baby. Posture: Parent seated, holding sleeping baby, phone in other hand showing notification or message, gentle and tired but not despairing. Dim bedroom or living room, warm lamp light, late evening, realistic Nigerian home Props: sleeping baby in arms; phone with visible notification or message; warm lamp or small light source; everyday home items in background. Lighting: Warm lamp light, soft and intimate, no harsh shadows. Composition: Close-up or medium shot, parent and baby central, phone visible but not dominant, warm and intimate framing. Cultural context: Nigerian parent, realistic home environment; Phone as notification source, not primary focus; Warm lamp light as real evening setting; Baby held naturally, not staged. Mood: Tender, tired, quiet — the real moment of holding a sleeping baby while the system works. Documentary-style editorial photography, natural realistic skin texture, unposed, candid, shallow depth of field, no text, no logos, no watermarks, no user interface. Avoid: No distress or frustration expressions; No clinical or medical setting; No luxury or aspirational lifestyle; No symmetrical AI-face composition; No dramatic or cinematic staging; No baby facing camera directly; No fabricated product UI on phone screen.

@@ -1,0 +1,25 @@
+============================================================
+VIDEO EXPORT STATUS
+============================================================
+
+STATUS:
+PRODUCTION PACKAGE READY — VIDEO NOT YET RENDERED
+
+Package            : Short-07 (YouTube Short)
+Expected filename  : Short-07.mp4
+Expected format    : MP4 (H.264 + AAC, platform-compatible)
+Resolution         : 1080x1920
+Aspect ratio       : 9:16
+Approximate length : 20-60s
+Script             : SCRIPT.txt · VOICEOVER.txt · ON-SCREEN-TEXT.txt
+Shot plan          : SHOT-LIST.txt
+Visual prompts     : - · VIDEO-PROMPT.txt
+Product evidence   : -
+Thumbnail          : COVER.png
+Description        : -
+Chapters           : -
+CTA                : CTA.txt
+
+No raw video is present in this package. No placeholder or empty MP4 has been created.
+When a qualified video provider is activated, place Short-07.mp4 in THIS SAME folder and
+update STATUS above to: RENDERED

@@ -1,0 +1,22 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 20-60s vertical 9:16 (1080x1920) explainer.
+
+NARRATION
+You are not lazy. You have not failed. You are running an unowned shift. A newborn wakes every night, but nobody agreed in advance whose turn it is - so it gets decided again at 3 AM, every night, by two people who have not slept. And the person already awake keeps deciding it. That is how one parent quietly ends up owning every night. No schedule and no system. Just a default nobody wrote down.
+
+VISUAL
+- Night kitchen, one parent alone with baby, flat overhead light (medium)
+- Same frame, slower push-in (insert)
+- Cut to black with the last line (static)
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt: YOU ARE NOT LAZY. | You are running an unowned shift. | Every night gets re-decided at 3 AM. | The awake parent keeps deciding it. | That is how one parent ends up owning every night.
+
+PRODUCT EVIDENCE
+  No product page in this unit; keep the visual on the grounded human scene.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain.

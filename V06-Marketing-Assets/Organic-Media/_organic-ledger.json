@@ -1,0 +1,347 @@
+{
+  "generated": "2026-09-20T20:51:17.790Z",
+  "cluster": "PPL-NIGHT-SHIFT-001 organic media cluster",
+  "provider_calls": 0,
+  "image_provider_spend_usd": 0,
+  "video_provider_calls": 0,
+  "video_provider_spend_usd": 0,
+  "rendered_images": 26,
+  "packages": [
+    {
+      "id": "Flagship",
+      "platform": "youtube",
+      "type": "LONG_FORM",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Long-Form\\Flagship",
+      "dest": "YouTube/Long-Form/Flagship",
+      "files": null
+    },
+    {
+      "id": "Supporting-01",
+      "platform": "youtube",
+      "type": "LONG_FORM",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Long-Form\\Supporting-01",
+      "dest": "YouTube/Long-Form/Supporting-01",
+      "files": null
+    },
+    {
+      "id": "Supporting-02",
+      "platform": "youtube",
+      "type": "LONG_FORM",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Long-Form\\Supporting-02",
+      "dest": "YouTube/Long-Form/Supporting-02",
+      "files": null
+    },
+    {
+      "id": "Supporting-03",
+      "platform": "youtube",
+      "type": "LONG_FORM",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Long-Form\\Supporting-03",
+      "dest": "YouTube/Long-Form/Supporting-03",
+      "files": null
+    },
+    {
+      "id": "Supporting-04",
+      "platform": "youtube",
+      "type": "LONG_FORM",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Long-Form\\Supporting-04",
+      "dest": "YouTube/Long-Form/Supporting-04",
+      "files": null
+    },
+    {
+      "id": "Supporting-05",
+      "platform": "youtube",
+      "type": "LONG_FORM",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Long-Form\\Supporting-05",
+      "dest": "YouTube/Long-Form/Supporting-05",
+      "files": null
+    },
+    {
+      "id": "Short-01",
+      "platform": "youtube",
+      "type": "SHORT",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Shorts\\Short-01",
+      "dest": "YouTube/Shorts/Short-01",
+      "files": null
+    },
+    {
+      "id": "Short-02",
+      "platform": "youtube",
+      "type": "SHORT",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Shorts\\Short-02",
+      "dest": "YouTube/Shorts/Short-02",
+      "files": null
+    },
+    {
+      "id": "Short-03",
+      "platform": "youtube",
+      "type": "SHORT",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Shorts\\Short-03",
+      "dest": "YouTube/Shorts/Short-03",
+      "files": null
+    },
+    {
+      "id": "Short-04",
+      "platform": "youtube",
+      "type": "SHORT",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Shorts\\Short-04",
+      "dest": "YouTube/Shorts/Short-04",
+      "files": null
+    },
+    {
+      "id": "Short-05",
+      "platform": "youtube",
+      "type": "SHORT",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Shorts\\Short-05",
+      "dest": "YouTube/Shorts/Short-05",
+      "files": null
+    },
+    {
+      "id": "Short-06",
+      "platform": "youtube",
+      "type": "SHORT",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Shorts\\Short-06",
+      "dest": "YouTube/Shorts/Short-06",
+      "files": null
+    },
+    {
+      "id": "Short-07",
+      "platform": "youtube",
+      "type": "SHORT",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Shorts\\Short-07",
+      "dest": "YouTube/Shorts/Short-07",
+      "files": null
+    },
+    {
+      "id": "Short-08",
+      "platform": "youtube",
+      "type": "SHORT",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Shorts\\Short-08",
+      "dest": "YouTube/Shorts/Short-08",
+      "files": null
+    },
+    {
+      "id": "Short-09",
+      "platform": "youtube",
+      "type": "SHORT",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Shorts\\Short-09",
+      "dest": "YouTube/Shorts/Short-09",
+      "files": null
+    },
+    {
+      "id": "Short-10",
+      "platform": "youtube",
+      "type": "SHORT",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\YouTube\\Shorts\\Short-10",
+      "dest": "YouTube/Shorts/Short-10",
+      "files": null
+    },
+    {
+      "id": "TikTok-01",
+      "platform": "tiktok",
+      "type": "SHORT_VERTICAL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\TikTok\\TikTok-01",
+      "dest": "TikTok/TikTok-01",
+      "files": null
+    },
+    {
+      "id": "TikTok-02",
+      "platform": "tiktok",
+      "type": "SHORT_VERTICAL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\TikTok\\TikTok-02",
+      "dest": "TikTok/TikTok-02",
+      "files": null
+    },
+    {
+      "id": "TikTok-03",
+      "platform": "tiktok",
+      "type": "SHORT_VERTICAL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\TikTok\\TikTok-03",
+      "dest": "TikTok/TikTok-03",
+      "files": null
+    },
+    {
+      "id": "TikTok-04",
+      "platform": "tiktok",
+      "type": "SHORT_VERTICAL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\TikTok\\TikTok-04",
+      "dest": "TikTok/TikTok-04",
+      "files": null
+    },
+    {
+      "id": "TikTok-05",
+      "platform": "tiktok",
+      "type": "SHORT_VERTICAL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\TikTok\\TikTok-05",
+      "dest": "TikTok/TikTok-05",
+      "files": null
+    },
+    {
+      "id": "TikTok-06",
+      "platform": "tiktok",
+      "type": "SHORT_VERTICAL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\TikTok\\TikTok-06",
+      "dest": "TikTok/TikTok-06",
+      "files": null
+    },
+    {
+      "id": "TikTok-07",
+      "platform": "tiktok",
+      "type": "SHORT_VERTICAL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\TikTok\\TikTok-07",
+      "dest": "TikTok/TikTok-07",
+      "files": null
+    },
+    {
+      "id": "TikTok-08",
+      "platform": "tiktok",
+      "type": "SHORT_VERTICAL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\TikTok\\TikTok-08",
+      "dest": "TikTok/TikTok-08",
+      "files": null
+    },
+    {
+      "id": "TikTok-09",
+      "platform": "tiktok",
+      "type": "SHORT_VERTICAL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\TikTok\\TikTok-09",
+      "dest": "TikTok/TikTok-09",
+      "files": null
+    },
+    {
+      "id": "TikTok-10",
+      "platform": "tiktok",
+      "type": "SHORT_VERTICAL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\TikTok\\TikTok-10",
+      "dest": "TikTok/TikTok-10",
+      "files": null
+    },
+    {
+      "id": "Pin-01",
+      "platform": "pinterest",
+      "type": "PIN",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Pinterest\\Pin-01",
+      "dest": "Pinterest/Pin-01",
+      "files": null
+    },
+    {
+      "id": "Pin-02",
+      "platform": "pinterest",
+      "type": "PIN",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Pinterest\\Pin-02",
+      "dest": "Pinterest/Pin-02",
+      "files": null
+    },
+    {
+      "id": "Pin-03",
+      "platform": "pinterest",
+      "type": "PIN",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Pinterest\\Pin-03",
+      "dest": "Pinterest/Pin-03",
+      "files": null
+    },
+    {
+      "id": "Pin-04",
+      "platform": "pinterest",
+      "type": "PIN",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Pinterest\\Pin-04",
+      "dest": "Pinterest/Pin-04",
+      "files": null
+    },
+    {
+      "id": "Pin-05",
+      "platform": "pinterest",
+      "type": "PIN",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Pinterest\\Pin-05",
+      "dest": "Pinterest/Pin-05",
+      "files": null
+    },
+    {
+      "id": "Pin-06",
+      "platform": "pinterest",
+      "type": "PIN",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Pinterest\\Pin-06",
+      "dest": "Pinterest/Pin-06",
+      "files": null
+    },
+    {
+      "id": "Pin-07",
+      "platform": "pinterest",
+      "type": "PIN",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Pinterest\\Pin-07",
+      "dest": "Pinterest/Pin-07",
+      "files": null
+    },
+    {
+      "id": "Pin-08",
+      "platform": "pinterest",
+      "type": "PIN",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Pinterest\\Pin-08",
+      "dest": "Pinterest/Pin-08",
+      "files": null
+    },
+    {
+      "id": "Pin-09",
+      "platform": "pinterest",
+      "type": "PIN",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Pinterest\\Pin-09",
+      "dest": "Pinterest/Pin-09",
+      "files": null
+    },
+    {
+      "id": "Pin-10",
+      "platform": "pinterest",
+      "type": "PIN",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Pinterest\\Pin-10",
+      "dest": "Pinterest/Pin-10",
+      "files": null
+    },
+    {
+      "id": "Email-01",
+      "platform": "email",
+      "type": "EMAIL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Email\\Email-01",
+      "dest": "Email/Email-01",
+      "files": null
+    },
+    {
+      "id": "Email-02",
+      "platform": "email",
+      "type": "EMAIL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Email\\Email-02",
+      "dest": "Email/Email-02",
+      "files": null
+    },
+    {
+      "id": "Email-03",
+      "platform": "email",
+      "type": "EMAIL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Email\\Email-03",
+      "dest": "Email/Email-03",
+      "files": null
+    },
+    {
+      "id": "Email-04",
+      "platform": "email",
+      "type": "EMAIL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Email\\Email-04",
+      "dest": "Email/Email-04",
+      "files": null
+    },
+    {
+      "id": "Email-05",
+      "platform": "email",
+      "type": "EMAIL",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Email\\Email-05",
+      "dest": "Email/Email-05",
+      "files": null
+    },
+    {
+      "id": "Organic-Media-Sequence",
+      "platform": "organic",
+      "type": "SEQUENCE",
+      "source_dir": "C:\\Users\\HPM6\\Desktop\\Transformation\\Product Pipeline\\V06-Marketing-Assets\\Organic-Media\\Media-Cluster-Sequence",
+      "dest": "Organic-Media-Sequence",
+      "files": null
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+============================================================
+VIDEO GENERATION PROMPT (TikTok)
+============================================================
+
+MASTER: reuse the Short-05 vertical master. Do not render a duplicate 9:16 master - one qualified 9:16 master serves YouTube Shorts, TikTok, and future IG/FB Reels, with platform-specific copy preserved in CAPTION.txt.
+
+NARRATION
+One parent works tomorrow. That is real - and it is not a reason for the other parent to own every single night. A working parent usually cannot own 1 AM to 5 AM. They can often own 9 PM to midnight, before their own sleep, or 5 AM to 7 AM, after it. The work night changes the size of the block, not whether one exists. Write the block you can actually keep.
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain, no sensationalised exhaustion.

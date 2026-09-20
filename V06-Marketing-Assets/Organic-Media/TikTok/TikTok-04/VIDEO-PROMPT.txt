@@ -1,0 +1,14 @@
+============================================================
+VIDEO GENERATION PROMPT (TikTok)
+============================================================
+
+MASTER: reuse the Short-04 vertical master. Do not render a duplicate 9:16 master - one qualified 9:16 master serves YouTube Shorts, TikTok, and future IG/FB Reels, with platform-specific copy preserved in CAPTION.txt.
+
+NARRATION
+There is a difference between being available and being on duty - and it is the whole reason night plans fail. Available means: I am in the house, wake me if it gets bad. On duty means: this block is mine, the alarm is set, I am awake and I am handling it. Available still leaves the decision with the exhausted person. On duty removes it entirely. Write down who is on duty, not who is around.
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain, no sensationalised exhaustion.

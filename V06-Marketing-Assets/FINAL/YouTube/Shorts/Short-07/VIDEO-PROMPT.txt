@@ -1,0 +1,22 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 20-60s vertical 9:16 (1080x1920) explainer.
+
+NARRATION
+If you are the off-duty parent, your job is not nothing - it is specific. Two things. First, protect your own sleep properly: earplugs, white noise, because that is the point of a shift system and being tired tomorrow helps nobody. Second, own your whole block when it comes: the resettles, the nappy, the pacing, the soothing. Your partner should be able to hear the baby and do nothing. That is what a real block means.
+
+VISUAL
+- Off-duty parent asleep with white noise, calm (medium)
+- On-duty parent pacing with baby (medium)
+- Text card with the two rules (static)
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt: IF YOU ARE OFF DUTY: | 1. Protect your sleep properly. | 2. Own your whole block. | Your partner should be able | to hear the baby and do nothing.
+
+PRODUCT EVIDENCE
+  No product page in this unit; keep the visual on the grounded human scene.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain.

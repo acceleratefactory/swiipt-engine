@@ -1,0 +1,14 @@
+============================================================
+VIDEO GENERATION PROMPT (TikTok)
+============================================================
+
+MASTER: reuse the Short-06 vertical master. Do not render a duplicate 9:16 master - one qualified 9:16 master serves YouTube Shorts, TikTok, and future IG/FB Reels, with platform-specific copy preserved in CAPTION.txt.
+
+NARRATION
+This is the least glamorous thing in the whole system and it does the most work: a fridge chart. Two clock times, one name per block, written by hand, in the same place every day. It goes on the fridge and not in an app because information you have to open is information you will renegotiate. Tonight is already decided. So the only question left at 3 AM is a practical one, not a fairness one.
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain, no sensationalised exhaustion.

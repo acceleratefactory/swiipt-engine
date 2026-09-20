@@ -1,0 +1,22 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 20-60s vertical 9:16 (1080x1920) explainer.
+
+NARRATION
+Your night plan failed. Good - that means you actually ran one. Here is the protocol, and it is three lines. Check the baby first: if you are worried about the baby's health, the roster pauses and you follow your paediatric guidance. Then default to whoever's turn it technically is - do not re-litigate fairness at 3 AM. Then log the override so tomorrow compensates tonight. Do not redesign the system tonight. Fix the alarm tomorrow.
+
+VISUAL
+- Dim night room, one parent holding the baby, worried but calm (medium)
+- Insert: the rescue card on a table with a coffee ring
+- Text card with the three steps (static)
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt: PLAN FAILED? | 1. Check the baby first. | 2. Default to whoever's turn it is. | 3. Log it - tomorrow compensates. | Do not redesign anything at 3 AM.
+
+PRODUCT EVIDENCE
+  Display the real V06 page page-20.png as the implementation mechanism. Never model-generate it.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain.

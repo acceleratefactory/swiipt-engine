@@ -1,0 +1,14 @@
+============================================================
+VIDEO GENERATION PROMPT (TikTok)
+============================================================
+
+MASTER: reuse the Short-10 vertical master. Do not render a duplicate 9:16 master - one qualified 9:16 master serves YouTube Shorts, TikTok, and future IG/FB Reels, with platform-specific copy preserved in CAPTION.txt.
+
+NARRATION
+This is what a newborn night roster actually looks like. It is not a parenting philosophy. It is a page. One block for the working parent before their sleep. One block around the feeds, with the hand-off written in: your partner brings the baby to you, you feed, your partner takes the baby back. One protected block that is genuinely yours. And a rule at the bottom: the baby always overrides the roster. That is the whole system, on one page, decided before the night.
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain, no sensationalised exhaustion.

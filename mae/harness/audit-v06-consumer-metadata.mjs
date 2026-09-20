@@ -5,7 +5,7 @@ import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const OUT = "V06-Marketing-Assets";
-const PLATFORMS = ["Facebook", "Instagram", "WhatsApp", "Reels"];
+const PLATFORMS = ["Facebook", "Instagram", "WhatsApp", "Reels", "Organic-Media"];
 
 const FORBIDDEN = [
   { re: /\bPPL-[A-Z0-9-]+/g, what: "product id" },
@@ -46,19 +46,17 @@ function audit(file) {
   }
 }
 
-for (const p of PLATFORMS) {
-  const base = join(OUT, p);
-  if (!existsSync(base)) continue;
-  for (const id of readdirSync(base)) {
-    const dir = join(base, id);
-    for (const sub of ["final", "."]) {
-      const d = sub === "." ? dir : join(dir, sub);
-      if (!existsSync(d)) continue;
-      for (const f of readdirSync(d)) {
-        if (f.endsWith(".src.html")) audit(join(d, f));
-      }
-    }
+function walk(dir, out = []) {
+  if (!existsSync(dir)) return out;
+  for (const e of readdirSync(dir, { withFileTypes: true })) {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) walk(p, out);
+    else if (p.endsWith(".src.html")) out.push(p);
   }
+  return out;
+}
+for (const p of PLATFORMS) {
+  for (const f of walk(join(OUT, p))) audit(f);
 }
 
 console.log(`consumer creatives audited: ${audited}`);

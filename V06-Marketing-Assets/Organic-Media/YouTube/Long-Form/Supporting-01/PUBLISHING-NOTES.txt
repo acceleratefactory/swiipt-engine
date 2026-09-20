@@ -1,0 +1,10 @@
+PUBLISHING NOTES
+
+Series     : SWIIPT | WHAT DO I DO NOW?
+Tagline    : Practical systems for the exact moments life gets difficult.
+Title test : 3 candidates evaluated against truthfulness, situation specificity, search intent, curiosity, non-clickbait integrity and product relevance.
+Selected   : Why 'Wake Me If You Need Help' Breaks Down at 3 AM
+Rationale  : Quotes an offer almost every couple has made, names the exact hour it fails, and promises an explanation rather than a promise.
+Truth      : every claim traces to TR-PPL-NIGHT-SHIFT-001 (situation, mechanism, failure points, safety boundaries).
+Safety     : reviewed V06 language used verbatim for safe sleep, on-shift alertness, and escalation. No diagnosis, no medical advice, no fear clickbait.
+Thumbnail  : finished 1280x720 asset; complements the title rather than repeating it.

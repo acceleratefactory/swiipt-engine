@@ -1,0 +1,7 @@
+ON-SCREEN TEXT (deterministic, in order)
+
+01  'I WORK TOMORROW'
+02  is real -
+03  but it is not
+04  'so you own every night'.
+05  Name the block you can actually keep.

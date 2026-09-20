@@ -1,0 +1,7 @@
+ON-SCREEN TEXT (deterministic, in order)
+
+01  THE 3AM ARGUMENT
+02  IS REALLY AN 8PM GAP.
+03  Decide it before the night.
+04  Two times. One name each.
+05  Then 3 AM has no decision in it.

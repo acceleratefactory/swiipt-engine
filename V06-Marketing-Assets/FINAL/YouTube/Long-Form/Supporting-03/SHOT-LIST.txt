@@ -1,0 +1,20 @@
+SHOT LIST (deterministic plan; numbered shots, not a rendered edit)
+
+SHOT 01  0:00  The constraint that kills most rosters
+    visual: The constraint that kills most rosters
+    on-screen: deterministic caption for this beat
+SHOT 02  0:35  Why 'he works, so he sleeps' is not a system
+    visual: Why 'he works, so he sleeps' is not a system
+    on-screen: deterministic caption for this beat
+SHOT 03  1:30  Planning the work night instead of avoiding it
+    visual: Planning the work night instead of avoiding it
+    on-screen: deterministic caption for this beat
+SHOT 04  2:40  The early block and the late block
+    visual: The early block and the late block
+    on-screen: deterministic caption for this beat
+SHOT 05  3:50  Weekends and recovery
+    visual: Weekends and recovery
+    on-screen: deterministic caption for this beat
+SHOT 06  4:50  What to write down
+    visual: What to write down
+    on-screen: deterministic caption for this beat

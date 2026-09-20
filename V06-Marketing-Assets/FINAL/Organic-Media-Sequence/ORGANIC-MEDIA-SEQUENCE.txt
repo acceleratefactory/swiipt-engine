@@ -1,0 +1,49 @@
+============================================================
+V06 ORGANIC MEDIA SEQUENCE — publishing operations
+============================================================
+
+Series : SWIIPT | WHAT DO I DO NOW?
+Tagline: Practical systems for the exact moments life gets difficult.
+Product: Every Night, Just Me (PPL-NIGHT-SHIFT-001)
+Question this answers: what do we publish first, second, third — and why.
+
+ORDER
+1. Flagship YouTube long-form
+   why : Recognise the situation and teach the operating principle
+   note: Anchor asset - everything else points here
+
+2. Supporting YouTube 01-05
+   why : Answer the five follow-on questions the flagship raises
+   note: Search demand + depth
+
+3. YouTube Shorts 01-10
+   why : Standalone useful units for discovery
+   note: Each unit works with no prior context
+
+4. TikTok 01-10
+   why : Same 9:16 masters, platform-specific captions
+   note: Reuse, not duplicate production
+
+5. Pinterest 01-10
+   why : Saveable artifacts - charts, decision aid, tracker, rescue
+   note: Search-driven, long shelf life
+
+6. Email 01-05
+   why : Progression: recognition - mechanism - implementation - rescue - product
+   note: Owned audience, no algorithm
+
+7. WhatsApp (existing approved)
+   why : Peer-group distribution of the shareable artifacts
+   note: Private group chat is the primary surface
+
+8. Product
+   why : Every Night, Just Me - the complete system
+   note: Conversion, never the opener
+
+OPERATING NOTES
+- The flagship is the only asset that assumes no prior context; everything else assumes the flagships or shorts.
+- Shorts and TikTok share one 9:16 master per unit - publish the same master, keep platform-specific captions.
+- Pinterest is the long-shelf-life, search-driven surface; publish continuously rather than as a burst.
+- Email is the owned surface: it sequences the same progression without depending on an algorithm.
+- WhatsApp is the primary peer distribution surface for the shareable artifacts (existing approved assets).
+- The product is never the opener. Situation first, mechanism second, product last.

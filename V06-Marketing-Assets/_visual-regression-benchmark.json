@@ -1,7 +1,7 @@
 {
   "benchmark": "V06 visual regression",
   "purpose": "production integrity + treatment behaviour (not identical appearance)",
-  "recorded": "2026-09-19T19:28:03.039Z",
+  "recorded": "2026-09-20T20:59:42.958Z",
   "compositor": "creative-compositor.mjs",
   "tolerance": {
     "nonflat": 14,
@@ -551,6 +551,242 @@
         "rich": 4.3,
         "evidence_stddev": 45.25
       }
+    }
+  },
+  "organic": {
+    "Organic-Media/Pinterest/Pin-01/PIN.png": {
+      "w": 1000,
+      "h": 1500,
+      "navy": 20.2,
+      "nonflat": 78.6,
+      "white": 1.2,
+      "cream": 1.2,
+      "center_stddev": 36.2
+    },
+    "Organic-Media/Pinterest/Pin-02/PIN.png": {
+      "w": 1000,
+      "h": 1500,
+      "navy": 1.1,
+      "nonflat": 9.9,
+      "white": 43.7,
+      "cream": 89,
+      "center_stddev": 48.69
+    },
+    "Organic-Media/Pinterest/Pin-03/PIN.png": {
+      "w": 1000,
+      "h": 1500,
+      "navy": 4,
+      "nonflat": 9.2,
+      "white": 39.6,
+      "cream": 86.8,
+      "center_stddev": 77.14
+    },
+    "Organic-Media/Pinterest/Pin-04/PIN.png": {
+      "w": 1000,
+      "h": 1500,
+      "navy": 4.5,
+      "nonflat": 9.9,
+      "white": 35.7,
+      "cream": 85.6,
+      "center_stddev": 77.08
+    },
+    "Organic-Media/Pinterest/Pin-05/PIN.png": {
+      "w": 1000,
+      "h": 1500,
+      "navy": 2,
+      "nonflat": 11.1,
+      "white": 41.1,
+      "cream": 86.9,
+      "center_stddev": 52.57
+    },
+    "Organic-Media/Pinterest/Pin-06/PIN.png": {
+      "w": 1000,
+      "h": 1500,
+      "navy": 2.4,
+      "nonflat": 11.7,
+      "white": 39.9,
+      "cream": 85.9,
+      "center_stddev": 77.42
+    },
+    "Organic-Media/Pinterest/Pin-07/PIN.png": {
+      "w": 1000,
+      "h": 1500,
+      "navy": 1.1,
+      "nonflat": 5.4,
+      "white": 0.1,
+      "cream": 93.5,
+      "center_stddev": 38.7
+    },
+    "Organic-Media/Pinterest/Pin-08/PIN.png": {
+      "w": 1000,
+      "h": 1500,
+      "navy": 1.1,
+      "nonflat": 5.3,
+      "white": 0.1,
+      "cream": 93.7,
+      "center_stddev": 38.29
+    },
+    "Organic-Media/Pinterest/Pin-09/PIN.png": {
+      "w": 1000,
+      "h": 1500,
+      "navy": 11.5,
+      "nonflat": 86.7,
+      "white": 1.1,
+      "cream": 1.8,
+      "center_stddev": 56.38
+    },
+    "Organic-Media/Pinterest/Pin-10/PIN.png": {
+      "w": 1000,
+      "h": 1500,
+      "navy": 0.8,
+      "nonflat": 9.5,
+      "white": 45,
+      "cream": 89.7,
+      "center_stddev": 29.71
+    },
+    "Organic-Media/YouTube/Long-Form/Flagship/THUMBNAIL.png": {
+      "w": 1280,
+      "h": 720,
+      "navy": 25.5,
+      "nonflat": 71.8,
+      "white": 2.1,
+      "cream": 2.7,
+      "center_stddev": 48.95
+    },
+    "Organic-Media/YouTube/Long-Form/Supporting-01/THUMBNAIL.png": {
+      "w": 1280,
+      "h": 720,
+      "navy": 5.8,
+      "nonflat": 91.7,
+      "white": 2.5,
+      "cream": 2.5,
+      "center_stddev": 57.71
+    },
+    "Organic-Media/YouTube/Long-Form/Supporting-02/THUMBNAIL.png": {
+      "w": 1280,
+      "h": 720,
+      "navy": 11,
+      "nonflat": 88.1,
+      "white": 0.8,
+      "cream": 0.8,
+      "center_stddev": 49.92
+    },
+    "Organic-Media/YouTube/Long-Form/Supporting-03/THUMBNAIL.png": {
+      "w": 1280,
+      "h": 720,
+      "navy": 10.6,
+      "nonflat": 83.3,
+      "white": 5.7,
+      "cream": 6,
+      "center_stddev": 55.99
+    },
+    "Organic-Media/YouTube/Long-Form/Supporting-04/THUMBNAIL.png": {
+      "w": 1280,
+      "h": 720,
+      "navy": 5.5,
+      "nonflat": 92.5,
+      "white": 2,
+      "cream": 2,
+      "center_stddev": 67.04
+    },
+    "Organic-Media/YouTube/Long-Form/Supporting-05/THUMBNAIL.png": {
+      "w": 1280,
+      "h": 720,
+      "navy": 6,
+      "nonflat": 91.5,
+      "white": 2.5,
+      "cream": 2.5,
+      "center_stddev": 64.37
+    },
+    "Organic-Media/YouTube/Shorts/Short-01/COVER.png": {
+      "w": 1080,
+      "h": 1920,
+      "navy": 21.8,
+      "nonflat": 77.2,
+      "white": 1,
+      "cream": 1,
+      "center_stddev": 37.05
+    },
+    "Organic-Media/YouTube/Shorts/Short-02/COVER.png": {
+      "w": 1080,
+      "h": 1920,
+      "navy": 6.7,
+      "nonflat": 92.3,
+      "white": 1,
+      "cream": 1,
+      "center_stddev": 50.92
+    },
+    "Organic-Media/YouTube/Shorts/Short-03/COVER.png": {
+      "w": 1080,
+      "h": 1920,
+      "navy": 6.2,
+      "nonflat": 93,
+      "white": 0.7,
+      "cream": 0.7,
+      "center_stddev": 60.41
+    },
+    "Organic-Media/YouTube/Shorts/Short-04/COVER.png": {
+      "w": 1080,
+      "h": 1920,
+      "navy": 16.8,
+      "nonflat": 82.5,
+      "white": 0.7,
+      "cream": 0.7,
+      "center_stddev": 65.89
+    },
+    "Organic-Media/YouTube/Shorts/Short-05/COVER.png": {
+      "w": 1080,
+      "h": 1920,
+      "navy": 30.7,
+      "nonflat": 45.9,
+      "white": 22,
+      "cream": 23.4,
+      "center_stddev": 84.27
+    },
+    "Organic-Media/YouTube/Shorts/Short-06/COVER.png": {
+      "w": 1080,
+      "h": 1920,
+      "navy": 25.3,
+      "nonflat": 51.8,
+      "white": 19.8,
+      "cream": 22.9,
+      "center_stddev": 84.79
+    },
+    "Organic-Media/YouTube/Shorts/Short-07/COVER.png": {
+      "w": 1080,
+      "h": 1920,
+      "navy": 22.8,
+      "nonflat": 76.3,
+      "white": 0.9,
+      "cream": 0.9,
+      "center_stddev": 48.35
+    },
+    "Organic-Media/YouTube/Shorts/Short-08/COVER.png": {
+      "w": 1080,
+      "h": 1920,
+      "navy": 23.2,
+      "nonflat": 54,
+      "white": 22.1,
+      "cream": 22.8,
+      "center_stddev": 83.24
+    },
+    "Organic-Media/YouTube/Shorts/Short-09/COVER.png": {
+      "w": 1080,
+      "h": 1920,
+      "navy": 22.6,
+      "nonflat": 77,
+      "white": 0.5,
+      "cream": 0.5,
+      "center_stddev": 47.44
+    },
+    "Organic-Media/YouTube/Shorts/Short-10/COVER.png": {
+      "w": 1080,
+      "h": 1920,
+      "navy": 20,
+      "nonflat": 56.7,
+      "white": 21.8,
+      "cream": 23.2,
+      "center_stddev": 84.05
     }
   }
 }

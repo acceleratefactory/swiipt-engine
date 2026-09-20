@@ -1,0 +1,16 @@
+PRODUCT EVIDENCE PLAN (real corrected V06 pages - deterministic composition, never model-generated)
+
+page-06.png  The Read - why unstructured nights break down
+    displayed as the implementation mechanism at the matching narration moment; framed as a real artifact, not a sales slide.
+
+page-08.png  The Decision Tree - route to your roster
+    displayed as the implementation mechanism at the matching narration moment; framed as a real artifact, not a sales slide.
+
+page-18.png  The Fridge Shift Chart - tonight's wall plan
+    displayed as the implementation mechanism at the matching narration moment; framed as a real artifact, not a sales slide.
+
+page-19.png  The 14-Day Tracker - log what actually happened
+    displayed as the implementation mechanism at the matching narration moment; framed as a real artifact, not a sales slide.
+
+page-20.png  The Rescue Card - bad-night protocol
+    displayed as the implementation mechanism at the matching narration moment; framed as a real artifact, not a sales slide.

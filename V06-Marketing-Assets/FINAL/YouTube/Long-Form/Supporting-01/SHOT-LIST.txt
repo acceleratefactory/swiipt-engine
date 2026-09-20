@@ -1,0 +1,23 @@
+SHOT LIST (deterministic plan; numbered shots, not a rendered edit)
+
+SHOT 01  0:00  The offer everyone makes
+    visual: The offer everyone makes
+    on-screen: deterministic caption for this beat
+SHOT 02  0:25  Why it transfers the decision, not the work
+    visual: Why it transfers the decision, not the work
+    on-screen: deterministic caption for this beat
+SHOT 03  1:20  The 3 AM calculation
+    visual: The 3 AM calculation
+    on-screen: deterministic caption for this beat
+SHOT 04  2:30  What replaces it
+    visual: What replaces it
+    on-screen: deterministic caption for this beat
+SHOT 05  3:40  The hand-off that does not need you to ask
+    visual: The hand-off that does not need you to ask
+    on-screen: deterministic caption for this beat
+SHOT 06  4:40  Keeping the goodwill, losing the guesswork
+    visual: Keeping the goodwill, losing the guesswork
+    on-screen: deterministic caption for this beat
+SHOT 07  5:30  Start tonight
+    visual: Start tonight
+    on-screen: deterministic caption for this beat

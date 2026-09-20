@@ -1,0 +1,14 @@
+============================================================
+VIDEO GENERATION PROMPT (TikTok)
+============================================================
+
+MASTER: reuse the Short-02 vertical master. Do not render a duplicate 9:16 master - one qualified 9:16 master serves YouTube Shorts, TikTok, and future IG/FB Reels, with platform-specific copy preserved in CAPTION.txt.
+
+NARRATION
+Wake me if you need help. Well-meant, and it fails almost every time. Here is why: it does not transfer the work, it transfers the decision. It asks the person already awake, already exhausted, to judge whether this counts as needing help. And exhaustion always sets that bar too high. He has work tomorrow. It is only twenty minutes. I am awake anyway. So the help never gets asked for. Replace the offer with a default: this block is mine.
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain, no sensationalised exhaustion.

@@ -1,0 +1,14 @@
+============================================================
+VIDEO GENERATION PROMPT (TikTok)
+============================================================
+
+MASTER: reuse the Short-08 vertical master. Do not render a duplicate 9:16 master - one qualified 9:16 master serves YouTube Shorts, TikTok, and future IG/FB Reels, with platform-specific copy preserved in CAPTION.txt.
+
+NARRATION
+Your night plan failed. Good - that means you actually ran one. Here is the protocol, and it is three lines. Check the baby first: if you are worried about the baby's health, the roster pauses and you follow your paediatric guidance. Then default to whoever's turn it technically is - do not re-litigate fairness at 3 AM. Then log the override so tomorrow compensates tonight. Do not redesign the system tonight. Fix the alarm tomorrow.
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain, no sensationalised exhaustion.

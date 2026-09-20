@@ -1,0 +1,41 @@
+SHOT LIST (deterministic plan; numbered shots, not a rendered edit)
+
+SHOT 01  0:00  This is your night
+    visual: This is your night
+    on-screen: deterministic caption for this beat
+SHOT 02  0:20  Nobody's fault, nobody's job
+    visual: Nobody's fault, nobody's job
+    on-screen: deterministic caption for this beat
+SHOT 03  1:00  Why 'just ask for help' breaks down
+    visual: Why 'just ask for help' breaks down
+    on-screen: deterministic caption for this beat
+SHOT 04  1:50  The breastfeeding objection, answered honestly
+    visual: The breastfeeding objection, answered honestly
+    on-screen: deterministic caption for this beat
+SHOT 05  2:30  The one idea: an owner and a roster
+    visual: The one idea: an owner and a roster
+    on-screen: deterministic caption for this beat
+SHOT 06  3:20  Choose the model that fits your reality
+    visual: Choose the model that fits your reality
+    on-screen: deterministic caption for this beat
+SHOT 07  4:30  The hand-off
+    visual: The hand-off
+    on-screen: deterministic caption for this beat
+SHOT 08  5:20  The Fridge Shift Chart
+    visual: The Fridge Shift Chart
+    on-screen: deterministic caption for this beat
+SHOT 09  6:00  The sleep banker
+    visual: The sleep banker
+    on-screen: deterministic caption for this beat
+SHOT 10  6:40  The baby overrides the roster
+    visual: The baby overrides the roster
+    on-screen: deterministic caption for this beat
+SHOT 11  7:00  When the plan collapses
+    visual: When the plan collapses
+    on-screen: deterministic caption for this beat
+SHOT 12  7:40  When exhaustion is more than tiredness
+    visual: When exhaustion is more than tiredness
+    on-screen: deterministic caption for this beat
+SHOT 13  8:10  Where to start tonight
+    visual: Where to start tonight
+    on-screen: deterministic caption for this beat

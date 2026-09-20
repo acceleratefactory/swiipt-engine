@@ -1,0 +1,7 @@
+ON-SCREEN TEXT (deterministic, in order)
+
+01  IF YOU ARE OFF DUTY:
+02  1. Protect your sleep properly.
+03  2. Own your whole block.
+04  Your partner should be able
+05  to hear the baby and do nothing.

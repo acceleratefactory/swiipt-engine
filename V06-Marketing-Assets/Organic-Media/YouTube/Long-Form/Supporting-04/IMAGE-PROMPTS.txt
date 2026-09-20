@@ -1,0 +1,12 @@
+IMAGE-GENERATION PROMPTS (exact archived prompts for every visual referenced)
+
+page-18.png: real corrected V06 product page - used as product evidence, never model-generated.
+page-06.png: real corrected V06 product page - used as product evidence, never model-generated.
+page-19.png: real corrected V06 product page - used as product evidence, never model-generated.
+
+============================================================
+SCENE PROMPTS (from the approved V06 Visual Grounding Blocks)
+============================================================
+
+--- AST-NS-012 ---
+Single parent in small bedroom, hands-free pump, chart on wall, natural daylight Wardrobe: Simple, practical home clothes — realistic for a single parent managing alone. Posture: Parent sitting on bed or chair, hands-free pump visible, looking at chart or phone with determination, not despair. Small bedroom, natural daylight from window, realistic Nigerian home, lived-in and real Props: hands-free pump or pumping setup; chart or schedule on wall or bedside; phone or small notebook; everyday baby items. Lighting: Natural daylight from window, soft and honest — not dramatic or cinematic. Composition: Single parent centered, pump and chart visible, natural and grounded framing, showing capability not victimhood. Cultural context: Nigerian single parent, realistic home environment; Hands-free pump as practical tool, not luxury; Chart as self-made system, not imposed; Determined capability, not helplessness. Mood: Determined, capable, grounded — doing this alone but with a system that works. Documentary-style editorial photography, natural realistic skin texture, unposed, candid, shallow depth of field, no text, no logos, no watermarks, no user interface. Avoid: No isolation or loneliness framing; No despair or sadness expressions; No clinical or hospital setting; No luxury or aspirational lifestyle; No symmetrical AI-face composition; No dramatic or cinematic lighting; No exaggerated emotional staging.

@@ -1,0 +1,20 @@
+If you are reading this because the plan collapsed, start here.
+
+First, check the baby. If the baby has a fever, is vomiting, is in unusual pain, is having difficulty breathing, or you are worried about their physical wellbeing - the roster pauses. Follow your paediatric guidance, or contact emergency services.
+
+Then the fallback, and it is three lines:
+
+1. Default to whoever's turn it technically is. Do not re-litigate fairness at 3 AM.
+2. The override triggers automatic next-night compensation - log it in the tracker.
+3. Do not redesign the system tonight. Fix the alarm or the handoff tomorrow, in daylight.
+
+The four ways it usually breaks, and the response for each: a missed shift gets a no-blame reset (one data point, not a violation); outright refusal gets the "trial it for one week" framing; overwhelm gets the simplified version - one non-negotiable block, everything else dropped temporarily; a relapse restarts at the negotiate step, with no guilt.
+
+And one thing that matters more than any roster: severe, sustained exhaustion can mask or worsen postpartum mental-health conditions, and no schedule fixes that. If you feel hopeless, empty or sad in a way that does not lift after a good sleep block, or you get panic or rapid heartbeats thinking about the night, or you cannot sleep even when someone else is on duty, or you have frightening intrusive thoughts, or you feel disconnected from your baby - that is not a scheduling problem. If two or more of those appear consistently for more than two weeks, seek professional assessment. If anything there is acute, act today.
+
+============================================================
+SAFETY
+============================================================
+
+Educational content - not medical, clinical, or mental-health advice.
+This system coordinates night-care between adults. It never diagnoses or treats any condition and never replaces professional care.

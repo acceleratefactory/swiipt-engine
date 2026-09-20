@@ -1,0 +1,7 @@
+ON-SCREEN TEXT (deterministic, in order)
+
+01  YOU ARE NOT LAZY.
+02  You are running an unowned shift.
+03  Every night gets re-decided at 3 AM.
+04  The awake parent keeps deciding it.
+05  That is how one parent ends up owning every night.

@@ -1,0 +1,22 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 20-60s vertical 9:16 (1080x1920) explainer.
+
+NARRATION
+Wake me if you need help. Well-meant, and it fails almost every time. Here is why: it does not transfer the work, it transfers the decision. It asks the person already awake, already exhausted, to judge whether this counts as needing help. And exhaustion always sets that bar too high. He has work tomorrow. It is only twenty minutes. I am awake anyway. So the help never gets asked for. Replace the offer with a default: this block is mine.
+
+VISUAL
+- Two adults at a table, phone between them, tired (medium)
+- Insert: a clock reading 3:14
+- Text card with the final line (static)
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt: 'WAKE ME IF YOU NEED HELP' | It transfers the decision, | not the work. | Exhaustion sets the bar too high. | Replace the offer with a default. | This block is mine.
+
+PRODUCT EVIDENCE
+  No product page in this unit; keep the visual on the grounded human scene.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain.

@@ -1,0 +1,20 @@
+SHOT LIST (deterministic plan; numbered shots, not a rendered edit)
+
+SHOT 01  0:00  The 3 AM argument is really an 8 PM gap
+    visual: The 3 AM argument is really an 8 PM gap
+    on-screen: deterministic caption for this beat
+SHOT 02  0:40  What the fridge chart is
+    visual: What the fridge chart is
+    on-screen: deterministic caption for this beat
+SHOT 03  1:40  Why it lives on the fridge and not in an app
+    visual: Why it lives on the fridge and not in an app
+    on-screen: deterministic caption for this beat
+SHOT 04  2:40  Filling it in - a worked example
+    visual: Filling it in - a worked example
+    on-screen: deterministic caption for this beat
+SHOT 05  3:50  The 8 PM five-minute review
+    visual: The 8 PM five-minute review
+    on-screen: deterministic caption for this beat
+SHOT 06  4:40  When the chart changes
+    visual: When the chart changes
+    on-screen: deterministic caption for this beat

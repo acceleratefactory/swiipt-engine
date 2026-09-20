@@ -1,0 +1,29 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 3-5 minutes long-form YouTube episode, 16:9 1920x1080.
+
+DISCIPLINE
+  Documentary/editorial treatment. Real postpartum domestic settings, unposed subjects,
+  available light. Cut on the narration beats - not on a music drop. No stock library
+  footage, no AI-generated faces, no staged pain expression, no hospital imagery.
+  Product evidence is composited deterministically from the real V06 pages, never generated.
+
+STRUCTURE
+  0:00  The constraint that kills most rosters - Work tomorrow
+  0:35  Why 'he works, so he sleeps' is not a system - It silently assigns 100% of nights
+  1:30  Planning the work night instead of avoiding it - Protecting a smaller, guaranteed block
+  2:40  The early block and the late block - Which one a working parent can realistically own
+  3:50  Weekends and recovery - Where the larger block goes
+  4:50  What to write down - Named blocks around real shift times
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt. Never model-generate on-screen words.
+
+AUDIO
+  Narration from VOICEOVER.txt. No invented claims. Platform-permitted music only.
+
+PRODUCT EVIDENCE
+  Display the real V06 pages listed in PRODUCT-EVIDENCE-PLAN.txt as the implementation
+  mechanism at the narration moments indicated. Never render an imitation.

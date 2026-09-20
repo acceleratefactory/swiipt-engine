@@ -1,0 +1,21 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 20-60s vertical 9:16 (1080x1920) explainer.
+
+NARRATION
+There is a difference between being available and being on duty - and it is the whole reason night plans fail. Available means: I am in the house, wake me if it gets bad. On duty means: this block is mine, the alarm is set, I am awake and I am handling it. Available still leaves the decision with the exhausted person. On duty removes it entirely. Write down who is on duty, not who is around.
+
+VISUAL
+- Two adults, one asleep, one awake - split framing (medium)
+- Text card contrasting the two states (static)
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt: AVAILABLE: | 'wake me if it gets bad' | ON DUTY: | 'this block is mine' | Available still leaves the decision | with the exhausted parent.
+
+PRODUCT EVIDENCE
+  No product page in this unit; keep the visual on the grounded human scene.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain.

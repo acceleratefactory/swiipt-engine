@@ -1,0 +1,22 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 20-60s vertical 9:16 (1080x1920) explainer.
+
+NARRATION
+Almost every night argument is a timing problem. You are trying to make a decision at the worst possible moment, with the least possible judgement, about the most emotionally loaded thing in the house. Move the decision to 8 PM. Five minutes. Who is on tonight, do the times still make sense, is anything unusual tomorrow? Adjust tonight only. Then the night contains no negotiation at all - only the plan you already agreed.
+
+VISUAL
+- Evening living room, both adults, calm, five-minute review (medium)
+- Insert: a phone showing 20:00
+- Night, quiet, chart on the fridge (wide)
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt: YOU ARE DECIDING | AT THE WORST POSSIBLE TIME. | Move it to 8 PM. | Five minutes. | Adjust tonight only.
+
+PRODUCT EVIDENCE
+  Display the real V06 page page-18.png as the implementation mechanism. Never model-generate it.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain.

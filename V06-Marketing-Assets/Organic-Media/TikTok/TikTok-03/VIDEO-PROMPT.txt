@@ -1,0 +1,14 @@
+============================================================
+VIDEO GENERATION PROMPT (TikTok)
+============================================================
+
+MASTER: reuse the Short-03 vertical master. Do not render a duplicate 9:16 master - one qualified 9:16 master serves YouTube Shorts, TikTok, and future IG/FB Reels, with platform-specific copy preserved in CAPTION.txt.
+
+NARRATION
+The 3 AM argument is really an 8 PM gap. By 3 AM you are not deciding a roster - you are deciding who is more tired, which no one can do well. So make the decision before the night starts. Two clock times, one name per block, written down. Tonight is already decided. That is the whole trick: you do not need more patience at 3 AM, you need the decision to have been made at 8 PM.
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain, no sensationalised exhaustion.

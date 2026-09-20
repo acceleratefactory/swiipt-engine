@@ -1,0 +1,20 @@
+SHOT LIST (deterministic plan; numbered shots, not a rendered edit)
+
+SHOT 01  0:00  There is no single correct roster
+    visual: There is no single correct roster
+    on-screen: deterministic caption for this beat
+SHOT 02  0:40  Template A - the breastfeeding-compatible split
+    visual: Template A - the breastfeeding-compatible split
+    on-screen: deterministic caption for this beat
+SHOT 03  2:00  Template B - alternating nights
+    visual: Template B - alternating nights
+    on-screen: deterministic caption for this beat
+SHOT 04  3:10  Roster C - no partner available
+    visual: Roster C - no partner available
+    on-screen: deterministic caption for this beat
+SHOT 05  4:20  How to choose in two minutes
+    visual: How to choose in two minutes
+    on-screen: deterministic caption for this beat
+SHOT 06  5:10  Fill in the clock times
+    visual: Fill in the clock times
+    on-screen: deterministic caption for this beat

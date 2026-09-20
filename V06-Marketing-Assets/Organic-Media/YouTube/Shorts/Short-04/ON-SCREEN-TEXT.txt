@@ -1,0 +1,8 @@
+ON-SCREEN TEXT (deterministic, in order)
+
+01  AVAILABLE:
+02  'wake me if it gets bad'
+03  ON DUTY:
+04  'this block is mine'
+05  Available still leaves the decision
+06  with the exhausted parent.

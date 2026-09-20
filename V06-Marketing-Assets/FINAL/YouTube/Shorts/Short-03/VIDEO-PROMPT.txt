@@ -1,0 +1,22 @@
+============================================================
+VIDEO GENERATION PROMPT
+============================================================
+
+Produce a 20-60s vertical 9:16 (1080x1920) explainer.
+
+NARRATION
+The 3 AM argument is really an 8 PM gap. By 3 AM you are not deciding a roster - you are deciding who is more tired, which no one can do well. So make the decision before the night starts. Two clock times, one name per block, written down. Tonight is already decided. That is the whole trick: you do not need more patience at 3 AM, you need the decision to have been made at 8 PM.
+
+VISUAL
+- Evening kitchen, both adults, one writing on paper (medium)
+- Insert: two clock times being written
+- Night kitchen, same chart visible on the fridge (wide)
+
+TEXT POLICY
+  Burned-in text only from ON-SCREEN-TEXT.txt: THE 3AM ARGUMENT | IS REALLY AN 8PM GAP. | Decide it before the night. | Two times. One name each. | Then 3 AM has no decision in it.
+
+PRODUCT EVIDENCE
+  Display the real V06 page page-18.png as the implementation mechanism. Never model-generate it.
+
+DISCIPLINE
+  Documentary/editorial, real domestic setting, no stock footage, no AI faces, no staged pain.
