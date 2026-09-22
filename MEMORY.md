@@ -620,3 +620,49 @@ Key files:
 - `specs\PP-03.md` (v6.1) — AUTHORITATIVE PP-03 spec (B1-C restored)
 - `specs\SPECS-REPORT.md` — engineering blueprint + 5 owner workstreams
 - `MEMORY.md` — this file
+
+---
+
+## GLOBAL DESIGN + PRODUCTION INHERITANCE CLOSURE (2026-09-22)
+
+**Task:** `Task/task.md` (SWIIPT GLOBAL DESIGN + PRODUCT + MARKETING + ORGANIC MEDIA PRODUCTION
+INHERITANCE CLOSURE) · **Report:** `Task/TASK-SWIIPT-GLOBAL-DESIGN-PRODUCTION-INHERITANCE-CLOSURE-REPORT.md` ·
+**Commit:** `cbd7e30` (no tag; see below) · **Providers 0 · $0.**
+
+Authority recovery + ingest complete (brand quick-reference + marketing visual system, recovered by
+2 independent methods + rendered-page inspection; 12-token palette, Transformation Mark, typography
+roles, callout semantics, 2 visual modes, grounding element, intensity mapping, 6 components,
+platform constraints, favicon/app-icon). Canonical machine-readable projection:
+`mae/harness/design-authority.mjs` (reads `mae/data/brand-truth.json` + `asset design/style.css` +
+`asset design/swiipt-brand-assets/`; NOT a second brand system).
+
+**Compositor (Task 30 minimal corrections, A-F + photography preserved):** official Transformation
+Mark/lockup replaces the CSS square; palette resolved from the authority (12 tokens incl. blush;
+off-sheet greys removed); semantic typography (hook = Inter Black 800, editorial = DM Serif Regular,
+verbatim = DM Serif Italic only); Grounding Element Rule (`data-swt-grounding`); new generic
+`marketing-components.mjs` (the 6 components incl. OG Share Image). Missing fonts added:
+`mae/assets/fonts/Inter-Black.ttf` + `DMSerifDisplay-Italic.ttf` + `Inter-Italic.ttf`.
+
+**Generalized:** `mae/harness/organic-media.mjs` (platform contracts + thumbnail/Pin renderers +
+truthful video status; the V06 driver now delegates) · `mae/harness/export-final-campaign.mjs`
+validation/README/inventory now ledger+`_packages.json`-derived (V06 validate 237/237).
+
+**New QA:** `brand-continuity-qa.mjs` (static + real-browser safe-zone/text-size/contrast),
+`zero-v06-audit.mjs`, `design-inheritance-fixture.mjs` + `design-inheritance.test.mjs`,
+`family-money-structural-dryrun.mjs`, `standards/product-production-inheritance-standard.md`.
+
+**Regression:** factory harness 342/342 · qa-checks 127/127 · validate-opportunity 603/603 ·
+compositor 27/27 · social 448/448 · design-inheritance 19/19 · v06-visual-regression PASS (64) ·
+metadata audit PASS (65) · consumer-copy audit PASS (118) · zero-V06 audit PASS (0 illegitimate,
+0 product-id branches) · design-authority compliance 23/23 · synthetic non-V06 fixture PASS
+(11 renders, 0 provider calls).
+
+**Family Money structural dry run: NOT_READY** - `asset_map` empty (artifact architecture not
+authored), no approved Marketing Angle Record, no per-currency price. Per Task 80 the success block
+was NOT printed and the Task 81 `swiipt-engine-v1-global-design-production-inheritance-ready` tag was
+withheld. Next: owner + architecture review of the report; then supply the 3 inputs and run
+`PPL-FAMILY-MONEY-001` as the first real new-product production test (Task 82).
+
+**Dependency note:** `design-authority.mjs` resolves the official mark/lockups/favicon/app-icon at
+runtime from the owner-supplied kit `asset design/swiipt-brand-assets/` (untracked). Commit it, or
+ensure it is present, before running the factory in a fresh checkout.
