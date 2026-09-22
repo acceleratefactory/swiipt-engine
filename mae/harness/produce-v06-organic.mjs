@@ -9,12 +9,17 @@
 // MINIMUM deterministic adapter below: a 16:9 YouTube thumbnail and an artifact-led 2:3 Pin.
 // Both still render through the frozen verified pipeline (shotVerified + checkCreative), so the
 // image-decode gate, no-placeholder rule and objective pixel QA are unchanged.
-import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from "node:fs";
-import { join, dirname, resolve, relative } from "node:path";
+import { existsSync, readFileSync, writeFileSync, readdirSync } from "node:fs";
+import { join, resolve, relative } from "node:path";
 import {
-  TREATMENT, renderCreative, shotVerified, checkCreative, inlineImage, assertImageDecodable,
-  assertSceneGrounded, esc, stats,
+  TREATMENT, renderCreative, inlineImage, esc,
 } from "./creative-compositor.mjs";
+// Generic organic-media production (contracts + renderers + packaging primitives) — NOT V06 code.
+import {
+  rule, bullets, scriptText, voiceoverText, onScreenText, decodeGate, renderTo, put, ensure,
+  renderYouTubeThumbnail as renderThumbnail, renderPinterestPin as renderArtifactPin,
+  videoStatusText as videoStatus, ORGANIC_CONTRACTS,
+} from "./organic-media.mjs";
 import { CLUSTER, SAFETY, EVIDENCE, FLAGSHIP, SUPPORTING } from "../data/organic/v06-organic-cluster.mjs";
 import { SHORTS, TIKTOK, PINS, EMAILS, SEQUENCE, REUSE, FIRST_WIN } from "../data/organic/v06-organic-cluster-2.mjs";
 
@@ -22,9 +27,8 @@ const OUT = resolve("V06-Marketing-Assets/Organic-Media");
 const PRODUCT = resolve("V06-Marketing-Assets");
 const PAGES = join(process.env.LOCALAPPDATA || "", "Temp/opencode/v06-pages");
 
-const ensure = (p) => mkdirSync(p, { recursive: true });
-const put = (p, s) => { ensure(dirname(p)); writeFileSync(p, String(s).replace(/\r?\n/g, "\n") + (String(s).endsWith("\n") ? "" : "\n"), "utf8"); };
 const rel = (p) => relative(OUT, p).replace(/\\/g, "/");
+void ORGANIC_CONTRACTS;
 
 /* ---------------------------------------------------------------- scene lookup */
 function sceneIndex() {
@@ -44,114 +48,18 @@ function sceneIndex() {
 const SCENES = sceneIndex();
 const sceneOf = (id) => (id && SCENES.get(id)) || null;
 
-/* ================================================================ ADAPTER (outside the frozen core)
- * YouTube thumbnail — 1280x720, 16:9. Photo dominant, 2-6 words, restrained brand. No product
- * screenshot (Task §11), no collage, no arrows, no platform label, no internal id.
- */
-function renderThumbnail(ctx) {
-  const { scene, text, brand } = ctx;
-  return `
-<div style="position:relative;width:1280px;height:720px;overflow:hidden;background:#0B1F33;font-family:Inter,sans-serif">
-  <img data-required="1" src="${esc(scene)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 34%;filter:brightness(1.14) contrast(1.03) saturate(1.04)">
-  <div style="position:absolute;inset:0;background:linear-gradient(96deg,rgba(11,31,51,.90) 0%,rgba(11,31,51,.66) 28%,rgba(11,31,51,.20) 54%,rgba(11,31,51,.02) 100%)"></div>
-  <div style="position:absolute;left:0;top:0;width:100%;height:104px;background:linear-gradient(180deg,rgba(11,31,51,.52) 0%,rgba(11,31,51,0) 100%)"></div>
-  <div data-swt-text style="position:absolute;left:62px;top:52px;display:flex;align-items:center;gap:12px">
-    <div data-swt-logo style="display:flex;align-items:center;gap:11px">
-      <div style="width:32px;height:32px;background:#6F35B5;border-radius:9px;transform:rotate(45deg)"></div>
-      <span style="color:#fff;font-weight:700;letter-spacing:.16em;font-size:20px">SWIIPT</span>
-    </div>
-    <span style="color:#C9D6E4;font-weight:600;letter-spacing:.13em;font-size:16px;text-transform:uppercase">${esc(brand)}</span>
-  </div>
-  <div data-swt-text style="position:absolute;left:62px;right:560px;top:50%;transform:translateY(-46%);z-index:5">
-    <div style="font-family:'DM Serif Display',Georgia,serif;font-size:${text.length > 22 ? 84 : 100}px;line-height:1.04;letter-spacing:-.015em;color:#fff;text-shadow:0 3px 26px rgba(0,0,0,.6)">${esc(text)}</div>
-  </div>
-  <div style="position:absolute;left:62px;bottom:40px;right:560px">
-    <span style="color:#D9A52E;font-weight:700;letter-spacing:.14em;font-size:17px;text-transform:uppercase">What do I do now?</span>
-  </div>
-</div>`;
-}
-
-/* Pinterest artifact-led Pin — 1000x1500, 2:3. The REAL product page is the dominant visual on a
- * brand surface. No generated scene is required (Task §21: do not fabricate a prompt with no scene). */
-function renderArtifactPin(ctx) {
-  const { evidence, title, text, cta } = ctx;
-  return `
-<div style="position:relative;width:1000px;height:1500px;overflow:hidden;background:#F8F4EC;font-family:Inter,sans-serif">
-  <div style="position:absolute;left:0;top:0;width:100%;height:9px;background:#D9A52E"></div>
-  <div data-swt-text style="position:absolute;left:64px;right:64px;top:56px;display:flex;align-items:center;justify-content:space-between">
-    <div data-swt-logo style="display:flex;align-items:center;gap:10px">
-      <div style="width:28px;height:28px;background:#6F35B5;border-radius:8px;transform:rotate(45deg)"></div>
-      <span style="color:#0B1F33;font-weight:700;letter-spacing:.16em;font-size:18px">SWIIPT</span>
-    </div>
-    <span style="color:#52606D;font-weight:600;letter-spacing:.12em;font-size:15px;text-transform:uppercase">${esc(text)}</span>
-  </div>
-  <div data-swt-text style="position:absolute;left:64px;right:64px;top:126px">
-    <div style="font-family:'DM Serif Display',Georgia,serif;font-size:52px;line-height:1.12;color:#17212B">${esc(title)}</div>
-  </div>
-  <div style="position:absolute;left:140px;top:330px;width:720px;height:1018px;background:#fff;border-radius:10px;box-shadow:0 20px 48px rgba(11,31,33,.22);overflow:hidden;border:1px solid #E4E8EC">
-    <img data-required="1" src="${esc(evidence)}" style="width:100%;height:100%;object-fit:cover;object-position:top">
-  </div>
-  <div data-swt-text style="position:absolute;left:64px;right:64px;bottom:58px">
-    <span data-swt-cta style="background:#6F35B5;color:#fff;font-weight:700;font-size:22px;padding:17px 32px;border-radius:999px;display:inline-block">${esc(cta)}</span>
-    <div style="margin-top:16px;color:#52606D;font-size:15px">Educational content - not medical, clinical, or mental-health advice.</div>
-  </div>
-</div>`;
-}
-
-/* ---------------------------------------------------------------- TXT helpers */
-const rule = (t) => `${"=".repeat(60)}\n${t}\n${"=".repeat(60)}`;
-const bullets = (a) => a.map((x) => `- ${x}`).join("\n");
-
-function videoStatus(o) {
-  return `${rule("VIDEO EXPORT STATUS")}
-
-STATUS:
-PRODUCTION PACKAGE READY — VIDEO NOT YET RENDERED
-
-Package            : ${o.name}
-Expected filename  : ${o.file}
-Expected format    : MP4 (H.264 + AAC, platform-compatible)
-Resolution         : ${o.res}
-Aspect ratio       : ${o.aspect}
-Approximate length : ${o.duration}
-Script             : SCRIPT.txt${o.has("VOICEOVER.txt") ? " · VOICEOVER.txt" : ""}${o.has("ON-SCREEN-TEXT.txt") ? " · ON-SCREEN-TEXT.txt" : ""}
-Shot plan          : ${o.has("SHOT-LIST.txt") ? "SHOT-LIST.txt" : o.has("SCENE-PLAN.txt") ? "SCENE-PLAN.txt" : "-"}
-Visual prompts     : ${o.has("IMAGE-PROMPTS.txt") ? "IMAGE-PROMPTS.txt" : "-"}${o.has("VIDEO-PROMPT.txt") ? " · VIDEO-PROMPT.txt" : ""}
-Product evidence   : ${o.has("PRODUCT-EVIDENCE-PLAN.txt") ? "PRODUCT-EVIDENCE-PLAN.txt" : "-"}
-Thumbnail          : ${o.has("THUMBNAIL.png") ? "THUMBNAIL.png" : o.has("COVER.png") ? "COVER.png" : "-"}
-Description        : ${o.has("DESCRIPTION.txt") ? "DESCRIPTION.txt" : "-"}
-Chapters           : ${o.has("CHAPTERS.txt") ? "CHAPTERS.txt" : "-"}
-CTA                : ${o.has("CTA.txt") ? "CTA.txt" : "-"}
-
-No raw video is present in this package. No placeholder or empty MP4 has been created.
-When a qualified video provider is activated, place ${o.file} in THIS SAME folder and
-update STATUS above to: RENDERED
-`;
-}
+/* YouTube thumbnail + Pinterest Pin renderers, the TXT helpers and the truthful VIDEO-STATUS text
+ * now live in the generic organic-media module (Task §39/§40) and are imported above. */
 
 /* ---------------------------------------------------------------- render helpers */
 const results = { finals: [], qa: [], rendered: 0, failed: [] };
 function render(pngPath, html, w, h, treatment, regions, label, requireCta = true) {
-  ensure(dirname(pngPath));
-  const r = shotVerified(html, w, h, pngPath, { requireCta });
-  if (!r.ok) { results.failed.push(`${label}: ${r.status}`); return { ok: false, status: r.status }; }
-  const qa = checkCreative(pngPath, treatment, regions);
-  results.qa.push({ label, treatment, pass: qa.pass, notes: qa.notes });
-  if (!qa.pass) results.failed.push(`${label}: QA ${JSON.stringify(qa.notes)}`);
-  results.finals.push(rel(pngPath));
-  results.rendered++;
-  return { ok: true, status: "RENDERED", qa };
+  const r = renderTo(results, pngPath, html, w, h, treatment, regions, label, requireCta);
+  if (r.ok) results.finals.push(rel(pngPath));
+  return r;
 }
 
 /* ================================================================ 1. YOUTUBE LONG-FORM */
-function scriptText(beats) { return beats.map((b) => `${b.head.toUpperCase()}\n\n${b.body}`).join("\n\n"); }
-function voiceoverText(beats) { return beats.map((b) => b.body).join("\n\n"); }
-function onScreenText(unit) {
-  const lines = [];
-  unit.beats.forEach((b) => { lines.push(`[${b.head}]`); b.body.split(/(?<=[.?!])\s+/).slice(0, 2).forEach((s) => s.trim() && lines.push(`  ${s.trim()}`)); });
-  return lines.join("\n");
-}
-
 function longform(unit, isFlagship) {
   const dir = join(OUT, "YouTube", "Long-Form", unit.id);
   const thumb = join(dir, "THUMBNAIL.png");
@@ -162,7 +70,7 @@ function longform(unit, isFlagship) {
   // ---- thumbnail (REQUIRED finished asset)
   if (!scene || !existsSync(scene)) { results.failed.push(`${unit.id}: thumbnail scene missing (${sceneId})`); }
   else {
-    decodeGate("thumbnail scene " + sceneId, scene);
+    decodeGate("thumbnail scene " + sceneId, scene, true);
     // A thumbnail carries no CTA, so the CTA check does not apply to it.
     render(thumb, renderThumbnail({ scene: inlineImage(scene), text: unit.thumbnail_text, brand: CLUSTER.product_name }), 1280, 720, TREATMENT.EMOTIONAL_HOOK, {}, `${unit.id} THUMBNAIL`, false);
   }
@@ -252,7 +160,7 @@ function shortUnit(s) {
   const scene = sceneOf(s.scene);
   if (!scene) { results.failed.push(`${s.id}: scene missing (${s.scene})`); }
   else {
-    decodeGate(s.id + " scene " + s.scene, scene);
+    decodeGate(s.id + " scene " + s.scene, scene, true);
     const ev = s.evidence ? EVIDENCE[Object.keys(EVIDENCE).find((k) => EVIDENCE[k].page === s.evidence)] : null;
     if (s.treatment === "B" && ev && existsSync(join(PAGES, ev.page))) {
       decodeGate(s.id + " evidence", join(PAGES, ev.page));
@@ -307,7 +215,7 @@ function pinUnit(p) {
     const scene = sceneOf(p.scene);
     if (!scene) { results.failed.push(`${p.id}: neither evidence nor scene available`); }
     else {
-      decodeGate(p.id + " scene " + p.scene, scene);
+      decodeGate(p.id + " scene " + p.scene, scene, true);
       usedScene = true;
       const t = p.treatment === "E" ? TREATMENT.OUTCOME : p.treatment === "C" ? TREATMENT.EDITORIAL_QUOTE : TREATMENT.EMOTIONAL_HOOK;
       render(join(dir, "PIN.png"), renderCreative(t, { scene: inlineImage(scene), brandName: CLUSTER.product_name, trustLine: SAFETY.trust_line, headline: p.text_overlay, support: "", cta: p.cta, w: 1000, h: 1500, safe: { top: 90, bottom: 90, left: 64, right: 64 } }), 1000, 1500, t, {}, `${p.id} PIN`);
@@ -333,12 +241,6 @@ function emailUnit(e) {
   put(join(dir, "BODY.txt"), `${e.body}\n\n${rule("SAFETY")}\n\n${SAFETY.trust_line}\n${SAFETY.boundary}\n`);
   put(join(dir, "CTA.txt"), `${e.cta}\n`);
   return dir;
-}
-
-/* ---------------------------------------------------------------- decode gate (fatal) */
-function decodeGate(label, p) {
-  try { const r = assertImageDecodable(p); if (label.includes("scene")) assertSceneGrounded(p); return r; }
-  catch (e) { results.failed.push(`${label}: ${String(e.message).slice(0, 120)}`); throw e; }
 }
 
 /* ---------------------------------------------------------------- run */

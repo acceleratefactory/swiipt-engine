@@ -1,4 +1,4 @@
-V06 CAMPAIGN SEQUENCE (verbatim order — formatting converted to plain text)
+V06 — CAMPAIGN SEQUENCE (verbatim order — formatting converted to plain text)
 Publish in this order. Order is the dependency.
 
 
@@ -30,5 +30,5 @@ Launch sequence `SEQ-NS-001` · LAUNCH · undefined
 Order is the dependency (1 → 21). CTA escalates across the sequence (positions 5/9/16 moderate, 21 high).
 
 Note: the campaign-record status column is historical. Current export state: all still
-creatives are rendered and included; the Reel raw video is pending a qualified provider
-(see Instagram/Reels/AST-NS-007/VIDEO-STATUS.txt).
+creatives are rendered and included; any Reel raw video is pending a qualified provider
+(see the VIDEO-STATUS.txt beside the video package).

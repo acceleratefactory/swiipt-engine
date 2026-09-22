@@ -1,68 +1,17 @@
-V06 CAMPAIGN — READY-TO-USE EXPORT INVENTORY
-Generated from the approved V06 campaign outputs. All media below is the current approved final render.
+V06 — READY-TO-USE EXPORT INVENTORY
+Generated from the approved campaign ledger + packages manifest. All media is the current approved final render.
 
-FACEBOOK
-- 5 final creatives
-- posts present: YES
-- prompts present: YES
+  Campaign                   0 media, 1 text files
+  Email                      0 media, 20 text files (5 sub-package folders)
+  Facebook                   5 media, 2 text files
+  Instagram                  32 media, 22 text files (4 sub-package folders)
+  Organic-Media-Sequence     0 media, 2 text files
+  Pinterest                  10 media, 40 text files (10 sub-package folders)
+  TikTok                     0 media, 60 text files (10 sub-package folders)
+  WhatsApp                   2 media, 2 text files
+  YouTube                    16 media, 166 text files (2 sub-package folders)
 
-INSTAGRAM FEED
-- 9 final creatives
-- captions present: YES
-- prompts present: YES
-
-INSTAGRAM CAROUSELS
-- 2 sets
-- 9 slides
-- captions present: YES
-- prompts present: YES
-
-INSTAGRAM STORIES
-- 2 sets
-- 8 frames
-- copy present: YES
-- prompts present: YES
-
-WHATSAPP
-- 2 final creatives
-- messages present: YES
-- prompts present: YES
-
-REEL (Instagram/Reels/AST-NS-007)
-- cover: YES
-- keyframes: 4 of 4
-- storyboard: YES
-- video prompt: YES
-- script: YES
-- production material: 12 text files
-- FINAL VIDEO STATUS: pending — see VIDEO-STATUS.txt
-
-CAMPAIGN
-- campaign sequence present: YES
-
-YOUTUBE LONG-FORM
-- 6 packages (flagship + supporting)
-- finished thumbnails (1280x720): 6
-- scripts, voiceovers, on-screen text, scene plans, shot lists, video prompts, product-evidence plans present
-- video status: pending (see each VIDEO-STATUS.txt) — no MP4 rendered
-
-YOUTUBE SHORTS
-- 10 Short packages (9:16)
-- vertical covers where produced; captions, CTAs and video status present
-
-TIKTOK
-- 10 TikTok packages
-- platform-specific captions; one 9:16 master per unit reused across platforms
-
-PINTEREST
-- 10 finished Pins (1000x1500, 2:3)
-- titles, descriptions, CTAs present; image prompts where a generated scene was used
-
-EMAIL
-- 5 emails (subject, preheader, body, CTA)
-
-ORGANIC MEDIA SEQUENCE
-- publishing sequence: YES
-- cross-platform reuse map: YES
-
+LEDGER ASSETS: 21   ·   PACKAGE FOLDERS: 42
+IMAGE media: 65   ·   VIDEO media: 0   ·   text files: 315
+VIDEO STATUS: PENDING (truthful — see VIDEO-STATUS.txt, no placeholder video)
 TOTAL FILES: 382

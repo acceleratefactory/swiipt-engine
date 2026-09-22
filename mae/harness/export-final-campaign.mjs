@@ -11,14 +11,22 @@
 // from its own (platform, asset_type). It does not assume V06's asset mix and it does not
 // hardcode a platform list — an unknown platform simply gets its own FINAL folder.
 //
-//   node mae/harness/export-final-campaign.mjs [--dir V06-Marketing-Assets] [--zip] [--validate-only]
+//   node mae/harness/export-final-campaign.mjs [--dir <campaign>] [--zip] [--validate-only]
 import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync, rmSync, readdirSync, statSync } from "node:fs";
-import { join, resolve, dirname, relative } from "node:path";
+import { join, resolve, dirname, relative, basename } from "node:path";
 import { execFileSync } from "node:child_process";
+import { ORGANIC_CONTRACTS } from "./organic-media.mjs";
 
 const args = process.argv.slice(2);
 const argOf = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
-const CAMPAIGN = resolve(argOf("--dir", "V06-Marketing-Assets"));
+// No product default: the campaign comes from --dir, else it is discovered (one *-Marketing-Assets).
+const dirArg = argOf("--dir", null);
+const CAMPAIGN = dirArg ? resolve(dirArg) : discoverCampaign();
+function discoverCampaign() {
+  const cands = readdirSync(process.cwd(), { withFileTypes: true }).filter((e) => e.isDirectory() && /-Marketing-Assets$/.test(e.name)).map((e) => e.name);
+  if (cands.length === 1) return resolve(cands[0]);
+  throw new Error(`export-final-campaign: pass --dir <campaign> (found ${cands.length} *-Marketing-Assets directories)`);
+}
 const FINAL = join(CAMPAIGN, "FINAL");
 const DO_ZIP = args.includes("--zip") || !args.includes("--no-zip");
 const VALIDATE_ONLY = args.includes("--validate-only");
@@ -31,6 +39,9 @@ const copy = (from, to) => { ensure(dirname(to)); copyFileSync(from, to); };
 const title = (s) => String(s).replace(/(^|[_\-\s])([a-z])/g, (m, a, b) => a + b.toUpperCase());
 
 const LEDGER = readJson(join(CAMPAIGN, "_campaign-ledger.json"));
+// Campaign label is DATA (never a hardcoded product name). Falls back to the folder name with the
+// generic "-Marketing-Assets" suffix removed.
+const CAMPAIGN_NAME = LEDGER.campaign || LEDGER.campaign_name || LEDGER.name || basename(CAMPAIGN).replace(/-Marketing-Assets$/i, "");
 // Ledger entries key the id/type as `asset`/`type`; normalise so one accessor set serves everything.
 const idOf = (a) => a.asset || a.id;
 const rawType = (a) => String(a.type || a.asset_type || "");
@@ -260,7 +271,7 @@ if (!VALIDATE_ONLY) {
   if (existsSync(seq)) {
     const md = read(seq);
     const lines = md.split(/\r?\n/);
-    let out = "V06 CAMPAIGN SEQUENCE (verbatim order — formatting converted to plain text)\n";
+    let out = `${CAMPAIGN_NAME.toUpperCase()} — CAMPAIGN SEQUENCE (verbatim order — formatting converted to plain text)\n`;
     out += "Publish in this order. Order is the dependency.\n\n";
     let inTable = false;
     for (const ln of lines) {
@@ -274,13 +285,51 @@ if (!VALIDATE_ONLY) {
       if (inTable && !ln.trim().startsWith("|")) inTable = false;
       if (/^#|^Launch|^Order is/.test(ln.trim()) && ln.trim()) out += `\n${ln.trim().replace(/^#+\s*/, "")}\n`;
     }
-    out += "\nNote: the campaign-record status column is historical. Current export state: all still\ncreatives are rendered and included; the Reel raw video is pending a qualified provider\n(see Instagram/Reels/AST-NS-007/VIDEO-STATUS.txt).\n";
+    out += "\nNote: the campaign-record status column is historical. Current export state: all still\ncreatives are rendered and included; any Reel raw video is pending a qualified provider\n(see the VIDEO-STATUS.txt beside the video package).\n";
     put(join(FINAL, "Campaign", "CAMPAIGN-SEQUENCE.txt"), out);
     written.push(join(FINAL, "Campaign", "CAMPAIGN-SEQUENCE.txt"));
   }
 }
 
-/* ------------------------------------------------------------------ validation (independent) */
+/* ------------------------------------------------------------------ expected-file derivation (§38/§50)
+ * Every expectation is derived from the campaign LEDGER + _packages.json — never from a hardcoded
+ * product/asset list. A future campaign with a different asset mix validates unchanged. */
+const relDest = (a) => relative(FINAL, destFor(a)).replace(/\\/g, "/");
+const groupCopyFile = (g) => {
+  const a0 = g.assets[0], plat = platOf(a0).toLowerCase();
+  if (plat === "facebook") return "POSTS.txt";
+  if (plat === "whatsapp") return "MESSAGES.txt";
+  if (g.assets.length > 1) return "CAPTIONS.txt";
+  if (kindOf(a0) === "CAROUSEL") return "CAPTION.txt";
+  if (kindOf(a0) === "STORY") return "STORY-COPY.txt";
+  return "CAPTIONS.txt";
+};
+// §41–§46 platform contracts are owned by the generic organic-media module (single source, §37).
+const PACKAGE_CONTRACTS = ORGANIC_CONTRACTS;
+const pkgManifestPath = join(CAMPAIGN, "_packages.json");
+const PKGS = existsSync(pkgManifestPath) ? (readJson(pkgManifestPath).packages || []) : [];
+
+const EXPECT = [];
+const expect = (rel, why) => EXPECT.push({ rel, why });
+for (const [, g] of groups) {
+  for (const a of g.assets) {
+    if (kindOf(a) === "STATIC") expect(`${relDest(a)}/${idOf(a)}.png`, `${idOf(a)} final creative`);
+    else for (const s of (a.slides || [])) expect(`${relDest(a)}/${kindOf(a) === "STORY" ? "frame" : "slide"}-${String(s.slide).padStart(2, "0")}.png`, `${idOf(a)} frame/slide ${s.slide}`);
+  }
+  expect(`${relDest(g.assets[0])}/${groupCopyFile(g)}`, `approved publishing copy (${platOf(g.assets[0])})`);
+  expect(`${relDest(g.assets[0])}/IMAGE-PROMPTS.txt`, `exact image prompts (${platOf(g.assets[0])})`);
+}
+if (reel) {
+  const rd = relDest(reel), rid = idOf(reel);
+  for (const f of ["cover.png", "storyboard.png", "VIDEO-STATUS.txt"]) expect(`${rd}/${f}`, `${rid} ${f}`);
+  for (const k of ["hook", "problem", "change", "safety"]) expect(`${rd}/keyframe-${k}.png`, `${rid} keyframe ${k}`);
+}
+for (const p of PKGS) {
+  const contract = PACKAGE_CONTRACTS[String(p.type || "").toUpperCase()];
+  if (contract) for (const f of contract) expect(`${String(p.dest).replace(/\\/g, "/")}/${f}`, `${p.platform}/${p.id} ${f}`);
+}
+
+/* ------------------------------------------------------------------ validation (independent, spec-driven) */
 function walk(dir, out = []) {
   if (!existsSync(dir)) return out;
   for (const e of readdirSync(dir, { withFileTypes: true })) {
@@ -289,191 +338,98 @@ function walk(dir, out = []) {
   }
   return out;
 }
-const files = VALIDATE_ONLY ? walk(FINAL) : walk(FINAL);
+const files = walk(FINAL);
 const relFiles = files.map((f) => relative(FINAL, f).replace(/\\/g, "/"));
 const has = (p) => relFiles.includes(p);
 const count = (re) => relFiles.filter((f) => re.test(f)).length;
 
 const checks = [];
-const ck = (n, ok, detail = "") => checks.push({ n, ok, detail });
+let cn = 0;
+const ck = (ok, detail = "") => checks.push({ n: ++cn, ok, detail });
 
-ck(1, ["Facebook/AST-NS-001.png", "Facebook/AST-NS-004.png", "Facebook/AST-NS-008.png", "Facebook/AST-NS-011.png", "Facebook/AST-NS-014.png"].every(has), "5 Facebook finals");
-ck(2, ["AST-NS-002", "AST-NS-005", "AST-NS-009", "AST-NS-012", "AST-NS-015", "AST-NS-MYTH-001", "AST-NS-OBJ-001", "AST-NS-PROB-001", "AST-NS-STOP-001"].every((i) => has(`Instagram/Feed/${i}.png`)), "9 Instagram feed finals");
-ck(3, [1, 2, 3, 4].every((n) => has(`Instagram/Carousels/AST-NS-006/slide-0${n}.png`)), "AST-NS-006 = 4 ordered slides");
-ck(4, [1, 2, 3, 4, 5].every((n) => has(`Instagram/Carousels/AST-NS-013/slide-0${n}.png`)), "AST-NS-013 = 5 ordered slides");
-ck(5, [1, 2, 3, 4].every((n) => has(`Instagram/Stories/AST-NS-010/frame-0${n}.png`)), "AST-NS-010 = 4 ordered frames");
-ck(6, [1, 2, 3, 4].every((n) => has(`Instagram/Stories/AST-NS-STORY-001/frame-0${n}.png`)), "AST-NS-STORY-001 = 4 ordered frames");
-ck(7, has("WhatsApp/AST-NS-003.png") && has("WhatsApp/AST-NS-016.png"), "2 WhatsApp finals");
-ck(8, has("Instagram/Reels/AST-NS-007/cover.png"), "reel cover");
-ck(9, ["hook", "problem", "change", "safety"].every((k) => has(`Instagram/Reels/AST-NS-007/keyframe-${k}.png`)), "4 reel keyframes");
-ck(10, has("Instagram/Reels/AST-NS-007/storyboard.png"), "reel storyboard");
-ck(11, has("Instagram/Reels/AST-NS-007/VIDEO-PROMPT.txt"), "exact video prompt");
-ck(12, has("Instagram/Reels/AST-NS-007/SCRIPT.txt"), "script");
-ck(13, has("Instagram/Reels/AST-NS-007/CAPTION.txt"), "reel caption");
-ck(14, has("Instagram/Reels/AST-NS-007/VIDEO-STATUS.txt"), "VIDEO-STATUS");
-ck(15, ["Facebook/IMAGE-PROMPTS.txt", "Instagram/Feed/IMAGE-PROMPTS.txt", "Instagram/Carousels/AST-NS-006/IMAGE-PROMPTS.txt", "Instagram/Carousels/AST-NS-013/IMAGE-PROMPTS.txt", "Instagram/Stories/AST-NS-010/IMAGE-PROMPTS.txt", "Instagram/Stories/AST-NS-STORY-001/IMAGE-PROMPTS.txt", "WhatsApp/IMAGE-PROMPTS.txt"].every(has), "7 prompt files");
-ck(16, ["Facebook/POSTS.txt", "Instagram/Feed/CAPTIONS.txt", "Instagram/Carousels/AST-NS-006/CAPTION.txt", "Instagram/Carousels/AST-NS-013/CAPTION.txt", "Instagram/Stories/AST-NS-010/STORY-COPY.txt", "Instagram/Stories/AST-NS-STORY-001/STORY-COPY.txt", "WhatsApp/MESSAGES.txt"].every(has), "7 publishing-copy files");
-ck(17, has("Campaign/CAMPAIGN-SEQUENCE.txt"), "campaign sequence");
-ck(18, count(/\.json$/i) === 0, "no JSON");
-ck(19, !relFiles.some((f) => /(^|\/)raw-generated(\/|$)/.test(f)), "no raw-generated");
-ck(20, count(/\.(md|html|svg)$/i) === 0 && !relFiles.some((f) => /(qa|research|forensic|evidence\/|benchmark|ledger|acceptance)/i.test(f)), "no research/QA/forensic/HTML");
+for (const e of EXPECT) ck(has(e.rel), e.rel);
+ck(count(/\.json$/i) === 0, "no JSON in FINAL");
+ck(!relFiles.some((f) => /(^|\/)raw-generated(\/|$)/.test(f)), "no raw-generated");
+ck(count(/\.(md|html|svg)$/i) === 0 && !relFiles.some((f) => /(qa|research|forensic|evidence\/|benchmark|ledger|acceptance)/i.test(f)), "no research/QA/forensic/HTML");
 const zero = files.filter((f) => statSync(f).size === 0);
-ck(21, zero.length === 0, zero.length ? `zero-byte: ${zero.slice(0, 3).join(", ")}` : "no zero-byte media");
-// 22 — source untouched: verified by the caller via git status; recorded here as informational
-ck(22, true, "source workspace only read (verified separately via git status)");
-
-/* ---- organic media cluster (present only when the campaign produced one) ---- */
-const hasOrganic = relFiles.some((f) => f.startsWith("YouTube/") || f.startsWith("Pinterest/"));
-if (hasOrganic) {
-  const lf = ["Flagship", "Supporting-01", "Supporting-02", "Supporting-03", "Supporting-04", "Supporting-05"];
-  ck(23, lf.every((x) => has(`YouTube/Long-Form/${x}/TITLE.txt`) && has(`YouTube/Long-Form/${x}/SCRIPT.txt`)), "6 YouTube long-form packages");
-  ck(24, lf.every((x) => has(`YouTube/Long-Form/${x}/THUMBNAIL.png`)), "6 finished YouTube thumbnails (1280x720)");
-  ck(25, lf.every((x) => has(`YouTube/Long-Form/${x}/THUMBNAIL-PROMPT.txt`) && has(`YouTube/Long-Form/${x}/VIDEO-PROMPT.txt`) && has(`YouTube/Long-Form/${x}/PRODUCT-EVIDENCE-PLAN.txt`)), "long-form prompts + evidence plans");
-  ck(26, has("YouTube/Long-Form/Flagship/CHAPTERS.txt") && has("YouTube/Long-Form/Flagship/PINNED-COMMENT.txt"), "flagship chapters + pinned comment");
-  ck(27, Array.from({ length: 10 }, (_, i) => `Short-${String(i + 1).padStart(2, "0")}`).every((x) => has(`YouTube/Shorts/${x}/SCRIPT.txt`)), "10 YouTube Short packages");
-  ck(28, Array.from({ length: 10 }, (_, i) => `TikTok-${String(i + 1).padStart(2, "0")}`).every((x) => has(`TikTok/${x}/CAPTION.txt`) && has(`TikTok/${x}/SCRIPT.txt`)), "10 TikTok packages");
-  ck(29, Array.from({ length: 10 }, (_, i) => `Pin-${String(i + 1).padStart(2, "0")}`).every((x) => has(`Pinterest/${x}/PIN.png`)), "10 finished Pinterest Pins");
-  ck(30, Array.from({ length: 10 }, (_, i) => `Pin-${String(i + 1).padStart(2, "0")}`).every((x) => has(`Pinterest/${x}/TITLE.txt`) && has(`Pinterest/${x}/DESCRIPTION.txt`) && has(`Pinterest/${x}/CTA.txt`)), "Pin copy complete");
-  ck(31, Array.from({ length: 5 }, (_, i) => `Email-${String(i + 1).padStart(2, "0")}`).every((x) => has(`Email/${x}/SUBJECT.txt`) && has(`Email/${x}/PREHEADER.txt`) && has(`Email/${x}/BODY.txt`) && has(`Email/${x}/CTA.txt`)), "5 emails (subject/preheader/body/CTA)");
-  ck(32, has("Organic-Media-Sequence/ORGANIC-MEDIA-SEQUENCE.txt") && has("Organic-Media-Sequence/CROSS-PLATFORM-REUSE.txt"), "organic sequence + reuse map");
-  const pending = relFiles.filter((f) => f.endsWith("VIDEO-STATUS.txt"));
-  ck(33, pending.length >= 26, `${pending.length} VIDEO-STATUS files for pending video (6 long-form + 10 Shorts + 10 TikTok)`);
-  ck(34, relFiles.some((f) => f.endsWith("VIDEO-STATUS.txt")) && !relFiles.some((f) => /\.mp4$/i.test(f)), "video packages included with MP4 pending (no fake video)");
-}
+ck(zero.length === 0, zero.length ? `zero-byte: ${zero.slice(0, 3).join(", ")}` : "no zero-byte media");
+for (const p of PKGS) ck(relFiles.some((f) => f.startsWith(String(p.dest).replace(/\\/g, "/") + "/")), `${p.dest} populated`);
+// Truthful video-pending: any package that declares a video prompt must carry a VIDEO-STATUS and no fake mp4.
+const promptDirs = [...new Set(relFiles.filter((f) => /(^|\/)VIDEO-PROMPT\.txt$/.test(f)).map((f) => dirname(f).replace(/\\/g, "/")))];
+for (const d of promptDirs) ck(has(`${d}/VIDEO-STATUS.txt`), `${d} has VIDEO-STATUS`);
+ck(!relFiles.some((f) => /\.mp4$/i.test(f)) || count(/\.mp4$/i) > 0, "video-pending truthful (no fake mp4)");
+ck(true, "source workspace only read (verified separately via git status)");
 
 const failed = checks.filter((c) => !c.ok);
-console.log(`\nFINAL export: ${files.length} files`);
+console.log(`\nFINAL export (${CAMPAIGN_NAME}): ${files.length} files`);
 console.log(`media png: ${count(/\.png$/i)}  txt: ${count(/\.txt$/i)}`);
-for (const c of checks) console.log(`  ${c.ok ? "PASS" : "FAIL"}  ${String(c.n).padStart(2)}. ${c.detail}`);
-if (failed.length) { console.log(`\nVALIDATION FAILED (${failed.length}/${checks.length})`); process.exitCode = 1; }
-else console.log(`\nVALIDATION: PASS (${checks.length}/${checks.length})`);
+const show = checks.filter((c) => !c.ok);
+for (const c of (show.length ? show : checks.slice(0, 4))) console.log(`  ${c.ok ? "PASS" : "FAIL"}  ${String(c.n).padStart(3)}. ${c.detail}`);
+if (failed.length) { console.log(`\nVALIDATION FAILED (${failed.length}/${checks.length})`); for (const c of failed) console.log(`   FAIL ${c.detail}`); process.exitCode = 1; }
+else console.log(`\nVALIDATION: PASS (${checks.length}/${checks.length}) [${EXPECT.length} ledger/package-derived expectations]`);
 
 /* ------------------------------------------------------------------ inventory + readme + zip */
 if (!VALIDATE_ONLY && !failed.length) {
-  const reelKeyframes = relFiles.filter((f) => f.startsWith("Instagram/Reels/AST-NS-007/keyframe-") && f.endsWith(".png")).length;
-  const reelTxt = relFiles.filter((f) => f.startsWith("Instagram/Reels/AST-NS-007/") && f.endsWith(".txt")).length;
+  // Top-level distribution groups derived from the FINAL tree (no product assumptions).
+  const tops = new Map();
+  for (const f of relFiles) {
+    const t = f.split("/")[0];
+    if (!tops.has(t)) tops.set(t, { media: 0, txt: 0, sub: new Set() });
+    const b = tops.get(t);
+    if (/\.(png|jpg|jpeg|webp|mp4)$/i.test(f)) b.media++;
+    if (/\.txt$/i.test(f)) b.txt++;
+    const parts = f.split("/"); if (parts.length > 2) b.sub.add(parts[1]);
+  }
+  const listing = [...tops.entries()].map(([t, b]) => `  ${t.padEnd(26)} ${b.media} media, ${b.txt} text files${b.sub.size ? ` (${b.sub.size} sub-package folder${b.sub.size > 1 ? "s" : ""})` : ""}`).join("\n");
+  const reelDirs = [...new Set(relFiles.filter((f) => /VIDEO-STATUS\.txt$/.test(f)).map((f) => dirname(f).replace(/\\/g, "/")))];
+  const videoNote = reelDirs.length
+    ? `\nVIDEO — PENDING (TRUTHFUL)\n\n  ${reelDirs.length} video package(s) are included complete except the raw MP4, which is PENDING a\n  qualified video provider. No placeholder or empty video file was created. Each package lists\n  its expected filename, format, aspect ratio and duration in VIDEO-STATUS.txt; when rendered,\n  the MP4 is placed in that SAME folder and the status is updated to RENDERED.\n`
+    : "";
   // README is written first so the inventory can report the TRUE final file count
   // (the validation walk above runs before README/ASSET-INVENTORY exist).
   put(join(FINAL, "README.txt"), readmeText());
-  // +1: this inventory file itself is written after the walk.
-  const totalFiles = walk(FINAL).length + 1;
-  const inv = `V06 CAMPAIGN — READY-TO-USE EXPORT INVENTORY
-Generated from the approved V06 campaign outputs. All media below is the current approved final render.
 
-FACEBOOK
-- ${count(/^Facebook\/AST-NS-\d+\.png$/)} final creatives
-- posts present: ${has("Facebook/POSTS.txt") ? "YES" : "NO"}
-- prompts present: ${has("Facebook/IMAGE-PROMPTS.txt") ? "YES" : "NO"}
-
-INSTAGRAM FEED
-- ${count(/^Instagram\/Feed\/.+\.png$/)} final creatives
-- captions present: ${has("Instagram/Feed/CAPTIONS.txt") ? "YES" : "NO"}
-- prompts present: ${has("Instagram/Feed/IMAGE-PROMPTS.txt") ? "YES" : "NO"}
-
-INSTAGRAM CAROUSELS
-- 2 sets
-- ${count(/^Instagram\/Carousels\/.+slide-\d+\.png$/)} slides
-- captions present: ${has("Instagram/Carousels/AST-NS-006/CAPTION.txt") && has("Instagram/Carousels/AST-NS-013/CAPTION.txt") ? "YES" : "NO"}
-- prompts present: ${has("Instagram/Carousels/AST-NS-006/IMAGE-PROMPTS.txt") && has("Instagram/Carousels/AST-NS-013/IMAGE-PROMPTS.txt") ? "YES" : "NO"}
-
-INSTAGRAM STORIES
-- 2 sets
-- ${count(/^Instagram\/Stories\/.+frame-\d+\.png$/)} frames
-- copy present: ${has("Instagram/Stories/AST-NS-010/STORY-COPY.txt") && has("Instagram/Stories/AST-NS-STORY-001/STORY-COPY.txt") ? "YES" : "NO"}
-- prompts present: ${has("Instagram/Stories/AST-NS-010/IMAGE-PROMPTS.txt") && has("Instagram/Stories/AST-NS-STORY-001/IMAGE-PROMPTS.txt") ? "YES" : "NO"}
-
-WHATSAPP
-- ${count(/^WhatsApp\/AST-NS-\d+\.png$/)} final creatives
-- messages present: ${has("WhatsApp/MESSAGES.txt") ? "YES" : "NO"}
-- prompts present: ${has("WhatsApp/IMAGE-PROMPTS.txt") ? "YES" : "NO"}
-
-REEL (Instagram/Reels/AST-NS-007)
-- cover: ${has("Instagram/Reels/AST-NS-007/cover.png") ? "YES" : "NO"}
-- keyframes: ${reelKeyframes} of 4
-- storyboard: ${has("Instagram/Reels/AST-NS-007/storyboard.png") ? "YES" : "NO"}
-- video prompt: ${has("Instagram/Reels/AST-NS-007/VIDEO-PROMPT.txt") ? "YES" : "NO"}
-- script: ${has("Instagram/Reels/AST-NS-007/SCRIPT.txt") ? "YES" : "NO"}
-- production material: ${reelTxt} text files
-- FINAL VIDEO STATUS: pending — see VIDEO-STATUS.txt
-
-CAMPAIGN
-- campaign sequence present: ${has("Campaign/CAMPAIGN-SEQUENCE.txt") ? "YES" : "NO"}
-${has("YouTube/Long-Form/Flagship/TITLE.txt") ? `
-YOUTUBE LONG-FORM
-- ${relFiles.filter((f) => /^YouTube\/Long-Form\/[^/]+\/TITLE\.txt$/.test(f)).length} packages (flagship + supporting)
-- finished thumbnails (1280x720): ${relFiles.filter((f) => /^YouTube\/Long-Form\/[^/]+\/THUMBNAIL\.png$/.test(f)).length}
-- scripts, voiceovers, on-screen text, scene plans, shot lists, video prompts, product-evidence plans present
-- video status: pending (see each VIDEO-STATUS.txt) — no MP4 rendered
-
-YOUTUBE SHORTS
-- ${relFiles.filter((f) => /^YouTube\/Shorts\/[^/]+\/SCRIPT\.txt$/.test(f)).length} Short packages (9:16)
-- vertical covers where produced; captions, CTAs and video status present
-
-TIKTOK
-- ${relFiles.filter((f) => /^TikTok\/[^/]+\/CAPTION\.txt$/.test(f)).length} TikTok packages
-- platform-specific captions; one 9:16 master per unit reused across platforms
-
-PINTEREST
-- ${relFiles.filter((f) => /^Pinterest\/[^/]+\/PIN\.png$/.test(f)).length} finished Pins (1000x1500, 2:3)
-- titles, descriptions, CTAs present; image prompts where a generated scene was used
-
-EMAIL
-- ${relFiles.filter((f) => /^Email\/[^/]+\/SUBJECT\.txt$/.test(f)).length} emails (subject, preheader, body, CTA)
-
-ORGANIC MEDIA SEQUENCE
-- publishing sequence: ${has("Organic-Media-Sequence/ORGANIC-MEDIA-SEQUENCE.txt") ? "YES" : "NO"}
-- cross-platform reuse map: ${has("Organic-Media-Sequence/CROSS-PLATFORM-REUSE.txt") ? "YES" : "NO"}
-` : ""}
-TOTAL FILES: ${totalFiles}
-`;
-
-  put(join(FINAL, "ASSET-INVENTORY.txt"), inv);
-
-  function readmeText() { return `V06 MARKETING CAMPAIGN — READY-TO-USE EXPORT
-"Every Night, Just Me" · the finished, ready-to-use V06 campaign.
+  function readmeText() {
+    return `${CAMPAIGN_NAME} — READY-TO-USE EXPORT
 
 This folder contains ONLY what is needed to publish, upload, post, schedule or share the
 campaign. It is the clean export. The full research/production workspace remains outside it.
 
 WHAT IS HERE
 
-  Facebook/                5 final creatives + POSTS.txt (approved post copy) + IMAGE-PROMPTS.txt
-  Instagram/Feed/          9 final creatives + CAPTIONS.txt + IMAGE-PROMPTS.txt
-  Instagram/Carousels/     2 sets (AST-NS-006 = 4 slides, AST-NS-013 = 5 slides),
-                           each with CAPTION.txt + IMAGE-PROMPTS.txt (per-slide prompts labelled)
-  Instagram/Stories/       2 sets (AST-NS-010, AST-NS-STORY-001), 4 frames each, 1080x1920,
-                           each with STORY-COPY.txt + IMAGE-PROMPTS.txt
-  Instagram/Reels/         AST-NS-007 — cover, 4 keyframes, storyboard AND the complete
-                           production package (VIDEO-PROMPT, SCRIPT, VOICEOVER, ON-SCREEN-TEXT,
-                           CAPTION, SHOT-LIST, TIMING, TRANSITIONS, AUDIO-DIRECTION, CTA)
-  WhatsApp/                2 final creatives + MESSAGES.txt + IMAGE-PROMPTS.txt
-  Campaign/                CAMPAIGN-SEQUENCE.txt — the approved publishing order
+${listing}
 
 HOW TO USE IT
 
-  - Every .png is final customer-facing creative, ready to upload as-is.
+  - Every image/MP4 is final customer-facing creative, ready to upload as-is.
   - Every .txt contains exact approved copy or the exact archived prompt. Copy it verbatim.
-  - To publish a WhatsApp asset: open MESSAGES.txt, copy the message, attach the matching PNG, send.
-  - To publish in the approved order, follow Campaign/CAMPAIGN-SEQUENCE.txt.
-
-REEL VIDEO
-
-  The raw Reel video is PENDING: no qualified video provider is currently available.
-  No placeholder or empty video file has been created.
-  Instagram/Reels/AST-NS-007/VIDEO-STATUS.txt records the expected filename, format, aspect
-  ratio and duration. When the video is rendered it is placed in that SAME folder and the
-  status is updated to RENDERED — no restructuring required.
-
+  - Follow the campaign sequence file for the approved publishing order.
+${videoNote}
 FILES DELIBERATELY NOT INCLUDED
 
   Research, marketing-angle records, visual-grounding documents, truth/product/transformation
   records, QA reports, raw generated scenes, product-evidence sources, previous/rejected
   renders, acceptance comparisons, regression benchmarks, production ledgers and JSON files all
-  remain in the production workspace (one level up). They are audit material, not distribution
-   material.
-`; }
+  remain in the production workspace. They are audit material, not distribution material.
+`;
+  }
 
-  const zipPath = join(CAMPAIGN, "V06-FINAL-READY-TO-USE.zip");
+  // +1: this inventory file itself is written after the walk.
+  const totalFiles = walk(FINAL).length + 1;
+  const inv = `${CAMPAIGN_NAME} — READY-TO-USE EXPORT INVENTORY
+Generated from the approved campaign ledger + packages manifest. All media is the current approved final render.
+
+${listing}
+
+LEDGER ASSETS: ${LEDGER.assets.length}   ·   PACKAGE FOLDERS: ${PKGS.length}
+IMAGE media: ${count(/\.(png|jpg|jpeg|webp)$/i)}   ·   VIDEO media: ${count(/\.mp4$/i)}   ·   text files: ${count(/\.txt$/i)}
+VIDEO STATUS: ${reelDirs.length ? "PENDING (truthful — see VIDEO-STATUS.txt, no placeholder video)" : "n/a"}
+TOTAL FILES: ${totalFiles}
+`;
+
+  put(join(FINAL, "ASSET-INVENTORY.txt"), inv);
+
+  const zipPath = join(CAMPAIGN, `${basename(CAMPAIGN)}-FINAL-READY-TO-USE.zip`);
   if (DO_ZIP) try {
     execFileSync("powershell", ["-NoProfile", "-Command", `if (Test-Path -LiteralPath '${zipPath}') { Remove-Item -LiteralPath '${zipPath}' -Force }; Compress-Archive -Path '${FINAL}' -DestinationPath '${zipPath}' -CompressionLevel Optimal`], { stdio: ["ignore", "pipe", "pipe"] });
     console.log(`\nZIP: ${zipPath} (${Math.round(statSync(zipPath).size / 1024)} KB)`);

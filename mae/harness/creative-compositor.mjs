@@ -25,6 +25,10 @@ import { tmpdir } from "node:os";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { execFileSync } from "node:child_process";
 import { stats, decodePng } from "./png-decode.mjs";
+// Canonical design authority (Task §30/§31): the compositor resolves brand values from the ONE
+// authority record instead of restating them. Fixes the proven defect "incorrect canonical
+// palette source" — navy/purple/gold/blush/warm/soft/ink/muted now all resolve from the record.
+import * as DA from "./design-authority.mjs";
 
 let seq = 0;
 // Repo-relative, host-independent font location (mae/assets/fonts).
@@ -35,7 +39,15 @@ const EDGE = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
 // Lives at a neutral shared location so this module has no product- or package-specific path.
 const R = join(ROOT_MAE, "assets/fonts");
 
-const NAVY = "#0B1F33", PURPLE = "#6F35B5", GOLD = "#D9A52E", CREAM = "#F8F4EC", INK = "#17212B", MUTED = "#52606D";
+// Brand colours resolved from the canonical design authority (never hardcoded here).
+const NAVY = DA.hex("navy"), PURPLE = DA.hex("purple"), GOLD = DA.hex("gold"),
+  BLUSH = DA.hex("blush"), CREAM = DA.hex("warm_surface"), SOFT = DA.hex("soft_surface"),
+  INK = DA.hex("ink"), MUTED = DA.supportTokens().text_secondary, WHITE = DA.supportTokens().white;
+// Secondary/meta text on a navy surface = the white token at reduced alpha (on-sheet; the previous
+// off-sheet blue-greys #C9D6E4/#8FA4BB/#EAF0F6/#DCE6F0 were a proven palette-source defect).
+const ON_NAVY_2 = "rgba(255,255,255,.72)";   // secondary text on navy
+const ON_NAVY_BODY = "rgba(255,255,255,.82)"; // long-form body on navy
+const ON_NAVY_3 = "rgba(255,255,255,.55)";   // meta / counter on navy
 
 export const TREATMENT = {
   EMOTIONAL_HOOK: "A", PRODUCT_PROOF: "B", EDITORIAL_QUOTE: "C",
@@ -148,46 +160,69 @@ export function assertImageDecodable(p) {
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 export { esc };
 
-const fontFace = () => `
-@font-face{font-family:'Inter';font-weight:400;src:url('${fileUrl(join(R, "Inter-Regular.ttf"))}');}
-@font-face{font-family:'Inter';font-weight:500;src:url('${fileUrl(join(R, "Inter-Medium.ttf"))}');}
-@font-face{font-family:'Inter';font-weight:600;src:url('${fileUrl(join(R, "Inter-SemiBold.ttf"))}');}
-@font-face{font-family:'Inter';font-weight:700;src:url('${fileUrl(join(R, "Inter-Bold.ttf"))}');}
-@font-face{font-family:'DM Serif Display';font-weight:400;src:url('${fileUrl(join(R, "DMSerifDisplay-Regular.ttf"))}');}`;
+// Canonical brand font kit (Task §9/§35): Inter Black (800) is the hook face; DM Serif Display
+// Italic is the verbatim-quote face. Resolved once in the design authority (no duplication).
+const fontFace = () => DA.fontFaceCss();
 
 const DEF_SAFE = { top: 120, bottom: 120, left: 80, right: 80 };
 const safeOf = (ctx) => Object.assign({}, DEF_SAFE, ctx.safe || {});
 const isTall = (ctx) => ctx.h > ctx.w * 1.25;
 
-/** Brand row: SWIIPT mark only, plus an optional customer-facing brand name.
- *  NO platform label, NO internal identifier (Task §4). */
-const brandRow = (ctx, dark = false) => {
+/** Brand row: the OFFICIAL SWIIPT lockup (mark + wordmark, correct light/dark variant) — never a
+ *  CSS approximation (Task §11/§12). Plus an optional customer-facing brand name. NO platform label,
+ *  NO internal identifier (Task §4). */
+const brandRow = (ctx, onLight = false) => {
   const s = safeOf(ctx);
-  const name = ctx.brandName ? `<span style="color:${dark ? MUTED : "#C9D6E4"};font-weight:600;letter-spacing:.14em;font-size:${isTall(ctx) ? 17 : 16}px;text-transform:uppercase;margin-left:14px">${esc(ctx.brandName)}</span>` : "";
+  const h = isTall(ctx) ? 34 : 32;
+  const variant = DA.markVariantFor({ dark: !onLight });
+  const logo = DA.logoSvg({ dark: onLight, height: h });
+  const name = ctx.brandName ? `<span style="color:${onLight ? MUTED : ON_NAVY_2};font-weight:600;letter-spacing:.14em;font-size:${isTall(ctx) ? 17 : 16}px;text-transform:uppercase;margin-left:16px">${esc(ctx.brandName)}</span>` : "";
   return `
 <div data-swt-text style="position:absolute;left:${s.left}px;right:${s.right}px;top:${Math.max(34, s.top * 0.36)}px;display:flex;align-items:center;z-index:5">
-  <div data-swt-logo style="display:flex;align-items:center;gap:11px">
-    <div style="width:30px;height:30px;background:${PURPLE};border-radius:8px;transform:rotate(45deg)"></div>
-    <span style="color:${dark ? NAVY : "#fff"};font-weight:700;letter-spacing:.16em;font-size:19px">SWIIPT</span>
-  </div>${name}
+  <span data-swt-logo data-swt-logo-variant="${variant}" style="display:inline-flex;align-items:center;line-height:0">${logo}</span>${name}
 </div>`;
 };
 
-const trustLine = (ctx, dark = false) => ctx.trustLine
-  ? `<span style="color:${dark ? MUTED : "#C9D6E4"};font-size:${isTall(ctx) ? 15 : 14}px">${esc(ctx.trustLine)}</span>` : "";
+const trustLine = (ctx, onLight = false) => ctx.trustLine
+  ? `<span style="color:${onLight ? MUTED : ON_NAVY_2};font-size:${isTall(ctx) ? 15 : 14}px">${esc(ctx.trustLine)}</span>` : "";
 
-const ctaPill = (ctx, dark = false) => ctx.cta ? `
+const ctaPill = (ctx, onLight = false) => ctx.cta ? `
 <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:${isTall(ctx) ? 30 : 26}px">
-  <span data-swt-cta style="background:${PURPLE};color:#fff;font-weight:700;font-size:${isTall(ctx) ? 24 : 21}px;padding:${isTall(ctx) ? "18px 34px" : "15px 28px"};border-radius:999px;display:inline-block">${esc(ctx.cta)}</span>
-  ${trustLine(ctx, dark)}
+  <span data-swt-cta style="background:${PURPLE};color:${WHITE};font-weight:700;font-size:${isTall(ctx) ? 24 : 21}px;padding:${isTall(ctx) ? "18px 34px" : "15px 28px"};border-radius:999px;display:inline-block">${esc(ctx.cta)}</span>
+  ${trustLine(ctx, onLight)}
 </div>` : "";
 
-const headline = (ctx, t, size, color = "#fff") => t
-  ? `<div data-swt-text style="font-family:'DM Serif Display',Georgia,serif;font-size:${size}px;line-height:1.12;letter-spacing:-.01em;color:${color};text-shadow:0 2px 18px rgba(0,0,0,.45)">${esc(t)}</div>` : "";
-const support = (ctx, t, size, color = "#EAF0F6") => t
+/** SEMANTIC typography (Task §10). role ∈ hook (Inter Black 800) · editorial_headline (DM Serif
+ *  Regular) · verbatim_quote (DM Serif Italic — real quotes ONLY). No product branch. */
+const headline = (ctx, t, size, color = WHITE, role = "hook") => {
+  if (!t) return "";
+  const c = DA.typeCss(role);
+  const ls = role === "hook" ? ".005em" : "-.01em";
+  const lh = role === "hook" ? 1.08 : 1.12;
+  return `<div data-swt-text data-swt-role="${role}" style="font-family:${c.family};font-weight:${c.weight};font-style:${c.style};font-size:${size}px;line-height:${lh};letter-spacing:${ls};color:${color};text-shadow:0 2px 18px rgba(0,0,0,.45)">${esc(t)}</div>`;
+};
+const support = (ctx, t, size, color = ON_NAVY_BODY) => t
   ? `<div data-swt-text style="margin-top:${isTall(ctx) ? 22 : 18}px;font-size:${size}px;line-height:1.44;color:${color};max-width:96%">${esc(t)}</div>` : "";
 const slideCounter = (ctx) => ctx.counter
-  ? `<span style="position:absolute;right:${safeOf(ctx).right}px;bottom:${Math.max(30, safeOf(ctx).bottom * 0.32)}px;color:#8FA4BB;font-weight:600;font-size:15px;letter-spacing:.08em;z-index:6">${ctx.counter.i} / ${ctx.counter.n}</span>` : "";
+  ? `<span style="position:absolute;right:${safeOf(ctx).right}px;bottom:${Math.max(30, safeOf(ctx).bottom * 0.32)}px;color:${ON_NAVY_3};font-weight:600;font-size:15px;letter-spacing:.08em;z-index:6">${ctx.counter.i} / ${ctx.counter.n}</span>` : "";
+
+/* Grounding Element Rule (MVS) — a visible, specific factual design piece (gold-outlined pill per the
+ * approved Hook Graphic sample). Distinct from Visual Grounding. Never fabricated here: only rendered
+ * when the caller supplies a real grounding element. Machine-checkable via data-swt-grounding. */
+const GROUNDING_ICON = {
+  "day/time badge": `<circle cx="9" cy="9" r="7"/><path d="M9 5v4l2.5 1.5"/>`,
+  "verbatim attribution": `<path d="M9 6c-2.2 0-3.5 1.6-3.5 3.6 0 1.7 1.2 2.9 2.7 2.9.5 0 1-.1 1.3-.3-.2 1.4-1.3 2.5-2.8 3.1"/><path d="M16 6c-2.2 0-3.5 1.6-3.5 3.6 0 1.7 1.2 2.9 2.7 2.9.5 0 1-.1 1.3-.3-.2 1.4-1.3 2.5-2.8 3.1"/>`,
+  "named mechanism": `<path d="M3.5 9h11"/><path d="M9 3.5v11"/><circle cx="9" cy="9" r="7"/>`,
+  "real number": `<path d="M4 6h10M4 12h10"/><path d="M7 3.5 6 14.5M12 3.5 11 14.5"/>`,
+};
+const groundingBadge = (ctx) => {
+  if (!ctx.grounding || !DA.isGroundingElement(ctx.grounding)) return "";
+  const form = String(ctx.grounding.form || ctx.grounding.kind || "").toLowerCase();
+  const icon = GROUNDING_ICON[form] || GROUNDING_ICON["named mechanism"];
+  return `<div data-swt-grounding data-swt-grounding-form="${esc(form)}" style="display:inline-flex;align-items:center;gap:9px;border:1.5px solid ${GOLD};color:${GOLD};font-weight:700;font-size:${isTall(ctx) ? 17 : 16}px;letter-spacing:.1em;text-transform:uppercase;padding:7px 15px;border-radius:999px;margin-bottom:20px;background:rgba(11,31,51,.35)">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="${GOLD}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icon}</svg>
+  <span>${esc(ctx.grounding.text || ctx.grounding.value)}</span></div>`;
+};
 
 const HS = (ctx) => (isTall(ctx) ? (ctx.h > 1500 ? 66 : 60) : 60);
 const SS = (ctx) => (isTall(ctx) ? 27 : 28);
@@ -204,7 +239,7 @@ export function renderEmotionalHook(ctx) {
   <div style="position:absolute;left:0;right:0;bottom:0;height:${isTall(ctx) ? 52 : 60}%;background:linear-gradient(180deg,rgba(11,31,51,0) 0%,rgba(11,31,51,.30) 30%,rgba(11,31,51,.74) 58%,rgba(11,31,51,.93) 100%)"></div>
   ${brandRow(ctx)}
   <div data-swt-text style="position:absolute;left:${s.left}px;right:${s.right}px;bottom:${Math.max(40, s.bottom * 0.42)}px;z-index:5">
-    ${headline(ctx, ctx.headline, HS(ctx))}${support(ctx, ctx.support, SS(ctx))}${ctaPill(ctx)}
+    ${groundingBadge(ctx)}${headline(ctx, ctx.headline, HS(ctx), WHITE, "hook")}${support(ctx, ctx.support, SS(ctx))}${ctaPill(ctx)}
   </div>
   ${slideCounter(ctx)}
 </div>`;
@@ -222,15 +257,15 @@ export function renderProductProof(ctx) {
     <div style="width:${artW}px;height:${artH}px;background:#fff;border-radius:12px;box-shadow:0 28px 64px rgba(0,0,0,.55);overflow:hidden;border:1px solid rgba(255,255,255,.5)">
       <img data-required="1" src="${esc(ctx.evidence)}" style="width:100%;height:100%;object-fit:cover;object-position:top">
     </div>
-    <div data-swt-text style="margin-top:14px;color:#C9D6E4;font-size:${tall ? 17 : 17}px;line-height:1.35">${esc(ctx.evidenceLabel)}</div>
+    <div data-swt-text style="margin-top:14px;color:${ON_NAVY_2};font-size:${tall ? 17 : 17}px;line-height:1.35">${esc(ctx.evidenceLabel)}</div>
   </div>`;
   const copy = tall
     ? `<div data-swt-text style="position:absolute;left:${s.left}px;right:${s.right}px;top:${s.top + 60}px;z-index:5">
-        ${badge(ctx)}${headline(ctx, ctx.headline, 46)}${support(ctx, ctx.support, 22)}
+        ${badge(ctx)}${groundingBadge(ctx)}${headline(ctx, ctx.headline, 46, WHITE, "hook")}${support(ctx, ctx.support, 22)}
        </div>
        <div style="position:absolute;left:${s.left}px;right:${s.right}px;bottom:${Math.max(40, s.bottom * 0.42)}px;z-index:5">${ctaPill(ctx)}</div>`
     : `<div data-swt-text style="position:absolute;left:${s.left}px;top:${s.top + 30}px;width:344px;z-index:5">
-        ${badge(ctx)}${headline(ctx, ctx.headline, 38)}${support(ctx, ctx.support, 20)}
+        ${badge(ctx)}${groundingBadge(ctx)}${headline(ctx, ctx.headline, 38, WHITE, "hook")}${support(ctx, ctx.support, 20)}
        </div>
        <div style="position:absolute;left:${s.left}px;bottom:${Math.max(40, s.bottom * 0.5)}px;width:344px;z-index:5">${ctaPill(ctx)}</div>`;
   return `
@@ -253,8 +288,10 @@ export function renderEditorialQuote(ctx) {
   const s = safeOf(ctx), { w: W, h: H } = ctx;
   const dark = ctx.variant === "navy";
   const bg = dark ? NAVY : CREAM;
-  const fg = dark ? "#fff" : INK;
-  const body = dark ? "#DCE6F0" : MUTED;
+  const fg = dark ? WHITE : INK;
+  const body = dark ? ON_NAVY_BODY : MUTED;
+  // DM Serif Italic is reserved for VERBATIM quotes; a non-quote editorial line uses DM Serif Regular.
+  const headRole = ctx.verbatim ? "verbatim_quote" : "editorial_headline";
   const qSize = isTall(ctx) ? 118 : 104;
   const hSize = isTall(ctx) ? 58 : 50;
   return `
@@ -263,10 +300,10 @@ export function renderEditorialQuote(ctx) {
   ${brandRow(ctx, !dark)}
   <div data-swt-text style="position:absolute;left:${s.left}px;right:${s.right}px;top:50%;transform:translateY(-50%);z-index:5">
     <div style="font-family:'DM Serif Display',Georgia,serif;font-size:${qSize}px;line-height:.6;color:${GOLD};margin-bottom:22px">&ldquo;</div>
-    ${headline(ctx, ctx.headline, hSize, fg)}
+    ${headline(ctx, ctx.headline, hSize, fg, headRole)}
     ${ctx.support ? `<div style="margin-top:26px;font-size:${isTall(ctx) ? 26 : 23}px;line-height:1.5;color:${body};max-width:94%">${esc(ctx.support)}</div>` : ""}
     <div style="width:62px;height:3px;background:${GOLD};margin:34px 0 18px"></div>
-    <div style="font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:${dark ? "#8FA4BB" : MUTED};font-weight:600">SWIIPT</div>
+    <div data-swt-attribution style="font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:${dark ? ON_NAVY_3 : MUTED};font-weight:600">${esc(ctx.attribution || "SWIIPT")}</div>
   </div>
   ${ctx.cta ? `<div style="position:absolute;left:${s.left}px;right:${s.right}px;bottom:${Math.max(40, s.bottom * 0.5)}px;z-index:5">${ctaPill(ctx, !dark)}</div>` : ""}
   ${slideCounter(ctx)}
@@ -282,7 +319,7 @@ export function renderOutcome(ctx) {
   <div style="position:absolute;left:0;right:0;bottom:0;height:${isTall(ctx) ? 46 : 52}%;background:linear-gradient(180deg,rgba(11,31,51,0) 0%,rgba(11,31,51,.62) 48%,rgba(11,31,51,.94) 100%)"></div>
   <div style="position:absolute;left:0;right:0;top:0;height:20%;background:linear-gradient(180deg,rgba(11,31,51,.74) 0%,rgba(11,31,51,0) 100%)"></div>
   ${brandRow(ctx)}
-  <div data-swt-text style="position:absolute;left:${s.left}px;right:${s.right}px;bottom:${Math.max(40, s.bottom * 0.42)}px;z-index:5">${headline(ctx, ctx.headline, HS(ctx) - 6)}${support(ctx, ctx.support, SS(ctx) - 2)}${ctaPill(ctx)}</div>
+  <div data-swt-text style="position:absolute;left:${s.left}px;right:${s.right}px;bottom:${Math.max(40, s.bottom * 0.42)}px;z-index:5">${groundingBadge(ctx)}${headline(ctx, ctx.headline, HS(ctx) - 6, WHITE, "hook")}${support(ctx, ctx.support, SS(ctx) - 2)}${ctaPill(ctx)}</div>
 </div>`;
 }
 
@@ -300,15 +337,15 @@ export function renderProductCTA(ctx) {
     <div style="width:${artW}px;height:${artH}px;background:#fff;border-radius:11px;box-shadow:0 26px 60px rgba(0,0,0,.55);overflow:hidden">
       <img data-required="1" src="${esc(ctx.evidence)}" style="width:100%;height:100%;object-fit:cover;object-position:top">
     </div>
-    <div data-swt-text style="margin-top:12px;color:#C9D6E4;font-size:${tall ? 16 : 15}px;line-height:1.35">${esc(ctx.evidenceLabel)}</div>
+    <div data-swt-text style="margin-top:12px;color:${ON_NAVY_2};font-size:${tall ? 16 : 15}px;line-height:1.35">${esc(ctx.evidenceLabel)}</div>
   </div>`;
   const copy = tall
     ? `<div data-swt-text style="position:absolute;left:${s.left}px;right:${s.right}px;top:${s.top + 50}px;z-index:5">
-        ${headline(ctx, ctx.headline, 50)}${support(ctx, ctx.support, 24)}
+        ${headline(ctx, ctx.headline, 50, WHITE, "hook")}${support(ctx, ctx.support, 24)}
        </div>
        <div style="position:absolute;left:${s.left}px;right:${s.right}px;bottom:${Math.max(40, s.bottom * 0.42)}px;z-index:5">${ctaPill(ctx)}</div>`
     : `<div style="position:absolute;left:${s.left}px;top:${Math.round(H * 0.2)}px;width:${W - s.left - s.right - artW - 40}px;z-index:5">
-        ${headline(ctx, ctx.headline, 50)}${support(ctx, ctx.support, 24)}${ctaPill(ctx)}
+        ${headline(ctx, ctx.headline, 50, WHITE, "hook")}${support(ctx, ctx.support, 24)}${ctaPill(ctx)}
        </div>`;
   return `
 <div style="position:relative;width:${W}px;height:${H}px;overflow:hidden;background:${NAVY};font-family:Inter,sans-serif">
@@ -440,4 +477,4 @@ export function checkCreative(pngPath, treatment, regions = {}) {
   return { pass: notes.length === 0, notes, stats: s };
 }
 
-export { stats, NAVY, PURPLE, GOLD, CREAM, INK, MUTED, EDGE, DEF_SAFE };
+export { stats, NAVY, PURPLE, GOLD, BLUSH, CREAM, SOFT, INK, MUTED, WHITE, EDGE, DEF_SAFE, groundingBadge, DA };
