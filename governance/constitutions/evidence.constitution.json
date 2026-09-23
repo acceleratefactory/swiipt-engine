@@ -1,0 +1,56 @@
+{
+  "authority_id": "SWIIPT-EVIDENCE-CONSTITUTION",
+  "authority_type": "CONSTITUTION",
+  "constitution_kind": "EVIDENCE",
+  "version": "1.0",
+  "status": "ACTIVE",
+  "effective_date": "2026-09-23",
+  "supersedes": null,
+  "owner_authority": "SWIIPT_OWNER",
+  "reference": "standards/safety-standard.md (Gate 4) + standards/research-standard.md + harness/evidence-provenance.mjs vocabulary",
+  "applies_to_domains": ["*"],
+  "applies_to_risk_classes": ["low_risk", "moderate_consequential", "high_risk_regulated"],
+  "claim_labels": ["sourced_evidence", "expert_reviewed", "lived_experience", "model_inference", "hypothesis"],
+  "rules": [
+    { "id": "E1", "text": "Provenance exists for every evidence-bearing claim.", "deterministic": true, "failure_reason": "SOURCE_MISSING" },
+    { "id": "E2", "text": "A declared source resolves inside the product/transformation evidence records.", "deterministic": true, "failure_reason": "SOURCE_MISSING" },
+    { "id": "E3", "text": "Every claim carries a canonical claim label.", "deterministic": true, "failure_reason": "CLAIM_CLASS_NOT_AUTHORIZED" },
+    { "id": "E4", "text": "A claim labelled sourced_evidence/expert_reviewed names its source.", "deterministic": true, "failure_reason": "SOURCE_MISSING" },
+    { "id": "E5", "text": "Claim strength must not exceed evidence strength: sourced/expert labels may not rest on hypothesis-only material.", "deterministic": true, "failure_reason": "CLAIM_EXCEEDS_EVIDENCE" },
+    { "id": "E6", "text": "A hypothesis or model inference must never be presented as established fact.", "deterministic": true, "failure_reason": "HYPOTHESIS_PRESENTED_AS_FACT" },
+    { "id": "E7", "text": "Numeric/statistical claims must be carried by a sourced/expert-labelled claim in the cited truth.", "deterministic": true, "failure_reason": "UNSUPPORTED_NUMERIC_CLAIM" },
+    { "id": "E8", "text": "Causal/efficacy claims must be supported at the label the applicable Domain Authority Pack allows; efficacy is never asserted from a hypothesis.", "deterministic": true, "failure_reason": "UNSUPPORTED_EFFICACY_CLAIM" },
+    { "id": "E9", "text": "Source class must be permitted by the applicable Domain Authority Pack.", "deterministic": true, "failure_reason": "SOURCE_CLASS_NOT_ALLOWED" },
+    { "id": "E10", "text": "Market-sensitive/dated claims must carry a date/context where the pack requires it.", "deterministic": true, "failure_reason": "SOURCE_TOO_OLD" },
+    { "id": "E11", "text": "Population/jurisdiction applicability must be preserved, not universalized, where the pack requires it.", "deterministic": true, "failure_reason": "POPULATION_MISMATCH" },
+    { "id": "E12", "text": "Unresolved contradictory counter-evidence blocks authorization.", "deterministic": false, "failure_reason": "CONTRADICTORY_EVIDENCE_UNRESOLVED" },
+    { "id": "E13", "text": "Claim-to-source semantic entailment where a model judgment is genuinely required.", "deterministic": false, "failure_reason": "CLAIM_NOT_ENTAILED" },
+    { "id": "E14", "text": "The applicable Domain Authority Pack must exist and authorize the claim classes used.", "deterministic": true, "failure_reason": "DOMAIN_AUTHORITY_MISSING" }
+  ],
+  "failure_reasons": [
+    "SOURCE_MISSING", "SOURCE_CLASS_NOT_ALLOWED", "SOURCE_TOO_OLD", "CLAIM_NOT_ENTAILED", "CLAIM_EXCEEDS_EVIDENCE",
+    "POPULATION_MISMATCH", "JURISDICTION_MISMATCH", "CONTRADICTORY_EVIDENCE_UNRESOLVED", "HYPOTHESIS_PRESENTED_AS_FACT",
+    "UNSUPPORTED_NUMERIC_CLAIM", "UNSUPPORTED_CAUSAL_CLAIM", "UNSUPPORTED_EFFICACY_CLAIM", "DOMAIN_AUTHORITY_MISSING",
+    "CLAIM_CLASS_NOT_AUTHORIZED"
+  ],
+  "automatic_authorization_conditions": [
+    "every claim has a canonical label",
+    "sourced/expert claims name a resolvable source",
+    "no claim strength exceeds its evidence strength",
+    "hypotheses are not presented as fact",
+    "numeric/causal/efficacy claims are carried by cited truth at the permitted strength",
+    "an ACTIVE, applicable Domain Authority Pack resolves"
+  ],
+  "automatic_rejection_conditions": [
+    "a required source is missing or unresolved",
+    "a claim exceeds its evidence strength",
+    "a hypothesis is presented as fact",
+    "no applicable ACTIVE Domain Authority Pack exists",
+    "the pack does not authorize a claim class that is present"
+  ],
+  "provenance": {
+    "authored_by": "factory authority build (opencode)",
+    "approved_by": "SWIIPT_OWNER (system policy doctrine, task 2026-09-23)",
+    "note": "Machine-readable encoding of the EXISTING Gate-4 evidence standard. It strengthens rather than weakens evidence requirements; no threshold is lowered."
+  }
+}

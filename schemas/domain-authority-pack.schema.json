@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/domain-authority-pack.schema.json",
+  "title": "Swiipt Level-2 Domain Authority Pack",
+  "description": "Domain-specific machine-readable authority consumed by the automated Evidence / Safety / Journey authorities. Encodes the ACTUAL permitted scope of a domain class (permitted and prohibited claim classes, source/evidence expectations, safety boundaries, escalation, dated-baseline and applicability rules) so products in that domain can be authorized without a per-product person. Its absence means the domain is not yet autonomously publishable (NOT_AUTHORIZED).",
+  "type": "object",
+  "required": [
+    "authority_id", "authority_type", "domain", "version", "status", "effective_date",
+    "claim_classes", "safety_rules", "provenance"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "authority_id": { "type": "string", "pattern": "^SWIIPT-DOMAIN-AUTHORITY-[A-Z0-9-]+$" },
+    "authority_type": { "const": "DOMAIN_AUTHORITY_PACK" },
+    "domain": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["ACTIVE", "SUPERSEDED", "DRAFT", "RETIRED"] },
+    "effective_date": { "type": "string" },
+    "supersedes": { "type": ["string", "null"] },
+    "applies_to_domains": { "type": "array", "items": { "type": "string" } },
+    "risk_classes": { "type": "array", "items": { "type": "string" }, "description": "Risk classes this pack is authorized to govern. A higher risk class than the pack covers is NOT_AUTHORIZED." },
+    "regulated": { "type": "boolean", "description": "true when the domain is regulated (clinical/legal/credit/etc.) and requires its own pack; such products are NOT_AUTHORIZED without an adequate pack." },
+    "claim_classes": {
+      "type": "object",
+      "required": ["permitted", "prohibited"],
+      "additionalProperties": true,
+      "properties": {
+        "permitted": { "type": "array", "items": { "type": "string" } },
+        "prohibited": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "source_rules": { "type": "object" },
+    "evidence_rules": { "type": "object" },
+    "safety_rules": {
+      "type": "object",
+      "required": ["scope_boundaries", "prohibited_behaviors"],
+      "additionalProperties": true,
+      "properties": {
+        "scope_boundaries": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "prohibited_behaviors": { "type": "array", "items": { "type": "string" } },
+        "required_disclosures": { "type": "array", "items": { "type": "string" } },
+        "escalation": { "type": "object" },
+        "clinical_required": { "type": "boolean", "description": "True only when the DOMAIN is genuinely clinical. Non-clinical domains (e.g. family_finance) set this false so elevated risk does not imply a clinician." }
+      }
+    },
+    "savings_claim_rules": { "type": "object" },
+    "dated_baseline_rules": { "type": "object" },
+    "currency_context_rules": { "type": "object" },
+    "freshness_rules": { "type": "array", "items": { "type": "object" } },
+    "applicability_rules": { "type": "array", "items": { "type": "object" } },
+    "contradiction_rules": { "type": "array", "items": { "type": "object" } },
+    "uncertainty_rules": { "type": "array", "items": { "type": "object" } },
+    "required_tests": { "type": "array", "items": { "type": "string" } },
+    "automatic_authorization_conditions": { "type": "array", "items": { "type": "string" } },
+    "automatic_rejection_conditions": { "type": "array", "items": { "type": "string" } },
+    "provenance": {
+      "type": "object",
+      "required": ["authored_by", "approved_by"],
+      "additionalProperties": true,
+      "properties": { "authored_by": { "type": "string" }, "approved_by": { "type": "string" }, "note": { "type": "string" } }
+    }
+  }
+}

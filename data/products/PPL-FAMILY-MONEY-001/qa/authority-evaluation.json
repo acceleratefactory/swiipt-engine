@@ -1,0 +1,211 @@
+{
+  "evaluation_id": "AUTH-PPL-FAMILY-MONEY-001-91e22e689c9d",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "transformation_id": "TR-PPL-FAMILY-MONEY-001",
+  "evaluated_at": "2026-09-23T00:00:00.000Z",
+  "evaluator": {
+    "kind": "DETERMINISTIC",
+    "engine": "governance-authority@1",
+    "model_id": null,
+    "independent_from_generation": true
+  },
+  "authority_versions": {
+    "evidence_constitution": "SWIIPT-EVIDENCE-CONSTITUTION@1.0",
+    "safety_constitution": "SWIIPT-SAFETY-CONSTITUTION@1.0",
+    "journey_constitution": "SWIIPT-JOURNEY-CONSTITUTION@1.0",
+    "tsm_constitution": "SWIIPT-TSM-CONSTITUTION@1.0",
+    "publication_constitution": "SWIIPT-PUBLICATION-CONSTITUTION@1.0",
+    "pack_general_life": "SWIIPT-DOMAIN-AUTHORITY-GENERAL-LIFE@1.0",
+    "pack_family_finance": "SWIIPT-DOMAIN-AUTHORITY-FAMILY-FINANCE@1.0"
+  },
+  "risk_class": "moderate_consequential",
+  "domain": "family_finance",
+  "domain_pack": {
+    "authority_id": "SWIIPT-DOMAIN-AUTHORITY-FAMILY-FINANCE",
+    "version": "1.0",
+    "domain": "family_finance"
+  },
+  "gates": {
+    "g4_evidence": {
+      "state": "AUTHORIZED",
+      "checks": [
+        {
+          "rule": "E1",
+          "ok": true,
+          "detail": "18 claim(s)"
+        },
+        {
+          "rule": "E3",
+          "ok": true,
+          "detail": "all labels canonical"
+        },
+        {
+          "rule": "E4",
+          "ok": true,
+          "detail": "6 sourced/expert claim(s)"
+        },
+        {
+          "rule": "E6",
+          "ok": true,
+          "detail": "no hypothesis-as-fact"
+        },
+        {
+          "rule": "E7",
+          "ok": true,
+          "detail": "0 unsupported numeric claim(s)"
+        },
+        {
+          "rule": "E8",
+          "ok": true,
+          "detail": "no efficacy claim"
+        },
+        {
+          "rule": "E14",
+          "ok": true,
+          "detail": "no prohibited claim class asserted"
+        },
+        {
+          "rule": "E10",
+          "ok": true,
+          "detail": "dated baseline present"
+        },
+        {
+          "rule": "E2",
+          "ok": true,
+          "detail": "SWIIPT-DOMAIN-AUTHORITY-FAMILY-FINANCE"
+        }
+      ],
+      "failure_reasons": []
+    },
+    "g5_safety": {
+      "state": "AUTHORIZED",
+      "checks": [
+        {
+          "rule": "S1",
+          "ok": true,
+          "detail": "moderate"
+        },
+        {
+          "rule": "S2",
+          "ok": true,
+          "detail": "pack covers moderate_consequential"
+        },
+        {
+          "rule": "S3",
+          "ok": true,
+          "detail": "scope boundary present"
+        },
+        {
+          "rule": "S4",
+          "ok": true,
+          "detail": "disclosure present"
+        },
+        {
+          "rule": "S5",
+          "ok": true,
+          "detail": "1 escalation rule(s)"
+        },
+        {
+          "rule": "S6",
+          "ok": true,
+          "detail": "no prohibited behaviour"
+        },
+        {
+          "rule": "S8",
+          "ok": true,
+          "detail": "not required (non-clinical domain)"
+        },
+        {
+          "rule": "S9",
+          "ok": true,
+          "detail": "no misleading certainty"
+        },
+        {
+          "rule": "S10",
+          "ok": true,
+          "detail": "rescue routes back"
+        }
+      ],
+      "failure_reasons": []
+    },
+    "g9_customer_journey": {
+      "state": "AUTHORIZED",
+      "checks": [
+        {
+          "rule": "J0",
+          "ok": true,
+          "detail": "customer content artifacts present"
+        },
+        {
+          "rule": "J1",
+          "ok": true,
+          "detail": "4 stage(s); first win present"
+        },
+        {
+          "rule": "J2",
+          "ok": true,
+          "detail": "6 artifact(s) resolve"
+        },
+        {
+          "rule": "J3",
+          "ok": true,
+          "detail": "rescue asset present"
+        },
+        {
+          "rule": "J6",
+          "ok": true,
+          "detail": "clean"
+        },
+        {
+          "rule": "J8",
+          "ok": true,
+          "detail": "next-state/maintenance present"
+        },
+        {
+          "rule": "J4",
+          "ok": true,
+          "detail": "no dead-end stage"
+        },
+        {
+          "rule": "J7",
+          "ok": true,
+          "detail": "operational artifact present"
+        },
+        {
+          "rule": "J9",
+          "ok": true,
+          "detail": "SWIIPT-DOMAIN-AUTHORITY-FAMILY-FINANCE"
+        }
+      ],
+      "failure_reasons": []
+    }
+  },
+  "tsm_classification": {
+    "state": "INTERNAL_COHORT_THRESHOLD",
+    "derived_threshold": "60%+ of completers meet >=3 of 4 indicators at Day 30 review",
+    "metric_count": 4,
+    "observation_days": [
+      0,
+      7,
+      14,
+      30
+    ],
+    "measurement_method": "Self-reported log of the stage-1 artefact plus a structured check-in against the Day-0 baseline at the scheduled check-ins",
+    "efficacy_validated": false,
+    "external_presentation": "self_check_target_only",
+    "note": "Publication eligibility is independent of validated efficacy; the threshold is an internal cohort / learning baseline, never published as proven efficacy.",
+    "failure_reasons": [],
+    "trace": {
+      "source": "product.tsm + transformation.tsm",
+      "derivation": "policy pattern"
+    }
+  },
+  "publication": {
+    "state": "AUTHORIZED_BY_PUBLICATION_CONSTITUTION",
+    "failure_reasons": []
+  },
+  "missing_authority": [],
+  "decision": "AUTHORIZED",
+  "failure_reasons": [],
+  "input_hash": "91e22e689c9d65424b442c35f693abfe99ec919124dbbdadb276a99240eb2948"
+}

@@ -1,0 +1,66 @@
+{
+  "authority_id": "SWIIPT-JOURNEY-CONSTITUTION",
+  "authority_type": "CONSTITUTION",
+  "constitution_kind": "JOURNEY",
+  "version": "1.0",
+  "status": "ACTIVE",
+  "effective_date": "2026-09-23",
+  "supersedes": null,
+  "owner_authority": "SWIIPT_OWNER",
+  "reference": "standards/publishing-gates-standard.md (gate 9) + harness/review-inputs.mjs JOURNEY_CHECKLIST",
+  "applies_to_domains": ["*"],
+  "applies_to_risk_classes": ["low_risk", "moderate_consequential", "high_risk_regulated"],
+  "checklist": [
+    "can the customer identify where to start?",
+    "is the current situation recognizable?",
+    "is the intended transformation clear?",
+    "is the first action clear?",
+    "can the first win actually be completed?",
+    "are required inputs available?",
+    "are instructions executable?",
+    "do artifacts resolve?",
+    "are decision paths coherent?",
+    "are dependencies ordered correctly?",
+    "can the customer recover from common failure points?",
+    "does rescue route back into the mechanism?",
+    "are safety/escalation routes reachable?",
+    "are there dead ends?",
+    "are there circular instructions?",
+    "are there missing transitions?",
+    "does the product accidentally require unavailable information?",
+    "does it expose internal factory/governance terminology?",
+    "is the next state understandable?",
+    "does the product actually deliver the specified mechanism rather than merely explain it?"
+  ],
+  "rules": [
+    { "id": "J1", "text": "A first action and first win must be present and reachable.", "deterministic": true, "failure_reason": "FIRST_WIN_BROKEN" },
+    { "id": "J2", "text": "Every asset referenced by the asset map must resolve and have authored source.", "deterministic": true, "failure_reason": "ARTIFACT_UNRESOLVED" },
+    { "id": "J3", "text": "Failure points must be anticipated and carry a rescue route back into the mechanism.", "deterministic": true, "failure_reason": "RESCUE_PATH_MISSING" },
+    { "id": "J4", "text": "No dead ends or circular instructions in the customer path.", "deterministic": false, "failure_reason": "DEAD_END" },
+    { "id": "J5", "text": "No missing transitions between stages.", "deterministic": false, "failure_reason": "MISSING_TRANSITION" },
+    { "id": "J6", "text": "No internal factory/governance terminology exposed to the customer.", "deterministic": true, "failure_reason": "INTERNAL_TERMINOLOGY_EXPOSED" },
+    { "id": "J7", "text": "The product must deliver the specified mechanism (not merely explain it).", "deterministic": false, "failure_reason": "MECHANISM_NOT_DELIVERED" },
+    { "id": "J8", "text": "The next state must be understandable (maintenance / next transformation).", "deterministic": true, "failure_reason": "NEXT_STATE_UNCLEAR" }
+  ],
+  "failure_reasons": ["FIRST_WIN_BROKEN", "ARTIFACT_UNRESOLVED", "RESCUE_PATH_MISSING", "DEAD_END", "MISSING_TRANSITION", "INTERNAL_TERMINOLOGY_EXPOSED", "MECHANISM_NOT_DELIVERED", "NEXT_STATE_UNCLEAR"],
+  "simulation_roles": ["normal_path_executor", "ambiguity_critic", "failure_path_executor", "rescue_path_executor", "transformation_drift_critic"],
+  "aggregation_policy": "A deterministic failure always blocks. Model simulation roles may only ADD findings; no single model may override a constitutional requirement. AUTHORIZED requires: all deterministic checks pass AND no blocking model finding.",
+  "automatic_authorization_conditions": [
+    "first action + first win present and reachable",
+    "all assets resolve with authored source",
+    "failure points rescue back into the mechanism",
+    "no internal terminology exposed",
+    "no deterministic dead end / missing transition"
+  ],
+  "automatic_rejection_conditions": [
+    "first win unreachable",
+    "unresolved artifact",
+    "dead end or missing transition",
+    "internal terminology exposed"
+  ],
+  "provenance": {
+    "authored_by": "factory authority build (opencode)",
+    "approved_by": "SWIIPT_OWNER (system policy doctrine, task 2026-09-23)",
+    "note": "The 20-question checklist is reused verbatim from the existing journey review. Deterministic checks replace the mandatory human walk-through for normal products; simulation roles derive from canonical Customer Truth, never fabricated personas."
+  }
+}

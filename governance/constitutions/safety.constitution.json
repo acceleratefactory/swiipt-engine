@@ -1,0 +1,47 @@
+{
+  "authority_id": "SWIIPT-SAFETY-CONSTITUTION",
+  "authority_type": "CONSTITUTION",
+  "constitution_kind": "SAFETY",
+  "version": "1.0",
+  "status": "ACTIVE",
+  "effective_date": "2026-09-23",
+  "supersedes": null,
+  "owner_authority": "SWIIPT_OWNER",
+  "reference": "standards/safety-standard.md (Gates 4-5, escalation routing, human authority)",
+  "applies_to_domains": ["*"],
+  "applies_to_risk_classes": ["low_risk", "moderate_consequential", "high_risk_regulated"],
+  "risk_classes": ["low_risk", "moderate_consequential", "high_risk_regulated", "prohibited"],
+  "rules": [
+    { "id": "S1", "text": "A product must declare a canonical risk_level (low|moderate|high|clinical).", "deterministic": true, "failure_reason": "SAFETY_MISSING" },
+    { "id": "S2", "text": "The applicable Domain Authority Pack must exist and cover the product's risk class.", "deterministic": true, "failure_reason": "DOMAIN_AUTHORITY_MISSING" },
+    { "id": "S3", "text": "A scope boundary must be recorded (transformation.safety.scope_boundary).", "deterministic": true, "failure_reason": "SAFETY_MISSING" },
+    { "id": "S4", "text": "A required disclosure/disclaimer must be present.", "deterministic": true, "failure_reason": "SAFETY_MISSING" },
+    { "id": "S5", "text": "Escalation behaviour must be defined and must never invent a jurisdiction-specific service without approved evidence.", "deterministic": true, "failure_reason": "ESCALATION_UNDEFINED" },
+    { "id": "S6", "text": "Prohibited behaviours (diagnosis, prescribing, regulated-advice drift, therapy, guarantees) must be absent.", "deterministic": true, "failure_reason": "PROHIBITED_SAFETY_BEHAVIOR" },
+    { "id": "S7", "text": "Clinical/regulated domains require a clinical Domain Authority Pack; a non-clinical domain must NOT be forced into clinical review.", "deterministic": true, "failure_reason": "DOMAIN_AUTHORITY_MISSING" },
+    { "id": "S8", "text": "Red-flag criteria, where the pack/risk class requires them, must come from authoritative literature, not be invented.", "deterministic": true, "failure_reason": "SOURCE_REQUIRED" },
+    { "id": "S9", "text": "Misleading certainty, harmful omissions and dangerous sequencing must be absent (semantic judgment where required).", "deterministic": false, "failure_reason": "MISLEADING_CERTAINTY" },
+    { "id": "S10", "text": "Rescue/failure behaviour must route back into the mechanism and never substitute motivational prose for a rescue.", "deterministic": true, "failure_reason": "RESCUE_INADEQUATE" }
+  ],
+  "failure_reasons": [
+    "SAFETY_MISSING", "DOMAIN_AUTHORITY_MISSING", "ESCALATION_UNDEFINED", "PROHIBITED_SAFETY_BEHAVIOR",
+    "MISLEADING_CERTAINTY", "HARMFUL_OMISSION", "REGULATED_ADVICE_DRIFT", "SOURCE_REQUIRED", "RESCUE_INADEQUATE"
+  ],
+  "automatic_authorization_conditions": [
+    "risk class classified and traceable",
+    "an ACTIVE, applicable Domain Authority Pack covers the risk class",
+    "scope boundary + required disclosure present",
+    "escalation defined without invented routes",
+    "no prohibited behaviour present"
+  ],
+  "automatic_rejection_conditions": [
+    "required Domain Authority Pack missing or not covering the risk class",
+    "prohibited behaviour (advice/diagnosis/guarantee drift) present",
+    "escalation undefined or invents an unapproved service"
+  ],
+  "provenance": {
+    "authored_by": "factory authority build (opencode)",
+    "approved_by": "SWIIPT_OWNER (system policy doctrine, task 2026-09-23)",
+    "note": "Encodes the existing safety standard. CORRECTS the legacy semantics by which any elevated risk implied CLINICAL_AUTHORITY (a human clinician); clinical authority is now required only when the DOMAIN is genuinely clinical."
+  }
+}

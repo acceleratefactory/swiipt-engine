@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/authority-evaluation.schema.json",
+  "title": "Swiipt Level-3 Product Authority Evaluation",
+  "description": "The persisted, versioned, auditable record of an automated authority evaluation of one product. Records the exact authority versions that governed the decision, the risk class + domain + resolved Domain Authority Pack, the per-gate authority states, the failure reasons (when NOT_AUTHORIZED), the evaluator identity (deterministic or model+model_id) and the input hash. This is the proof of WHY a product was authorized or stopped - it is not a per-product human approval.",
+  "type": "object",
+  "required": [
+    "evaluation_id", "product_id", "transformation_id", "evaluated_at", "evaluator",
+    "authority_versions", "risk_class", "domain", "gates", "publication", "decision", "input_hash"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "evaluation_id": { "type": "string", "minLength": 1 },
+    "product_id": { "type": "string", "minLength": 1 },
+    "transformation_id": { "type": ["string", "null"] },
+    "evaluated_at": { "type": "string" },
+    "evaluator": {
+      "type": "object",
+      "required": ["kind"],
+      "additionalProperties": true,
+      "properties": {
+        "kind": { "enum": ["DETERMINISTIC", "MODEL", "HYBRID"] },
+        "engine": { "type": "string" },
+        "model_id": { "type": ["string", "null"] },
+        "independent_from_generation": { "type": "boolean" }
+      }
+    },
+    "authority_versions": { "type": "object", "description": "Exact versions of every authority that governed this decision." },
+    "authority_lineage": { "type": "array", "items": { "type": "string" } },
+    "risk_class": { "type": "string" },
+    "risk_trace": { "type": "object" },
+    "domain": { "type": "string" },
+    "domain_trace": { "type": "object" },
+    "domain_pack": { "type": ["object", "null"], "description": "Resolved Domain Authority Pack {authority_id, version} or null when missing." },
+    "gates": {
+      "type": "object",
+      "description": "Per-gate authority outcome: AUTHORIZED or NOT_AUTHORIZED + checks + failure reasons.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["state"],
+        "additionalProperties": true,
+        "properties": {
+          "state": { "enum": ["AUTHORIZED", "NOT_AUTHORIZED"] },
+          "checks": { "type": "array", "items": { "type": "object" } },
+          "failure_reasons": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "tsm_classification": { "type": ["object", "null"] },
+    "publication": {
+      "type": "object",
+      "required": ["state"],
+      "additionalProperties": true,
+      "properties": {
+        "state": { "enum": ["AUTHORIZED_BY_PUBLICATION_CONSTITUTION", "NOT_AUTHORIZED"] },
+        "failure_reasons": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "missing_authority": { "type": "array", "items": { "type": "string" }, "description": "System-level authority capability the product needs (for grouping/reevaluation)." },
+    "decision": { "enum": ["AUTHORIZED", "NOT_AUTHORIZED"] },
+    "failure_reasons": { "type": "array", "items": { "type": "string" } },
+    "cached": { "type": "boolean" },
+    "input_hash": { "type": "string", "minLength": 8 }
+  }
+}

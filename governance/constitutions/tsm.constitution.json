@@ -1,0 +1,55 @@
+{
+  "authority_id": "SWIIPT-TSM-CONSTITUTION",
+  "authority_type": "CONSTITUTION",
+  "constitution_kind": "TSM",
+  "version": "1.0",
+  "status": "ACTIVE",
+  "effective_date": "2026-09-23",
+  "supersedes": null,
+  "owner_authority": "SWIIPT_OWNER",
+  "reference": "standards/transformation-standard.md section 4 + standards/safety-standard.md section 5",
+  "applies_to_domains": ["*"],
+  "applies_to_risk_classes": ["low_risk", "moderate_consequential", "high_risk_regulated"],
+  "policy": {
+    "principle": "A product must not need a fabricated efficacy claim merely to be published. Publication eligibility is separate from validated transformation efficacy.",
+    "derivation_inputs": [
+      "transformation class",
+      "mechanism",
+      "first win",
+      "measurement type (behavioral | outcome)",
+      "objective vs self-reported measurement",
+      "observation period (measurement days)",
+      "metric count",
+      "evidence maturity",
+      "product risk class"
+    ],
+    "maturity_states": ["HYPOTHESIS_LEARNING_BASELINE", "INTERNAL_COHORT_THRESHOLD", "EFFICACY_SUPPORTED", "NOT_AUTHORIZED"],
+    "rules": [
+      { "id": "T1", "text": "Individual progress metrics must measure before->after movement, never engagement/pages/quiz scores.", "deterministic": true, "failure_reason": "TSM_METRIC_INVALID" },
+      { "id": "T2", "text": "Measurement days (an observation window) must be declared.", "deterministic": true, "failure_reason": "TSM_MISSING" },
+      { "id": "T3", "text": "A numeric threshold is an INTERNAL COHORT / LEARNING BASELINE unless supported by validated efficacy evidence; it is never published as proven efficacy.", "deterministic": true, "failure_reason": "TSM_METRIC_INVALID" },
+      { "id": "T4", "text": "A newly launched transformation with no validated efficacy is classified HYPOTHESIS_LEARNING_BASELINE and may still be publication-eligible when the Publication Constitution does not require validated efficacy.", "deterministic": true, "failure_reason": null },
+      { "id": "T5", "text": "The threshold is DERIVED by policy from the inputs; it is never a per-product human gate.", "deterministic": true, "failure_reason": null },
+      { "id": "T6", "text": "Publication eligibility must not depend on a fabricated efficacy claim.", "deterministic": true, "failure_reason": null }
+    ],
+    "threshold_derivation": {
+      "pattern": "P%+ of completers meet >=N of M stated indicators at Day X review",
+      "defaults": { "P": 60, "N": 3, "M": "metric_count", "X": "max(measurement_days)" },
+      "classification_rule": "INTERNAL_COHORT_THRESHOLD when the pattern is derivable and efficacy is unvalidated; HYPOTHESIS_LEARNING_BASELINE when it is not derivable; EFFICACY_SUPPORTED only when validated efficacy evidence exists in the truth records; NOT_AUTHORIZED never (publication is independent of efficacy)."
+    },
+    "external_presentation_rule": "A hypothesis/learning baseline metric may be presented to the customer as a self-check target only, never as proven efficacy."
+  },
+  "failure_reasons": ["TSM_MISSING", "TSM_METRIC_INVALID", "TSM_THRESHOLD_UNAUTHORIZED"],
+  "automatic_authorization_conditions": [
+    "metrics are behavioral/outcome (not engagement)",
+    "an observation window is declared",
+    "the threshold is derived by policy and classified (hypothesis/learning or internal cohort)",
+    "no fabricated efficacy claim is required for publication"
+  ],
+  "automatic_rejection_conditions": ["no metrics", "no measurement window", "a fabricated efficacy claim is required"],
+  "provenance": {
+    "authored_by": "factory authority build (opencode)",
+    "approved_by": "SWIIPT_OWNER (system policy doctrine, task 2026-09-23)",
+    "note": "Replaces the per-product owner threshold approval with a derivation policy; preserves the rule that the owner governs the policy itself."
+  }
+}

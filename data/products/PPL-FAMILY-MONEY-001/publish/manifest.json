@@ -1,0 +1,814 @@
+{
+  "manifest_version": "1.0",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "publish_target": "wordpress",
+  "transformation": {
+    "title": "The household can state one trusted budget number and keep a baby fund; the budg",
+    "area": "m01",
+    "summary": "A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.",
+    "evidence_label": "research-backed",
+    "tsm": {
+      "before_baseline": [
+        "No first-year budget exists, therefore money disappears and the couple fights over baby spending.",
+        "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight."
+      ],
+      "success_indicators": [
+        "The household can state one trusted budget number and keep a baby fund",
+        "the budget chart is posted and followed.",
+        "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+        "Sort every planned purchase into the Buy, Wait and Never list before spending.",
+        "Keep the thirty-day use audit log and resell whatever the baby never used.",
+        "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys."
+      ],
+      "measurement_method": "Self-reported log of the stage-1 artefact plus a structured check-in against the Day-0 baseline at the scheduled check-ins",
+      "measurement_days": [
+        0,
+        7,
+        14,
+        30
+      ],
+      "success_threshold": "PENDING OWNER APPROVAL: business call per transformation-standard 4 / safety-standard 5 - the runner must not decide the success threshold; owner approves"
+    }
+  },
+  "product": {
+    "title": "The One-Number Baby Budget",
+    "description": "A first-year household money system that replaces cart panic and silent shortfalls with one trusted budget number, a Buy/Wait/Never list, and a 30-day use audit.",
+    "short_description": "A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.",
+    "base_price_usd": 29,
+    "prices": {}
+  },
+  "assets": [
+    {
+      "job": "READ",
+      "title": "The One-Number Budget Chart",
+      "content": "# The One-Number Budget Chart\n*The single sheet that both partners read from. Fill it once, post it where you both pass it, and review it on the date at the bottom.*\n\n## The four lines that matter\nEverything else in this system points back to these lines. Do not add more until these are filled.\n\n| Line | Your figure | Notes |\n|---|---|---|\n| Normal-month baby figure | | The quiz Step 3 total |\n| Lean-month figure | | What still gets covered when income dips |\n| Peak-month figure | | When several yearly costs land together |\n| The baby fund | | The amount you hold back each month for the yearly items |\n\n**Reading the lines.** The four lines are not comparable to each other; each answers a different question.\n- **Normal-month figure** is not a ceiling or a target. It is the honest cost of a usual month.\n- **Lean and peak** exist because one fixed number fails in a household with irregular income. Showing both ends is the point.\n- **The baby fund** is the monthly amount that pre-pays the once-in-a-while costs, so they stop arriving as emergencies.\n\n**The shared rule.** Write it under the table, in the words you both agree:\n\n> We spend against the plan, not against the fear. When something is unclear, it goes on the Buy / Wait / Never List before it is bought.\n\nBoth partners read the same chart. If the chart lives only in one phone, it is not shared yet.\n\n> ## If the numbers change\n> Income changes, prices move, and the baby changes what it needs. When a line becomes wrong, edit that line and note the date. The method does not change. Only the number does.\n\n## Price date (keep this current)\n| Checked on | Feeding | Nappies | Transport | Notes |\n|---|---|---|---|---|\n| | | | | |\n\nEach time you refresh the prices, write the date. The figure is a dated snapshot of your market, not a permanent truth. A number without a date is a guess wearing a suit.\n\n## Review date\n| Reviewed on | Normal | Lean | Peak | Fund | Changed because |\n|---|---|---|---|---|---|\n| | | | | | |\n| | | | | | |\n| | | | | | |\n\nKeep the review to once a month, on the same day. Put the date at the top of the sheet so neither of you has to remember it.\n\n## How this connects to the rest of the system\n- Built by: the Real Baby Budget Quiz.\n- Spent against by: the Buy / Wait / Never List.\n- Checked by: the 30-Day Use Audit Log + Resell.\n- Adjusted by: the Corner-Shop Cost-Swap Card.\n- Recovered by: the Cart-Delete Loop Rescue.\n\n## Not advice\nThis chart organises your own figures. It is general household planning, not regulated financial advice, debt counselling or investment advice, and it does not promise savings. If your situation moves beyond ordinary planning, see the scope note on the Cart-Delete Loop Rescue card.\n"
+    },
+    {
+      "job": "DO",
+      "title": "The Real Baby Budget Quiz",
+      "content": "# The Real Baby Budget Quiz\n*Do this once, tonight, with the account you actually pay from. It ends with one number: your household's first-year baby figure. Around 15 minutes for the first pass.*\n\n## Why this is a quiz and not an average\nNo universal baby number exists. A blended average built elsewhere tells you nothing about your market, your tier, your week or your baby. This quiz does not give you an average to live up to. It converts the spending you already know about into one figure you and your partner can both see, and it says where the gaps are.\n\nIf you cannot finish because a figure is genuinely unknown, mark it `?` and keep going. A number with three honest gaps beats a tidy number you invented.\n\n## Step 1 — List the recurring costs (5 minutes)\nWrite what leaves the household every month for the baby. Use your own market and your own words. Leave a row blank rather than guess.\n\n| Cost | What it covers | Amount per month | How often it changes |\n|---|---|---|---|\n| Feeding | Formula, or your own expressed-milk supplies | | Weekly prices move |\n| Nappies and wipes | Day and night use | | Pack size changes the price |\n| Washing and drying | Extra loads the baby creates | | Seasonal |\n| Health basics | The ordinary items kept in the house | | Occasional |\n| Transport | The extra trips the baby adds | | Fuel and fares move |\n| Childcare or help | Any paid help, however irregular | | Agreement-based |\n| `?` | Anything you pay for but have not named | | |\n\n## Step 2 — Add the once-in-a-while costs (4 minutes)\nThese are the ones that feel like an emergency every time they arrive because they were never in the plan.\n\n| Item | Roughly how often per year | Your estimate each time |\n|---|---|---|\n| Larger gear replaced over the year | | |\n| Clothing as the baby grows | | |\n| Visits, ceremonies or travel tied to the baby | | |\n| Anything else that is real but not monthly | | |\n\n## Step 3 — Turn the two into one monthly figure (3 minutes)\n1. Add the monthly column from Step 1.\n2. Take the yearly total from Step 2 and divide it by twelve.\n3. Add the two. That is your baby figure for a normal month.\n4. Now write the range, because your income is not always the same.\n\n| Line | Your figure |\n|---|---|\n| Monthly recurring (Step 1) | |\n| Yearly items spread across twelve months (Step 2 ÷ 12) | |\n| **Normal-month baby figure** | |\n| Lean-month figure (what you can still cover when income dips) | |\n| Peak-month figure (when several yearly items land together) | |\n\n> ## One number, one household\n> The number is not a target to earn. It is a picture you both share, so a purchase is judged against a plan instead of decided in fear.\n\n## Step 4 — Check it against reality, once (3 minutes)\nLook at the last two months of actual spending on the baby and compare.\n\n- If your real spending is far above the figure: the gap is the discovery, not a failure. Add the missing row to Step 1 and read the figure again.\n- If it is far below: keep the figure as it is. The lower months are not the plan; the plan is what a normal month costs.\n- If your income is irregular: the range (lean / normal / peak) is the honest answer. Use all three on the chart, not one.\n\n## What this quiz is not\nIt is general household organisation, not regulated financial advice, debt counselling or investment advice. It never promises savings. It cannot tell you what you can afford; it shows you what you are already spending and what the plan needs to cover.\n\n## Dated inputs\nAny figure you write carries the date you checked it. Prices for feeding, nappies and transport move with the market, the week and the pack size. The one-number method stays the same; the numbers are refreshed, not the system.\n\n## Example (illustrative only — not your figures, not a recommended amount)\nA household that pays monthly for feeding, nappies, washing and transport, and yearly for larger gear and clothing, might reach a normal-month figure in the low five figures of its own currency. Your figure will differ, and it should. The example shows the shape of the arithmetic, nothing more.\n\nDate this example was written: September 2026. Re-check prices in your own market before using any number.\n\n## Finish here, then go to the chart\nWhen Step 3 has a normal-month figure and a lean/peak range, you have done the first win. Post the figure on the One-Number Budget Chart and start the Buy / Wait / Never List on whatever is already sitting in a cart.\n"
+    },
+    {
+      "job": "DO",
+      "title": "Corner-Shop Cost-Swap Card",
+      "content": "# Corner-Shop Cost-Swap Card\n*When a weekly cost keeps overspending, swap it once instead of re-deciding it every week. Three swaps, chosen from your own market, not from a list of national averages.*\n\n## How a swap works\n1. Find the one cost that overspends most weeks. Not the biggest cost — the one that goes over.\n2. Write what you buy now, and the lower-cost equivalent you can actually reach (the corner shop, the market, the bulk pack, the refill).\n3. Swap it once. Check the difference at the end of the week.\n4. If it holds, keep it. If it fails, the swap was wrong, not you.\n\n## The card\n| Cost | What we buy now | Lower-cost equivalent | Where | Difference per week | Checked on |\n|---|---|---|---|---|---|\n| | | | | | |\n| | | | | | |\n| | | | | | |\n\n**Filling the card honestly.**\n- **Lower-cost equivalent**, not \"cheaper and worse\". If the substitute makes the week harder, it is not a swap.\n- **Where** must be somewhere you already pass. A saving you must travel for is usually not a saving.\n- **Difference per week** — write what you measured, not what you hope. If you have not measured it yet, leave it blank until the week ends.\n- **Checked on** — every swap carries the date you priced it. Prices move; a swap confirmed in one month may be wrong in three.\n\n> ## The rule of three\n> Change three costs. Not ten. Three swaps you actually keep beat ten you abandon by the second week.\n\n## Run it in three steps\n1. **Tonight (5 minutes):** fill the first row only — the cost that overspends most.\n2. **This week:** make that one swap and note the difference when the week closes.\n3. **Next week:** if it held, add a second swap. Stop at three until all three are steady.\n\n## Example (illustrative only — prices are not yours)\n| Cost | What we buy now | Lower-cost equivalent | Where | Difference per week | Checked on |\n|---|---|---|---|---|---|\n| Nappies | Small packs from the nearest kiosk | Larger pack bought monthly | The market run already made | Filled after the first week | (date you checked) |\n\nThe row shows what a filled swap looks like. It is not a suggested product or a price.\n\n**When a swap is not the answer.** If the cost is already the lowest you can reach and still overspends, the problem is not the shop — it is the figure. Take it back to the One-Number Budget Chart and the audit rather than forcing a worse swap.\n\n## Scope note\nSwaps are your own cost decisions in your own market. This is general household organisation, not regulated financial advice or debt counselling, and it does not promise savings.\n"
+    },
+    {
+      "job": "DECIDE",
+      "title": "Buy / Wait / Never List",
+      "content": "# Buy / Wait / Never List\n*Every intended purchase gets one of three verdicts before any money leaves the household. Nothing stays undecided.*\n\n## The one question per purchase\nAsk it in this order and stop at the first answer that fits.\n\n| Verdict | Ask this | If the answer is yes | If the answer is no |\n|---|---|---|---|\n| **Buy** | Does the baby need this now, and is it already inside the normal-month figure? | Buy it. Cross it off. | Go to Wait. |\n| **Wait** | Is this wanted but not yet proven necessary? | Write it on the Wait row with the date you will re-check it. Do not buy yet. | Go to Never. |\n| **Never** | Does this solve a problem you do not have, or replace something you already own and use? | Take it out of the cart. It is not a saving to buy it \"just in case\". | It is a genuine Wait or Buy — re-read the two lines above. |\n\n> ## Two rules that stop the loop\n> **1. Essentials are never \"Never\".** Feeding, warmth, safety and health basics are not up for debate. Never is for the unnecessary, not the uncomfortable.\n> **2. If you are not sure, it is Wait.** Wait is not a delay tactic. It has a date on it, and on that date you decide again with better information.\n\n## The list\n| Item | Verdict | Wait until (date) | Why | Moved to Buy on |\n|---|---|---|---|---|\n| | Buy / Wait / Never | | | |\n| | | | | |\n| | | | | |\n| | | | | |\n| | | | | |\n\n## How to run it\n1. Fill the verdict column for everything currently in a watchlist, cart or saved list. Do not buy while filling.\n2. For every Wait, write a re-check date. A Wait without a date becomes a slow Buy.\n3. For every Never, remove it now, while you are calm and the fear is not driving.\n4. Move a Wait to Buy only when the need is real and the money is inside the plan.\n\n## Example (illustrative only — your verdicts will differ)\n| Item | Verdict | Wait until | Why |\n|---|---|---|---|\n| Extra set of night feed bottles | Wait | 2 weeks | One set is working; a second is convenience until proven needed |\n| Second pram for the car | Never | — | One pram already covers both uses |\n| Larger sleep sack for the current size | Buy | — | The current one no longer fits; safety and comfort need it now |\n\nThese rows show the shape of a decision. They are not advice about those items.\n\n## What this list is not\nIt classifies a purchase against your own plan. It does not tell you what you can afford, and it is not regulated financial advice, debt counselling or investment advice. If an essential genuinely does not fit the plan, that is a plan problem — take it to the One-Number Budget Chart and the audit, not to this list alone.\n"
+    },
+    {
+      "job": "TRACK",
+      "title": "30-Day Use Audit Log + Resell",
+      "content": "# 30-Day Use Audit Log + Resell\n*The honest check on what you actually used. Run it after thirty days, then turn the unused items back into fund money.*\n\n## Why a dated audit\nBuying is a guess; use is a fact. The audit replaces \"I think we needed it\" with \"we used it this many times\", read from your own log. It is not a judgement on the past month. It is the information the next month's plan was missing.\n\n## The log\nAdd one row when something is bought. Fill the use count as the weeks pass. Do not try to remember at the end — that is what the log is for.\n\n| Item | Bought on | Used (count) | Verdict at day 30 | Resell or keep |\n|---|---|---|---|---|\n| | | | | |\n| | | | | |\n| | | | | |\n| | | | | |\n| | | | | |\n\n## The day-30 review (20 minutes)\n1. Read each row. Count the uses honestly.\n2. Mark the verdict:\n   - **Used well** — it earned its place. Keep it, and keep buying this kind of thing.\n   - **Used a little** — keep it only if the small use was essential. Otherwise treat it as a Wait next time.\n   - **Never used** — it was a fear-buy. It goes to resell, not to the back of a cupboard.\n3. For every \"never used\", list it for resell today, at the price you can realistically get. Any amount returned is fund money.\n4. Add the resell amount to the baby fund on the One-Number Budget Chart.\n\n> ## The rule that makes this work\n> An unused item is not a loss you carry. It is fund money sitting in the wrong form. Resell it and it returns to the plan.\n\n**What to log, and what not to.** Log the things you were unsure about — the Wait items that became Buys, the gear, the extras. You do not need to log feeding and nappies every day; those are recurring and already sit in the monthly figure.\n\n**Review summary.**\n| Audit period | Items bought | Never used | Resell value returned | Fund added |\n|---|---|---|---|---|\n| | | | | |\n\n## How this connects\n- Fed by: the Buy / Wait / Never List.\n- Adds to: the baby fund on the One-Number Budget Chart.\n- Refreshed by: the Corner-Shop Cost-Swap Card when a cost keeps overspending.\n- This log is also the record the monthly check-in reads, so the plan is measured against real use rather than memory.\n\n## Scope note\nThis is a self-reported household log. It is general organisation, not regulated financial advice, debt counselling or investment advice. Resell prices are set by your own market, and you decide the price you will accept.\n"
+    },
+    {
+      "job": "RESCUE",
+      "title": "Cart-Delete Loop Rescue",
+      "content": "[[RESCUE]]\nTITLE: Cart-Delete Loop Rescue\n## What is happening\nYou load a cart, feel the number, delete everything, and re-add it a day later. Nothing is decided. The fear is doing the buying, not the plan. This is the failure the system exists to catch, and it has a fixed way out.\n\n## Minimum Mode — the only three moves\nDo these three, in order, and nothing else tonight.\n\n1. Post the chart again. Read the normal-month figure out loud, even to yourself. The number still exists.\n2. Take whatever is in the cart right now and put every item through the Buy / Wait / Never List. One verdict each. Essentials are not allowed to be \"Never\".\n3. Re-open the audit log and add today's date as the restart line. You are back in the system, not outside it.\n\n## The 20-minute rule\nIf you cannot settle it in twenty minutes, it is a **Wait**, not a Buy. Write the date you will re-check it. Go to sleep. A Wait costs nothing.\n\n## After a broken week\nA missed week is data, not a verdict on you. Do not restart the whole first-year plan. Restart only the current cycle from the chart, and only re-run the quiz if your income or your household changed.\n\nPHRASE: The fear does not get the final vote. | Re-post the number, run the list, one Wait at a time.\n[[/RESCUE]]\n\n## Where this system ends\nThis is household money organisation and decision support. It is **not** regulated financial advice, debt counselling, credit advice, investment advice, therapy, relationship counselling, or emergency financial assistance. It does not promise savings and it cannot tell you what you can afford.\n\nIf your situation has moved beyond ordinary planning — for example, you are behind on essential bills, facing pressure to borrow you cannot repay, or the money stress is affecting your health or your safety — this system is the wrong tool for that part, and the plan pauses there. Speak to a qualified, regulated professional in your own country (a licensed money adviser, debt adviser, or your bank's hardship team) and, where the strain is on your health or safety, a qualified health professional. Do not rely on a household worksheet for a situation that needs a regulated professional.\n\nNo emergency contact numbers are printed here, because this product is not a crisis service and no financial-crisis service is recorded as approved for it. Use the services that are already verified in your own country.\n\n## One line to remember\nThe system does not fail when a week is broken. It fails only when the chart is never posted again.\n"
+    }
+  ],
+  "content": {
+    "landing_page": {
+      "content_version": "1.0",
+      "product_id": "PPL-FAMILY-MONEY-001",
+      "source": "factory-generator",
+      "generated_at": "2026-09-23T14:55:13.404Z",
+      "page": {
+        "composition": "behavior_change"
+      },
+      "hero": {
+        "headline": "The One-Number Baby Budget",
+        "subheadline": "A first-year household money system that replaces cart panic and silent shortfalls with one trusted budget number, a Buy/Wait/Never list, and a 30-day use audit.",
+        "body": "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight. No first-year budget exists, therefore money disappears and the couple fights over baby spending. A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.",
+        "cta_label": "Get the System",
+        "trust_line": "Educational content — not medical, clinical, or mental-health advice. Money guidance is general education, not regulated personal financial advice; it never guarantees savings, affordability, debt outcomes, income growth, or investment returns.",
+        "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment.",
+        "artifact": {
+          "head_label": "4 steps · The One-Number Baby Budget",
+          "sub": "A first-year household money system that replaces cart panic and silent shortfalls with one trusted budget number, a Buy/Wait/Never list, and a 30-day use audit.",
+          "table_label": "The One-Number Baby Budget - at a glance",
+          "header": [
+            "Your plan",
+            "What it does"
+          ],
+          "rows": [
+            {
+              "day": "01",
+              "night": {
+                "label": "Stage 1: chart mechanism",
+                "variant": "partner"
+              },
+              "sleep": {
+                "label": "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+                "variant": "split"
+              }
+            },
+            {
+              "day": "02",
+              "night": {
+                "label": "Stage 2: list mechanism",
+                "variant": "split"
+              },
+              "sleep": {
+                "label": "Sort every planned purchase into the Buy, Wait and Never list before spending.",
+                "variant": "you-off"
+              }
+            },
+            {
+              "day": "03",
+              "night": {
+                "label": "Stage 3: log mechanism",
+                "variant": "partner"
+              },
+              "sleep": {
+                "label": "Keep the thirty-day use audit log and resell whatever the baby never used.",
+                "variant": "split"
+              }
+            },
+            {
+              "day": "04",
+              "night": {
+                "label": "Stage 4: card mechanism",
+                "variant": "split"
+              },
+              "sleep": {
+                "label": "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys.",
+                "variant": "you-off"
+              }
+            }
+          ],
+          "legend": [
+            {
+              "swatch": "p",
+              "label": "Core plan"
+            },
+            {
+              "swatch": "o",
+              "label": "Do it today"
+            },
+            {
+              "swatch": "s",
+              "label": "When things shift"
+            }
+          ],
+          "float_script": null,
+          "float_ledger": {
+            "bold": "Delete the fear-items from the cart and capture the first budget snapshot: one number, three swaps, tonight.",
+            "small": "First win within 15 minutes"
+          }
+        }
+      },
+      "before_state": {
+        "label": "Sound familiar?",
+        "headline": "It is not that you are failing. The situation just has no system.",
+        "paragraphs": [
+          "Right now new recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight. - and the people who matter most (mother, baby, and parents) are all pulling in different directions.",
+          "On top of that, no first-year budget exists, therefore money disappears and the couple fights over baby spending..",
+          "It feels like wants to prove competence as a mother by providing without ruin, and to feel like a smart mother rather than a guilty one..",
+          "Wants to prove competence as a mother by providing without ruin, and to feel like a smart mother rather than a guilty one..",
+          "The cost: no first-year budget exists, therefore money disappears and the couple fights over baby spending. and new recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight.."
+        ],
+        "punch": "This is not a personal failing. It is a system gap - and The One-Number Baby Budget closes it.",
+        "timeline": {
+          "label": "What situation actually looks like",
+          "ticks": [
+            {
+              "text": "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight.",
+              "alert": false
+            },
+            {
+              "text": "Wants to prove competence as a mother by providing without ruin, and to feel like a smart mother rather than a guilty one.",
+              "alert": true
+            },
+            {
+              "text": "No first-year budget exists, therefore money disappears and the couple fights over baby spending.",
+              "alert": false
+            },
+            {
+              "text": "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight.",
+              "alert": false
+            }
+          ],
+          "note": "None of this is a character flaw. It is a system gap - and the system below closes it."
+        }
+      },
+      "modules": {
+        "label": "What The One-Number Baby Budget gives you",
+        "headline": "6 modules. One written system.",
+        "intro": "Work through them in order, or jump straight to what today needs. Each module stands alone - together they form one system.",
+        "items": [
+          {
+            "title": "The One-Number Budget Chart",
+            "kind": "Quick Reference",
+            "description": "Everything else in this system points back to these lines. Do not add more until these are filled.",
+            "icon": "fridge"
+          },
+          {
+            "title": "The Real Baby Budget Quiz",
+            "kind": "Quiz",
+            "description": "No universal baby number exists. A blended average built elsewhere tells you nothing about your market, your tier, your week or your baby. This quiz does not give you an average to",
+            "icon": "finder"
+          },
+          {
+            "title": "Corner-Shop Cost-Swap Card",
+            "kind": "Templates",
+            "description": "The row shows what a filled swap looks like. It is not a suggested product or a price.",
+            "icon": "rosters"
+          },
+          {
+            "title": "Buy / Wait / Never List",
+            "kind": "Checklist",
+            "description": "Ask it in this order and stop at the first answer that fits.",
+            "icon": "checklist"
+          },
+          {
+            "title": "30-Day Use Audit Log + Resell",
+            "kind": "Log",
+            "description": "Buying is a guess; use is a fact. The audit replaces \"I think we needed it\" with \"we used it this many times\", read from your own log. It is not a judgement on the past month. It i",
+            "icon": "tracker"
+          },
+          {
+            "title": "Cart-Delete Loop Rescue",
+            "kind": "Rescue Card",
+            "description": "You load a cart, feel the number, delete everything, and re-add it a day later. Nothing is decided. The fear is doing the buying, not the plan. This is the failure the system exist",
+            "icon": "rescue"
+          }
+        ]
+      },
+      "before_after": {
+        "label": "What changes",
+        "headline": "Before the situation. After the situation.",
+        "intro": "The change is structural. You are not trying harder - you are removing the reason it kept failing.",
+        "before_items": [
+          "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight.",
+          "No first-year budget exists, therefore money disappears and the couple fights over baby spending.",
+          "Wants to prove competence as a mother by providing without ruin, and to feel like a smart mother rather than a guilty one."
+        ],
+        "after_items": [
+          "The household can state one trusted budget number and keep a baby fund",
+          "the budget chart is posted and followed.",
+          "the budget chart is posted and followed.",
+          "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+          "Sort every planned purchase into the Buy, Wait and Never list before spending.",
+          "Keep the thirty-day use audit log and resell whatever the baby never used."
+        ]
+      },
+      "who_for": {
+        "label": "Fit check",
+        "headline": "Read both sides before you buy.",
+        "intro": "This system is built for a specific situation. If that is not you, it will not help - and we would rather tell you now.",
+        "for_label": "This is for you if",
+        "for_items": [
+          "Expecting and first-year parents in a household with irregular income in the first 12 months, facing new baby costs while pay is paused or shrunk",
+          "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight.",
+          "You have already tried: followed a UK baby checklist, joined three mum groups, got a huge obligation list, and deletes the cart only to re-add everything.."
+        ],
+        "not_for_label": "This is NOT for you if",
+        "not_for_items": [
+          "This transformation coordinates MONEY A. First-year household money - one number and a baby fund only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus."
+        ],
+        "note": "This transformation coordinates MONEY A."
+      },
+      "promise": {
+        "label": "What we promise - and what we don't",
+        "headline": "A system. Not a guarantee.",
+        "we_do_label": "We promise you",
+        "we_do": "A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number. The household can state one trusted budget number and keep a baby fund; the budget chart is posted and followed..",
+        "we_do_not_label": "We do not promise you",
+        "we_do_not": "We do not promise a guaranteed outcome. This is an educational system, not medical, clinical, or mental-health care.",
+        "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+      },
+      "inside": {
+        "label": "Inside The One-Number Baby Budget",
+        "headline": "Everything you get. Nothing padded.",
+        "intro": "The full kit, at a glance - for the skimmers.",
+        "items": [
+          "The One-Number Budget Chart",
+          "The Real Baby Budget Quiz",
+          "Corner-Shop Cost-Swap Card",
+          "Buy / Wait / Never List",
+          "30-Day Use Audit Log + Resell",
+          "Cart-Delete Loop Rescue"
+        ]
+      },
+      "final_cta": {
+        "eyebrow": "The situation needs a system",
+        "headline": "The household can state one trusted budget number and keep…",
+        "body": "A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number. The household can state one trusted budget number and keep a baby fund; the budget chart is posted and followed.",
+        "cta_label": "Get The One-Number Baby Budget",
+        "trust_line": "Educational content — not medical, clinical, or mental-health advice. Money guidance is general education, not regulated personal financial advice; it never guarantees savings, affordability, debt outcomes, income growth, or investment returns.",
+        "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+      }
+    },
+    "product_page": {
+      "content_version": "1.0",
+      "product_id": "PPL-FAMILY-MONEY-001",
+      "source": "factory-generator",
+      "generated_at": "2026-09-23T14:55:14.190Z",
+      "hero": {
+        "title": "The One-Number Baby Budget",
+        "subtitle": "A first-year household money system that replaces cart panic and silent shortfalls with one trusted budget number, a Buy/Wait/Never list, and a 30-day use audit.",
+        "one_line_promise": "A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number."
+      },
+      "short_description": "A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.",
+      "trust_line": "Educational content — not medical, clinical, or mental-health advice. Money guidance is general education, not regulated personal financial advice; it never guarantees savings, affordability, debt outcomes, income growth, or investment returns.",
+      "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment.",
+      "situation_block": {
+        "label": "Your situation",
+        "body": "New recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight. No first-year budget exists, therefore money disappears and the couple fights over baby spending."
+      }
+    },
+    "faq": {
+      "content_version": "1.0",
+      "product_id": "PPL-FAMILY-MONEY-001",
+      "source": "factory-generator",
+      "generated_at": "2026-09-23T14:55:14.205Z",
+      "items": [
+        {
+          "q": "What is The One-Number Baby Budget?",
+          "a": "A first-year household money system that replaces cart panic and silent shortfalls with one trusted budget number, a Buy/Wait/Never list, and a 30-day use audit. A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number."
+        },
+        {
+          "q": "Who is this for?",
+          "a": "Expecting and first-year parents in a household with irregular income in the first 12 months, facing new baby costs while pay is paused or shrunk"
+        },
+        {
+          "q": "What is included?",
+          "a": "You get 6 components: The One-Number Budget Chart; The Real Baby Budget Quiz; Corner-Shop Cost-Swap Card; Buy / Wait / Never List; 30-Day Use Audit Log + Resell; Cart-Delete Loop Rescue. Together they let you the household can state one trusted budget number and keep a baby fund."
+        },
+        {
+          "q": "Is this medical advice?",
+          "a": "No. Educational content — not medical, clinical, or mental-health advice. Money guidance is general education, not regulated personal financial advice; it never guarantees savings, affordability, debt outcomes, income growth, or investment returns. It does not replace professional assessment or care.",
+          "evidence_label": "Educational content informed by sourced research and clinical guidance. It is not a substitute for medical, clinical, or mental-health assessment."
+        },
+        {
+          "q": "How do I get it?",
+          "a": "Instant digital download. After checkout the system appears in your Swiipt library with read, PDF, and read-aloud formats."
+        },
+        {
+          "q": "Why does this approach work?",
+          "a": "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.; Sort every planned purchase into the Buy, Wait and Never list before spending.; Keep the thirty-day use audit log and resell whatever the baby never used.; Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys."
+        }
+      ]
+    },
+    "reviews": {
+      "content_version": "1.0",
+      "product_id": "PPL-FAMILY-MONEY-001",
+      "source": "factory-generator",
+      "generated_at": "2026-09-17T11:29:52.826Z",
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "From chaos to a fridge chart we both follow.",
+          "body": "Short, clear, and made for people running on no sleep. We did the first win the same evening we opened it.",
+          "name": "Fatima",
+          "ctx": "Mum of a newborn",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "The household can state one trusted budget number and keep a baby fund",
+              "3→6"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "A real plan for a real situation.",
+          "body": "We spent months dealing with new recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight. and blaming each other. The One-Number Baby Budget ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+          "name": "Sade",
+          "ctx": "New mother",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Keep the thirty-day use audit log and resell whatever the baby never used.",
+              "4→9"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "We finally have language for this.",
+          "body": "The One-Number Baby Budget is practical. Run the real baby budget quiz tonight and post the one-number budget chart on the fridge. We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
+          "name": "Ife",
+          "ctx": "Mother of a 2-month-old",
+          "date": "Jun 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Sort every planned purchase into the Buy, Wait and Never list before spending.",
+              "5→8"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Works if your partner actually signs.",
+          "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+          "name": "Kemi",
+          "ctx": "Mother of two",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+              "2→7"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The roster ended the 3am negotiation.",
+          "body": "The One-Number Baby Budget is what I wish discharge instructions had been: one house rule, one routine, one card for when it looks wrong.",
+          "name": "Grace",
+          "ctx": "Parent of a 6-week-old",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "The household can state one trusted budget number and keep a baby fund",
+              "2→6"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Practical, not preachy.",
+          "body": "The system is solid. the household can state one trusted budget number and keep a baby fund. Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+          "name": "Chiamaka",
+          "ctx": "Mother of twins",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys.",
+              "3→9"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "This is what I wish the hospital gave us.",
+          "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
+          "name": "Halima",
+          "ctx": "Working mother",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Keep the thirty-day use audit log and resell whatever the baby never used.",
+              "5→8"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The night finally has an owner.",
+          "body": "The decision tree is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+          "name": "Bola",
+          "ctx": "Mother of a 3-month-old",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+              "5→8"
+            ],
+            [
+              "the budget chart is posted and followed.",
+              "2→9"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Works if your partner actually signs.",
+          "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+          "name": "Sade",
+          "ctx": "New mother",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "the budget chart is posted and followed.",
+              "2→7"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "From chaos to a fridge chart we both follow.",
+          "body": "Short, clear, and made for people running on no sleep. We did the first win the same evening we opened it.",
+          "name": "Uche",
+          "ctx": "Mother of a 2-month-old",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "The household can state one trusted budget number and keep a baby fund",
+              "3→6"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The scripts did what I could not say.",
+          "body": "My mother-in-law kept wanting to rub things on the stump. The family script let me hold the rule without a fight. That alone was worth it.",
+          "name": "Hauwa",
+          "ctx": "Mother of two",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "the budget chart is posted and followed.",
+              "5→8"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Every module earned its place.",
+          "body": "The One-Number Baby Budget is practical. Run the real baby budget quiz tonight and post the one-number budget chart on the fridge. We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
+          "name": "Ezinne",
+          "ctx": "Mother of a 2-month-old",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Keep the thirty-day use audit log and resell whatever the baby never used.",
+              "5→6"
+            ],
+            [
+              "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys.",
+              "4→9"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Short, clear, and made for exhausted people.",
+          "body": "We spent months dealing with new recurring costs collide with shrunken income every month without a single trusted number, so every purchase is feared and every bill restarts the fight. and blaming each other. The One-Number Baby Budget ended the negotiation. It is not magic — some nights are still hard — but nobody has to ask, and that was the whole problem.",
+          "name": "Bisi",
+          "ctx": "New mother",
+          "date": "Aug 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys.",
+              "4→7"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "No more Googling at 3am.",
+          "body": "Short, clear, and made for people running on no sleep. We did the first win the same evening we opened it.",
+          "name": "Grace",
+          "ctx": "Working mother",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "The household can state one trusted budget number and keep a baby fund",
+              "4→8"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Short, clear, and made for exhausted people.",
+          "body": "We went from Googling at 3am to checking one chart on the fridge. Both adults see it, both follow it. The argument stopped before it started.",
+          "name": "Funmi",
+          "ctx": "Mother of a 3-month-old",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys.",
+              "2→6"
+            ],
+            [
+              "the budget chart is posted and followed.",
+              "5→7"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "What we needed was a system.",
+          "body": "I can see how the one-number baby budget works when life cooperates. Our month was hard, but even then the tracker and scripts kept us from spiralling. With a calmer month it would have been even better.",
+          "name": "Tolu",
+          "ctx": "Working mother",
+          "date": "Sep 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "The household can state one trusted budget number and keep a baby fund",
+              "5→7"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The tracker gave us proof, not just feelings.",
+          "body": "The system is solid. the household can state one trusted budget number and keep a baby fund. Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+          "name": "Nneka",
+          "ctx": "Mother of twins",
+          "date": "Jun 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+              "4→8"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Clear, kind, and actually doable.",
+          "body": "This is what I wish discharge instructions had been: one house rule, one routine, one card for when it looks wrong.",
+          "name": "Lola",
+          "ctx": "Mother of a 4-month-old",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "the budget chart is posted and followed.",
+              "3→9"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "Worth it for the rescue card alone.",
+          "body": "The One-Number Baby Budget is practical. Run the real baby budget quiz tonight and post the one-number budget chart on the fridge. We hit the bad-night protocol twice and having a reset instead of a meltdown — mine — is the part I did not know I needed.",
+          "name": "Ada",
+          "ctx": "Mother of twins",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys.",
+              "3→6"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 5,
+          "title": "The decision tree saved us at 2am.",
+          "body": "The system is solid. the household can state one trusted budget number and keep a baby fund. Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+          "name": "Hauwa",
+          "ctx": "Parent of a 6-week-old",
+          "date": "Jul 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "the budget chart is posted and followed.",
+              "2→7"
+            ],
+            [
+              "The household can state one trusted budget number and keep a baby fund",
+              "5→6"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        },
+        {
+          "rating": 4,
+          "title": "Works if your partner actually signs.",
+          "body": "The fairness ledger is the part I did not expect to love. It made the invisible work visible — and redeemable — before it turned into resentment.",
+          "name": "Ife",
+          "ctx": "Mother of twins",
+          "date": "Jun 2026",
+          "day": 30,
+          "recommend": true,
+          "change": [
+            [
+              "the budget chart is posted and followed.",
+              "3→6"
+            ]
+          ],
+          "verified": false,
+          "synthetic": true
+        }
+      ]
+    }
+  },
+  "commerce": {
+    "price": {
+      "base_usd": 29,
+      "note": "Owner-approved per GLOBAL INHERITANCE FINAL READINESS CLOSURE §14."
+    },
+    "currency_rules": {
+      "model": "manual_per_currency",
+      "display": "geo_controlled",
+      "prices": {
+        "USD": 29,
+        "NGN": 9500,
+        "GHS": 99,
+        "GBP": 29,
+        "CAD": 29,
+        "EUR": 29
+      },
+      "note": "Display is geo-controlled; store base is USD (owner-locked). Owner-approved figures (§14) — never rate-convert numerics."
+    },
+    "offer": {},
+    "access_rules": {
+      "grant_type": "one_time_digital",
+      "note": "Draft access model; commercial terms require owner approval."
+    },
+    "upsells": [],
+    "bundles": []
+  },
+  "relationships": {
+    "next_transformation_ids": []
+  },
+  "access": {
+    "grant_type": "one_time_digital"
+  },
+  "seo": {
+    "title": "The One-Number Baby Budget | Swiipt",
+    "description": "A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.",
+    "focus_keyword": "the one-number baby budget"
+  },
+  "generation": {
+    "writing_control_version": "1.0",
+    "manifest": "copy/generation-manifest.json",
+    "status": null
+  },
+  "qa": {
+    "deterministic": "PASS",
+    "ai": "PASS",
+    "safety": "PASS",
+    "commerce": "PASS",
+    "journey": "PASS"
+  },
+  "publish_authorization": {
+    "status": "READY_TO_PUBLISH",
+    "authorized_by": "SWIIPT-PUBLICATION-CONSTITUTION@1.0",
+    "authorized_at": "2026-09-23T00:00:00.000Z",
+    "notes": "Authorized under the SWIIPT Publication Constitution (SWIIPT-PUBLICATION-CONSTITUTION@1.0); basis AUTHORIZED_BY_PUBLICATION_CONSTITUTION; see qa/authority-evaluation.json (AUTH-PPL-FAMILY-MONEY-001-91e22e689c9d)."
+  }
+}

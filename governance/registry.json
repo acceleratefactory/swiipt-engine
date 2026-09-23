@@ -1,0 +1,42 @@
+{
+  "registry_id": "SWIIPT-AUTHORITY-REGISTRY",
+  "version": "1.0",
+  "effective_date": "2026-09-23",
+  "doctrine": "HUMANS GOVERN THE SYSTEM. THE SYSTEM GOVERNS THE PRODUCTS. Humans author/approve the Level-1 constitutions and Level-2 Domain Authority Packs; each Level-3 product is evaluated against them and receives AUTHORIZED or NOT_AUTHORIZED.",
+  "constitutions": [
+    { "kind": "EVIDENCE", "authority_id": "SWIIPT-EVIDENCE-CONSTITUTION", "version": "1.0", "status": "ACTIVE", "file": "governance/constitutions/evidence.constitution.json" },
+    { "kind": "SAFETY", "authority_id": "SWIIPT-SAFETY-CONSTITUTION", "version": "1.0", "status": "ACTIVE", "file": "governance/constitutions/safety.constitution.json" },
+    { "kind": "JOURNEY", "authority_id": "SWIIPT-JOURNEY-CONSTITUTION", "version": "1.0", "status": "ACTIVE", "file": "governance/constitutions/journey.constitution.json" },
+    { "kind": "TSM", "authority_id": "SWIIPT-TSM-CONSTITUTION", "version": "1.0", "status": "ACTIVE", "file": "governance/constitutions/tsm.constitution.json" },
+    { "kind": "PUBLICATION", "authority_id": "SWIIPT-PUBLICATION-CONSTITUTION", "version": "1.0", "status": "ACTIVE", "file": "governance/constitutions/publication.constitution.json" }
+  ],
+  "domain_packs": [
+    { "domain": "general_life", "authority_id": "SWIIPT-DOMAIN-AUTHORITY-GENERAL-LIFE", "version": "1.0", "status": "ACTIVE", "risk_classes": ["low_risk"], "regulated": false, "file": "governance/domain-packs/general_life.authority-pack.json" },
+    { "domain": "family_finance", "authority_id": "SWIIPT-DOMAIN-AUTHORITY-FAMILY-FINANCE", "version": "1.0", "status": "ACTIVE", "risk_classes": ["low_risk", "moderate_consequential"], "regulated": false, "file": "governance/domain-packs/family_finance.authority-pack.json" }
+  ],
+  "risk_class_by_risk_level": { "low": "low_risk", "moderate": "moderate_consequential", "high": "high_risk_regulated", "clinical": "high_risk_regulated" },
+  "domain_classification": {
+    "method": "scored_keyword_over_canonical_text",
+    "text_sources": ["product.identity.name", "product.identity.subtitle", "product.customer.target_person", "product.customer.situation", "product.customer.trigger", "product.transformation.mechanism.core", "transformation.submarket_id", "transformation.situation.specific_situation", "transformation.mechanism.core_mechanism"],
+    "domains": [
+      { "domain": "health", "regulated": true, "pack_required": true, "keywords": ["clinical", "medical", "medication", "diagnos", "symptom", "dose", "dosage", "infection", "fever", "injury", "wound", "bleeding", "pelvic", "contracepti", "mental health", "depress", "anxiety", "therapy", "therapist", "prescrib", "postpartum haemorrhage"] },
+      { "domain": "legal", "regulated": true, "pack_required": true, "keywords": ["legal", "lawyer", "solicitor", "contract dispute", "custody", "litigation", "court", "tenancy law"] },
+      { "domain": "family_finance", "regulated": false, "pack_required": false, "keywords": ["money", "budget", "financ", "cost", "debt", "spend", "salary", "income", "baby fund", "bill", "affordab", "price", "purchase"] },
+      { "domain": "employment", "regulated": false, "pack_required": false, "keywords": ["employment", "workplace", "employer", "job role", "maternity leave", "return to work", "rights at work"] },
+      { "domain": "education", "regulated": false, "pack_required": false, "keywords": ["school", "education", "exam", "curriculum", "tutor"] },
+      { "domain": "property", "regulated": false, "pack_required": false, "keywords": ["property", "housing", "landlord", "mortgage", "rent"] },
+      { "domain": "relationships", "regulated": false, "pack_required": false, "keywords": ["relationship", "marriage", "partner conflict", "couple", "in-law"] },
+      { "domain": "parenting", "regulated": false, "pack_required": false, "keywords": ["parenting", "newborn", "toddler", "baby sleep", "infant care", "childcare", "nappy", "breastfeed"] }
+    ],
+    "default_domain": "general_life",
+    "tie_break": "most_specific_or_most_regulated_wins_fail_closed"
+  },
+  "reevaluation": {
+    "status": "AUTHORITY_REEVALUATION_REQUIRED",
+    "rule": "When any authority version materially changes, products authorized under the superseded version are discoverable for automated reevaluation. Historical authorization is never silently mutated."
+  },
+  "provenance": {
+    "authored_by": "factory authority build (opencode)",
+    "approved_by": "SWIIPT_OWNER (system policy doctrine, task 2026-09-23)"
+  }
+}

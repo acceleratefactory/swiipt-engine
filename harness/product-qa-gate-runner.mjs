@@ -29,6 +29,13 @@ import Ajv from "ajv/dist/2020.js";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { reviewInputFor } from "./review-inputs.mjs";
+import {
+  buildAuthorityContext, evaluateEvidenceAuthority, evaluateSafetyAuthority, evaluateJourneyAuthority,
+  classifyTSM, evaluatePublicationConstitution, loadConstitution, evaluateAuthority,
+  persistAuthorityEvaluation, authorizeFromConstitution, STATE as AUTH_STATE,
+} from "./governance-authority.mjs";
+/** Deterministic authority timestamp (the gate runner uses no Date.now/Math.random in results). */
+const AUTHORITY_EPOCH = "2026-09-23T00:00:00.000Z";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -74,13 +81,13 @@ export const GATES = Object.freeze([
   { id: "g1_situation", n: 1, name: "Situation", authority: "DETERMINISTIC", blocks_manifest: true },
   { id: "g2_transformation", n: 2, name: "Transformation", authority: "DETERMINISTIC", blocks_manifest: true },
   { id: "g3_product_architecture", n: 3, name: "Product architecture", authority: "DETERMINISTIC", blocks_manifest: true },
-  { id: "g4_evidence", n: 4, name: "Evidence", authority: "HYBRID", blocks_manifest: true, review_surface: "evidence" },
-  { id: "g5_safety", n: 5, name: "Safety", authority: "CLINICAL_REVIEW", blocks_manifest: true, review_surface: "safety" },
+  { id: "g4_evidence", n: 4, name: "Evidence authority", authority: "EVIDENCE_AUTHORITY", blocks_manifest: true, review_surface: "evidence" },
+  { id: "g5_safety", n: 5, name: "Safety authority", authority: "SAFETY_AUTHORITY", blocks_manifest: true, review_surface: "safety" },
   { id: "g6_content", n: 6, name: "Content", authority: "DETERMINISTIC", blocks_manifest: true },
   { id: "g7_product_qa", n: 7, name: "Product QA", authority: "HYBRID", blocks_manifest: true, review_surface: "qa_ledger" },
   { id: "g8_commerce", n: 8, name: "Commerce", authority: "DETERMINISTIC", blocks_manifest: true },
-  { id: "g9_customer_journey", n: 9, name: "Customer journey", authority: "HYBRID", blocks_manifest: true, review_surface: "journey" },
-  { id: "g10_publish", n: 10, name: "Publish", authority: "AUTHORIZATION", blocks_manifest: true },
+  { id: "g9_customer_journey", n: 9, name: "Journey authority", authority: "JOURNEY_AUTHORITY", blocks_manifest: true, review_surface: "journey" },
+  { id: "g10_publish", n: 10, name: "Publication constitution", authority: "PUBLICATION_CONSTITUTION", blocks_manifest: true },
 ]);
 
 /** Conjunctive dependencies derived from the standard's state machine (18) + gate order (19). */
@@ -345,69 +352,67 @@ const evidenceReviewState = (inp) => authorityReview(inp, "g4_evidence", "EVIDEN
 const safetyReviewState = (inp) => authorityReview(inp, "g5_safety", "CLINICAL_AUTHORITY");
 const journeyReviewState = (inp) => authorityReview(inp, "g9_journey", "JOURNEY_AUTHORITY");
 
+/** Shared Level-3 authority context for one evaluation (fail-closed: null on any infrastructure error). */
+let AUTH_CTX = null;
+function authorityCtx(inp) {
+  if (AUTH_CTX && AUTH_CTX.product === inp.product && AUTH_CTX.dir === inp.dir) return AUTH_CTX;
+  try { AUTH_CTX = buildAuthorityContext(inp.product, inp.transformation, inp.dir, { root: inp.root ?? ROOT }); }
+  catch (e) { AUTH_CTX = { error: String(e.message || e), product: inp.product, dir: inp.dir }; }
+  return AUTH_CTX;
+}
+/** Missing-input-class authority reasons are reported as SOURCE_REQUIRED (a stop that is not a quality
+ *  FAIL); quality/scope violations are FAIL. Either way the report carries NOT_AUTHORIZED and the
+ *  product STOPs - it never becomes a per-product human review queue. */
+const INPUT_MISSING_REASONS = ["SOURCE_MISSING", "DOMAIN_AUTHORITY_MISSING", "SOURCE_CLASS_NOT_ALLOWED", "SOURCE_TOO_OLD", "SAFETY_MISSING", "ESCALATION_UNDEFINED", "ARTIFACT_UNRESOLVED", "TSM_MISSING", "SOURCE_REQUIRED"];
+const authFailed = (id, a, extraInputs = []) => {
+  const reasons = a.failure_reasons ?? [];
+  const missing = reasons.length > 0 && reasons.every((r) => INPUT_MISSING_REASONS.includes(r));
+  const verdict = missing ? VERDICT.SOURCE_REQUIRED : VERDICT.FAIL;
+  return {
+    ...gate(id, verdict, `${reasons.join(", ") || "authority checks failed"}`, {
+      inputs: extraInputs, authority_state: AUTH_STATE.NOT_AUTHORIZED,
+      authority_checks: a.checks ?? [], failure_reasons: reasons,
+      authority_required: "SYSTEM (constitution + Domain Authority Pack)",
+    }),
+    authority_state: AUTH_STATE.NOT_AUTHORIZED,
+  };
+};
+
+// g4 = automated EVIDENCE AUTHORITY (Evidence Constitution + applicable Domain Authority Pack).
+// A model may execute policy where semantic entailment is genuinely required; it is never the authority.
+// A RESOLVED human evidence review remains a valid manual path (preserved audit infrastructure), but is
+// no longer a normal-production requirement. NOT_AUTHORIZED is a terminal STOP - never a human queue.
 function evalG4(inp) {
   const id = "g4_evidence";
-  const e = inp.product.evidence;
-  const missing = [];
-  if (!isObj(e)) missing.push("product.evidence");
-  else {
-    if (!Array.isArray(e.sources) || e.sources.length === 0) missing.push("product.evidence.sources");
-    if (!isObj(e) || !isStr(e.review_status)) missing.push("product.evidence.review_status");
+  const ctx = authorityCtx(inp);
+  if (ctx.error) return authFailed(id, { failure_reasons: ["DOMAIN_AUTHORITY_MISSING"], checks: [{ rule: "AUTH-INFRA", ok: false, detail: ctx.error }] }, ["governance/constitutions/evidence.constitution.json"]);
+  const a = evaluateEvidenceAuthority(ctx);
+  if (a.state === AUTH_STATE.AUTHORIZED) {
+    return { ...gate(id, VERDICT.PASS, `Evidence Authority AUTHORIZED (pack ${ctx.pack?.authority_id ?? "none"}; ${a.claim_count} claim(s), ${a.checks.length} checks)`, { inputs: ["product.evidence", inp.trId, ctx.pack?.authority_id], authority_checks: a.checks }), authority_state: AUTH_STATE.AUTHORIZED };
   }
-  const tr = inp.transformation;
-  const trClaims = [...(tr?.evidence ?? []), ...(tr?.mechanism?.evidence_basis ?? [])];
-  const unlabelled = trClaims.filter((c) => !CLAIM_LABELS.includes(c?.status)).length;
-  const unsourced = trClaims.filter((c) => ["sourced_evidence", "expert_reviewed"].includes(c?.status) && !isStr(c.source)).length;
-  if (missing.length) return { ...missingInput(id, missing.join(", ")), inputs: ["product.evidence", inp.trId] };
-  const declared = new Set((e.sources ?? []).map((s) => String(s)));
-  const badProductLabels = (e.claim_labels ?? []).filter((c) => !CLAIM_LABELS.includes(c?.label));
-  const productUnsourced = (e.claim_labels ?? []).filter((c) => ["sourced_evidence", "expert_reviewed"].includes(c?.label) && !isStr(c?.source));
-  const unresolvedSource = (e.claim_labels ?? []).filter((c) => ["sourced_evidence", "expert_reviewed"].includes(c.label) && isStr(c.source) && !declared.has(String(c.source)));
-  if (badProductLabels.length) return failed(id, `${badProductLabels.length} product claim label(s) are not in the canonical enum (${badProductLabels.map((c) => c?.label).join(", ")})`);
-  if (productUnsourced.length) return failed(id, `${productUnsourced.length} product claim(s) labelled sourced/expert without a source`);
-  if (unlabelled || unsourced) return { ...failed(id, `${unlabelled} claim(s) with invalid labels, ${unsourced} sourced claim(s) without a source`), inputs: ["product.evidence", inp.trId] };
-  if (unresolvedSource.length) return { ...failed(id, `${unresolvedSource.length} claim(s) reference a source that is not in product.evidence.sources`), inputs: ["product.evidence", inp.trId] };
   const review = evidenceReviewState(inp);
-  if (!review.resolved) return gate(id, VERDICT.REVIEW_REQUIRED, `deterministic prerequisites satisfied; independent evidence review outstanding (${review.reason})`, { inputs: ["product.evidence", inp.trId], missing_requirements: ["independent evidence review record (product.human_review RESOLVED with evidence_references)"], human_action: "Evidence reviewer confirms claim labels + sources", review });
-  return gate(id, VERDICT.PASS, "deterministic prerequisites satisfied and independent review resolved", { inputs: ["product.evidence", inp.trId], review_refs: [review.reviewer], review });
+  if (review.resolved) return { ...gate(id, VERDICT.PASS, `Evidence Authority not autonomous for this product; a RESOLVED human evidence review satisfies the gate (${review.reason})`, { inputs: ["product.evidence", inp.trId], review_refs: [review.reviewer] }), authority_state: a.state };
+  return authFailed(id, a, ["product.evidence", inp.trId]);
 }
 
+// g5 = automated SAFETY AUTHORITY (Safety Constitution + applicable Domain Authority Pack).
+// CORRECTED SEMANTICS: elevated risk no longer implies a human clinician. Clinical authority is
+// required only when the DOMAIN is genuinely clinical (the pack's clinical_required). A non-clinical
+// but consequential domain (e.g. family_finance) is governed by its pack, not a clinician.
 function evalG5(inp) {
   const id = "g5_safety";
   const s = inp.product.safety;
-  const missing = [];
-  if (!isObj(s)) missing.push("product.safety");
-  else {
-    if (s.risk_level !== undefined && !RISK_LEVELS.includes(s.risk_level)) return failed(id, `risk_level "${s.risk_level}" is not a valid enum value`);
-    if (!isStr(s.risk_level)) missing.push("product.safety.risk_level");
-    if (!isStr(s.disclaimer)) missing.push("product.safety.disclaimer");
-    if (!Array.isArray(s.escalation_rules)) missing.push("product.safety.escalation_rules");
-  }
-  if (missing.length) return { ...missingInput(id, missing.join(", ")), inputs: ["product.safety", inp.trId] };
-  if (!isStr(inp.transformation?.safety?.scope_boundary)) missing.push("transformation.safety.scope_boundary");
-  const elevated = ["moderate", "high", "clinical"].includes(s.risk_level);
-  // Missing red-flag criteria for elevated risk is MISSING AUTHORITATIVE INPUT (literature-sourced),
-  // never an invented value and not a quality FAIL.
-  if (elevated && (!Array.isArray(s.red_flags) || s.red_flags.length === 0)) missing.push("product.safety.red_flags (required at elevated risk; must come from authoritative literature)");
-  if (elevated && s.escalation_rules.length === 0) missing.push("product.safety.escalation_rules (required at elevated risk)");
-  if (missing.length) return { ...missingInput(id, missing.join(", ")), inputs: ["product.safety", inp.trId] };
-  if (!elevated && !Array.isArray(s.red_flags)) missing.push("product.safety.red_flags");
-  if (missing.length) return { ...missingInput(id, missing.join(", ")), inputs: ["product.safety", inp.trId] };
-  const placeholder = s.escalation_rules.find((r) => /local crisis line|your local|placeholder|XXXX|\b000\b|999-style/i.test(String(r)));
-  if (placeholder) return failed(id, `escalation rule uses a placeholder/invented route: "${placeholder}"`);
-  if (elevated && !s.escalation_rules.some((r) => /verified shared crisis|verified.*list|RED|AMBER|GREEN/i.test(String(r)))) {
-    return failed(id, "escalation routes do not reference the verified shared crisis/escalation list");
+  if (!isObj(s)) return { ...missingInput(id, "product.safety"), authority_state: AUTH_STATE.NOT_AUTHORIZED };
+  if (s.risk_level !== undefined && !RISK_LEVELS.includes(s.risk_level)) return { ...failed(id, `risk_level "${s.risk_level}" is not a valid enum value`), authority_state: AUTH_STATE.NOT_AUTHORIZED };
+  const ctx = authorityCtx(inp);
+  if (ctx.error) return authFailed(id, { failure_reasons: ["DOMAIN_AUTHORITY_MISSING"], checks: [{ rule: "AUTH-INFRA", ok: false, detail: ctx.error }] }, ["governance/constitutions/safety.constitution.json"]);
+  const a = evaluateSafetyAuthority(ctx);
+  if (a.state === AUTH_STATE.AUTHORIZED) {
+    return { ...gate(id, VERDICT.PASS, `Safety Authority AUTHORIZED (domain ${ctx.domain.domain}; risk ${a.risk_class}; clinical_required ${a.clinical_required}; pack ${ctx.pack?.authority_id ?? "none"})`, { inputs: ["product.safety", inp.trId, ctx.pack?.authority_id], authority_checks: a.checks }), authority_state: AUTH_STATE.AUTHORIZED };
   }
   const review = safetyReviewState(inp);
-  const clinical = ["high", "clinical"].includes(s.risk_level) || s.risk_level === "moderate";
-  const required = clinical ? VERDICT.CLINICAL_REVIEW_REQUIRED : VERDICT.REVIEW_REQUIRED;
-  if (!review.resolved) return gate(id, required, `deterministic safety prerequisites satisfied; ${clinical ? "clinical" : "human"} safety review outstanding (${review.reason})`, {
-    inputs: ["product.safety", inp.trId],
-    missing_requirements: [`${clinical ? "clinical/human" : "human"} safety review record (product.human_review RESOLVED with safety_references)`],
-    human_action: clinical ? "Gate O clinical reviewer confirms red flags + escalation routes" : "Safety reviewer confirms disclaimer, red flags and escalation routes",
-    review,
-  });
-  return gate(id, VERDICT.PASS, "deterministic safety prerequisites satisfied and review resolved", { inputs: ["product.safety", inp.trId], review_refs: [review.reviewer], review });
+  if (review.resolved) return { ...gate(id, VERDICT.PASS, `Safety Authority not autonomous for this product; a RESOLVED human safety review satisfies the gate (${review.reason})`, { inputs: ["product.safety", inp.trId], review_refs: [review.reviewer] }), authority_state: a.state };
+  return authFailed(id, a, ["product.safety", inp.trId]);
 }
 
 function evalG6(inp) {
@@ -491,43 +496,53 @@ function evalG8(inp) {
   return gate(id, VERDICT.PASS, `price ${c.price.base_usd} USD + currency rules (${Object.keys(c.currency_rules).join(", ")}) + access ${c.access_rules.grant_type} + no unresolved upsell/bundle`, { inputs: ["product.commerce"], notes: "payment + delivery runtime is verified by the Gate-9 customer-journey walk-through (standard gate 9)" });
 }
 
+// g9 = automated JOURNEY AUTHORITY (Journey Constitution + applicable Domain Authority Pack).
+// Deterministic journey checks replace the mandatory human walk-through for normal products; the
+// simulation roles are available where a semantic judgment is genuinely required. The old
+// wordpress_ids prerequisite is removed: a live-platform id is POST-publication evidence and cannot
+// be a pre-publication requirement (that was circular). NOT_AUTHORIZED stays a STOP - never a queue.
 function evalG9(inp) {
   const id = "g9_customer_journey";
-  const missing = [];
-  const c = inp.content;
-  for (const key of ["landing_page", "product_page", "faq", "reviews"]) if (!c[key] || !c[key].exists) missing.push(`customer-journey artifact: product.content.${key}`);
-  const tr = inp.transformation;
-  if (!tr?.tsm?.measurement_days?.length) missing.push(`${inp.trId ?? "transformation"}.tsm.measurement_days (TSM check-in loop)`);
-  if (!Array.isArray(inp.product.transformation?.next_transformation_ids)) missing.push("product.transformation.next_transformation_ids");
-  const wp = inp.product.publishing?.wordpress_ids ?? {};
-  if (!wp.transformation_id || !wp.tsystem_id || !wp.product_id) missing.push("product.publishing.wordpress_ids (platform walk-through requires real platform ids)");
-  if (missing.length) return { ...missingInput(id, missing.join(", ")), inputs: ["product.content", "product.publishing.wordpress_ids", inp.trId] };
-  const review = journeyReviewState(inp);
-  if (!review.resolved) {
-    return gate(id, VERDICT.REVIEW_REQUIRED, `technical journey prerequisites present; real walk-through (discover -> purchase -> access -> onboarding -> first win -> path -> completion -> TSM check-in -> next transformation) requires a recorded human walk-through (${review.reason})`, {
-      inputs: ["product.content", "product.publishing.wordpress_ids", "product.human_review.reviews.g9_journey"],
-      missing_requirements: ["recorded journey walk-through (product.human_review.reviews.g9_journey RESOLVED by a named human, bound to the current journey input hash)"],
-      human_action: "Operator runs the live journey walk-through and submits the structured g9 review (harness/review-jobs.mjs)",
-      review,
-    });
+  const ctx = authorityCtx(inp);
+  if (ctx.error) return authFailed(id, { failure_reasons: ["DOMAIN_AUTHORITY_MISSING"], checks: [{ rule: "AUTH-INFRA", ok: false, detail: ctx.error }] }, ["governance/constitutions/journey.constitution.json"]);
+  const a = evaluateJourneyAuthority(ctx);
+  if (a.state === AUTH_STATE.AUTHORIZED) {
+    return { ...gate(id, VERDICT.PASS, `Journey Authority AUTHORIZED (${a.checks.length} checks; domain ${ctx.domain.domain})`, { inputs: ["product.content", "product.asset_map", inp.trId], authority_checks: a.checks }), authority_state: AUTH_STATE.AUTHORIZED };
   }
-  return gate(id, VERDICT.PASS, "technical prerequisites present and a resolved human walk-through is recorded", { inputs: ["product.content", "product.publishing.wordpress_ids"], review_refs: [review.reviewer], review });
+  const review = journeyReviewState(inp);
+  if (review.resolved) return { ...gate(id, VERDICT.PASS, `Journey Authority not autonomous for this product; a RESOLVED human walk-through satisfies the gate (${review.reason})`, { inputs: ["product.content", inp.trId], review_refs: [review.reviewer] }), authority_state: a.state };
+  return authFailed(id, a, ["product.content", "product.asset_map", inp.trId]);
 }
 
-function evalG10(inp) {
+// g10 = PUBLICATION CONSTITUTION (not a per-product owner click). When every gate required by the
+// approved Publication Constitution is in its required state, the product is autonomously authorized
+// (AUTHORIZED_BY_PUBLICATION_CONSTITUTION). A legacy/manual owner authorization record remains a valid
+// path (preserved audit infrastructure). NOT_AUTHORIZED is a terminal STOP - never a human queue.
+function evalG10(inp, gateResults = []) {
   const id = "g10_publish";
+  const ctx = authorityCtx(inp);
+  if (ctx.error) return { ...failed(id, `authority infrastructure unavailable: ${ctx.error}`), authority_state: AUTH_STATE.NOT_AUTHORIZED };
+  let pubCon = null, tsm = null;
+  try {
+    pubCon = loadConstitution("PUBLICATION", inp.root ?? ROOT);
+    tsm = classifyTSM(inp.product, inp.transformation, loadConstitution("TSM", inp.root ?? ROOT));
+  } catch (e) { return { ...failed(id, `publication constitution unavailable: ${e.message}`), authority_state: AUTH_STATE.NOT_AUTHORIZED }; }
+  const gateStates = {};
+  for (const g of gateResults) gateStates[g.id] = g.authority_state ?? g.persisted;
+  const pub = evaluatePublicationConstitution({ gateStates, tsm, pack: ctx.pack, publicationConstitution: pubCon });
+  if (pub.state === AUTH_STATE.AUTHORIZED_BY_PUBLICATION_CONSTITUTION) {
+    return { ...gate(id, VERDICT.PASS, `AUTHORIZED_BY_PUBLICATION_CONSTITUTION (${pubCon.authority_id}@${pubCon.version}); domain pack ${ctx.pack?.authority_id ?? "none"}; TSM ${tsm.state}`, { inputs: ["governance/constitutions/publication.constitution.json"], authority_checks: [{ rule: "P1-P7", ok: true, detail: "all required states satisfied" }] }), authority_state: pub.state };
+  }
   const auth = inp.product.publishing?.authorization ?? null;
-  if (!auth) return gate(id, VERDICT.OWNER_ACTION_REQUIRED, "publishing authorization absent - only an actual owner/human authorization may satisfy Gate 10", {
-    inputs: ["product.publishing.authorization"],
-    missing_requirements: ["product.publishing.authorization {status:'READY_TO_PUBLISH', authorized_by, authorized_at}"],
-    human_action: "Owner records explicit publication authorization",
-  });
-  const problems = [];
-  if (auth.status !== "READY_TO_PUBLISH") problems.push(`status "${auth.status}" is not READY_TO_PUBLISH`);
-  if (!isStr(auth.authorized_by)) problems.push("authorized_by missing");
-  if (!isStr(auth.authorized_at) || !/^\d{4}-\d{2}-\d{2}T/.test(auth.authorized_at)) problems.push("authorized_at missing/invalid");
-  if (problems.length) return gate(id, VERDICT.INVALID_AUTHORIZATION, `authorization record present but invalid: ${problems.join("; ")}`, { inputs: ["product.publishing.authorization"], failures: problems });
-  return gate(id, VERDICT.PASS, `existing owner authorization recognized (${auth.authorized_by}, ${auth.authorized_at})`, { inputs: ["product.publishing.authorization"], authorization_refs: [`${auth.authorized_by}@${auth.authorized_at}`] });
+  if (auth && auth.status === "READY_TO_PUBLISH" && isStr(auth.authorized_by) && isStr(auth.authorized_at)) {
+    return { ...gate(id, VERDICT.PASS, `existing owner authorization recognized (${auth.authorized_by}, ${auth.authorized_at})`, { inputs: ["product.publishing.authorization"] }), authority_state: pub.state };
+  }
+  if (auth) {
+    return { ...gate(id, VERDICT.INVALID_AUTHORIZATION, `authorization record present but invalid (status='${auth.status ?? "missing"}', authorized_by='${auth.authorized_by ?? "missing"}')`, { inputs: ["product.publishing.authorization"], failures: ["READY_TO_PUBLISH + a named authorizer are required"] }), authority_state: AUTH_STATE.NOT_AUTHORIZED };
+  }
+  // Not constitutionally authorized and no legacy authorization: a SYSTEM-authority STOP (pending),
+  // never a per-product human review queue (task section 18/20).
+  return { ...gate(id, VERDICT.SOURCE_REQUIRED, `Publication Constitution NOT_AUTHORIZED: ${pub.failure_reasons.join("; ")}`, { inputs: ["governance/constitutions/publication.constitution.json"], failure_reasons: pub.failure_reasons, authority_required: "SYSTEM (expand the applicable constitution / Domain Authority Pack)" }), authority_state: AUTH_STATE.NOT_AUTHORIZED };
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -643,7 +658,7 @@ export function evaluateProductGates(productId, { qaLedger = null, root = ROOT }
   }
   const gateResults = [];
   for (const def of GATES) {
-    let r = EVALUATORS[def.id](inputs);
+    let r = EVALUATORS[def.id](inputs, gateResults);
     // conjunctive dependencies: a gate can never PASS while an authoritative prerequisite is not PASS
     if (r.verdict === VERDICT.PASS) {
       const bad = GATE_DEPENDENCIES[def.id].filter((dep) => {
@@ -657,9 +672,19 @@ export function evaluateProductGates(productId, { qaLedger = null, root = ROOT }
 
   const blockingGates = gateResults.filter((g) => g.blocks_manifest && g.persisted !== PERSISTED.PASS).map((g) => g.id);
   const authorization = inputs.product.publishing?.authorization ?? null;
-  const authValid = isObj(authorization) && authorization.status === "READY_TO_PUBLISH" && isStr(authorization.authorized_by) && isStr(authorization.authorized_at);
+  const constitutionalAuth = gateResults.find((g) => g.id === "g10_publish")?.authority_state === AUTH_STATE.AUTHORIZED_BY_PUBLICATION_CONSTITUTION;
+  const authValid = constitutionalAuth
+    || (isObj(authorization) && authorization.status === "READY_TO_PUBLISH" && isStr(authorization.authorized_by) && isStr(authorization.authorized_at));
   const humanReviewBlocking = inputs.product.human_review && ["PENDING_HUMAN_REVIEW", "BLOCKED"].includes(inputs.product.human_review.status);
   const manifestEligible = blockingGates.length === 0 && authValid && !humanReviewBlocking;
+
+  // Level-3 authority evaluation record (what governed the decision; the WHY of authorize/stop).
+  let authority = null;
+  try {
+    const gateStates = {};
+    for (const g of gateResults) gateStates[g.id] = g.authority_state ?? g.persisted;
+    authority = evaluateAuthority(inputs.product.product_id, { root: inputs.root ?? ROOT, gateStates, now: AUTHORITY_EPOCH }).record;
+  } catch (e) { authority = { error: String(e.message || e) }; }
 
   const verdicts = gateResults.map((g) => g.verdict);
   // Precedence: quality failure, then missing upstream input, then reviews, then owner action.
@@ -722,6 +747,7 @@ export function evaluateProductGates(productId, { qaLedger = null, root = ROOT }
     evidence_review: evidencePacket(inputs),
     safety_review: safetyPacket(inputs),
     owner_action: ownerPacket(inputs, gateResults),
+    authority,
     unresolved_requirements: unresolvedRequirements,
     failures,
     blocking_gates: blockingGates,
@@ -801,6 +827,19 @@ export function runProductQaGates(productId, { mode = "dry-run", qaLedger = null
       persisted = true;
       evaluation.run_report.gate_results = plan.gate_results;
       evaluation.gate_results = plan.gate_results;
+      // Persist the authority audit always; persist the constitutional authorization when the
+      // Publication Constitution authorizes. This records a SYSTEM authority, never a fake human.
+      const auth = evaluation.run_report.authority;
+      if (auth && !auth.error) {
+        try {
+          persistAuthorityEvaluation(productId, auth, { root });
+          evaluation.run_report.authority_persisted = true;
+          if (auth.decision === AUTH_STATE.AUTHORIZED && auth.publication?.state === AUTH_STATE.AUTHORIZED_BY_PUBLICATION_CONSTITUTION) {
+            authorizeFromConstitution(productId, auth, { root, now: AUTHORITY_EPOCH });
+            evaluation.run_report.authorization_written = true;
+          }
+        } catch (e) { evaluation.run_report.authority_persist_error = String(e.message || e); }
+      }
     }
   }
   if (report_path) writeFileSync(resolve(report_path), `${JSON.stringify(evaluation.run_report, null, 2)}\n`, "utf8");

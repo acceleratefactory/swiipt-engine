@@ -1,0 +1,107 @@
+{
+  "authority_id": "SWIIPT-DOMAIN-AUTHORITY-FAMILY-FINANCE",
+  "authority_type": "DOMAIN_AUTHORITY_PACK",
+  "domain": "family_finance",
+  "version": "1.0",
+  "status": "ACTIVE",
+  "effective_date": "2026-09-23",
+  "supersedes": null,
+  "applies_to_domains": ["family_finance"],
+  "risk_classes": ["low_risk", "moderate_consequential"],
+  "regulated": false,
+  "claim_classes": {
+    "permitted": [
+      "household_budget_organization",
+      "spending_classification",
+      "purchase_planning",
+      "use_auditing",
+      "cost_swap_planning",
+      "behavioral_rescue_reentry",
+      "self_reported_household_observation",
+      "mechanism_description"
+    ],
+    "prohibited": [
+      "investment_advice", "securities_advice", "credit_advice", "debt_restructuring", "regulated_financial_planning",
+      "guaranteed_savings", "percentage_savings", "exact_monetary_savings", "debt_reduction_claim", "financial_security_claim",
+      "tax_advice", "legal_advice", "therapy", "relationship_counselling", "emergency_financial_assistance",
+      "proven_efficacy", "income_growth_claim", "investment_return_claim"
+    ]
+  },
+  "source_rules": {
+    "allowed_source_classes": ["regulatory_or_statutory", "named_public_survey_or_index", "documented_research", "community_discussion", "model_inference", "hypothesis"],
+    "require_source_for_labels": ["sourced_evidence", "expert_reviewed"],
+    "note": "Community/discussion sources are allowed but must keep their provenance label; they may not be promoted to sourced_evidence."
+  },
+  "evidence_rules": {
+    "claim_strength_ceiling": "sourced_evidence",
+    "efficacy_claims_allowed": false,
+    "numeric_claims_require_source": true,
+    "note": "A budgeting mechanism is educational organization; it may be described, never proven to save money."
+  },
+  "safety_rules": {
+    "scope_boundaries": [
+      "Household money organisation and decision support only.",
+      "Not regulated financial advice, debt counselling, credit advice, investment advice, therapy, relationship counselling, or emergency financial assistance.",
+      "Never guarantees savings, affordability, debt outcomes, income growth, or investment returns."
+    ],
+    "prohibited_behaviors": [
+      "guaranteed_savings", "percentage_savings_claim", "exact_monetary_savings_claim", "debt_reduction_claim",
+      "financial_security_claim", "regulated_advice_drift", "therapy_drift", "relationship_counselling_drift",
+      "inventing_jurisdiction_specific_financial_service"
+    ],
+    "required_disclosures": [
+      "Educational content — not medical, clinical, or mental-health advice.",
+      "Money guidance is general education, not regulated personal financial advice; it never guarantees savings, affordability, debt outcomes, income growth, or investment returns."
+    ],
+    "escalation": {
+      "behavior": "When the situation moves beyond ordinary planning (behind on essential bills, unrepayable borrowing pressure, or health/safety impact), the product must state its scope boundary and direct the customer to a qualified, regulated professional in their own country; it must not invent specific services or numbers.",
+      "invented_service_forbidden": true
+    },
+    "clinical_required": false
+  },
+  "savings_claim_rules": {
+    "savings_claims_permitted": false,
+    "reason": "The canonical product states Buy/Wait/Never + audit efficacy is untested (hypothesis). Savings must never be presented as proven."
+  },
+  "dated_baseline_rules": {
+    "required": true,
+    "rule": "Any market-sensitive cost/price example must carry a checked-on/review date and be distinguishable from the durable mechanism; examples are labelled illustrative.",
+    "pattern_required": "date"
+  },
+  "currency_context_rules": {
+    "model": "manual_per_currency",
+    "display": "geo_controlled",
+    "rule": "Amounts are shown in the customer's own currency; no universal money figure is asserted; no FX conversion of numerics."
+  },
+  "freshness_rules": [
+    { "id": "FR-FIN-1", "rule": "Price/affordability examples expire; require a date within the product's own declared review cadence.", "deterministic": true }
+  ],
+  "applicability_rules": [
+    { "id": "AP-FIN-1", "rule": "Provide one canonical product; context (income shape, market, tier) is applied at the customer level, never by cloning per country.", "deterministic": true }
+  ],
+  "contradiction_rules": [
+    { "id": "CR-FIN-1", "rule": "A savings/efficacy statement contradicts the canonical untested-efficacy limitation and must be rejected.", "deterministic": true, "failure_reason": "CONTRADICTORY_EVIDENCE_UNRESOLVED" }
+  ],
+  "uncertainty_rules": [
+    { "id": "UR-FIN-1", "rule": "Mechanism efficacy is hypothesis-stage; label it as such.", "deterministic": true }
+  ],
+  "required_tests": ["evidence_authority", "safety_authority", "journey_authority", "tsm_classification", "prohibited_claim_scan", "dated_baseline_present"],
+  "automatic_authorization_conditions": [
+    "risk class in {low_risk, moderate_consequential}",
+    "no prohibited claim class present",
+    "scope boundary + required disclosure present",
+    "no savings/efficacy claim asserted",
+    "dated baseline present for market-sensitive examples"
+  ],
+  "automatic_rejection_conditions": [
+    "a prohibited claim class is present",
+    "a savings or efficacy claim is asserted",
+    "the scope boundary/disclosure is absent",
+    "risk class exceeds the pack's coverage"
+  ],
+  "provenance": {
+    "authored_by": "factory authority build (opencode)",
+    "approved_by": "SWIIPT_OWNER (system policy doctrine, task 2026-09-23)",
+    "note": "Encodes the ACTUAL permitted scope of PPL-FAMILY-MONEY-001 from its canonical safety record. It does NOT treat the product as regulated financial advice."
+  }
+}

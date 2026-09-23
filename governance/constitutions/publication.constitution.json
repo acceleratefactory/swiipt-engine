@@ -1,0 +1,57 @@
+{
+  "authority_id": "SWIIPT-PUBLICATION-CONSTITUTION",
+  "authority_type": "CONSTITUTION",
+  "constitution_kind": "PUBLICATION",
+  "version": "1.0",
+  "status": "ACTIVE",
+  "effective_date": "2026-09-23",
+  "supersedes": null,
+  "owner_authority": "SWIIPT_OWNER",
+  "reference": "standards/publishing-gates-standard.md + standards/safety-standard.md section 5 (owner authority)",
+  "applies_to_domains": ["*"],
+  "applies_to_risk_classes": ["low_risk", "moderate_consequential", "high_risk_regulated"],
+  "doctrine": "HUMANS GOVERN THE SYSTEM. THE SYSTEM GOVERNS THE PRODUCTS. A product satisfying every mandatory rule of this approved Publication Constitution is autonomously authorized for publication without per-product owner approval.",
+  "authorized_transition": "AUTHORIZED_BY_PUBLICATION_CONSTITUTION",
+  "required_states": {
+    "g0_research_disposition": "PASS",
+    "g1_situation": "PASS",
+    "g2_transformation": "PASS",
+    "g3_product_architecture": "PASS",
+    "g4_evidence": "AUTHORIZED",
+    "g5_safety": "AUTHORIZED",
+    "g6_content": "PASS",
+    "g7_product_qa": "PASS",
+    "g8_commerce": "PASS",
+    "g9_customer_journey": "AUTHORIZED",
+    "tsm_classification": "HYPOTHESIS_LEARNING_BASELINE or INTERNAL_COHORT_THRESHOLD"
+  },
+  "rules": [
+    { "id": "P1", "text": "Every gate g0-g9 must be in its required state.", "deterministic": true, "failure_reason": "UPSTREAM_GATE_UNRESOLVED" },
+    { "id": "P2", "text": "An ACTIVE applicable Domain Authority Pack must govern the product.", "deterministic": true, "failure_reason": "DOMAIN_AUTHORITY_MISSING" },
+    { "id": "P3", "text": "The TSM must be classified by the TSM Constitution (not a fabricated efficacy claim).", "deterministic": true, "failure_reason": "TSM_UNAUTHORIZED" },
+    { "id": "P4", "text": "No unresolved blocker (FAIL quality failure, missing authoritative input) may remain.", "deterministic": true, "failure_reason": "UNRESOLVED_BLOCKER" },
+    { "id": "P5", "text": "The design authority must be satisfied (design-inheritance compliance).", "deterministic": true, "failure_reason": "DESIGN_AUTHORITY_UNSATISFIED" },
+    { "id": "P6", "text": "The manifest builders must be able to derive a schema-valid manifest from the gate ledger.", "deterministic": true, "failure_reason": "MANIFEST_REQUIREMENTS_UNMET" },
+    { "id": "P7", "text": "Authorization is recorded with authority lineage (constitution versions + evaluation), never a fabricated per-product authorizer name beyond the system constitution.", "deterministic": true, "failure_reason": null }
+  ],
+  "failure_reasons": ["UPSTREAM_GATE_UNRESOLVED", "DOMAIN_AUTHORITY_MISSING", "TSM_UNAUTHORIZED", "UNRESOLVED_BLOCKER", "DESIGN_AUTHORITY_UNSATISFIED", "MANIFEST_REQUIREMENTS_UNMET"],
+  "automatic_authorization_conditions": [
+    "g0-g3, g6-g8 PASS",
+    "g4, g5, g9 AUTHORIZED by the applicable constitutions + Domain Authority Pack",
+    "TSM classified",
+    "no unresolved blocker",
+    "design authority satisfied",
+    "manifest derivable"
+  ],
+  "automatic_rejection_conditions": ["any required gate not in its required state", "no applicable Domain Authority Pack", "TSM unclassified"],
+  "per_product_owner_approval_required": false,
+  "authorization_semantics": {
+    "authorized_by": "SWIIPT_PUBLICATION_CONSTITUTION",
+    "record": "product.publishing.authorization { status: READY_TO_PUBLISH, authorization_basis: AUTHORIZED_BY_PUBLICATION_CONSTITUTION, publication_constitution: <id@version>, authority_lineage, evaluated_at, evaluator }"
+  },
+  "provenance": {
+    "authored_by": "factory authority build (opencode)",
+    "approved_by": "SWIIPT_OWNER (system policy doctrine, task 2026-09-23)",
+    "note": "The owner governs THIS constitution at system level; products are governed by it. This removes the per-product owner click while preserving owner authority over the rules."
+  }
+}

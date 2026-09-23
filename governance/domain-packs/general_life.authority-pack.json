@@ -1,0 +1,36 @@
+{
+  "authority_id": "SWIIPT-DOMAIN-AUTHORITY-GENERAL-LIFE",
+  "authority_type": "DOMAIN_AUTHORITY_PACK",
+  "domain": "general_life",
+  "version": "1.0",
+  "status": "ACTIVE",
+  "effective_date": "2026-09-23",
+  "supersedes": null,
+  "applies_to_domains": ["general_life"],
+  "risk_classes": ["low_risk"],
+  "regulated": false,
+  "claim_classes": {
+    "permitted": ["informational", "practical_guidance", "mechanism_description", "self_reported_observation"],
+    "prohibited": ["clinical_claim", "regulated_advice", "guarantee", "proven_efficacy", "income_growth_claim"]
+  },
+  "source_rules": { "allowed_source_classes": ["documented_research", "community_discussion", "model_inference", "hypothesis"], "require_source_for_labels": ["sourced_evidence", "expert_reviewed"] },
+  "evidence_rules": { "claim_strength_ceiling": "sourced_evidence", "efficacy_claims_allowed": false, "numeric_claims_require_source": true },
+  "safety_rules": {
+    "scope_boundaries": ["General informational/practical guidance only; not medical, legal, clinical or regulated advice."],
+    "prohibited_behaviors": ["diagnosis", "regulated_advice_drift", "guarantee", "inventing_services"],
+    "required_disclosures": ["Educational content — not medical, clinical, or mental-health advice."],
+    "escalation": { "behavior": "State scope; route beyond-scope situations to a qualified professional without inventing services.", "invented_service_forbidden": true },
+    "clinical_required": false
+  },
+  "savings_claim_rules": { "savings_claims_permitted": false },
+  "dated_baseline_rules": { "required": false, "rule": "Dated examples must carry a date when used." },
+  "currency_context_rules": { "model": "manual_per_currency", "display": "geo_controlled" },
+  "freshness_rules": [],
+  "applicability_rules": [{ "id": "AP-GEN-1", "rule": "One canonical product; context applied at customer level.", "deterministic": true }],
+  "contradiction_rules": [],
+  "uncertainty_rules": [{ "id": "UR-GEN-1", "rule": "Hypotheses labelled, never presented as fact.", "deterministic": true }],
+  "required_tests": ["evidence_authority", "safety_authority", "journey_authority", "tsm_classification"],
+  "automatic_authorization_conditions": ["risk class = low_risk", "no prohibited claim class", "scope + disclosure present"],
+  "automatic_rejection_conditions": ["a prohibited claim class is present", "risk class exceeds low_risk (needs a domain-specific pack)"],
+  "provenance": { "authored_by": "factory authority build (opencode)", "approved_by": "SWIIPT_OWNER (system policy doctrine, task 2026-09-23)", "note": "Minimal low-risk default pack to prove the architecture; not filled speculatively for every life area." }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/factory/schemas/constitution.schema.json",
+  "title": "Swiipt Level-1 Constitution",
+  "description": "A permanent, versioned, machine-readable system-wide rule set. Humans author/approve constitutions; the system executes them against products. A constitution is the AUTHORITY; any model used during evaluation is only a policy executor.",
+  "type": "object",
+  "required": [
+    "authority_id", "authority_type", "constitution_kind", "version", "status",
+    "effective_date", "owner_authority", "rules", "provenance"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "authority_id": { "type": "string", "pattern": "^SWIIPT-[A-Z-]+-CONSTITUTION$" },
+    "authority_type": { "const": "CONSTITUTION" },
+    "constitution_kind": { "enum": ["EVIDENCE", "SAFETY", "JOURNEY", "TSM", "PUBLICATION", "CLAIM"] },
+    "version": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["ACTIVE", "SUPERSEDED", "DRAFT", "RETIRED"] },
+    "effective_date": { "type": "string", "description": "ISO date this version took effect." },
+    "supersedes": { "type": ["string", "null"] },
+    "owner_authority": { "type": "string", "description": "Who governs this constitution (the owner)." },
+    "reference": { "type": ["string", "null"], "description": "Existing repository standard this constitution machine-readably encodes." },
+    "applies_to_domains": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "applies_to_risk_classes": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "rules": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "text"],
+        "additionalProperties": true,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 },
+          "deterministic": { "type": "boolean", "description": "true = checkable without a model" },
+          "failure_reason": { "type": "string" }
+        }
+      }
+    },
+    "failure_reasons": { "type": "array", "items": { "type": "string" } },
+    "automatic_authorization_conditions": { "type": "array", "items": { "type": "string" } },
+    "automatic_rejection_conditions": { "type": "array", "items": { "type": "string" } },
+    "provenance": {
+      "type": "object",
+      "required": ["authored_by", "approved_by"],
+      "additionalProperties": true,
+      "properties": {
+        "authored_by": { "type": "string" },
+        "approved_by": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
