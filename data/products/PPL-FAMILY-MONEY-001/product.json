@@ -120,9 +120,9 @@
     "maintenance": []
   },
   "content": {
-    "landing_page": null,
-    "product_page": null,
-    "faq": null,
+    "landing_page": "copy/landing-page.json",
+    "product_page": "copy/product-page.json",
+    "faq": "copy/faq.json",
     "specifications": null,
     "deliverables": null,
     "onboarding": null,
@@ -224,8 +224,175 @@
     ]
   },
   "qa": {
-    "deterministic_tests": [],
-    "ai_tests": [],
+    "deterministic_tests": [
+      {
+        "test": "schema_valid",
+        "result": "PASS",
+        "evidence": "harness/qa-checks.mjs: data/products/PPL-FAMILY-MONEY-001/product.json schema_valid"
+      },
+      {
+        "test": "asset_refs_resolve",
+        "result": "PASS",
+        "evidence": "harness/qa-checks.mjs: asset_{read,do,decide,track,rescue}_resolves (6/6)"
+      },
+      {
+        "test": "platform_relationships",
+        "result": "PASS",
+        "evidence": "harness/qa-checks.mjs: transformation_relationship_exists + tsm_exists"
+      },
+      {
+        "test": "asset_content_exists",
+        "result": "PASS",
+        "evidence": "harness/qa-checks.mjs: asset_content_exists 6/6 (authored sources)"
+      },
+      {
+        "test": "content_artifacts_valid",
+        "result": "PASS",
+        "evidence": "harness/qa-checks.mjs: content landing_page/product_page/faq/reviews schema_valid"
+      }
+    ],
+    "ai_tests": [
+      {
+        "test": "A_situation_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Product's situation description (target_person, situation, trigger, constraints, emotional_stake) matches the approved situation in the transformation record; landing page before_state repeats the exact situation sentences.",
+        "evidence": [
+          "product.identity; transformation_record.situation; landing_page.body.before_state.paragraphs",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "B_scope_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Product stays within the declared scope of first-year household money (one number and a baby fund); no adjacent problems are introduced.",
+        "evidence": [
+          "transformation_record.situation.scope_boundary; product.asset_map; product.transformation.mechanism",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "C_transformation_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "One-line promise and hero copy reflect the approved after_state (stated budget number, baby fund, posted chart) without strengthening or weakening the transformation.",
+        "evidence": [
+          "product.identity.one_line_promise; landing_page.hero.body; transformation_record.after_state",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "D_mechanism_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Mechanism description (quiz → Buy/Wait/Never → 30‑day audit → corner‑shop swap) aligns exactly with the transformation mechanism block.",
+        "evidence": [
+          "product.transformation.mechanism.core; product.transformation.mechanism.mechanisms; transformation_record.mechanism",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "E_action_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Provided assets (quiz, Buy/Wait/Never list, 30‑day audit log, corner‑shop card, rescue card) are sufficient, usable and directly support the mechanism.",
+        "evidence": [
+          "product.asset_map; product.transformation.path",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "F_sequence_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Implementation sequence (chart → list → log → card) is coherent, each stage builds on the previous and is completable.",
+        "evidence": [
+          "product.transformation.path",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "G_first_win_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "First win (delete fear‑items from cart, capture budget snapshot within 15 minutes) is achievable early and represents real progress, not a cosmetic step.",
+        "evidence": [
+          "product.transformation.first_win; landing_page.hero.float_ledger",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "H_failure_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Failure points (documented failed attempt, constraint pressure) are explicitly declared in the failure_point_map.",
+        "evidence": [
+          "transformation_record.failure_point_map",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "I_rescue_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Rescue protocols exist for each declared failure point, referencing the asset AS-FM-RESCUE-001.",
+        "evidence": [
+          "transformation_record.failure_point_map[].rescue_protocol; product.asset_map.rescue",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "J_tsm_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "TSM includes before‑baseline, success indicators, measurement days [0,7,14,30] and a self‑reported log method; cohort threshold is pending owner approval as allowed.",
+        "evidence": [
+          "product.tsm; transformation_record.tsm",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "M_format_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Deliverable formats (read, do, decide, track, rescue) match the intended use of each asset (quiz, list, audit, card, rescue).",
+        "evidence": [
+          "product.asset_map",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "N_emotional_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "Copy acknowledges anxiety, guilt and desire for competence without manipulative language; tone is respectful and empathic.",
+        "evidence": [
+          "landing_page.body.before_state.paragraphs; product.identity.emotional_stake",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "Q_copy_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "All claims are labeled as hypothesis, model_inference or sourced_evidence; no fabricated guarantees of savings or outcomes are present; disclaimer clarifies educational nature.",
+        "evidence": [
+          "product.evidence.claim_labels; product.safety.disclaimer; landing_page.hero.trust_line",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      },
+      {
+        "test": "R_drift_integrity",
+        "status": "PASS",
+        "severity": "none",
+        "reason": "With title removed, the product's situation description (landing page before_state, identity.situation) exactly matches the approved situation; no drift detected.",
+        "evidence": [
+          "landing_page.body.before_state; product.identity.situation; transformation_record.situation.specific_situation",
+          "ai-qa-execution.json#8f9527ca66eb"
+        ]
+      }
+    ],
     "gate_results": {
       "g0_research_disposition": "pending",
       "g1_situation": "pending",

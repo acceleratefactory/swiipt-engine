@@ -1,0 +1,512 @@
+{
+  "review_job_id": "RJ-PPL-FAMILY-MONEY-001-g4_evidence",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "transformation_id": "TR-PPL-FAMILY-MONEY-001",
+  "gate": "g4_evidence",
+  "review_type": "EVIDENCE_REVIEW",
+  "required_authority": "EVIDENCE_AUTHORITY",
+  "clinical_required": false,
+  "risk_level": "moderate",
+  "status": "PENDING",
+  "reviewer_requirement": {
+    "role": "Independent evidence reviewer",
+    "qualification": "Evidence appraisal (sourcing, population/applicability, limitations)",
+    "independence": "Never the builder/author of the product or transformation"
+  },
+  "assigned_reviewer": null,
+  "input_refs": [
+    "product.evidence",
+    "TR-PPL-FAMILY-MONEY-001.evidence",
+    "TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis"
+  ],
+  "input_hash": "3342289a620ef19fdc1a84bd9cdf317d03dc071775961f15aaf3bd6d80e8de97",
+  "input_version": "1.0",
+  "items": [
+    {
+      "item_id": "C-01",
+      "claim": "A posted budget number plus Buy/Wait/Never discipline plus a dated audit calms fear-buying",
+      "category": "product",
+      "location": "product.evidence.claim_labels",
+      "evidence_requirement": "model_inference",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "product claim derived from product.evidence.claim_labels",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-02",
+      "claim": "Nigeria ranked last in first-year baby affordability under an affordable-options methodology (June 2026 figures)",
+      "category": "product",
+      "location": "product.evidence.claim_labels",
+      "evidence_requirement": "sourced_evidence",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "product claim derived from product.evidence.claim_labels",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-03",
+      "claim": "Statutory maternity minimum is 12 weeks at ≥50% pay with 6 months service; no statutory paternity leave",
+      "category": "product",
+      "location": "product.evidence.claim_labels",
+      "evidence_requirement": "sourced_evidence",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "product claim derived from product.evidence.claim_labels",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-04",
+      "claim": "No universal Nigerian average baby cost is asserted anywhere in this product",
+      "category": "product",
+      "location": "product.evidence.claim_labels",
+      "evidence_requirement": "model_inference",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "product claim derived from product.evidence.claim_labels",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-05",
+      "claim": "Buy/Wait/Never plus audit efficacy is untested and must never be presented as proven savings",
+      "category": "product",
+      "location": "product.evidence.claim_labels",
+      "evidence_requirement": "hypothesis",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "product claim derived from product.evidence.claim_labels",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-06",
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+      "category": "transformation",
+      "location": "TR-PPL-FAMILY-MONEY-001.evidence",
+      "evidence_requirement": "sourced_evidence",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "transformation claim derived from TR-PPL-FAMILY-MONEY-001.evidence",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-07",
+      "claim": "My salary stopped but the bills didn’t",
+      "category": "transformation",
+      "location": "TR-PPL-FAMILY-MONEY-001.evidence",
+      "evidence_requirement": "model_inference",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "transformation claim derived from TR-PPL-FAMILY-MONEY-001.evidence",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-08",
+      "claim": "Every week 5,000 naira disappears on diapers",
+      "category": "transformation",
+      "location": "TR-PPL-FAMILY-MONEY-001.evidence",
+      "evidence_requirement": "model_inference",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "transformation claim derived from TR-PPL-FAMILY-MONEY-001.evidence",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-09",
+      "claim": "Nigerian statutory maternity minimum: 12 weeks leave at no less than 50% wages with 6 months continuous service; nursing breaks 2x30 min; no statutory paternity leave.",
+      "category": "transformation",
+      "location": "TR-PPL-FAMILY-MONEY-001.evidence",
+      "evidence_requirement": "sourced_evidence",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "transformation claim derived from TR-PPL-FAMILY-MONEY-001.evidence",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-10",
+      "claim": "Nigeria ranked last in first-year baby affordability: nappies/wipes/rash-cream ≈123.6% of average annual wage; formula ≈131.1%; figures dated June 2026 under an affordable-options methodology.",
+      "category": "transformation",
+      "location": "TR-PPL-FAMILY-MONEY-001.evidence",
+      "evidence_requirement": "sourced_evidence",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "transformation claim derived from TR-PPL-FAMILY-MONEY-001.evidence",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-11",
+      "claim": "Lagos 2026 tier-split birth ranges and 2026 retail formula listings are dated snapshots for mechanism calibration, not surveyed national prices.",
+      "category": "transformation",
+      "location": "TR-PPL-FAMILY-MONEY-001.evidence",
+      "evidence_requirement": "model_inference",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "transformation claim derived from TR-PPL-FAMILY-MONEY-001.evidence",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-12",
+      "claim": "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+      "category": "mechanism",
+      "location": "TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "evidence_requirement": "hypothesis",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "mechanism claim derived from TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-13",
+      "claim": "Sort every planned purchase into the Buy, Wait and Never list before spending.",
+      "category": "mechanism",
+      "location": "TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "evidence_requirement": "hypothesis",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "mechanism claim derived from TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-14",
+      "claim": "Keep the thirty-day use audit log and resell whatever the baby never used.",
+      "category": "mechanism",
+      "location": "TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "evidence_requirement": "hypothesis",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "mechanism claim derived from TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-15",
+      "claim": "Use the corner-shop cost-swap card that replaces three weekly overspends with planned buys.",
+      "category": "mechanism",
+      "location": "TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "evidence_requirement": "hypothesis",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "mechanism claim derived from TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-16",
+      "claim": "My salary stopped but the bills didn’t",
+      "category": "mechanism",
+      "location": "TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "evidence_requirement": "model_inference",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "mechanism claim derived from TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-17",
+      "claim": "Every week 5,000 naira disappears on diapers",
+      "category": "mechanism",
+      "location": "TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "evidence_requirement": "model_inference",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "mechanism claim derived from TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-18",
+      "claim": "Research basis document for this transformation: Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+      "category": "mechanism",
+      "location": "TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "evidence_requirement": "sourced_evidence",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "mechanism claim derived from TR-PPL-FAMILY-MONEY-001.mechanism.evidence_basis",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "C-19",
+      "claim": "Escalation rule: Route per the verified shared crisis/escalation list (RED = emergency now, AMBER = urgent today, GREEN = supported this week) - safety-standard 3; no numbers are invented here",
+      "category": "safety",
+      "location": "TR-PPL-FAMILY-MONEY-001.safety.escalation_rules",
+      "evidence_requirement": "clinical_fact",
+      "declared_source_pool": [
+        "Nigeria Labour Act s.54; ICLG Employment Guide Nigeria (updated 2026-03-20)",
+        "Remitly 2026 baby-affordability index via Guardian Nigeria (2026-09-10; re-verify before publishing use)",
+        "Product Pipeline/Postpartum Library/MONEY POST-BABY HOUSEHOLD MANAGEMENT.md",
+        "CRF-PPL-MONEY-001 (Nairaland budget-shock thread; snippet-grade limits disclosed)",
+        "CRF-PPL-MONEY-002 (Tribune 2026 father-pressure line; secondary citation disclosed)",
+        "MIF-PPL-MONEY-001 (calculator + guide landscape; claims quarantined as vendor marketing)"
+      ],
+      "claims_inventory_summary": "safety claim derived from TR-PPL-FAMILY-MONEY-001.safety.escalation_rules",
+      "dispositions_allowed": [
+        "SUPPORTED",
+        "SUPPORTED_WITH_LIMITATION",
+        "SOURCE_REQUIRED",
+        "REVISION_REQUIRED",
+        "NON_EVIDENCE_CLAIM"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    }
+  ],
+  "item_count": 19,
+  "created_at": "2026-09-23T15:01:12.193Z",
+  "updated_at": "2026-09-23T15:01:12.194Z",
+  "started_at": null,
+  "submitted_at": null,
+  "saved_progress_at": null,
+  "decision": null,
+  "canonical_record_ref": "product.human_review.reviews.g4_evidence",
+  "revision": 1,
+  "superseded_at": null,
+  "superseded_reason": null
+}

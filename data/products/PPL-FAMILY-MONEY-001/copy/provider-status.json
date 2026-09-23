@@ -1,0 +1,38 @@
+{
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "generated_at": "2026-09-23T14:55:14.214Z",
+  "requested_provider": "deterministic",
+  "actual_generators": [
+    "deterministic"
+  ],
+  "fallback_used": false,
+  "files": {
+    "landing-page.json": {
+      "requested_provider": "deterministic",
+      "provider_attempt_status": "DETERMINISTIC_GENERATION",
+      "fallback_used": false,
+      "actual_generator": "deterministic",
+      "model": null,
+      "endpoint_host": null,
+      "error": null
+    },
+    "product-page.json": {
+      "requested_provider": "deterministic",
+      "provider_attempt_status": "DETERMINISTIC_GENERATION",
+      "fallback_used": false,
+      "actual_generator": "deterministic",
+      "model": null,
+      "endpoint_host": null,
+      "error": null
+    },
+    "faq.json": {
+      "requested_provider": "deterministic",
+      "provider_attempt_status": "DETERMINISTIC_GENERATION",
+      "fallback_used": false,
+      "actual_generator": "deterministic",
+      "model": null,
+      "endpoint_host": null,
+      "error": null
+    }
+  }
+}

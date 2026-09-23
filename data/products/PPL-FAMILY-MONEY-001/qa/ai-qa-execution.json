@@ -1,0 +1,165 @@
+{
+  "record_type": "AI_QA_EXECUTION",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "latest": {
+    "record_type": "AI_QA_EXECUTION",
+    "product_id": "PPL-FAMILY-MONEY-001",
+    "transformation_id": "TR-PPL-FAMILY-MONEY-001",
+    "gate": "g7_product_qa",
+    "status": "EXECUTED",
+    "reason": "canonical independent review completed (all AI-owned tests PASS)",
+    "executed_at": "2026-09-23T14:59:40.284Z",
+    "review_type": "product_acceptance_ai_qa",
+    "review_version": "1.0",
+    "prompt_version": "product-ai-qa-review-v1",
+    "provider": "nvidia",
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "endpoint_host": "integrate.api.nvidia.com",
+    "qualification": {
+      "ok": true,
+      "status": "QUALIFIED",
+      "reason": null,
+      "configured": {
+        "provider": "nvidia",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "status": "QUALIFIED_PRIMARY_CRITIC",
+        "known_limitation": "missed one invented-evidence case during qualification",
+        "present": true
+      },
+      "qualified": {
+        "provider": "nvidia",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "artifacts": [
+          "2026-09-12T14-47-54-197Z-results.json"
+        ],
+        "task_hash": "c2eba1753b5cf477c6a7cb80bf4a6426f7462546355ccb2d03baad5793215c93",
+        "metrics": {
+          "provider_reliability": 1,
+          "schema_reliability": 1,
+          "precision": 1,
+          "recall": 0.875,
+          "f1": 0.9333333333333333,
+          "severity_accuracy": 0.875
+        },
+        "thresholds": {
+          "provider_reliability": 1,
+          "schema_reliability": 1,
+          "precision": 1,
+          "recall": 0.8,
+          "f1": 0.8,
+          "severity_accuracy": 0.8
+        },
+        "ambiguous": false,
+        "known_limitation": "missed 1 qualifying case(s) during qualification (false negatives)"
+      }
+    },
+    "independence": {
+      "ok": true,
+      "reasons": [],
+      "generator": {
+        "provider": "nvidia",
+        "model": "deepseek-ai/deepseek-v4-flash-0731",
+        "status": "ACTIVE_INCUMBENT"
+      }
+    },
+    "task_hash": "8f9527ca66eb99840ce40da0081c74c5342092e62c68861a184bf0d5dcf55294",
+    "input_hash": "5fd2e54523ecd2a665e93f70f5c3fc1a53c3e64d03a44a8982488e1bce84ada7",
+    "output_hash": "9221c323bb736fb952eada758b88cce77f09751119b61fe97a869b049a941685",
+    "schema_valid": true,
+    "retry_count": 0,
+    "provider_status": "PROVIDER_SUCCESS",
+    "cost": {
+      "usage": {
+        "prompt_tokens": 12167,
+        "completion_tokens": 3749,
+        "total_tokens": 15916
+      }
+    },
+    "authority_flags": [],
+    "escalations": [],
+    "results": {
+      "overall_status": "PASS",
+      "tests": [
+        {
+          "test": "A_situation_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "B_scope_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "C_transformation_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "D_mechanism_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "E_action_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "F_sequence_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "G_first_win_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "H_failure_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "I_rescue_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "J_tsm_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "M_format_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "N_emotional_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "Q_copy_integrity",
+          "status": "PASS",
+          "severity": "none"
+        },
+        {
+          "test": "R_drift_integrity",
+          "status": "PASS",
+          "severity": "none"
+        }
+      ],
+      "blocking_issues": [],
+      "non_blocking_issues": [],
+      "scope_drift": false,
+      "safety_issues": [],
+      "required_changes": [],
+      "missing_information": []
+    },
+    "ledger_written": 14,
+    "superseded_by": null
+  },
+  "history": []
+}

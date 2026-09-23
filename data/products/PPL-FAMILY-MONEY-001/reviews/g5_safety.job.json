@@ -1,0 +1,86 @@
+{
+  "review_job_id": "RJ-PPL-FAMILY-MONEY-001-g5_safety",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "transformation_id": "TR-PPL-FAMILY-MONEY-001",
+  "gate": "g5_safety",
+  "review_type": "CLINICAL_SAFETY_REVIEW",
+  "required_authority": "CLINICAL_AUTHORITY",
+  "clinical_required": true,
+  "risk_level": "moderate",
+  "status": "PENDING",
+  "reviewer_requirement": {
+    "role": "Qualified clinical / safety reviewer",
+    "qualification": "Perinatal / paediatric / mental-health clinical qualification as appropriate to the item's risk domain",
+    "independence": "Never the builder/author of the product or transformation"
+  },
+  "assigned_reviewer": null,
+  "input_refs": [
+    "product.safety",
+    "TR-PPL-FAMILY-MONEY-001.safety",
+    "asset content safety guardrails"
+  ],
+  "input_hash": "67c64e95f46a5c331a05de9e70fc3dbe19cd65300ae65130ba3f6d3e963604f4",
+  "input_version": "1.0",
+  "items": [
+    {
+      "item_id": "S-01",
+      "content": "Educational content — not medical, clinical, or mental-health advice. Money guidance is general education, not regulated personal financial advice; it never guarantees savings, affordability, debt outcomes, income growth, or investment returns.",
+      "risk_domain": "scope/disclaimer",
+      "location": "product.safety.disclaimer",
+      "review_question": "Is this scope/disclaimer item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical + product safety",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": "",
+      "expertise": "clinical + product safety"
+    },
+    {
+      "item_id": "S-02",
+      "content": "Route per the verified shared crisis/escalation list (RED = emergency now, AMBER = urgent today, GREEN = supported this week) - safety-standard 3; no numbers are invented here",
+      "risk_domain": "escalation",
+      "location": "product.safety.escalation_rules + transformation.safety.escalation_rules",
+      "review_question": "Is this escalation item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "S-03",
+      "content": "This transformation coordinates MONEY A. First-year household money - one number and a baby fund only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus.",
+      "risk_domain": "scope boundary",
+      "location": "TR-PPL-FAMILY-MONEY-001.safety.scope_boundary",
+      "review_question": "Is this scope boundary item correct, complete and safe as written?",
+      "required_reviewer_expertise": "clinical (perinatal / paediatrics / mental health as applicable)",
+      "dispositions_allowed": [
+        "ACCEPTABLE",
+        "REVISION_REQUIRED",
+        "SOURCE_REQUIRED",
+        "CLINICAL_ESCALATION_REQUIRED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    }
+  ],
+  "item_count": 3,
+  "created_at": "2026-09-23T15:01:12.196Z",
+  "updated_at": "2026-09-23T15:01:12.196Z",
+  "started_at": null,
+  "submitted_at": null,
+  "saved_progress_at": null,
+  "decision": null,
+  "canonical_record_ref": "product.human_review.reviews.g5_safety",
+  "revision": 1,
+  "superseded_at": null,
+  "superseded_reason": null
+}

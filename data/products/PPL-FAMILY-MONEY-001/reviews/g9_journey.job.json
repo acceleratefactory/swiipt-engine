@@ -1,0 +1,535 @@
+{
+  "review_job_id": "RJ-PPL-FAMILY-MONEY-001-g9_journey",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "transformation_id": "TR-PPL-FAMILY-MONEY-001",
+  "gate": "g9_journey",
+  "review_type": "JOURNEY_REVIEW",
+  "required_authority": "JOURNEY_AUTHORITY",
+  "clinical_required": false,
+  "risk_level": "moderate",
+  "status": "PENDING",
+  "reviewer_requirement": {
+    "role": "Authorised human journey reviewer / operator",
+    "qualification": "Access to the live platform surfaces (owner or delegated operator)",
+    "independence": "Never an AI simulation or a marketing review"
+  },
+  "assigned_reviewer": null,
+  "input_refs": [
+    "product.content",
+    "product.publishing.wordpress_ids",
+    "TR-PPL-FAMILY-MONEY-001.tsm.measurement_days",
+    "product.transformation.next_transformation_ids"
+  ],
+  "input_hash": "52dca3a5c2e41f76496d8b09f81132865588c1c9e20cbd5598a2cd57093809e3",
+  "input_version": "1.0",
+  "items": [
+    {
+      "item_id": "J-01",
+      "n": 1,
+      "question": "Can the intended person recognize this is for her?",
+      "exact_artifacts": [
+        "identity.name",
+        "identity.subtitle",
+        "identity.one_line_promise",
+        "customer.person"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-02",
+      "n": 2,
+      "question": "Is the promise clear?",
+      "exact_artifacts": [
+        "transformation.before_state.summary",
+        "transformation.after_state.summary",
+        "identity.one_line_promise"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-03",
+      "n": 3,
+      "question": "Does she know what to do first?",
+      "exact_artifacts": [
+        "transformation.first_win.action",
+        "asset_map.read",
+        "asset_map.do"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-04",
+      "n": 4,
+      "question": "Can the first win happen in the intended timeframe?",
+      "exact_artifacts": [
+        "transformation.first_win.within"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-05",
+      "n": 5,
+      "question": "Does each step lead naturally to the next?",
+      "exact_artifacts": [
+        "transformation.path"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-06",
+      "n": 6,
+      "question": "Are instructions executable under the real conditions of the situation?",
+      "exact_artifacts": [
+        "asset_map.do",
+        "asset_map.read"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-07",
+      "n": 7,
+      "question": "Are the decision tools understandable?",
+      "exact_artifacts": [
+        "asset_map.decide"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-08",
+      "n": 8,
+      "question": "Are the scripts/customer words usable?",
+      "exact_artifacts": [
+        "asset_map.communicate"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-09",
+      "n": 9,
+      "question": "Does the mechanism remain coherent throughout?",
+      "exact_artifacts": [
+        "transformation.mechanism.core"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-10",
+      "n": 10,
+      "question": "Are failure points anticipated?",
+      "exact_artifacts": [
+        "transformation.failure_map",
+        "failure_point_map"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-11",
+      "n": 11,
+      "question": "Can the customer recover after missing a day/night?",
+      "exact_artifacts": [
+        "asset_map.reentry",
+        "transformation.reentry"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-12",
+      "n": 12,
+      "question": "Is there an obvious re-entry path?",
+      "exact_artifacts": [
+        "asset_map.reentry"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-13",
+      "n": 13,
+      "question": "Are unsafe situations routed away from self-management?",
+      "exact_artifacts": [
+        "safety.red_flags",
+        "safety.escalation_rules",
+        "asset_map.rescue"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-14",
+      "n": 14,
+      "question": "Can the customer recognize progress?",
+      "exact_artifacts": [
+        "tsm",
+        "asset_map.track"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-15",
+      "n": 15,
+      "question": "Can the customer recognize completion/success?",
+      "exact_artifacts": [
+        "tsm.success_criteria",
+        "tsm.measurement_days"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-16",
+      "n": 16,
+      "question": "Does maintenance exist?",
+      "exact_artifacts": [
+        "maintenance",
+        "transformation.maintenance"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-17",
+      "n": 17,
+      "question": "Is the next Transformation clear without manipulative upselling?",
+      "exact_artifacts": [
+        "transformation.next_transformation_ids"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-18",
+      "n": 18,
+      "question": "Are any parts redundant or conflicting?",
+      "exact_artifacts": [
+        "asset_map"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-19",
+      "n": 19,
+      "question": "Is anything materially missing?",
+      "exact_artifacts": [
+        "asset_map",
+        "transformation.path"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    },
+    {
+      "item_id": "J-20",
+      "n": 20,
+      "question": "Would the complete journey plausibly deliver the specified transformation?",
+      "exact_artifacts": [
+        "content",
+        "publishing.wordpress_ids"
+      ],
+      "runtime_refs": {
+        "wordpress_ids": {},
+        "tsm_measurement_days": [
+          0,
+          7,
+          14,
+          30
+        ]
+      },
+      "dispositions_allowed": [
+        "WORKS",
+        "DEFECT",
+        "UNVERIFIED"
+      ],
+      "reviewer_disposition": "",
+      "reviewer_notes": ""
+    }
+  ],
+  "item_count": 20,
+  "created_at": "2026-09-23T15:01:12.220Z",
+  "updated_at": "2026-09-23T15:01:12.220Z",
+  "started_at": null,
+  "submitted_at": null,
+  "saved_progress_at": null,
+  "decision": null,
+  "canonical_record_ref": "product.human_review.reviews.g9_journey",
+  "revision": 1,
+  "superseded_at": null,
+  "superseded_reason": null
+}
