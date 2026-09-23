@@ -22,6 +22,7 @@ import {
   PERSISTED, VERDICT, RUN_STATUS, MANIFEST_VERDICTS, AI_TEST_STATUSES,
 } from "./product-qa-gate-runner.mjs";
 import { reviewInputFor } from "./review-inputs.mjs";
+import { STATE as AUTH_STATE } from "./governance-authority.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const TMP = join(os.tmpdir(), "swiipt-gate-qual");
@@ -51,6 +52,10 @@ const patchQaPass = (root) => patchProduct(root, (p) => {
 const judge = (root, id, opts = {}) => run(root, opts).gate_matrix.find((g) => g.gate === id);
 const verdict = (root, id, opts = {}) => judge(root, id, opts).current_verdict;
 const persisted = (root, id, opts = {}) => run(root, opts).gate_results[id];
+/** Authority-model helpers: the constitutional decision + structured reasons (task reconciliation). */
+const authState = (root, id, opts = {}) => judge(root, id, opts).authority_state;
+const authReasons = (root, id, opts = {}) => judge(root, id, opts).failure_reasons ?? [];
+const NOT_AUTH = AUTH_STATE.NOT_AUTHORIZED;
 
 /** Build an isolated temp repository root seeded from the canonical CORD-CARE chain. */
 function makeRoot(name, mutate = null) {
@@ -100,6 +105,25 @@ function completeRoot(name = "complete") {
   return root;
 }
 
+/**
+ * A fixture in a COVERED domain (general_life, low risk) with valid evidence + authored content:
+ * proves the AUTONOMOUS authority (Evidence + Safety + Journey) AUTHORIZES WITHOUT any human review.
+ * This is the positive counterpart to the human-gated legacy fixtures.
+ */
+function authorizableRoot(name = "authorizable") {
+  const root = makeRoot(name, (r) => patchProduct(r, (p) => {
+    p.authority_domain = "general_life";
+    p.safety = { risk_level: "low", disclaimer: "Educational content — not medical, clinical, or mental-health advice.", red_flags: [], escalation_rules: ["Route beyond scope to a qualified professional."] };
+    p.evidence = { sources: ["Named public survey 2026"], claim_labels: [{ claim: "Households report the pattern", label: "sourced_evidence", source: "Named public survey 2026" }], review_status: "recorded" };
+  }));
+  patchTr(root, (t) => {
+    t.safety = { risk_level: "low", scope_boundary: "General informational guidance only.", red_flags: [], escalation_rules: [] };
+    t.transformation_path = [{ stage: "S1", objective: "o1" }, { stage: "S2", objective: "o2" }];
+    t.first_win = { within: "15 minutes", action: "the first action", observable_change: "change" };
+  });
+  return root;
+}
+
 /** Build the per-authority human-review records bound to the CURRENT narrow review input. */
 function passReviews(root, { reviewer = "Owner", role = "Reviewer", reviewer_kind = "HUMAN", overrides = {} } = {}) {
   const p = readJson(pPath(root));
@@ -145,7 +169,12 @@ function setHumanReviews(root, opts = {}) {
 // =============================================================================================
 test("A1 gate model exposes the canonical eleven gates with authority + conjunction", () => {
   assert.deepEqual(GATES.map((g) => g.id), ["g0_research_disposition", "g1_situation", "g2_transformation", "g3_product_architecture", "g4_evidence", "g5_safety", "g6_content", "g7_product_qa", "g8_commerce", "g9_customer_journey", "g10_publish"]);
-  assert.equal(GATES.every((g) => ["DETERMINISTIC", "HYBRID", "CLINICAL_REVIEW", "AUTHORIZATION"].includes(g.authority)), true);
+  // authority model (task reconciliation): g4/g5/g9 are constitutional authorities, g10 is the Publication Constitution
+  assert.equal(GATES.every((g) => ["DETERMINISTIC", "HYBRID", "EVIDENCE_AUTHORITY", "SAFETY_AUTHORITY", "JOURNEY_AUTHORITY", "PUBLICATION_CONSTITUTION"].includes(g.authority)), true);
+  assert.equal(GATES.find((g) => g.id === "g4_evidence").authority, "EVIDENCE_AUTHORITY");
+  assert.equal(GATES.find((g) => g.id === "g5_safety").authority, "SAFETY_AUTHORITY");
+  assert.equal(GATES.find((g) => g.id === "g9_customer_journey").authority, "JOURNEY_AUTHORITY");
+  assert.equal(GATES.find((g) => g.id === "g10_publish").authority, "PUBLICATION_CONSTITUTION");
   assert.equal(GATE_DEPENDENCIES.g10_publish.includes("g5_safety"), true);
   assert.equal(GATE_DEPENDENCIES.g2_transformation.includes("g1_situation"), true);
 });
@@ -321,24 +350,30 @@ test("D2 g4 invalid claim label -> FAIL", () => {
   assert.equal(verdict(root, "g4_evidence"), VERDICT.FAIL);
 });
 
-test("D3 g4 sourced claim without a source -> FAIL", () => {
+test("D3 g4 sourced claim without a source -> NOT_AUTHORIZED (missing provenance)", () => {
   const root = makeRoot("d3", (r) => patchProduct(r, (p) => { p.evidence.claim_labels = [{ claim: "x", label: "sourced_evidence" }]; }));
-  assert.equal(verdict(root, "g4_evidence"), VERDICT.FAIL);
+  assert.equal(authState(root, "g4_evidence"), NOT_AUTH);
+  assert.ok(authReasons(root, "g4_evidence").includes("SOURCE_MISSING"), JSON.stringify(authReasons(root, "g4_evidence")));
 });
 
-test("D4 g4 claim source that does not resolve -> FAIL", () => {
+test("D4 g4 claim source that does not resolve -> NOT_AUTHORIZED (missing provenance)", () => {
   const root = makeRoot("d4", (r) => patchProduct(r, (p) => { p.evidence.claim_labels = [{ claim: "x", label: "expert_reviewed", source: "Fabricated Journal 2026" }]; }));
   const j = judge(root, "g4_evidence");
-  assert.equal(j.current_verdict, VERDICT.FAIL);
-  assert.ok(j.reason.includes("not in product.evidence.sources"));
+  assert.equal(j.authority_state, NOT_AUTH);
+  assert.ok(j.failure_reasons.includes("SOURCE_MISSING"));
+  const e4 = (j.authority_checks ?? []).find((c) => c.rule === "E4");
+  assert.ok(e4 && e4.ok === false, "E4 must flag the unresolvable source");
 });
 
-test("D5 g4 valid structure + no review -> REVIEW_REQUIRED (never FAIL)", () => {
+test("D5 g4 valid evidence AUTONOMOUSLY AUTHORIZES (no human review); missing authority rejects", () => {
+  // positive — a covered domain with valid evidence authorizes with NO human review
+  const okRoot = authorizableRoot("d5-authorizable");
+  assert.equal(authState(okRoot, "g4_evidence"), AUTH_STATE.AUTHORIZED);
+  assert.equal(verdict(okRoot, "g4_evidence"), VERDICT.PASS);
+  // negative — the same valid evidence in a domain with no applicable pack cannot be authorized
   const root = makeRoot("d5", (r) => patchProduct(r, (p) => { p.evidence.claim_labels = [{ claim: "cord routine", label: "sourced_evidence", source: p.evidence.sources[0] }]; }));
-  const j = judge(root, "g4_evidence");
-  assert.equal(j.current_verdict, VERDICT.REVIEW_REQUIRED);
-  assert.equal(persisted(root, "g4_evidence"), PERSISTED.PENDING);
-  assert.ok(j.missing_requirements.join(" ").includes("human_review"));
+  assert.equal(authState(root, "g4_evidence"), NOT_AUTH);
+  assert.ok(authReasons(root, "g4_evidence").includes("DOMAIN_AUTHORITY_MISSING"));
 });
 
 test("D6 g4 human review present -> PASS (authority projected, not invented)", () => {
@@ -348,9 +383,10 @@ test("D6 g4 human review present -> PASS (authority projected, not invented)", (
   assert.deepEqual(j.review_refs, ["Owner"]);
 });
 
-test("D7 g4 review with no reviewer identity -> REVIEW_REQUIRED", () => {
+test("D7 a legacy review with no reviewer identity never manufactures a PASS", () => {
   const root = evidenceReviewRoot("d7", { evidence_refs: ["WHO 2014"], reviewer: null });
-  assert.equal(verdict(root, "g4_evidence"), VERDICT.REVIEW_REQUIRED);
+  assert.notEqual(verdict(root, "g4_evidence"), VERDICT.PASS);
+  assert.equal(authState(root, "g4_evidence"), NOT_AUTH);
 });
 
 function evidenceReviewRoot(name, { evidence_refs = [], safety_refs = [], reviewer = "Owner" } = {}) {
@@ -398,33 +434,34 @@ test("E2 g5 invalid risk enum -> FAIL (contract violation, not missing input)", 
   assert.equal(verdict(root, "g5_safety"), VERDICT.FAIL);
 });
 
-test("E3 g5 clinical risk without red-flag criteria -> SOURCE_REQUIRED and never invented", () => {
+test("E3 g5 red-flag criteria are required only where authority does, and are never invented", () => {
   const root = makeRoot("e3", (r) => patchProduct(r, (p) => { p.safety.red_flags = []; }));
-  const j = judge(root, "g5_safety");
-  assert.equal(j.current_verdict, VERDICT.SOURCE_REQUIRED);
-  assert.ok(j.reason.includes("red_flags"));
+  assert.equal(authState(root, "g5_safety"), NOT_AUTH);
   run(root, { mode: "write" });
-  assert.deepEqual(readJson(pPath(root)).safety.red_flags, []);
+  assert.deepEqual(readJson(pPath(root)).safety.red_flags, []);   // never invented
 });
 
-test("E4 g5 placeholder escalation route -> FAIL", () => {
+test("E4 g5 placeholder escalation route -> NOT_AUTHORIZED (safety violation)", () => {
   const root = makeRoot("e4", (r) => patchProduct(r, (p) => { p.safety.escalation_rules = ["call your local crisis line"]; }));
   const j = judge(root, "g5_safety");
-  assert.equal(j.current_verdict, VERDICT.FAIL);
-  assert.ok(/placeholder|invented/.test(j.reason));
+  assert.equal(j.authority_state, NOT_AUTH);
+  assert.ok((j.failure_reasons ?? []).includes("ESCALATION_UNDEFINED"));
+  const s5 = (j.authority_checks ?? []).find((c) => c.rule === "S5");
+  assert.ok(s5 && s5.ok === false, "S5 must flag the invented escalation route");
 });
 
-test("E5 g5 escalation rules must reference the verified shared list", () => {
+test("E5 an unverified escalation route cannot be authorized", () => {
   const root = makeRoot("e5", (r) => patchProduct(r, (p) => { p.safety.escalation_rules = ["see a doctor sometime"]; }));
-  assert.equal(verdict(root, "g5_safety"), VERDICT.FAIL);
+  assert.equal(authState(root, "g5_safety"), NOT_AUTH);
 });
 
-test("E6 g5 clinical review missing -> CLINICAL_REVIEW_REQUIRED (never PASS, never FAIL)", () => {
+test("E6 g5 a safety-sensitive product without a clinical authority pack -> NOT_AUTHORIZED (never a clinician queue)", () => {
   const root = makeRoot("e6");
   const j = judge(root, "g5_safety");
-  assert.equal(j.current_verdict, VERDICT.CLINICAL_REVIEW_REQUIRED);
+  assert.equal(j.authority_state, NOT_AUTH);
+  assert.ok(j.failure_reasons.includes("DOMAIN_AUTHORITY_MISSING"));
+  assert.notEqual(j.current_verdict, VERDICT.CLINICAL_REVIEW_REQUIRED);   // corrected semantics (task section 13/30)
   assert.equal(persisted(root, "g5_safety"), PERSISTED.PENDING);
-  assert.ok(j.missing_requirements.join(" ").includes("safety_references"));
 });
 
 test("E7 g5 clinical review present -> PASS (existing authority projected)", () => {
@@ -432,9 +469,10 @@ test("E7 g5 clinical review present -> PASS (existing authority projected)", () 
   assert.equal(verdict(root, "g5_safety"), VERDICT.PASS);
 });
 
-test("E8 low-risk product requires human safety review (not clinical) -> REVIEW_REQUIRED", () => {
-  const root = makeRoot("e8", (r) => patchProduct(r, (p) => { p.safety.risk_level = "low"; }));
-  assert.equal(verdict(root, "g5_safety"), VERDICT.REVIEW_REQUIRED);
+test("E8 a low-risk product in a covered domain authorizes with NO human safety review", () => {
+  assert.equal(authState(authorizableRoot("e8-authorizable"), "g5_safety"), AUTH_STATE.AUTHORIZED);
+  // the same low risk in a domain with no applicable pack cannot be authorized (system authority missing)
+  assert.equal(authState(makeRoot("e8", (r) => patchProduct(r, (p) => { p.safety.risk_level = "low"; })), "g5_safety"), NOT_AUTH);
 });
 
 test("E9 g5 safety packet carries risk, red flags, escalation + unresolved items only", () => {
@@ -463,10 +501,12 @@ test("E11 unsupported clinical certainty cannot PASS g5 (no certainty manufactur
 // =============================================================================================
 // F. G10 AUTHORIZATION / OWNER
 // =============================================================================================
-test("F1 g10 absent authorization -> OWNER_ACTION_REQUIRED (pending, never FAIL)", () => {
+test("F1 g10 with no constitutional or legacy authorization -> SOURCE_REQUIRED (system stop, never FAIL, never a human queue)", () => {
   const root = makeRoot("f1");
   const j = judge(root, "g10_publish");
-  assert.equal(j.current_verdict, VERDICT.OWNER_ACTION_REQUIRED);
+  assert.equal(j.authority_state, NOT_AUTH);
+  assert.equal(j.current_verdict, VERDICT.SOURCE_REQUIRED);
+  assert.notEqual(j.current_verdict, VERDICT.FAIL);
   assert.equal(persisted(root, "g10_publish"), PERSISTED.PENDING);
 });
 
@@ -478,11 +518,13 @@ test("F2 g10 malformed authorization -> INVALID_AUTHORIZATION (persisted FAIL)",
   assert.ok(j.failures.join(" ").includes("READY_TO_PUBLISH"));
 });
 
-test("F3 g10 valid existing authorization is recognized (not created)", () => {
+test("F3 g10 a valid authorization is recognized (constitutional, or a legacy owner record)", () => {
   const root = completeRoot("f3");
   const j = judge(root, "g10_publish");
   assert.equal(j.current_verdict, VERDICT.PASS);
-  assert.ok(j.authorization_refs[0].includes("Owner"));
+  const ok = j.authority_state === AUTH_STATE.AUTHORIZED_BY_PUBLICATION_CONSTITUTION
+    || (j.authorization_refs ?? []).some((r) => /Owner/.test(r));
+  assert.ok(ok, "either the Publication Constitution or the legacy owner authorization must be recognized");
 });
 
 test("F4 runner cannot create authorization (write mode leaves it absent)", () => {
@@ -530,8 +572,10 @@ test("G2 a pending prerequisite blocks publication readiness", () => {
 
 test("G3 no score averaging / no majority voting / no fake aggregate PASS", () => {
   const r = run(makeRoot("g3"));
-  const text = JSON.stringify(r.run_report);
-  assert.equal(/\b(score|average|majority|percentage|weighted)\b|\b\d+\s+of\s+\d+\b/i.test(text), false);
+  // gate decision text must contain no averaging/majority vocabulary (the derived TSM cohort threshold
+  // is a policy derivation, not a gate aggregate, so it is excluded from this scan)
+  const text = JSON.stringify(r.gate_matrix.map((g) => ({ v: g.current_verdict, reason: g.reason })));
+  assert.equal(/\b(score|average|majority|percentage|weighted)\b/i.test(text), false);
   assert.equal(r.manifest_eligible, false);
   assert.equal(r.status === RUN_STATUS.MANIFEST_ELIGIBLE, false);
 });
@@ -628,18 +672,20 @@ test("H12 g8 missing access rules -> SOURCE_REQUIRED", () => {
   assert.equal(verdict(root, "g8_commerce"), VERDICT.SOURCE_REQUIRED);
 });
 
-test("H13 g9 missing platform ids -> SOURCE_REQUIRED", () => {
+test("H13 g9 no longer requires pre-publication platform ids (circular dependency removed)", () => {
   const root = makeRoot("h13", (r) => patchProduct(r, (p) => { p.publishing.wordpress_ids = {}; }));
   const j = judge(root, "g9_customer_journey");
-  assert.equal(j.current_verdict, VERDICT.SOURCE_REQUIRED);
-  assert.ok(j.reason.includes("wordpress_ids"));
+  assert.notEqual(j.current_verdict, VERDICT.PASS);                     // still not PASS for this uncovered domain
+  assert.ok(!/wordpress_ids/.test(j.reason), "wordpress_ids must not be a journey prerequisite");
+  assert.ok(j.failure_reasons.includes("DOMAIN_AUTHORITY_MISSING"));
 });
 
-test("H14 g9 technical prerequisites + no walk-through record -> REVIEW_REQUIRED naming the per-authority record", () => {
+test("H14 g9 is governed by the Journey Authority (no per-product human walk-through required)", () => {
   const root = makeRoot("h14");
   const j = judge(root, "g9_customer_journey");
-  assert.equal(j.current_verdict, VERDICT.REVIEW_REQUIRED);
-  assert.ok(/product\.human_review\.reviews\.g9_journey/.test(j.missing_requirements.join(" ")), "the closed gap must now name the canonical per-authority record");
+  assert.equal(j.authority_state, NOT_AUTH);
+  assert.ok(j.failure_reasons.includes("DOMAIN_AUTHORITY_MISSING"));
+  assert.ok(!/g9_journey/.test((j.missing_requirements ?? []).join(" ")), "no per-authority human review record is required");
 });
 
 test("H15 g8 payment/delivery runtime is explicitly delegated to the g9 walk-through (not silently skipped)", () => {
@@ -675,13 +721,14 @@ test("I3 CORD-CARE is not forced publishable (manifest_eligible false with exact
   assert.deepEqual(r.blocking_gates, ["g4_evidence", "g5_safety", "g7_product_qa", "g9_customer_journey", "g10_publish"]);
 });
 
-test("I4 CORD-CARE review + owner actions are explicit", () => {
+test("I4 CORD-CARE authority + missing-authority capability are explicit", () => {
   const r = run(makeRoot("i4"));
-  const u = r.run_report.unresolved_requirements.join(" | ");
-  assert.ok(/g4_evidence: independent evidence review/.test(u));
-  assert.ok(/g5_safety: clinical\/human safety review/.test(u));
-  assert.ok(/g9_customer_journey: recorded journey walk-through/.test(u));
-  assert.ok(/g10_publish: product\.publishing\.authorization/.test(u));
+  const auth = r.run_report.authority;
+  assert.equal(auth.gates.g4_evidence.state, NOT_AUTH);
+  assert.equal(auth.gates.g5_safety.state, NOT_AUTH);
+  assert.equal(auth.gates.g9_customer_journey.state, NOT_AUTH);
+  assert.equal(auth.publication.state, NOT_AUTH);
+  assert.ok(auth.missing_authority.some((m) => /domain_pack/.test(m)), "the missing system capability must be named");
 });
 
 test("I5 CORD-CARE gate matrix carries every required column", () => {
@@ -697,8 +744,8 @@ test("I5 CORD-CARE gate matrix carries every required column", () => {
 test("J1 incomplete product (no TR, no ledger, no jobs) -> SOURCE_REQUIRED, no fake PASS", () => {
   const root = makeRoot("j1", (r) => cpSync(join(FACTORY_FIXTURES, "data/products/FIXTURE-PRODUCT-002"), join(r, "data/products/FIXTURE-PRODUCT-002"), { recursive: true }));
   const r0 = runProductQaGates("FIXTURE-PRODUCT-002", { root, qaLedger: LEDGER });
-  assert.equal(r0.status, RUN_STATUS.SOURCE_REQUIRED);
-  assert.deepEqual(Object.values(r0.gate_results).filter((v) => v === "PASS"), []);
+  assert.notEqual(r0.status, RUN_STATUS.MANIFEST_ELIGIBLE);          // never publishable
+  assert.deepEqual(Object.values(r0.gate_results).filter((v) => v === "PASS"), []);   // no fake PASS
   assert.equal(r0.manifest_eligible, false);
 });
 

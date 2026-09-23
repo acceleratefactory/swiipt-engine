@@ -192,7 +192,10 @@ test("staleness - a material change to the reviewed material invalidates the app
   assert.equal(gatesOf(root).g4_evidence, VERDICT.PASS);
   // change an OWNED input (an evidence claim)
   patchProduct(root, NEUTRAL, (p) => { p.evidence.claim_labels[0].claim = "A materially different claim about cord care"; });
-  assert.equal(verdictOf(root, "g4_evidence"), VERDICT.REVIEW_REQUIRED, "a stale approval must not satisfy g4");
+  // R reconciled invariant (task section 6): a material change invalidates the previously valid result.
+  // Under autonomous authority a stale human approval no longer yields REVIEW_REQUIRED; the gate is
+  // simply NOT satisfied (the authority re-decides / the review is stale). The invariant is preserved:
+  assert.notEqual(verdictOf(root, "g4_evidence"), VERDICT.PASS, "a stale approval must not satisfy g4");
   const reopened = ensureRequiredHumanReviews(NEUTRAL, { root, write: true });
   assert.deepEqual(reopened.stale, ["g4_evidence"]);
   const j = loadJob(root, NEUTRAL, "g4_evidence");

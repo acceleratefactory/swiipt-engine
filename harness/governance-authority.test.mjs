@@ -242,3 +242,23 @@ test("34. no fake human: authorization is a system constitution", () => {
   const p = JSON.parse(readFileSync(`data/products/${FM}/product.json`, "utf8"));
   assert.equal(/david|owner|human/i.test(p.publishing.authorization.authorized_by), false);
 });
+
+test("35. an INACTIVE (non-ACTIVE) Domain Authority Pack does not authorize (fail-closed)", () => {
+  const root = mkdtempSync(join(tmpdir(), "swt-auth-inactive-"));
+  mkdirSync(join(root, "governance", "domain-packs"), { recursive: true });
+  writeFileSync(join(root, "governance", "registry.json"), JSON.stringify({
+    constitutions: [],
+    domain_packs: [{ domain: "family_finance", authority_id: "SWIIPT-DOMAIN-AUTHORITY-FAMILY-FINANCE", version: "1.0", status: "DRAFT", risk_classes: ["low_risk"], file: "governance/domain-packs/family_finance.authority-pack.json" }],
+  }));
+  writeFileSync(join(root, "governance", "domain-packs", "family_finance.authority-pack.json"), JSON.stringify({ authority_type: "DOMAIN_AUTHORITY_PACK", domain: "family_finance" }));
+  // a non-ACTIVE pack is not resolvable -> the domain is not covered -> the product cannot be authorized
+  assert.equal(loadPack("family_finance", root), null);
+});
+
+test("36. a malformed or missing authority system fails closed", () => {
+  assert.throws(() => loadRegistry("/nonexistent-authority-root"), /registry missing/);
+  const root = mkdtempSync(join(tmpdir(), "swt-auth-bad-"));
+  mkdirSync(join(root, "governance"), { recursive: true });
+  writeFileSync(join(root, "governance", "registry.json"), "{ not json");
+  assert.throws(() => loadRegistry(root));
+});

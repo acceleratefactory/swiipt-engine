@@ -524,8 +524,8 @@ function evalG10(inp, gateResults = []) {
   if (ctx.error) return { ...failed(id, `authority infrastructure unavailable: ${ctx.error}`), authority_state: AUTH_STATE.NOT_AUTHORIZED };
   let pubCon = null, tsm = null;
   try {
-    pubCon = loadConstitution("PUBLICATION", inp.root ?? ROOT);
-    tsm = classifyTSM(inp.product, inp.transformation, loadConstitution("TSM", inp.root ?? ROOT));
+    pubCon = loadConstitution("PUBLICATION");   // system authority is global, not per product root
+    tsm = classifyTSM(inp.product, inp.transformation, loadConstitution("TSM"));
   } catch (e) { return { ...failed(id, `publication constitution unavailable: ${e.message}`), authority_state: AUTH_STATE.NOT_AUTHORIZED }; }
   const gateStates = {};
   for (const g of gateResults) gateStates[g.id] = g.authority_state ?? g.persisted;
@@ -535,10 +535,10 @@ function evalG10(inp, gateResults = []) {
   }
   const auth = inp.product.publishing?.authorization ?? null;
   if (auth && auth.status === "READY_TO_PUBLISH" && isStr(auth.authorized_by) && isStr(auth.authorized_at)) {
-    return { ...gate(id, VERDICT.PASS, `existing owner authorization recognized (${auth.authorized_by}, ${auth.authorized_at})`, { inputs: ["product.publishing.authorization"] }), authority_state: pub.state };
+    return { ...gate(id, VERDICT.PASS, `existing owner authorization recognized (${auth.authorized_by}, ${auth.authorized_at})`, { inputs: ["product.publishing.authorization"], authorization_refs: [`${auth.authorized_by}@${auth.authorized_at}`] }), authority_state: pub.state };
   }
   if (auth) {
-    return { ...gate(id, VERDICT.INVALID_AUTHORIZATION, `authorization record present but invalid (status='${auth.status ?? "missing"}', authorized_by='${auth.authorized_by ?? "missing"}')`, { inputs: ["product.publishing.authorization"], failures: ["READY_TO_PUBLISH + a named authorizer are required"] }), authority_state: AUTH_STATE.NOT_AUTHORIZED };
+    return { ...gate(id, VERDICT.INVALID_AUTHORIZATION, `authorization record present but invalid (status is "${auth.status ?? "missing"}"; a named authorizer is ${isStr(auth.authorized_by) ? "present" : "missing"})`, { inputs: ["product.publishing.authorization"], failures: ["READY_TO_PUBLISH + a named authorizer are required"] }), authority_state: AUTH_STATE.NOT_AUTHORIZED };
   }
   // Not constitutionally authorized and no legacy authorization: a SYSTEM-authority STOP (pending),
   // never a per-product human review queue (task section 18/20).
@@ -665,7 +665,7 @@ export function evaluateProductGates(productId, { qaLedger = null, root = ROOT }
         const prior = gateResults.find((g) => g.id === dep);
         return prior && prior.verdict !== VERDICT.PASS;
       });
-      if (bad.length) r = gate(def.id, VERDICT.BLOCKED_BY_PREREQUISITE, `cannot PASS while prerequisite gate(s) are unresolved: ${bad.join(", ")}`, { blocked_by: bad, inputs: r.inputs, missing_requirements: bad });
+      if (bad.length) r = { ...gate(def.id, VERDICT.BLOCKED_BY_PREREQUISITE, `cannot PASS while prerequisite gate(s) are unresolved: ${bad.join(", ")}`, { blocked_by: bad, inputs: r.inputs, missing_requirements: bad }), authority_state: r.authority_state ?? null };
     }
     gateResults.push({ ...def, ...r, persisted: persistedFor(r.verdict) });
   }
@@ -726,6 +726,7 @@ export function evaluateProductGates(productId, { qaLedger = null, root = ROOT }
       missing_requirements: g.missing_requirements ?? [], failures: g.failures ?? [], notes: g.notes ?? null,
       reason_code: g.reason_code ?? null, architectural_gap: g.architectural_gap ?? null, human_action: g.human_action ?? null,
       review_refs: g.review_refs ?? [], authorization_refs: g.authorization_refs ?? [], blocked_by: g.blocked_by ?? [], blocks_manifest: g.blocks_manifest,
+      authority_state: g.authority_state ?? null, failure_reasons: g.failure_reasons ?? [], authority_checks: g.authority_checks ?? [], authority_required: g.authority_required ?? null,
     })),
     deterministic_checks: {
       canonical_runner: "harness/qa-checks.mjs",

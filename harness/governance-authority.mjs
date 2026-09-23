@@ -157,12 +157,15 @@ const CERTAINTY_PATTERNS = [
   /\bcures?[sd]?\b/i, /\bnever fails\b/i, /\balways works\b/i,
   /\bproven to (save|work|reduce|help)\b/i, /\bproven (savings|results?|efficacy|effective|safe)\b/i, /\bclinically proven\b/i,
 ];
+// The PRODUCT asserting a prohibited behaviour (not clinical vocabulary like "only if prescribed",
+// "never a diagnosis" — those are negations or guidance). Pack-scoped (task section 12).
 const SAFETY_DRIFT_PATTERNS = [
   /\bwe (advise|recommend) you (invest|borrow|take out a loan)\b/i,
   /\b(guaranteed|proven) (savings|returns?|results?)\b/i,
-  /\bdiag?nos(e|is|ed)\b/i,
-  /\bprescrib(e|ed|ing)\b/i,
-  /\bcure[sd]?\b/i,
+  /\b(we|this (system|guide|product|plan)) diagnos(e|es)\b/i,
+  /\b(we|this (system|guide|product|plan)) prescrib(e|es)\b/i,
+  /\byou (should|must) take \d/i,
+  /\b(cures?|cured)\b/i,
   /\bdebt[- ]?free\b/i,
   /\bfinancially secure\b/i,
 ];
@@ -337,7 +340,9 @@ export function evaluateSafetyAuthority({ product, transformation, dir, pack, ri
   // S6: prohibited behaviour drift (pack-driven) over the pack's prohibited behaviours + corpus
   const corpus = [product?.identity?.name, product?.identity?.subtitle, product?.identity?.one_line_promise,
     ...(assetContent(product, dir).map((a) => a.content ?? ""))].filter(isStr).join("\n").toLowerCase();
-  const driftHit = scanAssertions(SAFETY_DRIFT_PATTERNS, corpus, boundaryStatements(product, transformation, pack));
+  // Safety Constitution + applicable Domain Authority Pack govern safety: without a resolving pack
+  // there is no governing safety authority (reported separately as DOMAIN_AUTHORITY_MISSING).
+  const driftHit = pack ? scanAssertions(SAFETY_DRIFT_PATTERNS, corpus, boundaryStatements(product, transformation, pack)) : null;
   checks.push(check("S6", !driftHit, driftHit ? `prohibited behaviour text: ${driftHit}` : "no prohibited behaviour"));
   if (driftHit) reasons.add("PROHIBITED_SAFETY_BEHAVIOR");
 
@@ -413,6 +418,7 @@ export function evaluateJourneyAuthority({ product, transformation, dir, inputs,
 
   // pack coverage (J0 already covers artifacts)
   checks.push(check("J9", !!pack, pack ? pack.authority_id : "no pack"));
+  if (!pack) reasons.add("DOMAIN_AUTHORITY_MISSING");
 
   void inputs;
   const state = reasons.size === 0 && checks.every((c) => c.ok) ? STATE.AUTHORIZED : STATE.NOT_AUTHORIZED;
@@ -474,7 +480,8 @@ export function buildAuthorityContext(product, transformation, dir, { root = ROO
   const risk = classifyRisk(product, transformation, root);
   const domain = classifyDomain(product, transformation, root);
   const resolved = resolvePack(domain.domain, risk.risk_class, root);
-  const pack = resolved.pack ?? null;
+  // A pack that does not COVER the product's risk class does not govern it -> treated as absent.
+  const pack = resolved.covers ? resolved.pack : null;
   const content = {};
   for (const [key, ref] of Object.entries(product?.content ?? {})) content[key] = { key, ref, exists: isStr(ref) && existsSync(join(dir, ref)) };
   return { product, transformation, dir, risk, domain, resolved, pack, content, inputs, root };
