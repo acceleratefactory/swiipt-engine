@@ -1,0 +1,3 @@
+VIDEO-STATUS: PENDING_PROVIDER
+reason: no qualified video provider configured (pre-revenue $0)
+no MP4 produced (truthful — no provider execution)

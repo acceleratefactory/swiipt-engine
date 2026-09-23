@@ -1,0 +1,7 @@
+01  SITUATION  (4s)  Trying to set a pre-birth baby budget and asking whether ₦200,000 covers baby things (trigger: Pre-birth shopping list collides with household income reality)
+02  TENSION / STAKE  (5s)  Pre-birth shopping list collides with household income reality
+03  WHAT DO I DO NOW?  (4s)  stuck on: building the list from influencer checklists and family voice-notes
+04  SWIIPT MECHANISM  (6s)  Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.
+05  ACTUAL PRODUCT / TOOLS  (7s)  The One-Number Budget Chart → The Real Baby Budget Quiz → Corner-Shop Cost-Swap Card → Buy / Wait / Never List → 30-Day Use Audit Log + Resell → Cart-Delete Loop Rescue
+06  IMMEDIATE TRANSFORMATION  (5s)  One trusted budget number and a prioritized essentials list
+07  CTA  (4s)  cover reveal + product name + CTA

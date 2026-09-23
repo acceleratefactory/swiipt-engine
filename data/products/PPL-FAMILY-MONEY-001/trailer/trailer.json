@@ -1,0 +1,311 @@
+{
+  "asset_type": "PRODUCT_TRAILER",
+  "trailer_id": "TRAILER-PPL-FAMILY-MONEY-001",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "transformation_id": "TR-PPL-FAMILY-MONEY-001",
+  "title": "The One-Number Baby Budget",
+  "angle_ref": "ANG-PPL-FAMILY-MONEY-001",
+  "angle_status": "GREEN",
+  "validation_ref": "VAL-PPL-FAMILY-001",
+  "validation_verdict": "GREEN",
+  "brief": "PRODUCT TRAILER BRIEF — The One-Number Baby Budget\nCanonical short commercial introduction (not long-form, not organic social, not a testimonial).\nAudience: Expectant Nigerian parent budgeting for a first baby in Lagos on a household income under ₦200k/month\nAngle: ANG-PPL-FAMILY-MONEY-001 (GREEN) — validation VAL-PPL-FAMILY-001 (GREEN)\nStake: Proving readiness as a provider without going under; shame of under-budgeting\nMechanism: Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.\nDesired change: One trusted budget number and a prioritized essentials list\nBoundary: Buy/Wait/Never plus audit efficacy is untested and must never be presented as proven savings",
+  "master_prompt": "SWIIPT PRODUCT TRAILER — MASTER VIDEO-GENERATION PROMPT (provider-ready)\nDuration: 35s  (7 shots)   Aspect: 16:9 master (9:16 + 1:1 derived)   Style: restrained documentary-editorial, real textures\n\nSUBJECT/SCENE: Trying to set a pre-birth baby budget and asking whether ₦200,000 covers baby things (trigger: Pre-birth shopping list collides with household income reality). Subjects: Expectant Nigerian parent budgeting for a first baby in Lagos on a household income under ₦200k/month. Environment: ordinary home; grounded objects only (real chart, lists, phone).\nPROGRESSION: 1) SITUATION — Trying to set a pre-birth baby budget and asking whether ₦200,000 covers baby things (trigger: Pre-birth shopping list collides with household income reality) | 2) TENSION / STAKE — Pre-birth shopping list collides with household income reality | 3) WHAT DO I DO NOW? — stuck on: building the list from influencer checklists and family voice-notes | 4) SWIIPT MECHANISM — Run the real baby budget quiz tonight and post the one-number budget chart on the fridge. | 5) ACTUAL PRODUCT / TOOLS — The One-Number Budget Chart → The Real Baby Budget Quiz → Corner-Shop Cost-Swap Card → Buy / Wait / Never List → 30-Day Use Audit Log + Resell → Cart-Delete Loop Rescue | 6) IMMEDIATE TRANSFORMATION — One trusted budget number and a prioritized essentials list | 7) CTA — cover reveal + product name + CTA\nCAMERA: handheld→static→overhead flat-lay→match-cuts→locked cover. Lens 35–50mm. No drone, no whip-zoom tricks.\nLIGHTING: natural window daylight; consistent grade; no stylised neon.\nPRODUCT APPEARANCE: show the ACTUAL rendered artifacts — The One-Number Budget Chart → The Real Baby Budget Quiz → Corner-Shop Cost-Swap Card → Buy / Wait / Never List → 30-Day Use Audit Log + Resell → Cart-Delete Loop Rescue — never invented interfaces.\nTYPOGRAPHY/ON-SCREEN TEXT (deterministic, Swiipt design authority): New baby. Real budget. · Proving readiness as a provider without going under; shame of under-budgeting · Every list you try makes it worse. · One number. One rule. · The One-Number Budget Chart · The Real Baby Budget Quiz · Corner-Shop Cost-Swap Card · A plan you can both see. · The One-Number Baby Budget\nTRANSITIONS: cut, cut, whip-pan cut, match cut, match cut, dissolve, fade to cover.\nPACING: 4s/5s/4s/6s/7s/5s/4s.\nEMOTIONAL PROGRESSION: uncertainty → shame-bound tension → relief-by-structure → confidence.\nCTA: The One-Number Baby Budget — A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.\nPROHIBITED IMAGERY: no guaranteed savings; no efficacy claims; no statistics/results/testimonials; no generic finance imagery; no money piles; no floating currency; no fake dashboards; no internal ids; no medical/clinical claims\nPROHIBITED CLAIMS: promising a specific money amount saved; presenting Buy/Wait/Never or the audit as proven; showing invented product interfaces\nCONTINUITY: same palette, mark and product cover identity throughout; product artifacts must match the customer product exactly.",
+  "scenes": [
+    {
+      "n": 1,
+      "beat": "SITUATION",
+      "duration_s": 4,
+      "visual": "Trying to set a pre-birth baby budget and asking whether ₦200,000 covers baby things (trigger: Pre-birth shopping list collides with household income reality)",
+      "on_screen_text": "New baby. Real budget."
+    },
+    {
+      "n": 2,
+      "beat": "TENSION / STAKE",
+      "duration_s": 5,
+      "visual": "Pre-birth shopping list collides with household income reality",
+      "on_screen_text": "Proving readiness as a provider without going under; shame of under-budgeting"
+    },
+    {
+      "n": 3,
+      "beat": "WHAT DO I DO NOW?",
+      "duration_s": 4,
+      "visual": "stuck on: building the list from influencer checklists and family voice-notes",
+      "on_screen_text": "Every list you try makes it worse."
+    },
+    {
+      "n": 4,
+      "beat": "SWIIPT MECHANISM",
+      "duration_s": 6,
+      "visual": "Run the real baby budget quiz tonight and post the one-number budget chart on the fridge.",
+      "on_screen_text": "One number. One rule."
+    },
+    {
+      "n": 5,
+      "beat": "ACTUAL PRODUCT / TOOLS",
+      "duration_s": 7,
+      "visual": "The One-Number Budget Chart → The Real Baby Budget Quiz → Corner-Shop Cost-Swap Card → Buy / Wait / Never List → 30-Day Use Audit Log + Resell → Cart-Delete Loop Rescue",
+      "on_screen_text": "The One-Number Budget Chart · The Real Baby Budget Quiz · Corner-Shop Cost-Swap Card",
+      "artifact_reveal": true
+    },
+    {
+      "n": 6,
+      "beat": "IMMEDIATE TRANSFORMATION",
+      "duration_s": 5,
+      "visual": "One trusted budget number and a prioritized essentials list",
+      "on_screen_text": "A plan you can both see."
+    },
+    {
+      "n": 7,
+      "beat": "CTA",
+      "duration_s": 4,
+      "visual": "cover reveal + product name + CTA",
+      "on_screen_text": "The One-Number Baby Budget",
+      "cover_reveal": true,
+      "cta": true
+    }
+  ],
+  "shot_list": [
+    {
+      "shot": "S1 establishing",
+      "framing": "medium, handheld, shallow",
+      "subject": "parent at home table",
+      "move": "slow push-in",
+      "lens": "35mm",
+      "lighting": "window daylight"
+    },
+    {
+      "shot": "S2 tension",
+      "framing": "close on phone notes + face",
+      "subject": "person scrolling a list",
+      "move": "static",
+      "lens": "50mm",
+      "lighting": "mixed warm"
+    },
+    {
+      "shot": "S3 stall",
+      "framing": "top-down table",
+      "subject": "lists, calculator, receipts",
+      "move": "tilt down",
+      "lens": "35mm",
+      "lighting": "daylight"
+    },
+    {
+      "shot": "S4 mechanism",
+      "framing": "flat-lay of the real chart",
+      "subject": "one-number budget chart",
+      "move": "overhead drift",
+      "lens": "50mm",
+      "lighting": "soft even"
+    },
+    {
+      "shot": "S5 tools",
+      "framing": "sequential cut-downs of real artifacts",
+      "subject": "The One-Number Budget Chart, The Real Baby Budget Quiz, Corner-Shop Cost-Swap Card, Buy / Wait / Never List, 30-Day Use Audit Log + Resell, Cart-Delete Loop Rescue",
+      "move": "match-cut cuts",
+      "lens": "50mm",
+      "lighting": "consistent"
+    },
+    {
+      "shot": "S6 change",
+      "framing": "two-shot, fridge chart in frame",
+      "subject": "both partners",
+      "move": "slow arc",
+      "lens": "35mm",
+      "lighting": "warm daylight"
+    },
+    {
+      "shot": "S7 CTA",
+      "framing": "cover card",
+      "subject": "canonical product cover",
+      "move": "locked",
+      "lens": "n/a",
+      "lighting": "n/a"
+    }
+  ],
+  "timing": {
+    "total_s": 35,
+    "per_beat": [
+      {
+        "beat": "SITUATION",
+        "s": 4
+      },
+      {
+        "beat": "TENSION / STAKE",
+        "s": 5
+      },
+      {
+        "beat": "WHAT DO I DO NOW?",
+        "s": 4
+      },
+      {
+        "beat": "SWIIPT MECHANISM",
+        "s": 6
+      },
+      {
+        "beat": "ACTUAL PRODUCT / TOOLS",
+        "s": 7
+      },
+      {
+        "beat": "IMMEDIATE TRANSFORMATION",
+        "s": 5
+      },
+      {
+        "beat": "CTA",
+        "s": 4
+      }
+    ]
+  },
+  "script": [
+    {
+      "n": 1,
+      "beat": "SITUATION",
+      "narration": "New baby. Real budget."
+    },
+    {
+      "n": 2,
+      "beat": "TENSION / STAKE",
+      "narration": "Proving readiness as a provider without going under; shame of under-budgeting"
+    },
+    {
+      "n": 3,
+      "beat": "WHAT DO I DO NOW?",
+      "narration": "Every list you try makes it worse."
+    },
+    {
+      "n": 4,
+      "beat": "SWIIPT MECHANISM",
+      "narration": "One number. One rule."
+    },
+    {
+      "n": 5,
+      "beat": "ACTUAL PRODUCT / TOOLS",
+      "narration": "The One-Number Budget Chart · The Real Baby Budget Quiz · Corner-Shop Cost-Swap Card"
+    },
+    {
+      "n": 6,
+      "beat": "IMMEDIATE TRANSFORMATION",
+      "narration": "A plan you can both see."
+    },
+    {
+      "n": 7,
+      "beat": "CTA",
+      "narration": "The One-Number Baby Budget"
+    }
+  ],
+  "on_screen_text": [
+    "New baby. Real budget.",
+    "Proving readiness as a provider without going under; shame of under-budgeting",
+    "Every list you try makes it worse.",
+    "One number. One rule.",
+    "The One-Number Budget Chart · The Real Baby Budget Quiz · Corner-Shop Cost-Swap Card",
+    "A plan you can both see.",
+    "The One-Number Baby Budget"
+  ],
+  "transitions": [
+    "cut",
+    "cut",
+    "whip-pan cut",
+    "match cut",
+    "match cut",
+    "dissolve",
+    "fade to cover"
+  ],
+  "product_reveal": "Cut to the real artifacts in order: The One-Number Budget Chart → The Real Baby Budget Quiz → Corner-Shop Cost-Swap Card → Buy / Wait / Never List → 30-Day Use Audit Log + Resell → Cart-Delete Loop Rescue.",
+  "cover_reveal": "Final beat reveals the canonical PRODUCT COVER (same identity as the store + customer product).",
+  "cta": "The One-Number Baby Budget — A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.",
+  "audio": "Warm, low-key instrumental; no corporate uplift cliché; no voice unless a real VO is produced.",
+  "sound_design": "Room tone + soft UI ticks only; no whooshes, no stings, no cash/coin SFX.",
+  "vgb_refs": [],
+  "exclusions": [
+    "no guaranteed savings",
+    "no efficacy claims",
+    "no statistics/results/testimonials",
+    "no generic finance imagery",
+    "no money piles",
+    "no floating currency",
+    "no fake dashboards",
+    "no internal ids",
+    "no medical/clinical claims"
+  ],
+  "prohibited_claims": [
+    "promising a specific money amount saved",
+    "presenting Buy/Wait/Never or the audit as proven",
+    "showing invented product interfaces"
+  ],
+  "captions": [
+    {
+      "t_in": 0,
+      "t_out": 4,
+      "text": "New baby. Real budget."
+    },
+    {
+      "t_in": 4,
+      "t_out": 9,
+      "text": "Proving readiness as a provider without going under; shame of under-budgeting"
+    },
+    {
+      "t_in": 9,
+      "t_out": 13,
+      "text": "Every list you try makes it worse."
+    },
+    {
+      "t_in": 13,
+      "t_out": 19,
+      "text": "One number. One rule."
+    },
+    {
+      "t_in": 19,
+      "t_out": 26,
+      "text": "The One-Number Budget Chart · The Real Baby Budget Quiz · Corner-Shop Cost-Swap Card"
+    },
+    {
+      "t_in": 26,
+      "t_out": 31,
+      "text": "A plan you can both see."
+    },
+    {
+      "t_in": 31,
+      "t_out": 35,
+      "text": "The One-Number Baby Budget"
+    }
+  ],
+  "platform_variants": [
+    {
+      "platform": "product-page",
+      "aspect": "16:9",
+      "note": "master"
+    },
+    {
+      "platform": "youtube/presentation",
+      "aspect": "16:9",
+      "note": "master"
+    },
+    {
+      "platform": "reels/tiktok/shorts",
+      "aspect": "9:16",
+      "note": "center-safe crop of master"
+    },
+    {
+      "platform": "feed",
+      "aspect": "1:1",
+      "note": "derived crop"
+    }
+  ],
+  "poster": "poster.png",
+  "video_status": "PENDING_PROVIDER",
+  "provider_provenance": null,
+  "_ordered_artifacts": [
+    "The One-Number Budget Chart",
+    "The Real Baby Budget Quiz",
+    "Corner-Shop Cost-Swap Card",
+    "Buy / Wait / Never List",
+    "30-Day Use Audit Log + Resell",
+    "Cart-Delete Loop Rescue"
+  ],
+  "provider": {
+    "available": false,
+    "reason": "no qualified video provider configured (pre-revenue $0)",
+    "status": "PENDING_PROVIDER"
+  },
+  "poster_render": "RENDERED"
+}

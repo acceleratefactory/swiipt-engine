@@ -1,0 +1,16 @@
+SWIIPT PRODUCT TRAILER — MASTER VIDEO-GENERATION PROMPT (provider-ready)
+Duration: 35s  (7 shots)   Aspect: 16:9 master (9:16 + 1:1 derived)   Style: restrained documentary-editorial, real textures
+
+SUBJECT/SCENE: Trying to set a pre-birth baby budget and asking whether ₦200,000 covers baby things (trigger: Pre-birth shopping list collides with household income reality). Subjects: Expectant Nigerian parent budgeting for a first baby in Lagos on a household income under ₦200k/month. Environment: ordinary home; grounded objects only (real chart, lists, phone).
+PROGRESSION: 1) SITUATION — Trying to set a pre-birth baby budget and asking whether ₦200,000 covers baby things (trigger: Pre-birth shopping list collides with household income reality) | 2) TENSION / STAKE — Pre-birth shopping list collides with household income reality | 3) WHAT DO I DO NOW? — stuck on: building the list from influencer checklists and family voice-notes | 4) SWIIPT MECHANISM — Run the real baby budget quiz tonight and post the one-number budget chart on the fridge. | 5) ACTUAL PRODUCT / TOOLS — The One-Number Budget Chart → The Real Baby Budget Quiz → Corner-Shop Cost-Swap Card → Buy / Wait / Never List → 30-Day Use Audit Log + Resell → Cart-Delete Loop Rescue | 6) IMMEDIATE TRANSFORMATION — One trusted budget number and a prioritized essentials list | 7) CTA — cover reveal + product name + CTA
+CAMERA: handheld→static→overhead flat-lay→match-cuts→locked cover. Lens 35–50mm. No drone, no whip-zoom tricks.
+LIGHTING: natural window daylight; consistent grade; no stylised neon.
+PRODUCT APPEARANCE: show the ACTUAL rendered artifacts — The One-Number Budget Chart → The Real Baby Budget Quiz → Corner-Shop Cost-Swap Card → Buy / Wait / Never List → 30-Day Use Audit Log + Resell → Cart-Delete Loop Rescue — never invented interfaces.
+TYPOGRAPHY/ON-SCREEN TEXT (deterministic, Swiipt design authority): New baby. Real budget. · Proving readiness as a provider without going under; shame of under-budgeting · Every list you try makes it worse. · One number. One rule. · The One-Number Budget Chart · The Real Baby Budget Quiz · Corner-Shop Cost-Swap Card · A plan you can both see. · The One-Number Baby Budget
+TRANSITIONS: cut, cut, whip-pan cut, match cut, match cut, dissolve, fade to cover.
+PACING: 4s/5s/4s/6s/7s/5s/4s.
+EMOTIONAL PROGRESSION: uncertainty → shame-bound tension → relief-by-structure → confidence.
+CTA: The One-Number Baby Budget — A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.
+PROHIBITED IMAGERY: no guaranteed savings; no efficacy claims; no statistics/results/testimonials; no generic finance imagery; no money piles; no floating currency; no fake dashboards; no internal ids; no medical/clinical claims
+PROHIBITED CLAIMS: promising a specific money amount saved; presenting Buy/Wait/Never or the audit as proven; showing invented product interfaces
+CONTINUITY: same palette, mark and product cover identity throughout; product artifacts must match the customer product exactly.

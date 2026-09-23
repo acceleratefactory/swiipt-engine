@@ -1,0 +1,20 @@
+SWIIPT PRODUCT COVER — GENERATION SPECIFICATION
+Asset: PRODUCT_COVER  |  Product: The One-Number Baby Budget
+Aspect: 2:3 portrait (primary); 1:1 and 1200x630 derived  |  Mode: typographic
+
+SCENE: expecting / new-parent household planning and baby-purchase decisions (ground only if a Visual Grounding Block is approved)
+SUBJECTS: one parent (or both parents) in a real domestic planning moment, unposed, not smiling-for-camera
+ENVIRONMENT: ordinary family home; a table/phone with a list or a fridge/chart surface; grounded objects only
+COMPOSITION: editorial; product title dominant; mark top-left; area label; restrained lower-third cue
+TITLE (overlay, deterministic): The One-Number Baby Budget
+SUBTITLE (overlay): A first-year household money system that replaces cart panic and silent shortfalls with one trusted budget number, a Buy/Wait/Never list, and a 30-day use audit.
+MECHANISM CUE: Turn an feared, unmeasured stream of baby spending into one trusted budget number plus a standing Buy/Wait/Never discipline and a 30-day use audit
+TYPOGRAPHY: DM Serif Display title; Inter subtitle/labels; Inter Black only for a hook, never for quotes
+PALETTE: #0B1F33, #6F35B5, #D9A52E, #F3C7D2, #F8F4EC, #F4F6F8, #18794E, #A15C00, #B42318, #1769AA, #17212B, #7B8794
+BRANDING: official SWIIPT lockup (reverse on dark)
+ARTIFACT/PRODUCT CUES: The One-Number Budget Chart | The Real Baby Budget Quiz | Corner-Shop Cost-Swap Card | Buy / Wait / Never List | 30-Day Use Audit Log + Resell | Cart-Delete Loop Rescue
+
+EXCLUSIONS: no generic finance imagery; no money piles; no floating currency; no fake banking dashboards; no luxury-family clichés; no generic smiling stock; no pink wash; no savings/efficacy/guarantee claims; no statistics/testimonials; no internal ids
+TRUTH CONSTRAINTS: This transformation coordinates MONEY A. First-year household money - one number and a baby fund only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus.; Educational content — not medical, clinical, or mental-health advice. Money guidance is general education, not regulated personal financial advice; it never guarantees savings, affordability, debt outcomes, income growth, or investment returns.
+CROP-SAFE: keep title, subtitle, mark and area label inside 8% margins; safe across 2:3, 1:1 and 1200x630 crops
+ACCESSIBILITY: min contrast 4.5:1; white/gold on navy; never colour-only meaning

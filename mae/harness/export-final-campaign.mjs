@@ -258,6 +258,11 @@ if (!VALIDATE_ONLY) {
       if (!srcDir || !existsSync(srcDir)) continue;
       for (const f of readdirSync(srcDir)) {
         if (!/\.(png|jpg|jpeg|webp|mp4|txt)$/i.test(f)) continue;   // never JSON/HTML/intermediates
+        if (/\.mp4$/i.test(f)) {                                    // never package a video that was not genuinely rendered
+          const vs = join(srcDir, "VIDEO-STATUS.txt");
+          const st = existsSync(vs) ? read(vs) : "";
+          if (!/VIDEO-STATUS:\s*RENDERED/i.test(st)) continue;
+        }
         copy(join(srcDir, f), join(destDir, f));
       }
       written.push(destDir);

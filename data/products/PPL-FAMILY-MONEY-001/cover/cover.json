@@ -1,0 +1,200 @@
+{
+  "asset_type": "PRODUCT_COVER",
+  "cover_id": "COVER-PPL-FAMILY-MONEY-001",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "canonical_identity": "COVER-PPL-FAMILY-MONEY-001.portrait",
+  "data": {
+    "cover_id": "COVER-PPL-FAMILY-MONEY-001",
+    "asset_type": "PRODUCT_COVER",
+    "product_id": "PPL-FAMILY-MONEY-001",
+    "transformation_id": "TR-PPL-FAMILY-MONEY-001",
+    "title": "The One-Number Baby Budget",
+    "subtitle": "A first-year household money system that replaces cart panic and silent shortfalls with one trusted budget number, a Buy/Wait/Never list, and a 30-day use audit.",
+    "promise": "A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.",
+    "area": "Postpartum & New Parent Life",
+    "evidence_label": "sourced_evidence",
+    "mechanism_cue": "Turn an feared, unmeasured stream of baby spending into one trusted budget number plus a standing Buy/Wait/Never discipline and a 30-day use audit",
+    "artifact_cues": [
+      "The One-Number Budget Chart",
+      "The Real Baby Budget Quiz",
+      "Corner-Shop Cost-Swap Card",
+      "Buy / Wait / Never List",
+      "30-Day Use Audit Log + Resell",
+      "Cart-Delete Loop Rescue"
+    ],
+    "visual_mode": "typographic",
+    "scene": null,
+    "palette": [
+      "#0B1F33",
+      "#6F35B5",
+      "#D9A52E",
+      "#F3C7D2",
+      "#F8F4EC",
+      "#F4F6F8",
+      "#18794E",
+      "#A15C00",
+      "#B42318",
+      "#1769AA",
+      "#17212B",
+      "#7B8794"
+    ],
+    "typography": {
+      "title": {
+        "family": "'DM Serif Display', Georgia, serif",
+        "weight": 400,
+        "style": "normal"
+      },
+      "body": {
+        "family": "Inter, Helvetica, Arial, sans-serif",
+        "weight": 400,
+        "style": "normal"
+      },
+      "label": {
+        "family": "Inter, Helvetica, Arial, sans-serif",
+        "weight": 700,
+        "style": "normal"
+      },
+      "hook": {
+        "family": "Inter, Helvetica, Arial, sans-serif",
+        "weight": 800,
+        "style": "normal"
+      }
+    },
+    "branding": {
+      "mark_variant": "reverse",
+      "logo": {
+        "light": "lockup-horizontal-primary",
+        "dark": "lockup-horizontal-reverse"
+      }
+    },
+    "exclusions": [
+      "no generic finance imagery",
+      "no money piles",
+      "no floating currency",
+      "no fake banking dashboards",
+      "no luxury-family clichés",
+      "no generic smiling stock",
+      "no pink wash",
+      "no savings/efficacy/guarantee claims",
+      "no statistics/testimonials",
+      "no internal ids"
+    ],
+    "truth_constraints": [
+      "This transformation coordinates MONEY A. First-year household money - one number and a baby fund only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus.",
+      "Educational content — not medical, clinical, or mental-health advice. Money guidance is general education, not regulated personal financial advice; it never guarantees savings, affordability, debt outcomes, income growth, or investment returns."
+    ],
+    "crop_safe": "keep title, subtitle, mark and area label inside 8% margins; safe across 2:3, 1:1 and 1200x630 crops",
+    "accessibility": {
+      "min_contrast_ratio": 4.5,
+      "note": "white/gold on navy; never colour-only meaning"
+    },
+    "has_vgb": false
+  },
+  "generation_spec": {
+    "asset_type": "PRODUCT_COVER",
+    "asset_purpose": "individual product visual identity (customer-product cover, single-product page, catalogue card, marketing mockup, OG)",
+    "aspect_ratio": "2:3 portrait (primary); 1:1 and 1200x630 derived",
+    "visual_mode": "typographic",
+    "scene": "expecting / new-parent household planning and baby-purchase decisions (ground only if a Visual Grounding Block is approved)",
+    "subjects": "one parent (or both parents) in a real domestic planning moment, unposed, not smiling-for-camera",
+    "environment": "ordinary family home; a table/phone with a list or a fridge/chart surface; grounded objects only",
+    "composition": "editorial; product title dominant; mark top-left; area label; restrained lower-third cue",
+    "product_title": "The One-Number Baby Budget",
+    "subtitle": "A first-year household money system that replaces cart panic and silent shortfalls with one trusted budget number, a Buy/Wait/Never list, and a 30-day use audit.",
+    "typography_intent": "DM Serif Display title; Inter subtitle/labels; Inter Black only for a hook, never for quotes",
+    "palette": [
+      "#0B1F33",
+      "#6F35B5",
+      "#D9A52E",
+      "#F3C7D2",
+      "#F8F4EC",
+      "#F4F6F8",
+      "#18794E",
+      "#A15C00",
+      "#B42318",
+      "#1769AA",
+      "#17212B",
+      "#7B8794"
+    ],
+    "branding": {
+      "mark_variant": "reverse",
+      "logo": {
+        "light": "lockup-horizontal-primary",
+        "dark": "lockup-horizontal-reverse"
+      }
+    },
+    "artifact_product_cues": [
+      "The One-Number Budget Chart",
+      "The Real Baby Budget Quiz",
+      "Corner-Shop Cost-Swap Card",
+      "Buy / Wait / Never List",
+      "30-Day Use Audit Log + Resell",
+      "Cart-Delete Loop Rescue"
+    ],
+    "exclusions": [
+      "no generic finance imagery",
+      "no money piles",
+      "no floating currency",
+      "no fake banking dashboards",
+      "no luxury-family clichés",
+      "no generic smiling stock",
+      "no pink wash",
+      "no savings/efficacy/guarantee claims",
+      "no statistics/testimonials",
+      "no internal ids"
+    ],
+    "truth_constraints": [
+      "This transformation coordinates MONEY A. First-year household money - one number and a baby fund only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus.",
+      "Educational content — not medical, clinical, or mental-health advice. Money guidance is general education, not regulated personal financial advice; it never guarantees savings, affordability, debt outcomes, income growth, or investment returns."
+    ],
+    "crop_safe_rules": "keep title, subtitle, mark and area label inside 8% margins; safe across 2:3, 1:1 and 1200x630 crops",
+    "accessibility": {
+      "min_contrast_ratio": 4.5,
+      "note": "white/gold on navy; never colour-only meaning"
+    }
+  },
+  "generation_prompt": "SWIIPT PRODUCT COVER — GENERATION SPECIFICATION\nAsset: PRODUCT_COVER  |  Product: The One-Number Baby Budget\nAspect: 2:3 portrait (primary); 1:1 and 1200x630 derived  |  Mode: typographic\n\nSCENE: expecting / new-parent household planning and baby-purchase decisions (ground only if a Visual Grounding Block is approved)\nSUBJECTS: one parent (or both parents) in a real domestic planning moment, unposed, not smiling-for-camera\nENVIRONMENT: ordinary family home; a table/phone with a list or a fridge/chart surface; grounded objects only\nCOMPOSITION: editorial; product title dominant; mark top-left; area label; restrained lower-third cue\nTITLE (overlay, deterministic): The One-Number Baby Budget\nSUBTITLE (overlay): A first-year household money system that replaces cart panic and silent shortfalls with one trusted budget number, a Buy/Wait/Never list, and a 30-day use audit.\nMECHANISM CUE: Turn an feared, unmeasured stream of baby spending into one trusted budget number plus a standing Buy/Wait/Never discipline and a 30-day use audit\nTYPOGRAPHY: DM Serif Display title; Inter subtitle/labels; Inter Black only for a hook, never for quotes\nPALETTE: #0B1F33, #6F35B5, #D9A52E, #F3C7D2, #F8F4EC, #F4F6F8, #18794E, #A15C00, #B42318, #1769AA, #17212B, #7B8794\nBRANDING: official SWIIPT lockup (reverse on dark)\nARTIFACT/PRODUCT CUES: The One-Number Budget Chart | The Real Baby Budget Quiz | Corner-Shop Cost-Swap Card | Buy / Wait / Never List | 30-Day Use Audit Log + Resell | Cart-Delete Loop Rescue\n\nEXCLUSIONS: no generic finance imagery; no money piles; no floating currency; no fake banking dashboards; no luxury-family clichés; no generic smiling stock; no pink wash; no savings/efficacy/guarantee claims; no statistics/testimonials; no internal ids\nTRUTH CONSTRAINTS: This transformation coordinates MONEY A. First-year household money - one number and a baby fund only. It does not diagnose, treat, or replace professional care, and it does not cover adjacent situations outside its recorded nucleus.; Educational content — not medical, clinical, or mental-health advice. Money guidance is general education, not regulated personal financial advice; it never guarantees savings, affordability, debt outcomes, income growth, or investment returns.\nCROP-SAFE: keep title, subtitle, mark and area label inside 8% margins; safe across 2:3, 1:1 and 1200x630 crops\nACCESSIBILITY: min contrast 4.5:1; white/gold on navy; never colour-only meaning",
+  "variants": [
+    {
+      "name": "portrait",
+      "width": 1000,
+      "height": 1500,
+      "aspect": "2:3",
+      "use": "customer-product cover + single-product-page primary",
+      "file": "cover-portrait.png",
+      "derived_from": "canonical cover identity",
+      "render": "RENDERED"
+    },
+    {
+      "name": "square",
+      "width": 1080,
+      "height": 1080,
+      "aspect": "1:1",
+      "use": "catalogue card + social crop",
+      "file": "cover-square.png",
+      "derived_from": "canonical cover identity",
+      "render": "RENDERED"
+    },
+    {
+      "name": "og",
+      "width": 1200,
+      "height": 630,
+      "aspect": "1200x630",
+      "use": "OG/share",
+      "file": "cover-og.png",
+      "derived_from": "canonical cover identity",
+      "render": "RENDERED"
+    }
+  ],
+  "provider": {
+    "available": false,
+    "reason": "no qualified image provider configured (pre-revenue $0)",
+    "status": "PENDING_PROVIDER"
+  },
+  "canonical_status": "GENERATED",
+  "render_kind": "typographic_deterministic",
+  "provenance": {
+    "generated_by": "mae/harness/product-cover.mjs",
+    "authority": "SWIIPT customer-product design authority + Brand Truth"
+  }
+}

@@ -20,3 +20,6 @@ credentials.json
 # logs / coverage
 *.log
 coverage/
+
+# render intermediates (per-shot source HTML)
+*.src.html
