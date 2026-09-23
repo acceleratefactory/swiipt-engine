@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-FM-DO-002",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "title": "Corner-Shop Cost-Swap Card",
+  "job": "DO",
+  "format": "templates",
+  "source_path": "content/cost-swap-card.md",
+  "experience_mode": "utility",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": true,
+  "tool_widgets": [],
+  "notes": "Stage 4: three weekly overspends replaced with planned buys (TR-PPL-FAMILY-MONEY-001 transformation_path Stage 4). First-win artifact: the three swaps of the 15-minute snapshot."
+}

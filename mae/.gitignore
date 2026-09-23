@@ -79,3 +79,14 @@ data/sequences/*
 !data/briefs/
 data/briefs/*
 !data/briefs/BRIEF-NS-*.json
+
+# ── Family Money governed production records (closure task) ──────────────────────────
+# Approved, gate-validated production records for PPL-FAMILY-MONEY-001: the GREEN Marketing
+# Angle Record and its GREEN validation record. Same policy as above — governed production
+# records are committed; test-generated records stay ignored.
+!data/angles/
+data/angles/*
+!data/angles/ANG-PPL-FAMILY-MONEY-*.json
+!data/validations/
+data/validations/*
+!data/validations/VAL-PPL-FAMILY-*.json

@@ -10,6 +10,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as DA from "./design-authority.mjs";
+import { all as storeAll } from "../lib/store.js";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const OK = "OK", MISSING = "MISSING", PENDING = "PENDING_OWNER_INPUT", PRODUCTION = "PENDING_PRODUCTION";
@@ -60,10 +61,28 @@ export function structuralDryRun(productId = "PPL-FAMILY-MONEY-001") {
   const priced = price && (price.usd || price.base_price_usd || price.amount || Object.keys(price).some((k) => typeof price[k] === "number"));
   add("pricing", priced ? OK : PENDING, priced ? "price set" : "no price figure (owner business call)", priced ? "" : "owner sets per-currency prices");
 
-  // 10. marketing (an approved Marketing Angle Record is the marketing contract input)
+  // 10. marketing (an approved Marketing Angle Record is the marketing contract input).
+  // Resolution path (aligned 2026-09-23): the canonical AngleService.save persists to the MAE
+  // store mae/data/angles/ (records carry product_id + lifecycle status); product-scoped
+  // directories are also accepted for backward compatibility. Approval = status GREEN reached
+  // through the real lifecycle after a persisted GREEN gate validation for the same angle.
   const angleDirs = [join(ROOT, "data", "angles", productId), join(ROOT, "data", "products", productId, "angles"), join(ROOT, "data", "marketing", productId)];
-  const hasAngles = angleDirs.some((d) => existsSync(d));
-  add("marketing", hasAngles ? OK : MISSING, hasAngles ? "angle record present" : "no approved Marketing Angle Record", hasAngles ? "" : "author + validate the Marketing Angle Record(s)");
+  let hasAngles = angleDirs.some((d) => existsSync(d));
+  let angleDetail = hasAngles ? "angle record present" : "no approved Marketing Angle Record";
+  if (!hasAngles) {
+    try {
+      const approved = storeAll("angles").filter((a) => a.product_id === productId && a.status === "GREEN");
+      const validations = storeAll("validations");
+      const validated = approved.filter((a) => validations.some((v) => v.angle_id === a.id && v.verdict === "GREEN"));
+      if (validated.length) {
+        hasAngles = true;
+        angleDetail = `approved GREEN angle(s) in canonical store mae/data/angles: ${validated.map((a) => a.id).join(",")}`;
+      } else if (approved.length) {
+        angleDetail = `GREEN angle(s) without persisted GREEN validation: ${approved.map((a) => a.id).join(",")}`;
+      }
+    } catch {}
+  }
+  add("marketing", hasAngles ? OK : MISSING, angleDetail, hasAngles ? "" : "author + validate the Marketing Angle Record(s)");
 
   // 11. Visual Grounding compatibility (needs the situation + an approved angle)
   const canGround = hasText(p.customer && p.customer.target_person) && hasText(p.customer && p.customer.situation);

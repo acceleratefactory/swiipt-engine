@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-FM-TRACK-001",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "title": "30-Day Use Audit Log + Resell",
+  "job": "TRACK",
+  "format": "log",
+  "source_path": "content/audit-log.md",
+  "experience_mode": "utility",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": "Stage 3: dated log converts mistaken purchases back into fund money via resell (TR-PPL-FAMILY-MONEY-001 transformation_path Stage 3). Uses approved components trackers + inputs. TSM metric: completed 30-day use audit with resell actions logged; also the TSM measurement method."
+}

@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-FM-DECIDE-001",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "title": "Buy / Wait / Never List",
+  "job": "DECIDE",
+  "format": "checklist",
+  "source_path": "content/buy-wait-never.md",
+  "experience_mode": "functional",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": "Stage 2: classification stops fear-buying before money leaves the household (TR-PPL-FAMILY-MONEY-001 transformation_path Stage 2). Uses approved components decision nodes + checklists. TSM metric: completed Buy/Wait/Never classification covering the planned purchases."
+}

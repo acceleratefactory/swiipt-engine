@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-FM-DO-001",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "title": "The Real Baby Budget Quiz",
+  "job": "DO",
+  "format": "quiz",
+  "source_path": "content/quiz.md",
+  "experience_mode": "interactive",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": true,
+  "tool_widgets": [],
+  "notes": "Stage 1 input: converts unknown spending into one stated number both partners can see (TR-PPL-FAMILY-MONEY-001 transformation_path Stage 1; TSM individual metric: stated first-year budget number). Uses approved components quiz questions + inputs. Delivers the 15-minute first win together with AS-FM-READ-001 and AS-FM-DO-002."
+}

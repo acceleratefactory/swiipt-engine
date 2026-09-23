@@ -1,0 +1,33 @@
+{
+  "id": "VAL-PPL-FAMILY-001",
+  "class": "angle_validation_record",
+  "angle_id": "ANG-PPL-FAMILY-MONEY-001",
+  "criteria": {
+    "customer_resonance": "moderate",
+    "proof_availability": "strong",
+    "market_differentiation": "strong",
+    "brand_alignment": "pass",
+    "platform_fitness": "broad_fit"
+  },
+  "verdict": "GREEN",
+  "scope_note": null,
+  "max_assets": null,
+  "approved_platforms": [
+    "whatsapp",
+    "instagram",
+    "tiktok",
+    "facebook",
+    "x",
+    "email"
+  ],
+  "excluded_platforms": [],
+  "restrictions": [],
+  "yellow_reason": null,
+  "human_review_required": true,
+  "human_review_reason": "criterion rated moderate",
+  "counter_evidence_restatement": "Buy/Wait/Never plus audit efficacy is untested and must never be presented as proven savings",
+  "rejection_reason": null,
+  "evidence_gap": null,
+  "reviewer": "system",
+  "created_at": "2026-09-23T10:16:52.325Z"
+}

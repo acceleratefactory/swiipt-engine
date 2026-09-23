@@ -99,12 +99,23 @@
     "note": "Individual metrics measure actual before→after movement (a stated number, a classified list, a completed audit) — never engagement, pages read, or quiz scores. No scientifically validated threshold exists; none is claimed."
   },
   "asset_map": {
-    "read": [],
-    "do": [],
-    "decide": [],
-    "track": [],
+    "read": [
+      "AS-FM-READ-001"
+    ],
+    "do": [
+      "AS-FM-DO-001",
+      "AS-FM-DO-002"
+    ],
+    "decide": [
+      "AS-FM-DECIDE-001"
+    ],
+    "track": [
+      "AS-FM-TRACK-001"
+    ],
     "communicate": [],
-    "rescue": [],
+    "rescue": [
+      "AS-FM-RESCUE-001"
+    ],
     "reentry": [],
     "maintenance": []
   },
@@ -120,12 +131,21 @@
   },
   "commerce": {
     "price": {
-      "note": "Price is an owner business call; no figure is set at specification stage."
+      "base_usd": 29,
+      "note": "Owner-approved per GLOBAL INHERITANCE FINAL READINESS CLOSURE §14."
     },
     "currency_rules": {
       "model": "manual_per_currency",
       "display": "geo_controlled",
-      "note": "Display is geo-controlled; store base is USD (owner-locked)."
+      "prices": {
+        "USD": 29,
+        "NGN": 9500,
+        "GHS": 99,
+        "GBP": 29,
+        "CAD": 29,
+        "EUR": 29
+      },
+      "note": "Display is geo-controlled; store base is USD (owner-locked). Owner-approved figures (§14) — never rate-convert numerics."
     },
     "offer": {},
     "access_rules": {

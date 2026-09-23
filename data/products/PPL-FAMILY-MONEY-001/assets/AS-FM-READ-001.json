@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-FM-READ-001",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "title": "The One-Number Budget Chart",
+  "job": "READ",
+  "format": "quick_reference_card",
+  "source_path": "content/budget-chart.md",
+  "experience_mode": "functional",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": true,
+  "tool_widgets": [],
+  "notes": "Stage 1 output, posted reference: the one trusted budget number kept on the fridge and followed (TR-PPL-FAMILY-MONEY-001 transformation_path Stage 1; TSM metric; product maintenance system). First-win artifact: the posted number of the 15-minute snapshot."
+}

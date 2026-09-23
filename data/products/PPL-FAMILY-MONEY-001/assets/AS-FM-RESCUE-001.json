@@ -1,0 +1,14 @@
+{
+  "asset_id": "AS-FM-RESCUE-001",
+  "product_id": "PPL-FAMILY-MONEY-001",
+  "title": "Cart-Delete Loop Rescue",
+  "job": "RESCUE",
+  "format": "emergency_card",
+  "source_path": "content/cart-loop-rescue.md",
+  "experience_mode": "utility",
+  "required": true,
+  "safety_relevant": false,
+  "first_win_role": false,
+  "tool_widgets": [],
+  "notes": "Recovery routine for the TR-PPL-FAMILY-MONEY-001 failure_point_map scenarios (cart-delete loop; purchases feared without a trusted number): re-produce and re-post the named artefact and follow its routine, and restart the audit cycle from the budget chart (product reentry protocol). Behavioral recovery only — safety escalation follows the shared crisis list (red_flags empty); no financial-crisis advice."
+}
