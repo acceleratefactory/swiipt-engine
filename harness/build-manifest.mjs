@@ -98,8 +98,10 @@ for (const list of Object.values(p.asset_map)) {
   }
 }
 
+// Canonical per-currency prices live on commerce.currency_rules.prices (manual-first, geo-displayed).
+// NEVER rate-convert and NEVER silently drop currencies: every declared price reaches the manifest.
 const prices = {};
-for (const [k, v] of Object.entries(p.commerce?.price?.currency_rules?.prices ?? {})) prices[k] = v;
+for (const [k, v] of Object.entries(p.commerce?.currency_rules?.prices ?? p.commerce?.price?.currency_rules?.prices ?? {})) prices[k] = v;
 
 // --- commerce + access (Standard v1 §20; schema-required) ---
 // Source is the product record's commerce block. The publisher does not currently consume these
@@ -180,7 +182,11 @@ const manifest = {
   product_id: p.product_id,
   publish_target: "wordpress",
   transformation: {
-    title: tr ? tr.situation.desired_transformation.slice(0, 80) : p.identity.name,
+    // Identity contract: the transformation may carry an explicit NAME. The desired-state/after_state
+    // prose is NEVER a title and is NEVER truncated into one. Absent an explicit name, fall back to the
+    // canonical product name — never to transformation prose.
+    title: tr?.name ?? tr?.transformation_name ?? tr?.title ?? p.identity.name,
+    desired_state: tr?.situation?.desired_transformation ?? tr?.after_state ?? null,
     area: p.identity.library_id,
     summary: p.identity.one_line_promise,
     evidence_label: "research-backed",

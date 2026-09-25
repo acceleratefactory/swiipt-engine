@@ -3,7 +3,8 @@
   "product_id": "PPL-FAMILY-MONEY-001",
   "publish_target": "wordpress",
   "transformation": {
-    "title": "The household can state one trusted budget number and keep a baby fund; the budg",
+    "title": "The One-Number Baby Budget",
+    "desired_state": "The household can state one trusted budget number and keep a baby fund; the budget chart is posted and followed.",
     "area": "m01",
     "summary": "A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.",
     "evidence_label": "research-backed",
@@ -35,7 +36,14 @@
     "description": "A first-year household money system that replaces cart panic and silent shortfalls with one trusted budget number, a Buy/Wait/Never list, and a 30-day use audit.",
     "short_description": "A written first-year budget both partners follow — so every baby purchase has a place, and nothing essential is missed for lack of a number.",
     "base_price_usd": 29,
-    "prices": {}
+    "prices": {
+      "USD": 29,
+      "NGN": 9500,
+      "GHS": 99,
+      "GBP": 29,
+      "CAD": 29,
+      "EUR": 29
+    }
   },
   "assets": [
     {
