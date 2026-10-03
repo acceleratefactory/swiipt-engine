@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "archetype": "DECISION_ROOM",
+  "archetypes": [
+    "DECISION_ROOM",
+    "WORKSPACE"
+  ],
+  "generic": true,
+  "navigation": {
+    "mode": "workspace",
+    "mobile": "drawer",
+    "items": [
+      {
+        "id": "project",
+        "view": "project",
+        "label": "Project",
+        "module": "m-project"
+      },
+      {
+        "id": "contractor",
+        "view": "contractor",
+        "label": "Contractor",
+        "module": "m-contractor"
+      },
+      {
+        "id": "evidence",
+        "view": "evidence",
+        "label": "Evidence",
+        "module": "m-evidence"
+      },
+      {
+        "id": "milestones",
+        "view": "milestones",
+        "label": "Milestones",
+        "module": "m-milestones"
+      },
+      {
+        "id": "payments",
+        "view": "payments",
+        "label": "Payment Readiness",
+        "module": "m-payments"
+      },
+      {
+        "id": "issues",
+        "view": "issues",
+        "label": "Issues",
+        "module": "m-issues"
+      }
+    ]
+  },
+  "entry": {
+    "initial": "project"
+  },
+  "screens": {
+    "project": {
+      "layout": "full-width-workspace",
+      "component": "EvidenceVault",
+      "variant": "grid"
+    },
+    "evidence": {
+      "layout": "full-width-workspace",
+      "component": "EvidenceVault",
+      "variant": "grid"
+    },
+    "milestones": {
+      "layout": "timeline-section",
+      "component": "PaymentMilestoneTracker",
+      "variant": "timeline"
+    },
+    "payments": {
+      "layout": "metric-cluster",
+      "component": "PaymentMilestoneTracker",
+      "variant": "ledger"
+    },
+    "issues": {
+      "layout": "full-width-workspace",
+      "component": "RiskIssueLog",
+      "variant": "table"
+    }
+  },
+  "component_variants": {
+    "EvidenceVault": "grid",
+    "ResponsibilityAllocator": "rows",
+    "PaymentMilestoneTracker": "timeline",
+    "RiskIssueLog": "table",
+    "RescueFlow": "step-by-step"
+  },
+  "density": "comfortable",
+  "states": {
+    "first_visit": {
+      "when": {
+        "no_state": true
+      },
+      "entry": "project"
+    },
+    "returning": {
+      "when": {
+        "has_state": true
+      },
+      "entry": "project"
+    }
+  },
+  "visual_expression": {
+    "accent": "rust",
+    "temperature": "documentary",
+    "shape": "sharp"
+  },
+  "data_visualization": [
+    "milestone",
+    "status",
+    "timeline",
+    "progress"
+  ],
+  "motion": "subtle",
+  "mobile_behavior": {
+    "nav": "drawer",
+    "chrome": "reduced"
+  },
+  "completion": {
+    "primary_path": "computed.payments.ready",
+    "label": "Payment readiness"
+  },
+  "rescue": {
+    "enabled": true,
+    "global": true,
+    "variant": "step-by-step"
+  }
+}

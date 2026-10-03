@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swiipt.com/schemas/experience-recipe.schema.json",
+  "title": "SWIIPT Experience Recipe",
+  "description": "Product-agnostic machine-readable Experience Recipe consumed by the Experience Composer. Defines HOW a transformation unfolds (never WHAT is true). Validated fail-closed by the server (swt_xp_validate) and this Node mirror.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["archetype", "navigation"],
+  "properties": {
+    "version": { "type": "string" },
+    "archetype": { "$ref": "#/$defs/archetype" },
+    "archetypes": { "type": "array", "items": { "$ref": "#/$defs/archetype" } },
+    "navigation": {
+      "type": "object",
+      "required": ["mode"],
+      "properties": {
+        "mode": { "$ref": "#/$defs/navMode" },
+        "mobile": { "type": "string", "enum": ["drawer", "bottom", "tabs", "none"] },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label"],
+            "properties": {
+              "id": { "type": "string" },
+              "view": { "type": "string" },
+              "label": { "type": "string" },
+              "icon": { "type": "string" },
+              "module": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "properties": {
+        "initial": { "type": "string" },
+        "first_visit": { "type": "string" },
+        "returning": { "type": "string" }
+      }
+    },
+    "journey": { "type": "array", "items": { "type": "object", "properties": { "id": { "type": "string" }, "view": { "type": "string" }, "label": { "type": "string" } } } },
+    "screens": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "layout": { "$ref": "#/$defs/layout" },
+          "component": { "type": "string" },
+          "variant": { "type": "string" },
+          "primary_action": { "type": "boolean" },
+          "action": { "type": "string" },
+          "required": { "type": "boolean" },
+          "disclosure": { "type": "object", "additionalProperties": { "type": "array", "items": { "type": "string" } } }
+        }
+      }
+    },
+    "component_variants": { "type": "object", "additionalProperties": { "type": "string" } },
+    "density": { "$ref": "#/$defs/density" },
+    "progressive_disclosure": { "type": "object" },
+    "states": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "when": { "type": ["object", "array"] },
+          "entry": { "type": "string" },
+          "primary_action": { "type": "string" }
+        }
+      }
+    },
+    "visual_expression": {
+      "type": "object",
+      "properties": {
+        "accent": { "type": "string", "enum": ["gold", "purple", "rust", "navy"] },
+        "temperature": { "type": "string", "enum": ["instrumental", "editorial", "calm", "quiet", "documentary"] },
+        "shape": { "type": "string", "enum": ["sharp", "standard", "soft"] },
+        "density": { "$ref": "#/$defs/density" }
+      }
+    },
+    "data_visualization": { "type": "array", "items": { "$ref": "#/$defs/viz" } },
+    "motion": { "$ref": "#/$defs/motion" },
+    "mobile_behavior": { "type": "object" },
+    "completion": { "type": "object" },
+    "rescue": { "type": "object" },
+    "empty_states": { "type": "object" }
+  },
+  "$defs": {
+    "archetype": { "type": "string", "enum": ["GUIDED_JOURNEY", "COMMAND_CENTER", "WORKSPACE", "TIMELINE", "DECISION_ROOM", "PLANNER", "TRACKER", "GUIDED_SESSION", "HYBRID"] },
+    "navMode": { "type": "string", "enum": ["sidebar", "top", "journey", "stepper", "timeline", "workspace", "tabs", "minimal", "contextual", "hybrid"] },
+    "layout": { "type": "string", "enum": ["hero-result", "focused-task", "split-context-action", "progressive-question", "full-width-workspace", "metric-cluster", "timeline-section", "comparison-stage", "reveal-moment", "document-stage", "completion-stage", "rescue-stage", "review-stage"] },
+    "state": { "type": "string", "enum": ["first_visit", "setup", "active", "returning", "review_due", "blocked", "rescue", "completed"] },
+    "viz": { "type": "string", "enum": ["range", "distribution", "progress", "milestone", "status", "comparison", "timeline", "completion", "trend"] },
+    "motion": { "type": "string", "enum": ["none", "subtle", "standard", "expressive"] },
+    "density": { "type": "string", "enum": ["compact", "comfortable", "spacious"] }
+  }
+}

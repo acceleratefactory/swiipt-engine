@@ -1,0 +1,134 @@
+{
+  "version": "1.0",
+  "archetype": "TIMELINE",
+  "archetypes": [
+    "TIMELINE",
+    "GUIDED_SESSION"
+  ],
+  "generic": true,
+  "navigation": {
+    "mode": "timeline",
+    "mobile": "drawer",
+    "items": [
+      {
+        "id": "now",
+        "view": "now",
+        "label": "Now",
+        "module": "m-now"
+      },
+      {
+        "id": "today",
+        "view": "today",
+        "label": "Today",
+        "module": "m-today"
+      },
+      {
+        "id": "next24",
+        "view": "next24",
+        "label": "Next 24 Hours",
+        "module": "m-next24"
+      },
+      {
+        "id": "documents",
+        "view": "documents",
+        "label": "Documents",
+        "module": "m-documents"
+      },
+      {
+        "id": "people",
+        "view": "people",
+        "label": "People to Contact",
+        "module": "m-people"
+      },
+      {
+        "id": "next7",
+        "view": "next7",
+        "label": "Next 7 Days",
+        "module": "m-next7"
+      }
+    ]
+  },
+  "entry": {
+    "initial": "now",
+    "first_visit": "now",
+    "returning": "now"
+  },
+  "screens": {
+    "now": {
+      "layout": "timeline-section",
+      "component": "ActionPlan",
+      "variant": "sequence"
+    },
+    "today": {
+      "layout": "timeline-section",
+      "component": "ActionPlan",
+      "variant": "today-next-later"
+    },
+    "next24": {
+      "layout": "timeline-section",
+      "component": "HistoryTimeline",
+      "variant": "timeline"
+    },
+    "documents": {
+      "layout": "document-stage",
+      "component": "DocumentGenerator",
+      "variant": "document-library"
+    },
+    "people": {
+      "layout": "focused-task",
+      "component": "Handoff",
+      "variant": "checklist"
+    },
+    "next7": {
+      "layout": "timeline-section",
+      "component": "ActionPlan",
+      "variant": "sequence"
+    }
+  },
+  "component_variants": {
+    "ActionPlan": "sequence",
+    "HistoryTimeline": "timeline",
+    "DocumentGenerator": "document-library",
+    "Handoff": "checklist",
+    "RescueFlow": "minimal"
+  },
+  "density": "comfortable",
+  "states": {
+    "first_visit": {
+      "when": {
+        "no_state": true
+      },
+      "entry": "now"
+    },
+    "returning": {
+      "when": {
+        "has_state": true
+      },
+      "entry": "now"
+    }
+  },
+  "visual_expression": {
+    "accent": "navy",
+    "temperature": "quiet",
+    "shape": "standard"
+  },
+  "data_visualization": [
+    "timeline",
+    "status",
+    "milestone"
+  ],
+  "motion": "none",
+  "mobile_behavior": {
+    "nav": "drawer",
+    "chrome": "reduced"
+  },
+  "completion": {
+    "primary_path": "computed.checklist.done",
+    "label": "Now"
+  },
+  "rescue": {
+    "enabled": true,
+    "global": true,
+    "variant": "minimal"
+  }
+}

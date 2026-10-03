@@ -1,0 +1,187 @@
+{
+  "version": "1.0",
+  "archetype": "COMMAND_CENTER",
+  "archetypes": [
+    "COMMAND_CENTER",
+    "GUIDED_JOURNEY"
+  ],
+  "navigation": {
+    "mode": "sidebar",
+    "mobile": "drawer",
+    "items": [
+      {
+        "id": "dashboard",
+        "view": "dashboard",
+        "label": "Dashboard",
+        "icon": "layout-dashboard",
+        "module": ""
+      },
+      {
+        "id": "quiz",
+        "view": "quiz",
+        "label": "01 · Real Baby Budget Quiz",
+        "icon": "calculator",
+        "module": "module-01"
+      },
+      {
+        "id": "chart",
+        "view": "chart",
+        "label": "02 · Budget Chart",
+        "icon": "banknote",
+        "module": "module-02"
+      },
+      {
+        "id": "decide",
+        "view": "decide",
+        "label": "03 · Buy / Wait / Never",
+        "icon": "scale-3d",
+        "module": "module-03"
+      },
+      {
+        "id": "swap",
+        "view": "swap",
+        "label": "04 · Cost-Swap",
+        "icon": "shuffle",
+        "module": "module-04"
+      },
+      {
+        "id": "audit",
+        "view": "audit",
+        "label": "05 · 30-Day Audit",
+        "icon": "clipboard-list",
+        "module": "module-05"
+      }
+    ]
+  },
+  "entry": {
+    "initial": "dashboard",
+    "first_visit": "quiz",
+    "returning": "dashboard"
+  },
+  "journey": [
+    {
+      "id": "quiz",
+      "view": "quiz",
+      "label": "Quiz"
+    },
+    {
+      "id": "chart",
+      "view": "chart",
+      "label": "Budget Chart"
+    },
+    {
+      "id": "decide",
+      "view": "decide",
+      "label": "Buy / Wait / Never"
+    },
+    {
+      "id": "swap",
+      "view": "swap",
+      "label": "Cost-Swap"
+    },
+    {
+      "id": "audit",
+      "view": "audit",
+      "label": "30-Day Audit"
+    }
+  ],
+  "screens": {
+    "dashboard": {
+      "layout": "hero-result",
+      "component": "ResultCard",
+      "variant": "hero"
+    },
+    "quiz": {
+      "layout": "progressive-question",
+      "component": "GuidedAssessment",
+      "variant": "wizard"
+    },
+    "chart": {
+      "layout": "metric-cluster",
+      "component": "ResultCard",
+      "variant": "metric"
+    },
+    "decide": {
+      "layout": "focused-task",
+      "component": "DecisionFlow",
+      "variant": "cards"
+    },
+    "swap": {
+      "layout": "focused-task",
+      "component": "Tracker",
+      "variant": "ledger"
+    },
+    "audit": {
+      "layout": "focused-task",
+      "component": "AuditLoop",
+      "variant": "ledger",
+      "disclosure": {
+        "returning": [
+          "history"
+        ]
+      }
+    }
+  },
+  "component_variants": {
+    "GuidedAssessment": "wizard",
+    "DecisionFlow": "cards",
+    "Tracker": "ledger",
+    "AuditLoop": "ledger",
+    "ResultCard": "hero",
+    "ProgressJourney": "horizontal",
+    "DynamicListBuilder": "rows",
+    "DocumentGenerator": "document-library",
+    "RescueFlow": "focused"
+  },
+  "density": "comfortable",
+  "progressive_disclosure": {
+    "dashboard": {
+      "first_win": true
+    },
+    "audit": {
+      "history": true
+    }
+  },
+  "states": {
+    "first_visit": {
+      "when": {
+        "no_state": true
+      },
+      "entry": "quiz"
+    },
+    "returning": {
+      "when": {
+        "has_state": true
+      },
+      "entry": "dashboard"
+    }
+  },
+  "visual_expression": {
+    "accent": "gold",
+    "temperature": "instrumental",
+    "shape": "standard"
+  },
+  "data_visualization": [
+    "range",
+    "distribution",
+    "progress",
+    "status",
+    "comparison",
+    "timeline"
+  ],
+  "motion": "standard",
+  "mobile_behavior": {
+    "nav": "drawer",
+    "chrome": "reduced"
+  },
+  "completion": {
+    "primary_path": "computed.profile.normal",
+    "label": "Household Baby Budget Number"
+  },
+  "rescue": {
+    "enabled": true,
+    "global": true,
+    "variant": "focused"
+  },
+  "empty_states": {}
+}
