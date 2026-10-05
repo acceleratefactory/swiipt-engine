@@ -1,16 +1,44 @@
 <?php
 /**
- * SWIIPT App v2 â€” clean rebuild on the reference architecture (part 1: helpers).
+ * SWIIPT App v2 ΓÇö clean rebuild on the reference architecture (part 1: helpers).
  *
  * New files only; the v1 engine is untouched and stays live for any product
  * whose _swiipt_app_shell is not 'saas2'. Revert = set the flag back to 'saas'.
  * State shape, REST state/event endpoints, caps, validators, documents and
- * entitlement are shared with v1 â€” v2 is a new presentation + runtime only.
+ * entitlement are shared with v1 ΓÇö v2 is a new presentation + runtime only.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
+/**
+ * Required app layers (anti-thin-app gate). Every product app must surface a
+ * measurement/result layer, keep a register for captured entries, give every
+ * printable real content, and carry full (non-truncated) content.
+ * Call from the factory/gate BEFORE publishing.
+ */
+function swt_app_layers_check( $ts_id ) {
+	$b = get_post_meta( (int) $ts_id, '_swiipt_ix_blocks', true );
+	$mods = (array) ( $b['modules'] ?? array() ); $blocks = array();
+	foreach ( $mods as $m ) { foreach ( (array) $m as $blk ) { if ( is_array( $blk ) ) { $blocks[] = $blk; } } }
+	$types = array_map( function ( $x ) { return strtoupper( (string) ( $x['type'] ?? '' ) ); }, $blocks );
+	$errors = array();
+	if ( ! array_intersect( $types, array( 'RESULT', 'PROGRESS', 'STATS', 'DASHBOARD' ) ) ) { $errors[] = 'no measurement layer (add a RESULT/PROGRESS/STATS/DASHBOARD reading the product TSM)'; }
+	if ( ! array_intersect( $types, array( 'LOG', 'REPEATER', 'TRACKER' ) ) ) { $errors[] = 'no register (LOG/REPEATER/TRACKER) for captured entries'; }
+	$docs = (array) ( $b['documents'] ?? array() );
+	foreach ( $blocks as $blk ) { if ( 'GENERATE_DOCUMENT' === strtoupper( (string) ( $blk['type'] ?? '' ) ) ) { $did = (string) ( $blk['doc_id'] ?? '' ); $d = (array) ( $docs[ $did ] ?? array() ); if ( empty( $d['rows'] ) && empty( $d['tables'] ) ) { $errors[] = 'printable "' . $did . '" has no rows/tables (empty print)'; } } }
+	foreach ( $blocks as $blk ) { $t = (string) ( $blk['text'] ?? '' ); if ( '' !== $t && preg_match( '/\.\.\.\s*$/', $t ) ) { $errors[] = 'block "' . ( $blk['id'] ?? '?' ) . '" content looks truncated (ends in ...)'; } }
+	return array( 'pass' => empty( $errors ), 'errors' => $errors );
+}
 
-define( 'SWT_APP2_CSS_VER', '1.0.7' );
-define( 'SWT_APP2_JS_VER',  '1.2.4' );
+/* Return the customer to the app after a branded login (redirect_to, same-host only). */
+add_filter( 'woocommerce_login_redirect', function ( $redirect, $user ) {
+	$to = ! empty( $_REQUEST['redirect_to'] ) ? esc_url_raw( wp_unslash( $_REQUEST['redirect_to'] ) ) : '';
+	if ( '' === $to ) { $ref = wp_get_referer(); if ( $ref && false !== strpos( $ref, 'redirect_to=' ) ) { $q = array(); parse_str( (string) wp_parse_url( $ref, PHP_URL_QUERY ), $q ); if ( ! empty( $q['redirect_to'] ) ) { $to = esc_url_raw( rawurldecode( $q['redirect_to'] ) ); } } }
+	if ( '' !== $to && 0 === strpos( $to, home_url() ) ) { return $to; }
+	return $redirect;
+}, 10, 2 );
+
+
+define( 'SWT_APP2_CSS_VER', '1.0.15' );
+define( 'SWT_APP2_JS_VER',  '1.3.7' );
 
 /** v2 serves a TS only when it explicitly opts in. */
 function swt_app2_enabled( $ts_id ) {
@@ -65,7 +93,7 @@ function swt_app2_find_log( $ts_id, $id ) {
 	}
 	return null;
 }
-/* SWIIPT App v2 â€” part 2: product context, standalone route, reset endpoint. */
+/* SWIIPT App v2 ΓÇö part 2: product context, standalone route, reset endpoint. */
 /** Product context for the shell (name/area/code from live records). */
 function swt_app2_product( $ts_id ) {
 	global $wpdb;
@@ -114,9 +142,10 @@ function swt_app2_standalone() {
 	echo '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/>'
 		. '<meta name="viewport" content="width=device-width, initial-scale=1"/>'
 		. '<meta name="robots" content="noindex,nofollow"/>'
-		. '<title>' . esc_html( $boot['copy']['title'] . ' â€” App' ) . '</title>';
+		. '<title>' . esc_html( $boot['copy']['title'] . ' ΓÇö App' ) . '</title>';
 	$base = content_url( 'mu-plugins/swiipt-core' );
 	echo '<link rel="stylesheet" href="' . esc_url( $base . '/css/swt-app2.css?ver=' . SWT_APP2_CSS_VER ) . '"/>';
+	echo '<link rel="stylesheet" href="' . esc_url( $base . '/css/swt-app2-blocks.css?ver=' . SWT_APP2_CSS_VER ) . '"/>';
 	echo '</head><body class="swt-app2-body">';
 	echo '<div class="bg-aurora"></div><div class="bg-noise"></div>';
 	echo '<div class="app-shell"><div class="sidebar"><div class="brand-mark" id="brandMark"></div>'
@@ -142,7 +171,7 @@ function swt_app2_standalone() {
 		. '<div class="overlay-body" id="settingsBody"></div></div></div>';
 	echo '<div class="toast" id="toast"></div>';
 	if ( ! $gate ) {
-		$login = wp_login_url( home_url( '/?swiipt_app=' . $ts . '&v=' . $view ) );
+		$login = add_query_arg( 'redirect_to', rawurlencode( home_url( '/?swiipt_app=' . $ts . '&v=' . $view ) ), home_url( '/my-account/' ) );
 		echo '<div class="app2-gate"><div class="card"><div class="card-title">'
 			. esc_html( $boot['copy']['title'] ) . '</div><div class="card-sub">'
 			. 'This interactive app opens with your purchase. Please sign in to continue.</div>'
@@ -152,6 +181,7 @@ function swt_app2_standalone() {
 	echo '<script>window.SWIIPT_APP2 = ' . wp_json_encode( $boot ) . ';</script>';
 	echo '<script src="' . esc_url( $base . '/js/swt-app2-icons.js?ver=' . SWT_APP2_JS_VER ) . '"></script>';
 	echo '<script src="' . esc_url( $base . '/js/swt-app2.js?ver=' . SWT_APP2_JS_VER ) . '"></script>';
+	echo '<script src="' . esc_url( $base . '/js/swt-app2-blocks.js?ver=' . SWT_APP2_JS_VER ) . '"></script>';
 	echo '</body></html>';
 	exit;
 }
@@ -175,7 +205,27 @@ function swt_app2_reset_route() {
 	) );
 }
 add_action( 'rest_api_init', 'swt_app2_reset_route' );
-/* SWIIPT App v2 â€” boot payload + documents (part of interactive-app2.php). */
+/** Fresh server HTML for one view (generic screens go stale after client edits). */
+function swt_app2_screen_route() {
+	register_rest_route( 'swt/v1/saas', '/screen', array(
+		'methods'             => 'GET',
+		'permission_callback' => function ( $req ) {
+			return is_user_logged_in() && function_exists( 'swt_app_can_access' ) && swt_app_can_access( (int) $req['ts'] );
+		},
+		'callback'            => function ( $req ) {
+			$ts   = (int) $req['ts'];
+			$view = preg_replace( '/[^a-z0-9_\-]/', '', (string) $req['view'] );
+			if ( ! function_exists( 'swt_xp_render_screen' ) ) { return array( 'html' => '' ); }
+			$recipe = swt_xp_recipe( $ts );
+			$sig    = swt_xp_signals( $ts );
+			$state  = swt_xp_state( $ts, $recipe, $sig );
+			$raw    = isset( $sig['state'] ) ? $sig['state'] : array();
+			return array( 'html' => swt_xp_render_screen( $ts, $view, $recipe, $state, $raw ) );
+		},
+	) );
+}
+add_action( 'rest_api_init', 'swt_app2_screen_route' );
+/* SWIIPT App v2 ΓÇö boot payload + documents (part of interactive-app2.php). */
 /** Printable documents from the composition (generic; titles or ids). */
 function swt_app2_docs( $ts_id ) {
 	$b = get_post_meta( (int) $ts_id, '_swiipt_ix_blocks', true );
@@ -210,7 +260,8 @@ function swt_app2_rescue( $ts_id, $recipe ) {
 			);
 		}
 	}
-	$fb = $recipe['rescueFallback'];
+	$fb = ( isset( $recipe['rescueFallback'] ) && is_array( $recipe['rescueFallback'] ) ) ? $recipe['rescueFallback'] : array();
+	$fb += array( 'title' => '', 'phrase' => '', 'steps' => array() );
 	if ( ! $steps ) {
 		return array(
 			'title'  => (string) $fb['title'],
@@ -269,6 +320,32 @@ function swt_app2_boot( $ts_id ) {
 	$copy['rescue']    = swt_app2_rescue( $ts_id, $recipe );
 	$copy['documents'] = swt_app2_docs( $ts_id );
 	swt_app2_merge_live( $ts_id, $copy );
+	/* Generic settings + toast copy: a product that ships no scope copy still
+	   renders a working Scope & Settings panel (and reset). Content may override. */
+	$copy['scope'] = is_array( $copy['scope'] ?? null ) ? $copy['scope'] : array();
+	$copy['scope'] += array(
+		'whatTitle'   => 'What this app is',
+		'whatText'    => 'A working space that keeps your own numbers and decisions in one place.',
+		'notTitle'    => 'What it is not',
+		'notText'     => 'It is not medical, legal or financial advice, and it does not decide for you.',
+		'scopeTitle'  => 'Scope',
+		'scopeText'   => 'It reflects only what you enter. Anything you leave blank stays blank.',
+		'safetyTitle' => 'If things are serious',
+		'safetyText'  => 'If you are in danger or dealing with a crisis, contact a qualified professional or your local emergency service.',
+		'dataTitle'   => 'Your data',
+		'exportBtn'   => 'Export my data',
+		'resetBtn'    => 'Reset this app',
+		'resetAsk'    => 'Reset this app? This deletes everything you have entered and cannot be undone.',
+	);
+	$copy['toasts'] = is_array( $copy['toasts'] ?? null ) ? $copy['toasts'] : array();
+	$copy['toasts'] += array(
+		'saved'         => 'Saved',
+		'added'         => 'Added',
+		'needName'      => 'Add a name first.',
+		'savedDecision' => 'Saved - ',
+		'copied'        => 'Copied',
+		'full'          => 'That is more than the mechanism allows.',
+	);
 	$copy['experience'] = function_exists( 'swt_xp_compose' ) ? swt_xp_compose( $ts_id ) : null;
 	$copy['product']   = $prod;
 	global $wpdb;
@@ -306,7 +383,7 @@ function swt_app2_boot( $ts_id ) {
 		'nonce'    => wp_create_nonce( 'wp_rest' ),
 	);
 }
-/* SWIIPT App v2 â€” live merge: structure/copy the composition already carries
+/* SWIIPT App v2 ΓÇö live merge: structure/copy the composition already carries
    (LOG/REPEATER fields, purchase form, verdict options, caps, decision tree)
    flows into boot.copy so the runtime renders records, never hardcoded copy. */
 function swt_app2_blocks( $ts_id ) {

@@ -1,12 +1,12 @@
 <?php
 /**
- * SWIIPT INTERACTIVE EXPERIENCE COMPOSER â€” V1  (additive layer)
+ * SWIIPT INTERACTIVE EXPERIENCE COMPOSER ΓÇö V1  (additive layer)
  *
  * Sits between a product's Experience Recipe and the shared SWIIPT design
  * authority + runtime. It determines HOW a given transformation unfolds
  * (archetype, navigation, screen composition, component variants, density,
  * progressive disclosure, experience states, visual expression, motion,
- * visualization) â€” WITHOUT owning product truth or state.
+ * visualization) ΓÇö WITHOUT owning product truth or state.
  *
  * Not a new app. Not a new design system. Not product-specific.
  * Behaviour, persistence, validation, documents and entitlement are inherited
@@ -233,19 +233,26 @@ function swt_xp_compose( $ts_id ) {
 	foreach ( (array) $comp['navigation']['items'] as $it ) { $vw = isset( $it['view'] ) ? $it['view'] : ( isset( $it['id'] ) ? $it['id'] : '' ); if ( '' !== $vw ) { $resolved[ $vw ] = swt_xp_screen( $recipe, $vw, $comp['experience_state'] ); } }
 	$comp['screens_resolved'] = $resolved;
 	$comp['completion_resolved'] = swt_xp_completion( $recipe, $sig );
+	$gviews = array();
 	if ( ! empty( $recipe['generic'] ) ) {
-		$comp['render'] = 'generic';
+		foreach ( (array) $comp['navigation']['items'] as $it ) { $vw = isset( $it['view'] ) ? $it['view'] : ( isset( $it['id'] ) ? $it['id'] : '' ); if ( '' !== $vw ) { $gviews[ $vw ] = true; } }
+	} elseif ( ! empty( $recipe['generic_views'] ) && is_array( $recipe['generic_views'] ) ) {
+		foreach ( $recipe['generic_views'] as $vw ) { if ( '' !== (string) $vw ) { $gviews[ (string) $vw ] = true; } }
+	}
+	if ( $gviews ) {
 		$rawstate = isset( $sig['state'] ) ? $sig['state'] : array();
 		$shtml = array();
-		foreach ( (array) $comp['navigation']['items'] as $it ) { $vw = isset( $it['view'] ) ? $it['view'] : ( isset( $it['id'] ) ? $it['id'] : '' ); if ( '' === $vw ) { continue; } $shtml[ $vw ] = swt_xp_render_screen( $ts_id, $vw, $recipe, $comp['experience_state'], $rawstate ); }
+		foreach ( array_keys( $gviews ) as $vw ) { $shtml[ $vw ] = swt_xp_render_screen( $ts_id, $vw, $recipe, $comp['experience_state'], $rawstate ); }
 		$comp['screens_html'] = $shtml;
-	} else { $comp['render'] = 'product'; }
+	}
+	$comp['generic_views'] = array_keys( $gviews );
+	$comp['render'] = ! empty( $recipe['generic'] ) ? 'generic' : 'product';
 	return $comp;
 }
 
 /* ============================================================ EXPERIENCE STATE + SCREEN COMPOSITION (F3) */
 
-/** Canonical signals from shared state â€” product-agnostic. */
+/** Canonical signals from shared state ΓÇö product-agnostic. */
 function swt_xp_signals( $ts_id ) {
 	global $wpdb;
 	$ts_id = (int) $ts_id;
@@ -375,7 +382,7 @@ function swt_xp_motion( $r ) {
 
 /**
  * Data-visualization grammar (Phase 10). Generic renderers driven ONLY by
- * canonical values passed in. Returns '' when data is missing â€” never fabricates.
+ * canonical values passed in. Returns '' when data is missing ΓÇö never fabricates.
  */
 function swt_xp_viz( $type, $data ) {
 	$type = (string) $type;
@@ -439,6 +446,33 @@ function swt_xp_view_label( $recipe, $view ) {
 	return (string) $view;
 }
 
+
+/** The variants this platform actually ships, each as its canonical block composition. */
+function swt_xp_shipped_variants() {
+	return array(
+		'ResultCard:hero'         => array( 'blocks' => array( 'DASHBOARD' ), 'label' => 'Dashboard hero' ),
+		'GuidedAssessment:wizard' => array( 'blocks' => array( 'STEP_FLOW' ), 'label' => 'Guided wizard' ),
+		'ResultCard:metric'       => array( 'blocks' => array( 'RESULT', 'FORM', 'HISTORY' ), 'label' => 'Metric figures' ),
+		'DecisionFlow:cards'      => array( 'blocks' => array( 'STATS', 'STEP_FLOW', 'LOG' ), 'label' => 'Decision cards' ),
+		'Tracker:ledger'          => array( 'blocks' => array( 'STATS', 'LOG' ), 'label' => 'Tracker ledger' ),
+		'AuditLoop:ledger'        => array( 'blocks' => array( 'STATS', 'LOG' ), 'label' => 'Audit ledger' ),
+		'ActionPlan:checklist'    => array( 'blocks' => array( 'CHECKLIST' ), 'label' => 'Action checklist' ),
+		'ConversationBuilder:script' => array( 'blocks' => array( 'SCRIPT' ), 'label' => 'Script cards' ),
+		'RescueFlow:focused'      => array( 'blocks' => array( 'RESCUE' ), 'label' => 'Focused rescue' ),
+	);
+}
+
+/** Acceptance: every screen's declared component:variant is a shipped variant. */
+function swt_xp_variants_check( $recipe ) {
+	$known = swt_xp_shipped_variants(); $errors = array();
+	foreach ( (array) ( $recipe['screens'] ?? array() ) as $view => $sc ) {
+		$comp = (string) ( $sc['component'] ?? '' ); if ( '' === $comp ) { continue; }
+		$var = (string) ( $sc['variant'] ?? '' ); $key = $comp . ( '' !== $var ? ':' . $var : '' );
+		if ( ! isset( $known[ $key ] ) ) { $errors[] = $view . ' uses unshipped variant ' . $key; }
+	}
+	return array( 'pass' => empty( $errors ), 'errors' => $errors );
+}
+
 function swt_xp_render_screen( $ts_id, $view, $recipe, $state_str, $rawstate ) {
 	$b = get_post_meta( (int) $ts_id, '_swiipt_ix_blocks', true );
 	$mods = ( is_array( $b ) && isset( $b['modules'] ) && is_array( $b['modules'] ) ) ? $b['modules'] : array();
@@ -446,8 +480,13 @@ function swt_xp_render_screen( $ts_id, $view, $recipe, $state_str, $rawstate ) {
 	$blocks = ( '' !== $mid && isset( $mods[ $mid ] ) ) ? $mods[ $mid ] : ( isset( $mods[ $view ] ) ? $mods[ $view ] : array() );
 	$sc = swt_xp_screen( $recipe, $view, $state_str );
 	$cls = 'xp-screen' . ( ! empty( $sc['layout'] ) ? ' xp-layout-' . $sc['layout'] : '' );
+	$component = (string) ( $sc['component'] ?? '' );
+	$variant   = (string) ( $sc['variant'] ?? '' );
+	$vkey      = ( '' !== $component ) ? $component . ( '' !== $variant ? ':' . $variant : '' ) : '';
+	if ( '' !== $variant ) { $cls .= ' variant-' . strtolower( preg_replace( '/[^a-z0-9]+/i', '-', $component . ' ' . $variant ) ); }
 	$label = swt_xp_view_label( $recipe, $view );
-	$html = '<section class="' . esc_attr( $cls ) . '" data-xp-view="' . esc_attr( $view ) . '">';
+	$html = '<section class="' . esc_attr( $cls ) . '" data-xp-view="' . esc_attr( $view ) . '"' . ( '' !== $vkey ? ' data-variant="' . esc_attr( $vkey ) . '"' : '' ) . '>';
+	if ( function_exists( 'swt_blocks_ctx' ) ) { swt_blocks_ctx( (int) $ts_id ); }
 	if ( function_exists( 'swt_blocks_render_list' ) && is_array( $blocks ) ) { $html .= swt_blocks_render_list( $blocks, $rawstate, false ); }
 	return $html . '</section>';
 }
@@ -457,4 +496,29 @@ function swt_xp_save_recipe( $ts_id, $recipe ) {
 	$json = wp_json_encode( $recipe, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
 	update_post_meta( (int) $ts_id, '_swiipt_experience_recipe', wp_slash( $json ) );
 	return true;
+}
+
+function swt_xp_ds_menu() {
+	add_management_page( 'Swiipt Interactive Design System', 'Swiipt Interactive Design System', 'manage_options', 'swiipt-interactive-ds', 'swt_xp_ds_render' );
+}
+add_action( 'admin_menu', 'swt_xp_ds_menu' );
+
+function swt_xp_ds_render() {
+	if ( ! current_user_can( 'manage_options' ) ) { return; }
+	echo '<div class="wrap"><h1>Swiipt Interactive Design System</h1>';
+	echo '<p><em>Internal factory catalog. Customers never see this. One design authority + one component system, shared across all products.</em></p>';
+	echo '<h2>Experience archetypes</h2><p>' . esc_html( implode( ' - ', swt_xp_archetypes() ) ) . '</p>';
+	echo '<h2>Navigation modes</h2><p>' . esc_html( implode( ' - ', swt_xp_nav_modes() ) ) . '</p>';
+	echo '<h2>Layout primitives</h2><p>' . esc_html( implode( ' - ', swt_xp_layouts() ) ) . '</p>';
+	echo '<h2>Experience states</h2><p>' . esc_html( implode( ' - ', swt_xp_states() ) ) . '</p>';
+	echo '<h2>Visualization grammar</h2><p>' . esc_html( implode( ' - ', swt_xp_viz_grammar() ) ) . '</p>';
+	echo '<h2>Motion</h2><p>' . esc_html( implode( ' - ', swt_xp_motions() ) ) . '</p>';
+	echo '<h2>Transformation Components &amp; variants</h2><table class="widefat striped"><thead><tr><th>Component</th><th>Variants</th></tr></thead><tbody>';
+	foreach ( swt_xp_components() as $c => $vs ) { echo '<tr><td><strong>' . esc_html( $c ) . '</strong></td><td>' . esc_html( implode( ', ', $vs ) ) . '</td></tr>'; }
+	echo '</tbody></table>';
+	echo '<h2>Sample visualizations</h2>';
+	echo swt_xp_viz( 'progress', array( 'pct' => 64, 'label' => 'Progress' ) );
+	echo ' ' . swt_xp_viz( 'status', array( 'status' => 'ok', 'label' => 'Ready' ) );
+	echo swt_xp_viz( 'timeline', array( 'items' => array( array( 'label' => 'Step one', 'done' => true ), array( 'label' => 'Step two' ) ) ) );
+	echo '<h2>Accessibility &amp; design authority</h2><p>Focus states, semantic controls, reduced-motion and contrast are inherited from the shared stylesheet (swt-app2.css).</p></div>';
 }
